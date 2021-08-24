@@ -1,4 +1,4 @@
-.SH__Toast__Provider {
+.Root__Toast__Provider {
   position: fixed;
   top: 1rem;
   right: 1rem;
@@ -21,7 +21,7 @@
   }
 }
 
-.SH__ToastCard {
+.Root__ToastCard {
   & + & {
     margin-top: 1rem;
   }
