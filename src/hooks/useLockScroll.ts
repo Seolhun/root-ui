@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CLASSNAME = 'SH__Window__LockScroll';
+const CLASSNAME = 'Root__Window__LockScroll';
 const useLockScroll = (isVisible: boolean) => {
   React.useEffect(() => {
     if (isVisible) {

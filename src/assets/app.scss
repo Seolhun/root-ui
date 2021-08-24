@@ -1,12 +1,12 @@
 @import 'scss';
 
 // Global Window
-.SH__Window__LockScroll {
+.Root__Window__LockScroll {
   overflow: hidden !important;
 }
 
 // Group
-.SH__Group {
+.Root__Group {
   &.Horizontal {
     & > * + * {
       margin-left: 1rem;

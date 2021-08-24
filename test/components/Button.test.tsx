@@ -10,7 +10,7 @@ describe('Button Test', () => {
     const { container } = button;
 
     expect(button.getByText('classting'));
-    expect(container.classList.contains('SH__Button'));
+    expect(container.classList.contains('Root__Button'));
   });
 
   test('Button: Intent', () => {

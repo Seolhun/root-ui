@@ -1,12 +1,12 @@
 // Form
-.SH__FormWrapper {
+.Root__FormWrapper {
   & + & {
     margin-top: 1rem;
   }
 }
 
 // Form
-.SH__FormGroup {
+.Root__FormGroup {
   &.Horizontal {
     & > * + * {
       margin-left: 0.3rem;
