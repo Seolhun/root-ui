@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { ColorWeight, IntentType } from '@/types';
+import { ColorWeight, IntentType, RootScale } from '@/types';
 import { createColorByIntent, createOptionsColorByIntent } from '@/utils';
 
 const CLASSNAME = 'Root__Button';
@@ -9,7 +9,20 @@ type Element = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<Element>;
 type ExtensionProps = ElementProps;
 
+type LocalizeButtonVariantType = 'solid' | 'outline';
 export interface ButtonProps extends ExtensionProps {
+  /**
+   * Set this to change scale
+   * @default md
+   */
+  scale?: RootScale;
+
+  /**
+   * Set this to change variant
+   * @default solid
+   */
+  variant?: LocalizeButtonVariantType;
+
   /**
    * @default primary
    */

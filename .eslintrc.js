@@ -16,9 +16,12 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'eslint-plugin'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    project: './tsconfig.storybook.json',
+    ecmaVersion: 6,
+    sourceType: 'module',
     ecmaFeatures: {
-      'jsx': true
-    }
+      jsx: true,
+    },
   },
   rules: {
     // Custom
