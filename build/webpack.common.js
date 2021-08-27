@@ -18,25 +18,21 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: [/\.css$/i, /\.s[ac]ss$/i],
+        test: [/\.css$/i],
+        use: [
+          'postcss-loader'
+        ],
+      },
+      {
+        test: [/\.scss$/i],
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
-          "postcss-loader",
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: true,
-              sassOptions: {
-                outputStyle: "compressed",
-              },
-            },
-          },
+          'css-loader',
+          'sass-loader',
         ],
       },
     ],
   },
-
   performance: {
     hints: false,
   },

@@ -53,7 +53,7 @@ const createColorByIntent = (
   return colorClassNames;
 };
 
-const createOptionByWeight = (weight: ColorWeight): any => {
+const createOptionByWeight = (weight: ColorWeight) => {
   if (weight < 100) {
     return 100;
   }

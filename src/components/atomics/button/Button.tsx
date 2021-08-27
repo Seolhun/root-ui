@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { ColorWeight, IntentType } from '@/types';
+import { ColorWeight, IntentType, RootScale } from '@/types';
 import { createColorByIntent, createOptionsColorByIntent } from '@/utils';
 
 const CLASSNAME = 'Root__Button';
@@ -10,6 +10,12 @@ type ElementProps = React.ButtonHTMLAttributes<Element>;
 type ExtensionProps = ElementProps;
 
 export interface ButtonProps extends ExtensionProps {
+  /**
+   * Set this to change scale
+   * @default md
+   */
+  scale?: RootScale;
+
   /**
    * @default primary
    */
