@@ -9,19 +9,12 @@ type Element = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<Element>;
 type ExtensionProps = ElementProps;
 
-type LocalizeButtonVariantType = 'solid' | 'outline';
 export interface ButtonProps extends ExtensionProps {
   /**
    * Set this to change scale
    * @default md
    */
   scale?: RootScale;
-
-  /**
-   * Set this to change variant
-   * @default solid
-   */
-  variant?: LocalizeButtonVariantType;
 
   /**
    * @default primary

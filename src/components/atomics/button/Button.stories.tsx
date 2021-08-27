@@ -24,44 +24,36 @@ export default {
   },
 };
 
-export const Default = Button.bind({});
-Default.args = {
-  children: 'Button',
-  rounded: true,
-  disabled: false,
-};
-
-const ScaleButtons: React.FC<ButtonProps> = (args) => {
-  const children = args.children;
+const ScaleButtons: React.FC<ButtonProps> = ({ children, ...rests }) => {
   return (
     <div className="gird gird-col-3">
       <div className="col-span-1">
         <h2>xl</h2>
-        <Button {...args} scale="xl">
+        <Button {...rests} scale="xl">
           {children}
         </Button>
       </div>
       <div className="col-span-1">
         <h2>lg</h2>
-        <Button {...args} scale="lg">
+        <Button {...rests} scale="lg">
           {children}
         </Button>
       </div>
       <div className="col-span-1">
         <h2>md</h2>
-        <Button {...args} scale="md">
+        <Button {...rests} scale="md">
           {children}
         </Button>
       </div>
       <div className="col-span-1">
         <h2>sm</h2>
-        <Button {...args} scale="sm">
+        <Button {...rests} scale="sm">
           {children}
         </Button>
       </div>
       <div className="col-span-1">
         <h2>xs</h2>
-        <Button {...args} scale="xs">
+        <Button {...rests} scale="xs">
           {children}
         </Button>
       </div>
@@ -75,14 +67,13 @@ ScaleButtonsStories.args = {
   disabled: false,
 };
 
-const IntentButtons: React.FC<ButtonProps> = (args) => {
-  const children = args.children;
+const IntentButtons: React.FC<ButtonProps> = ({ children, ...rests }) => {
   return (
     <div className="gird gird-col-3">
       {storiesIntentOptions.map((intent) => (
         <div key={intent} className="col-span-1">
           <h2>{intent}</h2>
-          <Button {...args} intent={intent}>
+          <Button {...rests} intent={intent}>
             {children}
           </Button>
         </div>

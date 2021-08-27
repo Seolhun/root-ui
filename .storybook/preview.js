@@ -1,12 +1,4 @@
-export const parameters = {
-  layout: 'fullscreen',
-  controls: {
-    expanded: true
-  },
-  actions: {
-    argTypesRegex: '^on[A-Z].*'
-  },
-  options: {
-    showRoots: true
-  }
-};
+import '../dist/tailwind.css';
+import '../src/assets/app.scss';
+
+export const parameters = {};
