@@ -9,12 +9,12 @@ type ElementProps = React.InputHTMLAttributes<Element>;
 type ExtensionProps = ElementProps;
 
 export interface RadioProps extends ExtensionProps {
-  htmlForm?: string;
+  htmlFor?: string;
 }
 
 const Radio = React.forwardRef<Element, RadioProps>(
-  ({ className, children, htmlForm, ...rests }, ref) => {
-    const htmlForAndID = htmlForm ?? rests.name;
+  ({ className, children, htmlFor, ...rests }, ref) => {
+    const htmlForAndID = htmlFor ?? rests.name;
     return (
       <FormLabel
         className="inline-flex items-center cursor-pointer"

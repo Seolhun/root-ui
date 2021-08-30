@@ -1,1 +1,1 @@
-export type RootScale = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type RootScale = 'sm' | 'md' | 'lg';

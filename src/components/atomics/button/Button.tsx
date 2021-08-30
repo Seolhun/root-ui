@@ -29,7 +29,14 @@ export interface ButtonProps extends ExtensionProps {
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className, children, intent = 'primary', intentWeight = 500, ...rests },
+    {
+      className,
+      children,
+      intent = 'primary',
+      scale = 'md',
+      intentWeight = 500,
+      ...rests
+    },
     ref,
   ) => {
     return (
@@ -41,7 +48,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           CLASSNAME,
           className,
           'inline-block',
-          'py-2 px-4',
+          {
+            'py-2 px-3': scale === 'sm',
+            'py-2 px-4': scale === 'md',
+            'py-3 px-6': scale === 'lg',
+          },
           'rounded-md',
           'text-white',
           createColorByIntent(intent, intentWeight, 'bg'),

@@ -1,14 +1,15 @@
 import { IntentType, RootScale } from '@/types';
 
-export const storiesScaleOptions: RootScale[] = ['xl', 'lg', 'md', 'sm', 'xs'];
+export const storiesScaleOptions: RootScale[] = ['sm', 'md', 'lg'];
 
 export const storiesIntentOptions: IntentType[] = [
+  'light',
+  'dark',
   'primary',
   'secondary',
-  'dark',
-  'light',
   'info',
   'success',
   'warning',
+  'danger',
   'error',
 ];

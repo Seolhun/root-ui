@@ -7,49 +7,13 @@ const createPrefix = (prefix: ColorPrefix) => {
   return '';
 };
 
-const createIntentColor = (intent: IntentType) => {
-  let intentColor = 'indigo';
-  switch (intent) {
-    case 'secondary': {
-      intentColor = 'sky';
-      break;
-    }
-    case 'info': {
-      intentColor = 'cyan';
-      break;
-    }
-    case 'success': {
-      intentColor = 'green';
-      break;
-    }
-    case 'warning': {
-      intentColor = 'orange';
-      break;
-    }
-    case 'error': {
-      intentColor = 'red';
-      break;
-    }
-    case 'dark': {
-      intentColor = 'blueGray';
-      break;
-    }
-    default: {
-      intentColor = 'blue';
-      break;
-    }
-  }
-  return intentColor;
-};
-
 const createColorByIntent = (
   intent: IntentType = 'primary',
   weight: ColorWeight = 600,
   prefix: ColorPrefix = '',
 ): string => {
   const computedPrefix = createPrefix(prefix);
-  const intentColor = createIntentColor(intent);
-  const colorClassNames = `${computedPrefix}${intentColor}-${weight}`;
+  const colorClassNames = `${computedPrefix}${intent}-${weight}`;
   return colorClassNames;
 };
 
@@ -67,9 +31,8 @@ const createOptionsColorByIntent = (
   weight: ColorWeight = 500,
 ): string => {
   const computedPrefix = createPrefix(prefix);
-  const intentColor = createIntentColor(intent);
   const optionsColorClassNames = options.reduce((strColor, option) => {
-    return `${strColor} ${option}:${computedPrefix}${intentColor}-${createOptionByWeight(
+    return `${strColor} ${option}:${computedPrefix}${intent}-${createOptionByWeight(
       weight,
     )}`;
   }, '');

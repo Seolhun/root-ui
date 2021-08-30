@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions } from '@/stories';
+import { storiesScaleOptions, storiesIntentOptions } from '../../../stories';
+import { H6 } from '../../typography';
 import { Button, ButtonProps } from './Button';
 
 export default {
@@ -26,37 +27,15 @@ export default {
 
 const ScaleButtons: React.FC<ButtonProps> = ({ children, ...rests }) => {
   return (
-    <div className="gird gird-col-3">
-      <div className="col-span-1">
-        <h2>xl</h2>
-        <Button {...rests} scale="xl">
-          {children}
-        </Button>
-      </div>
-      <div className="col-span-1">
-        <h2>lg</h2>
-        <Button {...rests} scale="lg">
-          {children}
-        </Button>
-      </div>
-      <div className="col-span-1">
-        <h2>md</h2>
-        <Button {...rests} scale="md">
-          {children}
-        </Button>
-      </div>
-      <div className="col-span-1">
-        <h2>sm</h2>
-        <Button {...rests} scale="sm">
-          {children}
-        </Button>
-      </div>
-      <div className="col-span-1">
-        <h2>xs</h2>
-        <Button {...rests} scale="xs">
-          {children}
-        </Button>
-      </div>
+    <div className="grid grid-cols-1">
+      {storiesScaleOptions.map((scale) => (
+        <div key={scale} className="col-span-1">
+          <H6>{scale}</H6>
+          <Button {...rests} scale={scale}>
+            {children}
+          </Button>
+        </div>
+      ))}
     </div>
   );
 };
@@ -69,10 +48,10 @@ ScaleButtonsStories.args = {
 
 const IntentButtons: React.FC<ButtonProps> = ({ children, ...rests }) => {
   return (
-    <div className="gird gird-col-3">
+    <div className="grid grid-cols-3">
       {storiesIntentOptions.map((intent) => (
         <div key={intent} className="col-span-1">
-          <h2>{intent}</h2>
+          <H6>{intent}</H6>
           <Button {...rests} intent={intent}>
             {children}
           </Button>
