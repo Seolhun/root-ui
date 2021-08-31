@@ -1,7 +1,10 @@
 import React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions } from '../../../stories';
-import { H6 } from '../../typography';
+import {
+  storiesScaleOptions,
+  storiesIntentOptions,
+  StorybookDescriptor,
+} from '../../../stories';
 import { Button, ButtonProps } from './Button';
 
 export default {
@@ -27,16 +30,15 @@ export default {
 
 const ScaleButtons: React.FC<ButtonProps> = ({ children, ...rests }) => {
   return (
-    <div className="grid grid-cols-1">
+    <section>
       {storiesScaleOptions.map((scale) => (
-        <div key={scale} className="col-span-1">
-          <H6>{scale}</H6>
+        <StorybookDescriptor key={scale} title={scale}>
           <Button {...rests} scale={scale}>
             {children}
           </Button>
-        </div>
+        </StorybookDescriptor>
       ))}
-    </div>
+    </section>
   );
 };
 
@@ -48,16 +50,15 @@ ScaleButtonsStories.args = {
 
 const IntentButtons: React.FC<ButtonProps> = ({ children, ...rests }) => {
   return (
-    <div className="grid grid-cols-3">
+    <section>
       {storiesIntentOptions.map((intent) => (
-        <div key={intent} className="col-span-1">
-          <H6>{intent}</H6>
+        <StorybookDescriptor key={intent} title={intent}>
           <Button {...rests} intent={intent}>
             {children}
           </Button>
-        </div>
+        </StorybookDescriptor>
       ))}
-    </div>
+    </section>
   );
 };
 

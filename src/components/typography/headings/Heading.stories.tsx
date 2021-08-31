@@ -13,26 +13,14 @@ export default {
 
 const Headings: React.FC<H1Props> = ({ children, ...rests }) => {
   return (
-    <div className="grid grid-cols-1">
-      <div className="col-span-1">
-        <H1 {...rests}>{children}</H1>
-      </div>
-      <div className="col-span-1">
-        <H2 {...rests}>{children}</H2>
-      </div>
-      <div className="col-span-1">
-        <H3 {...rests}>{children}</H3>
-      </div>
-      <div className="col-span-1">
-        <H4 {...rests}>{children}</H4>
-      </div>
-      <div className="col-span-1">
-        <H5 {...rests}>{children}</H5>
-      </div>
-      <div className="col-span-1">
-        <H6 {...rests}>{children}</H6>
-      </div>
-    </div>
+    <section>
+      <H1 {...rests}>{children}</H1>
+      <H2 {...rests}>{children}</H2>
+      <H3 {...rests}>{children}</H3>
+      <H4 {...rests}>{children}</H4>
+      <H5 {...rests}>{children}</H5>
+      <H6 {...rests}>{children}</H6>
+    </section>
   );
 };
 

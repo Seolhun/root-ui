@@ -14,9 +14,6 @@ export interface TagProps extends ExtensionProps {
    */
   intent?: IntentType;
 
-  /**
-   *
-   */
   children: string;
 }
 
