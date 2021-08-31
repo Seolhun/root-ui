@@ -33,7 +33,7 @@ const BlockQuote: React.FC<BlockQuoteProps> = ({
         CLASSNAME,
         className,
         'text-base font-light leading-relaxed mt-0 mb-4',
-        'border-l-4 pl-4',
+        'border-l-4 pl-2',
         createColorByIntent(intent, intentWeight, 'border'),
       )}
     >

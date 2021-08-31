@@ -5,4 +5,3 @@ export * from './loading';
 export * from './progressbar';
 export * from './select';
 export * from './tag';
-export * from './typography';

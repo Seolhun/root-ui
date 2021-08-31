@@ -1,12 +1,13 @@
 export type IntentType =
+  | 'light'
+  | 'dark'
   | 'primary'
   | 'secondary'
   | 'info'
   | 'success'
   | 'warning'
-  | 'error'
-  | 'light'
-  | 'dark';
+  | 'danger'
+  | 'error';
 
 /**
  * @see https://tailwindcss.com/docs/customizing-colors

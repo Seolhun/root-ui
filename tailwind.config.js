@@ -3,9 +3,6 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   purge: [
     './src/components/**/*.{ts,tsx,js,jsx}',
-    './src/containers/**/*.{ts,tsx,js,jsx}',
-    './src/layouts/**/*.{ts,tsx,js,jsx}',
-    './src/pages/**/*.{ts,tsx,js,jsx}'
   ],
   theme: {
     screens: {
@@ -35,8 +32,16 @@ module.exports = {
     },
     // @see https://tailwindcss.com/docs/customizing-colors
     colors: {
-      ...colors
-      // primary: '#2867B2'
+      ...colors,
+      light: colors.blueGray,
+      dark: colors.blueGray,
+      primary: colors.blue,
+      secondary: colors.sky,
+      info: colors.cyan,
+      success: colors.green,
+      warning: colors.orange,
+      danger: colors.red,
+      error: colors.red,
     },
     extend: {
       spacing: {

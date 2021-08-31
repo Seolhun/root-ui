@@ -1,25 +1,25 @@
 import React from 'react';
 import classnames from 'classnames';
 
-const CLASSNAME = 'Root__H6';
+const CLASSNAME = 'Root__Heading Root__H4';
 type ElementProps = React.HTMLAttributes<HTMLHeadingElement>;
 type ExtensionProps = ElementProps;
-export type H6Props = ExtensionProps;
+export type H4Props = ExtensionProps;
 
-const H6: React.FC<H6Props> = ({ className, children, ...rests }) => {
+const H4: React.FC<H4Props> = ({ className, children, ...rests }) => {
   return (
-    <h6
+    <h4
       {...rests}
       className={classnames(
         CLASSNAME,
         className,
-        'text-1xl font-bold leading-normal mt-0 mb-2',
+        'text-3xl font-bold leading-normal mt-0 mb-2',
       )}
     >
       {children}
-    </h6>
+    </h4>
   );
 };
 
-export { H6 };
-export default H6;
+export { H4 };
+export default H4;
