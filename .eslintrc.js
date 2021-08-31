@@ -7,11 +7,12 @@ module.exports = {
     node: true,
   },
   extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    'plugin:react/jsx-runtime'
   ],
   plugins: ['react', '@typescript-eslint', 'eslint-plugin'],
   parser: '@typescript-eslint/parser',
@@ -43,6 +44,9 @@ module.exports = {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx']
       }
+    },
+    react: {
+      version: 'detect',
     }
   }
 }
