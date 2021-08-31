@@ -31,7 +31,6 @@ export interface ProgressBarProps extends ExtensionProps {
 }
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
-  children,
   className,
   badge,
   progress = 0,
