@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CLASSNAME = 'Root__Window__LockScroll';
-const useLockScroll = (isVisible: boolean) => {
+const useLockScroll = (isVisible: boolean): void => {
   React.useEffect(() => {
     if (isVisible) {
       document.documentElement.classList.add(CLASSNAME);

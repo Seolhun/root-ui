@@ -1,29 +1,18 @@
-# Default
-dist
-node_modules
+node_modules/
+build/
+config/
+dist/
+test/
 
-# Typescript
-*.d.ts
-
-# Webpack Configuration
-webpack.*.js
-
-# Babel Configuration
-babel.config.js
-
-# Babel Configuration
-*.js
-
-# eslint
+coverage
 .eslintrc.js
-
-# Test Code
-test/**
-*.test.*
+jest.config.js
+postcss.config.js
+tailwind.config.js
+babel.config.js
+webpack.*.js
+*.d.ts
 
 # JetBrains
 .next
 .idea
-
-# Sub project
-electron/**
