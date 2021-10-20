@@ -1,4 +1,4 @@
-# classting-fe
+# root-ui
 
 Root UI with tailwind
 
@@ -10,16 +10,22 @@ Root UI with tailwind
 
 ## How to run
 
-### Dev
+### Dev (with Storybook)
 
 ```bash
-npm run start:dev
+npm run storybook
+```
+
+### Build (with Storybook)
+
+```bash
+npm run storybook:build
 ```
 
 ### Production
 
 ```bash
-npm run start
+npm run build
 ```
 
 ### Test
