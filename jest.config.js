@@ -3,7 +3,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   globals: {
     'ts-jest': {
-      tsConfig: 'tsconfig.json',
+      tsconfig: 'tsconfig.json',
       diagnostics: {
         pathRegex: /\.(spec|test)\.ts?(x)$/,
         warnOnly: true
