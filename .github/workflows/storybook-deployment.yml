@@ -1,13 +1,13 @@
-name: Dev Test & Build
+name: Storybook Build & Deployment at Github Page
 
 on:
   push:
-    branches: [develop]
+    branches: [main, develop]
     paths-ignore:
       - '**/*.md'
 
 jobs:
-  build:
+  deploy-storybook:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
@@ -23,21 +23,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install Packages
-        if: ${{ always() }}
         run: npm ci
 
-      - name: Test
-        if: ${{ always() }}
-        run: npm run lint
-
-      - name: Test
-        if: ${{ always() }}
-        run: npm run test
-
       - name: Build Storybook
-        if: ${{ always() }}
         run: npm run storybook:build
 
-      - name: Build
-        if: ${{ always() }}
-        run: npm run build
+      - name: Deploy Storybook
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: storybook
+          folder: docs
