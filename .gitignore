@@ -19,5 +19,7 @@ yarn-error.log*
 yarn.lock
 
 # Dist
-
 dist
+
+# Env
+.env
