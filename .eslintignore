@@ -16,3 +16,9 @@ webpack.*.js
 # JetBrains
 .next
 .idea
+
+# Storybook-Docs
+docs
+
+# TailwindConfiguration
+tailwind-config
