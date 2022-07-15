@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { IntentType } from '@/types';
+import { IntentType, RootScale } from '@/types';
 import { createColorByIntent } from '@/utils';
 
 const CLASSNAME = 'Root__Tag';
@@ -10,14 +10,23 @@ type ElementProps = React.HTMLAttributes<Element>;
 type ExtensionProps = ElementProps;
 export interface TagProps extends ExtensionProps {
   /**
+   * Set this to change scale
+   * @default md
+   */
+  scale?: RootScale;
+  /**
    * @default primary
    */
   intent?: IntentType;
-
-  children: string;
 }
 
-const Tag: React.FC<TagProps> = ({ className, children, intent, ...rests }) => {
+const Tag: React.FC<TagProps> = ({
+  className,
+  children,
+  intent = 'primary',
+  scale = 'md',
+  ...rests
+}) => {
   return (
     <span
       {...rests}
@@ -25,7 +34,11 @@ const Tag: React.FC<TagProps> = ({ className, children, intent, ...rests }) => {
         CLASSNAME,
         className,
         'inline-block',
-        'py-1 px-2',
+        {
+          'py-2 px-3': scale === 'sm',
+          'py-2 px-4': scale === 'md',
+          'py-3 px-6': scale === 'lg',
+        },
         'rounded-full',
         'text-xs font-semibold capitalize last:mr-0 mr-1',
         createColorByIntent(intent, 600, 'text'),
