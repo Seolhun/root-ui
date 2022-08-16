@@ -1,8 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { IntentType, RootScale } from '@/types';
-import { createColorByIntent } from '@/utils';
+import { IntentType, RootScale } from '@/system';
+import { toIntentColorBy } from '@/utils';
 
 const CLASSNAME = 'Root__Tag';
 type Element = HTMLSpanElement;
@@ -29,14 +29,14 @@ const Tag: React.FC<TagProps> = ({ className, children, intent = 'primary', scal
         className,
         'inline-block',
         {
-          'py-2 px-3': scale === 'sm',
-          'py-2 px-4': scale === 'md',
-          'py-3 px-6': scale === 'lg',
+          'py-1 px-2': scale === 'sm',
+          'py-1.5 px-3': scale === 'md',
+          'py-2 px-4': scale === 'lg',
         },
         'rounded-full',
         'text-xs font-semibold capitalize last:mr-0 mr-1',
-        createColorByIntent(intent, 600, 'text'),
-        createColorByIntent(intent, 200, 'bg'),
+        toIntentColorBy(intent, 600, 'text'),
+        toIntentColorBy(intent, 200, 'bg'),
       )}
     >
       {children}

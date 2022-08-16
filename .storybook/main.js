@@ -22,6 +22,9 @@ module.exports = {
     config.resolve.alias = {
       '@': context,
     }
+    config.devServer = {
+      hot: true,
+    }
     config.context = context;
     config.module.rules.push(
       {
@@ -39,6 +42,7 @@ module.exports = {
         ],
       },
     )
+    config.plugins.push(new webpack.HotModuleReplacementPlugin({}));
     return config;
   },
 };

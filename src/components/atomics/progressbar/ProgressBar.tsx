@@ -1,8 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { createColorByIntent } from '@/utils';
-import { IntentType } from '@/types';
+import { toIntentColorBy } from '@/utils';
+import { IntentType } from '@/system';
 
 const CLASSNAME = 'Root__ProgressBar';
 type ElementProps = React.HTMLAttributes<HTMLDivElement>;
@@ -49,8 +49,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
                   'inline-block',
                   'py-1 px-2',
                   'text-xs font-semibold rounded-full',
-                  `${createColorByIntent(intent, 600, 'text')}`,
-                  `${createColorByIntent(intent, 200, 'bg')}`,
+                  `${toIntentColorBy(intent, 600, 'text')}`,
+                  `${toIntentColorBy(intent, 200, 'bg')}`,
                 )}
               >
                 {badge}
@@ -63,7 +63,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
                 className={classnames(
                   'inline-block',
                   'text-xs font-semibold',
-                  `${createColorByIntent(intent, 600, 'text')}`,
+                  `${toIntentColorBy(intent, 600, 'text')}`,
                 )}
               >
                 {`${progress}%`}
@@ -77,7 +77,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
             'h-2 mb-4',
             'text-xs rounded',
             'overflow-hidden',
-            `${createColorByIntent(intent, 200, 'bg')}`,
+            `${toIntentColorBy(intent, 200, 'bg')}`,
           )}
         >
           <div
@@ -87,7 +87,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
               'shadow-none',
               'text-white',
               'transition-all',
-              `${createColorByIntent(intent, 500, 'bg')}`,
+              `${toIntentColorBy(intent, 500, 'bg')}`,
             )}
             style={{
               width: `${progress}%`,

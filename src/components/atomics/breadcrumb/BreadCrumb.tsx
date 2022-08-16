@@ -1,8 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { createColorByIntent, createOptionsColorByIntent } from '@/utils';
-import { IntentType } from '@/types';
+import { toIntentColorBy, toIntentColorByOptions } from '@/utils';
+import { IntentType } from '@/system';
 
 const CLASSNAME = 'Root__BreadCrumb';
 type ElementProps = React.HTMLAttributes<HTMLDivElement>;
@@ -30,9 +30,9 @@ const BreadCrumb: React.FC<BreadCrumbProps> = ({ className, items, intent = 'dar
       {items.map(({ href, children }, index) => {
         const isFirst = index === 0;
         return (
-          <span key={`${href}-${name}`} className={createColorByIntent(intent, 400, 'text')}>
+          <span key={`${href}-${name}`} className={toIntentColorBy(intent, 400, 'text')}>
             {!isFirst && <span>{' / '}</span>}
-            <span className={createOptionsColorByIntent(['hover'], 'text', intent, 600)}>{children}</span>
+            <span className={toIntentColorByOptions(['hover'], 'text', intent, 600)}>{children}</span>
           </span>
         );
       })}

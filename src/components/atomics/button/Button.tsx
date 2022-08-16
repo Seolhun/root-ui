@@ -1,8 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { ColorWeight, IntentType, RootScale } from '@/types';
-import { createColorByIntent, createOptionsColorByIntent } from '@/utils';
+import { ColorWeight, IntentType, RootScale } from '@/system';
+import { toIntentColorBy, toIntentColorByOptions } from '@/utils';
 
 const CLASSNAME = 'Root__Button';
 type Element = HTMLButtonElement;
@@ -39,15 +39,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className,
           'inline-block',
           {
-            'py-2 px-3': scale === 'sm',
+            'py-1 px-2': scale === 'sm',
             'py-2 px-4': scale === 'md',
             'py-3 px-6': scale === 'lg',
           },
           'rounded-md',
           'text-white',
-          createColorByIntent(intent, intentWeight, 'bg'),
-          createOptionsColorByIntent(['hover'], 'bg', intent, intentWeight),
-          createOptionsColorByIntent(['focus'], 'ring-offset', intent, intentWeight),
+          toIntentColorBy(intent, intentWeight, 'bg'),
+          toIntentColorByOptions(['hover'], 'bg', intent, intentWeight),
+          toIntentColorByOptions(['focus'], 'ring-offset', intent, intentWeight),
           'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white',
           'disabled:opacity-50 disabled:cursor-not-allowed',
         )}

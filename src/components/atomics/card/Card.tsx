@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { createOptionsColorByIntent } from '@/utils';
+import { toIntentColorByOptions } from '@/utils';
 
 const CLASSNAME = 'Root__Card';
 type Element = HTMLDivElement;
@@ -20,13 +20,13 @@ const Card: React.FC<CardProps> = ({ children, className, ...rests }) => {
         'bg-white',
         'align-bottom sm:align-middle',
         'rounded-lg shadow',
-        'text-left',
+        'text-left text-gray-600',
         'transform transition-all',
         'overflow-hidden',
-        createOptionsColorByIntent(['hover'], 'border', 'primary'),
+        toIntentColorByOptions(['hover'], 'border', 'primary'),
       )}
     >
-      <div className={classnames('w-full h-full', 'px-4 pt-5 pb-4 sm:p-6 sm:pb-4', 'text-gray-600')}>{children}</div>
+      {children}
     </div>
   );
 };
