@@ -1,4 +1,4 @@
-import '../dist/tailwind.css';
-import '../src/assets/app.scss';
+import '../src/assets/tailwind.scss';
+import '../src/assets/index.scss';
 
 export const parameters = {};
