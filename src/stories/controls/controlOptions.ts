@@ -1,4 +1,4 @@
-import { IntentType, RootScale } from '@/types';
+import { IntentType, RootScale } from '../../system';
 
 export const storiesScaleOptions: RootScale[] = ['sm', 'md', 'lg'];
 
@@ -11,5 +11,4 @@ export const storiesIntentOptions: IntentType[] = [
   'success',
   'warning',
   'danger',
-  'error',
 ];

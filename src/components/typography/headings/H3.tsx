@@ -8,7 +8,7 @@ export type H3Props = ExtensionProps;
 
 const H3: React.FC<H3Props> = ({ className, children, ...rests }) => {
   return (
-    <h3 {...rests} className={classnames(CLASSNAME, className, 'text-4xl font-bold leading-normal mt-0 mb-2')}>
+    <h3 {...rests} className={classnames(CLASSNAME, className, 'text-4xl font-bold leading-normal mt-2 mb-2')}>
       {children}
     </h3>
   );

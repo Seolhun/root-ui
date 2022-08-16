@@ -5,7 +5,7 @@ import FormHelp from './FormHelp';
 
 type ElementProps = React.HTMLAttributes<HTMLDivElement>;
 type ExtensionProps = ElementProps;
-export interface FormWrapperProps extends ExtensionProps {
+export interface FormItemProps extends ExtensionProps {
   /**
    * Form label
    */
@@ -22,9 +22,9 @@ export interface FormWrapperProps extends ExtensionProps {
   help?: string;
 }
 
-const FormWrapper: React.FC<FormWrapperProps> = ({ label, htmlFor, help, className, children, ...props }) => {
+const FormItem: React.FC<FormItemProps> = ({ label, htmlFor, help, className, children, ...props }) => {
   return (
-    <div {...props} className={classnames(className, 'Root__FormWrapper')}>
+    <div {...props} className={classnames(className, 'Root__FormItem')}>
       {label && (
         <FormLabel className="mb-2" htmlFor={htmlFor}>
           {label}
@@ -36,5 +36,5 @@ const FormWrapper: React.FC<FormWrapperProps> = ({ label, htmlFor, help, classNa
   );
 };
 
-export { FormWrapper };
-export default FormWrapper;
+export { FormItem };
+export default FormItem;

@@ -1,1 +1,1 @@
-export * from './createColorByIntent';
+export * from './Theme.utils';

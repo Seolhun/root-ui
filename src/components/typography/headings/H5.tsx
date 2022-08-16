@@ -8,7 +8,7 @@ export type H5Props = ExtensionProps;
 
 const H5: React.FC<H5Props> = ({ className, children, ...rests }) => {
   return (
-    <h5 {...rests} className={classnames(CLASSNAME, className, 'text-2xl font-bold leading-normal mt-0 mb-2')}>
+    <h5 {...rests} className={classnames(CLASSNAME, className, 'text-2xl font-bold leading-normal mt-1 mb-2')}>
       {children}
     </h5>
   );

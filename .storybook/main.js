@@ -8,6 +8,9 @@ module.exports = {
   ],
   core: {
     builder: 'webpack5',
+    options: {
+      fsCache: true,
+    },
   },
   staticDirs: ['../public'],
   features: {
@@ -21,6 +24,9 @@ module.exports = {
   webpackFinal: async (config) => {
     config.resolve.alias = {
       '@': context,
+    }
+    config.devServer = {
+      hot: true,
     }
     config.context = context;
     config.module.rules.push(
@@ -37,6 +43,7 @@ module.exports = {
           'postcss-loader',
           'sass-loader',
         ],
+        includes: context,
       },
     )
     return config;

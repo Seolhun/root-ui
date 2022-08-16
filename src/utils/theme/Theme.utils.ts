@@ -1,4 +1,4 @@
-import { ColorOption, ColorPrefix, ColorWeight, IntentType } from '@/types';
+import { ColorOption, ColorPrefix, ColorWeight, IntentType } from '@/system';
 
 const createPrefix = (prefix: ColorPrefix) => {
   if (prefix) {
@@ -7,7 +7,14 @@ const createPrefix = (prefix: ColorPrefix) => {
   return '';
 };
 
-const createColorByIntent = (
+const toColorWeightBy = (weight: ColorWeight) => {
+  if (weight < 100) {
+    return 100;
+  }
+  return weight - 100;
+};
+
+export const toIntentColorBy = (
   intent: IntentType = 'primary',
   weight: ColorWeight = 600,
   prefix: ColorPrefix = '',
@@ -17,14 +24,7 @@ const createColorByIntent = (
   return colorClassNames;
 };
 
-const createOptionByWeight = (weight: ColorWeight) => {
-  if (weight < 100) {
-    return 100;
-  }
-  return weight - 100;
-};
-
-const createOptionsColorByIntent = (
+export const toIntentColorByOptions = (
   options: ColorOption[],
   prefix: ColorPrefix = '',
   intent: IntentType = 'primary',
@@ -32,10 +32,7 @@ const createOptionsColorByIntent = (
 ): string => {
   const computedPrefix = createPrefix(prefix);
   const optionsColorClassNames = options.reduce((strColor, option) => {
-    return `${strColor} ${option}:${computedPrefix}${intent}-${createOptionByWeight(weight)}`;
+    return `${strColor} ${option}:${computedPrefix}${intent}-${toColorWeightBy(weight)}`;
   }, '');
   return optionsColorClassNames;
 };
-
-export { createColorByIntent, createOptionsColorByIntent };
-export default { createColorByIntent, createOptionsColorByIntent };

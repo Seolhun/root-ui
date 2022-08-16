@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { storiesIntentOptions } from '../../../stories';
-
 import { H6 } from '../headings';
 import { BlockQuote, BlockQuoteProps } from './BlockQuote';
 

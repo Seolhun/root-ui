@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 import { Card, CardProps } from './Card';
@@ -11,7 +12,9 @@ export default {
 const Cards: React.FC<CardProps> = ({ children, ...rests }) => {
   return (
     <section>
-      <Card {...rests}>{children}</Card>
+      <Card {...rests}>
+        <div className={classNames('w-full h-full', 'px-4 pt-5 pb-4 sm:p-6 sm:pb-4')}>{children}</div>
+      </Card>
     </section>
   );
 };
