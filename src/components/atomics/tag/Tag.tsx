@@ -20,13 +20,7 @@ export interface TagProps extends ExtensionProps {
   intent?: IntentType;
 }
 
-const Tag: React.FC<TagProps> = ({
-  className,
-  children,
-  intent = 'primary',
-  scale = 'md',
-  ...rests
-}) => {
+const Tag: React.FC<TagProps> = ({ className, children, intent = 'primary', scale = 'md', ...rests }) => {
   return (
     <span
       {...rests}

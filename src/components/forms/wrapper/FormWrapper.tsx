@@ -22,14 +22,7 @@ export interface FormWrapperProps extends ExtensionProps {
   help?: string;
 }
 
-const FormWrapper: React.FC<FormWrapperProps> = ({
-  label,
-  htmlFor,
-  help,
-  className,
-  children,
-  ...props
-}) => {
+const FormWrapper: React.FC<FormWrapperProps> = ({ label, htmlFor, help, className, children, ...props }) => {
   return (
     <div {...props} className={classnames(className, 'Root__FormWrapper')}>
       {label && (

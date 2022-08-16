@@ -35,10 +35,7 @@ BlockQuoteStories.args = {
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusamus animi aliquid molestiae vitae similique asperiores illum, sit quisquam, veritatis rerum. Illum, quia ut? Nemo sunt explicabo in provident id?',
 };
 
-const IntentBlockQuotes: React.FC<BlockQuoteProps> = ({
-  children,
-  ...rests
-}) => {
+const IntentBlockQuotes: React.FC<BlockQuoteProps> = ({ children, ...rests }) => {
   return (
     <div className="grid grid-cols-1">
       {storiesIntentOptions.map((intent) => (

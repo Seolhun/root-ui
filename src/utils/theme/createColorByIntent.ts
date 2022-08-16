@@ -32,9 +32,7 @@ const createOptionsColorByIntent = (
 ): string => {
   const computedPrefix = createPrefix(prefix);
   const optionsColorClassNames = options.reduce((strColor, option) => {
-    return `${strColor} ${option}:${computedPrefix}${intent}-${createOptionByWeight(
-      weight,
-    )}`;
+    return `${strColor} ${option}:${computedPrefix}${intent}-${createOptionByWeight(weight)}`;
   }, '');
   return optionsColorClassNames;
 };

@@ -25,21 +25,22 @@ module.exports = {
    */
   content: [
     './src/components/**/*.{ts,tsx,js,jsx}',
+    './src/stories/**/*.{ts,tsx,js,jsx}',
   ],
   /**
    * string literal을 같이 사용한 경우 tailwind가 class를 인식하지 못해서 purge 되는 현상이 발생합니다.
    */
   safelist: [
     {
-      pattern: /w-.*/,
+      pattern: /^w-.*/,
       variants: ['xs', 'sm', 'md', 'lg', 'xl'],
     },
     {
-      pattern: /bg-.*/,
+      pattern: /^bg-.*/,
       variants: ['hover'],
     },
     {
-      pattern: /text-.*/,
+      pattern: /^text-.*/,
       variants: ['hover'],
     },
   ],

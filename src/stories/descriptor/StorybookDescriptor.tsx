@@ -5,13 +5,10 @@ export interface StorybookDescriptorProps {
   title: string;
 }
 
-const StorybookDescriptor: React.FC<StorybookDescriptorProps> = ({
-  children,
-  title,
-}) => {
+const StorybookDescriptor: React.FC<StorybookDescriptorProps> = ({ children, title }) => {
   return (
-    <div className="mb-2">
-      <H6 className="text-gray-800">{title}</H6>
+    <div className="flex flex-col my-2">
+      <H6 className="text-gray-800 my-4">{title}</H6>
       <div>{children}</div>
     </div>
   );

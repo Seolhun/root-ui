@@ -8,14 +8,7 @@ export type H6Props = ExtensionProps;
 
 const H6: React.FC<H6Props> = ({ className, children, ...rests }) => {
   return (
-    <h6
-      {...rests}
-      className={classnames(
-        CLASSNAME,
-        className,
-        'text-1xl font-bold leading-normal mt-0 mb-2',
-      )}
-    >
+    <h6 {...rests} className={classnames(CLASSNAME, className, 'text-1xl font-bold leading-normal mt-0 mb-2')}>
       {children}
     </h6>
   );

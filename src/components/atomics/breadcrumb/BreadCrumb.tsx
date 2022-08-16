@@ -24,32 +24,15 @@ export interface BreadCrumbItemProps {
   children: React.ReactNode;
 }
 
-const BreadCrumb: React.FC<BreadCrumbProps> = ({
-  className,
-  items,
-  intent = 'dark',
-  ...rests
-}) => {
+const BreadCrumb: React.FC<BreadCrumbProps> = ({ className, items, intent = 'dark', ...rests }) => {
   return (
     <div {...rests} className={classnames(CLASSNAME, className)}>
       {items.map(({ href, children }, index) => {
         const isFirst = index === 0;
         return (
-          <span
-            key={`${href}-${name}`}
-            className={createColorByIntent(intent, 400, 'text')}
-          >
+          <span key={`${href}-${name}`} className={createColorByIntent(intent, 400, 'text')}>
             {!isFirst && <span>{' / '}</span>}
-            <span
-              className={createOptionsColorByIntent(
-                ['hover'],
-                'text',
-                intent,
-                600,
-              )}
-            >
-              {children}
-            </span>
+            <span className={createOptionsColorByIntent(['hover'], 'text', intent, 600)}>{children}</span>
           </span>
         );
       })}

@@ -12,13 +12,7 @@ export interface OverlayLoaderProps extends ExtensionProps {
   message?: React.ReactNode;
 }
 
-const OverlayLoader: React.FC<OverlayLoaderProps> = ({
-  children,
-  className,
-  loading,
-  message,
-  ...rests
-}) => {
+const OverlayLoader: React.FC<OverlayLoaderProps> = ({ children, className, loading, message, ...rests }) => {
   return (
     <>
       {loading && (
@@ -34,20 +28,8 @@ const OverlayLoader: React.FC<OverlayLoaderProps> = ({
             )}
           >
             <Loader />
-            <h2
-              className={classnames(
-                'mt-2',
-                'text-xl font-semibold text-white',
-                'text-center',
-              )}
-            >
-              Loading...
-            </h2>
-            {message && (
-              <p className={classnames('w-1/3', 'text-white', 'text-center')}>
-                {message}
-              </p>
-            )}
+            <h2 className={classnames('mt-2', 'text-xl font-semibold text-white', 'text-center')}>Loading...</h2>
+            {message && <p className={classnames('w-1/3', 'text-white', 'text-center')}>{message}</p>}
           </div>
         </div>
       )}

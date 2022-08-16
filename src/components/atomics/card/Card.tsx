@@ -26,15 +26,7 @@ const Card: React.FC<CardProps> = ({ children, className, ...rests }) => {
         createOptionsColorByIntent(['hover'], 'border', 'primary'),
       )}
     >
-      <div
-        className={classnames(
-          'w-full h-full',
-          'px-4 pt-5 pb-4 sm:p-6 sm:pb-4',
-          'text-gray-600',
-        )}
-      >
-        {children}
-      </div>
+      <div className={classnames('w-full h-full', 'px-4 pt-5 pb-4 sm:p-6 sm:pb-4', 'text-gray-600')}>{children}</div>
     </div>
   );
 };

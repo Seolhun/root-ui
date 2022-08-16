@@ -28,17 +28,7 @@ export interface ButtonProps extends ExtensionProps {
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      className,
-      children,
-      intent = 'primary',
-      scale = 'md',
-      intentWeight = 500,
-      ...rests
-    },
-    ref,
-  ) => {
+  ({ className, children, intent = 'primary', scale = 'md', intentWeight = 500, ...rests }, ref) => {
     return (
       <button
         ref={ref}
@@ -57,12 +47,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           'text-white',
           createColorByIntent(intent, intentWeight, 'bg'),
           createOptionsColorByIntent(['hover'], 'bg', intent, intentWeight),
-          createOptionsColorByIntent(
-            ['focus'],
-            'ring-offset',
-            intent,
-            intentWeight,
-          ),
+          createOptionsColorByIntent(['focus'], 'ring-offset', intent, intentWeight),
           'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white',
           'disabled:opacity-50 disabled:cursor-not-allowed',
         )}
