@@ -8,6 +8,9 @@ module.exports = {
   ],
   core: {
     builder: 'webpack5',
+    options: {
+      fsCache: true,
+    },
   },
   staticDirs: ['../public'],
   features: {
@@ -40,6 +43,7 @@ module.exports = {
           'postcss-loader',
           'sass-loader',
         ],
+        includes: context,
       },
     )
     config.plugins.push(new webpack.HotModuleReplacementPlugin({}));
