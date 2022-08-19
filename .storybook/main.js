@@ -12,13 +12,11 @@ module.exports = {
       fsCache: true,
     },
   },
-  staticDirs: ['../public'],
   features: {
     previewMdx2: true, // 👈 MDX 2 enabled here
   },
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-docs',
     '@storybook/addon-essentials',
   ],
   webpackFinal: async (config) => {
@@ -43,7 +41,6 @@ module.exports = {
           'postcss-loader',
           'sass-loader',
         ],
-        includes: context,
       },
     )
     return config;
