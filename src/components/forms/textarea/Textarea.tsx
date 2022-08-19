@@ -46,8 +46,8 @@ const Textarea = React.forwardRef<Element, TextareaProps>(
           },
           'sm:text-sm',
           'border border-gray-400 rounded-md',
-          toIntentColorByOptions(['focus'], 'ring', intent, intentWeight),
-          'shadow-sm ',
+          'border border-gray-400 rounded-md',
+          toIntentColorByOptions(['focus'], 'outline', intent, intentWeight),
         )}
         rows={rows}
       />

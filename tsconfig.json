@@ -62,7 +62,10 @@
   ],
   "exclude": [
     "node_modules",
-    "src/stories",
-    "src/**/*.stories.tsx",
+    "test",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
   ]
 }

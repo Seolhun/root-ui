@@ -9,6 +9,7 @@ export type LoaderProps = ExtensionProps;
 const Loader: React.FC<LoaderProps> = ({ className, ...rests }) => {
   return (
     <div
+      {...rests}
       className={classNames(
         CLASSNAME,
         className,

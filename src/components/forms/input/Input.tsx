@@ -44,8 +44,7 @@ const Input = React.forwardRef<Element, InputProps>(
             'py-3 px-4': scale === 'lg',
           },
           'border border-gray-400 rounded-md',
-          toIntentColorByOptions(['focus'], 'ring', intent, intentWeight),
-          'shadow-sm',
+          toIntentColorByOptions(['focus'], 'outline', intent, intentWeight),
         )}
       />
     );

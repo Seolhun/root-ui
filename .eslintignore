@@ -11,6 +11,7 @@ postcss.config.js
 tailwind.config.js
 babel.config.js
 webpack.*.js
+rollup.config.js
 *.d.ts
 
 # JetBrains

@@ -26,7 +26,6 @@ module.exports = {
    */
   content: [
     './src/components/**/*.{ts,tsx,js,jsx}',
-    './src/plugins/**/*.{ts,tsx,js,jsx}',
   ],
   /**
    * string literal을 같이 사용한 경우 tailwind가 class를 인식하지 못해서 purge 되는 현상이 발생합니다.
@@ -37,40 +36,23 @@ module.exports = {
       variants: ['xs', 'sm', 'md', 'lg', 'xl'],
     },
     {
-      pattern: /^bg-.*/,
+      pattern: /(bg|text|border|ring|ring-offset|outline)-(light|dark|primary|secondary|info|success|warning|danger)-(50|100|200|300|400|500|600|700|800|900)/,
       variants: ['hover', 'focus'],
     },
-    {
-      pattern: /^text-.*/,
-      variants: ['hover', 'focus'],
-    },
-    {
-      pattern: /^border-.*/,
-      variants: ['hover', 'focus'],
-    },
-    // {
-    //   pattern: /^ring-.*/,
-    //   variants: ['hover', 'focus'],
-    // },
   ],
   /**
    * @name Extends
    * @see https://tailwindcss.com/docs/theme
    */
   theme: {
+    fontFamily: {
+      'sans': 'Helvetica, Arial, sans-serif',
+    },
     backgroundColor: theme => ({
       ...theme('colors'),
-      // Platforms
-      google: '#4285f4',
-      kakao: '#FEE500',
-      naver: '#19ce60',
     }),
     borderColor: theme => ({
       ...theme('colors'),
-      // Platforms
-      google: '#4285f4',
-      kakao: '#FEE500',
-      naver: '#19ce60',
     }),
     textColor: theme => ({
       ...theme('colors'),
@@ -78,10 +60,6 @@ module.exports = {
       description: intentColors.light[600],
       comment: intentColors.light[500],
       link: '#0a66c2',
-      // Platforms
-      google: '#ffffff',
-      kakao: '#000000',
-      naver: '#ffffff',
     }),
     boxShadow: {
       DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
@@ -98,9 +76,6 @@ module.exports = {
     colors: {
       ...colors,
       ...intentColors,
-    },
-    fontFamily: {
-      'sans': 'Helvetica, Arial, sans-serif',
     },
     minWidth: {
       ...MinWidth,

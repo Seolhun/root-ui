@@ -31,8 +31,8 @@ export const toIntentColorByOptions = (
   weight: ColorWeight = 500,
 ): string => {
   const computedPrefix = createPrefix(prefix);
-  const optionsColorClassNames = options.reduce((strColor, option) => {
-    return `${strColor} ${option}:${computedPrefix}${intent}-${toColorWeightBy(weight)}`;
-  }, '');
+  const optionsColorClassNames = options
+    .map((option) => `${option}:${computedPrefix}${intent}-${toColorWeightBy(weight)}`)
+    .join(' ');
   return optionsColorClassNames;
 };
