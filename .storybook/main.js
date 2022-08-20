@@ -8,12 +8,6 @@ module.exports = {
   ],
   core: {
     builder: 'webpack5',
-    options: {
-      fsCache: true,
-    },
-  },
-  features: {
-    previewMdx2: true, // 👈 MDX 2 enabled here
   },
   addons: [
     '@storybook/addon-links',
