@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { IntentType, IntentWeightType, RootScale, toIntentColor, toScaleStyles } from '@/system';
+import { IntentType, IntentWeightType, RootScale, toIntentColor, toScaleMatch, toTypography } from '@/system';
 
 const CLASSNAME = 'Root__Tag';
 type Element = HTMLSpanElement;
@@ -10,7 +10,7 @@ type ExtensionProps = ElementProps;
 export interface TagProps extends ExtensionProps {
   /**
    * Set this to change scale
-   * @default md
+   * @default sm
    */
   scale?: RootScale;
   /**
@@ -18,7 +18,7 @@ export interface TagProps extends ExtensionProps {
    */
   intent?: IntentType;
   /**
-   * @default 500
+   * @default 600
    */
   intentWeight?: IntentWeightType;
 }
@@ -26,9 +26,9 @@ export interface TagProps extends ExtensionProps {
 const Tag: React.FC<TagProps> = ({
   className,
   children,
-  scale = 'md',
+  scale = 'sm',
   intent = 'primary',
-  intentWeight = 200,
+  intentWeight = 600,
   ...rests
 }) => {
   return (
@@ -38,18 +38,20 @@ const Tag: React.FC<TagProps> = ({
         CLASSNAME,
         className,
         'inline-block',
-        toScaleStyles(() => ['py-1 px-2'])(() => ['py-2 px-3'])(() => ['py-2.5 px-4'])(scale),
+        'font-semibold capitalize',
+        toScaleMatch(() => [toTypography('2.5')])(() => [toTypography('3')])(() => [toTypography('3.5')])(scale),
+        toScaleMatch(() => ['py-1 px-2'])(() => ['py-2 px-3'])(() => ['py-2.5 px-3.5'])(scale),
         'rounded-full',
-        'text-xs font-semibold capitalize last:mr-0 mr-1',
+        'last:mr-0 mr-1',
         toIntentColor({
-          prefix: 'bg',
+          prefix: 'text',
           intent,
           intentWeight,
         }),
         toIntentColor({
-          prefix: 'text',
+          prefix: 'bg',
           intent,
-          intentWeight: 600,
+          intentWeight: 200,
         }),
       )}
     >

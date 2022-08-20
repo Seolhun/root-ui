@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { IntentWeightType, IntentType, RootScale, toFocusIntentColor, toScaleStyles } from '@/system';
+import { IntentWeightType, IntentType, RootScale, toFocusIntentColor, toScaleMatch, toIntentColor } from '@/system';
 
 const CLASSNAME = 'Root__Textarea';
 type Element = HTMLTextAreaElement;
@@ -10,7 +10,7 @@ type ExtensionProps = ElementProps;
 export interface TextareaProps extends ExtensionProps {
   /**
    * Set this to change scale
-   * @default md
+   * @default sm
    */
   scale?: RootScale;
 
@@ -20,13 +20,13 @@ export interface TextareaProps extends ExtensionProps {
   intent?: IntentType;
 
   /**
-   * @default 500
+   * @default 600
    */
   intentWeight?: IntentWeightType;
 }
 
 const Textarea = React.forwardRef<Element, TextareaProps>(
-  ({ className, name, rows = 8, intent = 'primary', scale = 'md', intentWeight = 500, ...rests }, ref) => {
+  ({ className, name, rows = 8, intent = 'primary', scale = 'sm', intentWeight = 600, ...rests }, ref) => {
     return (
       <textarea
         {...rests}
@@ -38,15 +38,24 @@ const Textarea = React.forwardRef<Element, TextareaProps>(
           className,
           'block',
           'w-full',
-          toScaleStyles(() => ['py-1 px-2'])(() => ['py-2 px-3'])(() => ['py-2.5 px-4'])(scale),
-          'sm:text-sm',
-          'border border-gray-400 rounded-md',
-          'border border-gray-400 rounded-md',
+          toScaleMatch(() => ['py-1 px-2'])(() => ['py-2 px-3'])(() => ['py-2.5 px-3.5'])(scale),
+          'border',
+          toIntentColor({
+            prefix: 'border',
+            intent: 'light',
+            intentWeight: 400,
+          }),
           toFocusIntentColor({
             prefix: 'outline',
             intent,
             intentWeight,
           }),
+          toIntentColor({
+            prefix: 'caret',
+            intent,
+            intentWeight,
+          }),
+          'rounded-md',
         )}
         rows={rows}
       />

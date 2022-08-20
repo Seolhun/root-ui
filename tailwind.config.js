@@ -7,8 +7,6 @@ const { MinHeight } = require('./tailwind-config/MinHeight');
 const { MinWidth } = require('./tailwind-config/MinWidth');
 
 const intentColors = {
-  white: colors.white,
-  black: colors.black,
   light: colors.slate,
   dark: colors.gray,
   neutral: colors.neutral,
@@ -17,7 +15,6 @@ const intentColors = {
   success: colors.green,
   warning: colors.orange,
   danger: colors.red,
-  error: colors.red,
 }
 
 module.exports = {
@@ -43,6 +40,10 @@ module.exports = {
     //   variants: ['hover', 'focus', 'placeholder', 'disabled'],
     // },
   ],
+  /**
+   * @see https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually
+   */
+   darkMode: 'class',
   /**
    * @name Extends
    * @see https://tailwindcss.com/docs/theme

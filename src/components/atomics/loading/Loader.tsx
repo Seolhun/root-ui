@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { IntentType, IntentWeightType, RootScale, toIntentColor, toScaleStyles } from '@/system';
+import { IntentType, IntentWeightType, RootScale, toIntentColor, toScaleMatch } from '@/system';
 
 const CLASSNAME = 'Root__Loader';
 type ElementProps = React.SVGAttributes<HTMLOrSVGElement>;
@@ -8,7 +8,7 @@ type ExtensionProps = ElementProps;
 export interface LoaderProps extends ExtensionProps {
   /**
    * Set this to change scale
-   * @default md
+   * @default sm
    */
   scale?: RootScale;
 
@@ -18,16 +18,16 @@ export interface LoaderProps extends ExtensionProps {
   intent?: IntentType;
 
   /**
-   * @default 500
+   * @default 600
    */
   intentWeight?: IntentWeightType;
 }
 
 const Loader: React.FC<LoaderProps> = ({
   className,
-  scale = 'md',
+  scale = 'sm',
   intent = 'primary',
-  intentWeight = 500,
+  intentWeight = 600,
   ...rests
 }) => {
   return (
@@ -40,7 +40,7 @@ const Loader: React.FC<LoaderProps> = ({
           'animate-spin',
           toIntentColor({ prefix: 'text', intent: 'dark', intentWeight: 200 }),
           toIntentColor({ prefix: 'fill', intent, intentWeight }),
-          toScaleStyles(() => ['h-6 w-6'])(() => ['h-10 w-10'])(() => ['h-14 w-14'])(scale),
+          toScaleMatch(() => ['h-6 w-6'])(() => ['h-10 w-10'])(() => ['h-14 w-14'])(scale),
         )}
         aria-hidden="true"
         viewBox="0 0 100 100"
