@@ -78,9 +78,6 @@ const Modal = ({ className, children, scale = 'md', show, onHide, onConfirm, ...
           className={classNames(
             CLASSNAME,
             className,
-            {
-              hidden: !show,
-            },
             'fixed',
             'inset-0 md:inset-0',
             'w-full h-full',
@@ -102,6 +99,9 @@ const Modal = ({ className, children, scale = 'md', show, onHide, onConfirm, ...
             'h-full md:h-auto',
             'md:my-12',
             'rounded-none md:rounded-lg',
+            {
+              'animate-[scale-up_0.2s_ease-in-out]': show,
+            },
           )}
         >
           {children}

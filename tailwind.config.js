@@ -98,13 +98,10 @@ module.exports = {
       // => @media (min-width: 1440px) { ... }
     },
     extend: {
-      animation: {
-        ...Animations,
-      },
+      ...Animations,
       margin: {
         ...NegativeMargins,
       },
-
       borderRadius: {
         '4xl': '2rem'
       },
