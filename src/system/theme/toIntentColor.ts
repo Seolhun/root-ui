@@ -1,9 +1,10 @@
 import classNames from 'classnames';
 
 import { TailwindPrefix, IntentWeightType, IntentType } from '@/system';
+import { hasIntentColorPrefix } from './hasIntentColorPrefix';
 
 export interface ToIntentColorProps {
-  prefix: TailwindPrefix;
+  prefix: TailwindPrefix | TailwindPrefix[];
 
   /**
    * @default primary
@@ -17,16 +18,18 @@ export interface ToIntentColorProps {
 }
 
 export function toIntentColorVariables({ prefix, intent = 'primary', intentWeight = 500 }: ToIntentColorProps) {
-  // Prefix
-  const isTextPrefix = prefix === 'text';
-  const isBGPrefix = prefix === 'bg';
-  const isBorderPrefix = prefix === 'border';
-  const isOutlinePrefix = prefix === 'outline';
-  const isRingPrefix = prefix === 'ring';
-  const isRingOffsetPrefix = prefix === 'ring-offset';
-  const isFillPrefix = prefix === 'fill';
-  const isAccentPrefix = prefix === 'accent';
-  const isCaretPrefix = prefix === 'caret';
+  const {
+    text: isTextPrefix,
+    bg: isBGPrefix,
+    border: isBorderPrefix,
+    outline: isOutlinePrefix,
+    ring: isRingPrefix,
+    'ring-offset': isRingOffsetPrefix,
+    fill: isFillPrefix,
+    accent: isAccentPrefix,
+    caret: isCaretPrefix,
+  } = hasIntentColorPrefix(prefix);
+
   // Weight
   const is50Weight = intentWeight === 50;
   const is100Weight = intentWeight === 100;
