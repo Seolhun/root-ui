@@ -1,8 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { toIntentColorBy } from '@/utils';
-import { IntentType } from '@/system';
+import { IntentType, toIntentColor } from '@/system';
 
 const CLASSNAME = 'Root__ProgressBar';
 type ElementProps = React.HTMLAttributes<HTMLDivElement>;
@@ -49,8 +48,16 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
                   'inline-block',
                   'py-1 px-2',
                   'text-xs font-semibold rounded-full',
-                  `${toIntentColorBy(intent, 600, 'text')}`,
-                  `${toIntentColorBy(intent, 200, 'bg')}`,
+                  toIntentColor({
+                    prefix: 'text',
+                    intent,
+                    intentWeight: 600,
+                  }),
+                  toIntentColor({
+                    prefix: 'bg',
+                    intent,
+                    intentWeight: 200,
+                  }),
                 )}
               >
                 {badge}
@@ -63,7 +70,11 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
                 className={classnames(
                   'inline-block',
                   'text-xs font-semibold',
-                  `${toIntentColorBy(intent, 600, 'text')}`,
+                  toIntentColor({
+                    prefix: 'text',
+                    intent,
+                    intentWeight: 600,
+                  }),
                 )}
               >
                 {`${progress}%`}
@@ -77,7 +88,11 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
             'h-2 mb-4',
             'text-xs rounded',
             'overflow-hidden',
-            `${toIntentColorBy(intent, 200, 'bg')}`,
+            toIntentColor({
+              prefix: 'bg',
+              intent,
+              intentWeight: 200,
+            }),
           )}
         >
           <div
@@ -87,7 +102,11 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
               'shadow-none',
               'text-white',
               'transition-all',
-              `${toIntentColorBy(intent, 500, 'bg')}`,
+              toIntentColor({
+                prefix: 'bg',
+                intent,
+                intentWeight: 500,
+              }),
             )}
             style={{
               width: `${progress}%`,

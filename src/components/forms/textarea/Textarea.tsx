@@ -1,8 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { ColorWeight, IntentType, RootScale } from '@/system';
-import { toIntentColorByOptions } from '@/utils';
+import { IntentWeightType, IntentType, RootScale, toFocusIntentColor, toScaleStyles } from '@/system';
 
 const CLASSNAME = 'Root__Textarea';
 type Element = HTMLTextAreaElement;
@@ -23,7 +22,7 @@ export interface TextareaProps extends ExtensionProps {
   /**
    * @default 500
    */
-  intentWeight?: ColorWeight;
+  intentWeight?: IntentWeightType;
 }
 
 const Textarea = React.forwardRef<Element, TextareaProps>(
@@ -39,15 +38,15 @@ const Textarea = React.forwardRef<Element, TextareaProps>(
           className,
           'block',
           'w-full',
-          {
-            'py-1 px-1.5': scale === 'sm',
-            'py-2 px-3': scale === 'md',
-            'py-3 px-4': scale === 'lg',
-          },
+          toScaleStyles(() => ['py-1 px-2'])(() => ['py-2 px-3'])(() => ['py-2.5 px-4'])(scale),
           'sm:text-sm',
           'border border-gray-400 rounded-md',
           'border border-gray-400 rounded-md',
-          toIntentColorByOptions(['focus'], 'outline', intent, intentWeight),
+          toFocusIntentColor({
+            prefix: 'outline',
+            intent,
+            intentWeight,
+          }),
         )}
         rows={rows}
       />
