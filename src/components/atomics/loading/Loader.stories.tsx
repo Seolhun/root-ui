@@ -1,14 +1,30 @@
 import React from 'react';
 
+import { storiesIntentOptions, storiesScaleOptions } from '@/stories';
 import { Loader, LoaderProps } from './Loader';
 
 export default {
   title: 'Atomic/Loader',
   component: Loader,
-  argTypes: {},
+  argTypes: {
+    scale: {
+      defaultValue: 'md',
+      control: {
+        type: 'select',
+        options: storiesScaleOptions,
+      },
+    },
+    intent: {
+      defaultValue: 'primary',
+      control: {
+        type: 'select',
+        options: storiesIntentOptions,
+      },
+    },
+  },
 };
 
-const Loaders: React.FC<LoaderProps> = ({ ...rests }) => {
+const Loaders = ({ ...rests }: LoaderProps) => {
   return (
     <section>
       <Loader {...rests} />

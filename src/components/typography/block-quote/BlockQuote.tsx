@@ -1,8 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { toIntentColorBy } from '@/utils';
-import { ColorWeight, IntentType } from '@/system';
+import { IntentWeightType, IntentType, toIntentColor } from '@/system';
 
 const CLASSNAME = 'Root__BlockQuote';
 type ElementProps = React.HTMLAttributes<HTMLParagraphElement>;
@@ -16,7 +15,7 @@ export interface BlockQuoteProps extends ExtensionProps {
   /**
    * @default 300
    */
-  intentWeight?: ColorWeight;
+  intentWeight?: IntentWeightType;
 }
 
 const BlockQuote: React.FC<BlockQuoteProps> = ({
@@ -34,7 +33,11 @@ const BlockQuote: React.FC<BlockQuoteProps> = ({
         className,
         'text-base font-light leading-relaxed mt-0 mb-4',
         'border-l-4 pl-2',
-        toIntentColorBy(intent, intentWeight, 'border'),
+        toIntentColor({
+          prefix: 'border',
+          intent,
+          intentWeight,
+        }),
       )}
     >
       {children}

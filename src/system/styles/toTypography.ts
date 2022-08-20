@@ -1,0 +1,42 @@
+import classNames from 'classnames';
+import { RootTypography } from './RootTypography';
+
+export const toTypography = (typography: RootTypography) => {
+  return classNames({
+    'text-0': typography === '0',
+    'text-0.5': typography === '0.5',
+    'text-1': typography === '1',
+    'text-1.5': typography === '1.5',
+    'text-2': typography === '2',
+    'text-2.5': typography === '2.5',
+    'text-3': typography === '3',
+    'text-3.5': typography === '3.5',
+    'text-4': typography === '4',
+    'text-5': typography === '5',
+    'text-6': typography === '6',
+    'text-7': typography === '7',
+    'text-8': typography === '8',
+    'text-9': typography === '9',
+    'text-10': typography === '10',
+    'text-11': typography === '11',
+    'text-12': typography === '12',
+    'text-14': typography === '14',
+    'text-16': typography === '16',
+    'text-18': typography === '18',
+    'text-20': typography === '20',
+    'text-24': typography === '24',
+    'text-28': typography === '28',
+    'text-32': typography === '32',
+    'text-36': typography === '36',
+    'text-40': typography === '40',
+    'text-44': typography === '44',
+    'text-48': typography === '48',
+    'text-52': typography === '52',
+    'text-56': typography === '56',
+    'text-60': typography === '60',
+    'text-64': typography === '64',
+    'text-72': typography === '72',
+    'text-80': typography === '80',
+    'text-96': typography === '96',
+  });
+};

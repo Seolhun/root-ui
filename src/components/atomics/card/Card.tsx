@@ -1,8 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { toIntentColorByOptions } from '@/utils';
-
 const CLASSNAME = 'Root__Card';
 type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
@@ -18,12 +16,9 @@ const Card: React.FC<CardProps> = ({ children, className, ...rests }) => {
         className,
         'block',
         'bg-white',
-        'align-bottom sm:align-middle',
         'rounded-lg shadow',
-        'text-left text-gray-600',
         'transform transition-all',
         'overflow-hidden',
-        toIntentColorByOptions(['hover'], 'border', 'primary'),
       )}
     >
       {children}

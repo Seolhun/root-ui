@@ -5,8 +5,8 @@ export const storiesScaleOptions: RootScale[] = ['sm', 'md', 'lg'];
 export const storiesIntentOptions: IntentType[] = [
   'light',
   'dark',
+  'neutral',
   'primary',
-  'secondary',
   'info',
   'success',
   'warning',

@@ -1,8 +1,16 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { ColorWeight, IntentType, RootScale } from '@/system';
-import { toIntentColorBy, toIntentColorByOptions } from '@/utils';
+import {
+  IntentWeightType,
+  IntentType,
+  RootScale,
+  toIntentColor,
+  toFocusIntentColor,
+  toHoverIntentColor,
+  toPlaceholderIntentColor,
+  toScaleStyles,
+} from '@/system';
 
 const CLASSNAME = 'Root__Button';
 type Element = HTMLButtonElement;
@@ -24,11 +32,18 @@ export interface ButtonProps extends ExtensionProps {
   /**
    * @default 500
    */
-  intentWeight?: ColorWeight;
+  intentWeight?: IntentWeightType;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, children, intent = 'primary', scale = 'md', intentWeight = 500, ...rests }, ref) => {
+  ({ className, children, scale = 'md', intent = 'primary', intentWeight = 500, ...rests }, ref) => {
+    console.debug({
+      bg: toIntentColor({
+        prefix: 'bg',
+        intent,
+        intentWeight,
+      }),
+    });
     return (
       <button
         ref={ref}
@@ -38,17 +53,29 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           CLASSNAME,
           className,
           'inline-block',
-          {
-            'py-1 px-2': scale === 'sm',
-            'py-2 px-4': scale === 'md',
-            'py-3 px-6': scale === 'lg',
-          },
-          'rounded-md',
+          toScaleStyles(() => ['py-1 px-2'])(() => ['py-2 px-3'])(() => ['py-2.5 px-4'])(scale),
           'text-white',
-          toIntentColorBy(intent, intentWeight, 'bg'),
-          toIntentColorByOptions(['hover'], 'bg', intent, intentWeight),
-          toIntentColorByOptions(['focus'], 'ring-offset', intent, intentWeight),
+          'rounded-md',
+          toIntentColor({
+            prefix: 'bg',
+            intent,
+            intentWeight,
+          }),
+          toHoverIntentColor({
+            prefix: 'bg',
+            intent,
+            intentWeight,
+          }),
+          toFocusIntentColor({
+            prefix: 'ring-offset',
+            intent,
+            intentWeight,
+          }),
           'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white',
+          toPlaceholderIntentColor({
+            prefix: 'text',
+            intent: 'dark',
+          }),
           'disabled:opacity-50 disabled:cursor-not-allowed',
         )}
       >

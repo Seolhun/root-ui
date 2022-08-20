@@ -11,7 +11,7 @@ module.exports = {
       babelConfig: true
     }
   },
-  testMatch: ['<rootDir>/test/**/*.(test|spec).ts?(x)'],
+  testMatch: ['<rootDir>/**/*.(test|spec).ts?(x)'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   moduleNameMapper: {
     '^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$': 'identity-obj-proxy',
