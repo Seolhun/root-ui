@@ -135,6 +135,7 @@ module.exports = {
   },
   // https://tailwindcss.com/docs/plugins#adding-base-styles
   plugins: [
+    require('@tailwindcss/line-clamp'),
     plugin(function({ addBase, theme }) {
       addBase({
         'h1': { fontSize: theme('fontSize.3xl') },
