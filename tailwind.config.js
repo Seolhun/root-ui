@@ -8,10 +8,10 @@ const { MinWidth } = require('./tailwind-config/minWidth');
 const intentColors = {
   white: colors.white,
   black: colors.black,
-  light: colors.gray,
+  light: colors.slate,
   dark: colors.gray,
+  neutral: colors.neutral,
   primary: colors.blue,
-  secondary: colors.sky,
   info: colors.cyan,
   success: colors.green,
   warning: colors.orange,
@@ -26,19 +26,21 @@ module.exports = {
    */
   content: [
     './src/components/**/*.{ts,tsx,js,jsx}',
+    './src/hooks/**/*.{ts,tsx,js,jsx}',
+    './src/system/**/*.{ts,tsx,js,jsx}',
   ],
   /**
    * string literal을 같이 사용한 경우 tailwind가 class를 인식하지 못해서 purge 되는 현상이 발생합니다.
    */
   safelist: [
-    {
-      pattern: /^w-.*/,
-      variants: ['xs', 'sm', 'md', 'lg', 'xl'],
-    },
-    {
-      pattern: /(bg|text|border|ring|ring-offset|outline)-(light|dark|primary|secondary|info|success|warning|danger)-(50|100|200|300|400|500|600|700|800|900)/,
-      variants: ['hover', 'focus'],
-    },
+    // {
+    //   pattern: /^w-.*/,
+    //   variants: ['xs', 'sm', 'md', 'lg', 'xl'],
+    // },
+    // {
+    //   pattern: /(bg|text|border|ring|ring-offset|outline)-(light|dark|neutral|primary|info|success|warning|danger)-(50|100|200|300|400|500|600|700|800|900)/,
+    //   variants: ['hover', 'focus', 'placeholder', 'disabled'],
+    // },
   ],
   /**
    * @name Extends
@@ -56,10 +58,6 @@ module.exports = {
     }),
     textColor: theme => ({
       ...theme('colors'),
-      title: intentColors.light[800],
-      description: intentColors.light[600],
-      comment: intentColors.light[500],
-      link: '#0a66c2',
     }),
     boxShadow: {
       DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
@@ -99,17 +97,6 @@ module.exports = {
       },
       margin: {
         ...NegativeMargins,
-      },
-      outline: {
-        light: [`2px solid ${intentColors.light[600]}`, '0px'],
-        dark: [`2px solid ${intentColors.dark[600]}`, '0px'],
-        primary: [`2px solid ${intentColors.primary[600]}`, '0px'],
-        secondary: [`2px solid ${intentColors.secondary[600]}`, '0px'],
-        info: [`2px solid ${intentColors.info[600]}`, '0px'],
-        success: [`2px solid ${intentColors.success[600]}`, '0px'],
-        warning: [`2px solid ${intentColors.warning[600]}`, '0px'],
-        danger: [`2px solid ${intentColors.danger[600]}`, '0px'],
-        error: [`2px solid ${intentColors.error[600]}`, '0px'],
       },
       spacing: {
         128: '32rem',
