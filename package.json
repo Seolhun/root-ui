@@ -19,6 +19,13 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "tailwind-config",
+    "tailwind.config.js"
+  ],
   "keywords": [
     "react",
     "tailwind",
