@@ -37,7 +37,7 @@ const Modals = ({ Title, Content, Action, ...rests }) => {
   }, [onHide]);
 
   return (
-    <section>
+    <section style={{ height: '2000px' }}>
       <Button onClick={onToggle}>Toggle modal</Button>
 
       <Modal {...rests} show={isShow} onHide={onHide} onConfirm={onConfirm}>

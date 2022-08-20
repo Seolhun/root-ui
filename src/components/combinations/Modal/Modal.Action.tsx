@@ -12,7 +12,7 @@ export interface ModalActionProps extends ExtensionProps {
 
 function ModalAction({ className, children, ...rests }: ModalActionProps) {
   return (
-    <div {...rests} className={classNames(CLASSNAME, className, 'flex items-center', 'p-6', 'space-x-2', 'rounded-b')}>
+    <div {...rests} className={classNames(CLASSNAME, className, 'flex', 'pb-6 px-6', 'rounded-b')}>
       {children}
     </div>
   );

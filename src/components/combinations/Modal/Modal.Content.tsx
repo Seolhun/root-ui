@@ -16,11 +16,11 @@ export interface ModalContentProps extends ExtensionProps {
 
 const ModalContent = React.forwardRef<Element, ModalContentProps>(({ className, children, Title, ...rests }, ref) => {
   return (
-    <div ref={ref} {...rests} className={classNames(CLASSNAME, className, 'flex flex-col')}>
+    <div ref={ref} {...rests} className={classNames(CLASSNAME, className)}>
       <div
         className={classNames(
           'flex justify-between items-start',
-          'p-4',
+          'pt-4 px-4',
           toIntentColor({
             prefix: 'border',
             intent: 'light',
@@ -32,13 +32,15 @@ const ModalContent = React.forwardRef<Element, ModalContentProps>(({ className, 
           'rounded-t',
         )}
       >
-        <div className="line-clamp-2">{Title && Title}</div>
+        <div className="break-all line-clamp-2">{Title && Title}</div>
         <ModalCloseButton />
       </div>
       <div
         className={classNames(
+          'flex flex-1',
           'h-auto md:h-full',
           'p-6',
+          'break-all',
           toIntentColor({
             prefix: 'border',
             intent: 'light',
