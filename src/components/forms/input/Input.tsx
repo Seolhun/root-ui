@@ -1,7 +1,15 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { IntentWeightType, IntentType, RootScale, toFocusIntentColor, toScaleMatch, toIntentColor } from '@/system';
+import {
+  IntentWeightType,
+  IntentType,
+  RootScale,
+  toFocusIntentColor,
+  toScaleMatch,
+  toIntentColor,
+  toDisabledIntentColor,
+} from '@/system';
 
 const CLASSNAME = 'Root__Input';
 type Element = HTMLInputElement;
@@ -53,6 +61,16 @@ const Input = React.forwardRef<Element, InputProps>(
             prefix: 'caret',
             intent,
             intentWeight,
+          }),
+          toDisabledIntentColor({
+            prefix: 'border',
+            intent: 'dark',
+            intentWeight: 100,
+          }),
+          toDisabledIntentColor({
+            prefix: 'bg',
+            intent: 'dark',
+            intentWeight: 200,
           }),
           'rounded-md',
         )}

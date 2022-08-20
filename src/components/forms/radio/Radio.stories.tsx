@@ -26,7 +26,7 @@ export default {
 
 const Radios: React.FC<RadioProps> = ({ children, ...rests }) => {
   return (
-    <section>
+    <section className="flex flex-col gap-4">
       <div>
         <Radio {...rests}>{children}</Radio>
       </div>

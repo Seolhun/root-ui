@@ -22,6 +22,27 @@ export default {
   },
 };
 
+const Textareas = ({ children, ...rests }: TextareaProps) => {
+  return (
+    <section className="flex flex-col gap-4">
+      <div>
+        <Textarea {...rests} />
+      </div>
+      <div>
+        <Textarea {...rests} value={'is not empty'} />
+      </div>
+      <div>
+        <Textarea {...rests} disabled />
+      </div>
+    </section>
+  );
+};
+
+export const TextareasStories = Textareas.bind({});
+TextareasStories.args = {
+  placeholder: 'placeholder',
+};
+
 const ScaleTextareas: React.FC<TextareaProps> = ({ ...rests }) => {
   return (
     <section>

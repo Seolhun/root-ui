@@ -22,7 +22,28 @@ export default {
   },
 };
 
-const ScaleInputs: React.FC<InputProps> = ({ ...rests }) => {
+const Inputs = ({ children, ...rests }: InputProps) => {
+  return (
+    <section className="flex flex-col gap-4">
+      <div>
+        <Input {...rests} />
+      </div>
+      <div>
+        <Input {...rests} value={'is not empty'} />
+      </div>
+      <div>
+        <Input {...rests} disabled />
+      </div>
+    </section>
+  );
+};
+
+export const InputsStories = Inputs.bind({});
+InputsStories.args = {
+  placeholder: 'placeholder',
+};
+
+const ScaleInputs = ({ ...rests }: InputProps) => {
   return (
     <section>
       {storiesScaleOptions.map((scale) => (
@@ -40,7 +61,7 @@ ScaleInputsStories.args = {
   disabled: false,
 };
 
-const IntentInputs: React.FC<InputProps> = ({ ...rests }) => {
+const IntentInputs = ({ ...rests }: InputProps) => {
   return (
     <section>
       {storiesIntentOptions.map((intent) => (
