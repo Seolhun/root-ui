@@ -1,8 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { ColorWeight, IntentType, RootScale } from '@/system';
-import { toIntentColorByOptions } from '@/utils';
+import { IntentWeightType, IntentType, RootScale, toFocusIntentColor, toScaleStyles } from '@/system';
 
 const CLASSNAME = 'Root__Input';
 type Element = HTMLInputElement;
@@ -23,7 +22,7 @@ export interface InputProps extends ExtensionProps {
   /**
    * @default 500
    */
-  intentWeight?: ColorWeight;
+  intentWeight?: IntentWeightType;
 }
 
 const Input = React.forwardRef<Element, InputProps>(
@@ -38,13 +37,13 @@ const Input = React.forwardRef<Element, InputProps>(
           className,
           'block',
           'w-full',
-          {
-            'py-1 px-1.5': scale === 'sm',
-            'py-2 px-3': scale === 'md',
-            'py-3 px-4': scale === 'lg',
-          },
+          toScaleStyles(() => ['py-1 px-2'])(() => ['py-2 px-3'])(() => ['py-2.5 px-4'])(scale),
           'border border-gray-400 rounded-md',
-          toIntentColorByOptions(['focus'], 'outline', intent, intentWeight),
+          toFocusIntentColor({
+            prefix: 'outline',
+            intent,
+            intentWeight,
+          }),
         )}
       />
     );

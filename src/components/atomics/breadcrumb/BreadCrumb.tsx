@@ -1,8 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { toIntentColorBy, toIntentColorByOptions } from '@/utils';
-import { IntentType } from '@/system';
+import { IntentType, IntentWeightType, toHoverIntentColor, toIntentColor } from '@/system';
 
 const CLASSNAME = 'Root__BreadCrumb';
 type ElementProps = React.HTMLAttributes<HTMLDivElement>;
@@ -14,6 +13,11 @@ export interface BreadCrumbProps extends ExtensionProps {
    * Color Intent
    */
   intent?: IntentType;
+
+  /**
+   * @default 500
+   */
+  intentWeight?: IntentWeightType;
 }
 
 export interface BreadCrumbItemProps {
@@ -24,15 +28,34 @@ export interface BreadCrumbItemProps {
   children: React.ReactNode;
 }
 
-const BreadCrumb: React.FC<BreadCrumbProps> = ({ className, items, intent = 'dark', ...rests }) => {
+const BreadCrumb: React.FC<BreadCrumbProps> = ({ className, items, intent = 'dark', intentWeight = 500, ...rests }) => {
   return (
     <div {...rests} className={classnames(CLASSNAME, className)}>
       {items.map(({ href, children }, index) => {
         const isFirst = index === 0;
         return (
-          <span key={`${href}-${name}`} className={toIntentColorBy(intent, 400, 'text')}>
+          <span
+            key={href}
+            className={classnames(
+              toIntentColor({
+                prefix: 'text',
+                intent,
+                intentWeight,
+              }),
+            )}
+          >
             {!isFirst && <span>{' / '}</span>}
-            <span className={toIntentColorByOptions(['hover'], 'text', intent, 600)}>{children}</span>
+            <span
+              className={classnames(
+                toHoverIntentColor({
+                  prefix: 'text',
+                  intent,
+                  intentWeight: intentWeight + 100,
+                }),
+              )}
+            >
+              {children}
+            </span>
           </span>
         );
       })}

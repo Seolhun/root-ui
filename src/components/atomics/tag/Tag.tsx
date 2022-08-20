@@ -1,8 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { IntentType, RootScale } from '@/system';
-import { toIntentColorBy } from '@/utils';
+import { IntentType, IntentWeightType, RootScale, toIntentColor, toScaleStyles } from '@/system';
 
 const CLASSNAME = 'Root__Tag';
 type Element = HTMLSpanElement;
@@ -18,9 +17,20 @@ export interface TagProps extends ExtensionProps {
    * @default primary
    */
   intent?: IntentType;
+  /**
+   * @default 500
+   */
+  intentWeight?: IntentWeightType;
 }
 
-const Tag: React.FC<TagProps> = ({ className, children, intent = 'primary', scale = 'md', ...rests }) => {
+const Tag: React.FC<TagProps> = ({
+  className,
+  children,
+  scale = 'md',
+  intent = 'primary',
+  intentWeight = 200,
+  ...rests
+}) => {
   return (
     <span
       {...rests}
@@ -28,15 +38,19 @@ const Tag: React.FC<TagProps> = ({ className, children, intent = 'primary', scal
         CLASSNAME,
         className,
         'inline-block',
-        {
-          'py-1 px-2': scale === 'sm',
-          'py-1.5 px-3': scale === 'md',
-          'py-2 px-4': scale === 'lg',
-        },
+        toScaleStyles(() => ['py-1 px-2'])(() => ['py-2 px-3'])(() => ['py-2.5 px-4'])(scale),
         'rounded-full',
         'text-xs font-semibold capitalize last:mr-0 mr-1',
-        toIntentColorBy(intent, 600, 'text'),
-        toIntentColorBy(intent, 200, 'bg'),
+        toIntentColor({
+          prefix: 'bg',
+          intent,
+          intentWeight,
+        }),
+        toIntentColor({
+          prefix: 'text',
+          intent,
+          intentWeight: 600,
+        }),
       )}
     >
       {children}

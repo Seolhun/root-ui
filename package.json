@@ -2,7 +2,7 @@
   "license": "MIT",
   "name": "@seolhun/root-ui",
   "version": "0.1.1",
-  "main": "dist/index.min.js",
+  "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "scripts": {
     "prebuild": "rimraf dist/*",
@@ -34,14 +34,15 @@
     "react-dom": ">=18.0.0"
   },
   "dependencies": {
+    "@fxts/core": "^0.9.0",
     "classnames": "^2.3.1",
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
-    "@babel/plugin-transform-runtime": "^7.16.4",
     "@babel/plugin-transform-react-jsx": "^7.18.10",
+    "@babel/plugin-transform-runtime": "^7.16.4",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
@@ -55,7 +56,6 @@
     "@storybook/addon-links": "^6.5.10",
     "@storybook/builder-webpack5": "^6.5.10",
     "@storybook/manager-webpack5": "^6.5.10",
-    "@storybook/mdx2-csf": "^0.0.3",
     "@storybook/react": "^6.5.10",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
