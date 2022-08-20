@@ -18,7 +18,7 @@ type ExtensionProps = ElementProps;
 export interface InputProps extends ExtensionProps {
   /**
    * Set this to change scale
-   * @default sm
+   * @default md
    */
   scale?: RootScale;
 
@@ -34,7 +34,7 @@ export interface InputProps extends ExtensionProps {
 }
 
 const Input = React.forwardRef<Element, InputProps>(
-  ({ className, intent = 'primary', scale = 'sm', intentWeight = 600, ...rests }, ref) => {
+  ({ className, intent = 'primary', scale = 'md', intentWeight = 600, ...rests }, ref) => {
     return (
       <input
         {...rests}

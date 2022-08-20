@@ -21,7 +21,7 @@ type ExtensionProps = ElementProps;
 export interface ButtonProps extends ExtensionProps {
   /**
    * Set this to change scale
-   * @default sm
+   * @default md
    */
   scale?: RootScale;
 
@@ -37,7 +37,7 @@ export interface ButtonProps extends ExtensionProps {
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, children, scale = 'sm', intent = 'primary', intentWeight = 600, ...rests }, ref) => {
+  ({ className, children, scale = 'md', intent = 'primary', intentWeight = 600, ...rests }, ref) => {
     return (
       <button
         ref={ref}

@@ -22,7 +22,7 @@ export interface RadioProps extends ExtensionProps {
 
   /**
    * Set this to change scale
-   * @default sm
+   * @default md
    */
   scale?: RootScale;
 
@@ -34,7 +34,7 @@ export interface RadioProps extends ExtensionProps {
 
 const intentWeight = 600;
 const Radio = React.forwardRef<Element, RadioProps>(
-  ({ className, children, htmlFor, scale = 'sm', intent = 'primary', disabled, ...rests }, ref) => {
+  ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...rests }, ref) => {
     const htmlForAndID = htmlFor ?? rests.name;
     return (
       <FormLabel

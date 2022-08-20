@@ -18,7 +18,7 @@ type ExtensionProps = ElementProps;
 export interface TextareaProps extends ExtensionProps {
   /**
    * Set this to change scale
-   * @default sm
+   * @default md
    */
   scale?: RootScale;
 
@@ -34,7 +34,7 @@ export interface TextareaProps extends ExtensionProps {
 }
 
 const Textarea = React.forwardRef<Element, TextareaProps>(
-  ({ className, name, rows = 8, intent = 'primary', scale = 'sm', intentWeight = 600, ...rests }, ref) => {
+  ({ className, name, rows = 8, intent = 'primary', scale = 'md', intentWeight = 600, ...rests }, ref) => {
     return (
       <textarea
         {...rests}

@@ -8,7 +8,7 @@ type ExtensionProps = ElementProps;
 export interface LoaderProps extends ExtensionProps {
   /**
    * Set this to change scale
-   * @default sm
+   * @default md
    */
   scale?: RootScale;
 
@@ -25,7 +25,7 @@ export interface LoaderProps extends ExtensionProps {
 
 const Loader: React.FC<LoaderProps> = ({
   className,
-  scale = 'sm',
+  scale = 'md',
   intent = 'primary',
   intentWeight = 600,
   ...rests

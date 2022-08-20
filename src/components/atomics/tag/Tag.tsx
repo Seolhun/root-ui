@@ -10,7 +10,7 @@ type ExtensionProps = ElementProps;
 export interface TagProps extends ExtensionProps {
   /**
    * Set this to change scale
-   * @default sm
+   * @default md
    */
   scale?: RootScale;
   /**
@@ -26,7 +26,7 @@ export interface TagProps extends ExtensionProps {
 const Tag: React.FC<TagProps> = ({
   className,
   children,
-  scale = 'sm',
+  scale = 'md',
   intent = 'primary',
   intentWeight = 600,
   ...rests
