@@ -30,7 +30,7 @@ const commonPlugins = [
     config: {
       path: './postcss.config.js',
     },
-    modules: true,
+    // modules: true,
     minimize: true,
     use: {
       sass: scss,
