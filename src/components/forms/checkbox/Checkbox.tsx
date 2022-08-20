@@ -41,8 +41,8 @@ const Checkbox = React.forwardRef<Element, CheckboxProps>(
       <FormLabel
         className={classNames(
           'inline-flex items-center cursor-pointer',
-          toScaleMatch(() => ['py-0.5 px-1'])(() => ['py-1 px-1.5'])(() => ['py-1.5 px-2'])(scale),
-          toScaleMatch(() => [toTypography('3')])(() => [toTypography('3.5')])(() => [toTypography('4')])(scale),
+          toScaleMatch(() => 'py-0.5 px-1')(() => 'py-1 px-1.5')(() => 'py-1.5 px-2')(scale),
+          toScaleMatch(() => toTypography('3'))(() => toTypography('3.5'))(() => toTypography('4'))(scale),
           {
             'cursor-default': disabled,
             'cursor-pointer': !disabled,

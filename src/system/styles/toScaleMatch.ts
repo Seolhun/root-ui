@@ -1,7 +1,7 @@
 import { curry } from '@fxts/core';
 import { RootScale } from './RootScale';
 
-type RootScaleStyle = string[];
+type RootScaleStyle = string;
 type ScaleCallback = () => RootScaleStyle;
 
 export const toScaleMatch = curry(

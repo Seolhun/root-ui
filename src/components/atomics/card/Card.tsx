@@ -7,10 +7,11 @@ type ElementProps = React.HTMLAttributes<Element>;
 type ExtensionProps = ElementProps;
 export type CardProps = ExtensionProps;
 
-const Card: React.FC<CardProps> = ({ children, className, ...rests }) => {
+const Card = React.forwardRef<Element, CardProps>(({ children, className, ...rests }, ref) => {
   return (
     <div
       {...rests}
+      ref={ref}
       className={classnames(
         CLASSNAME,
         className,
@@ -24,7 +25,7 @@ const Card: React.FC<CardProps> = ({ children, className, ...rests }) => {
       {children}
     </div>
   );
-};
+});
 
 export { Card };
 export default Card;

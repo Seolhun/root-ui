@@ -40,7 +40,7 @@ const Loader: React.FC<LoaderProps> = ({
           'animate-spin',
           toIntentColor({ prefix: 'text', intent: 'dark', intentWeight: 200 }),
           toIntentColor({ prefix: 'fill', intent, intentWeight }),
-          toScaleMatch(() => ['h-6 w-6'])(() => ['h-10 w-10'])(() => ['h-14 w-14'])(scale),
+          toScaleMatch(() => 'h-6 w-6')(() => 'h-10 w-10')(() => 'h-14 w-14')(scale),
         )}
         aria-hidden="true"
         viewBox="0 0 100 100"

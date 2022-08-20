@@ -46,7 +46,7 @@ const Textarea = React.forwardRef<Element, TextareaProps>(
           className,
           'block',
           'w-full',
-          toScaleMatch(() => ['py-1 px-2'])(() => ['py-2 px-3'])(() => ['py-2.5 px-3.5'])(scale),
+          toScaleMatch(() => 'py-1 px-2')(() => 'py-2 px-3')(() => 'py-2.5 px-3.5')(scale),
           'border',
           toIntentColor({
             prefix: 'border',
