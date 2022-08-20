@@ -21,5 +21,5 @@ rollup.config.js
 # Storybook-Docs
 docs
 
-# TailwindConfiguration
+# tailwind-config
 tailwind-config

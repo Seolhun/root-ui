@@ -5,6 +5,7 @@ const { FontSize } = require('./tailwind-config/FontSize');
 const { NegativeMargins } = require('./tailwind-config/Margin');
 const { MinHeight } = require('./tailwind-config/MinHeight');
 const { MinWidth } = require('./tailwind-config/MinWidth');
+const { Animations } = require('./tailwind-config/plugins/Animations');
 
 const intentColors = {
   light: colors.slate,
@@ -97,11 +98,15 @@ module.exports = {
       // => @media (min-width: 1440px) { ... }
     },
     extend: {
-      borderRadius: {
-        '4xl': '2rem'
+      animation: {
+        ...Animations,
       },
       margin: {
         ...NegativeMargins,
+      },
+
+      borderRadius: {
+        '4xl': '2rem'
       },
       spacing: {
         128: '32rem',
