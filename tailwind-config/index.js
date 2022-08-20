@@ -1,3 +1,4 @@
-export * from './margin';
-export * from './minHeight';
-export * from './minWidth';
+export * from './FontSize';
+export * from './Margin';
+export * from './MinHeight';
+export * from './MinWidth';

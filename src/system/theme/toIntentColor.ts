@@ -11,7 +11,7 @@ export interface ToIntentColorProps {
   intent?: IntentType;
 
   /**
-   * @default 500
+   * @default 600
    */
   intentWeight?: IntentWeightType;
 }
@@ -25,6 +25,8 @@ export function toIntentColorVariables({ prefix, intent = 'primary', intentWeigh
   const isRingPrefix = prefix === 'ring';
   const isRingOffsetPrefix = prefix === 'ring-offset';
   const isFillPrefix = prefix === 'fill';
+  const isAccentPrefix = prefix === 'accent';
+  const isCaretPrefix = prefix === 'caret';
   // Weight
   const is50Weight = intentWeight === 50;
   const is100Weight = intentWeight === 100;
@@ -54,6 +56,8 @@ export function toIntentColorVariables({ prefix, intent = 'primary', intentWeigh
     isRingPrefix,
     isRingOffsetPrefix,
     isFillPrefix,
+    isAccentPrefix,
+    isCaretPrefix,
     is50Weight,
     is100Weight,
     is200Weight,
@@ -88,6 +92,8 @@ export function toIntentColor({ prefix, intent = 'primary', intentWeight = 500 }
     isRingPrefix,
     isRingOffsetPrefix,
     isFillPrefix,
+    isAccentPrefix,
+    isCaretPrefix,
     is50Weight,
     is100Weight,
     is200Weight,
@@ -750,5 +756,187 @@ export function toIntentColor({ prefix, intent = 'primary', intentWeight = 500 }
     'fill-danger-700': isFillPrefix && is700Weight && isDangerIntent,
     'fill-danger-800': isFillPrefix && is800Weight && isDangerIntent,
     'fill-danger-900': isFillPrefix && is900Weight && isDangerIntent,
+    /**
+     * @name accent
+     */
+    // light
+    'accent-light-50': isAccentPrefix && is50Weight && isLightIntent,
+    'accent-light-100': isAccentPrefix && is100Weight && isLightIntent,
+    'accent-light-200': isAccentPrefix && is200Weight && isLightIntent,
+    'accent-light-300': isAccentPrefix && is300Weight && isLightIntent,
+    'accent-light-400': isAccentPrefix && is400Weight && isLightIntent,
+    'accent-light-500': isAccentPrefix && is500Weight && isLightIntent,
+    'accent-light-600': isAccentPrefix && is600Weight && isLightIntent,
+    'accent-light-700': isAccentPrefix && is700Weight && isLightIntent,
+    'accent-light-800': isAccentPrefix && is800Weight && isLightIntent,
+    'accent-light-900': isAccentPrefix && is900Weight && isLightIntent,
+    // dark
+    'accent-dark-50': isAccentPrefix && is50Weight && isDarkIntent,
+    'accent-dark-100': isAccentPrefix && is100Weight && isDarkIntent,
+    'accent-dark-200': isAccentPrefix && is200Weight && isDarkIntent,
+    'accent-dark-300': isAccentPrefix && is300Weight && isDarkIntent,
+    'accent-dark-400': isAccentPrefix && is400Weight && isDarkIntent,
+    'accent-dark-500': isAccentPrefix && is500Weight && isDarkIntent,
+    'accent-dark-600': isAccentPrefix && is600Weight && isDarkIntent,
+    'accent-dark-700': isAccentPrefix && is700Weight && isDarkIntent,
+    'accent-dark-800': isAccentPrefix && is800Weight && isDarkIntent,
+    'accent-dark-900': isAccentPrefix && is900Weight && isDarkIntent,
+    // neutral
+    'accent-neutral-50': isAccentPrefix && is50Weight && isNeutralIntent,
+    'accent-neutral-100': isAccentPrefix && is100Weight && isNeutralIntent,
+    'accent-neutral-200': isAccentPrefix && is200Weight && isNeutralIntent,
+    'accent-neutral-300': isAccentPrefix && is300Weight && isNeutralIntent,
+    'accent-neutral-400': isAccentPrefix && is400Weight && isNeutralIntent,
+    'accent-neutral-500': isAccentPrefix && is500Weight && isNeutralIntent,
+    'accent-neutral-600': isAccentPrefix && is600Weight && isNeutralIntent,
+    'accent-neutral-700': isAccentPrefix && is700Weight && isNeutralIntent,
+    'accent-neutral-800': isAccentPrefix && is800Weight && isNeutralIntent,
+    'accent-neutral-900': isAccentPrefix && is900Weight && isNeutralIntent,
+    // primary
+    'accent-primary-50': isAccentPrefix && is50Weight && isPrimaryIntent,
+    'accent-primary-100': isAccentPrefix && is100Weight && isPrimaryIntent,
+    'accent-primary-200': isAccentPrefix && is200Weight && isPrimaryIntent,
+    'accent-primary-300': isAccentPrefix && is300Weight && isPrimaryIntent,
+    'accent-primary-400': isAccentPrefix && is400Weight && isPrimaryIntent,
+    'accent-primary-500': isAccentPrefix && is500Weight && isPrimaryIntent,
+    'accent-primary-600': isAccentPrefix && is600Weight && isPrimaryIntent,
+    'accent-primary-700': isAccentPrefix && is700Weight && isPrimaryIntent,
+    'accent-primary-800': isAccentPrefix && is800Weight && isPrimaryIntent,
+    'accent-primary-900': isAccentPrefix && is900Weight && isPrimaryIntent,
+    // info
+    'accent-info-50': isAccentPrefix && is50Weight && isInfoIntent,
+    'accent-info-100': isAccentPrefix && is100Weight && isInfoIntent,
+    'accent-info-200': isAccentPrefix && is200Weight && isInfoIntent,
+    'accent-info-300': isAccentPrefix && is300Weight && isInfoIntent,
+    'accent-info-400': isAccentPrefix && is400Weight && isInfoIntent,
+    'accent-info-500': isAccentPrefix && is500Weight && isInfoIntent,
+    'accent-info-600': isAccentPrefix && is600Weight && isInfoIntent,
+    'accent-info-700': isAccentPrefix && is700Weight && isInfoIntent,
+    'accent-info-800': isAccentPrefix && is800Weight && isInfoIntent,
+    'accent-info-900': isAccentPrefix && is900Weight && isInfoIntent,
+    // success
+    'accent-success-50': isAccentPrefix && is50Weight && isSuccessIntent,
+    'accent-success-100': isAccentPrefix && is100Weight && isSuccessIntent,
+    'accent-success-200': isAccentPrefix && is200Weight && isSuccessIntent,
+    'accent-success-300': isAccentPrefix && is300Weight && isSuccessIntent,
+    'accent-success-400': isAccentPrefix && is400Weight && isSuccessIntent,
+    'accent-success-500': isAccentPrefix && is500Weight && isSuccessIntent,
+    'accent-success-600': isAccentPrefix && is600Weight && isSuccessIntent,
+    'accent-success-700': isAccentPrefix && is700Weight && isSuccessIntent,
+    'accent-success-800': isAccentPrefix && is800Weight && isSuccessIntent,
+    'accent-success-900': isAccentPrefix && is900Weight && isSuccessIntent,
+    // warning
+    'accent-warning-50': isAccentPrefix && is50Weight && isWarningIntent,
+    'accent-warning-100': isAccentPrefix && is100Weight && isWarningIntent,
+    'accent-warning-200': isAccentPrefix && is200Weight && isWarningIntent,
+    'accent-warning-300': isAccentPrefix && is300Weight && isWarningIntent,
+    'accent-warning-400': isAccentPrefix && is400Weight && isWarningIntent,
+    'accent-warning-500': isAccentPrefix && is500Weight && isWarningIntent,
+    'accent-warning-600': isAccentPrefix && is600Weight && isWarningIntent,
+    'accent-warning-700': isAccentPrefix && is700Weight && isWarningIntent,
+    'accent-warning-800': isAccentPrefix && is800Weight && isWarningIntent,
+    'accent-warning-900': isAccentPrefix && is900Weight && isWarningIntent,
+    // danger
+    'accent-danger-50': isAccentPrefix && is50Weight && isDangerIntent,
+    'accent-danger-100': isAccentPrefix && is100Weight && isDangerIntent,
+    'accent-danger-200': isAccentPrefix && is200Weight && isDangerIntent,
+    'accent-danger-300': isAccentPrefix && is300Weight && isDangerIntent,
+    'accent-danger-400': isAccentPrefix && is400Weight && isDangerIntent,
+    'accent-danger-500': isAccentPrefix && is500Weight && isDangerIntent,
+    'accent-danger-600': isAccentPrefix && is600Weight && isDangerIntent,
+    'accent-danger-700': isAccentPrefix && is700Weight && isDangerIntent,
+    'accent-danger-800': isAccentPrefix && is800Weight && isDangerIntent,
+    'accent-danger-900': isAccentPrefix && is900Weight && isDangerIntent,
+    /**
+     * @name caret
+     */
+    // light
+    'caret-light-50': isCaretPrefix && is50Weight && isLightIntent,
+    'caret-light-100': isCaretPrefix && is100Weight && isLightIntent,
+    'caret-light-200': isCaretPrefix && is200Weight && isLightIntent,
+    'caret-light-300': isCaretPrefix && is300Weight && isLightIntent,
+    'caret-light-400': isCaretPrefix && is400Weight && isLightIntent,
+    'caret-light-500': isCaretPrefix && is500Weight && isLightIntent,
+    'caret-light-600': isCaretPrefix && is600Weight && isLightIntent,
+    'caret-light-700': isCaretPrefix && is700Weight && isLightIntent,
+    'caret-light-800': isCaretPrefix && is800Weight && isLightIntent,
+    'caret-light-900': isCaretPrefix && is900Weight && isLightIntent,
+    // dark
+    'caret-dark-50': isCaretPrefix && is50Weight && isDarkIntent,
+    'caret-dark-100': isCaretPrefix && is100Weight && isDarkIntent,
+    'caret-dark-200': isCaretPrefix && is200Weight && isDarkIntent,
+    'caret-dark-300': isCaretPrefix && is300Weight && isDarkIntent,
+    'caret-dark-400': isCaretPrefix && is400Weight && isDarkIntent,
+    'caret-dark-500': isCaretPrefix && is500Weight && isDarkIntent,
+    'caret-dark-600': isCaretPrefix && is600Weight && isDarkIntent,
+    'caret-dark-700': isCaretPrefix && is700Weight && isDarkIntent,
+    'caret-dark-800': isCaretPrefix && is800Weight && isDarkIntent,
+    'caret-dark-900': isCaretPrefix && is900Weight && isDarkIntent,
+    // neutral
+    'caret-neutral-50': isCaretPrefix && is50Weight && isNeutralIntent,
+    'caret-neutral-100': isCaretPrefix && is100Weight && isNeutralIntent,
+    'caret-neutral-200': isCaretPrefix && is200Weight && isNeutralIntent,
+    'caret-neutral-300': isCaretPrefix && is300Weight && isNeutralIntent,
+    'caret-neutral-400': isCaretPrefix && is400Weight && isNeutralIntent,
+    'caret-neutral-500': isCaretPrefix && is500Weight && isNeutralIntent,
+    'caret-neutral-600': isCaretPrefix && is600Weight && isNeutralIntent,
+    'caret-neutral-700': isCaretPrefix && is700Weight && isNeutralIntent,
+    'caret-neutral-800': isCaretPrefix && is800Weight && isNeutralIntent,
+    'caret-neutral-900': isCaretPrefix && is900Weight && isNeutralIntent,
+    // primary
+    'caret-primary-50': isCaretPrefix && is50Weight && isPrimaryIntent,
+    'caret-primary-100': isCaretPrefix && is100Weight && isPrimaryIntent,
+    'caret-primary-200': isCaretPrefix && is200Weight && isPrimaryIntent,
+    'caret-primary-300': isCaretPrefix && is300Weight && isPrimaryIntent,
+    'caret-primary-400': isCaretPrefix && is400Weight && isPrimaryIntent,
+    'caret-primary-500': isCaretPrefix && is500Weight && isPrimaryIntent,
+    'caret-primary-600': isCaretPrefix && is600Weight && isPrimaryIntent,
+    'caret-primary-700': isCaretPrefix && is700Weight && isPrimaryIntent,
+    'caret-primary-800': isCaretPrefix && is800Weight && isPrimaryIntent,
+    'caret-primary-900': isCaretPrefix && is900Weight && isPrimaryIntent,
+    // info
+    'caret-info-50': isCaretPrefix && is50Weight && isInfoIntent,
+    'caret-info-100': isCaretPrefix && is100Weight && isInfoIntent,
+    'caret-info-200': isCaretPrefix && is200Weight && isInfoIntent,
+    'caret-info-300': isCaretPrefix && is300Weight && isInfoIntent,
+    'caret-info-400': isCaretPrefix && is400Weight && isInfoIntent,
+    'caret-info-500': isCaretPrefix && is500Weight && isInfoIntent,
+    'caret-info-600': isCaretPrefix && is600Weight && isInfoIntent,
+    'caret-info-700': isCaretPrefix && is700Weight && isInfoIntent,
+    'caret-info-800': isCaretPrefix && is800Weight && isInfoIntent,
+    'caret-info-900': isCaretPrefix && is900Weight && isInfoIntent,
+    // success
+    'caret-success-50': isCaretPrefix && is50Weight && isSuccessIntent,
+    'caret-success-100': isCaretPrefix && is100Weight && isSuccessIntent,
+    'caret-success-200': isCaretPrefix && is200Weight && isSuccessIntent,
+    'caret-success-300': isCaretPrefix && is300Weight && isSuccessIntent,
+    'caret-success-400': isCaretPrefix && is400Weight && isSuccessIntent,
+    'caret-success-500': isCaretPrefix && is500Weight && isSuccessIntent,
+    'caret-success-600': isCaretPrefix && is600Weight && isSuccessIntent,
+    'caret-success-700': isCaretPrefix && is700Weight && isSuccessIntent,
+    'caret-success-800': isCaretPrefix && is800Weight && isSuccessIntent,
+    'caret-success-900': isCaretPrefix && is900Weight && isSuccessIntent,
+    // warning
+    'caret-warning-50': isCaretPrefix && is50Weight && isWarningIntent,
+    'caret-warning-100': isCaretPrefix && is100Weight && isWarningIntent,
+    'caret-warning-200': isCaretPrefix && is200Weight && isWarningIntent,
+    'caret-warning-300': isCaretPrefix && is300Weight && isWarningIntent,
+    'caret-warning-400': isCaretPrefix && is400Weight && isWarningIntent,
+    'caret-warning-500': isCaretPrefix && is500Weight && isWarningIntent,
+    'caret-warning-600': isCaretPrefix && is600Weight && isWarningIntent,
+    'caret-warning-700': isCaretPrefix && is700Weight && isWarningIntent,
+    'caret-warning-800': isCaretPrefix && is800Weight && isWarningIntent,
+    'caret-warning-900': isCaretPrefix && is900Weight && isWarningIntent,
+    // danger
+    'caret-danger-50': isCaretPrefix && is50Weight && isDangerIntent,
+    'caret-danger-100': isCaretPrefix && is100Weight && isDangerIntent,
+    'caret-danger-200': isCaretPrefix && is200Weight && isDangerIntent,
+    'caret-danger-300': isCaretPrefix && is300Weight && isDangerIntent,
+    'caret-danger-400': isCaretPrefix && is400Weight && isDangerIntent,
+    'caret-danger-500': isCaretPrefix && is500Weight && isDangerIntent,
+    'caret-danger-600': isCaretPrefix && is600Weight && isDangerIntent,
+    'caret-danger-700': isCaretPrefix && is700Weight && isDangerIntent,
+    'caret-danger-800': isCaretPrefix && is800Weight && isDangerIntent,
+    'caret-danger-900': isCaretPrefix && is900Weight && isDangerIntent,
   });
 }

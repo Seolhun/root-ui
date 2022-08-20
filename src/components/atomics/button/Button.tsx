@@ -9,7 +9,8 @@ import {
   toFocusIntentColor,
   toHoverIntentColor,
   toPlaceholderIntentColor,
-  toScaleStyles,
+  toScaleMatch,
+  toTypography,
 } from '@/system';
 
 const CLASSNAME = 'Root__Button';
@@ -20,7 +21,7 @@ type ExtensionProps = ElementProps;
 export interface ButtonProps extends ExtensionProps {
   /**
    * Set this to change scale
-   * @default md
+   * @default sm
    */
   scale?: RootScale;
 
@@ -30,20 +31,13 @@ export interface ButtonProps extends ExtensionProps {
   intent?: IntentType;
 
   /**
-   * @default 500
+   * @default 600
    */
   intentWeight?: IntentWeightType;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, children, scale = 'md', intent = 'primary', intentWeight = 500, ...rests }, ref) => {
-    console.debug({
-      bg: toIntentColor({
-        prefix: 'bg',
-        intent,
-        intentWeight,
-      }),
-    });
+  ({ className, children, scale = 'sm', intent = 'primary', intentWeight = 600, ...rests }, ref) => {
     return (
       <button
         ref={ref}
@@ -53,7 +47,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           CLASSNAME,
           className,
           'inline-block',
-          toScaleStyles(() => ['py-1 px-2'])(() => ['py-2 px-3'])(() => ['py-2.5 px-4'])(scale),
+          toScaleMatch(() => [toTypography('3')])(() => [toTypography('3.5')])(() => [toTypography('4')])(scale),
+          toScaleMatch(() => ['py-1 px-2'])(() => ['py-2 px-3'])(() => ['py-2.5 px-3.5'])(scale),
           'text-white',
           'rounded-md',
           toIntentColor({
@@ -64,7 +59,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           toHoverIntentColor({
             prefix: 'bg',
             intent,
-            intentWeight,
+            intentWeight: intentWeight - 100,
           }),
           toFocusIntentColor({
             prefix: 'ring-offset',

@@ -4,7 +4,7 @@ import { RootScale } from './RootScale';
 type RootScaleStyle = string[];
 type ScaleCallback = () => RootScaleStyle;
 
-export const toScaleStyles = curry(
+export const toScaleMatch = curry(
   (
     smScaleCallback: ScaleCallback,
     mdScaleCallback: ScaleCallback,

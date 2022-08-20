@@ -3,7 +3,16 @@
  * @see https://tailwindcss.com/docs/background-color
  * @see https://tailwindcss.com/docs/ring-color
  */
-export type TailwindPrefix = 'text' | 'bg' | 'border' | 'ring' | 'ring-offset' | 'outline' | 'fill';
+export type TailwindPrefix =
+  | 'text'
+  | 'bg'
+  | 'border'
+  | 'ring'
+  | 'ring-offset'
+  | 'outline'
+  | 'fill'
+  | 'accent'
+  | 'caret';
 
 export type IntentType = 'light' | 'dark' | 'neutral' | 'primary' | 'info' | 'success' | 'warning' | 'danger';
 
@@ -14,9 +23,11 @@ export type IntentType = 'light' | 'dark' | 'neutral' | 'primary' | 'info' | 'su
 export type IntentWeightType = number;
 
 /**
- * @see https://tailwindcss.com/docs/hover-focus-and-other-states
+ * @see https://tailwindcss.com/docs/hover-focus-and-other-states#quick-reference
  */
-export type TailwindStateOption = 'hover' | 'focus';
+// export type TailwindStateOption =
+// | 'hover'
+// | 'focus'
 // | 'first-child'
 // | 'required'
 // | 'before'

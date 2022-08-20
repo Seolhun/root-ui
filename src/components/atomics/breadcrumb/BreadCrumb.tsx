@@ -15,7 +15,7 @@ export interface BreadCrumbProps extends ExtensionProps {
   intent?: IntentType;
 
   /**
-   * @default 500
+   * @default 600
    */
   intentWeight?: IntentWeightType;
 }
@@ -28,7 +28,7 @@ export interface BreadCrumbItemProps {
   children: React.ReactNode;
 }
 
-const BreadCrumb: React.FC<BreadCrumbProps> = ({ className, items, intent = 'dark', intentWeight = 500, ...rests }) => {
+const BreadCrumb: React.FC<BreadCrumbProps> = ({ className, items, intent = 'dark', intentWeight = 600, ...rests }) => {
   return (
     <div {...rests} className={classnames(CLASSNAME, className)}>
       {items.map(({ href, children }, index) => {
