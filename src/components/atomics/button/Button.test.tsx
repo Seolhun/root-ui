@@ -1,12 +1,11 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 
-import { Button } from '@/components';
-
+import { Button } from './Button';
 
 describe('Button Test', () => {
   test('Button', () => {
-    let button = render(<Button>Button</Button>);
+    const button = render(<Button>Button</Button>);
     const { container } = button;
 
     expect(button.getByText('Button'));
@@ -16,7 +15,7 @@ describe('Button Test', () => {
   test('Button: Intent', () => {
     let button = render(<Button>Button</Button>);
     expect(button.container.getElementsByClassName('bg-primary-500').length).toBe(1);
-    button = render(<Button intent='success'>Button</Button>);
+    button = render(<Button intent="success">Button</Button>);
     expect(button.container.getElementsByClassName('bg-success-500').length).toBe(1);
   });
 
@@ -25,7 +24,6 @@ describe('Button Test', () => {
     expect(button.container.getElementsByClassName('bg-primary-500').length).toBe(1);
     button = render(<Button intentWeight={200}>Button</Button>);
     expect(button.container.getElementsByClassName('bg-primary-200').length).toBe(1);
-
   });
 
   test('Button: Hover', () => {

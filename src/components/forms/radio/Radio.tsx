@@ -1,7 +1,16 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
-import { FormLabel } from '..';
+import {
+  IntentType,
+  RootScale,
+  toHoverIntentColor,
+  toScaleMatch,
+  toFocusIntentColor,
+  toTypography,
+  toCheckedIntentColor,
+} from '@/system';
+import { FormLabel } from '../FormLabel';
 
 const CLASSNAME = 'Root__Radio';
 type Element = HTMLInputElement;
@@ -10,31 +19,68 @@ type ExtensionProps = ElementProps;
 
 export interface RadioProps extends ExtensionProps {
   htmlFor?: string;
+
+  /**
+   * Set this to change scale
+   * @default sm
+   */
+  scale?: RootScale;
+
+  /**
+   * @default primary
+   */
+  intent?: IntentType;
 }
 
-const Radio = React.forwardRef<Element, RadioProps>(({ className, children, htmlFor, ...rests }, ref) => {
-  const htmlForAndID = htmlFor ?? rests.name;
-  return (
-    <FormLabel className="inline-flex items-center cursor-pointer" htmlFor={htmlForAndID}>
-      <input
-        {...rests}
-        ref={ref}
-        type="radio"
-        id={htmlForAndID}
-        className={classnames(
-          CLASSNAME,
-          className,
-          'inline-block',
-          'p-3 mr-1',
-          'shadow-sm',
-          'border border-gray-400',
-          'focus:ring-gray-800 rounded-md',
+const intentWeight = 600;
+const Radio = React.forwardRef<Element, RadioProps>(
+  ({ className, children, htmlFor, scale = 'sm', intent = 'primary', disabled, ...rests }, ref) => {
+    const htmlForAndID = htmlFor ?? rests.name;
+    return (
+      <FormLabel
+        className={classNames(
+          'inline-flex items-center cursor-pointer',
+          toScaleMatch(() => ['py-0.5 px-1'])(() => ['py-1 px-1.5'])(() => ['py-1.5 px-2'])(scale),
+          toScaleMatch(() => [toTypography('3')])(() => [toTypography('3.5')])(() => [toTypography('4')])(scale),
+          {
+            'cursor-default': disabled,
+            'cursor-pointer': !disabled,
+          },
         )}
-      />
-      <span className="ml-2">{children}</span>
-    </FormLabel>
-  );
-});
+        htmlFor={htmlForAndID}
+      >
+        <input
+          {...rests}
+          ref={ref}
+          type="radio"
+          id={htmlForAndID}
+          disabled={disabled}
+          className={classNames(
+            CLASSNAME,
+            className,
+            'inline-block',
+            toCheckedIntentColor({
+              prefix: 'accent',
+              intent,
+              intentWeight,
+            }),
+            toHoverIntentColor({
+              prefix: 'border',
+              intent,
+              intentWeight: intentWeight - 100,
+            }),
+            toFocusIntentColor({
+              prefix: 'ring-offset',
+              intent,
+              intentWeight,
+            }),
+          )}
+        />
+        <span className="ml-2">{children}</span>
+      </FormLabel>
+    );
+  },
+);
 
 export { Radio };
 export default Radio;
