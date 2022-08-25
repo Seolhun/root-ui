@@ -1,0 +1,82 @@
+import React from 'react';
+import { createPortal } from 'react-dom';
+
+import { Props, UnknownObject } from '@/types';
+import { optionalRef, useIsoMorphicEffect, useOwnerDocument, useSyncRefs, useServerHandoffComplete } from '@/hooks';
+import { isServer, toMicrotask, forwardRefWithAs, render } from '@/utils';
+import PortalGroup from './PortalGroup';
+import usePortalTarget from './usePortalTarget';
+
+const DEFAULT_PORTAL_TAG = React.Fragment;
+type PortalRenderPropArg = UnknownObject;
+
+const PortalRoot = forwardRefWithAs(function Portal<TTag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
+  props: Props<TTag, PortalRenderPropArg>,
+  ref: React.Ref<HTMLElement>,
+) {
+  const theirProps = props;
+  const internalPortalRootRef = React.useRef<HTMLElement | null>(null);
+  const portalRef = useSyncRefs(
+    optionalRef<typeof internalPortalRootRef['current']>((ref) => {
+      internalPortalRootRef.current = ref;
+    }),
+    ref,
+  );
+  const ownerDocument = useOwnerDocument(internalPortalRootRef);
+  const target = usePortalTarget(internalPortalRootRef);
+  const [element] = React.useState<HTMLDivElement | null>(() =>
+    isServer ? null : ownerDocument?.createElement('div') ?? null,
+  );
+
+  const ready = useServerHandoffComplete();
+
+  const trulyUnmounted = React.useRef(false);
+  useIsoMorphicEffect(() => {
+    trulyUnmounted.current = false;
+
+    if (!target || !element) return;
+
+    // Element already exists in target, always calling target.appendChild(element) will cause a brief unmount/remount.
+    if (!target.contains(element)) {
+      element.setAttribute('data-headlessui-portal', '');
+      target.appendChild(element);
+    }
+
+    return () => {
+      trulyUnmounted.current = true;
+      toMicrotask(() => {
+        if (!trulyUnmounted.current) return;
+        if (!target || !element) return;
+
+        target.removeChild(element);
+        if (target.childNodes.length <= 0) {
+          target.parentElement?.removeChild(target);
+        }
+      });
+    };
+  }, [target, element]);
+
+  if (!ready) {
+    return null;
+  }
+
+  if (!target || !element) {
+    return null;
+  }
+
+  const ourProps = { ref: portalRef };
+  return createPortal(
+    render({
+      ourProps,
+      theirProps,
+      defaultTag: DEFAULT_PORTAL_TAG,
+      name: 'Portal',
+    }),
+    element,
+  );
+});
+
+const Portal = Object.assign(PortalRoot, { Group: PortalGroup });
+
+export { Portal };
+export default Portal;
