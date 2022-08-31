@@ -1,3 +1,4 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors');
 const plugin = require('tailwindcss/plugin');
 
@@ -51,7 +52,7 @@ module.exports = {
    */
   theme: {
     fontFamily: {
-      'sans': 'Helvetica, Arial, sans-serif',
+      roboto: ['"Roboto"', ...defaultTheme.fontFamily.sans],
     },
     fontSize: {
       ...FontSize,
@@ -64,6 +65,12 @@ module.exports = {
     }),
     textColor: theme => ({
       ...theme('colors'),
+
+      title: intentColors.light[800],
+      content: intentColors.light[800],
+      description: intentColors.light[600],
+      comment: intentColors.light[500],
+      link: intentColors.primary[500]
     }),
     boxShadow: {
       DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
