@@ -1,10 +1,10 @@
-export function match<TValue extends string | number = string, TReturnValue = unknown, TArgument = any>(
-  value: TValue,
-  lookup: Record<TValue, TReturnValue | ((...args: TArgument[]) => TReturnValue)>,
-  ...args: TArgument[]
-): TReturnValue {
-  if (value in lookup) {
-    const returnValue = lookup[value];
+export function match<Key extends string | number, ReturnValue = unknown, Argument = any>(
+  key: Key,
+  lookup: Record<Key, ReturnValue | ((...args: Argument[]) => ReturnValue)>,
+  ...args: Argument[]
+): ReturnValue {
+  if (key in lookup) {
+    const returnValue = lookup[key];
     return typeof returnValue === 'function' ? returnValue(...args) : returnValue;
   }
 
@@ -12,7 +12,7 @@ export function match<TValue extends string | number = string, TReturnValue = un
     .map((key) => `"${key}"`)
     .join(', ');
   const error = new Error(
-    `Tried to handle "${value}" but there is no handler defined. Only defined handlers are: ${errorKeys}.`,
+    `Tried to handle "${key}" but there is no handler defined. Only defined handlers are: ${errorKeys}.`,
   );
 
   if (Error.captureStackTrace) {

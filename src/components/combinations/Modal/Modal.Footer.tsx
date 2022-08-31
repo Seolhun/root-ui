@@ -1,16 +1,16 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const CLASSNAME = 'Root__Modal__Action';
+const CLASSNAME = 'Root__Modal__Footer';
 type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
 type ExtensionProps = ElementProps;
 
-export interface ModalActionProps extends ExtensionProps {
+export interface ModalFooterProps extends ExtensionProps {
   children: React.ReactNode;
 }
 
-function ModalAction({ className, children, ...rests }: ModalActionProps) {
+function ModalFooter({ className, children, ...rests }: ModalFooterProps) {
   return (
     <div {...rests} className={classNames(CLASSNAME, className, 'flex', 'pb-6 px-6', 'rounded-b')}>
       {children}
@@ -18,5 +18,5 @@ function ModalAction({ className, children, ...rests }: ModalActionProps) {
   );
 }
 
-export { ModalAction };
-export default ModalAction;
+export { ModalFooter };
+export default ModalFooter;

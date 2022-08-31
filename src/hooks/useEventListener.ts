@@ -11,12 +11,14 @@ export function useEventListener<K extends keyof WindowEventMap>(
   const listenerRef = useLatestValue(listener);
 
   React.useEffect(() => {
-    function handler(event: WindowEventMap[K]) {
+    function eventHandler(event: WindowEventMap[K]) {
       listenerRef.current(event);
     }
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     element = element ?? window;
-    element.addEventListener(type, handler as any, options);
-    return () => element?.removeEventListener(type, handler as any, options);
+    element.addEventListener(type, eventHandler as any, options);
+    return () => {
+      element?.removeEventListener(type, eventHandler as any, options);
+    };
   }, [element, type, options]);
 }

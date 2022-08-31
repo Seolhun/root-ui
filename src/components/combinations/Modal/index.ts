@@ -1,17 +1,16 @@
 export * from './Modal.types';
-export * from './Modal.Context';
 
 export * from './Modal';
 import BaseModal from './Modal';
 export * from './Modal.Content';
 import Content from './Modal.Content';
-export * from './Modal.Action';
-import Action from './Modal.Action';
+export * from './Modal.Footer';
+import Footer from './Modal.Footer';
 
 const Modal = {
   Base: BaseModal,
   Content,
-  Action,
+  Footer,
 };
 
 export { Modal };

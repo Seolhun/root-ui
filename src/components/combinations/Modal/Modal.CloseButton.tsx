@@ -12,7 +12,7 @@ type ExtensionProps = ElementProps;
 export type ModalCloseButtonProps = ExtensionProps;
 
 function ModalCloseButton({ className, ...rests }: ModalCloseButtonProps) {
-  const onHide = useModalContext();
+  const { onHide } = useModalContext();
 
   return (
     <button

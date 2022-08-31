@@ -4,8 +4,8 @@ import { Button } from '@/components/atomics';
 import { H4 } from '@/components/typography';
 import { storiesScaleOptions } from '../../../stories';
 import { Modal } from './Modal';
-import ModalAction from './Modal.Action';
-import ModalContent from './Modal.Content';
+import { ModalFooter } from './Modal.Footer';
+import { ModalContent } from './Modal.Content';
 
 export default {
   title: 'Combination/Modal',
@@ -42,7 +42,7 @@ const Modals = ({ Title, Content, Action, ...rests }) => {
 
       <Modal {...rests} show={isShow} onHide={onHide} onConfirm={onConfirm}>
         <ModalContent Title={<H4>{Title}</H4>}>{Content}</ModalContent>
-        <ModalAction>{Action}</ModalAction>
+        <ModalFooter>{Action}</ModalFooter>
       </Modal>
     </section>
   );

@@ -1,6 +1,8 @@
 import React from 'react';
 
-const CLASSNAME = 'Root__Window__LockScroll';
+import { GlobalRootClassNameMap } from '@/constants';
+
+const CLASSNAME = GlobalRootClassNameMap.WindowLockScroll;
 const useLockScroll = (isVisible: boolean): void => {
   React.useEffect(() => {
     if (isVisible) {

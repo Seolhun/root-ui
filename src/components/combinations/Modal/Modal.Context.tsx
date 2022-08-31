@@ -1,10 +1,16 @@
 import React from 'react';
 
-import { ModalOnHideCallback } from './Modal.types';
+import { ModalReducerState } from './Modal.reducer';
+import { ModalOnHideCallback, ModalSetIdCallback } from './Modal.types';
 
-export type ModalContextValues = ModalOnHideCallback;
+export interface ModalContextValues {
+  setModalId: ModalSetIdCallback;
+  visible: boolean;
+  state: ModalReducerState;
+  onHide: ModalOnHideCallback;
+}
 
-const ModalContext = React.createContext<ModalContextValues>(() => null);
+export const ModalContext = React.createContext<ModalContextValues>(null as any);
 
 export function useModalContext() {
   return React.useContext(ModalContext);
@@ -15,11 +21,3 @@ export interface ModalContextProviderProps {
 
   onHide: ModalOnHideCallback;
 }
-
-export function ModalContextProvider({ children, onHide }: ModalContextProviderProps) {
-  const contextValue = React.useMemo(() => onHide, [onHide]);
-
-  return <ModalContext.Provider value={contextValue}>{children}</ModalContext.Provider>;
-}
-
-export default ModalContextProvider;

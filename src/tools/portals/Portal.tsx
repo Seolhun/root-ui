@@ -1,20 +1,22 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 
-import { Props, UnknownObject } from '@/types';
+import { RootUIProps, UnknownObject } from '@/types';
 import { optionalRef, useIsoMorphicEffect, useOwnerDocument, useSyncRefs, useServerHandoffComplete } from '@/hooks';
-import { isServer, toMicrotask, forwardRefWithAs, render } from '@/utils';
+import { isServer, toMicrotask } from '@/utils';
+import { forwardRefWithAs, render } from '@/core';
+import { GlobalRootDataAttributeMap } from '@/constants';
+
 import PortalGroup from './PortalGroup';
 import usePortalTarget from './usePortalTarget';
 
 const DEFAULT_PORTAL_TAG = React.Fragment;
 type PortalRenderPropArg = UnknownObject;
 
-const PortalRoot = forwardRefWithAs(function Portal<TTag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
-  props: Props<TTag, PortalRenderPropArg>,
+const PortalRoot = forwardRefWithAs(function Portal<Tag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
+  props: RootUIProps<Tag, PortalRenderPropArg>,
   ref: React.Ref<HTMLElement>,
 ) {
-  const theirProps = props;
   const internalPortalRootRef = React.useRef<HTMLElement | null>(null);
   const portalRef = useSyncRefs(
     optionalRef<typeof internalPortalRootRef['current']>((ref) => {
@@ -22,15 +24,16 @@ const PortalRoot = forwardRefWithAs(function Portal<TTag extends React.ElementTy
     }),
     ref,
   );
+
   const ownerDocument = useOwnerDocument(internalPortalRootRef);
   const target = usePortalTarget(internalPortalRootRef);
   const [element] = React.useState<HTMLDivElement | null>(() =>
     isServer ? null : ownerDocument?.createElement('div') ?? null,
   );
 
-  const ready = useServerHandoffComplete();
-
+  const isReady = useServerHandoffComplete();
   const trulyUnmounted = React.useRef(false);
+
   useIsoMorphicEffect(() => {
     trulyUnmounted.current = false;
 
@@ -38,7 +41,7 @@ const PortalRoot = forwardRefWithAs(function Portal<TTag extends React.ElementTy
 
     // Element already exists in target, always calling target.appendChild(element) will cause a brief unmount/remount.
     if (!target.contains(element)) {
-      element.setAttribute('data-headlessui-portal', '');
+      element.setAttribute(GlobalRootDataAttributeMap.Portal, '');
       target.appendChild(element);
     }
 
@@ -56,7 +59,7 @@ const PortalRoot = forwardRefWithAs(function Portal<TTag extends React.ElementTy
     };
   }, [target, element]);
 
-  if (!ready) {
+  if (!isReady) {
     return null;
   }
 
@@ -68,7 +71,7 @@ const PortalRoot = forwardRefWithAs(function Portal<TTag extends React.ElementTy
   return createPortal(
     render({
       ourProps,
-      theirProps,
+      theirProps: props,
       defaultTag: DEFAULT_PORTAL_TAG,
       name: 'Portal',
     }),

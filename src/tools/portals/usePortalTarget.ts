@@ -3,6 +3,7 @@ import React from 'react';
 import { useForcePortalRoot } from '@/tools';
 import { useOwnerDocument } from '@/hooks';
 import { isServer } from '@/utils';
+import { GlobalRootDataAttributeMap } from '@/constants';
 
 import { PortalGroupContext } from './PortalGroup';
 
@@ -14,32 +15,45 @@ function usePortalTarget(ref: React.MutableRefObject<HTMLElement | null>): HTMLE
 
   const [target, setTarget] = React.useState(() => {
     // Group context is used, but still null
-    if (!forceInRoot && groupTarget !== null) return null;
-
+    if (!forceInRoot && groupTarget !== null) {
+      return null;
+    }
     // No group context is used, let's create a default portal root
-    if (isServer) return null;
-    const existingRoot = ownerDocument?.getElementById('headlessui-portal-root');
-    if (existingRoot) return existingRoot;
+    if (isServer) {
+      return null;
+    }
 
-    if (ownerDocument === null) return null;
+    const existingRoot = ownerDocument?.getElementById(GlobalRootDataAttributeMap.PortalRoot);
+    if (existingRoot) {
+      return existingRoot;
+    }
 
-    const root = ownerDocument.createElement('div');
-    root.setAttribute('id', 'headlessui-portal-root');
-    return ownerDocument.body.appendChild(root);
+    if (ownerDocument === null) {
+      return null;
+    }
+
+    const createdPortalRoot = ownerDocument.createElement('div');
+    createdPortalRoot.setAttribute('id', GlobalRootDataAttributeMap.PortalRoot);
+    return ownerDocument.body.appendChild(createdPortalRoot);
   });
 
   // Ensure the portal root is always in the DOM
   React.useEffect(() => {
-    if (target === null) return;
-
+    if (target === null) {
+      return;
+    }
     if (!ownerDocument?.body.contains(target)) {
       ownerDocument?.body.appendChild(target);
     }
   }, [target, ownerDocument]);
 
   React.useEffect(() => {
-    if (forceInRoot) return;
-    if (groupTarget === null) return;
+    if (forceInRoot) {
+      return;
+    }
+    if (groupTarget === null) {
+      return;
+    }
     setTarget(groupTarget.current);
   }, [groupTarget, setTarget, forceInRoot]);
 
