@@ -1,11 +1,11 @@
 import { disposables } from './disposables';
 import { match } from './match';
-import { getOwnerDocument } from './getOwnerDocument';
+import { getOwnerDocumentBy } from './getOwnerDocumentBy';
 
 /**
  * @see https://stackoverflow.com/a/30753870
  */
-const focusableSelector = [
+const FOCUSABLE_SELECTORS = [
   '[contentEditable=true]',
   '[tabindex]',
   'a[href]',
@@ -16,14 +16,7 @@ const focusableSelector = [
   'select:not([disabled])',
   'textarea:not([disabled])',
 ]
-  .map(
-    process.env.NODE_ENV === 'test'
-      ? // TODO: Remove this once JSDOM fixes the issue where an element that is
-        // "hidden" can be the document.activeElement, because this is not possible
-        // in real browsers.
-        (selector) => `${selector}:not([tabindex='-1']):not([style*='display: none'])`
-      : (selector) => `${selector}:not([tabindex='-1'])`,
-  )
+  .map((selector) => `${selector}:not([tabindex='-1'])`)
   .join(',');
 
 export enum Focus {
@@ -61,7 +54,7 @@ export function getFocusableElements(container: HTMLElement | null = document.bo
   if (container == null) {
     return [];
   }
-  return Array.from(container.querySelectorAll<HTMLElement>(focusableSelector));
+  return Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTORS));
 }
 
 export enum FocusableMode {
@@ -72,16 +65,18 @@ export enum FocusableMode {
 }
 
 export function isFocusableElement(element: HTMLElement, mode: FocusableMode = FocusableMode.Strict) {
-  if (element === getOwnerDocument(element)?.body) return false;
+  if (element === getOwnerDocumentBy(element)?.body) return false;
 
   return match(mode, {
     [FocusableMode.Strict]() {
-      return element.matches(focusableSelector);
+      return element.matches(FOCUSABLE_SELECTORS);
     },
     [FocusableMode.Loose]() {
       let next: HTMLElement | null = element;
       while (next !== null) {
-        if (next.matches(focusableSelector)) return true;
+        if (next.matches(FOCUSABLE_SELECTORS)) {
+          return true;
+        }
         next = next.parentElement;
       }
       return false;
@@ -90,7 +85,7 @@ export function isFocusableElement(element: HTMLElement, mode: FocusableMode = F
 }
 
 export function restoreFocusIfNecessary(element: HTMLElement | null) {
-  const ownerDocument = getOwnerDocument(element);
+  const ownerDocument = getOwnerDocumentBy(element);
   disposables().nextFrame(() => {
     if (ownerDocument && !isFocusableElement(ownerDocument.activeElement as HTMLElement, FocusableMode.Strict)) {
       focusElement(element);
@@ -116,12 +111,16 @@ export function sortByDomNode<T>(
     const a = resolveKey(aItem);
     const z = resolveKey(zItem);
 
-    if (a === null || z === null) return 0;
-
+    if (a === null || z === null) {
+      return 0;
+    }
     const position = a.compareDocumentPosition(z);
-
-    if (position & Node.DOCUMENT_POSITION_FOLLOWING) return -1;
-    if (position & Node.DOCUMENT_POSITION_PRECEDING) return 1;
+    if (position & Node.DOCUMENT_POSITION_FOLLOWING) {
+      return -1;
+    }
+    if (position & Node.DOCUMENT_POSITION_PRECEDING) {
+      return 1;
+    }
     return 0;
   });
 }
@@ -176,13 +175,20 @@ export function focusIn(
   let next: HTMLElement | undefined = undefined;
   do {
     // Guard against infinite loops
-    if (offset >= totalElementsCount || offset + totalElementsCount <= 0) return FocusResult.Error;
+    if (offset >= totalElementsCount || offset + totalElementsCount <= 0) {
+      return FocusResult.Error;
+    }
+
     let nextIdx = startIndex + offset;
     if (focus & Focus.WrapAround) {
       nextIdx = (nextIdx + totalElementsCount) % totalElementsCount;
     } else {
-      if (nextIdx < 0) return FocusResult.Underflow;
-      if (nextIdx >= totalElementsCount) return FocusResult.Overflow;
+      if (nextIdx < 0) {
+        return FocusResult.Underflow;
+      }
+      if (nextIdx >= totalElementsCount) {
+        return FocusResult.Overflow;
+      }
     }
     next = elements[nextIdx];
     // Try the focus the next element, might not work if it is "hidden" to the user.

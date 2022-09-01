@@ -1,11 +1,13 @@
 import React from 'react';
 
 import { Button } from '@/components/atomics';
-import { H4 } from '@/components/typography';
-import { storiesScaleOptions } from '../../../stories';
+import { useDisclosure } from '@/hooks';
+import { storiesScaleOptions } from '@/stories';
+
 import { Modal } from './Modal';
-import { ModalFooter } from './Modal.Footer';
+import { ModalHeader } from './Modal.Header';
 import { ModalContent } from './Modal.Content';
+import { ModalFooter } from './Modal.Footer';
 
 export default {
   title: 'Combination/Modal',
@@ -22,26 +24,20 @@ export default {
 };
 
 const Modals = ({ Title, Content, Action, ...rests }) => {
-  const [isShow, setShow] = React.useState(false);
-
-  const onToggle = React.useCallback(() => {
-    setShow((prevShow) => !prevShow);
-  }, []);
-
-  const onHide = React.useCallback(() => {
-    setShow(false);
-  }, []);
+  const { isShow, onClose, onToggle } = useDisclosure();
 
   const onConfirm = React.useCallback(() => {
-    onHide();
-  }, [onHide]);
+    console.info('onConfirm');
+    return false;
+  }, []);
 
   return (
     <section style={{ height: '2000px' }}>
       <Button onClick={onToggle}>Toggle modal</Button>
 
-      <Modal {...rests} show={isShow} onHide={onHide} onConfirm={onConfirm}>
-        <ModalContent Title={<H4>{Title}</H4>}>{Content}</ModalContent>
+      <Modal {...rests} show={isShow} onClose={onClose} onConfirm={onConfirm}>
+        <ModalHeader>{Title}</ModalHeader>
+        <ModalContent>{Content}</ModalContent>
         <ModalFooter>{Action}</ModalFooter>
       </Modal>
     </section>
@@ -59,5 +55,42 @@ export const LongModalsStories = Modals.bind({});
 LongModalsStories.args = {
   Title: Array.from(Array(1000), () => 'Title').join(' '),
   Content: Array.from(Array(1000), () => 'Content').join(' '),
+  Action: 'Action',
+};
+
+const InnerModals = ({ Title, Content, Action, ...rests }) => {
+  const { isShow, onClose, onToggle } = useDisclosure();
+  const { isShow: isShowModal, onClose: onCloseModal, onToggle: onToggleModal } = useDisclosure();
+
+  const onConfirm = React.useCallback(() => {
+    console.info('onConfirm');
+    return false;
+  }, []);
+
+  return (
+    <section style={{ height: '2000px' }}>
+      <Button onClick={onToggle}>Toggle modal</Button>
+
+      <Modal {...rests} show={isShow} onClose={onClose} onConfirm={onConfirm}>
+        <ModalHeader>{Title}</ModalHeader>
+        <ModalContent>{Content}</ModalContent>
+        <ModalFooter>
+          <Button onClick={onToggleModal}>Toggle Modal 2</Button>
+        </ModalFooter>
+      </Modal>
+
+      <Modal {...rests} show={isShowModal} onClose={onCloseModal} onConfirm={onConfirm}>
+        <ModalHeader>{Title}</ModalHeader>
+        <ModalContent>{Content}</ModalContent>
+        <ModalFooter>{Action}</ModalFooter>
+      </Modal>
+    </section>
+  );
+};
+
+export const InnerModalsStories = InnerModals.bind({});
+InnerModalsStories.args = {
+  Title: 'Title',
+  Content: 'Content',
   Action: 'Action',
 };

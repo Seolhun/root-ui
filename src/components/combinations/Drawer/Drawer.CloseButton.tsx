@@ -12,7 +12,7 @@ type ExtensionProps = ElementProps;
 export type DrawerCloseButtonProps = ExtensionProps;
 
 function DrawerCloseButton({ className, ...rests }: DrawerCloseButtonProps) {
-  const onHide = useDrawerContext();
+  const onClose = useDrawerContext();
 
   return (
     <button
@@ -42,7 +42,7 @@ function DrawerCloseButton({ className, ...rests }: DrawerCloseButtonProps) {
         }),
         'rounded-lg',
       )}
-      onClick={onHide}
+      onClick={onClose}
     >
       <svg
         aria-hidden="true"

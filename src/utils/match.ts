@@ -8,13 +8,10 @@ export function match<Key extends string | number, ReturnValue = unknown, Argume
     return typeof returnValue === 'function' ? returnValue(...args) : returnValue;
   }
 
-  const errorKeys = Object.keys(lookup)
-    .map((key) => `"${key}"`)
-    .join(', ');
-  const error = new Error(
-    `Tried to handle "${key}" but there is no handler defined. Only defined handlers are: ${errorKeys}.`,
-  );
-
+  const errorKeys = Object.keys(lookup).map((key) => `"${key}"`);
+  const joinedErrorKeys = errorKeys.join(', ');
+  const errorMessage = `Tried to handle "${key}" but there is no handler defined. Only defined handlers are: ${joinedErrorKeys}.`;
+  const error = new Error(errorMessage);
   if (Error.captureStackTrace) {
     Error.captureStackTrace(error, match);
   }

@@ -7,8 +7,8 @@ interface ForcePortalRootProps {
 
 const ForcePortalRootContext = React.createContext(false);
 
-export function ForcePortalRoot(props: ForcePortalRootProps) {
-  return <ForcePortalRootContext.Provider value={props.force}>{props.children}</ForcePortalRootContext.Provider>;
+export function ForcePortalRoot({ children, force }: ForcePortalRootProps) {
+  return <ForcePortalRootContext.Provider value={force}>{children}</ForcePortalRootContext.Provider>;
 }
 
 export function useForcePortalRoot() {

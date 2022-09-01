@@ -13,11 +13,11 @@ export function useDrawerContext() {
 export interface DrawerContextProviderProps {
   children: React.ReactNode;
 
-  onHide: DrawerOnHideCallback;
+  onClose: DrawerOnHideCallback;
 }
 
-export function DrawerContextProvider({ children, onHide }: DrawerContextProviderProps) {
-  const contextValue = React.useMemo(() => onHide, [onHide]);
+export function DrawerContextProvider({ children, onClose }: DrawerContextProviderProps) {
+  const contextValue = React.useMemo(() => onClose, [onClose]);
 
   return <DrawerContext.Provider value={contextValue}>{children}</DrawerContext.Provider>;
 }

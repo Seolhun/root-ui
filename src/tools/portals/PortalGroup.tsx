@@ -15,9 +15,10 @@ const PortalGroup = forwardRefWithAs(function Group<Tag extends React.ElementTyp
   },
   ref: React.Ref<HTMLElement>,
 ) {
-  const { target, ...theirProps } = props;
+  const { target, ...rests } = props;
   const groupRef = useSyncRefs(ref);
   const ourProps = { ref: groupRef };
+  const theirProps = rests;
 
   return (
     <PortalGroupContext.Provider value={target}>

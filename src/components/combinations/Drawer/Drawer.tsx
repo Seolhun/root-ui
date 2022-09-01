@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { Card } from '@/components/atomics';
 import { RootScale, toIntentColor, toScaleMatch } from '@/system';
-import { useLockScroll, useDocumentEvent } from '@/hooks';
+import { useDocumentEvent, useLockScrollClassName } from '@/hooks';
 import { DrawerContextProvider } from './Drawer.Context';
 import { DrawerPlacement } from './Drawer.types';
 
@@ -35,7 +35,7 @@ export interface DrawerProps extends ExtensionProps {
   /**
    * To close Drawer (Escape)
    */
-  onHide: () => void;
+  onClose: () => void;
 
   /**
    * To confirm Drawer (Enter)
@@ -49,18 +49,18 @@ const Drawer = ({
   scale = 'md',
   placement = 'right',
   show,
-  onHide,
+  onClose,
   onConfirm,
   ...rests
 }: DrawerProps) => {
   const ref = React.useRef<Element>(null);
 
-  useLockScroll(show);
+  useLockScrollClassName(show);
 
   useDocumentEvent('keydown', (e) => {
     switch (e.key) {
       case 'Escape': {
-        onHide();
+        onClose();
         break;
       }
       case 'Enter': {
@@ -71,7 +71,7 @@ const Drawer = ({
   });
 
   return (
-    <DrawerContextProvider onHide={onHide}>
+    <DrawerContextProvider onClose={onClose}>
       <div
         ref={ref}
         className={classNames(

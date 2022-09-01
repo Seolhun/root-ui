@@ -68,10 +68,11 @@ const PortalRoot = forwardRefWithAs(function Portal<Tag extends React.ElementTyp
   }
 
   const ourProps = { ref: portalRef };
+  const theirProps = props;
   return createPortal(
     render({
       ourProps,
-      theirProps: props,
+      theirProps,
       defaultTag: DEFAULT_PORTAL_TAG,
       name: 'Portal',
     }),

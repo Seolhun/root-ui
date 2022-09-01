@@ -31,11 +31,11 @@ type CleanProps<
   : Omit<PropsOf<Tag>, OmitableKeyProps | PropsWeControl>;
 
 // Add certain props that we control
-type OurProps<Tag extends RootUIReactTag, Slot> = {
+export interface RootUIOurProps<Tag extends RootUIReactTag, Slot> {
   as?: Tag;
   children?: React.ReactNode | ((bag: Slot) => React.ReactElement);
   refName?: string;
-};
+}
 
 // Conditionally override the `className`, to also allow for a function
 // if and only if the PropsOf<Tag> already defines `className`.
@@ -51,7 +51,7 @@ export type RootUIProps<
   Tag extends RootUIReactTag,
   Slot = UnknownObject,
   OmitableKeyProps extends PropertyKey = RootUIUniqueKey,
-> = CleanProps<Tag, OmitableKeyProps> & OurProps<Tag, Slot> & ClassNameOverride<Tag, Slot>;
+> = CleanProps<Tag, OmitableKeyProps> & RootUIOurProps<Tag, Slot> & ClassNameOverride<Tag, Slot>;
 
 type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
 

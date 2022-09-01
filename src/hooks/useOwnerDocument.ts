@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
-import { getOwnerDocument } from '@/utils/getOwnerDocument';
+import { getOwnerDocumentBy } from '@/utils/getOwnerDocumentBy';
 
-export function useOwnerDocument(...args: Parameters<typeof getOwnerDocument>) {
-  return useMemo(() => getOwnerDocument(...args), args);
+export function useOwnerDocument(...args: Parameters<typeof getOwnerDocumentBy>) {
+  return useMemo(() => getOwnerDocumentBy(...args), [args]);
 }
