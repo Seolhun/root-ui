@@ -14,9 +14,10 @@ export enum HiddenFeatures {
   Hidden = 1 << 2,
 }
 
-export const Hidden = forwardRefWithAs(function VisuallyHidden<
-  Tag extends ElementType = typeof DEFAULT_VISUALLY_HIDDEN_TAG,
->(props: RootUIProps<Tag> & { features?: HiddenFeatures }, ref: Ref<HTMLElement>) {
+const _Hidden = <Tag extends ElementType = typeof DEFAULT_VISUALLY_HIDDEN_TAG>(
+  props: RootUIProps<Tag> & { features?: HiddenFeatures },
+  ref: Ref<HTMLElement>,
+) => {
   const { features = HiddenFeatures.None, ...theirProps } = props;
   const ourProps = {
     ref,
@@ -45,4 +46,9 @@ export const Hidden = forwardRefWithAs(function VisuallyHidden<
     defaultTag: DEFAULT_VISUALLY_HIDDEN_TAG,
     name: 'Hidden',
   });
-});
+};
+
+const Hidden = forwardRefWithAs(_Hidden);
+
+export { Hidden };
+export default Hidden;

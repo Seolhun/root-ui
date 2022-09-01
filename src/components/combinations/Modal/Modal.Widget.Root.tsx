@@ -77,6 +77,7 @@ const _ModalRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
 
   const [state, dispatch] = React.useReducer(rootModalReducer, initState);
   const [nestedModalCount, setNestedModalCount] = React.useState(0);
+  console.debug(nestedModalCount);
 
   const isReady = useServerHandoffComplete();
   const enabled = isReady ? show === true : false;
