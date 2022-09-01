@@ -36,7 +36,7 @@ export interface ButtonProps extends ExtensionProps {
   intentWeight?: IntentWeightType;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = React.forwardRef<Element, ButtonProps>(
   ({ className, children, scale = 'md', intent = 'primary', intentWeight = 600, ...rests }, ref) => {
     return (
       <button

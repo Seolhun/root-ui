@@ -1,18 +1,25 @@
-export * from './Modal.types';
-export * from './Modal.Context';
+export * from './Modal.Widget.types';
+export * from './Modal.Widget.Root';
+export * from './Modal.Widget.Overlay';
+export * from './Modal.Widget.Backdrop';
+export * from './Modal.Widget.Panel';
+export * from './Modal.Widget.Title';
 
-export * from './Modal';
-import BaseModal from './Modal';
+export * from './Modal.Header';
 export * from './Modal.Content';
-import Content from './Modal.Content';
-export * from './Modal.Action';
-import Action from './Modal.Action';
+export * from './Modal.Footer';
 
-const Modal = {
-  Base: BaseModal,
-  Content,
-  Action,
-};
+import BaseModal from './Modal';
+import ModalHeader from './Modal.Header';
+import ModalContent from './Modal.Content';
+import ModalFooter from './Modal.Footer';
+import { ModalWidget } from './Modal.Widget';
 
-export { Modal };
-export default Modal;
+const Modal = Object.assign(BaseModal, {
+  Header: ModalHeader,
+  Content: ModalContent,
+  Footer: ModalFooter,
+});
+
+export { Modal, ModalWidget };
+export default ModalWidget;

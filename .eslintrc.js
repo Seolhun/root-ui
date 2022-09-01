@@ -9,7 +9,6 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
     'plugin:react/jsx-runtime',
@@ -18,7 +17,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'eslint-plugin'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.storybook.json',
+    project: './tsconfig.eslint.json',
     ecmaVersion: 6,
     sourceType: 'module',
     ecmaFeatures: {

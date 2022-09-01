@@ -1,6 +1,7 @@
 export * from './breadcrumb';
 export * from './button';
 export * from './card';
+export * from './grid';
 export * from './loading';
 export * from './progressbar';
 export * from './select';

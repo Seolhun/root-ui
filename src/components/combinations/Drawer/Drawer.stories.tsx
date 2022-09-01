@@ -2,7 +2,8 @@ import React from 'react';
 
 import { Button } from '@/components/atomics';
 import { H4 } from '@/components/typography';
-import { storiesScaleOptions } from '../../../stories';
+import { storiesScaleOptions } from '@/stories';
+
 import { Drawer } from './Drawer';
 import { DrawerFooter } from './Drawer.Footer';
 import { DrawerHeader } from './Drawer.Header';
@@ -29,19 +30,19 @@ const Drawers = ({ Header, Body, Footer, ...rests }) => {
     setShow((prevShow) => !prevShow);
   }, []);
 
-  const onHide = React.useCallback(() => {
+  const onClose = React.useCallback(() => {
     setShow(false);
   }, []);
 
   const onConfirm = React.useCallback(() => {
-    onHide();
-  }, [onHide]);
+    onClose();
+  }, [onClose]);
 
   return (
     <section style={{ height: '2000px' }}>
       <Button onClick={onToggle}>Toggle Drawer</Button>
 
-      <Drawer {...rests} show={isShow} onHide={onHide} onConfirm={onConfirm}>
+      <Drawer {...rests} show={isShow} onClose={onClose} onConfirm={onConfirm}>
         <DrawerHeader>{<H4>{Header}</H4>}</DrawerHeader>
         <DrawerBody>{Body}</DrawerBody>
         <DrawerFooter>{Footer}</DrawerFooter>

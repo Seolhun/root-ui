@@ -1,18 +1,16 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { Card } from '@/components/atomics';
 import { RootScale, toIntentColor, toScaleMatch } from '@/system';
-import { useLockScroll, useDocumentEvent } from '@/hooks';
-
-import ModalContextProvider from './Modal.Context';
+import ModalWidget from './Modal.Widget';
+import { Card } from '@/components/atomics';
+import { ModalRootProps } from './Modal.Widget.Root';
 
 const CLASSNAME = 'Root__Modal';
 type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
-type ExtensionProps = ElementProps;
 
-export interface ModalProps extends ExtensionProps {
+export interface ModalProps extends ModalRootProps {
   children: React.ReactNode;
 
   /**
@@ -20,48 +18,22 @@ export interface ModalProps extends ExtensionProps {
    * @default md
    */
   scale?: RootScale;
-
-  /**
-   * To show modal
-   */
-  show: boolean;
-
-  /**
-   * To close modal (Escape)
-   */
-  onHide: () => void;
-
-  /**
-   * To confirm modal (Enter)
-   */
-  onConfirm?: () => void;
 }
 
-const Modal = ({ className, children, scale = 'md', show, onHide, onConfirm, ...rests }: ModalProps) => {
-  const ref = React.useRef<Element>(null);
-
-  useLockScroll(show);
-
-  useDocumentEvent('keydown', (e) => {
-    switch (e.key) {
-      case 'Escape': {
-        onHide();
-        break;
-      }
-      case 'Enter': {
-        onConfirm?.();
-        break;
-      }
-    }
-  });
-
+const Modal = ({
+  className,
+  children,
+  scale = 'md',
+  show,
+  onClose,
+  onKeyDown,
+  initialFocus,
+  ...rests
+}: ModalProps & ElementProps) => {
   return (
-    <ModalContextProvider onHide={onHide}>
-      <div
-        ref={ref}
+    <ModalWidget className="relative" show={show} onClose={onClose} onKeyDown={onKeyDown} initialFocus={initialFocus}>
+      <ModalWidget.Overlay
         className={classNames(
-          CLASSNAME,
-          className,
           {
             hidden: !show,
           },
@@ -72,12 +44,10 @@ const Modal = ({ className, children, scale = 'md', show, onHide, onConfirm, ...
           'z-50',
         )}
       >
-        <div
+        <ModalWidget.Backdrop
           tabIndex={-1}
           aria-hidden={show ? 'true' : 'false'}
           className={classNames(
-            CLASSNAME,
-            className,
             'fixed',
             'inset-0 md:inset-0',
             'w-full h-full',
@@ -89,25 +59,28 @@ const Modal = ({ className, children, scale = 'md', show, onHide, onConfirm, ...
             'opacity-60',
           )}
         />
-        <Card
-          {...rests}
-          ref={ref}
-          className={classNames(
-            'relative',
-            'm-auto',
-            toScaleMatch(() => 'w-full md:w-4/12')(() => 'w-full md:w-6/12')(() => 'w-full md:w-8/12')(scale),
-            'h-full md:h-auto',
-            'md:my-12',
-            'rounded-none md:rounded-lg',
-            {
-              'animate-[scale-up_0.2s_ease-in-out]': show,
-            },
-          )}
-        >
-          {children}
-        </Card>
-      </div>
-    </ModalContextProvider>
+        <ModalWidget.Panel>
+          <Card
+            {...rests}
+            className={classNames(
+              CLASSNAME,
+              className,
+              'relative',
+              'm-auto',
+              toScaleMatch(() => 'w-full md:w-4/12')(() => 'w-full md:w-6/12')(() => 'w-full md:w-8/12')(scale),
+              'h-full md:h-auto',
+              'md:my-12',
+              'rounded-none md:rounded-lg',
+              {
+                'animate-[scale-up_0.2s_ease-in-out]': show,
+              },
+            )}
+          >
+            {children}
+          </Card>
+        </ModalWidget.Panel>
+      </ModalWidget.Overlay>
+    </ModalWidget>
   );
 };
 
