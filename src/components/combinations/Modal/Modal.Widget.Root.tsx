@@ -78,9 +78,9 @@ const _ModalWidgetRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
   const hasParentModal = React.useContext(ModalContext) !== null;
   const position: ModalPosition = hasParentModal ? 'parent' : 'leaf';
 
-  const setModalTitleId = useEvent((id: string | null) =>
-    dispatch({ type: ModalActionTypeMap.SET_MODAL_TITLE_ID, payload: id }),
-  );
+  const setModalTitleId = useEvent((id: string | null) => {
+    return dispatch({ type: ModalActionTypeMap.SET_MODAL_TITLE_ID, payload: id });
+  });
 
   const onCloseModal = useEvent(() => onClose());
 
