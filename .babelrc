@@ -7,12 +7,5 @@
   "plugins": [
     "@babel/plugin-transform-react-jsx",
     "@babel/plugin-transform-runtime"
-  ],
-  "env": {
-    "production": {
-      "presets": [
-        "minify"
-      ]
-    }
-  }
+  ]
 }
