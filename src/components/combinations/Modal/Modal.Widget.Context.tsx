@@ -13,6 +13,7 @@ export type ModalContextValues = [
 ];
 
 export const ModalContext = React.createContext<ModalContextValues>(null as any);
+ModalContext.displayName = 'ModalContext';
 
 export function useModalContext(component: string) {
   const context = React.useContext(ModalContext);

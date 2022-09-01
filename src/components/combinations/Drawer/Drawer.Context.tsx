@@ -5,6 +5,7 @@ import { DrawerOnHideCallback } from './Drawer.types';
 export type DrawerContextValues = DrawerOnHideCallback;
 
 const DrawerContext = React.createContext<DrawerContextValues>(() => null);
+DrawerContext.displayName = 'DrawerContext';
 
 export function useDrawerContext() {
   return React.useContext(DrawerContext);

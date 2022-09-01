@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { FocusableMode, isFocusableElement, isFunction } from '../utils';
+import { isFunction } from '@/utils';
+import { FocusableMode, isFocusableElement } from '@/tools/focus-trap/FocusManagements';
+
 import { useDocumentEvent } from './useDocumentEvent';
 
 type Container = React.MutableRefObject<HTMLElement | null> | HTMLElement | null;

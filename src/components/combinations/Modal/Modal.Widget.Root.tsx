@@ -39,6 +39,9 @@ export interface ModalRootProps {
    */
   onKeyDown?: (e: React.KeyboardEvent<Element>) => void;
 
+  /**
+   * Init focus element
+   */
   initialFocus?: React.MutableRefObject<HTMLElement | null>;
 }
 
@@ -53,21 +56,12 @@ const initState: ModalReducerState = {
 export interface ModalRootRenderPropArg extends ModalRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'role' | 'aria-modal' | 'aria-labelledby'>;
 
-const _ModalRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
+const _ModalWidgetRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
   props: RootUIProps<Tag, ModalRootRenderPropArg, PropsWeControl> & ModalRootProps & ElementProps,
   ref: React.Ref<Element>,
 ) => {
   const { className, scale = 'md', show, onClose, onKeyDown, initialFocus, ...rests } = props;
   const id = `rootui-modal-${useId()}`;
-
-  // let usesOpenClosedState = useOpenClosed()
-  // if (open === undefined && usesOpenClosedState !== null) {
-  //   // Update the `open` prop based on the open closed state
-  //   open = match(usesOpenClosedState, {
-  //     [State.Open]: true,
-  //     [State.Closed]: false,
-  //   })
-  // }
 
   const containers = React.useRef<Set<React.MutableRefObject<HTMLElement | null>>>(new Set());
   const internalModalRef = React.useRef<Element | null>(null);
@@ -241,7 +235,7 @@ const _ModalRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
   );
 };
 
-const ModalRoot = forwardRefWithAs(_ModalRoot);
+const ModalWidgetRoot = forwardRefWithAs(_ModalWidgetRoot);
 
-export { ModalRoot };
-export default ModalRoot;
+export { ModalWidgetRoot };
+export default ModalWidgetRoot;

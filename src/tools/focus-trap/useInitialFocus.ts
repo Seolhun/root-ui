@@ -1,7 +1,9 @@
 import React from 'react';
 
 import { useIsMounted, useWatch } from '@/hooks';
-import { Focus, focusElement, focusIn, FocusResult, toMicrotask } from '@/utils';
+import { toMicrotask } from '@/utils';
+
+import { Focus, focusElement, focusIn, FocusResult } from './FocusManagements';
 
 function useInitialFocus(
   {

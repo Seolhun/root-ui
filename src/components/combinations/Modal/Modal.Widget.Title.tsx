@@ -12,13 +12,13 @@ type ElementProps = React.HTMLAttributes<Element>;
 
 export interface ModalTitleProps {}
 
-const COMPONENT_NAME = 'Modal__Title';
+const COMPONENT_NAME = 'Root__Modal__Title';
 const DEFAULT_TAG: RootUIReactTag = 'h2';
 
 export interface ModalTitleRenderPropArg extends ModalRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;
 
-const _ModalTitle = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
+const _ModalWidgetTitle = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
   props: RootUIProps<Tag, ModalTitleRenderPropArg, PropsWeControl> & ModalTitleProps & ElementProps,
   ref: React.Ref<Element>,
 ) => {
@@ -51,7 +51,7 @@ const _ModalTitle = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
   });
 };
 
-const ModalTitle = forwardRefWithAs(_ModalTitle);
+const ModalWidgetTitle = forwardRefWithAs(_ModalWidgetTitle);
 
-export { ModalTitle };
-export default ModalTitle;
+export { ModalWidgetTitle };
+export default ModalWidgetTitle;

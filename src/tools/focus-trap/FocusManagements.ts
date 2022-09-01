@@ -1,6 +1,4 @@
-import { disposables } from './disposables';
-import { match } from './match';
-import { getOwnerDocumentBy } from './getOwnerDocumentBy';
+import { disposables, match, getOwnerDocumentBy } from '@/utils';
 
 /**
  * @see https://stackoverflow.com/a/30753870

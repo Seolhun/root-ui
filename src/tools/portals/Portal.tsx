@@ -13,10 +13,10 @@ import usePortalTarget from './usePortalTarget';
 const DEFAULT_PORTAL_TAG = React.Fragment;
 type PortalRenderPropArg = UnknownObject;
 
-const PortalRoot = forwardRefWithAs(function Portal<Tag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
+const _PortalRoot = <Tag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
   props: RootUIProps<Tag, PortalRenderPropArg>,
   ref: React.Ref<HTMLElement>,
-) {
+) => {
   const internalPortalRootRef = React.useRef<HTMLElement | null>(null);
   const portalRef = useSyncRefs(
     optionalRef<typeof internalPortalRootRef['current']>((ref) => {
@@ -78,9 +78,9 @@ const PortalRoot = forwardRefWithAs(function Portal<Tag extends React.ElementTyp
     }),
     element,
   );
-});
+};
 
-const Portal = Object.assign(PortalRoot, { Group: PortalGroup });
+const Portal = Object.assign(forwardRefWithAs(_PortalRoot), { Group: PortalGroup });
 
 export { Portal };
 export default Portal;

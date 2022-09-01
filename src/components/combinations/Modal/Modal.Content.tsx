@@ -1,8 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { toIntentColor } from '@/system';
-
 const CLASSNAME = 'Root__Modal__Content';
 type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
@@ -25,11 +23,7 @@ const ModalContent = React.forwardRef<Element, ModalContentProps & ElementProps>
           'py-2 px-4',
           'border-b',
           'break-all',
-          toIntentColor({
-            prefix: 'border',
-            intent: 'light',
-            intentWeight: 200,
-          }),
+          'border-light-200',
         )}
       >
         {children}

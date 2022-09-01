@@ -1,9 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { toIntentColor } from '@/system';
-import ModalCloseButton from './Modal.CloseButton';
-import ModalWidget from './Modal.Widget';
+import { ModalCloseButton } from './Modal.CloseButton';
+import { ModalWidgetTitle } from './Modal.Widget.Title';
 
 const CLASSNAME = 'Root__Modal__Header';
 type Element = HTMLDivElement;
@@ -24,17 +23,12 @@ const ModalHeader = React.forwardRef<Element, ModalHeaderProps & ElementProps>(
           className,
           'flex justify-between items-start',
           'py-2 px-4',
-          toIntentColor({
-            prefix: 'border',
-            intent: 'light',
-            intentWeight: 200,
-          }),
-          'border-b',
+          'border-light-200 border-b',
           'rounded-t',
         )}
       >
-        <div className="break-all line-clamp-2">
-          <ModalWidget.Title>{children}</ModalWidget.Title>
+        <div className="flex-1 break-all line-clamp-2">
+          <ModalWidgetTitle>{children}</ModalWidgetTitle>
         </div>
         <ModalCloseButton />
       </div>

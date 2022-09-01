@@ -1,5 +1,3 @@
-export * from './FocusManagements';
-
 export * from './compact';
 export * from './getOwnerDocumentBy';
 export * from './disposables';
@@ -11,3 +9,5 @@ export * from './isUndefined';
 export * from './match';
 export * from './omit';
 export * from './toMicrotask';
+
+export * from './Utils.types';
