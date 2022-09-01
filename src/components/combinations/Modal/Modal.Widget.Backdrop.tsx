@@ -12,13 +12,13 @@ type ElementProps = React.HTMLAttributes<Element>;
 
 export interface ModalBackdropProps {}
 
-const COMPONENT_NAME = 'Modal__Backdrop';
+const COMPONENT_NAME = 'Root__Modal__Backdrop';
 const DEFAULT_TAG: RootUIReactTag = 'div';
 
 export interface ModalBackdropRenderPropArg extends ModalRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'aria-hidden'>;
 
-const _ModalBackdrop = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
+const _ModalWidgetBackdrop = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
   props: RootUIProps<Tag, ModalBackdropRenderPropArg, PropsWeControl> & ModalBackdropProps & ElementProps,
   ref: React.Ref<Element>,
 ) => {
@@ -53,7 +53,7 @@ const _ModalBackdrop = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
   });
 };
 
-const ModalBackdrop = forwardRefWithAs(_ModalBackdrop);
+const ModalWidgetBackdrop = forwardRefWithAs(_ModalWidgetBackdrop);
 
-export { ModalBackdrop };
-export default ModalBackdrop;
+export { ModalWidgetBackdrop };
+export default ModalWidgetBackdrop;

@@ -4,10 +4,7 @@ import { Button } from '@/components/atomics';
 import { useDisclosure } from '@/hooks';
 import { storiesScaleOptions } from '@/stories';
 
-import { Modal } from './Modal';
-import { ModalHeader } from './Modal.Header';
-import { ModalContent } from './Modal.Content';
-import { ModalFooter } from './Modal.Footer';
+import Modal from './Modal';
 
 export default {
   title: 'Combination/Modal',
@@ -26,19 +23,19 @@ export default {
 const Modals = ({ Title, Content, Action, ...rests }) => {
   const { isShow, onClose, onToggle } = useDisclosure();
 
-  const onConfirm = React.useCallback(() => {
-    console.info('onConfirm');
-    return false;
-  }, []);
-
   return (
     <section style={{ height: '2000px' }}>
       <Button onClick={onToggle}>Toggle modal</Button>
 
-      <Modal {...rests} show={isShow} onClose={onClose} onConfirm={onConfirm}>
-        <ModalHeader>{Title}</ModalHeader>
-        <ModalContent>{Content}</ModalContent>
-        <ModalFooter>{Action}</ModalFooter>
+      <Modal className="relative z-50" show={isShow} onClose={onClose}>
+        <Modal.Overlay>
+          <Modal.Backdrop />
+          <Modal.Panel {...rests}>
+            <Modal.Header>{Title}</Modal.Header>
+            <Modal.Content>{Content}</Modal.Content>
+            <Modal.Footer>{Action}</Modal.Footer>
+          </Modal.Panel>
+        </Modal.Overlay>
       </Modal>
     </section>
   );
@@ -58,39 +55,61 @@ LongModalsStories.args = {
   Action: 'Action',
 };
 
-const InnerModals = ({ Title, Content, Action, ...rests }) => {
-  const { isShow, onClose, onToggle } = useDisclosure();
-  const { isShow: isShowModal, onClose: onCloseModal, onToggle: onToggleModal } = useDisclosure();
+const InnerModals = ({ ...rests }) => {
+  const { isShow, onClose, onShow } = useDisclosure();
+  const { isShow: isShow2, onClose: onClose2, onShow: onShow2 } = useDisclosure();
+  const { isShow: isShow3, onClose: onClose3, onShow: onShow3 } = useDisclosure();
 
-  const onConfirm = React.useCallback(() => {
-    console.info('onConfirm');
-    return false;
-  }, []);
+  console.debug({
+    isShow,
+    isShow2,
+    isShow3,
+  });
 
   return (
     <section style={{ height: '2000px' }}>
-      <Button onClick={onToggle}>Toggle modal</Button>
+      <Button onClick={onShow}>Toggle modal</Button>
 
-      <Modal {...rests} show={isShow} onClose={onClose} onConfirm={onConfirm}>
-        <ModalHeader>{Title}</ModalHeader>
-        <ModalContent>{Content}</ModalContent>
-        <ModalFooter>
-          <Button onClick={onToggleModal}>Toggle Modal 2</Button>
-        </ModalFooter>
-      </Modal>
+      <Modal className="relative z-50" show={isShow} onClose={onClose}>
+        <Modal.Overlay>
+          <Modal.Backdrop />
 
-      <Modal {...rests} show={isShowModal} onClose={onCloseModal} onConfirm={onConfirm}>
-        <ModalHeader>{Title}</ModalHeader>
-        <ModalContent>{Content}</ModalContent>
-        <ModalFooter>{Action}</ModalFooter>
+          <Modal.Panel {...rests}>
+            <Modal.Header>Modal1</Modal.Header>
+            <Modal.Content>Modal1</Modal.Content>
+            <Modal.Footer>
+              <Button onClick={onShow2}>Open Nested Modal</Button>
+            </Modal.Footer>
+          </Modal.Panel>
+
+          <Modal className="relative z-50" show={isShow2} onClose={onClose2}>
+            <Modal.Overlay>
+              <Modal.Panel {...rests}>
+                <Modal.Header>Modal2</Modal.Header>
+                <Modal.Content>Modal2</Modal.Content>
+                <Modal.Footer>
+                  <Button onClick={onShow3}>Open Nested Modal</Button>
+                </Modal.Footer>
+              </Modal.Panel>
+            </Modal.Overlay>
+
+            <Modal className="relative z-50" show={isShow3} onClose={onClose3}>
+              <Modal.Overlay>
+                <Modal.Panel {...rests}>
+                  <Modal.Header>Modal3</Modal.Header>
+                  <Modal.Content>Modal3</Modal.Content>
+                  <Modal.Footer>
+                    <Button onClick={onShow3}>Open Nested Modal</Button>
+                  </Modal.Footer>
+                </Modal.Panel>
+              </Modal.Overlay>
+            </Modal>
+          </Modal>
+        </Modal.Overlay>
       </Modal>
     </section>
   );
 };
 
 export const InnerModalsStories = InnerModals.bind({});
-InnerModalsStories.args = {
-  Title: 'Title',
-  Content: 'Content',
-  Action: 'Action',
-};
+InnerModalsStories.args = {};

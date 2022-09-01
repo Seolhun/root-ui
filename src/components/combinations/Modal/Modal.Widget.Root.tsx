@@ -39,6 +39,9 @@ export interface ModalRootProps {
    */
   onKeyDown?: (e: React.KeyboardEvent<Element>) => void;
 
+  /**
+   * Init focus element
+   */
   initialFocus?: React.MutableRefObject<HTMLElement | null>;
 }
 
@@ -53,7 +56,7 @@ const initState: ModalReducerState = {
 export interface ModalRootRenderPropArg extends ModalRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'role' | 'aria-modal' | 'aria-labelledby'>;
 
-const _ModalRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
+const _ModalWidgetRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
   props: RootUIProps<Tag, ModalRootRenderPropArg, PropsWeControl> & ModalRootProps & ElementProps,
   ref: React.Ref<Element>,
 ) => {
@@ -232,7 +235,7 @@ const _ModalRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
   );
 };
 
-const ModalRoot = forwardRefWithAs(_ModalRoot);
+const ModalWidgetRoot = forwardRefWithAs(_ModalWidgetRoot);
 
-export { ModalRoot };
-export default ModalRoot;
+export { ModalWidgetRoot };
+export default ModalWidgetRoot;

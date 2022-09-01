@@ -83,7 +83,7 @@ export function toIntentColorVariables({ prefix, intent = 'primary', intentWeigh
 }
 
 /**
- * Tailwind optimization can't recognize template string
+ * Tailwind optimization can't recognize template literal string
  * Must be exports full class string
  */
 export function toIntentColor({ prefix, intent = 'primary', intentWeight = 500 }: ToIntentColorProps) {

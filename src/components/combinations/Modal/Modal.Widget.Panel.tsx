@@ -10,16 +10,16 @@ import { ModalRenderPropArg } from './Modal.Widget.types';
 type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
 
-export interface ModalPanelProps {}
+export interface ModalWidgetPanelProps {}
 
-const COMPONENT_NAME = 'Modal__Panel';
+const COMPONENT_NAME = 'Root__Modal__Panel';
 const DEFAULT_TAG: RootUIReactTag = 'div';
 
 export interface ModalPanelRenderPropArg extends ModalRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'onClick'>;
 
-const _ModalPanel = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
-  props: RootUIProps<Tag, ModalPanelRenderPropArg, PropsWeControl> & ModalPanelProps & ElementProps,
+const _ModalWidgetPanel = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
+  props: RootUIProps<Tag, ModalPanelRenderPropArg, PropsWeControl> & ModalWidgetPanelProps & ElementProps,
   ref: React.Ref<Element>,
 ) => {
   const id = `rootui-modal-panel-${useId()}`;
@@ -51,7 +51,7 @@ const _ModalPanel = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
   });
 };
 
-const ModalPanel = forwardRefWithAs(_ModalPanel);
+const ModalWidgetPanel = forwardRefWithAs(_ModalWidgetPanel);
 
-export { ModalPanel };
-export default ModalPanel;
+export { ModalWidgetPanel };
+export default ModalWidgetPanel;

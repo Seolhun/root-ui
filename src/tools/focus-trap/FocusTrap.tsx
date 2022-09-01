@@ -59,6 +59,7 @@ const _FocusTrap = <Tag extends React.ElementType = typeof DEFAULT_FOCUS_TRAP_TA
     { ownerDocument, container, initialFocus },
     Boolean(features & Features.InitialFocus),
   );
+
   useFocusLock({ ownerDocument, container, containers, previousActiveElement }, Boolean(features & Features.FocusLock));
 
   const handleFocus = useEvent(() => {

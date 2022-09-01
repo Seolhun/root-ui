@@ -26,6 +26,7 @@ function useLockScroll<E extends HTMLElement = HTMLElement>({ isVisible, hasPare
     const overflow = documentElement.style.overflow;
     const paddingRight = documentElement.style.paddingRight;
     const scrollbarWidthBefore = ownerWindow.innerWidth - documentElement.clientWidth;
+
     documentElement.style.overflow = 'hidden';
     if (scrollbarWidthBefore > 0) {
       const scrollbarWidthAfter = documentElement.clientWidth - documentElement.offsetWidth;
