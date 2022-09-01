@@ -60,7 +60,7 @@ const _ModalWidgetRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
   props: RootUIProps<Tag, ModalRootRenderPropArg, PropsWeControl> & ModalRootProps & ElementProps,
   ref: React.Ref<Element>,
 ) => {
-  const { className, scale = 'md', show, onClose, onKeyDown, initialFocus, ...rests } = props;
+  const { show, onClose, onKeyDown, initialFocus, ...rests } = props;
   const id = `rootui-modal-${useId()}`;
 
   const containers = React.useRef<Set<React.MutableRefObject<HTMLElement | null>>>(new Set());

@@ -15,6 +15,22 @@ const Animations = {
       '0%': { transform: 'scale(1)' },
       '100%': { transform: 'scale(0)' },
     },
+    'scale-up-0.75': {
+      '0%': { transform: 'scale(0.75)' },
+      '100%': { transform: 'scale(1)' },
+    },
+    'scale-down-0.75': {
+      '0%': { transform: 'scale(1)' },
+      '100%': { transform: 'scale(0.75)' },
+    },
+    'scale-up-0.5': {
+      '0%': { transform: 'scale(0.5)' },
+      '100%': { transform: 'scale(1)' },
+    },
+    'scale-down-0.5': {
+      '0%': { transform: 'scale(1)' },
+      '100%': { transform: 'scale(0.5)' },
+    },
     'fade-in-right': {
       '0%': {
         opacity: '0',
@@ -49,6 +65,10 @@ const Animations = {
       wiggle: 'wiggle 1s ease-in-out infinite',
       'scale-up': 'scale-up 0.2s ease-in-out',
       'scale-down': 'scale-down 0.2s ease-in-out',
+      'scale-up-0.75': 'scale-up-0.75 0.2s ease-in-out',
+      'scale-down-0.75': 'scale-down-0.75 0.2s ease-in-out',
+      'scale-up-0.5': 'scale-up-0.5 0.2s ease-in-out',
+      'scale-down-0.5': 'scale-down-0.5 0.2s ease-in-out',
       'fade-in-right': 'fade-in-right 0.2s ease-in-out',
       'fade-in-bottom': 'fade-in-bottom 0.2s ease-in-out',
       'fade-in-left': 'fade-in-left 0.2s ease-in-out',

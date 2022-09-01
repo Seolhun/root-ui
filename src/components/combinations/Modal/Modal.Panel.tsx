@@ -36,11 +36,10 @@ const ModalPanel = React.forwardRef<Element, ModalPanelProps & ElementProps>(
           toScaleMatch(() => 'w-full md:w-4/12')(() => 'w-full md:w-6/12')(() => 'w-full md:w-8/12')(scale),
           'h-full md:h-auto',
           'm-auto md:my-12',
-          'shadow rounded-none md:rounded-lg',
-          'transform transition-all',
-          'overflow-hidden',
+          'shadow rounded-none md:rounded-2xl',
+          'transform transition-all origin-top',
           {
-            'animate-[scale-up_0.2s_ease-in-out]': visible,
+            'animate-[scale-up-0.5_0.2s_ease-in-out]': visible,
           },
         )}
       >

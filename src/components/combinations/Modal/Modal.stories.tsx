@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button } from '@/components/atomics';
+import { Button, Card } from '@/components/atomics';
 import { useDisclosure } from '@/hooks';
 import { storiesScaleOptions } from '@/stories';
 
@@ -64,10 +64,11 @@ const InnerModals = ({ ...rests }) => {
     <section style={{ height: '2000px' }}>
       <Button onClick={onShow}>Toggle modal</Button>
 
-      <Modal className="relative z-50" show={isShow} onClose={onClose}>
-        <Modal.Overlay>
-          <Modal.Backdrop />
+      <Card className="z-50 mt-8 p-8">The highest priority z-index 50 Card</Card>
 
+      <Modal className="relative z-50" show={isShow} onClose={onClose}>
+        <Modal.Backdrop />
+        <Modal.Overlay>
           <Modal.Panel {...rests}>
             <Modal.Header>Modal1</Modal.Header>
             <Modal.Content>Modal1</Modal.Content>

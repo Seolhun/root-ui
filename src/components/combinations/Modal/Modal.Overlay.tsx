@@ -15,7 +15,7 @@ const ModalOverlay = React.forwardRef<Element, ModalOverlayProps & ElementProps>
       <ModalWidgetOverlay
         {...rests}
         ref={ref}
-        className={classNames(CLASSNAME, className, 'fixed', 'inset-0 md:inset-0', 'w-full h-full', 'overflow-y-auto')}
+        className={classNames(CLASSNAME, className, 'fixed', 'inset-0 md:inset-0', 'overflow-y-auto')}
       >
         {children}
       </ModalWidgetOverlay>

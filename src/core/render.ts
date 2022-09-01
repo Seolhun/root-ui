@@ -157,10 +157,10 @@ export function render<Feature extends RenderFeatureEnum, Tag extends React.Elem
   const featureFlags = features ?? RenderFeatureEnum.None;
 
   if (featureFlags & RenderFeatureEnum.Static) {
-    const { static: isStatic = false, ...rest } = props as FeaturePropsMap<RenderFeatureEnum.Static>;
+    const { static: isStatic = false, ...rests } = props as FeaturePropsMap<RenderFeatureEnum.Static>;
     // When the `static` prop is passed as `true`, then the user is in control, thus we don't care about anything else
     if (isStatic) {
-      return _render(rest, slot, defaultTag, name);
+      return _render(rests, slot, defaultTag, name);
     }
   }
 
