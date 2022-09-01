@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { useLatestValue } from './useLatestValue';
 
 type EventCallback = <Arg = any, Res = any>(...args: Arg[]) => Res;

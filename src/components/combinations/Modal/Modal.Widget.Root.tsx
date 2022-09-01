@@ -60,15 +60,6 @@ const _ModalRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
   const { className, scale = 'md', show, onClose, onKeyDown, initialFocus, ...rests } = props;
   const id = `rootui-modal-${useId()}`;
 
-  // let usesOpenClosedState = useOpenClosed()
-  // if (open === undefined && usesOpenClosedState !== null) {
-  //   // Update the `open` prop based on the open closed state
-  //   open = match(usesOpenClosedState, {
-  //     [State.Open]: true,
-  //     [State.Closed]: false,
-  //   })
-  // }
-
   const containers = React.useRef<Set<React.MutableRefObject<HTMLElement | null>>>(new Set());
   const internalModalRef = React.useRef<Element | null>(null);
   const modalRef = useSyncRefs(internalModalRef, ref);
@@ -77,7 +68,6 @@ const _ModalRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
 
   const [state, dispatch] = React.useReducer(rootModalReducer, initState);
   const [nestedModalCount, setNestedModalCount] = React.useState(0);
-  console.debug(nestedModalCount);
 
   const isReady = useServerHandoffComplete();
   const enabled = isReady ? show === true : false;

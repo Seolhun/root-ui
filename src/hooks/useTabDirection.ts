@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+
 import useWindowEvent from './useWindowEvent';
 
 export enum TabDirection {

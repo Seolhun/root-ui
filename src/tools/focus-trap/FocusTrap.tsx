@@ -2,7 +2,7 @@ import React from 'react';
 
 import { RootUIProps } from '@/types';
 import { forwardRefWithAs, render } from '@/core';
-import { Focus, focusIn, match } from '@/utils';
+import { match } from '@/utils';
 import {
   TabDirection,
   useEvent,
@@ -15,6 +15,7 @@ import { Hidden, HiddenFeatures } from '@/tools/hidden';
 import { useRestoreFocus } from './useRestoreFocus';
 import { useInitialFocus } from './useInitialFocus';
 import { useFocusLock } from './useFocusLock';
+import { Focus, focusIn } from './FocusManagements';
 
 export interface FocusTrapProps {
   initialFocus?: React.MutableRefObject<HTMLElement | null>;
