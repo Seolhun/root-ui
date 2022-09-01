@@ -40,7 +40,7 @@ const Tag: React.FC<TagProps> = ({
         'inline-block',
         'font-semibold capitalize',
         toScaleMatch(() => toTypography('2.5'))(() => toTypography('3'))(() => toTypography('3.5'))(scale),
-        toScaleMatch(() => 'py-1 px-2')(() => 'py-2 px-3')(() => 'py-2.5 px-3.5')(scale),
+        toScaleMatch(() => 'py-1 px-2')(() => 'py-1 px-2.5')(() => 'py-1 px-3')(scale),
         'rounded-full',
         'last:mr-0 mr-1',
         toIntentColor({
