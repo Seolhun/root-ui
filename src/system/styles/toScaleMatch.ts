@@ -1,27 +1,11 @@
 import { curry } from '@fxts/core';
 import { RootScale } from './RootScale';
 
-type RootScaleStyle = string;
-type ScaleCallback = () => RootScaleStyle;
+export const match = <Key extends string, R>(lookup: Record<Key, () => R>, key: Key) => {
+  const callback = lookup[key];
+  return callback();
+};
 
-export const toScaleMatch = curry(
-  (
-    smScaleCallback: ScaleCallback,
-    mdScaleCallback: ScaleCallback,
-    lgScaleCallback: ScaleCallback,
-    targetScale: RootScale,
-  ) => {
-    switch (targetScale) {
-      case 'sm': {
-        return smScaleCallback();
-      }
-      case 'lg': {
-        return lgScaleCallback();
-      }
-      case 'md':
-      default: {
-        return mdScaleCallback();
-      }
-    }
-  },
-);
+export const toScaleMatch = curry((lookup: Record<RootScale, () => string>, key: RootScale) => {
+  return match(lookup, key);
+});

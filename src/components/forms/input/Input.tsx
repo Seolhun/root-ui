@@ -37,7 +37,11 @@ const Input = React.forwardRef<Element, InputProps>(
           className,
           'block',
           'w-full',
-          toScaleMatch(() => 'py-1 px-2')(() => 'py-2 px-3')(() => 'py-2.5 px-3.5')(scale),
+          toScaleMatch({
+            sm: () => 'py-1 px-2',
+            md: () => 'py-2 px-3',
+            lg: () => 'py-2.5 px-3.5',
+          })(scale),
           'border border-light-400',
           `outline-${intent}-${intentWeight}`,
           `caret-${intent}-${intentWeight}`,

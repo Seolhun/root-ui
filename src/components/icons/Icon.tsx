@@ -30,7 +30,11 @@ const Icon = React.forwardRef<Element, IconProps>(({ className, scale = 'md', ic
         CLASSNAME,
         className,
         'inline-block',
-        toScaleMatch(() => 'w-4 h-4')(() => 'w-5 h-5')(() => 'w-6 h-6')(scale),
+        toScaleMatch({
+          sm: () => 'w-4 h-4',
+          md: () => 'w-5 h-5',
+          lg: () => 'w-6 h-6',
+        })(scale),
       )}
     >
       <Component />

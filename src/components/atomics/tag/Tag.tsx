@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { IntentType, IntentWeightType, RootScale, toScaleMatch, toTypography } from '@/system';
+import { IntentType, IntentWeightType, RootScale, toScaleMatch } from '@/system';
 
 const CLASSNAME = 'Root__Tag';
 type Element = HTMLSpanElement;
@@ -39,8 +39,16 @@ const Tag: React.FC<TagProps> = ({
         className,
         'inline-block',
         'font-semibold capitalize',
-        toScaleMatch(() => toTypography('2.5'))(() => toTypography('3'))(() => toTypography('3.5'))(scale),
-        toScaleMatch(() => 'py-1 px-2')(() => 'py-1 px-2.5')(() => 'py-1 px-3')(scale),
+        toScaleMatch({
+          sm: () => 'text-2.5',
+          md: () => 'text-3',
+          lg: () => 'text-3.5',
+        })(scale),
+        toScaleMatch({
+          sm: () => 'py-1 px-2',
+          md: () => 'py-1 px-2.5',
+          lg: () => 'py-1 px-3',
+        })(scale),
         `bg-${intent}-300 text-${intent}-${intentWeight}`,
         'rounded-full',
         'last:mr-0 mr-1',

@@ -39,7 +39,11 @@ const Loader: React.FC<LoaderProps> = ({
           className,
           'animate-spin',
           `text-dark-200 fill-${intent}-${intentWeight}`,
-          toScaleMatch(() => 'h-6 w-6')(() => 'h-10 w-10')(() => 'h-14 w-14')(scale),
+          toScaleMatch({
+            sm: () => 'w-6 h-6',
+            md: () => 'w-10 h-10',
+            lg: () => 'w-14 h-14',
+          })(scale),
         )}
         aria-hidden="true"
         viewBox="0 0 100 100"
