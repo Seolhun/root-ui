@@ -44,6 +44,7 @@ module.exports = {
       // variants: ['hover', 'focus', 'placeholder', 'disabled'],
     },
   ],
+  prefix: 'root-',
   /**
    * @see https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually
    */
@@ -67,12 +68,6 @@ module.exports = {
     }),
     textColor: (theme) => ({
       ...theme('colors'),
-
-      title: intentColors.light[800],
-      content: intentColors.light[800],
-      description: intentColors.light[600],
-      comment: intentColors.light[500],
-      link: intentColors.primary[500],
     }),
     boxShadow: {
       DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
@@ -145,5 +140,10 @@ module.exports = {
     },
   },
   // https://tailwindcss.com/docs/plugins#adding-base-styles
-  plugins: [require('@tailwindcss/line-clamp'), require('@tailwindcss/aspect-ratio'), require('./plugins/typography')],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/aspect-ratio'),
+    require('./plugins/typography'),
+    require('./plugins/theme'),
+  ],
 };
