@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { IntentType, IntentWeightType, RootScale, toIntentColor, toScaleMatch } from '@/system';
+import { IntentType, IntentWeightType, RootScale, toScaleMatch } from '@/system';
 
 const CLASSNAME = 'Root__Loader';
 type ElementProps = React.SVGAttributes<HTMLOrSVGElement>;
@@ -38,8 +38,7 @@ const Loader: React.FC<LoaderProps> = ({
           CLASSNAME,
           className,
           'animate-spin',
-          toIntentColor({ prefix: 'text', intent: 'dark', intentWeight: 200 }),
-          toIntentColor({ prefix: 'fill', intent, intentWeight }),
+          `text-dark-${200} fill-${intent}-${intentWeight}`,
           toScaleMatch(() => 'h-6 w-6')(() => 'h-10 w-10')(() => 'h-14 w-14')(scale),
         )}
         aria-hidden="true"

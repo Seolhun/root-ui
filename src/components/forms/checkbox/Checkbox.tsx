@@ -1,15 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import {
-  IntentType,
-  RootScale,
-  toHoverIntentColor,
-  toScaleMatch,
-  toCheckedIntentColor,
-  toFocusIntentColor,
-  toTypography,
-} from '@/system';
+import { IntentType, RootScale, toScaleMatch, toTypography } from '@/system';
 import { FormLabel } from '../FormLabel';
 
 const CLASSNAME = 'Root__Checkbox';
@@ -59,21 +51,8 @@ const Checkbox = React.forwardRef<Element, CheckboxProps>(
             CLASSNAME,
             className,
             'inline-block',
-            toCheckedIntentColor({
-              prefix: 'accent',
-              intent,
-              intentWeight,
-            }),
-            toHoverIntentColor({
-              prefix: 'ring-offset',
-              intent,
-              intentWeight: intentWeight - 100,
-            }),
-            toFocusIntentColor({
-              prefix: 'ring-offset',
-              intent,
-              intentWeight,
-            }),
+            `accent-${intent}-${intentWeight}`,
+            `hover:ring-offset-${intent}-${intentWeight - 100} focus:ring-offset-${intent}-${intentWeight}`,
           )}
         />
         <span className="ml-2">{children}</span>

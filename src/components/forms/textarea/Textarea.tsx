@@ -1,15 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import {
-  IntentWeightType,
-  IntentType,
-  RootScale,
-  toFocusIntentColor,
-  toScaleMatch,
-  toIntentColor,
-  toDisabledIntentColor,
-} from '@/system';
+import { IntentWeightType, IntentType, RootScale, toScaleMatch } from '@/system';
 
 const CLASSNAME = 'Root__Textarea';
 type Element = HTMLTextAreaElement;
@@ -47,32 +39,10 @@ const Textarea = React.forwardRef<Element, TextareaProps>(
           'block',
           'w-full',
           toScaleMatch(() => 'py-1 px-2')(() => 'py-2 px-3')(() => 'py-2.5 px-3.5')(scale),
-          'border',
-          toIntentColor({
-            prefix: 'border',
-            intent: 'light',
-            intentWeight: 400,
-          }),
-          toFocusIntentColor({
-            prefix: 'outline',
-            intent,
-            intentWeight,
-          }),
-          toIntentColor({
-            prefix: 'caret',
-            intent,
-            intentWeight,
-          }),
-          toDisabledIntentColor({
-            prefix: 'border',
-            intent: 'dark',
-            intentWeight: 100,
-          }),
-          toDisabledIntentColor({
-            prefix: 'bg',
-            intent: 'dark',
-            intentWeight: 200,
-          }),
+          'border border-light-400',
+          `outline-${intent}-${intentWeight}`,
+          `caret-${intent}-${intentWeight}`,
+          'disabled:bg-dark-100 disabled:border-dark-100',
           'rounded-md',
         )}
         rows={rows}

@@ -1,8 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { toIntentColor } from '@/system';
-
 const CLASSNAME = 'Root__Drawer__Body';
 type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
@@ -23,11 +21,7 @@ const DrawerBody = React.forwardRef<Element, DrawerBodyProps>(({ className, chil
         'flex flex-1',
         'px-4',
         'break-all',
-        toIntentColor({
-          prefix: 'border',
-          intent: 'light',
-          intentWeight: 200,
-        }),
+        'border-light-200',
         'overflow-y-auto',
       )}
     >

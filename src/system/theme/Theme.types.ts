@@ -1,7 +1,5 @@
 /**
- * @see https://tailwindcss.com/docs/text-color
- * @see https://tailwindcss.com/docs/background-color
- * @see https://tailwindcss.com/docs/ring-color
+ * @see https://tailwindcss.com/docs/hover-focus-and-other-states#quick-reference
  */
 export type TailwindPrefix =
   | 'text'
@@ -14,6 +12,21 @@ export type TailwindPrefix =
   | 'accent'
   | 'caret';
 
+/**
+ * @see https://tailwindcss.com/docs/hover-focus-and-other-states#quick-reference
+ */
+export type TailwindAppendix =
+  | 'hover'
+  | 'focus'
+  | 'focus-within'
+  | 'focus-visible'
+  | 'active'
+  | 'visited'
+  | 'disabled'
+  | 'checked'
+  | 'required'
+  | 'placeholder';
+
 export type IntentType = 'light' | 'dark' | 'neutral' | 'primary' | 'info' | 'success' | 'warning' | 'danger';
 
 /**
@@ -21,16 +34,3 @@ export type IntentType = 'light' | 'dark' | 'neutral' | 'primary' | 'info' | 'su
  * 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
  */
 export type IntentWeightType = number;
-
-/**
- * @see https://tailwindcss.com/docs/hover-focus-and-other-states#quick-reference
- */
-// export type TailwindStateOption =
-// | 'hover'
-// | 'focus'
-// | 'first-child'
-// | 'required'
-// | 'before'
-// | 'after'
-// | 'placeholder'
-// | 'selection';
