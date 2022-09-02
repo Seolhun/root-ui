@@ -1,5 +1,5 @@
 // Tailwind is smart enough to generate classes like -mx-72 when it sees the leading dash, not mx--72 like you might expect.
- const NegativeMargins = {
+const NegativeMargins = {
   '0': '0px',
   '-0.5': '-0.125rem',
   '-1': '-0.25rem',
@@ -38,4 +38,4 @@
 
 module.exports = {
   NegativeMargins,
-}
+};
