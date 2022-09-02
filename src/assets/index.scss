@@ -4,17 +4,3 @@
 .Root__Window__LockScroll {
   overflow: hidden !important;
 }
-
-// Group
-.Root__Group {
-  &.Horizontal {
-    & > * + * {
-      margin-left: 1rem;
-    }
-  }
-  &.Vertical {
-    & > * + * {
-      margin-top: 1rem;
-    }
-  }
-}
