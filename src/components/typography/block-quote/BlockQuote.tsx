@@ -33,6 +33,7 @@ const BlockQuote: React.FC<BlockQuoteProps> = ({
         className,
         'text-base font-light leading-relaxed',
         'mt-0 mb-4 pl-2',
+        'text-blockquote',
         `border-l-4 border-${intent}-${intentWeight}`,
       )}
     >

@@ -41,7 +41,7 @@ const Tag: React.FC<TagProps> = ({
         'font-semibold capitalize',
         toScaleMatch(() => toTypography('2.5'))(() => toTypography('3'))(() => toTypography('3.5'))(scale),
         toScaleMatch(() => 'py-1 px-2')(() => 'py-1 px-2.5')(() => 'py-1 px-3')(scale),
-        `bg-${intent}-200 text-${intent}-${intentWeight}`,
+        `bg-${intent}-300 text-${intent}-${intentWeight}`,
         'rounded-full',
         'last:mr-0 mr-1',
       )}
