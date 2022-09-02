@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { toIntentColor, toHoverIntentColor } from '@/system';
 import { useDrawerContext } from './Drawer.Context';
 
 const CLASSNAME = 'Root__Drawer__CloseButton';
@@ -23,23 +22,9 @@ function DrawerCloseButton({ className, ...rests }: DrawerCloseButtonProps) {
         className,
         'inline-flex items-center',
         'p-1.5 ml-auto',
-        'bg-transparent',
-        toHoverIntentColor({
-          prefix: 'bg',
-          intent: 'dark',
-          intentWeight: 200,
-        }),
+        'bg-transparent hover:bg-dark-200',
         'text-sm',
-        toIntentColor({
-          prefix: 'text',
-          intent: 'light',
-          intentWeight: 400,
-        }),
-        toHoverIntentColor({
-          prefix: 'text',
-          intent: 'light',
-          intentWeight: 700,
-        }),
+        'text-light-400 hover:text-light-700',
         'rounded-lg',
       )}
       onClick={onClose}

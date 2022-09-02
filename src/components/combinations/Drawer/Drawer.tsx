@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import { Card } from '@/components/atomics';
-import { RootScale, toIntentColor, toScaleMatch } from '@/system';
+import { RootScale, toScaleMatch } from '@/system';
 import { useDocumentEvent, useLockScrollClassName } from '@/hooks';
 import { DrawerContextProvider } from './Drawer.Context';
 import { DrawerPlacement } from './Drawer.types';
@@ -89,18 +89,7 @@ const Drawer = ({
         <div
           tabIndex={-1}
           aria-hidden={show ? 'true' : 'false'}
-          className={classNames(
-            CLASSNAME,
-            className,
-            'fixed',
-            'inset-0 md:inset-0',
-            toIntentColor({
-              prefix: 'bg',
-              intent: 'dark',
-              intentWeight: 300,
-            }),
-            'opacity-60',
-          )}
+          className={classNames(CLASSNAME, className, 'fixed', 'inset-0 md:inset-0', 'bg-dark-300', 'opacity-60')}
         />
         <Card
           {...rests}

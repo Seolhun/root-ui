@@ -1,15 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import {
-  IntentType,
-  RootScale,
-  toHoverIntentColor,
-  toScaleMatch,
-  toFocusIntentColor,
-  toTypography,
-  toCheckedIntentColor,
-} from '@/system';
+import { IntentType, RootScale, toScaleMatch, toTypography } from '@/system';
 import { FormLabel } from '../FormLabel';
 
 const CLASSNAME = 'Root__Radio';
@@ -59,21 +51,8 @@ const Radio = React.forwardRef<Element, RadioProps>(
             CLASSNAME,
             className,
             'inline-block',
-            toCheckedIntentColor({
-              prefix: 'accent',
-              intent,
-              intentWeight,
-            }),
-            toHoverIntentColor({
-              prefix: 'border',
-              intent,
-              intentWeight: intentWeight - 100,
-            }),
-            toFocusIntentColor({
-              prefix: 'ring-offset',
-              intent,
-              intentWeight,
-            }),
+            `accent-${intent}-${intentWeight}`,
+            `hover:ring-offset-${intent}-${intentWeight - 100} focus:ring-offset-${intent}-${intentWeight}`,
           )}
         />
         <span className="ml-2">{children}</span>

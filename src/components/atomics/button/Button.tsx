@@ -1,17 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import {
-  IntentWeightType,
-  IntentType,
-  RootScale,
-  toIntentColor,
-  toFocusIntentColor,
-  toHoverIntentColor,
-  toPlaceholderIntentColor,
-  toScaleMatch,
-  toTypography,
-} from '@/system';
+import { IntentWeightType, IntentType, RootScale, toScaleMatch, toTypography } from '@/system';
 
 const CLASSNAME = 'Root__Button';
 type Element = HTMLButtonElement;
@@ -51,26 +41,9 @@ const Button = React.forwardRef<Element, ButtonProps>(
           toScaleMatch(() => 'py-1 px-2')(() => 'py-2 px-3')(() => 'py-2.5 px-3.5')(scale),
           'text-white',
           'rounded-md',
-          toIntentColor({
-            prefix: 'bg',
-            intent,
-            intentWeight,
-          }),
-          toHoverIntentColor({
-            prefix: 'bg',
-            intent,
-            intentWeight: intentWeight - 100,
-          }),
-          toFocusIntentColor({
-            prefix: 'ring-offset',
-            intent,
-            intentWeight,
-          }),
-          'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white',
-          toPlaceholderIntentColor({
-            prefix: 'text',
-            intent: 'dark',
-          }),
+          `bg-${intent}-${intentWeight} hover:bg-${intent}-${intentWeight - 100}`,
+          `focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-${intent}-${intentWeight}`,
+          'placeholder:text-dark',
           'disabled:opacity-50 disabled:cursor-not-allowed',
         )}
       >

@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { IntentType, toIntentColor } from '@/system';
+import { IntentType } from '@/system';
 
 const CLASSNAME = 'Root__ProgressBar';
 type ElementProps = React.HTMLAttributes<HTMLDivElement>;
@@ -47,17 +47,9 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
                 className={classnames(
                   'inline-block',
                   'py-1 px-2',
-                  'text-xs font-semibold rounded-full',
-                  toIntentColor({
-                    prefix: 'text',
-                    intent,
-                    intentWeight: 600,
-                  }),
-                  toIntentColor({
-                    prefix: 'bg',
-                    intent,
-                    intentWeight: 200,
-                  }),
+                  `text-xs text-${intent}-600 font-semibold`,
+                  `bg-${intent}-200`,
+                  'rounded-full',
                 )}
               >
                 {badge}
@@ -66,47 +58,21 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
           )}
           {!simple && (
             <div className="text-right">
-              <span
-                className={classnames(
-                  'inline-block',
-                  'text-xs font-semibold',
-                  toIntentColor({
-                    prefix: 'text',
-                    intent,
-                    intentWeight: 600,
-                  }),
-                )}
-              >
+              <span className={classnames('inline-block', `text-xs text-${intent}-600 font-semibold`)}>
                 {`${progress}%`}
               </span>
             </div>
           )}
         </div>
-        <div
-          className={classnames(
-            'flex',
-            'h-2 mb-4',
-            'text-xs rounded',
-            'overflow-hidden',
-            toIntentColor({
-              prefix: 'bg',
-              intent,
-              intentWeight: 200,
-            }),
-          )}
-        >
+        <div className={classnames('flex', 'h-2 mb-4', `bg-${intent}-200`, 'text-xs', 'rounded', 'overflow-hidden')}>
           <div
             className={classnames(
               'flex flex-col justify-center',
               'text-center whitespace-nowrap',
               'shadow-none',
               'text-white',
+              `bg-${intent}-500`,
               'transition-all',
-              toIntentColor({
-                prefix: 'bg',
-                intent,
-                intentWeight: 500,
-              }),
             )}
             style={{
               width: `${progress}%`,
