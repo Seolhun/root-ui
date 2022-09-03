@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { IntentType, IntentWeightType, RootScale, toScaleMatch } from '@/system';
+import { RootIntentType, RootIntentWeightType, RootScale, toScaleMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Tag';
 type Element = HTMLSpanElement;
@@ -16,11 +16,11 @@ export interface TagProps extends ExtensionProps {
   /**
    * @default primary
    */
-  intent?: IntentType;
+  intent?: RootIntentType;
   /**
    * @default 600
    */
-  intentWeight?: IntentWeightType;
+  intentWeight?: RootIntentWeightType;
 }
 
 const Tag: React.FC<TagProps> = ({

@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { Card } from '@/components/atomics';
-import { RootScale, toScaleMatch } from '@/system';
-import { useDocumentEvent, useLockScrollClassName } from '@/hooks';
+import { Card } from '../../atomics';
+import { RootScale, toScaleMatch } from '../../../system';
+import { useDocumentEvent, useLockScrollClassName } from '../../../hooks';
 import { DrawerContextProvider } from './Drawer.Context';
 import { DrawerPlacement } from './Drawer.types';
 

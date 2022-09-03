@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import { IntentType, IntentWeightType, RootScale, toScaleMatch } from '@/system';
+
+import { RootIntentType, RootIntentWeightType, RootScale, toScaleMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Loader';
 type ElementProps = React.SVGAttributes<HTMLOrSVGElement>;
@@ -15,12 +16,12 @@ export interface LoaderProps extends ExtensionProps {
   /**
    * @default primary
    */
-  intent?: IntentType;
+  intent?: RootIntentType;
 
   /**
    * @default 600
    */
-  intentWeight?: IntentWeightType;
+  intentWeight?: RootIntentWeightType;
 }
 
 const Loader: React.FC<LoaderProps> = ({

@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import * as HeroIcon from '@heroicons/react/outline';
 
-import { RootScale, toScaleMatch } from '@/system';
+import { RootScale, toScaleMatch } from '../../system';
 
 const CLASSNAME = 'Root__Icon';
 type Element = HTMLDivElement;

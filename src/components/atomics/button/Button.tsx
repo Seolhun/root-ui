@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { IntentWeightType, IntentType, RootScale, toScaleMatch } from '@/system';
+import { RootIntentWeightType, RootIntentType, RootScale, toScaleMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Button';
 type Element = HTMLButtonElement;
@@ -18,12 +18,12 @@ export interface ButtonProps extends ExtensionProps {
   /**
    * @default primary
    */
-  intent?: IntentType;
+  intent?: RootIntentType;
 
   /**
    * @default 600
    */
-  intentWeight?: IntentWeightType;
+  intentWeight?: RootIntentWeightType;
 }
 
 const Button = React.forwardRef<Element, ButtonProps>(

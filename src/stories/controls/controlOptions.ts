@@ -1,8 +1,8 @@
-import { IntentType, RootScale } from '../../system';
+import { RootIntentType, RootScale } from '../../system';
 
 export const storiesScaleOptions: RootScale[] = ['sm', 'md', 'lg'];
 
-export const storiesIntentOptions: IntentType[] = [
+export const storiesIntentOptions: RootIntentType[] = [
   'light',
   'dark',
   'neutral',

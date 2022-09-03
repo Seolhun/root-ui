@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { IntentType, RootScale, toScaleMatch } from '@/system';
+import { RootIntentType, RootScale, toScaleMatch } from '../../../system';
 import { FormLabel } from '../FormLabel';
 
 const CLASSNAME = 'Root__Checkbox';
@@ -21,7 +21,7 @@ export interface CheckboxProps extends ExtensionProps {
   /**
    * @default primary
    */
-  intent?: IntentType;
+  intent?: RootIntentType;
 }
 
 const intentWeight = 600;

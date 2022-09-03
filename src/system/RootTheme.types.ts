@@ -27,10 +27,12 @@ export type TailwindAppendix =
   | 'required'
   | 'placeholder';
 
-export type IntentType = 'light' | 'dark' | 'neutral' | 'primary' | 'info' | 'success' | 'warning' | 'danger';
+export type RootIntentType = 'light' | 'dark' | 'neutral' | 'primary' | 'info' | 'success' | 'warning' | 'danger';
 
 /**
  * @see https://tailwindcss.com/docs/customizing-colors
  * 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
  */
-export type IntentWeightType = number;
+export type RootIntentWeightType = number;
+
+export type RootScale = 'sm' | 'md' | 'lg';

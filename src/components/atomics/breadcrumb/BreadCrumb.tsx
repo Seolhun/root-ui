@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { IntentType, IntentWeightType } from '../../../system';
+import { RootIntentType, RootIntentWeightType } from '../../../system';
 
 const CLASSNAME = 'Root__BreadCrumb';
 type ElementProps = React.HTMLAttributes<HTMLDivElement>;
@@ -12,12 +12,12 @@ export interface BreadCrumbProps extends ExtensionProps {
   /**
    * Color Intent
    */
-  intent?: IntentType;
+  intent?: RootIntentType;
 
   /**
    * @default 600
    */
-  intentWeight?: IntentWeightType;
+  intentWeight?: RootIntentWeightType;
 }
 
 export interface BreadCrumbItemProps {

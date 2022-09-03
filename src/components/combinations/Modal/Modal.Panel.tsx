@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { RootScale, toScaleMatch } from '@/system';
+import { RootScale, toScaleMatch } from '../../../system';
 import { ModalWidgetPanel } from './Modal.Widget.Panel';
 import { useModalContext } from './Modal.Widget.Context';
 

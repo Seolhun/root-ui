@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { IntentType } from '@/system';
+import { RootIntentType } from '../../../system';
 
 const CLASSNAME = 'Root__ProgressBar';
 type ElementProps = React.HTMLAttributes<HTMLDivElement>;
@@ -26,7 +26,7 @@ export interface ProgressBarProps extends ExtensionProps {
   /**
    * Color Intent
    */
-  intent?: IntentType;
+  intent?: RootIntentType;
 }
 
 const ProgressBar: React.FC<ProgressBarProps> = ({

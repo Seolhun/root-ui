@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import { IntentWeightType, IntentType, RootScale, toScaleMatch } from '@/system';
+import { RootIntentWeightType, RootIntentType, RootScale, toScaleMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Input';
 type Element = HTMLInputElement;
@@ -17,12 +17,12 @@ export interface InputProps extends ExtensionProps {
   /**
    * @default primary
    */
-  intent?: IntentType;
+  intent?: RootIntentType;
 
   /**
    * @default 600
    */
-  intentWeight?: IntentWeightType;
+  intentWeight?: RootIntentWeightType;
 }
 
 const Input = React.forwardRef<Element, InputProps>(
