@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { RootUIProps } from '@/types';
-import { forwardRefWithAs, render } from '@/core';
-import { match } from '@/utils';
+import { RootUIProps } from '../../types';
+import { forwardRefWithAs, render } from '../../core';
+import { match } from '../../utils';
 import {
   TabDirection,
   useEvent,
@@ -10,8 +10,8 @@ import {
   useServerHandoffComplete,
   useSyncRefs,
   useTabDirection,
-} from '@/hooks';
-import { Hidden, HiddenFeatures } from '@/tools/hidden';
+} from '../../hooks';
+import { Hidden, HiddenFeatures } from '../../tools/hidden';
 import { useRestoreFocus } from './useRestoreFocus';
 import { useInitialFocus } from './useInitialFocus';
 import { useFocusLock } from './useFocusLock';

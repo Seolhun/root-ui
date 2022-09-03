@@ -36,51 +36,6 @@ module.exports = {
       //   'placeholder',
       // ],
     },
-    {
-      pattern: /(accent)-(light|dark|neutral|primary|info|success|warning|danger)-(300|400|500|600|700|800|900)/,
-    },
-    {
-      pattern: /(bg)-(light|dark|neutral|primary|info|success|warning|danger)-(300|400|500|600|700|800|900)/,
-      variants: ['hover', 'focus', 'focus-within', 'visited', 'disabled', 'checked', 'required'],
-    },
-    {
-      pattern: /(border)-(light|dark|neutral|primary|info|success|warning|danger)-(300|400|500|600|700|800|900)/,
-      variants: ['hover', 'disabled'],
-    },
-    {
-      pattern: /(caret)-(light|dark|neutral|primary|info|success|warning|danger)-(300|400|500|600|700|800|900)/,
-    },
-    {
-      pattern: /(fill)-(light|dark|neutral|primary|info|success|warning|danger)-(300|400|500|600|700|800|900)/,
-      variants: ['hover'],
-    },
-    {
-      pattern: /(outline)-(light|dark|neutral|primary|info|success|warning|danger)-(300|400|500|600|700|800|900)/,
-      variants: ['focus', 'focus-within'],
-    },
-    {
-      pattern: /(ring)-(light|dark|neutral|primary|info|success|warning|danger)-(300|400|500|600|700|800|900)/,
-      variants: ['hover', 'focus', 'focus-within'],
-    },
-    {
-      pattern: /(ring-offset)-(light|dark|neutral|primary|info|success|warning|danger)-(300|400|500|600|700|800|900)/,
-      variants: ['hover', 'focus', 'focus-within'],
-    },
-    {
-      pattern: /(text)-(light|dark|neutral|primary|info|success|warning|danger)-(300|400|500|600|700|800|900)/,
-      variants: [
-        'hover',
-        'focus',
-        'focus-within',
-        'placeholder',
-        'active',
-        'visited',
-        'disabled',
-        'checked',
-        'required',
-        'placeholder',
-      ],
-    },
   ],
   /**
    * @see https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { RootUIProps, RootUIReactTag } from '@/types';
-import { useSyncRefs, useId, useEvent } from '@/hooks';
-import { forwardRefWithAs, render } from '@/core';
-import { isDisabledReactIssue7711 } from '@/utils/bugs';
+import { RootUIProps, RootUIReactTag } from '../../../types';
+import { useSyncRefs, useId, useEvent } from '../../../hooks';
+import { forwardRefWithAs, render } from '../../../core';
+import { isDisabledReactIssue7711 } from '../../../utils/bugs';
 
 import { useModalContext } from './Modal.Widget.Context';
 import { ModalRenderPropArg } from './Modal.Widget.types';

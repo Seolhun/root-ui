@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Button } from '@/components/atomics';
-import { H4 } from '@/components/typography';
-import { storiesScaleOptions } from '@/stories';
+import { Button } from '../../../components/atomics';
+import { H4 } from '../../../components/typography';
+import { storiesScaleOptions } from '../../../stories';
 
 import { Drawer } from './Drawer';
 import { DrawerFooter } from './Drawer.Footer';

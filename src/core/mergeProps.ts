@@ -1,5 +1,5 @@
-import { RootUIProps } from '@/types';
-import { isFunction } from '@/utils';
+import { RootUIProps } from '../types';
+import { isFunction } from '../utils';
 
 export function mergeProps(...listOfProps: RootUIProps<any, any>[]) {
   if (listOfProps.length === 0) return {};

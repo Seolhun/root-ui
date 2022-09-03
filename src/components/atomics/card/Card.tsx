@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 const CLASSNAME = 'Root__Card';
 type Element = HTMLDivElement;
@@ -12,7 +12,7 @@ const Card = React.forwardRef<Element, CardProps>(({ children, className, ...res
     <div
       {...rests}
       ref={ref}
-      className={classnames(
+      className={classNames(
         CLASSNAME,
         className,
         'block',

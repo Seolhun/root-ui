@@ -1,13 +1,13 @@
 import classNames from 'classnames';
 
-import { TailwindPrefix, RootIntentWeightType, RootIntentType, TailwindAppendix } from './RootTheme.types';
+import { TailwindPrefix, RootIntentWeight, RootIntent, TailwindAppendix } from './RootTheme.types';
 
 type IntentAppendixes = TailwindAppendix | TailwindAppendix[];
 
 export interface ToIntentOption {
   prefix: TailwindPrefix;
-  intent: RootIntentType;
-  intentWeight?: RootIntentWeightType;
+  intent: RootIntent;
+  intentWeight?: RootIntentWeight;
   appendixes?: IntentAppendixes;
 }
 

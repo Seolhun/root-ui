@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { RootIntentType, RootScale, toScaleMatch } from '../../../system';
+import { RootIntent, RootScale, toIntentMatch } from '../../../system';
 import { FormLabel } from '../FormLabel';
 
 const CLASSNAME = 'Root__Checkbox';
@@ -21,34 +21,20 @@ export interface CheckboxProps extends ExtensionProps {
   /**
    * @default primary
    */
-  intent?: RootIntentType;
+  intent?: RootIntent;
 }
-
-const intentWeight = 600;
 
 const Checkbox = React.forwardRef<Element, CheckboxProps>(
   ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...rests }, ref) => {
     const htmlForAndID = htmlFor ?? rests.name;
     return (
       <FormLabel
-        className={classNames(
-          'inline-flex items-center cursor-pointer',
-          toScaleMatch({
-            sm: () => 'text-3',
-            md: () => 'text-3.5',
-            lg: () => 'text-4',
-          })(scale),
-          toScaleMatch({
-            sm: () => 'py-0.5 px-1',
-            md: () => 'py-1 px-1.5',
-            lg: () => 'py-1.5 px-2',
-          })(scale),
-          {
-            'cursor-default': disabled,
-            'cursor-pointer': !disabled,
-          },
-        )}
+        className={classNames('inline-flex items-center cursor-pointer', {
+          'cursor-default': disabled,
+          'cursor-pointer': !disabled,
+        })}
         htmlFor={htmlForAndID}
+        scale={scale}
       >
         <input
           {...rests}
@@ -59,8 +45,16 @@ const Checkbox = React.forwardRef<Element, CheckboxProps>(
             CLASSNAME,
             className,
             'inline-block',
-            `accent-${intent}-${intentWeight}`,
-            `hover:ring-offset-${intent}-${intentWeight - 100} focus:ring-offset-${intent}-${intentWeight}`,
+            toIntentMatch({
+              neutral: () => classNames('accent-neutral-darker', 'dark:accent-neutral-darker'),
+              light: () => classNames('accent-light-darker', 'dark:accent-light-darker'),
+              dark: () => classNames('accent-dark-darker', 'dark:accent-dark-darker'),
+              primary: () => classNames('accent-primary-darker', 'dark:accent-primary-darker'),
+              info: () => classNames('accent-info-darker', 'dark:accent-info-darker'),
+              success: () => classNames('accent-success-darker', 'dark:accent-success-darker'),
+              warning: () => classNames('accent-warning-darker', 'dark:accent-warning-darker'),
+              danger: () => classNames('accent-danger-darker', 'dark:accent-danger-darker'),
+            })(intent),
           )}
         />
         <span className="ml-2">{children}</span>

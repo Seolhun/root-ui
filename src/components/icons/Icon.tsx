@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import * as HeroIcon from '@heroicons/react/outline';
 
 import { RootScale, toScaleMatch } from '../../system';
@@ -26,7 +26,7 @@ const Icon = React.forwardRef<Element, IconProps>(({ className, scale = 'md', ic
     <div
       ref={ref}
       {...rests}
-      className={classnames(
+      className={classNames(
         CLASSNAME,
         className,
         'inline-block',

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { RootUIProps, RootUIReactTag } from '@/types';
-import { FocusTrap, ForcePortalRoot, Portal, StackContextMessageEnum, StackProvider } from '@/tools';
+import { RootUIProps, RootUIReactTag } from '../../../types';
+import { FocusTrap, ForcePortalRoot, Portal, StackContextMessageEnum, StackProvider } from '../../../tools';
 import {
   useOutsideClick,
   useLockScroll,
@@ -11,10 +11,10 @@ import {
   useEventListener,
   useSyncRefs,
   useId,
-} from '@/hooks';
-import { match } from '@/utils';
-import { GlobalRootDataAttributeMap, KeyboardKeyMap } from '@/constants';
-import { forwardRefWithAs, render, RenderFeatureEnum } from '@/core';
+} from '../../../hooks';
+import { match } from '../../../utils';
+import { GlobalRootDataAttributeMap, KeyboardKeyMap } from '../../../constants';
+import { forwardRefWithAs, render, RenderFeatureEnum } from '../../../core';
 
 import { ModalContext, ModalContextValues } from './Modal.Widget.Context';
 import { ModalActionTypeMap, ModalReducerState, rootModalReducer } from './Modal.Widget.reducer';

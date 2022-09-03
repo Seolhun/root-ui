@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookDescriptor } from '@/stories';
+import { storiesScaleOptions, storiesIntentOptions, StorybookDescriptor } from '../../../stories';
 import { Button, ButtonProps } from './Button';
 
 export default {
@@ -24,7 +24,7 @@ export default {
   },
 };
 
-const ScaleButtons: React.FC<ButtonProps> = ({ children, ...rests }) => {
+const ScaleButtons = ({ children, ...rests }: ButtonProps) => {
   return (
     <section>
       {storiesScaleOptions.map((scale) => (
@@ -44,7 +44,7 @@ ScaleButtonsStories.args = {
   disabled: false,
 };
 
-const IntentButtons: React.FC<ButtonProps> = ({ children, ...rests }) => {
+const IntentButtons = ({ children, ...rests }: ButtonProps) => {
   return (
     <section>
       {storiesIntentOptions.map((intent) => (

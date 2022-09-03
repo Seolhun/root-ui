@@ -1,7 +1,7 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
-import { RootIntentWeightType, RootIntentType, RootScale, toScaleMatch } from '../../../system';
+import { RootIntentWeight, RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Input';
 type Element = HTMLInputElement;
@@ -17,12 +17,12 @@ export interface InputProps extends ExtensionProps {
   /**
    * @default primary
    */
-  intent?: RootIntentType;
+  intent?: RootIntent;
 
   /**
    * @default 600
    */
-  intentWeight?: RootIntentWeightType;
+  intentWeight?: RootIntentWeight;
 }
 
 const Input = React.forwardRef<Element, InputProps>(
@@ -32,21 +32,31 @@ const Input = React.forwardRef<Element, InputProps>(
         {...rests}
         ref={ref}
         id={rests.name}
-        className={classnames(
+        className={classNames(
           CLASSNAME,
           className,
           'block',
           'w-full',
+          'rounded-md',
           toScaleMatch({
             sm: () => 'py-1 px-2',
             md: () => 'py-2 px-3',
             lg: () => 'py-2.5 px-3.5',
           })(scale),
-          'border border-light-400',
-          `outline-${intent}-${intentWeight}`,
-          `caret-${intent}-${intentWeight}`,
-          'disabled:bg-dark-100 disabled:border-dark-100',
-          'rounded-md',
+          toIntentMatch({
+            neutral: () => classNames('outline-neutral dark:outline-neutral'),
+            light: () => classNames('outline-light dark:outline-light'),
+            dark: () => classNames('outline-dark dark:outline-dark'),
+            primary: () => classNames('outline-primary dark:outline-primary'),
+            info: () => classNames('outline-info dark:outline-info'),
+            success: () => classNames('outline-success dark:outline-success'),
+            warning: () => classNames('outline-warning dark:outline-warning'),
+            danger: () => classNames('outline-danger dark:outline-danger'),
+          })(intent),
+          'text-neutral-darkest',
+          'border border-neutral',
+          'caret-neutral',
+          'disabled:bg-neutral-lightest disabled:border-neutral-lighter disabled:placeholder:text-neutral-light',
         )}
       />
     );

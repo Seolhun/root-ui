@@ -1,7 +1,7 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
-import { RootIntentWeightType, RootIntentType } from '../../../system';
+import { RootIntentWeight, RootIntent } from '../../../system';
 
 const CLASSNAME = 'Root__BlockQuote';
 type ElementProps = React.HTMLAttributes<HTMLParagraphElement>;
@@ -10,12 +10,12 @@ export interface BlockQuoteProps extends ExtensionProps {
   /**
    * @default primary
    */
-  intent?: RootIntentType;
+  intent?: RootIntent;
 
   /**
    * @default 300
    */
-  intentWeight?: RootIntentWeightType;
+  intentWeight?: RootIntentWeight;
 }
 
 const BlockQuote: React.FC<BlockQuoteProps> = ({
@@ -28,7 +28,7 @@ const BlockQuote: React.FC<BlockQuoteProps> = ({
   return (
     <blockquote
       {...rests}
-      className={classnames(
+      className={classNames(
         CLASSNAME,
         className,
         'text-base font-light leading-relaxed',

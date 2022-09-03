@@ -47,11 +47,6 @@
     "sourceMap": false,
     "traceResolution": false, // 모듈 검색에 대한 로그메세지 출력 여부
     "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    },
     "outDir": "dist",
   },
   "include": [

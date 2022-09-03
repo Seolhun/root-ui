@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { isFunction } from '@/utils';
-import { FocusableMode, isFocusableElement } from '@/tools/focus-trap/FocusManagements';
+import { isFunction } from '../utils';
+import { FocusableMode, isFocusableElement } from '../tools/focus-trap/FocusManagements';
 
 import { useDocumentEvent } from './useDocumentEvent';
 

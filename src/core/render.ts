@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { RootUIProps, XOR, RootUIUniqueKey, Expand } from '@/types';
-import { GlobalRootDataAttributeMap } from '@/constants';
-import { match, omit, compact, isFunction, isEmpty, isUndefined } from '@/utils';
+import { RootUIProps, XOR, RootUIUniqueKey, Expand } from '../types';
+import { GlobalRootDataAttributeMap } from '../constants';
+import { match, omit, compact, isFunction, isEmpty, isUndefined } from '../utils';
 
 import { mergeProps } from './mergeProps';
 
