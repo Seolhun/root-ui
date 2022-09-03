@@ -1,24 +1,19 @@
-import React, { Reducer } from 'react';
+import React from 'react';
 
-export interface ModalReducerState {
+export interface StateDefinition {
   id: string | null;
   panelRef: React.MutableRefObject<HTMLDivElement | null>;
 }
 
-export enum ModalActionTypeMap {
-  SET_MODAL_TITLE_ID = 'SET_MODAL_TITLE_ID',
+export enum ActionTypes {
+  SetTitleId,
 }
 
-export const setModalTitleId = (payload: string | null) => ({
-  type: ModalActionTypeMap.SET_MODAL_TITLE_ID,
-  payload,
-});
+export type Actions = { type: ActionTypes.SetTitleId; payload: string | null };
 
-export type ModalActions = ReturnType<typeof setModalTitleId>;
-
-export const rootModalReducer: Reducer<ModalReducerState, ModalActions> = (state, action) => {
+export const rootReducer: React.Reducer<StateDefinition, Actions> = (state, action) => {
   switch (action.type) {
-    case ModalActionTypeMap.SET_MODAL_TITLE_ID: {
+    case ActionTypes.SetTitleId: {
       if (state.id === action.payload) {
         return state;
       }
