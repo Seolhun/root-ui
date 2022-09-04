@@ -14,7 +14,7 @@ import {
 } from '../../../hooks';
 import { match } from '../../../utils';
 import { GlobalRootDataAttributeMap, KeyboardKeyMap } from '../../../constants';
-import { forwardRefWithAs, render, RenderFeatureEnum } from '../../../core';
+import { forwardRefWithAs, render, RenderFeatures } from '../../../core';
 
 import { ModalContext, ModalContextValues } from './Modal.Widget.Context';
 import { ActionTypes, StateDefinition, rootReducer } from './Modal.Widget.reducer';
@@ -47,7 +47,7 @@ export interface ModalRootProps {
 
 const COMPONENT_NAME = 'Modal';
 const DEFAULT_TAG: RootUIReactTag = 'div';
-const modalRenderFeatures = RenderFeatureEnum.RenderStrategy | RenderFeatureEnum.Static;
+const modalRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Static;
 
 export interface ModalRootRenderPropArg extends ModalRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'role' | 'aria-modal' | 'aria-labelledby'>;

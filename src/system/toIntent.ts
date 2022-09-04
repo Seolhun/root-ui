@@ -1,6 +1,12 @@
 import classNames from 'classnames';
+import { curry } from '@fxts/core';
 
-import { TailwindPrefix, RootIntentWeight, RootIntent, TailwindAppendix } from './RootTheme.types';
+import { RootScale, TailwindPrefix, RootIntentWeight, RootIntent, TailwindAppendix } from './RootTheme.types';
+
+const toMatch = <Key extends string, R>(lookup: Record<Key, () => R>, key: Key) => {
+  const callback = lookup[key];
+  return callback();
+};
 
 type IntentAppendixes = TailwindAppendix | TailwindAppendix[];
 
@@ -32,3 +38,11 @@ export function toIntent({ prefix, intent = 'primary', intentWeight, appendixes 
   const intentClassName = [appendixes, prefix, intent, intentWeight];
   return intentClassName.filter(Boolean).join('-');
 }
+
+export const toIntentMatch = curry((lookup: Record<RootIntent, () => string>, key: RootIntent) => {
+  return toMatch(lookup, key);
+});
+
+export const toScaleMatch = curry((lookup: Record<RootScale, () => string>, key: RootScale) => {
+  return toMatch(lookup, key);
+});
