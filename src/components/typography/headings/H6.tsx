@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 const CLASSNAME = 'Root__Heading Root__H6';
 type ElementProps = React.HTMLAttributes<HTMLHeadingElement>;
@@ -8,7 +8,7 @@ export type H6Props = ExtensionProps;
 
 const H6: React.FC<H6Props> = ({ className, children, ...rests }) => {
   return (
-    <h6 {...rests} className={classnames(CLASSNAME, className, 'text-1xl font-bold leading-normal mt-1 mb-2')}>
+    <h6 {...rests} className={classNames(CLASSNAME, className, 'text-1xl font-bold leading-normal mt-1 mb-2')}>
       {children}
     </h6>
   );

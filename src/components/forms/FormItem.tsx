@@ -1,18 +1,27 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
+
+import { RootScale } from '../../system';
 import FormLabel, { FormLabelProps } from './FormLabel';
 import FormHelp from './FormHelp';
 
+const CLASSNAME = 'Root__FormItem';
 type ElementProps = React.HTMLAttributes<HTMLDivElement>;
 type ExtensionProps = ElementProps;
 export interface FormItemProps extends ExtensionProps {
+  /**
+   * Set this to change scale
+   * @default md
+   */
+  scale?: RootScale;
+
   /**
    * Form label
    */
   label?: string;
 
   /**
-   * Form label htmlfor
+   * Form label htmlFor
    */
   htmlFor?: FormLabelProps['htmlFor'];
 
@@ -22,16 +31,20 @@ export interface FormItemProps extends ExtensionProps {
   help?: string;
 }
 
-const FormItem: React.FC<FormItemProps> = ({ label, htmlFor, help, className, children, ...props }) => {
+const FormItem: React.FC<FormItemProps> = ({ children, className, scale = 'md', label, htmlFor, help, ...props }) => {
   return (
-    <div {...props} className={classnames(className, 'Root__FormItem')}>
+    <div {...props} className={classNames(CLASSNAME, className)}>
       {label && (
-        <FormLabel className="mb-2" htmlFor={htmlFor}>
+        <FormLabel className="mb-2" scale={scale} htmlFor={htmlFor}>
           {label}
         </FormLabel>
       )}
       {children}
-      {help && <FormHelp className="mt-2">{help}</FormHelp>}
+      {help && (
+        <FormHelp className="mt-2" scale={scale}>
+          {help}
+        </FormHelp>
+      )}
     </div>
   );
 };

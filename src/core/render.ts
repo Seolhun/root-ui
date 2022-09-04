@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { RootUIProps, XOR, RootUIUniqueKey, Expand } from '@/types';
-import { GlobalRootDataAttributeMap } from '@/constants';
-import { match, omit, compact, isFunction, isEmpty, isUndefined } from '@/utils';
+import { RootUIProps, XOR, RootUIUniqueKey, Expand } from '../types';
+import { GlobalRootDataAttributeMap } from '../constants';
+import { match, omit, compact, isFunction, isEmpty, isUndefined } from '../utils';
 
 import { mergeProps } from './mergeProps';
 
-export enum RenderFeatureEnum {
+export enum RenderFeatures {
   /** No features at all */
   None = 0,
 
@@ -31,17 +31,17 @@ export enum RootRenderStrategyEnum {
   Hidden,
 }
 
-type FeatureProps<PassedInFeatures extends RenderFeatureEnum, ForFeature extends RenderFeatureEnum, Props> = {
+type FeatureProps<PassedInFeatures extends RenderFeatures, ForFeature extends RenderFeatures, Props> = {
   [P in PassedInFeatures]: P extends ForFeature ? Props : RootUIUniqueKey;
 }[PassedInFeatures];
 
-export type FeaturePropsMap<T extends RenderFeatureEnum> = XOR<
-  FeatureProps<T, RenderFeatureEnum.Static, { static?: boolean }>,
-  FeatureProps<T, RenderFeatureEnum.RenderStrategy, { unmount?: boolean }>
+export type PropsForFeatures<T extends RenderFeatures> = XOR<
+  FeatureProps<T, RenderFeatures.Static, { static?: boolean }>,
+  FeatureProps<T, RenderFeatures.RenderStrategy, { unmount?: boolean }>
 >;
 
-interface RootRenderProps<Feature extends RenderFeatureEnum, Tag extends React.ElementType, Slot> {
-  ourProps: Expand<RootUIProps<Tag, Slot, any> & FeaturePropsMap<Feature>>;
+interface RootRenderProps<Feature extends RenderFeatures, Tag extends React.ElementType, Slot> {
+  ourProps: Expand<RootUIProps<Tag, Slot, any> & PropsForFeatures<Feature>>;
   theirProps: Expand<RootUIProps<Tag, Slot, any>>;
   defaultTag: React.ElementType;
   name: string;
@@ -139,7 +139,7 @@ function _render<Tag extends React.ElementType, Slot>(
   );
 }
 
-export function render<Feature extends RenderFeatureEnum, Tag extends React.ElementType, Slot>({
+export function render<Feature extends RenderFeatures, Tag extends React.ElementType, Slot>({
   ourProps,
   theirProps,
   defaultTag,
@@ -154,18 +154,18 @@ export function render<Feature extends RenderFeatureEnum, Tag extends React.Elem
     return _render(props, slot, defaultTag, name);
   }
 
-  const featureFlags = features ?? RenderFeatureEnum.None;
+  const featureFlags = features ?? RenderFeatures.None;
 
-  if (featureFlags & RenderFeatureEnum.Static) {
-    const { static: isStatic = false, ...rests } = props as FeaturePropsMap<RenderFeatureEnum.Static>;
+  if (featureFlags & RenderFeatures.Static) {
+    const { static: isStatic = false, ...rests } = props as PropsForFeatures<RenderFeatures.Static>;
     // When the `static` prop is passed as `true`, then the user is in control, thus we don't care about anything else
     if (isStatic) {
       return _render(rests, slot, defaultTag, name);
     }
   }
 
-  if (featureFlags & RenderFeatureEnum.RenderStrategy) {
-    const { unmount = true, ...rests } = props as FeaturePropsMap<RenderFeatureEnum.RenderStrategy>;
+  if (featureFlags & RenderFeatures.RenderStrategy) {
+    const { unmount = true, ...rests } = props as PropsForFeatures<RenderFeatures.RenderStrategy>;
     const strategy = unmount ? RootRenderStrategyEnum.Unmount : RootRenderStrategyEnum.Hidden;
 
     return match(strategy, {

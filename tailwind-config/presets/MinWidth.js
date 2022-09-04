@@ -42,4 +42,4 @@ const MinWidth = {
 
 module.exports = {
   MinWidth,
-}
+};

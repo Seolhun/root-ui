@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 const CLASSNAME = 'Root__HTMLSelect';
 type Element = HTMLSelectElement;
@@ -20,7 +20,7 @@ const HTMLSelect = React.forwardRef<Element, HTMLSelectProps>(({ className, opti
       {...rests}
       ref={ref}
       id={rests.name}
-      className={classnames(
+      className={classNames(
         CLASSNAME,
         className,
         'shadow-sm border border-gray-400 focus:ring-gray-800 p-3 block w-full sm:text-sm rounded-md',

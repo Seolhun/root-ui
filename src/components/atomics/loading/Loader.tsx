@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import { IntentType, IntentWeightType, RootScale, toIntentColor, toScaleMatch } from '@/system';
+
+import { RootIntent, RootIntentWeight, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Loader';
 type ElementProps = React.SVGAttributes<HTMLOrSVGElement>;
@@ -15,12 +16,12 @@ export interface LoaderProps extends ExtensionProps {
   /**
    * @default primary
    */
-  intent?: IntentType;
+  intent?: RootIntent;
 
   /**
    * @default 600
    */
-  intentWeight?: IntentWeightType;
+  intentWeight?: RootIntentWeight;
 }
 
 const Loader: React.FC<LoaderProps> = ({
@@ -38,9 +39,21 @@ const Loader: React.FC<LoaderProps> = ({
           CLASSNAME,
           className,
           'animate-spin',
-          toIntentColor({ prefix: 'text', intent: 'dark', intentWeight: 200 }),
-          toIntentColor({ prefix: 'fill', intent, intentWeight }),
-          toScaleMatch(() => 'h-6 w-6')(() => 'h-10 w-10')(() => 'h-14 w-14')(scale),
+          toScaleMatch({
+            sm: () => 'w-6 h-6',
+            md: () => 'w-10 h-10',
+            lg: () => 'w-14 h-14',
+          })(scale),
+          toIntentMatch({
+            neutral: () => classNames('text-neutral-lightest fill-neutral'),
+            light: () => classNames('text-light-lightest fill-light'),
+            dark: () => classNames('text-dark-lightest fill-dark'),
+            primary: () => classNames('text-primary-lightest fill-primary'),
+            info: () => classNames('text-info-lightest fill-info'),
+            success: () => classNames('text-success-lightest fill-success'),
+            warning: () => classNames('text-warning-lightest fill-warning'),
+            danger: () => classNames('text-danger-lightest fill-danger'),
+          })(intent),
         )}
         aria-hidden="true"
         viewBox="0 0 100 100"

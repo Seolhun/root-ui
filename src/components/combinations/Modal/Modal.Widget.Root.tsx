@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { RootUIProps, RootUIReactTag } from '@/types';
-import { FocusTrap, ForcePortalRoot, Portal, StackContextMessageEnum, StackProvider } from '@/tools';
+import { RootUIProps, RootUIReactTag } from '../../../types';
+import { FocusTrap, ForcePortalRoot, Portal, StackContextMessageEnum, StackProvider } from '../../../tools';
 import {
   useOutsideClick,
   useLockScroll,
@@ -11,13 +11,13 @@ import {
   useEventListener,
   useSyncRefs,
   useId,
-} from '@/hooks';
-import { match } from '@/utils';
-import { GlobalRootDataAttributeMap, KeyboardKeyMap } from '@/constants';
-import { forwardRefWithAs, render, RenderFeatureEnum } from '@/core';
+} from '../../../hooks';
+import { match } from '../../../utils';
+import { GlobalRootDataAttributeMap, KeyboardKeyMap } from '../../../constants';
+import { forwardRefWithAs, render, RenderFeatures } from '../../../core';
 
 import { ModalContext, ModalContextValues } from './Modal.Widget.Context';
-import { ModalActionTypeMap, ModalReducerState, rootModalReducer } from './Modal.Widget.reducer';
+import { ActionTypes, StateDefinition, rootReducer } from './Modal.Widget.reducer';
 import { ModalPosition, ModalRenderPropArg } from './Modal.Widget.types';
 
 type Element = HTMLDivElement;
@@ -47,11 +47,7 @@ export interface ModalRootProps {
 
 const COMPONENT_NAME = 'Modal';
 const DEFAULT_TAG: RootUIReactTag = 'div';
-const modalRenderFeatures = RenderFeatureEnum.RenderStrategy | RenderFeatureEnum.Static;
-const initState: ModalReducerState = {
-  id: null,
-  panelRef: React.createRef(),
-};
+const modalRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Static;
 
 export interface ModalRootRenderPropArg extends ModalRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'role' | 'aria-modal' | 'aria-labelledby'>;
@@ -69,18 +65,24 @@ const _ModalWidgetRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
   const mainTreeNode = React.useRef<Element | null>(null);
   const ownerDocument = useOwnerDocument(internalModalRef);
 
-  const [state, dispatch] = React.useReducer(rootModalReducer, initState);
+  const initState = React.useMemo<StateDefinition>(
+    () => ({
+      id: null,
+      panelRef: React.createRef(),
+    }),
+    [],
+  );
+  const [state, dispatch] = React.useReducer(rootReducer, initState);
   const [nestedModalCount, setNestedModalCount] = React.useState(0);
-
   const isReady = useServerHandoffComplete();
   const enabled = isReady ? show === true : false;
   const hasNestedModals = nestedModalCount > 1; // 1 is the current modal
   const hasParentModal = React.useContext(ModalContext) !== null;
   const position: ModalPosition = hasParentModal ? 'parent' : 'leaf';
 
-  const setModalTitleId = useEvent((id: string | null) =>
-    dispatch({ type: ModalActionTypeMap.SET_MODAL_TITLE_ID, payload: id }),
-  );
+  const setModalTitleId = useEvent((id: string | null) => {
+    return dispatch({ type: ActionTypes.SetTitleId, payload: id });
+  });
 
   const onCloseModal = useEvent(() => onClose());
 

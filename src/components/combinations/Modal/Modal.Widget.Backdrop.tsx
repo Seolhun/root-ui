@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { RootUIProps, RootUIReactTag } from '@/types';
-import { useSyncRefs, useId } from '@/hooks';
-import { forwardRefWithAs, render } from '@/core';
+import { RootUIProps, RootUIReactTag } from '../../../types';
+import { useSyncRefs, useId } from '../../../hooks';
+import { forwardRefWithAs, render } from '../../../core';
 
 import { useModalContext } from './Modal.Widget.Context';
 import { ModalRenderPropArg } from './Modal.Widget.types';

@@ -1,11 +1,11 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 
-import { RootUIProps, UnknownObject } from '@/types';
-import { optionalRef, useIsoMorphicEffect, useOwnerDocument, useSyncRefs, useServerHandoffComplete } from '@/hooks';
-import { isServer, toMicrotask } from '@/utils';
-import { forwardRefWithAs, render } from '@/core';
-import { GlobalRootDataAttributeMap } from '@/constants';
+import { RootUIProps, UnknownObject } from '../../types';
+import { optionalRef, useIsoMorphicEffect, useOwnerDocument, useSyncRefs, useServerHandoffComplete } from '../../hooks';
+import { isServer, toMicrotask } from '../../utils';
+import { forwardRefWithAs, render } from '../../core';
+import { GlobalRootDataAttributeMap } from '../../constants';
 
 import PortalGroup from './PortalGroup';
 import usePortalTarget from './usePortalTarget';

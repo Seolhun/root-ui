@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useOwnerDocument } from '@/hooks';
-import { isServer } from '@/utils';
-import { GlobalRootDataAttributeMap } from '@/constants';
+import { useOwnerDocument } from '../../hooks';
+import { isServer } from '../../utils';
+import { GlobalRootDataAttributeMap } from '../../constants';
 
 import { useForcePortalRoot } from './PortalForceRoot';
 import { PortalGroupContext } from './PortalGroup';

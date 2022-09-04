@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { useEventListener, useWatch } from '@/hooks';
-import { toMicrotask } from '@/utils';
+import { useEventListener, useWatch } from '../../hooks';
+import { toMicrotask } from '../../utils';
 
 import { focusElement } from './FocusManagements';
 

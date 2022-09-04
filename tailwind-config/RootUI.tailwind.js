@@ -1,25 +1,11 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors');
-const plugin = require('tailwindcss/plugin');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
-const { FontSize } = require('./FontSize');
-const { NegativeMargins } = require('./Margin');
-const { MinHeight } = require('./MinHeight');
-const { MinWidth } = require('./MinWidth');
-const { Animations } = require('./plugins/Animations');
-
-const intentColors = {
-  white: colors.white,
-  black: colors.black,
-  light: colors.slate,
-  dark: colors.gray,
-  neutral: colors.neutral,
-  primary: colors.blue,
-  info: colors.cyan,
-  success: colors.green,
-  warning: colors.orange,
-  danger: colors.red,
-}
+const { intentColors, themeColors } = require('./theme');
+const { FontSize } = require('./presets/FontSize');
+const { NegativeMargins } = require('./presets/Margin');
+const { MinHeight } = require('./presets/MinHeight');
+const { MinWidth } = require('./presets/MinWidth');
+const { Animations } = require('./presets/Animations');
 
 module.exports = {
   /**
@@ -35,19 +21,26 @@ module.exports = {
    * string literal을 같이 사용한 경우 tailwind가 class를 인식하지 못해서 purge 되는 현상이 발생합니다.
    */
   safelist: [
-    // {
-    //   pattern: /^w-.*/,
-    //   variants: ['xs', 'sm', 'md', 'lg', 'xl'],
-    // },
     {
-      pattern: /(bg|text|border|ring|ring-offset|outline)-(white|black|light|dark|neutral|primary|info|success|warning|danger)-(50|100|200|300|400|500|600|700|800|900)/,
-      // variants: ['hover', 'focus', 'placeholder', 'disabled'],
+      pattern: /(text)-(title|description|content|link|blockquote)/,
+      // variants: [
+      //   'hover',
+      //   'focus',
+      //   'focus-within',
+      //   'placeholder',
+      //   'active',
+      //   'visited',
+      //   'disabled',
+      //   'checked',
+      //   'required',
+      //   'placeholder',
+      // ],
     },
   ],
   /**
    * @see https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually
    */
-   darkMode: 'class',
+  darkMode: 'class',
   /**
    * @name Extends
    * @see https://tailwindcss.com/docs/theme
@@ -56,24 +49,7 @@ module.exports = {
     fontFamily: {
       roboto: ['"Roboto"', ...defaultTheme.fontFamily.sans],
     },
-    fontSize: {
-      ...FontSize,
-    },
-    backgroundColor: theme => ({
-      ...theme('colors'),
-    }),
-    borderColor: theme => ({
-      ...theme('colors'),
-    }),
-    textColor: theme => ({
-      ...theme('colors'),
-
-      title: intentColors.light[800],
-      content: intentColors.light[800],
-      description: intentColors.light[600],
-      comment: intentColors.light[500],
-      link: intentColors.primary[500]
-    }),
+    fontSize: FontSize,
     boxShadow: {
       DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
       sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
@@ -87,15 +63,11 @@ module.exports = {
     },
     // @see https://tailwindcss.com/docs/customizing-colors
     colors: {
-      ...colors,
       ...intentColors,
+      ...themeColors.typography,
     },
-    minWidth: {
-      ...MinWidth,
-    },
-    minHeight: {
-      ...MinHeight,
-    },
+    minWidth: MinWidth,
+    minHeight: MinHeight,
     screens: {
       sm: '480px',
       // => @media (min-width: 480px) { ... }
@@ -108,27 +80,18 @@ module.exports = {
     },
     extend: {
       ...Animations,
-      margin: {
-        ...NegativeMargins,
-      },
-      borderRadius: {
-        '4xl': '2rem'
-      },
-      spacing: {
-        128: '32rem',
-        144: '36rem'
-      },
+      margin: NegativeMargins,
       transitionProperty: {
-        'background': 'background',
-        'width': 'width',
-        'height': 'height',
-        'spacing': 'margin, padding',
+        background: 'background',
+        width: 'width',
+        height: 'height',
+        spacing: 'margin, padding',
       },
       transitionDuration: {
         '1500': '1500ms',
         '2000': '2000ms',
-      }
-    }
+      },
+    },
   },
   variants: {
     extend: {
@@ -142,20 +105,8 @@ module.exports = {
        * @see https://tailwindcss.com/docs/transition-property
        */
       transitionProperty: ['hover', 'focus'],
-    }
+    },
   },
   // https://tailwindcss.com/docs/plugins#adding-base-styles
-  plugins: [
-    require('@tailwindcss/line-clamp'),
-    plugin(function({ addBase, theme }) {
-      addBase({
-        'h1': { fontSize: theme('fontSize.3xl') },
-        'h2': { fontSize: theme('fontSize.2xl') },
-        'h3': { fontSize: theme('fontSize.1xl') },
-        'h4': { fontSize: theme('fontSize.lg') },
-        'h5': { fontSize: theme('fontSize.base') },
-        'h6': { fontSize: theme('fontSize.sm') },
-      })
-    })
-  ]
-}
+  plugins: [require('@tailwindcss/line-clamp'), require('@tailwindcss/aspect-ratio'), require('./plugins/typography')],
+};

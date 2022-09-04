@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GlobalRootClassNameMap } from '@/constants';
+import { GlobalRootClassNameMap } from '../constants';
 
 const CLASSNAME = GlobalRootClassNameMap.WindowLockScroll;
 const useLockScrollClassName = (isVisible: boolean): void => {

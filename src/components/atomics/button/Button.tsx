@@ -1,17 +1,7 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
-import {
-  IntentWeightType,
-  IntentType,
-  RootScale,
-  toIntentColor,
-  toFocusIntentColor,
-  toHoverIntentColor,
-  toPlaceholderIntentColor,
-  toScaleMatch,
-  toTypography,
-} from '@/system';
+import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Button';
 type Element = HTMLButtonElement;
@@ -28,50 +18,80 @@ export interface ButtonProps extends ExtensionProps {
   /**
    * @default primary
    */
-  intent?: IntentType;
-
-  /**
-   * @default 600
-   */
-  intentWeight?: IntentWeightType;
+  intent?: RootIntent;
 }
 
 const Button = React.forwardRef<Element, ButtonProps>(
-  ({ className, children, scale = 'md', intent = 'primary', intentWeight = 600, ...rests }, ref) => {
+  ({ className, children, scale = 'md', intent = 'primary', ...rests }, ref) => {
     return (
       <button
         ref={ref}
         type="button"
         {...rests}
-        className={classnames(
+        className={classNames(
           CLASSNAME,
           className,
           'inline-block',
-          toScaleMatch(() => toTypography('3'))(() => toTypography('3.5'))(() => toTypography('4'))(scale),
-          toScaleMatch(() => 'py-1 px-2')(() => 'py-2 px-3')(() => 'py-2.5 px-3.5')(scale),
           'text-white',
           'rounded-md',
-          toIntentColor({
-            prefix: 'bg',
-            intent,
-            intentWeight,
-          }),
-          toHoverIntentColor({
-            prefix: 'bg',
-            intent,
-            intentWeight: intentWeight - 100,
-          }),
-          toFocusIntentColor({
-            prefix: 'ring-offset',
-            intent,
-            intentWeight,
-          }),
-          'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white',
-          toPlaceholderIntentColor({
-            prefix: 'text',
-            intent: 'dark',
-          }),
+          `focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white`,
+          'placeholder:text-dark',
           'disabled:opacity-50 disabled:cursor-not-allowed',
+          toScaleMatch({
+            sm: () => 'text-3 py-1 px-2',
+            md: () => 'text-3.5 py-2 px-3',
+            lg: () => 'text-4 py-2.5 px-3.5',
+          })(scale),
+          toIntentMatch({
+            neutral: () =>
+              classNames(
+                'bg-neutral hover:bg-neutral-darker text-neutral-lightest',
+                'dark:bg-neutral dark:hover:bg-neutral-darker dark:text-neutral-lightest',
+                'focus:ring-offset-neutral',
+              ),
+            light: () =>
+              classNames(
+                'bg-light hover:bg-light-darker text-light-lightest',
+                'dark:bg-light dark:hover:bg-light-darker dark:text-light-lightest',
+                'focus:ring-offset-light',
+              ),
+            dark: () =>
+              classNames(
+                'bg-dark hover:bg-dark-darker text-dark-lightest',
+                'dark:bg-dark dark:hover:bg-dark-darker dark:text-dark-lightest',
+                'focus:ring-offset-dark',
+              ),
+            primary: () =>
+              classNames(
+                'bg-primary hover:bg-primary-darker text-primary-lightest',
+                'dark:bg-primary dark:hover:bg-primary-darker dark:text-primary-lightest',
+                'focus:ring-offset-primary',
+              ),
+            info: () =>
+              classNames(
+                'bg-info hover:bg-info-darker text-info-lightest',
+                'dark:bg-info dark:hover:bg-info-darker dark:text-info-lightest',
+                'focus:ring-offset-info',
+              ),
+            success: () =>
+              classNames(
+                'bg-success hover:bg-success-darker text-success-lightest',
+                'dark:bg-success dark:hover:bg-success-darker dark:text-success-lightest',
+                'focus:ring-offset-success',
+              ),
+            warning: () =>
+              classNames(
+                'bg-warning hover:bg-warning-darker text-warning-lightest',
+                'dark:bg-warning dark:hover:bg-warning-darker dark:text-warning-lightest',
+                'focus:ring-offset-warning',
+              ),
+            danger: () =>
+              classNames(
+                'bg-danger hover:bg-danger-darker text-danger-lightest',
+                'dark:bg-danger dark:hover:bg-danger-darker dark:text-danger-lightest',
+                'focus:ring-offset-danger',
+              ),
+          })(intent),
         )}
       >
         {children}

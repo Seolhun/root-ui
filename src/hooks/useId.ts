@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { isNil } from '@/utils';
+import { isNil } from '../utils';
 
 import { useIsoMorphicEffect } from './useIsoMorphicEffect';
 import { useServerHandoffComplete } from './useServerHandoffComplete';

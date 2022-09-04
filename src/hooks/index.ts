@@ -14,6 +14,7 @@ export * from './useMount';
 export * from './useOutsideClick';
 export * from './useOwnerDocument';
 export * from './usePortal';
+export * from './useResolveButtonType';
 export * from './useServerHandoffComplete';
 export * from './useSyncRefs';
 export * from './useTabDirection';

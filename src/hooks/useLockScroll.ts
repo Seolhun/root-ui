@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getOwnerDocumentBy } from '@/utils';
+import { getOwnerDocumentBy } from '../utils';
 
 export interface UseLockScrollProps<E extends HTMLElement = HTMLElement> {
   isVisible: boolean;

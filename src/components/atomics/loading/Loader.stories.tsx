@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { storiesIntentOptions, storiesScaleOptions } from '@/stories';
+import { storiesIntentOptions, storiesScaleOptions, StorybookDescriptor } from '../../../stories';
 import { Loader, LoaderProps } from './Loader';
 
 export default {
@@ -32,7 +32,25 @@ const Loaders = ({ ...rests }: LoaderProps) => {
   );
 };
 
-export const LoadersStories = Loaders.bind({});
-LoadersStories.args = {
+export const LoaderStories = Loaders.bind({});
+LoaderStories.args = {
   loading: true,
+};
+
+const IntentLoaders = ({ children, ...rests }: LoaderProps) => {
+  return (
+    <section>
+      {storiesIntentOptions.map((intent) => (
+        <StorybookDescriptor key={intent} title={intent}>
+          <Loader {...rests} intent={intent} />
+        </StorybookDescriptor>
+      ))}
+    </section>
+  );
+};
+
+export const IntentLoadersStories = IntentLoaders.bind({});
+IntentLoadersStories.args = {
+  children: 'Button',
+  disabled: false,
 };

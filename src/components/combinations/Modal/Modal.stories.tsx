@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Button, Card } from '@/components/atomics';
-import { useDisclosure } from '@/hooks';
-import { storiesScaleOptions } from '@/stories';
+import { storiesScaleOptions } from '../../../stories';
+import { useDisclosure } from '../../../hooks';
+import { Button, Card } from '../../atomics';
 
 import Modal from './Modal';
 

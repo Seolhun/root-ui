@@ -1,15 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import {
-  IntentType,
-  RootScale,
-  toHoverIntentColor,
-  toScaleMatch,
-  toFocusIntentColor,
-  toTypography,
-  toCheckedIntentColor,
-} from '@/system';
+import { RootIntent, RootScale, toIntentMatch } from '../../../system';
 import { FormLabel } from '../FormLabel';
 
 const CLASSNAME = 'Root__Radio';
@@ -29,25 +21,20 @@ export interface RadioProps extends ExtensionProps {
   /**
    * @default primary
    */
-  intent?: IntentType;
+  intent?: RootIntent;
 }
 
-const intentWeight = 600;
 const Radio = React.forwardRef<Element, RadioProps>(
-  ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...rests }, ref) => {
+  ({ children, className, htmlFor, scale = 'md', intent = 'primary', disabled, ...rests }, ref) => {
     const htmlForAndID = htmlFor ?? rests.name;
     return (
       <FormLabel
-        className={classNames(
-          'inline-flex items-center cursor-pointer',
-          toScaleMatch(() => 'py-0.5 px-1')(() => 'py-1 px-1.5')(() => 'py-1.5 px-2')(scale),
-          toScaleMatch(() => toTypography('3'))(() => toTypography('3.5'))(() => toTypography('4'))(scale),
-          {
-            'cursor-default': disabled,
-            'cursor-pointer': !disabled,
-          },
-        )}
+        className={classNames('inline-flex items-center cursor-pointer', {
+          'cursor-default': disabled,
+          'cursor-pointer': !disabled,
+        })}
         htmlFor={htmlForAndID}
+        scale={scale}
       >
         <input
           {...rests}
@@ -59,21 +46,16 @@ const Radio = React.forwardRef<Element, RadioProps>(
             CLASSNAME,
             className,
             'inline-block',
-            toCheckedIntentColor({
-              prefix: 'accent',
-              intent,
-              intentWeight,
-            }),
-            toHoverIntentColor({
-              prefix: 'border',
-              intent,
-              intentWeight: intentWeight - 100,
-            }),
-            toFocusIntentColor({
-              prefix: 'ring-offset',
-              intent,
-              intentWeight,
-            }),
+            toIntentMatch({
+              neutral: () => classNames('accent-neutral-darker', 'dark:accent-neutral-darker'),
+              light: () => classNames('accent-light-darker', 'dark:accent-light-darker'),
+              dark: () => classNames('accent-dark-darker', 'dark:accent-dark-darker'),
+              primary: () => classNames('accent-primary-darker', 'dark:accent-primary-darker'),
+              info: () => classNames('accent-info-darker', 'dark:accent-info-darker'),
+              success: () => classNames('accent-success-darker', 'dark:accent-success-darker'),
+              warning: () => classNames('accent-warning-darker', 'dark:accent-warning-darker'),
+              danger: () => classNames('accent-danger-darker', 'dark:accent-danger-darker'),
+            })(intent),
           )}
         />
         <span className="ml-2">{children}</span>

@@ -1,7 +1,10 @@
 import React from 'react';
 
-import { ModalReducerState } from './Modal.Widget.reducer';
-import { ModalOnCloseCallback, ModalSetTitleCallback } from './Modal.Widget.types';
+import { StateDefinition } from './Modal.Widget.reducer';
+
+export type ModalOnCloseCallback = () => void;
+
+export type ModalSetTitleCallback = (titleId: string | null) => void;
 
 export type ModalContextValues = [
   {
@@ -9,7 +12,7 @@ export type ModalContextValues = [
     setModalTitleId: ModalSetTitleCallback;
     visible: boolean;
   },
-  ModalReducerState,
+  StateDefinition,
 ];
 
 export const ModalContext = React.createContext<ModalContextValues>(null as any);

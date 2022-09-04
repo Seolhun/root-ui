@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 const CLASSNAME = 'Root__Grid__Container';
 type Element = HTMLDivElement;
@@ -13,7 +13,7 @@ const Container = React.forwardRef<Element, ContainerProps>(({ className, childr
     <div
       ref={ref}
       {...rests}
-      className={classnames(CLASSNAME, className, 'max-w-7xl mx-auto', 'lg:px-8 sm:px-6 px-4', 'py-6')}
+      className={classNames(CLASSNAME, className, 'max-w-7xl mx-auto', 'lg:px-8 sm:px-6 px-4', 'py-6')}
     >
       {children}
     </div>

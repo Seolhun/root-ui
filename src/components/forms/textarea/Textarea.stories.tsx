@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookDescriptor } from '@/stories';
+import { storiesScaleOptions, storiesIntentOptions, StorybookDescriptor } from '../../../stories';
 import { Textarea, TextareaProps } from './Textarea';
 
 export default {

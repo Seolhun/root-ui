@@ -41,4 +41,4 @@ const MinHeight = {
 
 module.exports = {
   MinHeight,
-}
+};

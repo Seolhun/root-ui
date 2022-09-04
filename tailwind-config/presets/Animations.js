@@ -72,10 +72,10 @@ const Animations = {
       'fade-in-right': 'fade-in-right 0.2s ease-in-out',
       'fade-in-bottom': 'fade-in-bottom 0.2s ease-in-out',
       'fade-in-left': 'fade-in-left 0.2s ease-in-out',
-    }
-  }
+    },
+  },
 };
 
 module.exports = {
   Animations,
-}
+};
