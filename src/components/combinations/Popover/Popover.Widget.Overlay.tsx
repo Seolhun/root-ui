@@ -26,7 +26,10 @@ type PropsWeControl = keyof Pick<ElementProps, 'id' | 'aria-hidden' | 'onClick'>
 const OverlayRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Static;
 
 const _PopoverWidgetOverlay = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
-  props: RootUIProps<Tag, PopoverOverlayRenderPropArg, PropsWeControl> & PropsForFeatures<typeof OverlayRenderFeatures>,
+  props: RootUIProps<Tag, PopoverOverlayRenderPropArg, PropsWeControl> &
+    PropsForFeatures<typeof OverlayRenderFeatures> &
+    PopoverWidgetOverlayProps &
+    ElementProps,
   ref: React.Ref<HTMLDivElement>,
 ) => {
   const [{ popoverState }, dispatch] = usePopoverContext(COMPONENT_NAME);

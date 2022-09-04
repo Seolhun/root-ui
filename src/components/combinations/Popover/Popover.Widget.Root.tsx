@@ -48,8 +48,8 @@ const _PopoverWidgetRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
     }),
   );
 
-  const initState = React.useMemo<StateDefinition>(
-    () => ({
+  const initState = React.useMemo<StateDefinition>(() => {
+    return {
       popoverState: OpenClosedState.Closed,
       button: null,
       buttonId,
@@ -57,9 +57,8 @@ const _PopoverWidgetRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
       panelId,
       beforePanelSentinel: React.createRef(),
       afterPanelSentinel: React.createRef(),
-    }),
-    [buttonId, panelId],
-  );
+    };
+  }, [buttonId, panelId]);
   const reducerBag = React.useReducer(rootReducer, initState);
   const [{ popoverState, button, panel, beforePanelSentinel, afterPanelSentinel }, dispatch] = reducerBag;
 

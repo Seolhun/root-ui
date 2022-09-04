@@ -35,7 +35,10 @@ type PropsWeControl = keyof Pick<ElementProps, 'id' | 'onKeyDown'>;
 const PanelRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Static;
 
 const _PopoverWidgetPanel = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
-  props: RootUIProps<Tag, PopoverPanelRenderPropArg, PropsWeControl> & PropsForFeatures<typeof PanelRenderFeatures>,
+  props: RootUIProps<Tag, PopoverPanelRenderPropArg, PropsWeControl> &
+    PropsForFeatures<typeof PanelRenderFeatures> &
+    PopoverWidgetPanelProps &
+    ElementProps,
   ref: React.Ref<HTMLDivElement>,
 ) => {
   const { focus = false, ...rests } = props;
