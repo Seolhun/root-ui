@@ -22,7 +22,7 @@ describe('Button Test', () => {
   test('Button: Intent Weight', () => {
     let button = render(<Button>Button</Button>);
     expect(button.container.getElementsByClassName('bg-primary-600').length).toBe(1);
-    button = render(<Button intentWeight={200}>Button</Button>);
+    button = render(<Button>Button</Button>);
     expect(button.container.getElementsByClassName('bg-primary-200').length).toBe(1);
   });
 
@@ -31,7 +31,7 @@ describe('Button Test', () => {
     fireEvent.mouseOver(button.container);
     expect(button.container.getElementsByClassName('hover:bg-primary-500').length).toBe(1);
 
-    button = render(<Button intentWeight={200}>Button</Button>);
+    button = render(<Button>Button</Button>);
     fireEvent.mouseOver(button.container);
     expect(button.container.getElementsByClassName('hover:bg-primary-100').length).toBe(1);
   });
