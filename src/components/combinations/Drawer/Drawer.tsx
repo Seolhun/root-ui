@@ -13,8 +13,6 @@ type ElementProps = React.HTMLAttributes<Element>;
 type ExtensionProps = ElementProps;
 
 export interface DrawerProps extends ExtensionProps {
-  children: React.ReactNode;
-
   /**
    * Set this to change scale
    * @default md

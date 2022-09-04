@@ -1,13 +1,20 @@
 import React from 'react';
 import classNames from 'classnames';
+import { RootScale, toScaleMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Card';
 type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
 type ExtensionProps = ElementProps;
-export type CardProps = ExtensionProps;
+export interface CardProps extends ExtensionProps {
+  /**
+   * Set this to change scale
+   * @default md
+   */
+  scale?: RootScale;
+}
 
-const Card = React.forwardRef<Element, CardProps>(({ children, className, ...rests }, ref) => {
+const Card = React.forwardRef<Element, CardProps>(({ children, className, scale = 'md', ...rests }, ref) => {
   return (
     <div
       {...rests}
@@ -18,8 +25,12 @@ const Card = React.forwardRef<Element, CardProps>(({ children, className, ...res
         'block',
         'bg-white',
         'rounded-lg shadow',
-        'transform transition-all',
         'overflow-hidden',
+        toScaleMatch({
+          sm: () => 'py-2 px-4',
+          md: () => 'py-3 px-4',
+          lg: () => 'py-4 px-6',
+        })(scale),
       )}
     >
       {children}
