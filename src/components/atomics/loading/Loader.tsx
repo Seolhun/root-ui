@@ -40,9 +40,9 @@ const Loader: React.FC<LoaderProps> = ({
           className,
           'animate-spin',
           toScaleMatch({
-            sm: () => 'min-w-6 min-h-6',
-            md: () => 'min-w-10 min-h-10',
-            lg: () => 'min-w-14 min-h-14',
+            sm: () => 'w-6 h-6 min-w-6 min-h-6',
+            md: () => 'w-10 h-10 min-w-10 min-h-10',
+            lg: () => 'w-14 h-14 min-w-14 min-h-14',
           })(scale),
           toIntentMatch({
             neutral: () => classNames('text-neutral-lightest fill-neutral'),
