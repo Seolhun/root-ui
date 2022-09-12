@@ -2,7 +2,7 @@ const _ = require('lodash');
 
 const ranges = _.concat(_.range(0, 10, 0.5), _.range(10, 401));
 
-const MinWidth = _.reduce(
+const Width = _.reduce(
   ranges,
   (acc, v) => {
     return {
@@ -11,6 +11,7 @@ const MinWidth = _.reduce(
     };
   },
   {
+    auto: 'auto',
     '1/2': '50%',
     '1/3': '33.333333%',
     '2/3': '66.666667%',
@@ -46,5 +47,5 @@ const MinWidth = _.reduce(
 );
 
 module.exports = {
-  MinWidth,
+  Width,
 };

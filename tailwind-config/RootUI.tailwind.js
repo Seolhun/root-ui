@@ -3,7 +3,9 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const { intentColors, themeColors } = require('./theme');
 const { FontSize } = require('./presets/FontSize');
 const { NegativeMargins } = require('./presets/Margin');
+const { Height } = require('./presets/Height');
 const { MinHeight } = require('./presets/MinHeight');
+const { Width } = require('./presets/Width');
 const { MinWidth } = require('./presets/MinWidth');
 const { Animations } = require('./presets/Animations');
 
@@ -68,6 +70,8 @@ module.exports = {
     },
     minWidth: MinWidth,
     minHeight: MinHeight,
+    width: Width,
+    height: Height,
     screens: {
       sm: '480px',
       // => @media (min-width: 480px) { ... }
