@@ -14,25 +14,14 @@ describe('Button Test', () => {
 
   test('Button: Intent', () => {
     let button = render(<Button>Button</Button>);
-    expect(button.container.getElementsByClassName('bg-primary-600').length).toBe(1);
+    expect(button.container.getElementsByClassName('bg-primary').length).toBe(1);
     button = render(<Button intent="success">Button</Button>);
-    expect(button.container.getElementsByClassName('bg-success-600').length).toBe(1);
-  });
-
-  test('Button: Intent Weight', () => {
-    let button = render(<Button>Button</Button>);
-    expect(button.container.getElementsByClassName('bg-primary-600').length).toBe(1);
-    button = render(<Button>Button</Button>);
-    expect(button.container.getElementsByClassName('bg-primary-200').length).toBe(1);
+    expect(button.container.getElementsByClassName('bg-success').length).toBe(1);
   });
 
   test('Button: Hover', () => {
-    let button = render(<Button>Button</Button>);
+    const button = render(<Button>Button</Button>);
     fireEvent.mouseOver(button.container);
-    expect(button.container.getElementsByClassName('hover:bg-primary-500').length).toBe(1);
-
-    button = render(<Button>Button</Button>);
-    fireEvent.mouseOver(button.container);
-    expect(button.container.getElementsByClassName('hover:bg-primary-100').length).toBe(1);
+    expect(button.container.getElementsByClassName('hover:bg-primary-darker').length).toBe(1);
   });
 });
