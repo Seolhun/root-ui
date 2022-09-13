@@ -1,5 +1,3 @@
-import path from "path";
-
 import { DEFAULT_EXTENSIONS } from '@babel/core'
 import typescript from '@rollup/plugin-typescript'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
@@ -13,7 +11,6 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import pkg from './package.json'
 const externals = Object.keys(pkg.peerDependencies || {})
 const extensions = DEFAULT_EXTENSIONS.concat(['.ts', '.tsx'])
-const projectRootDir = path.resolve(__dirname);
 
 const commonPlugins = [
   nodeResolve({
@@ -25,7 +22,6 @@ const commonPlugins = [
     tsconfig: './tsconfig.build.json',
   }),
   babel({
-    babelHelpers: 'runtime',
     exclude: /node_modules/,
     extensions,
   }),
