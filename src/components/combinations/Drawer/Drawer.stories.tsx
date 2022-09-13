@@ -14,7 +14,6 @@ export default {
   component: Drawer,
   argTypes: {
     scale: {
-      defaultValue: 'md',
       control: {
         type: 'select',
         options: storiesScaleOptions,

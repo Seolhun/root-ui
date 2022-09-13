@@ -25,11 +25,13 @@ const Card = React.forwardRef<Element, CardProps>(({ children, className, scale 
         'block',
         'bg-white',
         'rounded-lg shadow',
-        'overflow-hidden',
+        'break-all',
         toScaleMatch({
-          sm: () => 'py-2 px-4',
+          xs: () => 'py-2 px-3',
+          sm: () => 'py-2.5 px-4',
           md: () => 'py-3 px-4',
-          lg: () => 'py-4 px-6',
+          lg: () => 'py-3.5 px-5',
+          xl: () => 'py-4 px-6',
         })(scale),
       )}
     >

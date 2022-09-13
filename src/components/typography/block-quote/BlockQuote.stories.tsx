@@ -9,7 +9,6 @@ export default {
   component: BlockQuote,
   argTypes: {
     intent: {
-      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesIntentOptions,

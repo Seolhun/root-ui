@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { RootIntent, RootIntentWeight, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
+import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Loader';
 type ElementProps = React.SVGAttributes<HTMLOrSVGElement>;
@@ -17,20 +17,9 @@ export interface LoaderProps extends ExtensionProps {
    * @default primary
    */
   intent?: RootIntent;
-
-  /**
-   * @default 600
-   */
-  intentWeight?: RootIntentWeight;
 }
 
-const Loader: React.FC<LoaderProps> = ({
-  className,
-  scale = 'md',
-  intent = 'primary',
-  intentWeight = 600,
-  ...rests
-}) => {
+const Loader: React.FC<LoaderProps> = ({ className, scale = 'md', intent = 'primary', ...rests }) => {
   return (
     <div className="inline-block">
       <svg
@@ -40,9 +29,11 @@ const Loader: React.FC<LoaderProps> = ({
           className,
           'animate-spin',
           toScaleMatch({
-            sm: () => 'w-6 h-6 min-w-6 min-h-6',
-            md: () => 'w-10 h-10 min-w-10 min-h-10',
-            lg: () => 'w-14 h-14 min-w-14 min-h-14',
+            xs: () => 'w-8 h-8 min-w-8 min-h-8',
+            sm: () => 'w-12 h-12 min-w-12 min-h-12',
+            md: () => 'w-16 h-16 min-w-16 min-h-16',
+            lg: () => 'w-20 h-20 min-w-20 min-h-20',
+            xl: () => 'w-24 h-24 min-w-24 min-h-24',
           })(scale),
           toIntentMatch({
             neutral: () => classNames('text-neutral-lightest fill-neutral'),

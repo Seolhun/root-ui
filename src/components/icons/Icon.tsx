@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import * as HeroIcon from '@heroicons/react/outline';
 
-import { RootScale, toScaleMatch } from '../../system';
+import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../system';
 
 const CLASSNAME = 'Root__Icon';
 type Element = HTMLDivElement;
@@ -10,7 +10,15 @@ type ElementProps = React.HTMLAttributes<Element>;
 type ExtensionProps = ElementProps;
 
 export interface IconProps extends ExtensionProps {
+  /**
+   * Icon name
+   */
   icon: keyof typeof HeroIcon;
+
+  /**
+   * @default dark
+   */
+  intent?: RootIntent;
 
   /**
    * Set this to change scale
@@ -19,28 +27,42 @@ export interface IconProps extends ExtensionProps {
   scale?: RootScale;
 }
 
-const Icon = React.forwardRef<Element, IconProps>(({ className, scale = 'md', icon, ...rests }, ref) => {
-  const Component = HeroIcon[icon];
+const Icon = React.forwardRef<Element, IconProps>(
+  ({ className, icon, intent = 'dark', scale = 'md', ...rests }, ref) => {
+    const Component = HeroIcon[icon];
 
-  return (
-    <div
-      ref={ref}
-      {...rests}
-      className={classNames(
-        CLASSNAME,
-        className,
-        'inline-block',
-        toScaleMatch({
-          sm: () => 'w-4 h-4 min-w-4 min-h-4',
-          md: () => 'w-5 h-5 min-w-5 min-h-5',
-          lg: () => 'w-6 h-6 min-w-6 min-h-6',
-        })(scale),
-      )}
-    >
-      <Component />
-    </div>
-  );
-});
+    return (
+      <div
+        ref={ref}
+        {...rests}
+        className={classNames(
+          CLASSNAME,
+          className,
+          'inline-block',
+          toScaleMatch({
+            xs: () => 'w-8 h-8 min-w-8 min-h-8',
+            sm: () => 'w-12 h-12 min-w-12 min-h-12',
+            md: () => 'w-16 h-16 min-w-16 min-h-16',
+            lg: () => 'w-20 h-20 min-w-20 min-h-20',
+            xl: () => 'w-24 h-24 min-w-24 min-h-24',
+          })(scale),
+          toIntentMatch({
+            neutral: () => classNames('text-neutral'),
+            light: () => classNames('text-light'),
+            dark: () => classNames('text-dark'),
+            primary: () => classNames('text-primary'),
+            info: () => classNames('text-info'),
+            success: () => classNames('text-success'),
+            warning: () => classNames('text-warning'),
+            danger: () => classNames('text-danger'),
+          })(intent),
+        )}
+      >
+        <Component />
+      </div>
+    );
+  },
+);
 
 export { Icon };
 export default Icon;

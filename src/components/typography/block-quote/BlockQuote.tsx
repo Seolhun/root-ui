@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { RootIntentWeight, RootIntent } from '../../../system';
+import { RootIntent, toIntentMatch } from '../../../system';
 
 const CLASSNAME = 'Root__BlockQuote';
 type ElementProps = React.HTMLAttributes<HTMLParagraphElement>;
@@ -11,20 +11,9 @@ export interface BlockQuoteProps extends ExtensionProps {
    * @default primary
    */
   intent?: RootIntent;
-
-  /**
-   * @default 300
-   */
-  intentWeight?: RootIntentWeight;
 }
 
-const BlockQuote: React.FC<BlockQuoteProps> = ({
-  className,
-  children,
-  intent = 'primary',
-  intentWeight = 300,
-  ...rests
-}) => {
+const BlockQuote: React.FC<BlockQuoteProps> = ({ className, children, intent = 'primary', ...rests }) => {
   return (
     <blockquote
       {...rests}
@@ -34,7 +23,17 @@ const BlockQuote: React.FC<BlockQuoteProps> = ({
         'text-base font-light leading-relaxed',
         'mt-0 mb-4 pl-2',
         'text-blockquote',
-        `border-l-4 border-${intent}-${intentWeight}`,
+        'border-l-4',
+        toIntentMatch({
+          neutral: () => classNames('border-neutral'),
+          light: () => classNames('border-light'),
+          dark: () => classNames('border-dark'),
+          primary: () => classNames('border-primary'),
+          info: () => classNames('border-info'),
+          success: () => classNames('border-success'),
+          warning: () => classNames('border-warning'),
+          danger: () => classNames('border-danger'),
+        })(intent),
       )}
     >
       {children}

@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { RootIntent, RootIntentWeight, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
+import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Tag';
 type Element = HTMLSpanElement;
@@ -13,24 +13,14 @@ export interface TagProps extends ExtensionProps {
    * @default md
    */
   scale?: RootScale;
+
   /**
    * @default primary
    */
   intent?: RootIntent;
-  /**
-   * @default 600
-   */
-  intentWeight?: RootIntentWeight;
 }
 
-const Tag: React.FC<TagProps> = ({
-  className,
-  children,
-  scale = 'md',
-  intent = 'primary',
-  intentWeight = 600,
-  ...rests
-}) => {
+const Tag: React.FC<TagProps> = ({ className, children, scale = 'md', intent = 'primary', ...rests }) => {
   return (
     <span
       {...rests}
@@ -39,13 +29,14 @@ const Tag: React.FC<TagProps> = ({
         className,
         'inline-block',
         'font-semibold capitalize',
-        `bg-${intent}-300 text-${intent}-${intentWeight}`,
         'rounded-full',
         'last:mr-0 mr-1',
         toScaleMatch({
+          xs: () => 'text-2 py-1 px-2',
           sm: () => 'text-2.5 py-1 px-2',
           md: () => 'text-3 py-1 px-2.5',
-          lg: () => 'text-3.5 py-1 px-3',
+          lg: () => 'text-3.5 py-1 px-2.5',
+          xl: () => 'text-4 py-1 px-3',
         })(scale),
         toIntentMatch({
           neutral: () =>

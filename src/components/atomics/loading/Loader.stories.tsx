@@ -8,14 +8,12 @@ export default {
   component: Loader,
   argTypes: {
     scale: {
-      defaultValue: 'md',
       control: {
         type: 'select',
         options: storiesScaleOptions,
       },
     },
     intent: {
-      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesIntentOptions,
@@ -24,17 +22,23 @@ export default {
   },
 };
 
-const Loaders = ({ ...rests }: LoaderProps) => {
+const ScaleLoader = ({ children, ...rests }: LoaderProps) => {
   return (
     <section>
-      <Loader {...rests} />
+      {storiesScaleOptions.map((scale) => (
+        <StorybookDescriptor key={scale} title={scale}>
+          <Loader {...rests} scale={scale}>
+            {children}
+          </Loader>
+        </StorybookDescriptor>
+      ))}
     </section>
   );
 };
 
-export const LoaderStories = Loaders.bind({});
-LoaderStories.args = {
-  loading: true,
+export const ScaleLoaderStories = ScaleLoader.bind({});
+ScaleLoaderStories.args = {
+  children: 'Tag',
 };
 
 const IntentLoaders = ({ children, ...rests }: LoaderProps) => {
@@ -52,5 +56,4 @@ const IntentLoaders = ({ children, ...rests }: LoaderProps) => {
 export const IntentLoadersStories = IntentLoaders.bind({});
 IntentLoadersStories.args = {
   children: 'Button',
-  disabled: false,
 };

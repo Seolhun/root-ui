@@ -11,7 +11,6 @@ export default {
   component: Modal,
   argTypes: {
     scale: {
-      defaultValue: 'md',
       control: {
         type: 'select',
         options: storiesScaleOptions,

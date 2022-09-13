@@ -8,14 +8,12 @@ export default {
   component: Radio,
   argTypes: {
     scale: {
-      defaultValue: 'md',
       control: {
         type: 'select',
         options: storiesScaleOptions,
       },
     },
     intent: {
-      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesIntentOptions,

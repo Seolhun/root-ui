@@ -38,9 +38,11 @@ const Button = React.forwardRef<Element, ButtonProps>(
           'placeholder:text-dark',
           'disabled:opacity-50 disabled:cursor-not-allowed',
           toScaleMatch({
-            sm: () => 'text-3 py-1 px-2',
+            xs: () => 'text-2.5 py-2 px-3',
+            sm: () => 'text-3 py-2 px-3',
             md: () => 'text-3.5 py-2 px-3',
-            lg: () => 'text-4 py-2.5 px-3.5',
+            lg: () => 'text-4 py-2 px-4',
+            xl: () => 'text-5 py-2.5 px-5',
           })(scale),
           toIntentMatch({
             neutral: () =>

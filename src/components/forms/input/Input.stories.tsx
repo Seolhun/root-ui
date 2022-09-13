@@ -7,14 +7,12 @@ export default {
   title: 'Form/Input',
   component: Input,
   scale: {
-    defaultValue: 'md',
     control: {
       type: 'select',
       options: storiesScaleOptions,
     },
   },
   intent: {
-    defaultValue: 'primary',
     control: {
       type: 'select',
       options: storiesIntentOptions,

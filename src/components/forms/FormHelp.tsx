@@ -21,9 +21,11 @@ const FormHelp: React.FC<FormHelpProps> = ({ children, className, scale = 'md', 
         className,
         'text-sm text-gray-500',
         toScaleMatch({
-          sm: () => 'text-3 py-0.5 px-1',
-          md: () => 'text-3.5 py-1 px-1.5',
-          lg: () => 'text-4 py-1.5 px-2',
+          xs: () => 'text-2 py-1 px-2',
+          sm: () => 'text-2.5 py-1 px-2',
+          md: () => 'text-3 py-1 px-2.5',
+          lg: () => 'text-3.5 py-1 px-2.5',
+          xl: () => 'text-4 py-1 px-3',
         })(scale),
       )}
     >

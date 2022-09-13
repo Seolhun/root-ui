@@ -1,2 +1,2 @@
 export * from './RootTheme.types';
-export * from './toIntent';
+export * from './toMatchSystem';

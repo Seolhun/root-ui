@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { RootIntentWeight, RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../../system';
+import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Textarea';
 type Element = HTMLTextAreaElement;
@@ -18,15 +18,10 @@ export interface TextareaProps extends ExtensionProps {
    * @default primary
    */
   intent?: RootIntent;
-
-  /**
-   * @default 600
-   */
-  intentWeight?: RootIntentWeight;
 }
 
 const Textarea = React.forwardRef<Element, TextareaProps>(
-  ({ className, name, rows = 8, intent = 'primary', scale = 'md', intentWeight = 600, ...rests }, ref) => {
+  ({ className, name, rows = 8, intent = 'primary', scale = 'md', ...rests }, ref) => {
     return (
       <textarea
         {...rests}
@@ -39,14 +34,14 @@ const Textarea = React.forwardRef<Element, TextareaProps>(
           'block',
           'w-full',
           'border border-light-400',
-          `outline-${intent}-${intentWeight}`,
-          `caret-${intent}-${intentWeight}`,
           'disabled:bg-dark-100 disabled:border-dark-100',
           'rounded-md',
           toScaleMatch({
-            sm: () => 'py-1 px-2',
-            md: () => 'py-2 px-3',
-            lg: () => 'py-2.5 px-3.5',
+            xs: () => 'text-2.5 py-2 px-3',
+            sm: () => 'text-3 py-2 px-3',
+            md: () => 'text-3.5 py-2 px-3',
+            lg: () => 'text-4 py-2 px-4',
+            xl: () => 'text-5 py-2.5 px-5',
           })(scale),
           toIntentMatch({
             neutral: () => classNames('outline-neutral dark:outline-neutral'),

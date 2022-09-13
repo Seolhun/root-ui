@@ -1,26 +1,43 @@
-import classNames from 'classnames';
 import React from 'react';
 
+import { storiesIntentOptions, storiesScaleOptions, StorybookDescriptor } from '../../../stories';
 import { Card, CardProps } from './Card';
 
 export default {
   title: 'Atomic/Card',
   component: Card,
-  argTypes: {},
+  argTypes: {
+    scale: {
+      control: {
+        type: 'select',
+        options: storiesScaleOptions,
+      },
+    },
+    intent: {
+      control: {
+        type: 'select',
+        options: storiesIntentOptions,
+      },
+    },
+  },
 };
 
-const Cards: React.FC<CardProps> = ({ children, ...rests }) => {
+const ScaleCard = ({ children, ...rests }: CardProps) => {
   return (
     <section>
-      <Card {...rests}>
-        <div className={classNames('w-full h-full', 'px-4 pt-5 pb-4 sm:p-6 sm:pb-4')}>{children}</div>
-      </Card>
+      {storiesScaleOptions.map((scale) => (
+        <StorybookDescriptor key={scale} title={scale}>
+          <Card {...rests} scale={scale}>
+            {children}
+          </Card>
+        </StorybookDescriptor>
+      ))}
     </section>
   );
 };
 
-export const CardsStories = Cards.bind({});
-CardsStories.args = {
+export const ScaleCardStories = ScaleCard.bind({});
+ScaleCardStories.args = {
   children:
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusamus animi aliquid molestiae vitae similique asperiores illum, sit quisquam, veritatis rerum. Illum, quia ut? Nemo sunt explicabo in provident id?',
 };

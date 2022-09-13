@@ -8,14 +8,12 @@ export default {
   component: Tag,
   argTypes: {
     scale: {
-      defaultValue: 'md',
       control: {
         type: 'select',
         options: storiesScaleOptions,
       },
     },
     intent: {
-      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesIntentOptions,
@@ -61,23 +59,4 @@ const IntentTags: React.FC<TagProps> = ({ children, ...rests }) => {
 export const IntentTagsStories = IntentTags.bind({});
 IntentTagsStories.args = {
   children: 'Tag',
-  disabled: false,
-};
-
-const IntentTagGroup: React.FC<TagProps> = ({ children, ...rests }) => {
-  return (
-    <section>
-      {storiesIntentOptions.map((intent) => (
-        <Tag {...rests} key={intent} intent={intent}>
-          {children}
-        </Tag>
-      ))}
-    </section>
-  );
-};
-
-export const IntentTagGroupStories = IntentTagGroup.bind({});
-IntentTagGroupStories.args = {
-  children: 'Tag',
-  disabled: false,
 };
