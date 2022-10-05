@@ -41,10 +41,10 @@ const Icon = React.forwardRef<Element, IconProps>(
           'inline-block',
           toScaleMatch({
             xs: () => 'w-8 h-8 min-w-8 min-h-8',
-            sm: () => 'w-12 h-12 min-w-12 min-h-12',
-            md: () => 'w-16 h-16 min-w-16 min-h-16',
-            lg: () => 'w-20 h-20 min-w-20 min-h-20',
-            xl: () => 'w-24 h-24 min-w-24 min-h-24',
+            sm: () => 'w-10 h-10 min-w-10 min-h-10',
+            md: () => 'w-12 h-12 min-w-12 min-h-12',
+            lg: () => 'w-14 h-14 min-w-14 min-h-14',
+            xl: () => 'w-16 h-16 min-w-16 min-h-16',
           })(scale),
           toIntentMatch({
             neutral: () => classNames('text-neutral'),
