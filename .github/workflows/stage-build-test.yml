@@ -34,10 +34,6 @@ jobs:
         if: ${{ always() }}
         run: npm run test
 
-      - name: Build Storybook
-        if: ${{ always() }}
-        run: npm run storybook:build
-
       - name: Build
         if: ${{ always() }}
         run: npm run build
