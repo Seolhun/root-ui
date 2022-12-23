@@ -1,4 +1,5 @@
 import React from 'react';
+import { StorybookContent } from '../../../stories';
 
 import { P, PProps } from './P';
 
@@ -8,12 +9,14 @@ export default {
 
 const Paragraph: React.FC<PProps> = ({ children, ...rests }) => {
   return (
-    <div className="grid grid-cols-1">
-      <div className="col-span-1">
-        <P {...rests}>{children}</P>
-        <P {...rests}>{children}</P>
-      </div>
-    </div>
+    <StorybookContent>
+      <P {...rests}>{children}</P>
+      <P {...rests}>{children}</P>
+      <P {...rests}>{children}</P>
+      <P {...rests}>{children}</P>
+      <P {...rests}>{children}</P>
+      <P {...rests}>{children}</P>
+    </StorybookContent>
   );
 };
 

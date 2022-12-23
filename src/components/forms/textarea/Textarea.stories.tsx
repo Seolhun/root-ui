@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookDescriptor } from '../../../stories';
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
 import { Textarea, TextareaProps } from './Textarea';
 
 export default {
@@ -22,17 +22,11 @@ export default {
 
 const Textareas = ({ children, ...rests }: TextareaProps) => {
   return (
-    <section className="flex flex-col gap-4">
-      <div>
-        <Textarea {...rests} />
-      </div>
-      <div>
-        <Textarea {...rests} value={'is not empty'} />
-      </div>
-      <div>
-        <Textarea {...rests} disabled />
-      </div>
-    </section>
+    <StorybookContent>
+      <Textarea {...rests} />
+      <Textarea {...rests} value={'is not empty'} />
+      <Textarea {...rests} disabled />
+    </StorybookContent>
   );
 };
 
@@ -41,15 +35,13 @@ TextareasStories.args = {
   placeholder: 'placeholder',
 };
 
-const ScaleTextareas: React.FC<TextareaProps> = ({ ...rests }) => {
+const ScaleTextareas = ({ ...rests }: TextareaProps) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesScaleOptions.map((scale) => (
-        <StorybookDescriptor key={scale} title={scale}>
-          <Textarea {...rests} scale={scale} />
-        </StorybookDescriptor>
+        <Textarea {...rests} key={scale} scale={scale} />
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 
@@ -59,15 +51,13 @@ ScaleTextareasStories.args = {
   disabled: false,
 };
 
-const IntentTextareas: React.FC<TextareaProps> = ({ ...rests }) => {
+const IntentTextareas = ({ ...rests }: TextareaProps) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesIntentOptions.map((intent) => (
-        <StorybookDescriptor key={intent} title={intent}>
-          <Textarea {...rests} intent={intent} />
-        </StorybookDescriptor>
+        <Textarea {...rests} key={intent} intent={intent} />
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 

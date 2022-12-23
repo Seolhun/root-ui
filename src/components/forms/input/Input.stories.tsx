@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookDescriptor } from '../../../stories';
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
 import { Input, InputProps } from './Input';
 
 export default {
@@ -22,17 +22,11 @@ export default {
 
 const Inputs = ({ children, ...rests }: InputProps) => {
   return (
-    <section className="flex flex-col gap-4">
-      <div>
-        <Input {...rests} />
-      </div>
-      <div>
-        <Input {...rests} value={'is not empty'} />
-      </div>
-      <div>
-        <Input {...rests} disabled />
-      </div>
-    </section>
+    <StorybookContent>
+      <Input {...rests} />
+      <Input {...rests} value={'is not empty'} />
+      <Input {...rests} disabled />
+    </StorybookContent>
   );
 };
 
@@ -43,13 +37,11 @@ InputsStories.args = {
 
 const ScaleInputs = ({ ...rests }: InputProps) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesScaleOptions.map((scale) => (
-        <StorybookDescriptor key={scale} title={scale}>
-          <Input {...rests} scale={scale} />
-        </StorybookDescriptor>
+        <Input {...rests} key={scale} scale={scale} />
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 
@@ -61,13 +53,11 @@ ScaleInputsStories.args = {
 
 const IntentInputs = ({ ...rests }: InputProps) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesIntentOptions.map((intent) => (
-        <StorybookDescriptor key={intent} title={intent}>
-          <Input {...rests} intent={intent} />
-        </StorybookDescriptor>
+        <Input {...rests} key={intent} intent={intent} />
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 

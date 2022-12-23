@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookDescriptor } from '../../../stories';
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
 import { Checkbox, CheckboxProps } from './Checkbox';
 
 export default {
@@ -24,26 +24,18 @@ export default {
 
 const Checkboxs: React.FC<CheckboxProps> = ({ children, ...rests }) => {
   return (
-    <section>
-      <div>
-        <Checkbox {...rests}>{children}</Checkbox>
-      </div>
-      <div>
-        <Checkbox {...rests} checked>
-          {children}
-        </Checkbox>
-      </div>
-      <div>
-        <Checkbox {...rests} disabled>
-          {children}
-        </Checkbox>
-      </div>
-      <div>
-        <Checkbox {...rests} checked disabled>
-          {children}
-        </Checkbox>
-      </div>
-    </section>
+    <StorybookContent>
+      <Checkbox {...rests}>{children}</Checkbox>
+      <Checkbox {...rests} checked>
+        {children}
+      </Checkbox>
+      <Checkbox {...rests} disabled>
+        {children}
+      </Checkbox>
+      <Checkbox {...rests} checked disabled>
+        {children}
+      </Checkbox>
+    </StorybookContent>
   );
 };
 
@@ -54,15 +46,13 @@ CheckboxsStories.args = {
 
 const ScaleCheckboxs: React.FC<CheckboxProps> = ({ children, ...rests }) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesScaleOptions.map((scale) => (
-        <StorybookDescriptor key={scale} title={scale}>
-          <Checkbox {...rests} scale={scale}>
-            {children}
-          </Checkbox>
-        </StorybookDescriptor>
+        <Checkbox {...rests} key={scale} scale={scale}>
+          {children}
+        </Checkbox>
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 
@@ -74,15 +64,13 @@ ScaleCheckboxsStories.args = {
 
 const IntentCheckboxs: React.FC<CheckboxProps> = ({ children, ...rests }) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesIntentOptions.map((intent) => (
-        <StorybookDescriptor key={intent} title={intent}>
-          <Checkbox {...rests} intent={intent}>
-            {children}
-          </Checkbox>
-        </StorybookDescriptor>
+        <Checkbox {...rests} key={intent} intent={intent}>
+          {children}
+        </Checkbox>
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookDescriptor } from '../../../stories';
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
 import { Radio, RadioProps } from './Radio';
 
 export default {
@@ -24,26 +24,18 @@ export default {
 
 const Radios: React.FC<RadioProps> = ({ children, ...rests }) => {
   return (
-    <section className="flex flex-col gap-4">
-      <div>
-        <Radio {...rests}>{children}</Radio>
-      </div>
-      <div>
-        <Radio {...rests} checked>
-          {children}
-        </Radio>
-      </div>
-      <div>
-        <Radio {...rests} disabled>
-          {children}
-        </Radio>
-      </div>
-      <div>
-        <Radio {...rests} checked disabled>
-          {children}
-        </Radio>
-      </div>
-    </section>
+    <StorybookContent>
+      <Radio {...rests}>{children}</Radio>
+      <Radio {...rests} checked>
+        {children}
+      </Radio>
+      <Radio {...rests} disabled>
+        {children}
+      </Radio>
+      <Radio {...rests} checked disabled>
+        {children}
+      </Radio>
+    </StorybookContent>
   );
 };
 
@@ -54,15 +46,13 @@ RadiosStories.args = {
 
 const ScaleRadios: React.FC<RadioProps> = ({ children, ...rests }) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesScaleOptions.map((scale) => (
-        <StorybookDescriptor key={scale} title={scale}>
-          <Radio {...rests} scale={scale}>
-            {children}
-          </Radio>
-        </StorybookDescriptor>
+        <Radio {...rests} key={scale} scale={scale}>
+          {children}
+        </Radio>
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 
@@ -74,21 +64,19 @@ ScaleRadiosStories.args = {
 
 const IntentRadios: React.FC<RadioProps> = ({ children, ...rests }) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesIntentOptions.map((intent) => (
-        <StorybookDescriptor key={intent} title={intent}>
-          <Radio {...rests} intent={intent}>
-            {children}
-          </Radio>
-        </StorybookDescriptor>
+        <Radio {...rests} key={intent} intent={intent}>
+          {children}
+        </Radio>
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 
 export const IntentRadiosStories = IntentRadios.bind({});
 IntentRadiosStories.args = {
   children: 'Radio',
-  disabled: false,
   checked: true,
+  disabled: false,
 };

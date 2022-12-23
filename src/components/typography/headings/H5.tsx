@@ -1,16 +1,25 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const CLASSNAME = 'Root__Heading Root__H5';
-type ElementProps = React.HTMLAttributes<HTMLHeadingElement>;
-type ExtensionProps = ElementProps;
-export type H5Props = ExtensionProps;
+import { Heading } from './Heading';
+import { HeadingProps } from './Heading.types';
 
-const H5: React.FC<H5Props> = ({ className, children, ...rests }) => {
+const CLASSNAME = 'Root__H5';
+
+const H5 = ({ className, children, ...rests }: HeadingProps) => {
   return (
-    <h5 {...rests} className={classNames(CLASSNAME, className, 'text-2xl font-bold leading-normal mt-1 mb-2')}>
+    <Heading
+      {...rests}
+      as="h5"
+      className={classNames(
+        CLASSNAME,
+        className,
+        'text-dark-9 dark:text-light-1',
+        'text-2xl font-bold leading-normal mt-1 mb-2',
+      )}
+    >
       {children}
-    </h5>
+    </Heading>
   );
 };
 

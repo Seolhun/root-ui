@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookDescriptor } from '../../stories';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../stories';
 import { Icon, IconProps } from './Icon';
 
 export default {
@@ -22,11 +22,15 @@ export default {
   },
 };
 
-const Icons = ({ ...rests }: IconProps) => {
+const Icons = ({ children, ...rests }: IconProps) => {
   return (
-    <section>
-      <Icon {...rests} />
-    </section>
+    <StorybookContent>
+      {storiesScaleOptions.map((scale) => (
+        <Icon {...rests} key={scale} scale={scale}>
+          {children}
+        </Icon>
+      ))}
+    </StorybookContent>
   );
 };
 
@@ -37,18 +41,16 @@ IconStories.args = {
 
 const IntentIcons = ({ children, ...rests }: IconProps) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesIntentOptions.map((intent) => (
-        <StorybookDescriptor key={intent} title={intent}>
-          <Icon {...rests} />
-        </StorybookDescriptor>
+        <Icon {...rests} key={intent} intent={intent} />
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 
 export const IntentIconsStories = IntentIcons.bind({});
 IntentIconsStories.args = {
-  children: 'Button',
+  children: 'Icon',
   icon: 'AcademicCapIcon',
 };

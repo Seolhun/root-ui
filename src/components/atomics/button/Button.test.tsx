@@ -22,6 +22,6 @@ describe('Button Test', () => {
   test('Button: Hover', () => {
     const button = render(<Button>Button</Button>);
     fireEvent.mouseOver(button.container);
-    expect(button.container.getElementsByClassName('hover:bg-primary-darker').length).toBe(1);
+    expect(button.container.getElementsByClassName('hover:bg-primary-6').length).toBe(1);
   });
 });

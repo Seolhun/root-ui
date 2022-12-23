@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { storiesIntentOptions } from '../../../stories';
-import { H6 } from '../headings';
+import { storiesIntentOptions, StorybookContent } from '../../../stories';
 import { BlockQuote, BlockQuoteProps } from './BlockQuote';
 
 export default {
@@ -19,11 +18,9 @@ export default {
 
 const BlockQuotes: React.FC<BlockQuoteProps> = ({ children, ...rests }) => {
   return (
-    <div className="grid grid-cols-1">
-      <div className="col-span-1">
-        <BlockQuote {...rests}>{children}</BlockQuote>
-      </div>
-    </div>
+    <StorybookContent noAlign noGap>
+      <BlockQuote {...rests}>{children}</BlockQuote>
+    </StorybookContent>
   );
 };
 
@@ -35,16 +32,13 @@ BlockQuoteStories.args = {
 
 const IntentBlockQuotes: React.FC<BlockQuoteProps> = ({ children, ...rests }) => {
   return (
-    <div className="grid grid-cols-1">
+    <StorybookContent noAlign noGap>
       {storiesIntentOptions.map((intent) => (
-        <div key={intent} className="col-span-1">
-          <H6>{intent}</H6>
-          <BlockQuote {...rests} intent={intent}>
-            {children}
-          </BlockQuote>
-        </div>
+        <BlockQuote {...rests} key={intent} intent={intent}>
+          {children}
+        </BlockQuote>
       ))}
-    </div>
+    </StorybookContent>
   );
 };
 

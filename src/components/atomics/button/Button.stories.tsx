@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookDescriptor } from '../../../stories';
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
 import { Button, ButtonProps } from './Button';
 
 export default {
@@ -24,15 +24,13 @@ export default {
 
 const ScaleButtons = ({ children, ...rests }: ButtonProps) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesScaleOptions.map((scale) => (
-        <StorybookDescriptor key={scale} title={scale}>
-          <Button {...rests} scale={scale}>
-            {children}
-          </Button>
-        </StorybookDescriptor>
+        <Button {...rests} key={scale} scale={scale}>
+          {children}
+        </Button>
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 
@@ -44,15 +42,13 @@ ScaleButtonsStories.args = {
 
 const IntentButtons = ({ children, ...rests }: ButtonProps) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesIntentOptions.map((intent) => (
-        <StorybookDescriptor key={intent} title={intent}>
-          <Button {...rests} intent={intent}>
-            {children}
-          </Button>
-        </StorybookDescriptor>
+        <Button {...rests} key={intent} intent={intent}>
+          {children}-{intent}
+        </Button>
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 

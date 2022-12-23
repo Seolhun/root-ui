@@ -21,8 +21,8 @@ const TextField = ({ className, scale = 'md', icon = 'SearchIcon', ...rests }: T
       className={classNames(
         'flex items-center',
         'shadow-md',
-        'border border-light-lightest',
-        'ring-offset-2 focus-within:ring-2 focus-within:ring-primary-darker',
+        'border border-light-1',
+        'ring-offset-2 focus-within:ring-2 focus-within:ring-primary-6',
         'outline-0',
         CLASSNAME,
       )}

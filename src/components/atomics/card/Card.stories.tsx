@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookDescriptor } from '../../../stories';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
 import { Card, CardProps } from './Card';
 
 export default {
@@ -24,15 +24,13 @@ export default {
 
 const ScaleCard = ({ children, ...rests }: CardProps) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesScaleOptions.map((scale) => (
-        <StorybookDescriptor key={scale} title={scale}>
-          <Card {...rests} scale={scale}>
-            {children}
-          </Card>
-        </StorybookDescriptor>
+        <Card {...rests} key={scale} scale={scale}>
+          {children}
+        </Card>
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 

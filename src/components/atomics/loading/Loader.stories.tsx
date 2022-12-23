@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookDescriptor } from '../../../stories';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
 import { Loader, LoaderProps } from './Loader';
 
 export default {
@@ -24,15 +24,13 @@ export default {
 
 const ScaleLoader = ({ children, ...rests }: LoaderProps) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesScaleOptions.map((scale) => (
-        <StorybookDescriptor key={scale} title={scale}>
-          <Loader {...rests} scale={scale}>
-            {children}
-          </Loader>
-        </StorybookDescriptor>
+        <Loader {...rests} key={scale} scale={scale}>
+          {children}
+        </Loader>
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 
@@ -43,13 +41,11 @@ ScaleLoaderStories.args = {
 
 const IntentLoaders = ({ children, ...rests }: LoaderProps) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesIntentOptions.map((intent) => (
-        <StorybookDescriptor key={intent} title={intent}>
-          <Loader {...rests} intent={intent} />
-        </StorybookDescriptor>
+        <Loader {...rests} key={intent} intent={intent} />
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 

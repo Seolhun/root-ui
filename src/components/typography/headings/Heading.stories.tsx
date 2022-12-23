@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { H1, H1Props } from './H1';
+import { StorybookContent } from '../../../stories';
+import { HeadingProps } from './Heading.types';
+import { H1 } from './H1';
 import { H2 } from './H2';
 import { H3 } from './H3';
 import { H4 } from './H4';
@@ -11,16 +13,16 @@ export default {
   title: 'TypoGraphy/Heading',
 };
 
-const Headings: React.FC<H1Props> = ({ children, ...rests }) => {
+const Headings: React.FC<HeadingProps> = ({ children, ...rests }) => {
   return (
-    <section>
+    <StorybookContent noAlign noGap>
       <H1 {...rests}>{children}</H1>
       <H2 {...rests}>{children}</H2>
       <H3 {...rests}>{children}</H3>
       <H4 {...rests}>{children}</H4>
       <H5 {...rests}>{children}</H5>
       <H6 {...rests}>{children}</H6>
-    </section>
+    </StorybookContent>
   );
 };
 
