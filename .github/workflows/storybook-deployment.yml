@@ -23,7 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install Packages
-        run: npm ci
+        run: npm i
 
       - name: Build Storybook
         run: npm run storybook:build
