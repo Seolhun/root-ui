@@ -24,7 +24,6 @@ type ElementProps = React.HTMLAttributes<Element>;
 export interface AccordionRootProps {
   defaultOpen?: boolean;
 }
-
 export interface AccordionRootRenderPropArg {
   open: boolean;
   close(focusableElement?: HTMLElement | React.MutableRefObject<HTMLElement | null>): void;

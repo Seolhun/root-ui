@@ -23,14 +23,13 @@ import {
 import { ActionTypes, rootReducer, StateDefinition } from './Popover.Widget.reducer';
 import { PopoverRenderPropArg } from './Popover.Widget.types';
 
+const COMPONENT_NAME = 'Popover';
+const DEFAULT_TAG: RootUIReactTag = 'div';
+
 type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
 
 export interface PopoverRootProps {}
-
-const COMPONENT_NAME = 'Popover';
-const DEFAULT_TAG: RootUIReactTag = 'div';
-
 export interface PopoverRootRenderPropArg extends PopoverRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'role' | 'aria-modal' | 'aria-labelledby'>;
 

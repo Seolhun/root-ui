@@ -95,14 +95,16 @@ const Drawer = ({
           className={classNames(
             'flex flex-col flex-1 gap-4',
             toScaleMatch({
-              sm: () => 'w-full md:w-4/12',
+              xs: () => 'w-full md:w-4/12',
+              sm: () => 'w-full md:w-5/12',
               md: () => 'w-full md:w-6/12',
               lg: () => 'w-full md:w-8/12',
+              xl: () => 'w-full md:w-10/12',
             })(scale),
             {
               'fixed top-0 right-0 bottom-0 h-screen w-4/12 rounded-r-none scroll-mr-1': placement === 'right',
-              'fixed right-0 bottom-0 left-0 h-3/6 w-full rounded-b-none scroll-mb-1': placement === 'bottom',
               'fixed top-0 bottom-0 left-0 h-screen w-4/12 rounded-l-none scroll-ml-1': placement === 'left',
+              'fixed right-0 bottom-0 left-0 h-3/6 w-full rounded-b-none scroll-mb-1 md:w-full': placement === 'bottom',
             },
             {
               'animate-[fade-in-right_0.2s_ease-in-out]': show && placement === 'right',

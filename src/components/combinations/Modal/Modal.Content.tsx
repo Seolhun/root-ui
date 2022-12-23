@@ -21,7 +21,6 @@ const ModalContent = React.forwardRef<Element, ModalContentProps & ElementProps>
           'flex flex-1',
           'h-auto md:h-full',
           'py-2 px-4',
-          'border-b',
           'break-all',
           'border-light-200',
         )}

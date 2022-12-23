@@ -13,14 +13,11 @@ type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
 
 export interface AccordionPanelProps {}
-
 export interface AccordionPanelRenderPropArg {
   open: boolean;
   close: (focusableElement?: HTMLElement | React.MutableRefObject<HTMLElement | null>) => void;
 }
-
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;
-
 const PanelRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Static;
 
 const _AccordionWidgetPanel = <Tag extends React.ElementType = typeof DEFAULT_TAG>(

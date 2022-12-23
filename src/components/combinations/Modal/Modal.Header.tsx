@@ -23,7 +23,7 @@ const ModalHeader = React.forwardRef<Element, ModalHeaderProps & ElementProps>(
           className,
           'flex justify-between items-start',
           'py-2 px-4',
-          'border-light-200 border-b',
+          'border-light-200',
           'rounded-t',
         )}
       >

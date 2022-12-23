@@ -34,9 +34,11 @@ const ModalPanel = React.forwardRef<Element, ModalPanelProps & ElementProps>(
           'block',
           'bg-white',
           toScaleMatch({
-            sm: () => 'w-full md:w-4/12',
+            xs: () => 'w-full md:w-4/12',
+            sm: () => 'w-full md:w-5/12',
             md: () => 'w-full md:w-6/12',
             lg: () => 'w-full md:w-8/12',
+            xl: () => 'w-full md:w-10/12',
           })(scale),
           'h-full md:h-auto',
           'm-auto md:my-12',

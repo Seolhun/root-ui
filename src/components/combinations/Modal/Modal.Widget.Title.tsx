@@ -7,13 +7,13 @@ import { forwardRefWithAs, render } from '../../../core';
 import { useModalContext } from './Modal.Widget.Context';
 import { ModalRenderPropArg } from './Modal.Widget.types';
 
+const COMPONENT_NAME = 'Root__Modal__Title';
+const DEFAULT_TAG: RootUIReactTag = 'h2';
+
 type Element = HTMLHeadingElement;
 type ElementProps = React.HTMLAttributes<Element>;
 
 export interface ModalTitleProps {}
-
-const COMPONENT_NAME = 'Root__Modal__Title';
-const DEFAULT_TAG: RootUIReactTag = 'h2';
 
 export interface ModalTitleRenderPropArg extends ModalRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;

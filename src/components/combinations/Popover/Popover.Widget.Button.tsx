@@ -30,11 +30,9 @@ type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
 
 export interface PopoverWidgetButtonProps {}
-
 export interface PopoverWidgetButtonPropArg {
   open: boolean;
 }
-
 type PropsWeControl = 'id' | 'type' | 'aria-expanded' | 'aria-controls' | 'onKeyDown' | 'onClick';
 
 const _PopoverWidgetButton = <TTag extends React.ElementType = typeof DEFAULT_TAG>(

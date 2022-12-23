@@ -15,11 +15,9 @@ type Element = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<Element>;
 
 export interface AccordionButtonProps {}
-
 export interface AccordionButtonRenderPropArg {
   open: boolean;
 }
-
 type PropsWeControl = keyof Pick<
   ElementProps,
   'id' | 'type' | 'aria-expanded' | 'aria-controls' | 'onKeyDown' | 'onClick'

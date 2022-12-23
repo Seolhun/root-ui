@@ -8,14 +8,13 @@ import { isDisabledReactIssue7711 } from '../../../utils/bugs';
 import { useModalContext } from './Modal.Widget.Context';
 import { ModalRenderPropArg } from './Modal.Widget.types';
 
+const COMPONENT_NAME = 'Root__Modal__Overlay';
+const DEFAULT_TAG: RootUIReactTag = 'div';
+
 type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
 
 export interface ModalWidgetOverlayProps {}
-
-const COMPONENT_NAME = 'Root__Modal__Overlay';
-const DEFAULT_TAG: RootUIReactTag = 'div';
-
 export interface ModalOverlayRenderPropArg extends ModalRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'aria-hidden' | 'onClick'>;
 

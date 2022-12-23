@@ -14,7 +14,6 @@ type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
 
 export interface PopoverGroupProps {}
-
 export interface PopoverGroupRenderPropArg extends PopoverRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;
 

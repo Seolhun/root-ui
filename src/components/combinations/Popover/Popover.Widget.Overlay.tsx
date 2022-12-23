@@ -16,13 +16,10 @@ type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
 
 export interface PopoverWidgetOverlayProps {}
-
 export interface PopoverOverlayRenderPropArg {
   open: boolean;
 }
-
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'aria-hidden' | 'onClick'>;
-
 const OverlayRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Static;
 
 const _PopoverWidgetOverlay = <Tag extends React.ElementType = typeof DEFAULT_TAG>(

@@ -20,6 +20,9 @@ import { ModalContext, ModalContextValues } from './Modal.Widget.Context';
 import { ActionTypes, StateDefinition, rootReducer } from './Modal.Widget.reducer';
 import { ModalPosition, ModalRenderPropArg } from './Modal.Widget.types';
 
+const COMPONENT_NAME = 'Modal';
+const DEFAULT_TAG: RootUIReactTag = 'div';
+
 type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
 
@@ -45,10 +48,7 @@ export interface ModalRootProps {
   initialFocus?: React.MutableRefObject<HTMLElement | null>;
 }
 
-const COMPONENT_NAME = 'Modal';
-const DEFAULT_TAG: RootUIReactTag = 'div';
 const modalRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Static;
-
 export interface ModalRootRenderPropArg extends ModalRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'role' | 'aria-modal' | 'aria-labelledby'>;
 

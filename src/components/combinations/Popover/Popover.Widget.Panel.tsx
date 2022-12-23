@@ -25,13 +25,11 @@ type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
 
 export interface PopoverWidgetPanelProps {}
-
 export interface PopoverPanelRenderPropArg extends PopoverRenderPropArg {
   focus?: boolean;
 }
 
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'onKeyDown'>;
-
 const PanelRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Static;
 
 const _PopoverWidgetPanel = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
