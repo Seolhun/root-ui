@@ -18,6 +18,7 @@ module.exports = {
     './src/components/**/*.{ts,tsx,js,jsx}',
     './src/hooks/**/*.{ts,tsx,js,jsx}',
     './src/system/**/*.{ts,tsx,js,jsx}',
+    './src/stories/**/*.{ts,tsx,js,jsx}',
   ],
   /**
    * string literal을 같이 사용한 경우 tailwind가 class를 인식하지 못해서 purge 되는 현상이 발생합니다.

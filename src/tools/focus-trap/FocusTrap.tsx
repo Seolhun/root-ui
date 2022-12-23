@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { RootUIProps } from '../../types';
+import { RootUIProps, RootUIReactTag } from '../../types';
 import { forwardRefWithAs, render } from '../../core';
 import { match } from '../../utils';
 import {
@@ -23,7 +23,7 @@ export interface FocusTrapProps {
   containers?: React.MutableRefObject<Set<React.MutableRefObject<HTMLElement | null>>>;
 }
 
-const DEFAULT_FOCUS_TRAP_TAG = 'div' as const;
+const DEFAULT_FOCUS_TRAP_TAG: RootUIReactTag = 'div';
 
 enum Features {
   /** No features enabled for the focus trap. */

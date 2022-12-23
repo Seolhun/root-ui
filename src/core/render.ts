@@ -1,8 +1,9 @@
 import React from 'react';
 
+import omit from 'lodash/omit';
 import { RootUIProps, XOR, RootUIUniqueKey, Expand } from '../types';
 import { GlobalRootDataAttributeMap } from '../constants';
-import { match, omit, compact, isFunction, isEmpty, isUndefined } from '../utils';
+import { match, compact, isFunction, isEmpty, isUndefined } from '../utils';
 
 import { mergeProps } from './mergeProps';
 
@@ -53,7 +54,7 @@ interface RootRenderProps<Feature extends RenderFeatures, Tag extends React.Elem
   visible?: boolean;
 }
 
-function _render<Tag extends React.ElementType, Slot>(
+function privateRender<Tag extends React.ElementType, Slot>(
   props: RootUIProps<Tag, Slot> & { ref?: unknown },
   slot: Slot = {} as Slot,
   tag: React.ElementType,
@@ -118,8 +119,11 @@ function _render<Tag extends React.ElementType, Slot>(
         resolvedChildren,
         Object.assign(
           {},
-          // Filter out undefined values so that they don't override the existing values
-          mergeProps(resolvedChildren.props, compact(omit(rests, ['ref']))),
+          /**
+           * Filter out undefined values so that they don't override the existing values
+           * @todo remove as any
+           */
+          mergeProps(resolvedChildren.props as any, compact(omit(rests, ['ref']))),
           dataAttributes,
           refRelatedProps,
         ),
@@ -149,9 +153,10 @@ export function render<Feature extends RenderFeatures, Tag extends React.Element
   visible = true,
 }: RootRenderProps<Feature, Tag, Slot>) {
   const props = mergeProps(theirProps, ourProps);
+
   // Visible always render
   if (visible) {
-    return _render(props, slot, defaultTag, name);
+    return privateRender(props, slot, defaultTag, name);
   }
 
   const featureFlags = features ?? RenderFeatures.None;
@@ -160,7 +165,7 @@ export function render<Feature extends RenderFeatures, Tag extends React.Element
     const { static: isStatic = false, ...rests } = props as PropsForFeatures<RenderFeatures.Static>;
     // When the `static` prop is passed as `true`, then the user is in control, thus we don't care about anything else
     if (isStatic) {
-      return _render(rests, slot, defaultTag, name);
+      return privateRender(rests, slot, defaultTag, name);
     }
   }
 
@@ -180,11 +185,11 @@ export function render<Feature extends RenderFeatures, Tag extends React.Element
             display: 'none',
           },
         };
-        return _render(props, slot, defaultTag, name);
+        return privateRender(props, slot, defaultTag, name);
       },
     });
   }
 
   // No features enabled, just render
-  return _render(props, slot, defaultTag, name);
+  return privateRender(props, slot, defaultTag, name);
 }

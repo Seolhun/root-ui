@@ -4,9 +4,9 @@ import classNames from 'classnames';
 import { RootIntent, toIntentMatch } from '../../../system';
 
 const CLASSNAME = 'Root__BlockQuote';
-type ElementProps = React.HTMLAttributes<HTMLParagraphElement>;
-type ExtensionProps = ElementProps;
-export interface BlockQuoteProps extends ExtensionProps {
+type ElementProps = React.HTMLAttributes<HTMLQuoteElement>;
+
+export interface BlockQuoteProps extends ElementProps {
   /**
    * @default primary
    */
@@ -25,6 +25,7 @@ const BlockQuote: React.FC<BlockQuoteProps> = ({ className, children, intent = '
         'text-blockquote',
         'border-l-4',
         toIntentMatch({
+          default: () => classNames('border-neutral'),
           neutral: () => classNames('border-neutral'),
           light: () => classNames('border-light'),
           dark: () => classNames('border-dark'),

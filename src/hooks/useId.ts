@@ -23,5 +23,4 @@ function _useId() {
 }
 
 // Prefer React's `useId` if it's available.
-// @ts-expect-error - `useId` doesn't exist in React < 18.
 export const useId = React.useId ?? _useId;

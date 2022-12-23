@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookDescriptor } from '../../../stories';
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
 import { Tag, TagProps } from './Tag';
 
 export default {
@@ -24,15 +24,13 @@ export default {
 
 const ScaleTags: React.FC<TagProps> = ({ children, ...rests }) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesScaleOptions.map((scale) => (
-        <StorybookDescriptor key={scale} title={scale}>
-          <Tag {...rests} scale={scale}>
-            {children}
-          </Tag>
-        </StorybookDescriptor>
+        <Tag {...rests} key={scale} scale={scale}>
+          {children}
+        </Tag>
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 
@@ -44,15 +42,13 @@ ScaleTagsStories.args = {
 
 const IntentTags: React.FC<TagProps> = ({ children, ...rests }) => {
   return (
-    <section>
+    <StorybookContent>
       {storiesIntentOptions.map((intent) => (
-        <StorybookDescriptor key={intent} title={intent}>
-          <Tag {...rests} intent={intent}>
-            {children}
-          </Tag>
-        </StorybookDescriptor>
+        <Tag {...rests} key={intent} intent={intent}>
+          {children}-{intent}
+        </Tag>
       ))}
-    </section>
+    </StorybookContent>
   );
 };
 

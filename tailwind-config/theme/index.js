@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors');
+const merge = require('lodash/merge');
 
 /**
  * @see https://tailwindcss.com/docs/hover-focus-and-other-states#quick-reference
@@ -28,50 +29,36 @@ const PrefixMap = {
   text: 'text',
 };
 
-const intentColors = {
-  white: colors.white,
-  black: colors.black,
-  neutral: colors.neutral[500],
-  'neutral-lighter': colors.neutral[400],
-  'neutral-lightest': colors.neutral[100],
-  'neutral-darker': colors.neutral[600],
-  'neutral-darkest': colors.neutral[900],
-  light: colors.slate[500],
-  'light-lighter': colors.slate[400],
-  'light-lightest': colors.slate[100],
-  'light-darker': colors.slate[600],
-  'light-darkest': colors.slate[900],
-  dark: colors.zinc[500],
-  'dark-lighter': colors.zinc[400],
-  'dark-lightest': colors.zinc[100],
-  'dark-darker': colors.zinc[600],
-  'dark-darkest': colors.zinc[900],
-  primary: colors.blue[500],
-  'primary-lighter': colors.blue[400],
-  'primary-lightest': colors.blue[100],
-  'primary-darker': colors.blue[600],
-  'primary-darkest': colors.blue[900],
-  info: colors.cyan[500],
-  'info-lighter': colors.cyan[400],
-  'info-lightest': colors.cyan[100],
-  'info-darker': colors.cyan[600],
-  'info-darkest': colors.cyan[900],
-  success: colors.green[500],
-  'success-lighter': colors.green[400],
-  'success-lightest': colors.green[100],
-  'success-darker': colors.green[600],
-  'success-darkest': colors.green[900],
-  warning: colors.orange[500],
-  'warning-lighter': colors.orange[400],
-  'warning-lightest': colors.orange[100],
-  'warning-darker': colors.orange[600],
-  'warning-darkest': colors.orange[900],
-  danger: colors.red[500],
-  'danger-lighter': colors.red[400],
-  'danger-lightest': colors.red[100],
-  'danger-darker': colors.red[600],
-  'danger-darkest': colors.red[900],
-};
+function createColors(colorMap, colorKey) {
+  return Object.values(colorMap).reduce((acc, value, i) => {
+    const key = colorKey + '-' + i;
+    const values = {
+      [key]: value,
+    };
+    if (i === 5) {
+      Object.assign(values, {
+        [colorKey]: value,
+      });
+    }
+    return merge(acc, values);
+  }, {});
+}
+
+const intentColors = merge(
+  {
+    white: colors.white,
+    black: colors.black,
+  },
+  createColors(colors.gray, 'default'),
+  createColors(colors.neutral, 'neutral'),
+  createColors(colors.slate, 'light'),
+  createColors(colors.zinc, 'dark'),
+  createColors(colors.blue, 'primary'),
+  createColors(colors.cyan, 'info'),
+  createColors(colors.green, 'success'),
+  createColors(colors.orange, 'warning'),
+  createColors(colors.red, 'danger'),
+);
 
 const themeColors = {
   typography: {
