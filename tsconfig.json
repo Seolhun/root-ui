@@ -17,7 +17,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     /* Web */
-    "allowJs": false,
+    "allowJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
@@ -47,6 +47,7 @@
     "sourceMap": false,
     "traceResolution": false, // 모듈 검색에 대한 로그메세지 출력 여부
     "outDir": "dist",
+    "baseUrl": "."
   },
   "include": [
     "**/*.ts",
