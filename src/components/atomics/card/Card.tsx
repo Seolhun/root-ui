@@ -5,8 +5,8 @@ import { RootScale, toScaleMatch } from '../../../system';
 import { Box } from '../../common/box';
 
 const CLASSNAME = 'Root__Card';
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface CardProps extends ElementProps {
   /**
@@ -16,7 +16,7 @@ export interface CardProps extends ElementProps {
   scale?: RootScale;
 }
 
-const Card = React.forwardRef<Element, CardProps>(({ children, className, scale = 'md', ...rests }, ref) => {
+const Card = React.forwardRef<ElementType, CardProps>(({ children, className, scale = 'md', ...rests }, ref) => {
   return (
     <Box
       {...rests}

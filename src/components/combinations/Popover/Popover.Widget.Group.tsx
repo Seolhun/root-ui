@@ -10,18 +10,18 @@ import { PopoverGroupContext, PopoverGroupContextValues, PopoverRegisterBag } fr
 const COMPONENT_NAME = 'Root__Popover__Group';
 const DEFAULT_TAG: RootUIReactTag = 'div';
 
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface PopoverGroupProps {}
+export interface PopoverGroupProps extends ElementProps {}
 export interface PopoverGroupRenderPropArg extends PopoverRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;
 
 const _PopoverWidgetGroup = <TTag extends React.ElementType = typeof DEFAULT_TAG>(
-  props: RootUIProps<TTag, PopoverGroupRenderPropArg, PropsWeControl> & PopoverGroupProps & ElementProps,
-  ref: React.Ref<HTMLElement>,
+  props: RootUIProps<TTag, PopoverGroupRenderPropArg, PropsWeControl> & PopoverGroupProps,
+  ref: React.Ref<ElementType>,
 ) => {
-  const internalGroupRef = React.useRef<HTMLElement | null>(null);
+  const internalGroupRef = React.useRef<ElementType | null>(null);
   const groupRef = useSyncRefs(internalGroupRef, ref);
   const [popovers, setPopovers] = React.useState<PopoverRegisterBag[]>([]);
 

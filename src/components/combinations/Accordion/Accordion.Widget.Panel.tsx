@@ -9,8 +9,8 @@ import { AccordionPanelContext, ActionTypes, useAccordionAPIContext, useAccordio
 const COMPONENT_NAME = 'Root__Accordion__Panel';
 const DEFAULT_TAG: RootUIReactTag = 'div';
 
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface AccordionPanelProps {}
 export interface AccordionPanelRenderPropArg {
@@ -25,7 +25,7 @@ const _AccordionWidgetPanel = <Tag extends React.ElementType = typeof DEFAULT_TA
     PropsForFeatures<typeof PanelRenderFeatures> &
     AccordionPanelProps &
     ElementProps,
-  ref: React.Ref<HTMLDivElement>,
+  ref: React.Ref<ElementType>,
 ) => {
   const [state, dispatch] = useAccordionContext(COMPONENT_NAME);
   const { close } = useAccordionAPIContext(COMPONENT_NAME);

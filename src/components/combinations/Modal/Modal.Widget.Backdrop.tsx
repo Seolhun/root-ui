@@ -10,16 +10,16 @@ import { ModalRenderPropArg } from './Modal.Widget.types';
 const COMPONENT_NAME = 'Root__Modal__Backdrop';
 const DEFAULT_TAG: RootUIReactTag = 'div';
 
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface ModalBackdropProps {}
+export interface ModalBackdropProps extends ElementProps {}
 export interface ModalBackdropRenderPropArg extends ModalRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'aria-hidden'>;
 
 const _ModalWidgetBackdrop = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
-  props: RootUIProps<Tag, ModalBackdropRenderPropArg, PropsWeControl> & ModalBackdropProps & ElementProps,
-  ref: React.Ref<Element>,
+  props: RootUIProps<Tag, ModalBackdropRenderPropArg, PropsWeControl> & ModalBackdropProps,
+  ref: React.Ref<ElementType>,
 ) => {
   const id = `rootui-modal-backdrop-${useId()}`;
   const [{ visible }, state] = useModalContext(COMPONENT_NAME);

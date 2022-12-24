@@ -12,10 +12,10 @@ import { ActionTypes } from './Popover.Widget.reducer';
 const COMPONENT_NAME = 'Root__Popover__Overlay';
 const DEFAULT_TAG: RootUIReactTag = 'div';
 
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface PopoverWidgetOverlayProps {}
+export interface PopoverWidgetOverlayProps extends ElementProps {}
 export interface PopoverOverlayRenderPropArg {
   open: boolean;
 }
@@ -25,9 +25,8 @@ const OverlayRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Sta
 const _PopoverWidgetOverlay = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
   props: RootUIProps<Tag, PopoverOverlayRenderPropArg, PropsWeControl> &
     PropsForFeatures<typeof OverlayRenderFeatures> &
-    PopoverWidgetOverlayProps &
-    ElementProps,
-  ref: React.Ref<HTMLDivElement>,
+    PopoverWidgetOverlayProps,
+  ref: React.Ref<ElementType>,
 ) => {
   const [{ popoverState }, dispatch] = usePopoverContext(COMPONENT_NAME);
   const id = `rootui-popover-overlay-${useId()}`;

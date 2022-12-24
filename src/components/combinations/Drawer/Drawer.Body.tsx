@@ -2,15 +2,14 @@ import React from 'react';
 import classNames from 'classnames';
 
 const CLASSNAME = 'Root__Drawer__Body';
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
-type ExtensionProps = ElementProps;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface DrawerBodyProps extends ExtensionProps {
+export interface DrawerBodyProps extends ElementProps {
   children: React.ReactNode;
 }
 
-const DrawerBody = React.forwardRef<Element, DrawerBodyProps>(({ className, children, ...rests }, ref) => {
+const DrawerBody = React.forwardRef<ElementType, DrawerBodyProps>(({ className, children, ...rests }, ref) => {
   return (
     <div
       ref={ref}

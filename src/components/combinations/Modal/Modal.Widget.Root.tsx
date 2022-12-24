@@ -23,10 +23,10 @@ import { ModalPosition, ModalRenderPropArg } from './Modal.Widget.types';
 const COMPONENT_NAME = 'Modal';
 const DEFAULT_TAG: RootUIReactTag = 'div';
 
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface ModalRootProps {
+export interface ModalRootProps extends ElementProps {
   /**
    * To show modal
    */
@@ -53,14 +53,14 @@ export interface ModalRootRenderPropArg extends ModalRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'role' | 'aria-modal' | 'aria-labelledby'>;
 
 const _ModalWidgetRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
-  props: RootUIProps<Tag, ModalRootRenderPropArg, PropsWeControl> & ModalRootProps & ElementProps,
-  ref: React.Ref<Element>,
+  props: RootUIProps<Tag, ModalRootRenderPropArg, PropsWeControl> & ModalRootProps,
+  ref: React.Ref<ElementType>,
 ) => {
   const { show, onClose, onKeyDown, initialFocus, ...rests } = props;
   const id = `rootui-modal-${useId()}`;
 
   const containers = React.useRef<Set<React.MutableRefObject<HTMLElement | null>>>(new Set());
-  const internalModalRef = React.useRef<Element | null>(null);
+  const internalModalRef = React.useRef<ElementType | null>(null);
   const modalRef = useSyncRefs(internalModalRef, ref);
   const mainTreeNode = React.useRef<Element | null>(null);
   const ownerDocument = useOwnerDocument(internalModalRef);
@@ -121,12 +121,12 @@ const _ModalWidgetRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
       return;
     }
     if (onKeyDown) {
-      onKeyDown(event as any as React.KeyboardEvent<Element>);
+      onKeyDown(event as any as React.KeyboardEvent<ElementType>);
       return;
     }
   });
 
-  useLockScroll<Element>({
+  useLockScroll<ElementType>({
     isVisible: show,
     hasParent: hasParentModal,
     element: internalModalRef,

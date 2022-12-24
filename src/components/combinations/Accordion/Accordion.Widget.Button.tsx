@@ -11,8 +11,8 @@ import { ActionTypes, useAccordionContext, useAccordionPanelContext } from './Ac
 const COMPONENT_NAME = 'Root__Accordion__Button';
 const DEFAULT_TAG: RootUIReactTag = 'button';
 
-type Element = HTMLButtonElement;
-type ElementProps = React.ButtonHTMLAttributes<Element>;
+type ElementType = HTMLButtonElement;
+type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 
 export interface AccordionButtonProps {}
 export interface AccordionButtonRenderPropArg {

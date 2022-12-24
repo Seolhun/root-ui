@@ -8,27 +8,27 @@ import classNames from 'classnames';
 const COMPONENT_NAME = 'Root__Box';
 const DEFAULT_TAG: RootUIReactTag = 'div';
 
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface BoxProps {
-  /**
-   * Set RootIntent className
-   */
-  intentClassName?: string;
-
   /**
    * Set RootScale className
    */
   scaleClassName?: string;
+
+  /**
+   * Set RootIntent className
+   */
+  intentClassName?: string;
 }
 export interface BoxRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;
 
-const _Box = <Tag extends keyof JSX.IntrinsicElements = typeof DEFAULT_TAG>(
+const Box = forwardRefWithAs(function Box<Tag extends keyof JSX.IntrinsicElements = typeof DEFAULT_TAG>(
   props: RootUIProps<Tag, BoxRenderPropArg, PropsWeControl> & BoxProps & JSX.IntrinsicElements[Tag],
-  ref: React.Ref<Element>,
-) => {
+  ref: React.Ref<ElementType>,
+) {
   const id = `${COMPONENT_NAME}-${useId()}`;
   const rootRef = useSyncRefs(ref);
 
@@ -49,9 +49,7 @@ const _Box = <Tag extends keyof JSX.IntrinsicElements = typeof DEFAULT_TAG>(
     name: COMPONENT_NAME,
     slot: {},
   });
-};
-
-const Box = forwardRefWithAs(_Box);
+});
 
 export { Box };
 export default Box;

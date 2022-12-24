@@ -8,7 +8,7 @@
       "ESNext"
     ],
     "moduleResolution": "Node",
-    "jsx": "react",
+    "jsx": "react-jsx",
     /* Declaration Options */
     "declaration": true,
     /* Compile options */
@@ -47,7 +47,6 @@
     "sourceMap": false,
     "traceResolution": false, // 모듈 검색에 대한 로그메세지 출력 여부
     "outDir": "dist",
-    "baseUrl": "."
   },
   "include": [
     "**/*.ts",

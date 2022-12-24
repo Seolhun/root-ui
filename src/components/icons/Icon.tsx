@@ -6,11 +6,10 @@ import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../system
 import { Box } from '../common';
 
 const CLASSNAME = 'Root__Icon';
-type Element = HTMLDivElement;
+type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
-type ExtensionProps = ElementProps;
 
-export interface IconProps extends ExtensionProps {
+export interface IconProps extends ElementProps {
   /**
    * Icon name
    */
@@ -28,7 +27,7 @@ export interface IconProps extends ExtensionProps {
   scale?: RootScale;
 }
 
-const Icon = React.forwardRef<Element, IconProps>(
+const Icon = React.forwardRef<ElementType, IconProps>(
   ({ className, icon, intent = 'dark', scale = 'md', ...rests }, ref) => {
     const Component = HeroIcon[icon];
 

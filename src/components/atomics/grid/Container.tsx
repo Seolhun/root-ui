@@ -2,13 +2,12 @@ import React from 'react';
 import classNames from 'classnames';
 
 const CLASSNAME = 'Root__Grid__Container';
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
-type ExtensionProps = ElementProps;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface ContainerProps extends ExtensionProps {}
+export interface ContainerProps extends ElementProps {}
 
-const Container = React.forwardRef<Element, ContainerProps>(({ className, children, ...rests }, ref) => {
+const Container = React.forwardRef<ElementType, ContainerProps>(({ className, children, ...rests }, ref) => {
   return (
     <div
       ref={ref}

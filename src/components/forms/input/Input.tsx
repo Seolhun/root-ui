@@ -5,8 +5,8 @@ import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../../sys
 import { Box } from '../../common';
 
 const CLASSNAME = 'Root__Input';
-type Element = HTMLInputElement;
-type ElementProps = React.InputHTMLAttributes<Element>;
+type ElementType = HTMLInputElement;
+type ElementProps = React.InputHTMLAttributes<ElementType>;
 export interface InputProps extends ElementProps {
   /**
    * Set this to change scale
@@ -20,7 +20,7 @@ export interface InputProps extends ElementProps {
   intent?: RootIntent;
 }
 
-const Input = React.forwardRef<Element, InputProps>(
+const Input = React.forwardRef<ElementType, InputProps>(
   ({ className, scale = 'md', intent = 'primary', ...rests }, ref) => {
     return (
       <Box

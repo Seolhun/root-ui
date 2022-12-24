@@ -26,22 +26,22 @@ import { ActionTypes } from './Popover.Widget.reducer';
 const COMPONENT_NAME = 'Root__Popover__Button';
 const DEFAULT_TAG: RootUIReactTag = 'button';
 
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
+type ElementType = HTMLButtonElement;
+type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 
-export interface PopoverWidgetButtonProps {}
+export interface PopoverWidgetButtonProps extends ElementProps {}
 export interface PopoverWidgetButtonPropArg {
   open: boolean;
 }
 type PropsWeControl = 'id' | 'type' | 'aria-expanded' | 'aria-controls' | 'onKeyDown' | 'onClick';
 
 const _PopoverWidgetButton = <TTag extends React.ElementType = typeof DEFAULT_TAG>(
-  props: RootUIProps<TTag, PopoverWidgetButtonPropArg, PropsWeControl> & PopoverWidgetButtonProps & ElementProps,
-  ref: React.Ref<HTMLButtonElement>,
+  props: RootUIProps<TTag, PopoverWidgetButtonPropArg, PropsWeControl> & PopoverWidgetButtonProps,
+  ref: React.Ref<ElementType>,
 ) => {
   const [state, dispatch] = usePopoverContext(COMPONENT_NAME);
   const { isPortalled } = usePopoverAPIContext(COMPONENT_NAME);
-  const internalButtonRef = React.useRef<HTMLButtonElement | null>(null);
+  const internalButtonRef = React.useRef<ElementType | null>(null);
 
   const sentinelId = `rootui-focus-sentinel-${useId()}`;
 
@@ -60,7 +60,7 @@ const _PopoverWidgetButton = <TTag extends React.ElementType = typeof DEFAULT_TA
   const ownerDocument = useOwnerDocument(internalButtonRef);
   const direction = useTabDirection();
 
-  const handleKeyDown = useEvent((event: React.KeyboardEvent<HTMLButtonElement>) => {
+  const handleKeyDown = useEvent((event: React.KeyboardEvent<ElementType>) => {
     if (isWithinPanel) {
       if (state.popoverState === OpenClosedState.Closed) return;
       switch (event.key) {
@@ -97,7 +97,7 @@ const _PopoverWidgetButton = <TTag extends React.ElementType = typeof DEFAULT_TA
     }
   });
 
-  const handleKeyUp = useEvent((event: React.KeyboardEvent<HTMLButtonElement>) => {
+  const handleKeyUp = useEvent((event: React.KeyboardEvent<ElementType>) => {
     if (isWithinPanel) return;
     if (event.key === KeyboardKeyMap.Space) {
       // Required for firefox, event.preventDefault() in handleKeyDown for

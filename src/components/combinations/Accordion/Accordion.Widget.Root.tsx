@@ -18,8 +18,8 @@ import { AccordionFocusableElement } from './Accordion.Widget.types';
 const COMPONENT_NAME = 'Root__Accordion__Root';
 const DEFAULT_TAG: RootUIReactTag = React.Fragment;
 
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface AccordionRootProps {
   defaultOpen?: boolean;

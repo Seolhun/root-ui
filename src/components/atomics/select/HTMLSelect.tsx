@@ -1,20 +1,17 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const CLASSNAME = 'Root__HTMLSelect';
-type Element = HTMLSelectElement;
-type ElementProps = React.SelectHTMLAttributes<Element>;
-type ExtensionProps = ElementProps;
+import { HTMLSelectOptionProps } from './HTMLSelect.types';
 
-export interface HTMLSelectProps extends ExtensionProps {
+const CLASSNAME = 'Root__HTMLSelect';
+type ElementType = HTMLSelectElement;
+type ElementProps = React.SelectHTMLAttributes<ElementType>;
+
+export interface HTMLSelectProps extends ElementProps {
   options: HTMLSelectOptionProps[];
 }
 
-type OptionElement = HTMLOptionElement;
-type OptionElementProps = React.OptionHTMLAttributes<OptionElement>;
-export type HTMLSelectOptionProps = OptionElementProps;
-
-const HTMLSelect = React.forwardRef<Element, HTMLSelectProps>(({ className, options, ...rests }, ref) => {
+const HTMLSelect = React.forwardRef<ElementType, HTMLSelectProps>(({ className, options, ...rests }, ref) => {
   return (
     <select
       {...rests}

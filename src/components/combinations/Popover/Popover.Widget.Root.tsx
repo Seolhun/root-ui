@@ -26,16 +26,16 @@ import { PopoverRenderPropArg } from './Popover.Widget.types';
 const COMPONENT_NAME = 'Popover';
 const DEFAULT_TAG: RootUIReactTag = 'div';
 
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface PopoverRootProps {}
+export interface PopoverRootProps extends ElementProps {}
 export interface PopoverRootRenderPropArg extends PopoverRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'role' | 'aria-modal' | 'aria-labelledby'>;
 
 const _PopoverWidgetRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
-  props: RootUIProps<Tag, PopoverRootRenderPropArg, PropsWeControl> & PopoverRootProps & ElementProps,
-  ref: React.Ref<HTMLElement>,
+  props: RootUIProps<Tag, PopoverRootRenderPropArg, PropsWeControl> & PopoverRootProps,
+  ref: React.Ref<ElementType>,
 ) => {
   const buttonId = `rootui-popover-button-${useId()}`;
   const panelId = `rootui-popover-panel-${useId()}`;

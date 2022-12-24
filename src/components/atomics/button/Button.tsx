@@ -5,8 +5,8 @@ import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../../sys
 import { Box } from '../../common/box';
 
 const CLASSNAME = 'Root__Button';
-type Element = HTMLButtonElement;
-type ElementProps = React.ButtonHTMLAttributes<Element>;
+type ElementType = HTMLButtonElement;
+type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 
 export interface ButtonProps extends ElementProps {
   /**
@@ -21,7 +21,7 @@ export interface ButtonProps extends ElementProps {
   intent?: RootIntent;
 }
 
-const Button = React.forwardRef<Element, ButtonProps>(
+const Button = React.forwardRef<ElementType, ButtonProps>(
   ({ className, children, scale = 'md', intent = 'primary', ...rests }, ref) => {
     return (
       <Box

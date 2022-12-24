@@ -5,8 +5,8 @@ import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../../sys
 import { Box } from '../../common';
 
 const CLASSNAME = 'Root__Textarea';
-type Element = HTMLTextAreaElement;
-type ElementProps = React.TextareaHTMLAttributes<Element>;
+type ElementType = HTMLTextAreaElement;
+type ElementProps = React.TextareaHTMLAttributes<ElementType>;
 export interface TextareaProps extends ElementProps {
   /**
    * Set this to change scale
@@ -20,7 +20,7 @@ export interface TextareaProps extends ElementProps {
   intent?: RootIntent;
 }
 
-const Textarea = React.forwardRef<Element, TextareaProps>(
+const Textarea = React.forwardRef<ElementType, TextareaProps>(
   ({ className, scale = 'md', intent = 'primary', ...rests }, ref) => {
     return (
       <Box

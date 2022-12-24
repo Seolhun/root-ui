@@ -7,8 +7,7 @@ import FormHelp from './FormHelp';
 
 const CLASSNAME = 'Root__FormItem';
 type ElementProps = React.HTMLAttributes<HTMLDivElement>;
-type ExtensionProps = ElementProps;
-export interface FormItemProps extends ExtensionProps {
+export interface FormItemProps extends ElementProps {
   /**
    * Set this to change scale
    * @default md
@@ -31,7 +30,7 @@ export interface FormItemProps extends ExtensionProps {
   help?: string;
 }
 
-const FormItem: React.FC<FormItemProps> = ({ children, className, scale = 'md', label, htmlFor, help, ...props }) => {
+const FormItem = ({ children, className, scale = 'md', label, htmlFor, help, ...props }: FormItemProps) => {
   return (
     <div {...props} className={classNames(CLASSNAME, className)}>
       {label && (

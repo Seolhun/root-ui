@@ -6,11 +6,10 @@ import { FormLabel } from '../FormLabel';
 import { Box } from '../../common';
 
 const CLASSNAME = 'Root__Checkbox';
-type Element = HTMLInputElement;
-type ElementProps = React.InputHTMLAttributes<Element>;
-type ExtensionProps = ElementProps;
+type ElementType = HTMLInputElement;
+type ElementProps = React.InputHTMLAttributes<ElementType>;
 
-export interface CheckboxProps extends ExtensionProps {
+export interface CheckboxProps extends ElementProps {
   htmlFor?: string;
 
   /**
@@ -25,7 +24,7 @@ export interface CheckboxProps extends ExtensionProps {
   intent?: RootIntent;
 }
 
-const Checkbox = React.forwardRef<Element, CheckboxProps>(
+const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
   ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...rests }, ref) => {
     const htmlForAndID = htmlFor ?? rests.name;
     return (

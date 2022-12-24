@@ -21,8 +21,8 @@ import { ActionTypes } from './Popover.Widget.reducer';
 const COMPONENT_NAME = 'Root__Popover__Panel';
 const DEFAULT_TAG: RootUIReactTag = 'div';
 
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface PopoverWidgetPanelProps {}
 export interface PopoverPanelRenderPropArg extends PopoverRenderPropArg {
@@ -37,7 +37,7 @@ const _PopoverWidgetPanel = <Tag extends React.ElementType = typeof DEFAULT_TAG>
     PropsForFeatures<typeof PanelRenderFeatures> &
     PopoverWidgetPanelProps &
     ElementProps,
-  ref: React.Ref<HTMLDivElement>,
+  ref: React.Ref<ElementType>,
 ) => {
   const { focus = false, ...rests } = props;
 
@@ -45,7 +45,7 @@ const _PopoverWidgetPanel = <Tag extends React.ElementType = typeof DEFAULT_TAG>
   const { close, isPortalled } = usePopoverAPIContext(COMPONENT_NAME);
   const beforePanelSentinelId = `rootui-focus-sentinel-before-${useId()}`;
   const afterPanelSentinelId = `rootui-focus-sentinel-after-${useId()}`;
-  const internalPanelRef = React.useRef<HTMLDivElement | null>(null);
+  const internalPanelRef = React.useRef<ElementType | null>(null);
   const ownerDocument = useOwnerDocument(internalPanelRef);
 
   const panelRef = useSyncRefs(internalPanelRef, ref, (panel) => {

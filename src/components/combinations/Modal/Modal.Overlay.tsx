@@ -4,24 +4,22 @@ import classNames from 'classnames';
 import { ModalWidgetOverlay } from './Modal.Widget.Overlay';
 
 const CLASSNAME = 'Root__Modal__Overlay';
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface ModalOverlayProps {}
+export interface ModalOverlayProps extends ElementProps {}
 
-const ModalOverlay = React.forwardRef<Element, ModalOverlayProps & ElementProps>(
-  ({ className, children, ...rests }, ref) => {
-    return (
-      <ModalWidgetOverlay
-        {...rests}
-        ref={ref}
-        className={classNames(CLASSNAME, className, 'fixed', 'inset-0 md:inset-0', 'overflow-y-auto')}
-      >
-        {children}
-      </ModalWidgetOverlay>
-    );
-  },
-);
+const ModalOverlay = React.forwardRef<ElementType, ModalOverlayProps>(({ className, children, ...rests }, ref) => {
+  return (
+    <ModalWidgetOverlay
+      {...rests}
+      ref={ref}
+      className={classNames(CLASSNAME, className, 'fixed', 'inset-0 md:inset-0', 'overflow-y-auto')}
+    >
+      {children}
+    </ModalWidgetOverlay>
+  );
+});
 
 export { ModalOverlay };
 export default ModalOverlay;

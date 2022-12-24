@@ -5,17 +5,19 @@ import { Text } from '../Text';
 import { AgnosticTagProps } from '../../../system';
 
 const CLASSNAME = 'Root__Heading';
-type ElementProps = React.HTMLAttributes<HTMLHeadingElement>;
+type ElementType = HTMLHeadingElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
+export interface HeadingProps extends ElementProps {}
 
-export interface HeadingProps extends ElementProps, AgnosticTagProps {}
-
-const Heading = ({ className, children, as, ...rests }: HeadingProps) => {
-  return (
-    <Text {...rests} as={as} className={classNames(CLASSNAME, className)}>
-      {children}
-    </Text>
-  );
-};
+const Heading = React.forwardRef<ElementType, HeadingProps & Required<AgnosticTagProps>>(
+  ({ className, children, as, ...rests }, ref) => {
+    return (
+      <Text {...rests} as={as} ref={ref} className={classNames(CLASSNAME, className)}>
+        {children}
+      </Text>
+    );
+  },
+);
 
 export { Heading };
 export default Heading;

@@ -4,15 +4,14 @@ import classNames from 'classnames';
 import DrawerCloseButton from './Drawer.CloseButton';
 
 const CLASSNAME = 'Root__Drawer__Header';
-type Element = HTMLDivElement;
+type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
-type ExtensionProps = ElementProps;
 
-export interface DrawerHeaderProps extends ExtensionProps {
+export interface DrawerHeaderProps extends ElementProps {
   children?: React.ReactNode;
 }
 
-const DrawerHeader = React.forwardRef<Element, DrawerHeaderProps>(({ className, children, ...rests }, ref) => {
+const DrawerHeader = React.forwardRef<ElementType, DrawerHeaderProps>(({ className, children, ...rests }, ref) => {
   return (
     <div
       ref={ref}

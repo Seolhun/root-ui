@@ -6,8 +6,8 @@ import { FormLabel } from '../FormLabel';
 import { Box } from '../../common';
 
 const CLASSNAME = 'Root__Radio';
-type Element = HTMLInputElement;
-type ElementProps = React.InputHTMLAttributes<Element>;
+type ElementType = HTMLInputElement;
+type ElementProps = React.InputHTMLAttributes<ElementType>;
 
 export interface RadioProps extends ElementProps {
   htmlFor?: string;
@@ -24,7 +24,7 @@ export interface RadioProps extends ElementProps {
   intent?: RootIntent;
 }
 
-const Radio = React.forwardRef<Element, RadioProps>(
+const Radio = React.forwardRef<ElementType, RadioProps>(
   ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...rests }, ref) => {
     const htmlForAndID = htmlFor ?? rests.name;
     return (

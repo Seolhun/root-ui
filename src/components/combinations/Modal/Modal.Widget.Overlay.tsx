@@ -11,16 +11,16 @@ import { ModalRenderPropArg } from './Modal.Widget.types';
 const COMPONENT_NAME = 'Root__Modal__Overlay';
 const DEFAULT_TAG: RootUIReactTag = 'div';
 
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface ModalWidgetOverlayProps {}
+export interface ModalWidgetOverlayProps extends ElementProps {}
 export interface ModalOverlayRenderPropArg extends ModalRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'aria-hidden' | 'onClick'>;
 
 const _ModalWidgetOverlay = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
-  props: RootUIProps<Tag, ModalOverlayRenderPropArg, PropsWeControl> & ModalWidgetOverlayProps & ElementProps,
-  ref: React.Ref<Element>,
+  props: RootUIProps<Tag, ModalOverlayRenderPropArg, PropsWeControl> & ModalWidgetOverlayProps,
+  ref: React.Ref<ElementType>,
 ) => {
   const id = `rootui-modal-overlay-${useId()}`;
   const [{ visible, onClose }] = useModalContext(COMPONENT_NAME);

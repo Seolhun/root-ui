@@ -7,20 +7,19 @@ import { forwardRefWithAs, render } from '../../../core';
 import { useModalContext } from './Modal.Widget.Context';
 import { ModalRenderPropArg } from './Modal.Widget.types';
 
-type Element = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<Element>;
-
-export interface ModalWidgetPanelProps {}
-
 const COMPONENT_NAME = 'Root__Modal__Panel';
 const DEFAULT_TAG: RootUIReactTag = 'div';
 
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
+
+export interface ModalWidgetPanelProps extends ElementProps {}
 export interface ModalPanelRenderPropArg extends ModalRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'onClick'>;
 
 const _ModalWidgetPanel = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
-  props: RootUIProps<Tag, ModalPanelRenderPropArg, PropsWeControl> & ModalWidgetPanelProps & ElementProps,
-  ref: React.Ref<Element>,
+  props: RootUIProps<Tag, ModalPanelRenderPropArg, PropsWeControl> & ModalWidgetPanelProps,
+  ref: React.Ref<ElementType>,
 ) => {
   const id = `rootui-modal-panel-${useId()}`;
   const [{ visible }, state] = useModalContext(COMPONENT_NAME);

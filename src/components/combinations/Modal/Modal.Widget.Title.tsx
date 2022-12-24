@@ -10,17 +10,16 @@ import { ModalRenderPropArg } from './Modal.Widget.types';
 const COMPONENT_NAME = 'Root__Modal__Title';
 const DEFAULT_TAG: RootUIReactTag = 'h2';
 
-type Element = HTMLHeadingElement;
-type ElementProps = React.HTMLAttributes<Element>;
+type ElementType = HTMLHeadingElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface ModalTitleProps {}
-
+export interface ModalTitleProps extends ElementProps {}
 export interface ModalTitleRenderPropArg extends ModalRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;
 
 const _ModalWidgetTitle = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
-  props: RootUIProps<Tag, ModalTitleRenderPropArg, PropsWeControl> & ModalTitleProps & ElementProps,
-  ref: React.Ref<Element>,
+  props: RootUIProps<Tag, ModalTitleRenderPropArg, PropsWeControl> & ModalTitleProps,
+  ref: React.Ref<ElementType>,
 ) => {
   const id = `rootui-modal-title-${useId()}`;
   const [{ visible, setModalTitleId }] = useModalContext(COMPONENT_NAME);

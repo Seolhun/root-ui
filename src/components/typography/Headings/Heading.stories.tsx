@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { StorybookContent } from '../../../stories';
-import { HeadingProps } from './Heading.types';
+import { HeadingProps } from './Heading';
 import { H1 } from './H1';
 import { H2 } from './H2';
 import { H3 } from './H3';
