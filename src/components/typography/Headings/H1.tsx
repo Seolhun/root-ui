@@ -1,8 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { Heading } from './Heading';
-import { HeadingProps } from './Heading.types';
+import { Heading, HeadingProps } from './Heading';
 
 const CLASSNAME = 'Root__H1';
 

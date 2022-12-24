@@ -2,23 +2,23 @@ import React from 'react';
 import classNames from 'classnames';
 
 import { Box } from '../../common';
+import { AgnosticTagProps } from '../../../system';
 
 const CLASSNAME = 'Root__Text';
-type ElementProps = React.HTMLAttributes<HTMLParagraphElement>;
-export interface TextProps extends ElementProps {}
 
-const Text = ({ className, children, ...rests }: TextProps) => {
+export interface TextProps extends AgnosticTagProps {}
+
+const Text = <Tag extends keyof JSX.IntrinsicElements>({
+  className,
+  children,
+  as = 'div',
+  ...rests
+}: TextProps & JSX.IntrinsicElements[Tag]) => {
   return (
     <Box
       {...rests}
-      as="p"
-      className={classNames(
-        CLASSNAME,
-        className,
-        'text-base font-light leading-relaxed',
-        'text-dark-9 dark:text-light-1',
-        'mt-0 mb-1',
-      )}
+      as={as}
+      className={classNames(CLASSNAME, className, 'text-base leading-relaxed', 'text-dark-9 dark:text-light-1')}
     >
       {children}
     </Box>

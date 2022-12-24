@@ -1,8 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { Heading } from './Heading';
-import { HeadingProps } from './Heading.types';
+import { Heading, HeadingProps } from './Heading';
 
 const CLASSNAME = 'Root__H4';
 
@@ -11,12 +10,7 @@ const H4 = ({ className, children, ...rests }: HeadingProps) => {
     <Heading
       {...rests}
       as="h4"
-      className={classNames(
-        CLASSNAME,
-        className,
-        'text-dark-9 dark:text-light-1',
-        'text-3xl font-bold leading-normal mt-1 mb-2',
-      )}
+      className={classNames(CLASSNAME, className, 'text-3xl font-bold leading-normal mt-1 mb-2')}
     >
       {children}
     </Heading>

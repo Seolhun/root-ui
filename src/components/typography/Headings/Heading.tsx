@@ -1,22 +1,19 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { Box } from '../../common';
-import { HeadingProps } from './Heading.types';
+import { Text } from '../Text';
+import { AgnosticTagProps } from '../../../system';
 
 const CLASSNAME = 'Root__Heading';
 type ElementProps = React.HTMLAttributes<HTMLHeadingElement>;
 
-const Heading = ({
-  className,
-  children,
-  as,
-  ...rests
-}: HeadingProps & ElementProps & { as: keyof JSX.IntrinsicElements }) => {
+export interface HeadingProps extends ElementProps, AgnosticTagProps {}
+
+const Heading = ({ className, children, as, ...rests }: HeadingProps) => {
   return (
-    <Box {...rests} as={as} className={classNames(CLASSNAME, className, 'text-dark-9 dark:text-light-1')}>
+    <Text {...rests} as={as} className={classNames(CLASSNAME, className)}>
       {children}
-    </Box>
+    </Text>
   );
 };
 
