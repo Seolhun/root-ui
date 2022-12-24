@@ -1,3 +1,4 @@
-export * from './block-quote';
-export * from './headings';
-export * from './paragraph';
+export * from './BlockQuote';
+export * from './Headings';
+export * from './Paragraph';
+export * from './Text';

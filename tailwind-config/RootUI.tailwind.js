@@ -68,6 +68,7 @@ module.exports = {
     colors: {
       ...intentColors,
       ...themeColors.typography,
+      ...themeColors.system,
     },
     minWidth: MinWidth,
     minHeight: MinHeight,

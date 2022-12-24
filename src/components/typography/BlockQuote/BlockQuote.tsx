@@ -14,7 +14,7 @@ export interface BlockQuoteProps extends ElementProps {
   intent?: RootIntent;
 }
 
-const BlockQuote: React.FC<BlockQuoteProps> = ({ className, children, intent = 'primary', ...rests }) => {
+const BlockQuote = ({ className, children, intent = 'primary', ...rests }: BlockQuoteProps) => {
   return (
     <Box
       {...rests}
