@@ -4,7 +4,7 @@ module.exports = {
     browser: true,
     es2021: true,
     jest: true,
-    node: true,
+    node: true
   },
   extends: [
     'eslint:recommended',
@@ -12,7 +12,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:prettier/recommended',
     'plugin:react/jsx-runtime',
-    "plugin:react-hooks/recommended"
+    'plugin:react-hooks/recommended',
+    'plugin:storybook/recommended'
   ],
   plugins: ['react', '@typescript-eslint', 'eslint-plugin'],
   parser: '@typescript-eslint/parser',
@@ -21,8 +22,8 @@ module.exports = {
     ecmaVersion: 6,
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true,
-    },
+      jsx: true
+    }
   },
   rules: {
     // Custom
@@ -33,7 +34,7 @@ module.exports = {
     'react/prop-types': 0,
     'react/display-name': 0,
     // Typescript
-    '@typescript-eslint/explicit-module-boundary-types': 0,
+    '@typescript-eslint/explicit-module-boundary-types': 0
   },
   settings: {
     'prettier/prettier': 'error',
@@ -49,7 +50,7 @@ module.exports = {
       }
     },
     react: {
-      version: 'detect',
+      version: 'detect'
     }
   }
-}
+};
