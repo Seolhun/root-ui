@@ -38,6 +38,7 @@ const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
             lg: () => 'w-full md:w-8/12',
             xl: () => 'w-full md:w-10/12',
           })(scale),
+          'py-4 px-6',
           'h-full md:h-auto',
           'm-auto md:my-12',
           'shadow rounded-none md:rounded-2xl',

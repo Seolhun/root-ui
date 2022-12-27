@@ -23,9 +23,8 @@ const ModalCloseButton = React.forwardRef<ElementType, ModalCloseButtonProps>(
           className,
           'inline-flex items-center',
           '-mr-2 ml-2',
-          'p-1.5',
-          'bg-transparent hover:bg-dark-200',
-          'text-sm text-light-400 hover:text-light-600',
+          'bg-transparent hover:bg-dark-2',
+          'text-sm text-light-4 hover:text-light-6',
           'rounded-lg',
         )}
         onClick={onClose}

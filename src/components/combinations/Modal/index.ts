@@ -1,3 +1,4 @@
+export * from './Modal.Widget.Root';
 export * from './Modal.Header';
 export * from './Modal.Content';
 export * from './Modal.Footer';

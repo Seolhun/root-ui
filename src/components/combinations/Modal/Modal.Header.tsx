@@ -17,14 +17,7 @@ const ModalHeader = React.forwardRef<ElementType, ModalHeaderProps>(({ className
     <div
       ref={ref}
       {...rests}
-      className={clsx(
-        CLASSNAME,
-        className,
-        'flex justify-between items-start',
-        'py-2 px-4',
-        'border-light-200',
-        'rounded-t',
-      )}
+      className={clsx(CLASSNAME, className, 'flex justify-between items-start', 'border-light-2', 'rounded-t')}
     >
       <div className="flex-1 break-all line-clamp-2">
         <ModalWidgetTitle>{children}</ModalWidgetTitle>

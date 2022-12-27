@@ -22,17 +22,17 @@ const Popovers = () => {
         </Popover.Widgets.Button>
 
         <Popover.Widgets.Panel className="absolute z-10">
-          <Card scale="lg" className="flex flex-col gap-y-4">
-            <a className="flex items-center gap-x-2">
-              <Icon icon="AcademicCapIcon" scale="lg" />
+          <Card className="flex flex-col gap-y-4">
+            <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+              <Icon icon="AcademicCapIcon" />
               <p>First Item</p>
             </a>
-            <a className="flex items-center gap-x-2">
-              <Icon icon="AdjustmentsIcon" scale="lg" />
+            <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+              <Icon icon="AdjustmentsIcon" />
               <p>Second Item</p>
             </a>
-            <a className="flex items-center gap-x-2">
-              <Icon icon="AnnotationIcon" scale="lg" />
+            <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+              <Icon icon="AnnotationIcon" />
               <p>Third Item</p>
             </a>
           </Card>
@@ -49,23 +49,23 @@ const PopoversInOthers = () => {
   return (
     <section>
       <Popover className="relative mt-8">
-        <Card scale="lg">
+        <Card>
           <Popover.Widgets.Button>
             <Button>Show Popover</Button>
           </Popover.Widgets.Button>
 
           <Popover.Widgets.Panel className="absolute z-10">
-            <Card scale="lg" className="flex flex-col gap-y-4">
-              <a className="flex items-center gap-x-2">
-                <Icon icon="AcademicCapIcon" scale="lg" />
+            <Card className="flex flex-col gap-y-4">
+              <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+                <Icon icon="AcademicCapIcon" />
                 <p>First Item</p>
               </a>
-              <a className="flex items-center gap-x-2">
-                <Icon icon="AdjustmentsIcon" scale="lg" />
+              <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+                <Icon icon="AdjustmentsIcon" />
                 <p>Second Item</p>
               </a>
-              <a className="flex items-center gap-x-2">
-                <Icon icon="AnnotationIcon" scale="lg" />
+              <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+                <Icon icon="AnnotationIcon" />
                 <p>Third Item</p>
               </a>
             </Card>
@@ -89,17 +89,17 @@ const PopoversCloseButton = () => {
 
         <Popover.Widgets.Panel className="absolute z-10">
           {({ close }) => (
-            <Card scale="lg" className="flex flex-col gap-y-4">
-              <a className="flex items-center gap-x-2">
-                <Icon icon="AcademicCapIcon" scale="lg" />
+            <Card className="flex flex-col gap-y-4">
+              <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+                <Icon icon="AcademicCapIcon" />
                 <p>First Item</p>
               </a>
-              <a className="flex items-center gap-x-2">
-                <Icon icon="AdjustmentsIcon" scale="lg" />
+              <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+                <Icon icon="AdjustmentsIcon" />
                 <p>Second Item</p>
               </a>
-              <a className="flex items-center gap-x-2">
-                <Icon icon="AnnotationIcon" scale="lg" />
+              <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+                <Icon icon="AnnotationIcon" />
                 <p>Third Item</p>
               </a>
               <div className="flex items-end mt-2">
@@ -128,17 +128,17 @@ const PopoversOverlay = () => {
 
         <Popover.Widgets.Overlay className="fixed inset-0 bg-dark opacity-30" />
         <Popover.Widgets.Panel className="absolute z-10">
-          <Card scale="lg" className="flex flex-col gap-y-4">
-            <a className="flex items-center gap-x-2">
-              <Icon icon="AcademicCapIcon" scale="lg" />
+          <Card className="flex flex-col gap-y-4">
+            <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+              <Icon icon="AcademicCapIcon" />
               <p>First Item</p>
             </a>
-            <a className="flex items-center gap-x-2">
-              <Icon icon="AdjustmentsIcon" scale="lg" />
+            <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+              <Icon icon="AdjustmentsIcon" />
               <p>Second Item</p>
             </a>
-            <a className="flex items-center gap-x-2">
-              <Icon icon="AnnotationIcon" scale="lg" />
+            <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+              <Icon icon="AnnotationIcon" />
               <p>Third Item</p>
             </a>
           </Card>
@@ -163,17 +163,17 @@ const PopoverGroups = () => {
           </Popover.Widgets.Button>
 
           <Popover.Widgets.Panel className="absolute z-10">
-            <Card scale="lg" className="flex flex-col gap-y-4 w-max">
-              <a className="flex items-center gap-x-2">
-                <Icon icon="AcademicCapIcon" scale="lg" />
+            <Card className="flex flex-col gap-y-4 w-max">
+              <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+                <Icon icon="AcademicCapIcon" />
                 <p>First Item</p>
               </a>
-              <a className="flex items-center gap-x-2">
-                <Icon icon="AdjustmentsIcon" scale="lg" />
+              <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+                <Icon icon="AdjustmentsIcon" />
                 <p>Second Item</p>
               </a>
-              <a className="flex items-center gap-x-2">
-                <Icon icon="AnnotationIcon" scale="lg" />
+              <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+                <Icon icon="AnnotationIcon" />
                 <p>Third Item</p>
               </a>
             </Card>
@@ -186,17 +186,17 @@ const PopoverGroups = () => {
           </Popover.Widgets.Button>
 
           <Popover.Widgets.Panel className="absolute z-10">
-            <Card scale="lg" className="flex flex-col gap-y-4 w-max">
-              <a className="flex items-center gap-x-2">
-                <Icon icon="AcademicCapIcon" scale="lg" />
+            <Card className="flex flex-col gap-y-4 w-max">
+              <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+                <Icon icon="AcademicCapIcon" />
                 <p>First Item</p>
               </a>
-              <a className="flex items-center gap-x-2">
-                <Icon icon="AdjustmentsIcon" scale="lg" />
+              <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+                <Icon icon="AdjustmentsIcon" />
                 <p>Second Item</p>
               </a>
-              <a className="flex items-center gap-x-2">
-                <Icon icon="AnnotationIcon" scale="lg" />
+              <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+                <Icon icon="AnnotationIcon" />
                 <p>Third Item</p>
               </a>
             </Card>
@@ -243,17 +243,17 @@ const PopoversPositionWithPopper = ({ placement }) => {
           style={styles.popper}
           className="absolute z-10"
         >
-          <Card scale="lg" className="flex flex-col gap-y-4">
-            <a className="flex items-center gap-x-2">
-              <Icon icon="AcademicCapIcon" scale="lg" />
+          <Card className="flex flex-col gap-y-4">
+            <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+              <Icon icon="AcademicCapIcon" />
               <p>First Item</p>
             </a>
-            <a className="flex items-center gap-x-2">
-              <Icon icon="AdjustmentsIcon" scale="lg" />
+            <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+              <Icon icon="AdjustmentsIcon" />
               <p>Second Item</p>
             </a>
-            <a className="flex items-center gap-x-2">
-              <Icon icon="AnnotationIcon" scale="lg" />
+            <a className="flex items-center gap-x-2 hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
+              <Icon icon="AnnotationIcon" />
               <p>Third Item</p>
             </a>
           </Card>

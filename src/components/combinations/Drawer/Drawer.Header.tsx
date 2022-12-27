@@ -21,7 +21,7 @@ const DrawerHeader = React.forwardRef<ElementType, DrawerHeaderProps>(({ classNa
         className,
         'flex justify-between items-start',
         'pt-4 px-4',
-        'border-light-200',
+        'border-light-2',
         'rounded-t',
       )}
     >

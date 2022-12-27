@@ -12,7 +12,7 @@ export interface ModalFooterProps extends ElementProps {
 const ModalFooter = React.forwardRef<ElementType, ModalFooterProps>(
   ({ className, children, ...rests }: ModalFooterProps) => {
     return (
-      <div {...rests} className={clsx(CLASSNAME, className, 'flex', 'py-2 px-4', 'rounded-b')}>
+      <div {...rests} className={clsx(CLASSNAME, className, 'flex', 'mt-2', 'rounded-b')}>
         {children}
       </div>
     );

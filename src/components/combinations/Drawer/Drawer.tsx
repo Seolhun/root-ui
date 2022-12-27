@@ -76,7 +76,7 @@ const Drawer = React.forwardRef<ElementType, DrawerProps>(
           <div
             tabIndex={-1}
             aria-hidden={show ? 'true' : 'false'}
-            className={clsx(CLASSNAME, className, 'fixed', 'inset-0 md:inset-0', 'bg-dark-300', 'opacity-60')}
+            className={clsx(CLASSNAME, className, 'fixed', 'inset-0 md:inset-0', 'bg-dark-3', 'opacity-60')}
           />
           <Card
             {...rests}

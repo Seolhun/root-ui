@@ -5,5 +5,5 @@ export type PopoverFocusableElement =
 
 export interface PopoverRenderPropArg {
   open: boolean;
-  close(focusableElement?: PopoverFocusableElement): void;
+  close: (focusableElement?: PopoverFocusableElement) => void;
 }

@@ -52,11 +52,6 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
       // => @media (min-width: 1440px) { ... }
     },
     // @see https://tailwindcss.com/docs/customizing-colors
-    colors: {
-      ...intentColors,
-      ...themeColors.typography,
-      transparent: 'transparent',
-    },
     variants: {
       extend: {
         backgroundColor: ['checked'],
@@ -86,7 +81,9 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
       },
       // @see https://tailwindcss.com/docs/customizing-colors
       colors: {
-        ...colors,
+        ...intentColors,
+        ...themeColors.typography,
+        transparent: 'transparent',
         gray: {
           50: '#F9FAFB',
           100: '#F3F4F6',

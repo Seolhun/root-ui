@@ -36,7 +36,7 @@ const ScaleLoader = ({ children, ...rests }: LoaderProps) => {
 
 export const ScaleLoaderStories = ScaleLoader.bind({});
 ScaleLoaderStories.args = {
-  children: 'Tag',
+  children: 'Loader',
 };
 
 const IntentLoaders = ({ children, ...rests }: LoaderProps) => {
@@ -51,5 +51,5 @@ const IntentLoaders = ({ children, ...rests }: LoaderProps) => {
 
 export const IntentLoadersStories = IntentLoaders.bind({});
 IntentLoadersStories.args = {
-  children: 'Button',
+  children: 'Loader',
 };

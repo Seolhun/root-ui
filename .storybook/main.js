@@ -10,6 +10,9 @@ module.exports = {
   },
   addons: [
     '@storybook/addon-links',
+    '@storybook/addon-controls',
+    '@storybook/addon-viewport',
+    '@storybook/addon-actions',
   ],
   webpackFinal: async (config) => {
     config.resolve.alias = {

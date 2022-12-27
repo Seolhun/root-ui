@@ -23,9 +23,9 @@ const DrawerCloseButton = React.forwardRef<ElementType, DrawerCloseButtonProps>(
           className,
           'inline-flex items-center',
           'p-1.5 ml-auto',
-          'bg-transparent hover:bg-dark-200',
+          'bg-transparent hover:bg-dark-2',
           'text-sm',
-          'text-light-400 hover:text-light-700',
+          'text-light-4 hover:text-light-700',
           'rounded-lg',
         )}
         onClick={onClose}

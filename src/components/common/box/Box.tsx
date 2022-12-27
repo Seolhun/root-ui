@@ -26,7 +26,12 @@ export interface BoxRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;
 
 const Box = forwardRefWithAs(function Box<Tag extends keyof JSX.IntrinsicElements = typeof DEFAULT_TAG>(
-  props: RootUIProps<Tag, BoxRenderPropArg, PropsWeControl> & BoxProps & JSX.IntrinsicElements[Tag],
+  {
+    scaleClassName,
+    intentClassName,
+    className,
+    ...others
+  }: RootUIProps<Tag, BoxRenderPropArg, PropsWeControl> & BoxProps & JSX.IntrinsicElements[Tag],
   ref: React.Ref<ElementType>,
 ) {
   const id = `${COMPONENT_NAME}-${useId()}`;
@@ -42,8 +47,8 @@ const Box = forwardRefWithAs(function Box<Tag extends keyof JSX.IntrinsicElement
   return render({
     ourProps,
     theirProps: {
-      ...props,
-      className: clsx(props.scaleClassName, props.intentClassName, props.className),
+      ...others,
+      className: clsx(scaleClassName, intentClassName, className),
     },
     defaultTag: DEFAULT_TAG,
     name: COMPONENT_NAME,

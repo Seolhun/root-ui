@@ -12,15 +12,7 @@ const ModalContent = React.forwardRef<ElementType, ModalContentProps>(({ classNa
     <div
       ref={ref}
       {...rests}
-      className={clsx(
-        CLASSNAME,
-        className,
-        'flex flex-1',
-        'h-auto md:h-full',
-        'py-2 px-4',
-        'break-all',
-        'border-light-200',
-      )}
+      className={clsx(CLASSNAME, className, 'flex flex-1', 'h-auto md:h-full', 'mt-2', 'break-all', 'border-light-2')}
     >
       {children}
     </div>

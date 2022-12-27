@@ -15,15 +15,7 @@ const ModalBackdrop = React.forwardRef<ElementType, ModalBackdropProps>(({ class
       {...rests}
       ref={ref}
       tabIndex={-1}
-      className={clsx(
-        CLASSNAME,
-        className,
-        'fixed',
-        'inset-0 md:inset-0',
-        'w-full h-full',
-        'bg-dark-300',
-        'opacity-60',
-      )}
+      className={clsx(CLASSNAME, className, 'fixed', 'inset-0 md:inset-0', 'w-full h-full', 'bg-dark-3', 'opacity-60')}
     />
   );
 });
