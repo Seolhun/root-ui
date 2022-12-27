@@ -3,7 +3,7 @@ import React from 'react';
 import { RootUIProps, RootUIReactTag } from '../../../types';
 import { useSyncRefs, useId } from '../../../hooks';
 import { forwardRefWithAs, render } from '../../../core';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const COMPONENT_NAME = 'Root__Box';
 const DEFAULT_TAG: RootUIReactTag = 'div';
@@ -43,7 +43,7 @@ const Box = forwardRefWithAs(function Box<Tag extends keyof JSX.IntrinsicElement
     ourProps,
     theirProps: {
       ...props,
-      className: classNames(props.scaleClassName, props.intentClassName, props.className),
+      className: clsx(props.scaleClassName, props.intentClassName, props.className),
     },
     defaultTag: DEFAULT_TAG,
     name: COMPONENT_NAME,

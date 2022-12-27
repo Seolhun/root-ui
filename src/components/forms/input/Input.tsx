@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../../system';
 import { Box } from '../../common';
@@ -36,17 +36,17 @@ const Input = React.forwardRef<ElementType, InputProps>(
           xl: () => 'text-4 py-2 px-4',
         })(scale)}
         intentClassName={toIntentMatch({
-          default: () => classNames('outline-default dark:outline-default'),
-          neutral: () => classNames('outline-neutral dark:outline-neutral'),
-          light: () => classNames('outline-light dark:outline-light'),
-          dark: () => classNames('outline-dark dark:outline-dark'),
-          primary: () => classNames('outline-primary dark:outline-primary'),
-          info: () => classNames('outline-info dark:outline-info'),
-          success: () => classNames('outline-success dark:outline-success'),
-          warning: () => classNames('outline-warning dark:outline-warning'),
-          danger: () => classNames('outline-danger dark:outline-danger'),
+          default: () => clsx('outline-default dark:outline-default'),
+          neutral: () => clsx('outline-neutral dark:outline-neutral'),
+          light: () => clsx('outline-light dark:outline-light'),
+          dark: () => clsx('outline-dark dark:outline-dark'),
+          primary: () => clsx('outline-primary dark:outline-primary'),
+          info: () => clsx('outline-info dark:outline-info'),
+          success: () => clsx('outline-success dark:outline-success'),
+          warning: () => clsx('outline-warning dark:outline-warning'),
+          danger: () => clsx('outline-danger dark:outline-danger'),
         })(intent)}
-        className={classNames(
+        className={clsx(
           CLASSNAME,
           className,
           'block',

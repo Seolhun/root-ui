@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { RootScale, toScaleMatch } from '../../system';
 import { Box } from '../common';
@@ -30,7 +30,7 @@ const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
           lg: () => 'text-3.5 py-1 px-2.5',
           xl: () => 'text-4 py-1 px-3',
         })(scale)}
-        className={classNames(className, 'block', 'text-base font-medium text-dark-9 dark:text-light-1')}
+        className={clsx(className, 'block', 'text-base font-medium text-dark-9 dark:text-light-1')}
       >
         {children}
       </Box>

@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { Text } from '../Text';
 import { AgnosticTagProps } from '../../../system';
@@ -12,7 +12,7 @@ export interface HeadingProps extends ElementProps {}
 const Heading = React.forwardRef<ElementType, HeadingProps & Required<AgnosticTagProps>>(
   ({ className, children, as, ...rests }, ref) => {
     return (
-      <Text {...rests} as={as} ref={ref} className={classNames(CLASSNAME, className)}>
+      <Text {...rests} as={as} ref={ref} className={clsx(CLASSNAME, className)}>
         {children}
       </Text>
     );

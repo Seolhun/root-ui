@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { ModalWidgetOverlay } from './Modal.Widget.Overlay';
 
@@ -14,7 +14,7 @@ const ModalOverlay = React.forwardRef<ElementType, ModalOverlayProps>(({ classNa
     <ModalWidgetOverlay
       {...rests}
       ref={ref}
-      className={classNames(CLASSNAME, className, 'fixed', 'inset-0 md:inset-0', 'overflow-y-auto')}
+      className={clsx(CLASSNAME, className, 'fixed', 'inset-0 md:inset-0', 'overflow-y-auto')}
     >
       {children}
     </ModalWidgetOverlay>

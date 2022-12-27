@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { RootScale, toScaleMatch } from '../../system';
 import { Box } from '../common';
@@ -28,7 +28,7 @@ const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
           lg: () => 'text-3.5 py-1 px-2.5',
           xl: () => 'text-4 py-1 px-3',
         })(scale)}
-        className={classNames(className, 'text-sm text-dark-7 dark:text-light-3')}
+        className={clsx(className, 'text-sm text-dark-7 dark:text-light-3')}
       >
         {children}
       </Box>

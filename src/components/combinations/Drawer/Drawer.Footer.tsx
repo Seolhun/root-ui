@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const CLASSNAME = 'Root__Drawer__Footer';
 type ElementType = HTMLDivElement;
@@ -12,7 +12,7 @@ export interface DrawerFooterProps extends ElementProps {
 const DrawerFooter = React.forwardRef<ElementType, DrawerFooterProps>(
   ({ className, children, ...rests }: DrawerFooterProps) => {
     return (
-      <div {...rests} className={classNames(CLASSNAME, className, 'flex', 'pb-4 px-4', 'rounded-b')}>
+      <div {...rests} className={clsx(CLASSNAME, className, 'flex', 'pb-4 px-4', 'rounded-b')}>
         {children}
       </div>
     );

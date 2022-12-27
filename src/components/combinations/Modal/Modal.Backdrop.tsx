@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { ModalWidgetBackdrop } from './Modal.Widget.Backdrop';
 
@@ -15,7 +15,7 @@ const ModalBackdrop = React.forwardRef<ElementType, ModalBackdropProps>(({ class
       {...rests}
       ref={ref}
       tabIndex={-1}
-      className={classNames(
+      className={clsx(
         CLASSNAME,
         className,
         'fixed',

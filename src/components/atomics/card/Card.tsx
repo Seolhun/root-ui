@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { RootScale, toScaleMatch } from '../../../system';
 
 import { Box } from '../../common/box';
@@ -29,7 +29,7 @@ const Card = React.forwardRef<ElementType, CardProps>(({ children, className, sc
         lg: () => 'py-3.5 px-5',
         xl: () => 'py-4 px-6',
       })(scale)}
-      className={classNames(
+      className={clsx(
         CLASSNAME,
         className,
         'block',

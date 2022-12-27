@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { RootIntent, toIntentMatch } from '../../../system';
 import { Box } from '../../common';
@@ -20,17 +20,17 @@ const BlockQuote = ({ className, children, intent = 'primary', ...rests }: Block
       {...rests}
       as="blockquote"
       intentClassName={toIntentMatch({
-        default: () => classNames('border-default'),
-        neutral: () => classNames('border-neutral'),
-        light: () => classNames('border-light'),
-        dark: () => classNames('border-dark'),
-        primary: () => classNames('border-primary'),
-        info: () => classNames('border-info'),
-        success: () => classNames('border-success'),
-        warning: () => classNames('border-warning'),
-        danger: () => classNames('border-danger'),
+        default: () => clsx('border-default'),
+        neutral: () => clsx('border-neutral'),
+        light: () => clsx('border-light'),
+        dark: () => clsx('border-dark'),
+        primary: () => clsx('border-primary'),
+        info: () => clsx('border-info'),
+        success: () => clsx('border-success'),
+        warning: () => clsx('border-warning'),
+        danger: () => clsx('border-danger'),
       })(intent)}
-      className={classNames(
+      className={clsx(
         CLASSNAME,
         className,
         'text-base font-light leading-relaxed',

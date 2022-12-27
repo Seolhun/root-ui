@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import DrawerCloseButton from './Drawer.CloseButton';
 
@@ -16,7 +16,7 @@ const DrawerHeader = React.forwardRef<ElementType, DrawerHeaderProps>(({ classNa
     <div
       ref={ref}
       {...rests}
-      className={classNames(
+      className={clsx(
         CLASSNAME,
         className,
         'flex justify-between items-start',

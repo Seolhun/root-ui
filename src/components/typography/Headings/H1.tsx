@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { Heading, HeadingProps } from './Heading';
 
@@ -13,7 +13,7 @@ const H1 = React.forwardRef<ElementType, H1Props>(({ className, children, ...res
       {...rests}
       as="h1"
       ref={ref}
-      className={classNames(CLASSNAME, className, 'text-6xl font-bold leading-normal mt-0 mb-3')}
+      className={clsx(CLASSNAME, className, 'text-6xl font-bold leading-normal mt-0 mb-3')}
     >
       {children}
     </Heading>

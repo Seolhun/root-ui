@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 export interface StorybookContentProps {
   children: React.ReactNode;
@@ -13,7 +13,7 @@ export const StorybookContent: React.FC<StorybookContentProps> = ({ children, no
   return (
     <div className="flex w-full h-full min-h-screen">
       <div
-        className={classNames(
+        className={clsx(
           'flex flex-col flex-1 justify-center',
           {
             'items-center': !noAlign,
@@ -26,7 +26,7 @@ export const StorybookContent: React.FC<StorybookContentProps> = ({ children, no
         {children}
       </div>
       <div
-        className={classNames(
+        className={clsx(
           'dark',
           'flex flex-col flex-1 justify-center',
           {

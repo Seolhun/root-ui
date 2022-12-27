@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { RootScale, toScaleMatch } from '../../../system';
 import { ModalWidgetPanel } from './Modal.Widget.Panel';
@@ -25,7 +25,7 @@ const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
       <ModalWidgetPanel
         {...rests}
         ref={ref}
-        className={classNames(
+        className={clsx(
           CLASSNAME,
           className,
           'relative',

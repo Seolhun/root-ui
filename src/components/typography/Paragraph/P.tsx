@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { Text } from '../Text';
 
@@ -10,7 +10,7 @@ export interface PProps extends ElementProps {}
 
 const P = React.forwardRef<ElementType, PProps>(({ className, children, ...rests }, ref) => {
   return (
-    <Text {...rests} as="p" ref={ref} className={classNames(CLASSNAME, className, 'font-light', 'mt-0 mb-1')}>
+    <Text {...rests} as="p" ref={ref} className={clsx(CLASSNAME, className, 'font-light', 'mt-0 mb-1')}>
       {children}
     </Text>
   );

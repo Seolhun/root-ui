@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { Card } from '../../atomics';
 import { RootScale, toScaleMatch } from '../../../system';
@@ -61,7 +61,7 @@ const Drawer = React.forwardRef<ElementType, DrawerProps>(
       <DrawerContextProvider onClose={onClose}>
         <div
           ref={ref}
-          className={classNames(
+          className={clsx(
             CLASSNAME,
             className,
             {
@@ -76,12 +76,12 @@ const Drawer = React.forwardRef<ElementType, DrawerProps>(
           <div
             tabIndex={-1}
             aria-hidden={show ? 'true' : 'false'}
-            className={classNames(CLASSNAME, className, 'fixed', 'inset-0 md:inset-0', 'bg-dark-300', 'opacity-60')}
+            className={clsx(CLASSNAME, className, 'fixed', 'inset-0 md:inset-0', 'bg-dark-300', 'opacity-60')}
           />
           <Card
             {...rests}
             ref={ref}
-            className={classNames(
+            className={clsx(
               'flex flex-col flex-1 gap-4',
               toScaleMatch({
                 xs: () => 'w-full md:w-4/12',

@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { HTMLSelectOptionProps } from './HTMLSelect.types';
 
@@ -17,7 +17,7 @@ const HTMLSelect = React.forwardRef<ElementType, HTMLSelectProps>(({ className, 
       {...rests}
       ref={ref}
       id={rests.name}
-      className={classNames(
+      className={clsx(
         CLASSNAME,
         className,
         'shadow-sm border border-gray-400 focus:ring-gray-800 p-3 block w-full sm:text-sm rounded-md',

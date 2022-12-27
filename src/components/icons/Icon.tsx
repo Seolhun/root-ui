@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import * as HeroIcon from '@heroicons/react/outline';
 
 import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../system';
@@ -44,17 +44,17 @@ const Icon = React.forwardRef<ElementType, IconProps>(
           xl: () => 'w-16 h-16 min-w-16 min-h-16',
         })(scale)}
         intentClassName={toIntentMatch({
-          default: () => classNames('text-default'),
-          neutral: () => classNames('text-neutral'),
-          light: () => classNames('text-light'),
-          dark: () => classNames('text-dark'),
-          primary: () => classNames('text-primary'),
-          info: () => classNames('text-info'),
-          success: () => classNames('text-success'),
-          warning: () => classNames('text-warning'),
-          danger: () => classNames('text-danger'),
+          default: () => clsx('text-default'),
+          neutral: () => clsx('text-neutral'),
+          light: () => clsx('text-light'),
+          dark: () => clsx('text-dark'),
+          primary: () => clsx('text-primary'),
+          info: () => clsx('text-info'),
+          success: () => clsx('text-success'),
+          warning: () => clsx('text-warning'),
+          danger: () => clsx('text-danger'),
         })(intent)}
-        className={classNames(CLASSNAME, className, 'inline-block')}
+        className={clsx(CLASSNAME, className, 'inline-block')}
       >
         <Component />
       </Box>

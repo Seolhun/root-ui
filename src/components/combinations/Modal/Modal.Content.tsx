@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const CLASSNAME = 'Root__Modal__Content';
 type ElementType = HTMLDivElement;
@@ -12,7 +12,7 @@ const ModalContent = React.forwardRef<ElementType, ModalContentProps>(({ classNa
     <div
       ref={ref}
       {...rests}
-      className={classNames(
+      className={clsx(
         CLASSNAME,
         className,
         'flex flex-1',

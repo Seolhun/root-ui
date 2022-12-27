@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
 import { Box } from '../../common';
@@ -36,17 +36,17 @@ const Loader = React.forwardRef<ElementType, LoaderProps>(
             xl: () => 'w-24 h-24 min-w-24 min-h-24',
           })(scale)}
           intentClassName={toIntentMatch({
-            default: () => classNames('text-default-1 fill-default'),
-            neutral: () => classNames('text-neutral-1 fill-neutral'),
-            light: () => classNames('text-light-1 fill-light'),
-            dark: () => classNames('text-dark-1 fill-dark'),
-            primary: () => classNames('text-primary-1 fill-primary'),
-            info: () => classNames('text-info-1 fill-info'),
-            success: () => classNames('text-success-1 fill-success'),
-            warning: () => classNames('text-warning-1 fill-warning'),
-            danger: () => classNames('text-danger-1 fill-danger'),
+            default: () => clsx('text-default-1 fill-default'),
+            neutral: () => clsx('text-neutral-1 fill-neutral'),
+            light: () => clsx('text-light-1 fill-light'),
+            dark: () => clsx('text-dark-1 fill-dark'),
+            primary: () => clsx('text-primary-1 fill-primary'),
+            info: () => clsx('text-info-1 fill-info'),
+            success: () => clsx('text-success-1 fill-success'),
+            warning: () => clsx('text-warning-1 fill-warning'),
+            danger: () => clsx('text-danger-1 fill-danger'),
           })(intent)}
-          className={classNames(CLASSNAME, className, 'animate-spin')}
+          className={clsx(CLASSNAME, className, 'animate-spin')}
           aria-hidden="true"
           viewBox="0 0 100 100"
           fill="none"

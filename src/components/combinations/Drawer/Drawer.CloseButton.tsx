@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { useDrawerContext } from './Drawer.Context';
 import { Icon } from '../../icons';
@@ -18,7 +18,7 @@ const DrawerCloseButton = React.forwardRef<ElementType, DrawerCloseButtonProps>(
       <button
         type="button"
         {...rests}
-        className={classNames(
+        className={clsx(
           CLASSNAME,
           className,
           'inline-flex items-center',

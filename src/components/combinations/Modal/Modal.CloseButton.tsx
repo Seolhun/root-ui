@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { Icon } from '../../icons';
 import { useModalContext } from './Modal.Widget.Context';
@@ -18,7 +18,7 @@ const ModalCloseButton = React.forwardRef<ElementType, ModalCloseButtonProps>(
       <button
         type="button"
         {...rests}
-        className={classNames(
+        className={clsx(
           CLASSNAME,
           className,
           'inline-flex items-center',

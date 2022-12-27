@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { RootScale } from '../../system';
 import FormLabel, { FormLabelProps } from './FormLabel';
@@ -32,7 +32,7 @@ export interface FormItemProps extends ElementProps {
 
 const FormItem = ({ children, className, scale = 'md', label, htmlFor, help, ...props }: FormItemProps) => {
   return (
-    <div {...props} className={classNames(CLASSNAME, className)}>
+    <div {...props} className={clsx(CLASSNAME, className)}>
       {label && (
         <FormLabel className="mb-2" scale={scale} htmlFor={htmlFor}>
           {label}

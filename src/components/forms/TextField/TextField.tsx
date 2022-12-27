@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { Card } from '../../atomics';
 import { Icon, IconProps } from '../../icons';
@@ -17,7 +17,7 @@ const TextField = ({ className, scale = 'md', icon = 'SearchIcon', ...rests }: T
   return (
     <Card
       scale={scale}
-      className={classNames(
+      className={clsx(
         'flex items-center',
         'shadow-md',
         'border border-light-1',
@@ -27,7 +27,7 @@ const TextField = ({ className, scale = 'md', icon = 'SearchIcon', ...rests }: T
       )}
     >
       <Icon icon={icon} intent="light" scale={scale} />
-      <Input {...rests} scale={scale} className={classNames('border-none outline-0', className)} />
+      <Input {...rests} scale={scale} className={clsx('border-none outline-0', className)} />
     </Card>
   );
 };

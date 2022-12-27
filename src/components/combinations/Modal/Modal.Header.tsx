@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { ModalCloseButton } from './Modal.CloseButton';
 import { ModalWidgetTitle } from './Modal.Widget.Title';
@@ -17,7 +17,7 @@ const ModalHeader = React.forwardRef<ElementType, ModalHeaderProps>(({ className
     <div
       ref={ref}
       {...rests}
-      className={classNames(
+      className={clsx(
         CLASSNAME,
         className,
         'flex justify-between items-start',

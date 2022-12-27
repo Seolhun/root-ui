@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { RootIntent, RootScale, toIntentMatch } from '../../../system';
 import { FormLabel } from '../FormLabel';
@@ -29,7 +29,7 @@ const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
     const htmlForAndID = htmlFor ?? rests.name;
     return (
       <FormLabel
-        className={classNames('inline-flex items-center cursor-pointer', {
+        className={clsx('inline-flex items-center cursor-pointer', {
           'cursor-default': disabled,
           'cursor-pointer': !disabled,
         })}
@@ -43,17 +43,17 @@ const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
           type="checkbox"
           id={htmlForAndID}
           intentClassName={toIntentMatch({
-            default: () => classNames('accent-default-6', 'dark:accent-default-6'),
-            neutral: () => classNames('accent-neutral-6', 'dark:accent-neutral-6'),
-            light: () => classNames('accent-light-6', 'dark:accent-light-6'),
-            dark: () => classNames('accent-dark-6', 'dark:accent-dark-6'),
-            primary: () => classNames('accent-primary-6', 'dark:accent-primary-6'),
-            info: () => classNames('accent-info-6', 'dark:accent-info-6'),
-            success: () => classNames('accent-success-6', 'dark:accent-success-6'),
-            warning: () => classNames('accent-warning-6', 'dark:accent-warning-6'),
-            danger: () => classNames('accent-danger-6', 'dark:accent-danger-6'),
+            default: () => clsx('accent-default-6', 'dark:accent-default-6'),
+            neutral: () => clsx('accent-neutral-6', 'dark:accent-neutral-6'),
+            light: () => clsx('accent-light-6', 'dark:accent-light-6'),
+            dark: () => clsx('accent-dark-6', 'dark:accent-dark-6'),
+            primary: () => clsx('accent-primary-6', 'dark:accent-primary-6'),
+            info: () => clsx('accent-info-6', 'dark:accent-info-6'),
+            success: () => clsx('accent-success-6', 'dark:accent-success-6'),
+            warning: () => clsx('accent-warning-6', 'dark:accent-warning-6'),
+            danger: () => clsx('accent-danger-6', 'dark:accent-danger-6'),
           })(intent)}
-          className={classNames(CLASSNAME, className, 'inline-block')}
+          className={clsx(CLASSNAME, className, 'inline-block')}
         />
         <span className="ml-2">{children}</span>
       </FormLabel>

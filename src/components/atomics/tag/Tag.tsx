@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
 import { Box } from '../../common/box';
@@ -27,7 +27,7 @@ const Tag = React.forwardRef<ElementType, TagProps>(
         {...rests}
         ref={ref}
         as="span"
-        className={classNames(
+        className={clsx(
           CLASSNAME,
           className,
           'inline-block',
@@ -45,7 +45,7 @@ const Tag = React.forwardRef<ElementType, TagProps>(
         })(scale)}
         intentClassName={toIntentMatch({
           default: () => {
-            return classNames(
+            return clsx(
               'bg-white hover:bg-default-1 text-default',
               'border-default-3 hover:border-default-2',
               'dark:bg-default-8 dark:hover:bg-default-7 dark:text-default-1',
@@ -54,7 +54,7 @@ const Tag = React.forwardRef<ElementType, TagProps>(
             );
           },
           neutral: () => {
-            return classNames(
+            return clsx(
               'bg-neutral hover:bg-neutral-6 text-neutral-1',
               'border-neutral hover:border-neutral-6',
               'dark:bg-neutral-6 dark:hover:bg-neutral dark:text-neutral-1',
@@ -63,7 +63,7 @@ const Tag = React.forwardRef<ElementType, TagProps>(
             );
           },
           light: () => {
-            return classNames(
+            return clsx(
               'bg-light hover:bg-light-6 text-light-1',
               'border-light hover:border-light-6',
               'dark:bg-light-6 dark:hover:bg-light dark:text-light-1',
@@ -72,7 +72,7 @@ const Tag = React.forwardRef<ElementType, TagProps>(
             );
           },
           dark: () => {
-            return classNames(
+            return clsx(
               'bg-dark hover:bg-dark-6 text-dark-1',
               'border-dark hover:border-dark-6',
               'dark:bg-dark-6 dark:hover:bg-dark dark:text-dark-1',
@@ -81,7 +81,7 @@ const Tag = React.forwardRef<ElementType, TagProps>(
             );
           },
           primary: () => {
-            return classNames(
+            return clsx(
               'bg-primary hover:bg-primary-6 text-primary-1',
               'border-primary hover:border-primary-6',
               'dark:bg-primary-6 dark:hover:bg-primary dark:text-primary-1',
@@ -90,7 +90,7 @@ const Tag = React.forwardRef<ElementType, TagProps>(
             );
           },
           info: () => {
-            return classNames(
+            return clsx(
               'bg-info hover:bg-info-6 text-info-1',
               'border-info hover:border-info-6',
               'dark:bg-info-6 dark:hover:bg-info dark:text-info-1',
@@ -99,7 +99,7 @@ const Tag = React.forwardRef<ElementType, TagProps>(
             );
           },
           success: () => {
-            return classNames(
+            return clsx(
               'bg-success hover:bg-success-6 text-success-1',
               'border-success hover:border-success-6',
               'dark:bg-success-6 dark:hover:bg-success dark:text-success-1',
@@ -108,7 +108,7 @@ const Tag = React.forwardRef<ElementType, TagProps>(
             );
           },
           warning: () => {
-            return classNames(
+            return clsx(
               'bg-warning hover:bg-warning-6 text-warning-1',
               'border-warning hover:border-warning-6',
               'dark:bg-warning-6 dark:hover:bg-warning dark:text-warning-1',
@@ -117,7 +117,7 @@ const Tag = React.forwardRef<ElementType, TagProps>(
             );
           },
           danger: () => {
-            return classNames(
+            return clsx(
               'bg-danger hover:bg-danger-6 text-danger-1',
               'border-danger hover:border-danger-6',
               'dark:bg-danger-6 dark:hover:bg-danger dark:text-danger-1',

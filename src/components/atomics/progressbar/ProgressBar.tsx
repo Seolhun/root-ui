@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { RootIntent } from '../../../system';
 
@@ -32,13 +32,13 @@ export interface ProgressBarProps extends ElementProps {
 const ProgressBar = React.forwardRef<ElementType, ProgressBarProps>(
   ({ className, badge, progress = 0, simple = false, intent = 'primary', ...rests }: ProgressBarProps) => {
     return (
-      <div {...rests} className={classNames(CLASSNAME, className)}>
+      <div {...rests} className={clsx(CLASSNAME, className)}>
         <div className="relative">
           <div className="flex mb-2 items-center justify-between">
             {badge && (
               <div>
                 <span
-                  className={classNames(
+                  className={clsx(
                     'inline-block',
                     'py-1 px-2',
                     `text-xs text-${intent}-600 font-semibold`,
@@ -52,15 +52,15 @@ const ProgressBar = React.forwardRef<ElementType, ProgressBarProps>(
             )}
             {!simple && (
               <div className="text-right">
-                <span className={classNames('inline-block', `text-xs text-${intent}-600 font-semibold`)}>
+                <span className={clsx('inline-block', `text-xs text-${intent}-600 font-semibold`)}>
                   {`${progress}%`}
                 </span>
               </div>
             )}
           </div>
-          <div className={classNames('flex', 'h-2 mb-4', `bg-${intent}-200`, 'text-xs', 'rounded', 'overflow-hidden')}>
+          <div className={clsx('flex', 'h-2 mb-4', `bg-${intent}-200`, 'text-xs', 'rounded', 'overflow-hidden')}>
             <div
-              className={classNames(
+              className={clsx(
                 'flex flex-col justify-center',
                 'text-center whitespace-nowrap',
                 'shadow-none',

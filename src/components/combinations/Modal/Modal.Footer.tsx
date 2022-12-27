@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const CLASSNAME = 'Root__Modal__Footer';
 type ElementType = HTMLDivElement;
@@ -12,7 +12,7 @@ export interface ModalFooterProps extends ElementProps {
 const ModalFooter = React.forwardRef<ElementType, ModalFooterProps>(
   ({ className, children, ...rests }: ModalFooterProps) => {
     return (
-      <div {...rests} className={classNames(CLASSNAME, className, 'flex', 'py-2 px-4', 'rounded-b')}>
+      <div {...rests} className={clsx(CLASSNAME, className, 'flex', 'py-2 px-4', 'rounded-b')}>
         {children}
       </div>
     );

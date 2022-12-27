@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { Box } from '../../common';
 import { AgnosticTagProps } from '../../../system';
@@ -15,7 +15,7 @@ const Text = React.forwardRef<ElementType, TextProps>(({ className, children, as
       {...rests}
       as={as}
       ref={ref}
-      className={classNames(CLASSNAME, className, 'text-base leading-relaxed', 'text-dark-9 dark:text-light-1')}
+      className={clsx(CLASSNAME, className, 'text-base leading-relaxed', 'text-dark-9 dark:text-light-1')}
     >
       {children}
     </Box>
