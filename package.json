@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@fxts/core": "^0.11.0",
-    "@heroicons/react": "1",
+    "@heroicons/react": "2",
     "@tailwindcss/aspect-ratio": "^0.4.1",
     "clsx": "^1.2.1",
     "react": ">=18.0.0",
