@@ -11,7 +11,7 @@ import { ModalPanel } from './Modal.Panel';
 import { ModalOverlay } from './Modal.Overlay';
 import { ModalBackdrop } from './Modal.Backdrop';
 
-const Modal = Object.assign(ModalWidgetRoot, {
+export const Modal = Object.assign(ModalWidgetRoot, {
   Overlay: ModalOverlay,
   Backdrop: ModalBackdrop,
   Panel: ModalPanel,
@@ -26,6 +26,3 @@ const Modal = Object.assign(ModalWidgetRoot, {
     Title: ModalWidgetTitle,
   },
 });
-
-export { Modal };
-export default Modal;

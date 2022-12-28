@@ -2,14 +2,14 @@ const plugin = require('tailwindcss/plugin');
 const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
-const { intentColors, themeColors } = require('../..//theme');
-const { FontSize } = require('../..//presets/FontSize');
-const { NegativeMargins } = require('../..//presets//Margin');
-const { Height } = require('../..//presets//Height');
-const { MinHeight } = require('../..//presets//MinHeight');
-const { Width } = require('../..//presets//Width');
-const { MinWidth } = require('../..//presets//MinWidth');
-const { Animations } = require('../..//presets//Animations');
+const { intentColors, themeColors } = require('../../presets/Colors');
+const { FontSize } = require('../../presets/FontSize');
+const { NegativeMargins } = require('../../presets/Margin');
+const { Height } = require('../../presets/Height');
+const { MinHeight } = require('../../presets/MinHeight');
+const { Width } = require('../../presets/Width');
+const { MinWidth } = require('../../presets/MinWidth');
+const { Animations } = require('../../presets/Animations');
 
 module.exports = plugin(function ({ addBase, theme }) {}, {
   /**
@@ -37,10 +37,6 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
       inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
       none: 'none',
     },
-    minWidth: MinWidth,
-    minHeight: MinHeight,
-    width: Width,
-    height: Height,
     screens: {
       sm: '480px',
       // => @media (min-width: 480px) { ... }
@@ -68,6 +64,10 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
     },
     extend: {
       ...Animations,
+      minWidth: MinWidth,
+      minHeight: MinHeight,
+      width: Width,
+      height: Height,
       margin: NegativeMargins,
       transitionProperty: {
         background: 'background',
@@ -84,6 +84,9 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
         ...intentColors,
         ...themeColors.typography,
         transparent: 'transparent',
+        sky: {
+          ...colors.sky,
+        },
         gray: {
           50: '#F9FAFB',
           100: '#F3F4F6',

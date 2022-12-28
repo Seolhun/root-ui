@@ -40,7 +40,7 @@ export interface DrawerProps extends ElementProps {
   onConfirm?: () => void;
 }
 
-const Drawer = React.forwardRef<ElementType, DrawerProps>(
+export const Drawer = React.forwardRef<ElementType, DrawerProps>(
   ({ className, children, scale = 'md', placement = 'right', show, onClose, onConfirm, ...rests }, ref) => {
     useLockScrollClassName(show);
 
@@ -110,6 +110,3 @@ const Drawer = React.forwardRef<ElementType, DrawerProps>(
     );
   },
 );
-
-export { Drawer };
-export default Drawer;

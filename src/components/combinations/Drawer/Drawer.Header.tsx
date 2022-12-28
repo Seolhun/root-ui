@@ -11,25 +11,24 @@ export interface DrawerHeaderProps extends ElementProps {
   children?: React.ReactNode;
 }
 
-const DrawerHeader = React.forwardRef<ElementType, DrawerHeaderProps>(({ className, children, ...rests }, ref) => {
-  return (
-    <div
-      ref={ref}
-      {...rests}
-      className={clsx(
-        CLASSNAME,
-        className,
-        'flex justify-between items-start',
-        'pt-4 px-4',
-        'border-light-2',
-        'rounded-t',
-      )}
-    >
-      <div className="break-all line-clamp-2">{children && children}</div>
-      <DrawerCloseButton />
-    </div>
-  );
-});
-
-export { DrawerHeader };
-export default DrawerHeader;
+export const DrawerHeader = React.forwardRef<ElementType, DrawerHeaderProps>(
+  ({ className, children, ...rests }, ref) => {
+    return (
+      <div
+        ref={ref}
+        {...rests}
+        className={clsx(
+          CLASSNAME,
+          className,
+          'flex justify-between items-start',
+          'pt-4 px-4',
+          'border-light-2',
+          'rounded-t',
+        )}
+      >
+        <div className="break-all line-clamp-2">{children && children}</div>
+        <DrawerCloseButton />
+      </div>
+    );
+  },
+);

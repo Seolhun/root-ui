@@ -4,7 +4,7 @@ import { storiesScaleOptions } from '../../../stories';
 import { useDisclosure } from '../../../hooks';
 import { Button, Card } from '../../atomics';
 
-import Modal from './Modal';
+import { Modal } from './Modal';
 
 export default {
   title: 'Combination/Modal',

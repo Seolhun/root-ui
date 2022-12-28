@@ -5,7 +5,7 @@ import { PopoverWidgetOverlay } from './Popover.Widget.Overlay';
 import { PopoverWidgetPanel } from './Popover.Widget.Panel';
 import { PopoverWidgetGroup } from './Popover.Widget.Group';
 
-const Popover = Object.assign(PopoverWidgetRoot, {
+export const Popover = Object.assign(PopoverWidgetRoot, {
   Widgets: {
     Overlay: PopoverWidgetOverlay,
     Button: PopoverWidgetButton,
@@ -13,6 +13,3 @@ const Popover = Object.assign(PopoverWidgetRoot, {
     Group: PopoverWidgetGroup,
   },
 });
-
-export { Popover };
-export default Popover;

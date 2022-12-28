@@ -38,13 +38,13 @@ const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
             lg: () => 'w-full md:w-8/12',
             xl: () => 'w-full md:w-10/12',
           })(scale),
+          'min-h-full h-auto md:min-h-auto md:h-auto',
           'py-4 px-6',
-          'h-full md:h-auto',
           'm-auto md:my-12',
           'shadow rounded-none md:rounded-2xl',
           'transform transition-all origin-top',
           {
-            'animate-[scale-up-0.5_0.2s_ease-in-out]': visible,
+            'animate-[fade-in_0.2s_ease-in-out]': visible,
           },
         )}
       >

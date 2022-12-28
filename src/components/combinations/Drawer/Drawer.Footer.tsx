@@ -9,7 +9,7 @@ export interface DrawerFooterProps extends ElementProps {
   children: React.ReactNode;
 }
 
-const DrawerFooter = React.forwardRef<ElementType, DrawerFooterProps>(
+export const DrawerFooter = React.forwardRef<ElementType, DrawerFooterProps>(
   ({ className, children, ...rests }: DrawerFooterProps) => {
     return (
       <div {...rests} className={clsx(CLASSNAME, className, 'flex', 'pb-4 px-4', 'rounded-b')}>
@@ -18,6 +18,3 @@ const DrawerFooter = React.forwardRef<ElementType, DrawerFooterProps>(
     );
   },
 );
-
-export { DrawerFooter };
-export default DrawerFooter;

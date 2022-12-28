@@ -29,10 +29,9 @@ export interface AccordionRootRenderPropArg {
   close(focusableElement?: HTMLElement | React.MutableRefObject<HTMLElement | null>): void;
 }
 
-const _AccordionWidgetRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
-  props: RootUIProps<Tag, AccordionRootRenderPropArg> & AccordionRootProps & ElementProps,
-  ref: React.Ref<Tag>,
-) => {
+const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot<
+  Tag extends React.ElementType = typeof DEFAULT_TAG,
+>(props: RootUIProps<Tag, AccordionRootRenderPropArg> & AccordionRootProps & ElementProps, ref: React.Ref<Tag>) {
   const { defaultOpen = false, ...rests } = props;
   const buttonId = `rootui-accordion-button-${useId()}`;
   const panelId = `rootui-accordion-panel-${useId()}`;
@@ -124,9 +123,7 @@ const _AccordionWidgetRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG
       </AccordionAPIContext.Provider>
     </AccordionContext.Provider>
   );
-};
-
-const AccordionWidgetRoot = forwardRefWithAs(_AccordionWidgetRoot);
+});
 
 export { AccordionWidgetRoot };
 export default AccordionWidgetRoot;

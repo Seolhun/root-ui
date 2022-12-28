@@ -4,7 +4,7 @@ import { usePopper } from 'react-popper';
 import { Button, Card } from '../../atomics';
 import { Icon } from '../../icons';
 
-import Popover from './Popover';
+import { Popover } from './Popover';
 
 export default {
   title: 'Combination/Popover',

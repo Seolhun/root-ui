@@ -28,17 +28,18 @@ export interface PopoverWidgetPanelProps {}
 export interface PopoverPanelRenderPropArg extends PopoverRenderPropArg {
   focus?: boolean;
 }
-
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'onKeyDown'>;
 const PanelRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Static;
 
-const _PopoverWidgetPanel = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
+export const PopoverWidgetPanel = forwardRefWithAs(function PopoverWidgetPanel<
+  Tag extends React.ElementType = typeof DEFAULT_TAG,
+>(
   props: RootUIProps<Tag, PopoverPanelRenderPropArg, PropsWeControl> &
     PropsForFeatures<typeof PanelRenderFeatures> &
     PopoverWidgetPanelProps &
     ElementProps,
   ref: React.Ref<ElementType>,
-) => {
+) {
   const { focus = false, ...rests } = props;
 
   const [state, dispatch] = usePopoverContext(COMPONENT_NAME);
@@ -248,9 +249,4 @@ const _PopoverWidgetPanel = <Tag extends React.ElementType = typeof DEFAULT_TAG>
       )}
     </PopoverPanelContext.Provider>
   );
-};
-
-const PopoverWidgetPanel = forwardRefWithAs(_PopoverWidgetPanel);
-
-export { PopoverWidgetPanel };
-export default PopoverWidgetPanel;
+});
