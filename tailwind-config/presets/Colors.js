@@ -1,34 +1,6 @@
 const colors = require('tailwindcss/colors');
 const merge = require('lodash/merge');
 
-/**
- * @see https://tailwindcss.com/docs/hover-focus-and-other-states#quick-reference
- */
-const AppendixMap = {
-  hover: '&:hover',
-  focus: '&:focus',
-  'focus-within': '&:focus-within',
-  'focus-visible': '&:focus-visible',
-  active: '&:active',
-  visited: '&:visited',
-  disabled: '&:disabled',
-  checked: '&:checked',
-  required: '&:required',
-  placeholder: '&::placeholder',
-};
-
-const PrefixMap = {
-  accent: 'accent',
-  bg: 'bg',
-  border: 'border',
-  caret: 'caret',
-  fill: 'fill',
-  outline: 'outline',
-  ring: 'ring',
-  'ring-offset': 'ring-offset',
-  text: 'text',
-};
-
 function createColors(colorMap, colorKey) {
   return Object.values(colorMap).reduce((acc, value, i) => {
     const key = colorKey + '-' + i;
@@ -71,8 +43,6 @@ const themeColors = {
 };
 
 module.exports = {
-  AppendixMap,
-  PrefixMap,
   intentColors,
   themeColors,
 };

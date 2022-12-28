@@ -4,32 +4,68 @@
 const Animations = {
   keyframes: {
     wiggle: {
-      '0%, 100%': { transform: 'rotate(-3deg)' },
-      '50%': { transform: 'rotate(3deg)' },
+      '0%, 100%': {
+        transform: 'rotate(-3deg)',
+      },
+      '50%': {
+        transform: 'rotate(3deg)',
+      },
     },
     'scale-up': {
-      '0%': { transform: 'scale(0)' },
-      '100%': { transform: 'scale(1)' },
+      '0%': {
+        transform: 'scale(0)',
+      },
+      '100%': {
+        transform: 'scale(1)',
+      },
     },
     'scale-down': {
-      '0%': { transform: 'scale(1)' },
-      '100%': { transform: 'scale(0)' },
+      '0%': {
+        transform: 'scale(1)',
+      },
+      '100%': {
+        transform: 'scale(0)',
+      },
     },
     'scale-up-0.75': {
-      '0%': { transform: 'scale(0.75)' },
-      '100%': { transform: 'scale(1)' },
+      '0%': {
+        transform: 'scale(0.75)',
+      },
+      '100%': {
+        transform: 'scale(1)',
+      },
     },
     'scale-down-0.75': {
-      '0%': { transform: 'scale(1)' },
-      '100%': { transform: 'scale(0.75)' },
+      '0%': {
+        transform: 'scale(1)',
+      },
+      '100%': {
+        transform: 'scale(0.75)',
+      },
     },
     'scale-up-0.5': {
-      '0%': { transform: 'scale(0.5)' },
-      '100%': { transform: 'scale(1)' },
+      '0%': {
+        transform: 'scale(0.5)',
+      },
+      '100%': {
+        transform: 'scale(1)',
+      },
     },
     'scale-down-0.5': {
-      '0%': { transform: 'scale(1)' },
-      '100%': { transform: 'scale(0.5)' },
+      '0%': {
+        transform: 'scale(1)',
+      },
+      '100%': {
+        transform: 'scale(0.5)',
+      },
+    },
+    'fade-in': {
+      '0%': {
+        opacity: '0',
+      },
+      '100%': {
+        opacity: '1',
+      },
     },
     'fade-in-right': {
       '0%': {
@@ -61,17 +97,23 @@ const Animations = {
         transform: 'translate3d(0, 0, 0)',
       },
     },
+    /**
+     * @example animate-[scale-down_1s_ease-in-out]
+     * @example animate-[fade-in_0.2s_ease-out]
+     * @example animate-[scale-down_1s_ease-in-out_infinite]
+     */
     animation: {
-      wiggle: 'wiggle 1s ease-in-out infinite',
-      'scale-up': 'scale-up 0.2s ease-in-out',
-      'scale-down': 'scale-down 0.2s ease-in-out',
-      'scale-up-0.75': 'scale-up-0.75 0.2s ease-in-out',
-      'scale-down-0.75': 'scale-down-0.75 0.2s ease-in-out',
-      'scale-up-0.5': 'scale-up-0.5 0.2s ease-in-out',
-      'scale-down-0.5': 'scale-down-0.5 0.2s ease-in-out',
-      'fade-in-right': 'fade-in-right 0.2s ease-in-out',
-      'fade-in-bottom': 'fade-in-bottom 0.2s ease-in-out',
-      'fade-in-left': 'fade-in-left 0.2s ease-in-out',
+      wiggle: 'wiggle',
+      'scale-up': 'scale-up',
+      'scale-down': 'scale-down',
+      'scale-up-0.75': 'scale-up-0.75',
+      'scale-down-0.75': 'scale-down-0.75',
+      'scale-up-0.5': 'scale-up-0.5',
+      'scale-down-0.5': 'scale-down-0.5',
+      'fade-in': 'fade-in-right',
+      'fade-in-right': 'fade-in-right',
+      'fade-in-bottom': 'fade-in-bottom',
+      'fade-in-left': 'fade-in-left',
     },
   },
 };
