@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../system';
 import { Box } from '../common';
 
+const CLASSNAME = 'Root__FormHelp';
 type ElementType = HTMLParagraphElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 export interface FormHelpProps extends ElementProps {
@@ -27,11 +28,11 @@ const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
         as="p"
         ref={ref}
         scaleClassName={toScaleMatch({
-          xs: () => 'text-2 py-1 px-2',
-          sm: () => 'text-2.5 py-1 px-2',
-          md: () => 'text-3 py-1 px-2.5',
-          lg: () => 'text-3.5 py-1 px-2.5',
-          xl: () => 'text-4 py-1 px-3',
+          xs: () => 'text-2 p-1',
+          sm: () => 'text-2.5 p-1',
+          md: () => 'text-3 p-1',
+          lg: () => 'text-3.5 p-1',
+          xl: () => 'text-4 p-1',
         })(scale)}
         intentClassName={toIntentMatch({
           default: () => clsx('text-default'),
@@ -44,7 +45,7 @@ const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
           warning: () => clsx('text-warning'),
           danger: () => clsx('text-danger'),
         })(intent)}
-        className={clsx(className, 'text-dark-7 dark:text-light-3')}
+        className={clsx(className, 'flex items-center flex-wrap')}
       >
         {children}
       </Box>
