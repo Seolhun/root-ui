@@ -7,6 +7,7 @@ import scss from 'rollup-plugin-scss'
 import postcss from 'rollup-plugin-postcss'
 import { terser } from 'rollup-plugin-terser'
 import { visualizer } from 'rollup-plugin-visualizer'
+import bundleSize from 'rollup-plugin-bundle-size'
 
 import pkg from './package.json'
 const externals = Object.keys(pkg.peerDependencies || {})
@@ -39,7 +40,8 @@ const commonPlugins = [
   terser(),
   visualizer({
     filename: 'stats.html'
-  })
+  }),
+  bundleSize()
 ]
 
 const configGenerator = ({
@@ -63,7 +65,7 @@ export default [
     output: {
       file: pkg.main,
       format: 'cjs'
-    }
+    },
   }),
   configGenerator({
     output: {
