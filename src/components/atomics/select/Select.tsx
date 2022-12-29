@@ -30,13 +30,14 @@ export const Select = React.forwardRef<ElementType, SelectProps>(
         className={clsx(
           CLASSNAME,
           className,
-          'shadow-sm border border-gray-4 focus:ring-gray-800 p-3 block w-full sm:text-sm rounded-md',
+          'shadow-sm border border-gray-4 focus:ring-gray-800 block w-full sm:text-sm rounded-md',
+          'px-2',
           toScaleMatch({
-            xs: () => 'text-2 py-1 px-2',
-            sm: () => 'text-2.5 py-1.5 px-2.5',
-            md: () => 'text-3 py-1.5 px-3',
-            lg: () => 'text-3.5 py-2 px-3.5',
-            xl: () => 'text-4 py-2 px-4',
+            xs: () => 'text-2 py-1',
+            sm: () => 'text-2.5 py-1.5',
+            md: () => 'text-3 py-1.5',
+            lg: () => 'text-3.5 py-2',
+            xl: () => 'text-4 py-2',
           })(scale),
           toIntentMatch({
             default: () => clsx('outline-default dark:outline-default'),
