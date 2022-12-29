@@ -2,11 +2,25 @@ import * as React from 'react';
 import { Tab } from '@headlessui/react';
 import clsx from 'clsx';
 
+import { RootIntent, RootScale } from '../../../system';
+import { RootGroupContextValues, RootGroupProvider } from '../../common';
+
 const CLASSNAME = 'Root__TabGroup';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface TabGroupProps extends ElementProps {
+  /**
+   * Set this to change scale
+   * @default md
+   */
+  scale?: RootScale;
+
+  /**
+   * @default primary
+   */
+  intent?: RootIntent;
+
   /**
    * Tab default index
    */
@@ -34,19 +48,42 @@ export interface TabGroupProps extends ElementProps {
 }
 
 export const TabGroup = React.forwardRef<ElementType, TabGroupProps>(
-  ({ children, className, defaultIndex, onChangeTab, selectedIndex, vertical, manual, ...others }, ref) => {
+  (
+    {
+      children,
+      className,
+      scale = 'md',
+      intent = 'primary',
+      defaultIndex,
+      onChangeTab,
+      selectedIndex,
+      vertical,
+      manual,
+      ...others
+    },
+    ref,
+  ) => {
+    const contextValue = React.useMemo<RootGroupContextValues>(() => {
+      return {
+        scale,
+        intent,
+      };
+    }, [intent, scale]);
+
     return (
-      <Tab.Group
-        defaultIndex={defaultIndex}
-        onChange={onChangeTab}
-        selectedIndex={selectedIndex}
-        vertical={vertical}
-        manual={manual}
-      >
-        <div {...others} ref={ref} className={clsx(CLASSNAME, className, 'w-full')}>
-          {children}
-        </div>
-      </Tab.Group>
+      <RootGroupProvider value={contextValue}>
+        <Tab.Group
+          defaultIndex={defaultIndex}
+          onChange={onChangeTab}
+          selectedIndex={selectedIndex}
+          vertical={vertical}
+          manual={manual}
+        >
+          <div {...others} ref={ref} className={clsx(CLASSNAME, className, 'group', 'w-full')}>
+            {children}
+          </div>
+        </Tab.Group>
+      </RootGroupProvider>
     );
   },
 );

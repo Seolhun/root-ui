@@ -1,19 +1,35 @@
 import * as React from 'react';
-import { StorybookContent } from '../../../stories';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
 
 import { Tabs } from './Tabs';
 
 export default {
   title: 'Combination/Tabs',
   component: Tabs,
-  argTypes: { onClick: { action: 'clicked' } },
+  argTypes: {
+    scale: {
+      control: {
+        type: 'select',
+        options: storiesScaleOptions,
+      },
+    },
+    intent: {
+      control: {
+        type: 'select',
+        options: storiesIntentOptions,
+      },
+    },
+    onClick: {
+      action: 'clicked',
+    },
+  },
 };
 
 // ----------------------------------------------------------------
-const TabTemplate = ({ onClick }) => {
+const TabTemplate = ({ onClick, ...args }) => {
   return (
     <StorybookContent noAlign noGap>
-      <Tabs>
+      <Tabs {...args}>
         <Tabs.List>
           <Tabs.Tab onClick={onClick}>Show 1</Tabs.Tab>
           <Tabs.Tab onClick={onClick}>Show 2</Tabs.Tab>
@@ -21,15 +37,9 @@ const TabTemplate = ({ onClick }) => {
         </Tabs.List>
 
         <Tabs.PanelList>
-          <Tabs.Panel>
-            <p>First Item</p>
-          </Tabs.Panel>
-          <Tabs.Panel>
-            <p>Second Item</p>
-          </Tabs.Panel>
-          <Tabs.Panel>
-            <p>Third Item</p>
-          </Tabs.Panel>
+          <Tabs.Panel>First Item</Tabs.Panel>
+          <Tabs.Panel>Second Item</Tabs.Panel>
+          <Tabs.Panel>Third Item</Tabs.Panel>
         </Tabs.PanelList>
       </Tabs>
     </StorybookContent>
@@ -38,56 +48,48 @@ const TabTemplate = ({ onClick }) => {
 export const DefaultTab = TabTemplate.bind({});
 
 // ----------------------------------------------------------------
-const ScaleTabTemplate = ({ onClick }) => {
+const ScaleTabTemplate = ({ onClick, ...args }) => {
   return (
     <StorybookContent>
-      <Tabs>
-        <Tabs.List>
-          <Tabs.Tab onClick={onClick}>Show 1</Tabs.Tab>
-          <Tabs.Tab onClick={onClick}>Show 2</Tabs.Tab>
-          <Tabs.Tab onClick={onClick}>Show 3</Tabs.Tab>
-        </Tabs.List>
+      {storiesScaleOptions.map((scale) => (
+        <Tabs {...args} key={scale} scale={scale}>
+          <Tabs.List>
+            <Tabs.Tab onClick={onClick}>Show 1</Tabs.Tab>
+            <Tabs.Tab onClick={onClick}>Show 2</Tabs.Tab>
+            <Tabs.Tab onClick={onClick}>Show 3</Tabs.Tab>
+          </Tabs.List>
 
-        <Tabs.PanelList>
-          <Tabs.Panel>
-            <p>First Item</p>
-          </Tabs.Panel>
-          <Tabs.Panel>
-            <p>Second Item</p>
-          </Tabs.Panel>
-          <Tabs.Panel>
-            <p>Third Item</p>
-          </Tabs.Panel>
-        </Tabs.PanelList>
-      </Tabs>
+          <Tabs.PanelList>
+            <Tabs.Panel>First Item</Tabs.Panel>
+            <Tabs.Panel>Second Item</Tabs.Panel>
+            <Tabs.Panel>Third Item</Tabs.Panel>
+          </Tabs.PanelList>
+        </Tabs>
+      ))}
     </StorybookContent>
   );
 };
 export const ScaleTab = ScaleTabTemplate.bind({});
 
 // ----------------------------------------------------------------
-const IntentTabTemplate = ({ onClick }) => {
+const IntentTabTemplate = ({ onClick, ...args }) => {
   return (
     <StorybookContent>
-      <Tabs>
-        <Tabs.List className="flex gap-2">
-          <Tabs.Tab onClick={onClick}>Show 1</Tabs.Tab>
-          <Tabs.Tab onClick={onClick}>Show 2</Tabs.Tab>
-          <Tabs.Tab onClick={onClick}>Show 3</Tabs.Tab>
-        </Tabs.List>
+      {storiesIntentOptions.map((intent) => (
+        <Tabs {...args} key={intent} intent={intent}>
+          <Tabs.List>
+            <Tabs.Tab onClick={onClick}>Show 1</Tabs.Tab>
+            <Tabs.Tab onClick={onClick}>Show 2</Tabs.Tab>
+            <Tabs.Tab onClick={onClick}>Show 3</Tabs.Tab>
+          </Tabs.List>
 
-        <Tabs.PanelList>
-          <Tabs.Panel>
-            <p>First Item</p>
-          </Tabs.Panel>
-          <Tabs.Panel>
-            <p>Second Item</p>
-          </Tabs.Panel>
-          <Tabs.Panel>
-            <p>Third Item</p>
-          </Tabs.Panel>
-        </Tabs.PanelList>
-      </Tabs>
+          <Tabs.PanelList>
+            <Tabs.Panel>First Item</Tabs.Panel>
+            <Tabs.Panel>Second Item</Tabs.Panel>
+            <Tabs.Panel>Third Item</Tabs.Panel>
+          </Tabs.PanelList>
+        </Tabs>
+      ))}
     </StorybookContent>
   );
 };
