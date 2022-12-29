@@ -22,22 +22,18 @@ export default {
   },
 };
 
-const ScaleLoader = ({ children, ...rests }: LoaderProps) => {
+const ScaleLoader = ({ ...rests }: LoaderProps) => {
   return (
     <StorybookContent>
       {storiesScaleOptions.map((scale) => (
-        <Loader {...rests} key={scale} scale={scale}>
-          {children}
-        </Loader>
+        <Loader {...rests} key={scale} scale={scale} />
       ))}
     </StorybookContent>
   );
 };
 
 export const ScaleLoaderStories = ScaleLoader.bind({});
-ScaleLoaderStories.args = {
-  children: 'Loader',
-};
+ScaleLoaderStories.args = {};
 
 const IntentLoaders = ({ children, ...rests }: LoaderProps) => {
   return (

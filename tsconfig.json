@@ -8,7 +8,7 @@
       "ESNext"
     ],
     "moduleResolution": "Node",
-    "jsx": "react-jsx",
+    "jsx": "react",
     /* Declaration Options */
     "declaration": true,
     /* Compile options */

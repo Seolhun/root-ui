@@ -22,7 +22,21 @@ export default {
   },
 };
 
-const ScaleCard = ({ children, ...rests }: CardProps) => {
+const CardTemplates = ({ children, ...rests }: CardProps) => {
+  return (
+    <StorybookContent>
+      <Card {...rests}>{children}</Card>
+    </StorybookContent>
+  );
+};
+
+export const DefaultCard = CardTemplates.bind({});
+DefaultCard.args = {
+  children:
+    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusamus animi aliquid molestiae vitae similique asperiores illum, sit quisquam, veritatis rerum. Illum, quia ut? Nemo sunt explicabo in provident id?',
+};
+
+const ScaleCardTemplates = ({ children, ...rests }: CardProps) => {
   return (
     <StorybookContent>
       {storiesScaleOptions.map((scale) => (
@@ -34,8 +48,8 @@ const ScaleCard = ({ children, ...rests }: CardProps) => {
   );
 };
 
-export const ScaleCardStories = ScaleCard.bind({});
-ScaleCardStories.args = {
+export const ScaleCard = ScaleCardTemplates.bind({});
+ScaleCard.args = {
   children:
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusamus animi aliquid molestiae vitae similique asperiores illum, sit quisquam, veritatis rerum. Illum, quia ut? Nemo sunt explicabo in provident id?',
 };
