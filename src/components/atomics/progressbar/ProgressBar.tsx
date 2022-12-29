@@ -2,7 +2,6 @@ import * as React from 'react';
 import clsx from 'clsx';
 
 import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
-import { Text } from '../../typography';
 import { Tag } from '../tag';
 
 const CLASSNAME = 'Root__ProgressBar';
@@ -59,11 +58,46 @@ const ProgressBar = React.forwardRef<ElementType, ProgressBarProps>(
           </div>
           {!simple && (
             <div className="text-right">
-              <Text className={clsx('inline-block', `text-xs text-${intent}-600 font-semibold`)}>{`${progress}%`}</Text>
+              <div
+                className={clsx(
+                  'inline-block',
+                  'text-xs font-semibold',
+                  toIntentMatch({
+                    default: () => clsx('text-default'),
+                    neutral: () => clsx('text-neutral'),
+                    light: () => clsx('text-light'),
+                    dark: () => clsx('text-dark'),
+                    primary: () => clsx('text-primary'),
+                    info: () => clsx('text-info'),
+                    success: () => clsx('text-success'),
+                    warning: () => clsx('text-warning'),
+                    danger: () => clsx('text-danger'),
+                  })(intent),
+                )}
+              >{`${progress}%`}</div>
             </div>
           )}
         </div>
-        <div className={clsx('flex', 'h-2 mb-4', `bg-${intent}-2`, 'text-xs', 'rounded', 'overflow-hidden')}>
+        <div
+          className={clsx(
+            'flex flex-1',
+            'w-full h-2 mb-4',
+            'text-xs',
+            'rounded',
+            'overflow-hidden',
+            toIntentMatch({
+              default: () => clsx('bg-default/20 dark:bg-default/30'),
+              neutral: () => clsx('bg-neutral/20 dark:bg-neutral/30'),
+              light: () => clsx('bg-light/20 dark:bg-light/30'),
+              dark: () => clsx('bg-dark/20 dark:bg-dark/30'),
+              primary: () => clsx('bg-primary/20 dark:bg-primary/30'),
+              info: () => clsx('bg-info/20 dark:bg-info/30'),
+              success: () => clsx('bg-success/20 dark:bg-success/30'),
+              warning: () => clsx('bg-warning/20 dark:bg-warning/30'),
+              danger: () => clsx('bg-danger/20 dark:bg-danger/30'),
+            })(intent),
+          )}
+        >
           <div
             className={clsx(
               'flex flex-col justify-center',
