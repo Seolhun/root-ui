@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 // A unique placeholder we can use as a default. This is nice because we can use this instead of
 // defaulting to null / never / ... and possibly collide with actual data.

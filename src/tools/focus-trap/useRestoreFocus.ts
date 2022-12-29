@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { useEventListener, useWatch } from '../../hooks';
 import { toMicrotask } from '../../utils';

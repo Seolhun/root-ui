@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../stories';
 import { Icon, IconProps } from './Icon';

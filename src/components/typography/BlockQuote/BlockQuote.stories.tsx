@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { storiesIntentOptions, StorybookContent } from '../../../stories';
 import { BlockQuote, BlockQuoteProps } from './BlockQuote';

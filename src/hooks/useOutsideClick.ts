@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { isFunction } from '../utils';
 import { FocusableMode, isFocusableElement } from '../tools/focus-trap/FocusManagements';

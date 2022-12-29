@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import clsx from 'clsx';
 
 import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../system';
@@ -24,17 +24,17 @@ export interface FormItemProps extends ElementProps {
   /**
    * Form label
    */
-  label?: string;
+  label?: React.ReactNode;
+
+  /**
+   * Form help
+   */
+  help?: React.ReactNode;
 
   /**
    * Form label htmlFor
    */
   htmlFor?: FormLabelProps['htmlFor'];
-
-  /**
-   * Form help
-   */
-  help?: string;
 }
 
 const FormItem = React.forwardRef<ElementType, FormItemProps>(

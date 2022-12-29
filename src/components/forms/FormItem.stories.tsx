@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../stories';
 import { FormItem, FormItemProps } from './FormItem';

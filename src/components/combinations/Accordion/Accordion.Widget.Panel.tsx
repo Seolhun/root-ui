@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { forwardRefWithAs, PropsForFeatures, render, RenderFeatures } from '../../../core';
 import { useSyncRefs } from '../../../hooks';

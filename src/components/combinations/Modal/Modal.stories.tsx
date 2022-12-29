@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { storiesScaleOptions } from '../../../stories';
 import { useDisclosure } from '../../../hooks';

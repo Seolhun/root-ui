@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { H6 } from '../../components/typography';
 
 export interface StorybookDescriptorProps {

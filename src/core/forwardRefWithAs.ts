@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 /**
  * This is a hack, but basically we want to keep the full 'API' of the component, but we do want to

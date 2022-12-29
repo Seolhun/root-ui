@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { RootUIProps, RootUIReactTag } from '../../../types';
 import { FocusTrap, ForcePortalRoot, Portal, StackContextMessageEnum, StackProvider } from '../../../tools';

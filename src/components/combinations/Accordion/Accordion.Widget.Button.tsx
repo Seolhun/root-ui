@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { KeyboardKeyMap } from '../../../constants';
 import { forwardRefWithAs, render } from '../../../core';

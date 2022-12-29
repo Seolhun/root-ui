@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { useOwnerDocument } from '../../hooks';
 import { isServer } from '../../utils';

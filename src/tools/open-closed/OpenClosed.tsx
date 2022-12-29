@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 export const OpenClosedContext = React.createContext<OpenClosedState | null>(null);
 OpenClosedContext.displayName = 'OpenClosedContext';

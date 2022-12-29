@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 function useDocumentEvent<K extends keyof DocumentEventMap>(
   type: K,

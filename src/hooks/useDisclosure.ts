@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const useDisclosure = () => {
   const [isShow, setShow] = React.useState(false);
