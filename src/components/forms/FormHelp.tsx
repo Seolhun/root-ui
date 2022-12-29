@@ -45,7 +45,7 @@ const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
           warning: () => clsx('text-warning'),
           danger: () => clsx('text-danger'),
         })(intent)}
-        className={clsx(className, 'flex items-center flex-wrap')}
+        className={clsx(CLASSNAME, className, 'flex items-center flex-wrap')}
       >
         {children}
       </Box>
