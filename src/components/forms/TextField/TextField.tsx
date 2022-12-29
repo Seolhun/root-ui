@@ -1,3 +1,4 @@
+import * as React from 'react';
 import clsx from 'clsx';
 
 import { Card } from '../../atomics';
@@ -13,7 +14,7 @@ export interface TextFieldProps extends InputProps {
   icon?: IconProps['icon'];
 }
 
-const TextField = ({ className, scale = 'md', icon = 'SearchIcon', ...rests }: TextFieldProps) => {
+export const TextField = ({ className, scale = 'md', icon = 'SearchIcon', ...rests }: TextFieldProps) => {
   return (
     <Card
       scale={scale}
@@ -31,6 +32,3 @@ const TextField = ({ className, scale = 'md', icon = 'SearchIcon', ...rests }: T
     </Card>
   );
 };
-
-export { TextField };
-export default TextField;
