@@ -38,7 +38,7 @@ const Button = React.forwardRef<ElementType, ButtonProps>(
         className={clsx(
           CLASSNAME,
           className,
-          'inline-block',
+          'flex items-center justify-center',
           'rounded-md',
           'placeholder:text-dark',
           'disabled:opacity-50 disabled:cursor-not-allowed',

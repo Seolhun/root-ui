@@ -34,7 +34,7 @@ const Tag = React.forwardRef<ElementType, TagProps>(
         {...rests}
         ref={ref}
         as="span"
-        className={clsx(CLASSNAME, className, 'inline-block', 'rounded-full', 'cursor-pointer')}
+        className={clsx(CLASSNAME, className, 'flex items-center justify-center', 'rounded-full', 'cursor-pointer')}
         scaleClassName={toScaleMatch({
           xs: () => 'text-2.5 py-1 px-2',
           sm: () => 'text-2.5 py-1.5 px-2.5',
