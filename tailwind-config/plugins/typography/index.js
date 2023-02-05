@@ -14,7 +14,7 @@ const plugin = require('tailwindcss/plugin');
  * corePlugins(), for checking if a core plugin is enabled
  * e(), for manually escaping strings meant to be used in class names
  */
-module.exports = plugin(function ({ addBase, theme, e }) {
+module.exports = plugin(function ({ addBase, theme }) {
   addBase({
     h1: {
       fontSize: theme('fontSize.3xl'),

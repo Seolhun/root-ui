@@ -1,3 +1,5 @@
+export type RootInherit = 'inherit';
+
 export type RootIntent =
   | 'default'
   | 'light'

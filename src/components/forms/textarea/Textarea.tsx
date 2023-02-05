@@ -51,7 +51,7 @@ const Textarea = React.forwardRef<ElementType, TextareaProps>(
           className,
           'block',
           'w-full',
-          'bg-white dark:bg-dark-9',
+          'bg-cream dark:bg-space',
           'text-dark-9 dark:text-light-1',
           'disabled:bg-neutral-1 disabled:border-neutral-4 disabled:placeholder:text-neutral-light',
           'border border-light-3 dark:border-dark-7',

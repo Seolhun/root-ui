@@ -37,15 +37,15 @@ const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
           xl: () => 'text-4 p-1',
         })(scale)}
         intentClassName={toIntentMatch({
-          default: () => clsx('text-default'),
-          neutral: () => clsx('text-neutral'),
-          light: () => clsx('text-light'),
-          dark: () => clsx('text-dark'),
-          primary: () => clsx('text-primary'),
-          info: () => clsx('text-info'),
-          success: () => clsx('text-success'),
-          warning: () => clsx('text-warning'),
-          danger: () => clsx('text-danger'),
+          default: () => 'text-default',
+          neutral: () => 'text-neutral',
+          light: () => 'text-light',
+          dark: () => 'text-dark',
+          primary: () => 'text-primary',
+          info: () => 'text-info',
+          success: () => 'text-success',
+          warning: () => 'text-warning',
+          danger: () => 'text-danger',
         })(intent)}
         className={clsx(CLASSNAME, className, 'flex items-center flex-wrap')}
       >

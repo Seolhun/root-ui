@@ -25,10 +25,20 @@ const Button = React.forwardRef<ElementType, ButtonProps>(
   ({ className, children, scale = 'md', intent = 'primary', ...rests }, ref) => {
     return (
       <Box
-        type="button"
+        role="button"
+        tabIndex={0}
         {...rests}
         ref={ref}
         as="button"
+        className={clsx(
+          CLASSNAME,
+          className,
+          'inline-block',
+          'rounded-md',
+          'focus:outline-none focus:ring-1 focus:ring-offset-white focus:dark:ring-offset-space focus:ring-offset-1',
+          'placeholder:text-dark',
+          'disabled:opacity-50 disabled:cursor-not-allowed',
+        )}
         scaleClassName={toScaleMatch({
           xs: () => 'text-2.5 py-1 px-2',
           sm: () => 'text-2.5 py-1.5 px-2.5',
@@ -37,79 +47,16 @@ const Button = React.forwardRef<ElementType, ButtonProps>(
           xl: () => 'text-4 py-2 px-4',
         })(scale)}
         intentClassName={toIntentMatch({
-          default: () => {
-            return clsx(
-              'bg-default hover:bg-default-6 text-default-1',
-              'dark:bg-default dark:hover:bg-default-6 dark:text-default-1',
-              'focus:ring-offset-default',
-            );
-          },
-          neutral: () => {
-            return clsx(
-              'bg-neutral hover:bg-neutral-6 text-neutral-1',
-              'dark:bg-neutral dark:hover:bg-neutral-6 dark:text-neutral-1',
-              'focus:ring-offset-neutral',
-            );
-          },
-          light: () => {
-            return clsx(
-              'bg-light hover:bg-light-6 text-light-1',
-              'dark:bg-light dark:hover:bg-light-6 dark:text-light-1',
-              'focus:ring-offset-light',
-            );
-          },
-          dark: () => {
-            return clsx(
-              'bg-dark hover:bg-dark-6 text-dark-1',
-              'dark:bg-dark dark:hover:bg-dark-6 dark:text-dark-1',
-              'focus:ring-offset-dark',
-            );
-          },
-          primary: () => {
-            return clsx(
-              'bg-primary hover:bg-primary-6 text-primary-1',
-              'dark:bg-primary dark:hover:bg-primary-6 dark:text-primary-1',
-              'focus:ring-offset-primary',
-            );
-          },
-          info: () =>
-            clsx(
-              'bg-info hover:bg-info-6 text-info-1',
-              'dark:bg-info dark:hover:bg-info-6 dark:text-info-1',
-              'focus:ring-offset-info',
-            ),
-          success: () => {
-            return clsx(
-              'bg-success hover:bg-success-6 text-success-1',
-              'dark:bg-success dark:hover:bg-success-6 dark:text-success-1',
-              'focus:ring-offset-success',
-            );
-          },
-          warning: () => {
-            return clsx(
-              'bg-warning hover:bg-warning-6 text-warning-1',
-              'dark:bg-warning dark:hover:bg-warning-6 dark:text-warning-1',
-              'focus:ring-offset-warning',
-            );
-          },
-          danger: () => {
-            return clsx(
-              'bg-danger hover:bg-danger-6 text-danger-1',
-              'dark:bg-danger dark:hover:bg-danger-6 dark:text-danger-1',
-              'focus:ring-offset-danger',
-            );
-          },
+          default: () => 'solid-default dark:solid-default focus:ring-default',
+          neutral: () => 'solid-neutral dark:solid-neutral focus:ring-neutral',
+          light: () => 'solid-light dark:solid-light focus:ring-light',
+          dark: () => 'solid-dark dark:solid-dark focus:ring-dark',
+          primary: () => 'solid-primary dark:solid-primary focus:ring-primary',
+          info: () => 'solid-info dark:solid-info focus:ring-info',
+          success: () => 'solid-success dark:solid-success focus:ring-success',
+          warning: () => 'solid-warning dark:solid-warning focus:ring-warning',
+          danger: () => 'solid-danger dark:solid-danger focus:ring-danger',
         })(intent)}
-        className={clsx(
-          CLASSNAME,
-          className,
-          'inline-block',
-          'text-white',
-          'rounded-md',
-          `focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white`,
-          'placeholder:text-dark',
-          'disabled:opacity-50 disabled:cursor-not-allowed',
-        )}
       >
         {children}
       </Box>

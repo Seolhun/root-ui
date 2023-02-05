@@ -24,6 +24,8 @@ const Tag = React.forwardRef<ElementType, TagProps>(
   ({ className, children, scale = 'md', intent = 'primary', ...rests }, ref) => {
     return (
       <Box
+        role="button"
+        tabIndex={0}
         {...rests}
         ref={ref}
         as="span"
@@ -34,6 +36,7 @@ const Tag = React.forwardRef<ElementType, TagProps>(
           'font-semibold',
           'border',
           'rounded-full',
+          'focus:outline-none focus:ring-1 focus:ring-offset-white focus:dark:ring-offset-space focus:ring-offset-1',
           'cursor-pointer',
         )}
         scaleClassName={toScaleMatch({
@@ -44,87 +47,15 @@ const Tag = React.forwardRef<ElementType, TagProps>(
           xl: () => 'text-4 py-2 px-4',
         })(scale)}
         intentClassName={toIntentMatch({
-          default: () => {
-            return clsx(
-              'bg-white hover:bg-default-1 text-default',
-              'border-default-3 hover:border-default-2',
-              'dark:bg-default-8 dark:hover:bg-default-7 dark:text-default-1',
-              'dark:border-default dark:hover:border-default-4',
-              'focus:ring-offset-default',
-            );
-          },
-          neutral: () => {
-            return clsx(
-              'bg-neutral hover:bg-neutral-6 text-neutral-1',
-              'border-neutral hover:border-neutral-6',
-              'dark:bg-neutral-6 dark:hover:bg-neutral dark:text-neutral-1',
-              'dark:border-neutral dark:hover:border-neutral-4',
-              'focus:ring-offset-neutral',
-            );
-          },
-          light: () => {
-            return clsx(
-              'bg-light hover:bg-light-6 text-light-1',
-              'border-light hover:border-light-6',
-              'dark:bg-light-6 dark:hover:bg-light dark:text-light-1',
-              'dark:border-light dark:hover:border-light-4',
-              'focus:ring-offset-light',
-            );
-          },
-          dark: () => {
-            return clsx(
-              'bg-dark hover:bg-dark-6 text-dark-1',
-              'border-dark hover:border-dark-6',
-              'dark:bg-dark-6 dark:hover:bg-dark dark:text-dark-1',
-              'dark:border-dark dark:hover:border-dark-4',
-              'focus:ring-offset-dark',
-            );
-          },
-          primary: () => {
-            return clsx(
-              'bg-primary hover:bg-primary-6 text-primary-1',
-              'border-primary hover:border-primary-6',
-              'dark:bg-primary-6 dark:hover:bg-primary dark:text-primary-1',
-              'dark:border-primary dark:hover:border-primary-4',
-              'focus:ring-offset-primary',
-            );
-          },
-          info: () => {
-            return clsx(
-              'bg-info hover:bg-info-6 text-info-1',
-              'border-info hover:border-info-6',
-              'dark:bg-info-6 dark:hover:bg-info dark:text-info-1',
-              'dark:border-info dark:hover:border-info-4',
-              'focus:ring-offset-info',
-            );
-          },
-          success: () => {
-            return clsx(
-              'bg-success hover:bg-success-6 text-success-1',
-              'border-success hover:border-success-6',
-              'dark:bg-success-6 dark:hover:bg-success dark:text-success-1',
-              'dark:border-success dark:hover:border-success-4',
-              'focus:ring-offset-success',
-            );
-          },
-          warning: () => {
-            return clsx(
-              'bg-warning hover:bg-warning-6 text-warning-1',
-              'border-warning hover:border-warning-6',
-              'dark:bg-warning-6 dark:hover:bg-warning dark:text-warning-1',
-              'dark:border-warning dark:hover:border-warning-4',
-              'focus:ring-offset-warning',
-            );
-          },
-          danger: () => {
-            return clsx(
-              'bg-danger hover:bg-danger-6 text-danger-1',
-              'border-danger hover:border-danger-6',
-              'dark:bg-danger-6 dark:hover:bg-danger dark:text-danger-1',
-              'dark:border-danger dark:hover:border-danger-4',
-              'focus:ring-offset-danger',
-            );
-          },
+          default: () => 'solid-default dark:solid-default focus:ring-default',
+          neutral: () => 'solid-neutral dark:solid-neutral focus:ring-neutral',
+          light: () => 'solid-light dark:solid-light focus:ring-light',
+          dark: () => 'solid-dark dark:solid-dark focus:ring-dark',
+          primary: () => 'solid-primary dark:solid-primary focus:ring-primary',
+          info: () => 'solid-info dark:solid-info focus:ring-info',
+          success: () => 'solid-success dark:solid-success focus:ring-success',
+          warning: () => 'solid-warning dark:solid-warning focus:ring-warning',
+          danger: () => 'solid-danger dark:solid-danger focus:ring-danger',
         })(intent)}
       >
         {children}

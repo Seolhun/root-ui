@@ -13,9 +13,11 @@ const intentColorMap = {
   danger: colors.red,
 };
 
+const intentColorKeys = Object.keys(intentColorMap);
+
 /**
  * 400 -> primary
- * 50  -> primary-0
+ * 50  -> primary-
  * 100 -> primary-1
  * 200 -> primary-2
  * 300 -> primary-3
@@ -26,22 +28,26 @@ const intentColorMap = {
  * 800 -> primary-8
  * 900 -> primary-9
  */
-function createIntentColorMap(colorMap, colorKey) {
-  return Object.values(colorMap).reduce((acc, value, i) => {
-    const key = colorKey + '-' + i;
+function createIntentColorMap(intentColorMap, intentKey) {
+  return Object.values(intentColorMap).reduce((acc, value, i) => {
+    const key = intentKey + '-' + i;
     const values = {
       [key]: value,
     };
     if (i === 5) {
       Object.assign(values, {
-        [colorKey]: value,
+        [intentKey]: value,
       });
     }
     return merge(acc, values);
   }, {});
 }
 
-const intentColors = merge({
+/**
+ * @see createIntentColorMap
+ * It is for intent colors to create custom theme for UI library
+ */
+const intentColors = {
   ...Object.entries(intentColorMap).reduce((acc, [key, values]) => {
     return {
       ...acc,
@@ -50,7 +56,11 @@ const intentColors = merge({
   }, {}),
   white: colors.white,
   black: colors.black,
-});
+  cream: '#fffffe',
+  space: '#18181b',
+  transparent: 'transparent',
+  inherit: 'inherit',
+};
 
 const themeColors = {
   typography: {
@@ -63,6 +73,8 @@ const themeColors = {
 };
 
 module.exports = {
+  intentColorMap,
+  intentColorKeys,
   intentColors,
   themeColors,
 };
