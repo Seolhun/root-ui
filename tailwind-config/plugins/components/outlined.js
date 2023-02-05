@@ -1,7 +1,7 @@
 const { createComponentByIntent } = require('./createComponentByIntent');
 
-const outlines = ({ theme }) => {
-  return createComponentByIntent('outline', (intentColorKey) => {
+const outlined = ({ theme }) => {
+  return createComponentByIntent('outlined', (intentColorKey) => {
     const light = {
       default: intentColorKey,
       text: intentColorKey,
@@ -48,5 +48,5 @@ const outlines = ({ theme }) => {
 };
 
 module.exports = {
-  outlines,
+  outlined,
 };

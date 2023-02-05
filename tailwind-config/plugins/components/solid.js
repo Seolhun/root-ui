@@ -1,6 +1,6 @@
 const { createComponentByIntent } = require('./createComponentByIntent');
 
-const solids = ({ theme }) => {
+const solid = ({ theme }) => {
   return createComponentByIntent('solid', (intentColorKey) => {
     const light = {
       default: intentColorKey,
@@ -48,5 +48,5 @@ const solids = ({ theme }) => {
 };
 
 module.exports = {
-  solids,
+  solid,
 };

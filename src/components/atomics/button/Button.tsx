@@ -51,15 +51,15 @@ const Button = React.forwardRef<ElementType, ButtonProps>(
           xl: () => 'text-4 py-2 px-4',
         })(scale)}
         intentClassName={toIntentMatch({
-          default: () => clsx(outlined ? 'outline-default' : 'solid-default'),
-          neutral: () => clsx(outlined ? 'outline-neutral' : 'solid-neutral'),
-          light: () => clsx(outlined ? 'outline-light' : 'solid-light'),
-          dark: () => clsx(outlined ? 'outline-dark' : 'solid-dark'),
-          primary: () => clsx(outlined ? 'outline-primary' : 'solid-primary'),
-          info: () => clsx(outlined ? 'outline-info' : 'solid-info'),
-          success: () => clsx(outlined ? 'outline-success' : 'solid-success'),
-          warning: () => clsx(outlined ? 'outline-warning' : 'solid-warning'),
-          danger: () => clsx(outlined ? 'outline-danger' : 'solid-danger'),
+          default: () => clsx(outlined ? 'outlined-default' : 'solid-default'),
+          neutral: () => clsx(outlined ? 'outlined-neutral' : 'solid-neutral'),
+          light: () => clsx(outlined ? 'outlined-light' : 'solid-light'),
+          dark: () => clsx(outlined ? 'outlined-dark' : 'solid-dark'),
+          primary: () => clsx(outlined ? 'outlined-primary' : 'solid-primary'),
+          info: () => clsx(outlined ? 'outlined-info' : 'solid-info'),
+          success: () => clsx(outlined ? 'outlined-success' : 'solid-success'),
+          warning: () => clsx(outlined ? 'outlined-warning' : 'solid-warning'),
+          danger: () => clsx(outlined ? 'outlined-danger' : 'solid-danger'),
         })(intent)}
       >
         {children}
