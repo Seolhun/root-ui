@@ -1,7 +1,32 @@
 const colors = require('tailwindcss/colors');
 const merge = require('lodash/merge');
 
-function createColors(colorMap, colorKey) {
+const intentColorMap = {
+  default: colors.gray,
+  neutral: colors.neutral,
+  light: colors.slate,
+  dark: colors.zinc,
+  primary: colors.blue,
+  info: colors.cyan,
+  success: colors.green,
+  warning: colors.orange,
+  danger: colors.red,
+};
+
+/**
+ * 400 -> primary
+ * 50  -> primary-0
+ * 100 -> primary-1
+ * 200 -> primary-2
+ * 300 -> primary-3
+ * 400 -> primary-4
+ * 500 -> primary-5
+ * 600 -> primary-6
+ * 700 -> primary-7
+ * 800 -> primary-8
+ * 900 -> primary-9
+ */
+function createIntentColorMap(colorMap, colorKey) {
   return Object.values(colorMap).reduce((acc, value, i) => {
     const key = colorKey + '-' + i;
     const values = {
@@ -16,21 +41,16 @@ function createColors(colorMap, colorKey) {
   }, {});
 }
 
-const intentColors = merge(
-  {
-    white: colors.white,
-    black: colors.black,
-  },
-  createColors(colors.gray, 'default'),
-  createColors(colors.neutral, 'neutral'),
-  createColors(colors.slate, 'light'),
-  createColors(colors.zinc, 'dark'),
-  createColors(colors.blue, 'primary'),
-  createColors(colors.cyan, 'info'),
-  createColors(colors.green, 'success'),
-  createColors(colors.orange, 'warning'),
-  createColors(colors.red, 'danger'),
-);
+const intentColors = merge({
+  ...Object.entries(intentColorMap).reduce((acc, [key, values]) => {
+    return {
+      ...acc,
+      ...createIntentColorMap(values, key),
+    };
+  }, {}),
+  white: colors.white,
+  black: colors.black,
+});
 
 const themeColors = {
   typography: {
