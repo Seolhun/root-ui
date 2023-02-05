@@ -2,7 +2,7 @@ import * as React from 'react';
 import clsx from 'clsx';
 import * as HeroIcon from '@heroicons/react/outline';
 
-import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../system';
+import { RootInherit, RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../system';
 import { Box } from '../common';
 
 const CLASSNAME = 'Root__Icon';
@@ -16,19 +16,19 @@ export interface IconProps extends ElementProps {
   icon: keyof typeof HeroIcon;
 
   /**
-   * @default dark
+   * @default inherit
    */
-  intent?: RootIntent;
+  intent?: RootIntent | RootInherit;
 
   /**
    * Set this to change scale
-   * @default md
+   * @default inherit
    */
   scale?: RootScale;
 }
 
 const Icon = React.forwardRef<ElementType, IconProps>(
-  ({ className, icon, intent = 'dark', scale = 'md', ...rests }, ref) => {
+  ({ className, icon, intent = 'inherit', scale = 'md', ...rests }, ref) => {
     const Component = HeroIcon[icon];
 
     return (
@@ -44,19 +44,19 @@ const Icon = React.forwardRef<ElementType, IconProps>(
           xl: () => 'w-16 h-16 min-w-16 min-h-16',
         })(scale)}
         intentClassName={toIntentMatch({
-          default: () => clsx('text-default'),
-          neutral: () => clsx('text-neutral'),
-          light: () => clsx('text-light'),
-          dark: () => clsx('text-dark'),
-          primary: () => clsx('text-primary'),
-          info: () => clsx('text-info'),
-          success: () => clsx('text-success'),
-          warning: () => clsx('text-warning'),
-          danger: () => clsx('text-danger'),
+          default: () => 'text-default',
+          neutral: () => 'text-neutral',
+          light: () => 'text-light',
+          dark: () => 'text-dark',
+          primary: () => 'text-primary',
+          info: () => 'text-info',
+          success: () => 'text-success',
+          warning: () => 'text-warning',
+          danger: () => 'text-danger',
         })(intent)}
-        className={clsx(CLASSNAME, className, 'inline-block')}
+        className={clsx(CLASSNAME, className, 'inline-flex items-center justify-center')}
       >
-        <Component />
+        <Component className="w-full" />
       </Box>
     );
   },

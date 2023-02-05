@@ -56,3 +56,20 @@ export const IntentTagsStories = IntentTags.bind({});
 IntentTagsStories.args = {
   children: 'Tag',
 };
+
+const IntentOutlinedTags: React.FC<TagProps> = ({ children, ...rests }) => {
+  return (
+    <StorybookContent>
+      {storiesIntentOptions.map((intent) => (
+        <Tag {...rests} key={intent} intent={intent} outlined>
+          {children}-{intent}
+        </Tag>
+      ))}
+    </StorybookContent>
+  );
+};
+
+export const IntentOutlinedTagsStories = IntentOutlinedTags.bind({});
+IntentOutlinedTagsStories.args = {
+  children: 'Tag',
+};

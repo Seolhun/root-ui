@@ -84,6 +84,7 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
         ...intentColors,
         ...themeColors.typography,
         transparent: 'transparent',
+        inherit: 'inherit',
         sky: {
           ...colors.sky,
         },
