@@ -16,5 +16,6 @@ module.exports = {
     require('./tailwind-config/plugins/typography'),
     require('./tailwind-config/plugins/theme'),
     require('./tailwind-config/plugins/components'),
+    require('./tailwind-config/plugins/utilities'),
   ],
 };
