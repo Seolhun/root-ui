@@ -9,7 +9,7 @@ const CLASSNAME = 'Root__Icon';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
 
-export interface IconProps extends ElementProps {
+export interface IconProps {
   /**
    * Icon name
    */
@@ -27,7 +27,7 @@ export interface IconProps extends ElementProps {
   scale?: RootScale;
 }
 
-const Icon = React.forwardRef<ElementType, IconProps>(
+const Icon = React.forwardRef<ElementType, IconProps & ElementProps>(
   ({ className, icon, intent = 'inherit', scale = 'md', ...rests }, ref) => {
     const Component = HeroIcon[icon];
 
@@ -37,11 +37,11 @@ const Icon = React.forwardRef<ElementType, IconProps>(
         ref={ref}
         as="i"
         scaleClassName={toScaleMatch({
-          xs: () => 'w-8 h-8 min-w-8 min-h-8',
-          sm: () => 'w-10 h-10 min-w-10 min-h-10',
-          md: () => 'w-12 h-12 min-w-12 min-h-12',
-          lg: () => 'w-14 h-14 min-w-14 min-h-14',
-          xl: () => 'w-16 h-16 min-w-16 min-h-16',
+          xs: () => 'size-xs',
+          sm: () => 'size-sm',
+          md: () => 'size-md',
+          lg: () => 'size-lg',
+          xl: () => 'size-xl',
         })(scale)}
         intentClassName={toIntentMatch({
           default: () => 'text-default',
