@@ -37,11 +37,11 @@ const Icon = React.forwardRef<ElementType, IconProps & ElementProps>(
         ref={ref}
         as="i"
         scaleClassName={toScaleMatch({
-          xs: () => 'size-xs',
-          sm: () => 'size-sm',
-          md: () => 'size-md',
-          lg: () => 'size-lg',
-          xl: () => 'size-xl',
+          xs: () => 'scale-xs',
+          sm: () => 'scale-sm',
+          md: () => 'scale-md',
+          lg: () => 'scale-lg',
+          xl: () => 'scale-xl',
         })(scale)}
         intentClassName={toIntentMatch({
           default: () => 'text-default',

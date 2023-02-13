@@ -31,11 +31,11 @@ const Loader = React.forwardRef<ElementType, LoaderProps>(
             className,
             'animate-spin',
             toScaleMatch({
-              xs: () => 'size-xs',
-              sm: () => 'size-sm',
-              md: () => 'size-md',
-              lg: () => 'size-lg',
-              xl: () => 'size-xl',
+              xs: () => 'scale-xs',
+              sm: () => 'scale-sm',
+              md: () => 'scale-md',
+              lg: () => 'scale-lg',
+              xl: () => 'scale-xl',
             })(scale),
             toIntentMatch({
               default: () => clsx('text-default-1 fill-default'),

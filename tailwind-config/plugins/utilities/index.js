@@ -1,6 +1,6 @@
 const plugin = require('tailwindcss/plugin');
 
-const { sizes } = require('./sizes');
+const { scales } = require('./scales');
 
 // addUtilities(), for registering new static utility styles
 // matchUtilities(), for registering new dynamic utility styles
@@ -15,6 +15,6 @@ const { sizes } = require('./sizes');
 // e(), for manually escaping strings meant to be used in class names
 module.exports = plugin(function ({ addUtilities, theme }) {
   addUtilities({
-    ...sizes({ theme }),
+    ...scales({ theme }),
   });
 });

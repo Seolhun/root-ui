@@ -40,11 +40,11 @@ export const Avatar = React.forwardRef<ElementType, AvatarProps & ElementProps>(
           className={clsx(
             'rounded-full',
             toScaleMatch({
-              xs: () => 'size-xs',
-              sm: () => 'size-sm',
-              md: () => 'size-md',
-              lg: () => 'size-lg',
-              xl: () => 'size-xl',
+              xs: () => 'scale-xs',
+              sm: () => 'scale-sm',
+              md: () => 'scale-md',
+              lg: () => 'scale-lg',
+              xl: () => 'scale-xl',
             })(scale),
           )}
           alt={alt}
