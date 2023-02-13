@@ -5,7 +5,7 @@ const range = require('lodash/range');
 const { REM_STEP_SIZE } = require('./Variables');
 const ranges = concat(range(0, 10, 0.5), range(10, 401));
 
-const MinWidth = reduce(
+const MinMaxWidth = reduce(
   ranges,
   (acc, v) => {
     return {
@@ -49,5 +49,5 @@ const MinWidth = reduce(
 );
 
 module.exports = {
-  MinWidth,
+  MinMaxWidth,
 };

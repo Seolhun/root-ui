@@ -1,13 +1,22 @@
 const SIZES = {
-  xs: 8,
-  sm: 10,
-  md: 12,
-  lg: 14,
-  xl: 16,
+  SCALE: {
+    xs: 8,
+    sm: 10,
+    md: 12,
+    lg: 14,
+    xl: 16,
+  },
+  PADDING: {
+    xs: 'py-1 px-2',
+    sm: 'py-1.5 px-2.5',
+    md: 'py-1.5 px-3',
+    lg: 'py-2 px-3.5',
+    xl: 'py-2 px-4',
+  },
 };
 
 const sizes = ({ theme }) => {
-  const sizes = Object.entries(SIZES).reduce((acc, [k, v]) => {
+  const sizes = Object.entries(SIZES.SCALE).reduce((acc, [k, v]) => {
     return {
       ...acc,
       [`.size-${k}`]: {
@@ -16,23 +25,11 @@ const sizes = ({ theme }) => {
     };
   }, {});
 
-  const sizesByPadding = Object.entries(SIZES).reduce((acc, [k, v]) => {
+  const sizesByPadding = Object.entries(SIZES.PADDING).reduce((acc, [k, v]) => {
     return {
       ...acc,
-      '.size-p-xs': {
-        '@apply py-1 px-2': {},
-      },
-      '.size-p-sm': {
-        '@apply py-1.5 px-2.5': {},
-      },
-      '.size-p-md': {
-        '@apply py-1.5 px-3': {},
-      },
-      '.size-p-lg': {
-        '@apply py-2 px-3.5': {},
-      },
-      '.size-p-xl': {
-        '@apply py-2 px-4': {},
+      [`.size-p-${k}`]: {
+        [`@apply ${v}`]: {},
       },
     };
   }, {});

@@ -1,4 +1,5 @@
+export * from './theme';
 export * from './utils';
 
 export * from './RootSystem.types';
-export * from './RootTheme.types';
+export * from './theme/RootTheme.types';

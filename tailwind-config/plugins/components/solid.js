@@ -27,7 +27,7 @@ const solid = ({ theme }) => {
           [`@apply bg-${light.hover}`]: {},
         },
         '&:focus': {
-          '@apply outline-none ring-2 ring-offset-2': {},
+          '@apply outline-none ring-2 ring-offset-1': {},
           [`@apply ring-${light.focus} ring-offset-cream ring-offset-cream`]: {},
         },
       },
@@ -39,7 +39,7 @@ const solid = ({ theme }) => {
           [`@apply bg-${dark.hover}`]: {},
         },
         '&:focus': {
-          '@apply outline-none ring-2 ring-offset-2': {},
+          '@apply outline-none ring-2 ring-offset-1': {},
           [`@apply ring-${dark.focus} ring-offset-space ring-offset-space`]: {},
         },
       },

@@ -1,6 +1,6 @@
 import { curry } from '@fxts/core';
 
-import { RootInherit, RootScale, RootIntent } from '../RootTheme.types';
+import { RootInherit, RootScale, RootIntent } from '../theme';
 
 const toMatch = <Key extends string, R>(
   lookup: Partial<Record<Key | RootInherit, () => R>>,
