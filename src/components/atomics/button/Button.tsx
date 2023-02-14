@@ -44,11 +44,11 @@ const Button = React.forwardRef<ElementType, ButtonProps>(
           'disabled:opacity-50 disabled:cursor-not-allowed',
         )}
         scaleClassName={toScaleMatch({
-          xs: () => 'text-2.5 py-1 px-2',
-          sm: () => 'text-2.5 py-1.5 px-2.5',
-          md: () => 'text-3 py-1.5 px-3',
-          lg: () => 'text-3 py-2 px-3.5',
-          xl: () => 'text-4 py-2 px-4',
+          xs: () => 'scale-text-xs scale-p-xs',
+          sm: () => 'scale-text-sm scale-p-sm',
+          md: () => 'scale-text-md scale-p-md',
+          lg: () => 'scale-text-lg scale-p-lg',
+          xl: () => 'scale-text-xl scale-p-xl',
         })(scale)}
         intentClassName={toIntentMatch({
           default: () => clsx(outlined ? 'outlined-default' : 'solid-default'),

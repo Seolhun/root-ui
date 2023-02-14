@@ -2,14 +2,14 @@ const plugin = require('tailwindcss/plugin');
 const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
-const { intentColors, themeColors } = require('../../presets/Colors');
-const { FontSize } = require('../../presets/FontSize');
-const { NegativeMargins } = require('../../presets/Margin');
-const { Height } = require('../../presets/Height');
-const { MinHeight } = require('../../presets/MinHeight');
-const { Width } = require('../../presets/Width');
-const { MinWidth } = require('../../presets/MinWidth');
-const { Animations } = require('../../presets/Animations');
+const { intentColors, themeColors } = require('../presets/Colors');
+const { FontSize } = require('../presets/FontSize');
+const { NegativeMargins } = require('../presets/Margin');
+const { Height } = require('../presets/Height');
+const { MinHeight } = require('../presets/MinHeight');
+const { Width } = require('../presets/Width');
+const { MinMaxWidth } = require('../presets/MinMaxWidth');
+const { Animations } = require('../presets/Animations');
 
 module.exports = plugin(function ({ addBase, theme }) {}, {
   /**
@@ -64,7 +64,8 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
     },
     extend: {
       ...Animations,
-      minWidth: MinWidth,
+      minWidth: MinMaxWidth,
+      maxWidth: MinMaxWidth,
       minHeight: MinHeight,
       width: Width,
       height: Height,
