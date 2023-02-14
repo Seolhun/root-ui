@@ -5,6 +5,11 @@ export interface TooltipOptions {
   placement?: Placement;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
+
+  /**
+   * Portal target element
+   */
+  root?: HTMLElement | null;
 }
 
 export type TooltipIntersectionReturns = ReturnType<typeof useInteractions>;

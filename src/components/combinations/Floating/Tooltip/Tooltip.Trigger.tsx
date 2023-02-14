@@ -2,11 +2,12 @@ import * as React from 'react';
 import { useMergeRefs } from '@floating-ui/react';
 
 import { useTooltipContext } from './useTooltipContext';
+import clsx from 'clsx';
 
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
-export const TooltipTrigger = React.forwardRef<ElementType, ElementProps>(({ children, ...props }, ref) => {
+export const TooltipTrigger = React.forwardRef<ElementType, ElementProps>(({ children, className, ...props }, ref) => {
   const contextValues = useTooltipContext();
   const childrenRef = (children as any)?.ref;
 
@@ -15,6 +16,7 @@ export const TooltipTrigger = React.forwardRef<ElementType, ElementProps>(({ chi
   return (
     <div
       ref={mergedRef}
+      className={clsx(className, 'inline-block')}
       data-state={contextValues?.open ? 'open' : 'closed'}
       {...contextValues?.getReferenceProps(props)}
     >

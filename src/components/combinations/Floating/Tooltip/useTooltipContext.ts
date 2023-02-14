@@ -22,6 +22,11 @@ export interface UseTooltipProps extends TooltipOptions {
 export interface UseTooltipReturns extends TooltipFloatingReturns, TooltipIntersectionReturns {
   open?: boolean;
   setOpen?: (open: boolean) => void;
+
+  /**
+   * Portal target element
+   */
+  root?: HTMLElement | null;
 }
 
 export function useTooltip({
@@ -30,6 +35,7 @@ export function useTooltip({
   open: controlledOpen,
   onOpenChange: setControlledOpen,
   disabled,
+  root,
 }: UseTooltipProps = {}): UseTooltipReturns {
   const [uncontrolledOpen, setUncontrolledOpen] = React.useState<boolean>(initialOpen);
 
@@ -72,17 +78,18 @@ export function useTooltip({
     () => ({
       open,
       setOpen,
+      root,
       ...interactions,
       ...floatingData,
     }),
-    [open, setOpen, interactions, floatingData],
+    [open, setOpen, interactions, floatingData, root],
   );
 }
 
-type ContextType = UseTooltipReturns;
-export const TooltipContext = React.createContext<ContextType>(null as unknown as ContextType);
+export type TooltipContextValues = UseTooltipReturns;
+export const TooltipContext = React.createContext<TooltipContextValues>(null as unknown as TooltipContextValues);
 
-export const useTooltipContext = (): ContextType => {
+export const useTooltipContext = (): TooltipContextValues => {
   const context = React.useContext(TooltipContext);
 
   if (context == null) {

@@ -1,21 +1,21 @@
 import * as React from 'react';
 import { FloatingPortal, useDelayGroup, useDelayGroupContext, useMergeRefs } from '@floating-ui/react';
 
+import { toScaleMatch, useRootScaleContext } from '../../../../system';
 import { useTooltipContext } from './useTooltipContext';
 import clsx from 'clsx';
 
 type ElementType = HTMLElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface TooltipContentProps extends ElementProps {
-  root?: HTMLElement | null;
-}
+export interface TooltipContentProps extends ElementProps {}
 
 export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>(
-  ({ root, children, className, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     const contextValues = useTooltipContext();
     const { setCurrentId } = useDelayGroupContext();
     const tooltipId = React.useId();
+    const { scale } = useRootScaleContext();
 
     const mergedRef = useMergeRefs([contextValues?.refs.setFloating || null, ref]);
 
@@ -30,17 +30,26 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
     }, [contextValues.open, tooltipId, setCurrentId]);
 
     return (
-      <FloatingPortal root={root}>
+      <FloatingPortal root={contextValues.root}>
         {contextValues?.open && (
           <div
             {...contextValues?.getFloatingProps(others)}
             ref={mergedRef}
             className={clsx(
               className,
-              'max-w-100',
+              'max-w-150',
               'py-1 px-2',
-              'shadow-sm rounded-sm',
-              'bg-cream dark:bg-space text-space dark:text-cream',
+              'rounded-md',
+              'border border-light-2 dark:border-dark-8',
+              'bg-cream text-space',
+              'dark:bg-space dark:text-cream',
+              toScaleMatch({
+                xs: () => 'scale-text-xs scale-p-xs',
+                sm: () => 'scale-text-sm scale-p-sm',
+                md: () => 'scale-text-md scale-p-md',
+                lg: () => 'scale-text-lg scale-p-lg',
+                xl: () => 'scale-text-xl scale-p-xl',
+              })(scale),
             )}
             style={{
               ...others.style,
