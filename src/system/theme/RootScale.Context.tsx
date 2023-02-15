@@ -9,11 +9,11 @@ export interface RootScaleContextValues {
 export const RootScaleContext = React.createContext<RootScaleContextValues>(null as unknown as RootScaleContextValues);
 RootScaleContext.displayName = 'RootScaleContext';
 
-export interface StackProviderProps extends RootScaleContextValues {
+export interface RootScaleProviderProps extends RootScaleContextValues {
   children: React.ReactNode;
 }
 
-export function RootScaleProvider({ children, scale }: StackProviderProps) {
+export function RootScaleProvider({ children, scale }: RootScaleProviderProps) {
   const contextValues = React.useMemo(() => {
     return {
       scale,
