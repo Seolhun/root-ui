@@ -40,9 +40,9 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
               'max-w-150',
               'py-1 px-2',
               'rounded-md',
-              'border border-light-2 dark:border-dark-8',
-              'bg-cream text-space',
-              'dark:bg-space dark:text-cream',
+              'border border-light-3 dark:border-dark-7',
+              'bg-cream-1 text-space-1',
+              'dark:bg-space-1 dark:text-cream-1',
               toScaleMatch({
                 xs: () => 'scale-text-xs scale-p-xs',
                 sm: () => 'scale-text-sm scale-p-sm',

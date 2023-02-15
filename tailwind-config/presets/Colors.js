@@ -56,8 +56,22 @@ const intentColors = {
   }, {}),
   white: colors.white,
   black: colors.black,
+  /**
+   * for Layout background
+   */
   cream: '#fffffe',
+  /**
+   * for UI background
+   */
+  'cream-1': '#FCFCFC',
+  /**
+   * for Dark Layout background
+   */
   space: '#18181b',
+  /**
+   * for Dark UI background
+   */
+  'space-1': '#19181B',
   transparent: 'transparent',
   inherit: 'inherit',
 };
