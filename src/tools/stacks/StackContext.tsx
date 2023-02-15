@@ -19,7 +19,7 @@ export interface StackProviderProps {
   enabled?: boolean;
 }
 
-function StackProvider({ children, onUpdate, type, element, enabled }: StackProviderProps) {
+export function StackProvider({ children, onUpdate, type, element, enabled }: StackProviderProps) {
   const parentUpdate = useStackContext();
 
   const notify = useEvent((...args: Parameters<StackContextOnUpdateCallback>) => {
@@ -39,6 +39,3 @@ function StackProvider({ children, onUpdate, type, element, enabled }: StackProv
 
   return <StackContext.Provider value={notify}>{children}</StackContext.Provider>;
 }
-
-export { StackProvider };
-export default StackProvider;
