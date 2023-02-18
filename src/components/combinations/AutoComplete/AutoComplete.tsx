@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { Combobox } from '@headlessui/react';
 import isEmpty from 'lodash/isEmpty';
 
-import { Option } from '../../../utils/fx';
+import { Maybe } from '../../../utils/fx';
 import { RootScale, toScaleMatch } from '../../../system';
 import { Icon, IconProps } from '../../icons';
 import { AutoCompleteIdentify } from './AutoComplete.types';
@@ -26,7 +26,7 @@ export interface AutoCompleteProps<Item> {
 
   onSelectItem: (item: Item) => void;
 
-  selectedItem?: Option<Item>;
+  selectedItem?: Maybe<Item>;
 
   /**
    * To display value by transforming item.

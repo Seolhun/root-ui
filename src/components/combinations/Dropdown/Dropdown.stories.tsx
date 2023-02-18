@@ -4,7 +4,7 @@ import { StorybookContent } from '../../../stories';
 import { Maybe } from '../../../utils/fx';
 import { Avatar } from '../../atomics';
 import { Dropdown, DropdownProps } from './Dropdown';
-import { DropdownOption, DropdownOptionState } from './widgets/Dropdown.types';
+import { DropdownOption, DropdownOptionState } from './widgets';
 
 export default {
   title: 'Combination/Dropdown',

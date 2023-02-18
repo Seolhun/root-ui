@@ -1,2 +1,2 @@
-export * from './Dropdown';
-export * from './Dropdown.types';
+export * from './DropdownWidget';
+export * from './DropdownWidget.types';
