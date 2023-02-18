@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Listbox } from '@headlessui/react';
 import clsx from 'clsx';
 
-import { DropdownButtonState } from './DropdownWidget.types';
+import { DropdownWidgetButtonClassName } from './Dropdown.Widget.types';
 
 interface ElementProps {
-  className?: string | ((state: DropdownButtonState) => string);
+  className?: DropdownWidgetButtonClassName;
 
   children: React.ReactNode;
 }
@@ -23,7 +23,7 @@ export const DropdownWidgetButton = React.forwardRef<HTMLButtonElement, Dropdown
             typeof className === 'function' ? className(state) : className,
             'relative',
             'flex flex-1 items-center',
-            'w-full',
+            'w-full min-h-20',
             'py-2 px-4',
             'bg-cream-1 dark:bg-space-1',
             'text-space-1 dark:text-cream-1',

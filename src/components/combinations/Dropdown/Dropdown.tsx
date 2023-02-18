@@ -1,73 +1,92 @@
 import * as React from 'react';
+import clsx from 'clsx';
 
 import { Maybe } from '../../../utils/fx';
-import { DropdownWidget, DropdownOption, DropdownOptionState } from './widgets';
+import { useDropdownRenderer, UseDropdownRendererProps } from './useDropdownRenderer';
+import {
+  DropdownWidget,
+  DropdownOptionState,
+  DropdownOption,
+  DropdownWidgetButtonClassName,
+  DropdownWidgetOptionClassName,
+} from './widgets';
 
-interface ElementProps {
-  className?: string;
+export interface DropdownClasses {
+  /**
+   * Button className
+   */
+  button?: DropdownWidgetButtonClassName;
 
-  disabled?: boolean;
+  /**
+   * Button className
+   */
+  option?: DropdownWidgetOptionClassName;
 }
 
-export interface DropdownProps<Option extends DropdownOption = DropdownOption> extends ElementProps {
+export interface DropdownProps<Option extends DropdownOption = DropdownOption, ActionOption = Option>
+  extends UseDropdownRendererProps<Option, ActionOption> {
   options: Option[];
 
   /**
    * Selected option
    */
-  selectedOption: Maybe<Option>;
-
-  /**
-   * To Identify option uniqueness
-   */
-  identify: (option: Maybe<Option>) => string;
+  selectedOption: Maybe<ActionOption>;
 
   /**
    * Change option handler
    */
-  onChangeOption: (option: Maybe<Option>) => void;
+  onChange: (option: Maybe<ActionOption>) => void;
 
   /**
-   * To render option
+   * Could be selected multiple options
    */
-  renderOption?: (option: Maybe<Option>, state?: DropdownOptionState) => React.ReactNode;
+  multiple?: boolean;
+
+  /**
+   * disabled dropdown
+   */
+  disabled?: boolean;
+
+  /**
+   * Atomic component className
+   */
+  classes?: DropdownClasses;
 }
 
-export function Dropdown<Option extends DropdownOption = DropdownOption>({
+export function Dropdown<Option extends DropdownOption = DropdownOption, ActionOption = Option>({
   options,
   selectedOption,
-  onChangeOption,
-  renderOption,
+  onChange,
   identify,
+  renderSelectedOption,
+  renderOption,
+  multiple,
   disabled,
-}: DropdownProps<Option>) {
-  const SelectedOption = React.useMemo(() => {
-    if (selectedOption && renderOption) {
-      return renderOption(selectedOption);
-    }
-    return identify(selectedOption);
-  }, [selectedOption, renderOption, identify]);
-
-  const renderedOption = React.useCallback(
-    (option: Maybe<Option>, state: DropdownOptionState) => {
-      if (renderOption) {
-        return renderOption(option, state);
-      }
-      return identify(option);
-    },
-    [identify, renderOption],
-  );
+  classes,
+}: DropdownProps<Option, ActionOption>) {
+  const { optionRenderer, selectedOptionRenderer } = useDropdownRenderer<Option, ActionOption>({
+    identify,
+    renderSelectedOption,
+    renderOption,
+  });
 
   return (
-    <DropdownWidget<Option> value={selectedOption} onChange={onChangeOption} disabled={disabled}>
-      <DropdownWidget.Button>{SelectedOption}</DropdownWidget.Button>
+    <DropdownWidget<Option, ActionOption>
+      value={selectedOption}
+      onChange={onChange}
+      disabled={disabled}
+      multiple={multiple}
+    >
+      <DropdownWidget.Button className={clsx(classes?.button)}>
+        {selectedOptionRenderer(selectedOption)}
+      </DropdownWidget.Button>
       <DropdownWidget.Options>
         {options.map((option) => {
           const { disabled } = option;
           const key = identify(option);
           return (
-            <DropdownWidget.Option key={key} value={option} disabled={disabled}>
-              {(state: DropdownOptionState) => <>{renderedOption(option, state)}</>}
+            <DropdownWidget.Option key={key} className={clsx(classes?.option)} value={option} disabled={disabled}>
+              {(state: DropdownOptionState) => <>{optionRenderer(option, state)}</>}
             </DropdownWidget.Option>
           );
         })}

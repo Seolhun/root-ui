@@ -11,3 +11,7 @@ export interface DropdownButtonState {
   disabled: boolean;
   value: any;
 }
+
+export type DropdownWidgetButtonClassName = string | ((state: DropdownButtonState) => string);
+
+export type DropdownWidgetOptionClassName = string | ((state: DropdownOptionState) => string);
