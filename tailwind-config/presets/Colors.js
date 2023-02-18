@@ -56,39 +56,46 @@ const intentColors = {
   }, {}),
   white: colors.white,
   black: colors.black,
-  /**
-   * for Layout background
-   */
-  cream: '#fffffe',
-  /**
-   * for UI background
-   */
-  'cream-1': '#FCFCFC',
-  /**
-   * for Dark Layout background
-   */
-  space: '#18181b',
-  /**
-   * for Dark UI background
-   */
-  'space-1': '#19181B',
   transparent: 'transparent',
   inherit: 'inherit',
 };
 
+const typographyColors = {
+  title: colors.zinc[900],
+  description: colors.zinc[700],
+  content: colors.zinc[800],
+  link: intentColors.primary,
+  blockquote: colors.zinc[700],
+};
+
 const themeColors = {
-  typography: {
-    title: colors.zinc[900],
-    description: colors.zinc[700],
-    content: colors.zinc[800],
-    link: intentColors.primary,
-    blockquote: colors.zinc[700],
-  },
+  /**
+   * for Light UI
+   */
+  cream: 'rgb(246, 248, 250)', // Layout background
+  'cream-1': 'rgb(255, 255, 255)', // UI background commonly
+  'cream-2': 'rgb(216, 222, 228)', // UI border commonly
+  'cream-3': 'rgb(208, 215, 222)', // UI border commonly
+  /**
+   * for Dark UI
+   */
+  space: 'rgb(1, 4, 9)', // Layout background
+  'space-1': 'rgb(22, 27, 34)', // UI background commonly
+  'space-2': 'rgb(33, 38, 45)', // UI border commonly
+  'space-3': 'rgb(48, 54, 61)', // UI border commonly
+};
+
+const palette = {
+  ...intentColors,
+  ...typographyColors,
+  ...themeColors,
 };
 
 module.exports = {
   intentColorMap,
   intentColorKeys,
   intentColors,
+  typographyColors,
   themeColors,
+  palette,
 };

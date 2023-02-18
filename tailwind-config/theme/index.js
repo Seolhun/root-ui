@@ -2,7 +2,7 @@ const plugin = require('tailwindcss/plugin');
 const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
-const { intentColors, themeColors } = require('../presets/Colors');
+const { palette } = require('../presets/Colors');
 const { FontSize } = require('../presets/FontSize');
 const { NegativeMargins } = require('../presets/Margin');
 const { Height } = require('../presets/Height');
@@ -82,8 +82,7 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
       },
       // @see https://tailwindcss.com/docs/customizing-colors
       colors: {
-        ...intentColors,
-        ...themeColors.typography,
+        ...palette,
         transparent: 'transparent',
         inherit: 'inherit',
         sky: {
