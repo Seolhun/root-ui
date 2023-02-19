@@ -33,7 +33,7 @@ const outlined = ({ theme }) => {
       },
       dark: {
         ...defaultStyles,
-        [`@apply text-${dark.text} bg-black-1 border-${dark.border}`]: {},
+        [`@apply text-${dark.text} bg-black border-${dark.border}`]: {},
 
         '&:hover': {
           [`@apply text-space bg-${dark.default}`]: {},
