@@ -7,6 +7,7 @@ import { Maybe } from '../../../utils/fx';
 import { RootScale, toScaleMatch } from '../../../system';
 import { Icon, IconProps } from '../../icons';
 import { AutoCompleteIdentify } from './AutoComplete.types';
+
 import * as Styled from './AutoComplete.Styled';
 
 const CLASSNAME = 'Root__AutoComplete';
@@ -84,7 +85,7 @@ function _AutoComplete<Item = any>(
     // HTMLAttributes
     className,
     placeholder,
-    ...others
+    ...rests
   }: AutoCompleteProps<Item> & ElementProps,
   ref: React.ForwardedRef<HTMLDivElement>,
 ) {
@@ -104,7 +105,7 @@ function _AutoComplete<Item = any>(
   }, [scale]);
 
   return (
-    <div {...others} ref={ref} className={clsx(CLASSNAME, className, 'relative', 'bg-cream-1 dark:bg-space-1')}>
+    <div {...rests} ref={ref} className={clsx(CLASSNAME, className, 'relative', 'bg-cream-1 dark:bg-space-1')}>
       <Combobox value={selectedItem} onChange={onSelectItem}>
         <div className={clsx(Styled.InputWrapper, 'bg-cream-1 dark:bg-space-1')}>
           <Icon className="mx-3" icon={icon} intent="light" scale={'sm'} />
@@ -137,20 +138,21 @@ function _AutoComplete<Item = any>(
                 {items.map((item) => {
                   const identifiedItem = identify(item);
                   return (
-                    <Combobox.Option key={identifiedItem.key} value={identifiedItem.value}>
+                    <Combobox.Option
+                      key={identifiedItem.key}
+                      value={identifiedItem.value}
+                      className={({ active, selected }) => {
+                        return clsx(
+                          Styled.Option,
+                          scaleClassName,
+                          clsx(selected ? 'text-primary' : 'text-space-2 dark:text-cream-2', {
+                            'bg-cream-2 dark:bg-space-2': active || selected,
+                          }),
+                        );
+                      }}
+                    >
                       {({ active, selected, disabled }) => (
-                        <div
-                          className={clsx(
-                            Styled.Option,
-                            scaleClassName,
-                            clsx({
-                              'bg-light-1': selected || active,
-                              'text-primary': selected,
-                            }),
-                          )}
-                        >
-                          {identifiedItem.children({ active, selected, disabled })}
-                        </div>
+                        <>{identifiedItem.children({ active, selected, disabled })}</>
                       )}
                     </Combobox.Option>
                   );
