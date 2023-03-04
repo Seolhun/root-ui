@@ -1,16 +1,91 @@
 const colors = require('tailwindcss/colors');
 const merge = require('lodash/merge');
+const { lighten, darken } = require('../utils');
+
+const primary = '#0077CC';
+const info = '#22d3ee';
+const success = '#00BFB3';
+const accent = '#F04E98';
+const warning = '#FEC514';
+const danger = '#BD271E';
 
 const intentColorMap = {
+  primary: {
+    '50': lighten(primary, 0.2),
+    '100': lighten(primary, 0.15),
+    '200': lighten(primary, 0.1),
+    '300': lighten(primary, 0.05),
+    '400': primary,
+    '500': darken(primary, 0.05),
+    '600': darken(primary, 0.1),
+    '700': darken(primary, 0.15),
+    '800': darken(primary, 0.2),
+    '900': darken(primary, 0.25),
+  },
+  info: {
+    '50': lighten(info, 0.2),
+    '100': lighten(info, 0.15),
+    '200': lighten(info, 0.1),
+    '300': lighten(info, 0.05),
+    '400': info,
+    '500': darken(info, 0.05),
+    '600': darken(info, 0.1),
+    '700': darken(info, 0.15),
+    '800': darken(info, 0.2),
+    '900': darken(info, 0.25),
+  },
+  success: {
+    '50': lighten(success, 0.2),
+    '100': lighten(success, 0.15),
+    '200': lighten(success, 0.1),
+    '300': lighten(success, 0.05),
+    '400': success,
+    '500': darken(success, 0.05),
+    '600': darken(success, 0.1),
+    '700': darken(success, 0.15),
+    '800': darken(success, 0.2),
+    '900': darken(success, 0.25),
+  },
+  accent: {
+    '50': lighten(accent, 0.2),
+    '100': lighten(accent, 0.15),
+    '200': lighten(accent, 0.1),
+    '300': lighten(accent, 0.05),
+    '400': accent,
+    '500': darken(accent, 0.05),
+    '600': darken(accent, 0.1),
+    '700': darken(accent, 0.15),
+    '800': darken(accent, 0.2),
+    '900': darken(accent, 0.25),
+  },
+  warning: {
+    '50': lighten(warning, 0.2),
+    '100': lighten(warning, 0.15),
+    '200': lighten(warning, 0.1),
+    '300': lighten(warning, 0.05),
+    '400': warning,
+    '500': darken(warning, 0.05),
+    '600': darken(warning, 0.1),
+    '700': darken(warning, 0.15),
+    '800': darken(warning, 0.2),
+    '900': darken(warning, 0.25),
+  },
+  danger: {
+    '50': lighten(danger, 0.2),
+    '100': lighten(danger, 0.15),
+    '200': lighten(danger, 0.1),
+    '300': lighten(danger, 0.05),
+    '400': danger,
+    '500': darken(danger, 0.05),
+    '600': darken(danger, 0.1),
+    '700': darken(danger, 0.15),
+    '800': darken(danger, 0.2),
+    '900': darken(danger, 0.25),
+  },
   default: colors.gray,
   neutral: colors.neutral,
   light: colors.slate,
   dark: colors.zinc,
-  primary: colors.blue,
-  info: colors.cyan,
-  success: colors.green,
-  warning: colors.orange,
-  danger: colors.red,
 };
 
 const intentColorKeys = Object.keys(intentColorMap);
