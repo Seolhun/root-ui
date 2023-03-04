@@ -23,7 +23,7 @@ module.exports = ({ theme }) => {
       [`@apply text-${light.text} border-${light.border}`]: {},
 
       '&:hover': {
-        [`@apply bg-${light.default}`]: {},
+        [`@apply bg-${light.default} text-cream-1`]: {},
       },
       '&:focus': {
         '@apply outline-none ring-2 ring-offset-1': {},
@@ -36,7 +36,7 @@ module.exports = ({ theme }) => {
         [`@apply text-${dark.text} border-${dark.border}`]: {},
 
         '&:hover': {
-          [`@apply bg-${dark.default}`]: {},
+          [`@apply bg-${dark.default} text-cream-1`]: {},
         },
         '&:focus': {
           '@apply outline-none ring-2 ring-offset-1': {},

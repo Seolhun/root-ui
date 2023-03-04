@@ -11,8 +11,8 @@ const intents = {
     warning: '#FEC514',
     danger: '#BD271E',
     neutral: '#98A2B3',
-    light: '#F5F7FA',
-    dark: '#D3DAE6',
+    light: '#D3DAE6',
+    dark: '#69707D',
   },
   dark: {
     primary: '#36A2EF',
