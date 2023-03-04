@@ -9,10 +9,10 @@ module.exports = ({ theme }) => {
       focus: `${intentColorKey}-6`,
     };
     const dark = {
-      default: `${intentColorKey}_dark`,
-      text: `${intentColorKey}_dark`,
-      border: `${intentColorKey}_dark`,
-      focus: `${intentColorKey}_dark-4`,
+      default: `${intentColorKey}2`,
+      text: `${intentColorKey}2`,
+      border: `${intentColorKey}2`,
+      focus: `${intentColorKey}2-4`,
     };
     return {
       // Common
