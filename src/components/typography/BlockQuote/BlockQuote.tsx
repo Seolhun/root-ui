@@ -34,7 +34,7 @@ const BlockQuote = ({ className, children, intent = 'primary', ...rests }: Block
         CLASSNAME,
         className,
         'text-base font-light leading-relaxed',
-        'text-dark-9 dark:text-light-1',
+        'text-neutral dark:text-neutral2',
         'mt-0 mb-4 pl-2',
         'border-l-4',
       )}

@@ -2,8 +2,8 @@ import * as React from 'react';
 import clsx from 'clsx';
 
 import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../system';
-import FormLabel, { FormLabelProps } from './FormLabel';
-import FormHelp from './FormHelp';
+import { FormLabel, FormLabelProps } from './FormLabel';
+import { FormHelp } from './FormHelp';
 import { Box } from '../common';
 
 const CLASSNAME = 'Root__FormItem';
@@ -35,10 +35,15 @@ export interface FormItemProps extends ElementProps {
    * Form label htmlFor
    */
   htmlFor?: FormLabelProps['htmlFor'];
+
+  /**
+   * Form label required
+   */
+  required?: boolean;
 }
 
 export const FormItem = React.forwardRef<ElementType, FormItemProps>(
-  ({ children, className, scale = 'md', intent = 'neutral', label, htmlFor, help, ...others }, ref) => {
+  ({ children, className, scale = 'md', intent = 'neutral', label, htmlFor, help, required, ...others }, ref) => {
     return (
       <Box
         {...others}
@@ -51,21 +56,10 @@ export const FormItem = React.forwardRef<ElementType, FormItemProps>(
           lg: () => 'text-3.5 p-1',
           xl: () => 'text-4 p-1',
         })(scale)}
-        intentClassName={toIntentMatch({
-          neutral: () => clsx('text-neutral'),
-          light: () => clsx('text-light'),
-          dark: () => clsx('text-dark'),
-          primary: () => clsx('text-primary'),
-          info: () => clsx('text-info'),
-          success: () => clsx('text-success'),
-          accent: () => clsx('text-accent'),
-          warning: () => clsx('text-warning'),
-          danger: () => clsx('text-danger'),
-        })(intent)}
         className={clsx(CLASSNAME, className)}
       >
         {label && (
-          <FormLabel scale={scale} intent={intent} htmlFor={htmlFor}>
+          <FormLabel scale={scale} intent={intent} htmlFor={htmlFor} required={required}>
             {label}
           </FormLabel>
         )}

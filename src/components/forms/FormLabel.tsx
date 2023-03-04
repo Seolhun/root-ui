@@ -18,10 +18,12 @@ export interface FormLabelProps extends ElementProps {
    * @default neutral
    */
   intent?: RootIntent;
+
+  required?: boolean;
 }
 
 export const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
-  ({ children, className, htmlFor, scale = 'md', intent = 'neutral', ...others }, ref) => {
+  ({ children, className, htmlFor, scale = 'md', intent = 'neutral', required, ...others }, ref) => {
     return (
       <Box
         {...others}
@@ -36,20 +38,10 @@ export const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
           lg: () => 'text-3.5 p-1',
           xl: () => 'text-4 p-1',
         })(scale)}
-        intentClassName={toIntentMatch({
-          neutral: () => 'text-neutral',
-          light: () => 'text-light',
-          dark: () => 'text-dark',
-          primary: () => 'text-primary',
-          info: () => 'text-info',
-          success: () => 'text-success',
-          accent: () => clsx('text-accent'),
-          warning: () => 'text-warning',
-          danger: () => 'text-danger',
-        })(intent)}
-        className={clsx(CLASSNAME, className, 'flex items-center flex-wrap')}
+        className={clsx(CLASSNAME, className, 'flex items-center flex-wrap', 'text-space-1 dark:text-cream-1')}
       >
         {children}
+        {required && <sup className={clsx('text-danger dark:text-danger', 'text-4')}>*</sup>}
       </Box>
     );
   },
