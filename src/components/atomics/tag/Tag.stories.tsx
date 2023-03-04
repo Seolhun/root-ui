@@ -22,11 +22,11 @@ export default {
   },
 };
 
-const ScaleTags: React.FC<TagProps> = ({ children, ...rests }) => {
+const ScaleTags: React.FC<TagProps> = ({ children, ...others }) => {
   return (
     <StorybookContent>
       {storiesScaleOptions.map((scale) => (
-        <Tag {...rests} key={scale} scale={scale}>
+        <Tag {...others} key={scale} scale={scale}>
           {children}
         </Tag>
       ))}
@@ -40,11 +40,11 @@ ScaleTagsStories.args = {
   disabled: false,
 };
 
-const IntentTags: React.FC<TagProps> = ({ children, ...rests }) => {
+const IntentTags: React.FC<TagProps> = ({ children, ...others }) => {
   return (
     <StorybookContent>
       {storiesIntentOptions.map((intent) => (
-        <Tag {...rests} key={intent} intent={intent}>
+        <Tag {...others} key={intent} intent={intent}>
           {children}-{intent}
         </Tag>
       ))}
@@ -57,11 +57,11 @@ IntentTagsStories.args = {
   children: 'Tag',
 };
 
-const IntentOutlinedTags: React.FC<TagProps> = ({ children, ...rests }) => {
+const IntentOutlinedTags: React.FC<TagProps> = ({ children, ...others }) => {
   return (
     <StorybookContent>
       {storiesIntentOptions.map((intent) => (
-        <Tag {...rests} key={intent} intent={intent} outlined>
+        <Tag {...others} key={intent} intent={intent} outlined>
           {children}-{intent}
         </Tag>
       ))}
@@ -72,4 +72,27 @@ const IntentOutlinedTags: React.FC<TagProps> = ({ children, ...rests }) => {
 export const IntentOutlinedTagsStories = IntentOutlinedTags.bind({});
 IntentOutlinedTagsStories.args = {
   children: 'Tag',
+};
+
+const DisabledTags = ({ children, ...others }: TagProps) => {
+  return (
+    <StorybookContent>
+      {storiesIntentOptions.map((intent) => (
+        <Tag {...others} key={intent} intent={intent}>
+          {children}-{intent}
+        </Tag>
+      ))}
+      {storiesIntentOptions.map((intent) => (
+        <Tag {...others} key={intent} intent={intent} outlined>
+          {children}-{intent}
+        </Tag>
+      ))}
+    </StorybookContent>
+  );
+};
+
+export const DisabledTagsStories = DisabledTags.bind({});
+DisabledTagsStories.args = {
+  children: 'Tag',
+  disabled: true,
 };

@@ -75,3 +75,26 @@ IntentOutlinedButtonsStories.args = {
   children: 'Button',
   disabled: false,
 };
+
+const DisabledButtons = ({ children, ...rests }: ButtonProps) => {
+  return (
+    <StorybookContent>
+      {storiesIntentOptions.map((intent) => (
+        <Button {...rests} key={intent} intent={intent}>
+          {children}-{intent}
+        </Button>
+      ))}
+      {storiesIntentOptions.map((intent) => (
+        <Button {...rests} key={intent} intent={intent} outlined>
+          {children}-{intent}
+        </Button>
+      ))}
+    </StorybookContent>
+  );
+};
+
+export const DisabledButtonsStories = DisabledButtons.bind({});
+DisabledButtonsStories.args = {
+  children: 'Button',
+  disabled: true,
+};

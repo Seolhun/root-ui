@@ -21,22 +21,22 @@ module.exports = ({ theme }) => {
       // LightMode
       [`@apply text-${light.text} bg-${light.default} border-${light.default}`]: {},
 
-      '&:hover': {
+      '&:not(:disabled):hover': {
         [`@apply bg-${light.hover}`]: {},
       },
-      '&:focus': {
-        '@apply outline-none ring-2 ring-offset-1': {},
+      '&:not(:disabled):focus': {
+        '@apply outline-none ring-1 ring-offset-1': {},
         [`@apply ring-${light.focus} ring-offset-cream ring-offset-cream`]: {},
       },
 
       '.dark &': {
         [`@apply text-${dark.text} bg-${dark.default} border-${dark.default}`]: {},
 
-        '&:hover': {
+        '&:not(:disabled):hover': {
           [`@apply bg-${dark.hover}`]: {},
         },
-        '&:focus': {
-          '@apply outline-none ring-2 ring-offset-1': {},
+        '&:not(:disabled):focus': {
+          '@apply outline-none ring-1 ring-offset-1': {},
           [`@apply ring-${dark.focus} ring-offset-space ring-offset-space`]: {},
         },
       },

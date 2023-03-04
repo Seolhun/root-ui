@@ -22,12 +22,12 @@ module.exports = ({ theme }) => {
       '@apply bg-cream text-cream': {},
       [`@apply text-${light.text} border-${light.border}`]: {},
 
-      '&:hover': {
+      '&:not(:disabled):hover': {
         [`@apply bg-${light.default} text-cream-1`]: {},
       },
-      '&:focus': {
-        '@apply outline-none ring-2 ring-offset-1': {},
-        [`@apply ring-${light.focus} ring-offset-cream ring-offset-cream`]: {},
+      '&:not(:disabled):focus': {
+        '@apply outline-none ring-1 ring-offset-1': {},
+        [`@apply ring-${light.focus} ring-offset-cream`]: {},
       },
 
       // DarkMode
@@ -35,12 +35,12 @@ module.exports = ({ theme }) => {
         '@apply bg-space text-space': {},
         [`@apply text-${dark.text} border-${dark.border}`]: {},
 
-        '&:hover': {
+        '&:not(:disabled):hover': {
           [`@apply bg-${dark.default} text-cream-1`]: {},
         },
-        '&:focus': {
-          '@apply outline-none ring-2 ring-offset-1': {},
-          [`@apply ring-${dark.focus} ring-offset-space ring-offset-space`]: {},
+        '&:not(:disabled):focus': {
+          '@apply outline-none ring-1 ring-offset-1': {},
+          [`@apply ring-${dark.focus} ring-offset-space`]: {},
         },
       },
     };
