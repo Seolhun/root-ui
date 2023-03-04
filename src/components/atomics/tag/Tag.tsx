@@ -43,13 +43,13 @@ const Tag = React.forwardRef<ElementType, TagProps>(
           xl: () => 'scale-text-xl scale-p-xl',
         })(scale)}
         intentClassName={toIntentMatch({
-          default: () => clsx(outlined ? 'outlined-default' : 'solid-default'),
           neutral: () => clsx(outlined ? 'outlined-neutral' : 'solid-neutral'),
           light: () => clsx(outlined ? 'outlined-light' : 'solid-light'),
           dark: () => clsx(outlined ? 'outlined-dark' : 'solid-dark'),
           primary: () => clsx(outlined ? 'outlined-primary' : 'solid-primary'),
           info: () => clsx(outlined ? 'outlined-info' : 'solid-info'),
           success: () => clsx(outlined ? 'outlined-success' : 'solid-success'),
+          accent: () => clsx(outlined ? 'outlined-accent' : 'solid-accent'),
           warning: () => clsx(outlined ? 'outlined-warning' : 'solid-warning'),
           danger: () => clsx(outlined ? 'outlined-danger' : 'solid-danger'),
         })(intent)}

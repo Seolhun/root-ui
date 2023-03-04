@@ -15,7 +15,7 @@ const Text = React.forwardRef<ElementType, TextProps>(({ className, children, as
       {...rests}
       as={as}
       ref={ref}
-      className={clsx(CLASSNAME, className, 'leading-relaxed', 'text-dark-9 dark:text-light-1')}
+      className={clsx(CLASSNAME, className, 'leading-relaxed', 'text-space-1 dark:text-cream-1')}
     >
       {children}
     </Box>

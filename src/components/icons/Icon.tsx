@@ -44,13 +44,13 @@ const Icon = React.forwardRef<ElementType, IconProps & ElementProps>(
           xl: () => 'scale-xl',
         })(scale)}
         intentClassName={toIntentMatch({
-          default: () => 'text-default',
           neutral: () => 'text-neutral',
           light: () => 'text-light',
           dark: () => 'text-dark',
           primary: () => 'text-primary',
           info: () => 'text-info',
           success: () => 'text-success',
+          accent: () => 'text-accent',
           warning: () => 'text-warning',
           danger: () => 'text-danger',
         })(intent)}

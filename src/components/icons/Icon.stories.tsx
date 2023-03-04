@@ -47,13 +47,13 @@ const InheritIcons = ({ children, ...rests }: IconProps) => {
         <div
           key={intent}
           className={toIntentMatch({
-            default: () => 'text-default',
             neutral: () => 'text-neutral',
             light: () => 'text-light',
             dark: () => 'text-dark',
             primary: () => 'text-primary',
             info: () => 'text-info',
             success: () => 'text-success',
+            accent: () => 'text-accent',
             warning: () => 'text-warning',
             danger: () => 'text-danger',
           })(intent)}

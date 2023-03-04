@@ -1,38 +1,35 @@
 const { createComponentByIntent } = require('./createComponentByIntent');
 
-const solid = ({ theme }) => {
+module.exports = ({ theme }) => {
   return createComponentByIntent('solid', (intentColorKey) => {
     const light = {
-      default: intentColorKey,
-      text: `${intentColorKey}-1`,
+      default: `${intentColorKey}`,
+      text: `cream-1`,
       hover: `${intentColorKey}-6`,
       focus: `${intentColorKey}-6`,
     };
     const dark = {
-      default: intentColorKey,
-      text: `${intentColorKey}-1`,
-      hover: `${intentColorKey}-6`,
-      focus: `${intentColorKey}-6`,
-    };
-
-    const defaultStyles = {
-      '@apply border': {},
+      default: `${intentColorKey}2`,
+      text: `cream-1`,
+      hover: `${intentColorKey}2-6`,
+      focus: `${intentColorKey}2-6`,
     };
     return {
-      light: {
-        ...defaultStyles,
-        [`@apply text-${light.text} bg-${light.default} border-${light.default}`]: {},
+      // Common
+      '@apply border': {},
 
-        '&:hover': {
-          [`@apply bg-${light.hover}`]: {},
-        },
-        '&:focus': {
-          '@apply outline-none ring-2 ring-offset-1': {},
-          [`@apply ring-${light.focus} ring-offset-cream ring-offset-cream`]: {},
-        },
+      // LightMode
+      [`@apply text-${light.text} bg-${light.default} border-${light.default}`]: {},
+
+      '&:hover': {
+        [`@apply bg-${light.hover}`]: {},
       },
-      dark: {
-        ...defaultStyles,
+      '&:focus': {
+        '@apply outline-none ring-2 ring-offset-1': {},
+        [`@apply ring-${light.focus} ring-offset-cream ring-offset-cream`]: {},
+      },
+
+      '.dark &': {
         [`@apply text-${dark.text} bg-${dark.default} border-${dark.default}`]: {},
 
         '&:hover': {
@@ -45,8 +42,4 @@ const solid = ({ theme }) => {
       },
     };
   });
-};
-
-module.exports = {
-  solid,
 };

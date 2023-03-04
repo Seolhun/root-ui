@@ -15,13 +15,13 @@ export interface FormHelpProps extends ElementProps {
   scale?: RootScale;
 
   /**
-   * @default default
+   * @default neutral
    */
   intent?: RootIntent;
 }
 
-const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
-  ({ children, className, scale = 'md', intent = 'default', ...others }, ref) => {
+export const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
+  ({ children, className, scale = 'md', intent = 'neutral', ...others }, ref) => {
     return (
       <Box
         {...others}
@@ -35,15 +35,15 @@ const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
           xl: () => 'text-4 p-1',
         })(scale)}
         intentClassName={toIntentMatch({
-          default: () => clsx('text-default'),
-          neutral: () => clsx('text-neutral'),
-          light: () => clsx('text-light'),
-          dark: () => clsx('text-dark'),
-          primary: () => clsx('text-primary'),
-          info: () => clsx('text-info'),
-          success: () => clsx('text-success'),
-          warning: () => clsx('text-warning'),
-          danger: () => clsx('text-danger'),
+          neutral: () => clsx('text-neutral dark:text-neutral2'),
+          light: () => clsx('text-light dark:text-light2'),
+          dark: () => clsx('text-dark dark:text-dark2'),
+          primary: () => clsx('text-primary dark:text-primary2'),
+          info: () => clsx('text-info dark:text-info2'),
+          success: () => clsx('text-success dark:text-success2'),
+          accent: () => clsx('text-accent dark:text-accent2'),
+          warning: () => clsx('text-warning dark:text-warning2'),
+          danger: () => clsx('text-danger dark:text-danger2'),
         })(intent)}
         className={clsx(CLASSNAME, className, 'flex items-center flex-wrap')}
       >
@@ -52,6 +52,3 @@ const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
     );
   },
 );
-
-export { FormHelp };
-export default FormHelp;

@@ -1,42 +1,42 @@
 const { createComponentByIntent } = require('./createComponentByIntent');
 
-const outlined = ({ theme }) => {
+module.exports = ({ theme }) => {
   return createComponentByIntent('outlined', (intentColorKey) => {
     const light = {
-      default: intentColorKey,
-      text: intentColorKey,
-      border: intentColorKey,
+      default: `${intentColorKey}`,
+      text: `${intentColorKey}`,
+      border: `${intentColorKey}`,
       focus: `${intentColorKey}-6`,
     };
     const dark = {
-      default: `${intentColorKey}`,
-      text: `${intentColorKey}`,
-      border: intentColorKey,
-      focus: `${intentColorKey}-4`,
-    };
-
-    const defaultStyles = {
-      '@apply border': {},
+      default: `${intentColorKey}2`,
+      text: `${intentColorKey}2`,
+      border: `${intentColorKey}2`,
+      focus: `${intentColorKey}2-4`,
     };
     return {
-      light: {
-        ...defaultStyles,
-        [`@apply text-${light.text} bg-white border-${light.border}`]: {},
+      // Common
+      '@apply border': {},
 
-        '&:hover': {
-          [`@apply text-cream bg-${light.default}`]: {},
-        },
-        '&:focus': {
-          '@apply outline-none ring-2 ring-offset-1': {},
-          [`@apply ring-${light.focus} ring-offset-cream ring-offset-cream`]: {},
-        },
+      // LightMode
+      '@apply bg-cream text-cream': {},
+      [`@apply text-${light.text} border-${light.border}`]: {},
+
+      '&:hover': {
+        [`@apply bg-${light.default}`]: {},
       },
-      dark: {
-        ...defaultStyles,
-        [`@apply text-${dark.text} bg-black border-${dark.border}`]: {},
+      '&:focus': {
+        '@apply outline-none ring-2 ring-offset-1': {},
+        [`@apply ring-${light.focus} ring-offset-cream ring-offset-cream`]: {},
+      },
+
+      // DarkMode
+      '.dark &': {
+        '@apply bg-space text-space': {},
+        [`@apply text-${dark.text} border-${dark.border}`]: {},
 
         '&:hover': {
-          [`@apply text-space bg-${dark.default}`]: {},
+          [`@apply bg-${dark.default}`]: {},
         },
         '&:focus': {
           '@apply outline-none ring-2 ring-offset-1': {},
@@ -45,8 +45,4 @@ const outlined = ({ theme }) => {
       },
     };
   });
-};
-
-module.exports = {
-  outlined,
 };
