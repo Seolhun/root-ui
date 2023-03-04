@@ -1,7 +1,7 @@
 import * as React from 'react';
 import clsx from 'clsx';
 
-import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../system';
+import { RootIntent, RootScale, toScaleMatch } from '../../system';
 import { FormLabel, FormLabelProps } from './FormLabel';
 import { FormHelp } from './FormHelp';
 import { Box } from '../common';

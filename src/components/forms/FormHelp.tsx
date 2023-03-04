@@ -1,7 +1,7 @@
 import * as React from 'react';
 import clsx from 'clsx';
 
-import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../system';
+import { RootIntent, RootScale, toScaleMatch } from '../../system';
 import { Box } from '../common';
 
 const CLASSNAME = 'Root__FormHelp';
@@ -34,18 +34,7 @@ export const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
           lg: () => 'text-3.5 p-1',
           xl: () => 'text-4 p-1',
         })(scale)}
-        intentClassName={toIntentMatch({
-          neutral: () => clsx('text-neutral dark:text-neutral2'),
-          light: () => clsx('text-light dark:text-light2'),
-          dark: () => clsx('text-dark dark:text-dark2'),
-          primary: () => clsx('text-primary dark:text-primary2'),
-          info: () => clsx('text-info dark:text-info2'),
-          success: () => clsx('text-success dark:text-success2'),
-          accent: () => clsx('text-accent dark:text-accent2'),
-          warning: () => clsx('text-warning dark:text-warning2'),
-          danger: () => clsx('text-danger dark:text-danger2'),
-        })(intent)}
-        className={clsx(CLASSNAME, className, 'flex items-center flex-wrap')}
+        className={clsx(CLASSNAME, className, 'flex items-center flex-wrap', 'text-space-1 dark:text-cream-1')}
       >
         {children}
       </Box>
