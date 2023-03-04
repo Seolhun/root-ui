@@ -9,12 +9,7 @@ export interface H6Props extends HeadingProps {}
 
 const H6 = React.forwardRef<ElementType, H6Props>(({ className, children, ...rests }, ref) => {
   return (
-    <Heading
-      {...rests}
-      as="h6"
-      ref={ref}
-      className={clsx(CLASSNAME, className, 'text-1xl font-bold leading-normal mt-1 mb-2')}
-    >
+    <Heading {...rests} as="h6" ref={ref} className={clsx(CLASSNAME, className, 'mt-1 mb-2')}>
       {children}
     </Heading>
   );

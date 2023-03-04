@@ -9,12 +9,7 @@ export interface H4Props extends HeadingProps {}
 
 const H4 = React.forwardRef<ElementType, H4Props>(({ className, children, ...rests }, ref) => {
   return (
-    <Heading
-      {...rests}
-      as="h4"
-      ref={ref}
-      className={clsx(CLASSNAME, className, 'text-3xl font-bold leading-normal mt-1 mb-2')}
-    >
+    <Heading {...rests} as="h4" ref={ref} className={clsx(CLASSNAME, className, 'mt-1 mb-2')}>
       {children}
     </Heading>
   );

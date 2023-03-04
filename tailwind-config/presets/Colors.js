@@ -100,15 +100,17 @@ const intentColors = {
   inherit: 'inherit',
 };
 
-/**
- * @deprecated It couldn't be supported dark theme
- */
 const typographyColors = {
-  title: colors.zinc[900],
-  description: colors.zinc[700],
-  content: colors.zinc[800],
-  link: intentColors.primary,
-  blockquote: colors.zinc[700],
+  'typography-title': '#1A1C21',
+  'typography-description': '#69707D',
+  'typography-text': '#343741',
+  'typography-disabled': '#ABB4C4',
+  'typography-link': '#0071C2',
+  'typography-primary': '#0071C2',
+  'typography-success': '#007E77',
+  'typography-accent': '#C4407C',
+  'typography-warning': '#8A6A0A',
+  'typography-danger': '#BD271E',
 };
 
 const themeColors = {
