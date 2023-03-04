@@ -55,6 +55,17 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(
               lg: () => 'h-[36px] w-[72px]',
               xl: () => 'h-[40px] w-[80px]',
             })(scale),
+            toIntentMatch({
+              neutral: () => clsx('outlined-neutral outlined-focus-neutral'),
+              light: () => clsx('outlined-light outlined-focus-light'),
+              dark: () => clsx('outlined-dark outlined-focus-dark'),
+              primary: () => clsx('outlined-primary outlined-focus-primary'),
+              info: () => clsx('outlined-info outlined-focus-info'),
+              success: () => clsx('outlined-success outlined-focus-success'),
+              accent: () => clsx('outlined-accent outlined-focus-accent'),
+              warning: () => clsx('outlined-warning outlined-focus-warning'),
+              danger: () => clsx('outlined-danger outlined-focus-danger'),
+            })(intent),
           )}
         >
           <span

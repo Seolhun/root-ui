@@ -1,19 +1,17 @@
 const { createComponentByIntent } = require('./createComponentByIntent');
 
 module.exports = ({ addComponents, theme }) => {
-  return addComponents(
-    createComponentByIntent('outlined', (intentColorKey) => {
+  return addComponents({
+    ...createComponentByIntent('outlined', (intentColorKey) => {
       const light = {
         default: `${intentColorKey}`,
         text: `${intentColorKey}`,
         border: `${intentColorKey}`,
-        focus: `${intentColorKey}-6`,
       };
       const dark = {
         default: `${intentColorKey}2`,
         text: `${intentColorKey}2`,
         border: `${intentColorKey}2`,
-        focus: `${intentColorKey}2-4`,
       };
       return {
         // Common
@@ -26,10 +24,6 @@ module.exports = ({ addComponents, theme }) => {
         '&:not(:disabled):hover': {
           [`@apply bg-${light.default} text-cream-1`]: {},
         },
-        '&:not(:disabled):focus': {
-          '@apply outline-none ring-1 ring-offset-1': {},
-          [`@apply ring-${light.focus} ring-offset-cream`]: {},
-        },
 
         // DarkMode
         '.dark &': {
@@ -39,12 +33,30 @@ module.exports = ({ addComponents, theme }) => {
           '&:not(:disabled):hover': {
             [`@apply bg-${dark.default} text-cream-1`]: {},
           },
+        },
+      };
+    }),
+    ...createComponentByIntent('outlined-focus', (intentColorKey) => {
+      const light = {
+        default: `${intentColorKey}-6`,
+      };
+      const dark = {
+        default: `${intentColorKey}2-4`,
+      };
+      return {
+        '&:not(:disabled):focus': {
+          '@apply outline-none ring-2 ring-offset-1': {},
+          [`@apply ring-${light.default} ring-offset-cream`]: {},
+        },
+
+        // DarkMode
+        '.dark &': {
           '&:not(:disabled):focus': {
-            '@apply outline-none ring-1 ring-offset-1': {},
-            [`@apply ring-${dark.focus} ring-offset-space`]: {},
+            '@apply outline-none ring-2 ring-offset-1': {},
+            [`@apply ring-${dark.default} ring-offset-space`]: {},
           },
         },
       };
     }),
-  );
+  });
 };

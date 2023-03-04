@@ -32,6 +32,10 @@ export const Tab = React.forwardRef<ElementType, TabProps>(({ children, classNam
           className={clsx(
             CLASSNAME,
             className,
+            'w-full text-center',
+            'transition',
+            'rounded-xl',
+            'cursor-pointer',
             toScaleMatch({
               xs: () => 'py-1 px-2',
               sm: () => 'py-1.5 px-2.5',
@@ -40,23 +44,52 @@ export const Tab = React.forwardRef<ElementType, TabProps>(({ children, classNam
               xl: () => 'py-2 px-4',
             })(scale),
             toIntentMatch({
-              neutral: () => clsx(selected ? 'text-neutral dark:text-neutral-5' : 'hover:bg-neutral-1/50'),
-              light: () => clsx(selected ? 'text-light dark:text-light-5' : 'hover:bg-light-1/50'),
-              dark: () => clsx(selected ? 'text-dark dark:text-dark-5' : 'hover:bg-dark-1/50'),
-              primary: () => clsx(selected ? 'text-primary dark:text-primary-5' : 'hover:bg-primary-1/50'),
-              info: () => clsx(selected ? 'text-info dark:text-info-5' : 'hover:bg-info-1/50'),
-              success: () => clsx(selected ? 'text-success dark:text-success-5' : 'hover:bg-success-1/50'),
-              accent: () => clsx(selected ? 'text-accent dark:text-accent-5' : 'hover:bg-accent-1/50'),
-              warning: () => clsx(selected ? 'text-warning dark:text-warning-5' : 'hover:bg-warning-1/50'),
-              danger: () => clsx(selected ? 'text-danger dark:text-danger-5' : 'hover:bg-danger-1/50'),
+              neutral: () => {
+                return clsx(
+                  selected ? 'solid-neutral' : 'text-space-1 dark:text-cream-1 hover:bg-neutral hover:text-cream-1',
+                );
+              },
+              light: () => {
+                return clsx(
+                  selected ? 'solid-light' : 'text-space-1 dark:text-cream-1 hover:bg-light hover:text-cream-1',
+                );
+              },
+              dark: () => {
+                return clsx(
+                  selected ? 'solid-dark' : 'text-space-1 dark:text-cream-1 hover:bg-dark hover:text-cream-1',
+                );
+              },
+              primary: () => {
+                return clsx(
+                  selected ? 'solid-primary' : 'text-space-1 dark:text-cream-1 hover:bg-primary hover:text-cream-1',
+                );
+              },
+              info: () => {
+                return clsx(
+                  selected ? 'solid-info' : 'text-space-1 dark:text-cream-1 hover:bg-info hover:text-cream-1',
+                );
+              },
+              success: () => {
+                return clsx(
+                  selected ? 'solid-success' : 'text-space-1 dark:text-cream-1 hover:bg-success hover:text-cream-1',
+                );
+              },
+              accent: () => {
+                return clsx(
+                  selected ? 'solid-accent' : 'text-space-1 dark:text-cream-1 hover:bg-accent hover:text-cream-1',
+                );
+              },
+              warning: () => {
+                return clsx(
+                  selected ? 'solid-warning' : 'text-space-1 dark:text-cream-1 hover:bg-warning hover:text-cream-1',
+                );
+              },
+              danger: () => {
+                return clsx(
+                  selected ? 'solid-danger' : 'text-space-1 dark:text-cream-1 hover:bg-danger hover:text-cream-1',
+                );
+              },
             })(intent),
-            {
-              'bg-light-1/90 dark:bg-dark-8/90': selected,
-            },
-            'w-full text-center',
-            'transition',
-            'rounded-xl',
-            'cursor-pointer',
           )}
         >
           {children}

@@ -129,9 +129,9 @@ const themeColors = {
    * for Dark UI
    */
   space: 'rgb(1, 4, 9)', // Layout background
-  'space-1': 'rgb(22, 27, 34)', // UI background commonly
-  'space-2': 'rgb(33, 38, 45)', // UI border commonly
-  'space-3': 'rgb(48, 54, 61)', // UI border commonly
+  'space-1': 'rgb(33, 38, 45)', // UI background commonly
+  'space-2': 'rgb(48, 46, 53)', // UI border commonly
+  'space-3': 'rgb(63, 54, 61)', // UI border commonly
 };
 
 const palette = {

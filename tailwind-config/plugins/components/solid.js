@@ -26,7 +26,7 @@ module.exports = ({ addComponents, theme }) => {
           [`@apply bg-${light.hover}`]: {},
         },
         '&:not(:disabled):focus': {
-          '@apply outline-none ring-1 ring-offset-1': {},
+          '@apply outline-none ring-2 ring-offset-1': {},
           [`@apply ring-${light.focus} ring-offset-cream ring-offset-cream`]: {},
         },
 
@@ -37,7 +37,7 @@ module.exports = ({ addComponents, theme }) => {
             [`@apply bg-${dark.hover}`]: {},
           },
           '&:not(:disabled):focus': {
-            '@apply outline-none ring-1 ring-offset-1': {},
+            '@apply outline-none ring-2 ring-offset-1': {},
             [`@apply ring-${dark.focus} ring-offset-space ring-offset-space`]: {},
           },
         },
