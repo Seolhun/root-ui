@@ -39,7 +39,7 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
               className,
               'max-w-150',
               'py-1 px-2',
-              'rounded-md',
+              'rounded',
               'border border-light-3 dark:border-dark-7',
               'bg-cream-1 text-space-1',
               'dark:bg-space-1 dark:text-cream-1',

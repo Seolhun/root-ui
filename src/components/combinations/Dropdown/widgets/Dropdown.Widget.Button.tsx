@@ -28,7 +28,7 @@ export const DropdownWidgetButton = React.forwardRef<HTMLButtonElement, Dropdown
             'bg-cream-1 dark:bg-space-1',
             'text-space-1 dark:text-cream-1',
             'border border-light-2 dark:border-space-2',
-            'shadow-md rounded-md',
+            'shadow-md rounded',
             'cursor-pointer',
             {
               'bg-light-2 dark:bg-dark-7 opacity-70 cursor-not-allowed': disabled,

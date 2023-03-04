@@ -39,7 +39,7 @@ const Button = React.forwardRef<ElementType, ButtonProps>(
           CLASSNAME,
           className,
           'flex items-center justify-center',
-          'rounded-md',
+          'rounded',
           'placeholder:text-dark',
           'disabled:opacity-50 disabled:cursor-not-allowed',
         )}

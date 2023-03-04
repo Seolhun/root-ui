@@ -55,7 +55,7 @@ const Textarea = React.forwardRef<ElementType, TextareaProps>(
           'dark:bg-space-1 dark:text-cream-1',
           'disabled:bg-neutral-1 disabled:border-neutral-4 disabled:placeholder:text-neutral-light',
           'border border-light-3 dark:border-dark-7',
-          'rounded-md',
+          'rounded',
           'caret-neutral',
         )}
       />

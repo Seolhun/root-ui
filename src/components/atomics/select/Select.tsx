@@ -30,7 +30,7 @@ export const Select = React.forwardRef<ElementType, SelectProps>(
         className={clsx(
           CLASSNAME,
           className,
-          'shadow-sm border border-gray-4 focus:ring-gray-800 block w-full sm:text-sm rounded-md',
+          'shadow-sm border border-gray-4 focus:ring-gray-800 block w-full sm:text-sm rounded',
           'px-2',
           toScaleMatch({
             xs: () => 'text-2 py-1',
