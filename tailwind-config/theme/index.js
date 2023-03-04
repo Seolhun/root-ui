@@ -50,11 +50,10 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
     // @see https://tailwindcss.com/docs/customizing-colors
     variants: {
       extend: {
-        backgroundColor: ['checked'],
-        borderColor: ['checked'],
+        backgroundColor: ['checked', 'disabled', 'hover', 'focus', 'active'],
+        borderColor: ['checked', 'disabled', 'hover', 'focus', 'active'],
         cursor: ['disabled'],
         opacity: ['disabled'],
-        outline: ['hover', 'active', 'focus'],
         width: ['focus'],
         /**
          * @see https://tailwindcss.com/docs/transition-property

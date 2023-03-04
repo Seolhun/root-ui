@@ -1,47 +1,60 @@
-const { createComponentByIntent } = require('./createComponentByIntent');
+const { intentColorKeys } = require('../../presets/Colors');
 
 module.exports = ({ addComponents, theme }) => {
-  return addComponents(
-    createComponentByIntent('solid', (intentColorKey) => {
-      const light = {
-        default: `${intentColorKey}`,
-        text: `cream-1`,
-        hover: `${intentColorKey}-6`,
-        focus: `${intentColorKey}-6`,
-      };
-      const dark = {
-        default: `${intentColorKey}2`,
-        text: `cream-1`,
-        hover: `${intentColorKey}2-6`,
-        focus: `${intentColorKey}2-6`,
-      };
-      return {
-        // Common
-        '@apply border': {},
+  const className = 'solid';
+  const commonStyles = {
+    '@apply border outline-none': {},
+  };
 
-        // LightMode
-        [`@apply text-${light.text} bg-${light.default} border-${light.default}`]: {},
+  // Light mode
+  const lightStyles = {};
+  intentColorKeys.forEach((key) => {
+    const intent = {
+      main: `${key}`,
+      text: `cream-1`,
+      hover: `${key}-6`,
+      focus: `${key}-6`,
+    };
 
-        '&:not(:disabled):hover': {
-          [`@apply bg-${light.hover}`]: {},
-        },
-        '&:not(:disabled):focus': {
-          '@apply outline-none ring-2 ring-offset-1': {},
-          [`@apply ring-${light.focus} ring-offset-cream ring-offset-cream`]: {},
-        },
+    lightStyles[`.${className}-${key}`] = {
+      ...commonStyles,
+      [`@apply text-${intent.text} bg-${intent.main} border-${intent.main}`]: {},
 
-        '.dark &': {
-          [`@apply text-${dark.text} bg-${dark.default} border-${dark.default}`]: {},
+      '&:not(:disabled):hover': {
+        [`@apply bg-${intent.hover}`]: {},
+      },
 
-          '&:not(:disabled):hover': {
-            [`@apply bg-${dark.hover}`]: {},
-          },
-          '&:not(:disabled):focus': {
-            '@apply outline-none ring-2 ring-offset-1': {},
-            [`@apply ring-${dark.focus} ring-offset-space ring-offset-space`]: {},
-          },
-        },
-      };
-    }),
-  );
+      '&:not(:disabled):focus': {
+        '@apply ring-2 ring-offset-1': {},
+        [`@apply ring-${intent.focus} ring-offset-cream ring-offset-cream`]: {},
+      },
+    };
+  });
+  addComponents(lightStyles);
+
+  // Dark mode
+  const darkStyles = {};
+  intentColorKeys.forEach((key) => {
+    const intent = {
+      main: `${key}2`,
+      text: `cream-1`,
+      hover: `${key}2-6`,
+      focus: `${key}2-6`,
+    };
+
+    darkStyles[`.dark .${className}-${key}`] = {
+      ...commonStyles,
+      [`@apply text-${intent.text} bg-${intent.main} border-${intent.main}`]: {},
+
+      '&:not(:disabled):hover': {
+        [`@apply bg-${intent.hover}`]: {},
+      },
+
+      '&:not(:disabled):focus': {
+        '@apply ring-2 ring-offset-1': {},
+        [`@apply ring-${intent.focus} ring-offset-space ring-offset-space`]: {},
+      },
+    };
+  });
+  addComponents(darkStyles);
 };

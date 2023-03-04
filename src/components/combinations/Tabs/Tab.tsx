@@ -26,7 +26,7 @@ export const Tab = React.forwardRef<ElementType, TabProps>(({ children, classNam
   const { scale, intent } = useRootGroupContext();
 
   return (
-    <BaseTab {...rests} ref={ref} as="li" role="tab" className="w-full">
+    <BaseTab {...rests} ref={ref} as="li" role="tab" className={clsx('w-full', 'outline-none ring-0')}>
       {({ selected }) => (
         <div
           className={clsx(
@@ -37,57 +37,39 @@ export const Tab = React.forwardRef<ElementType, TabProps>(({ children, classNam
             'rounded-xl',
             'cursor-pointer',
             toScaleMatch({
-              xs: () => 'py-1 px-2',
-              sm: () => 'py-1.5 px-2.5',
-              md: () => 'py-1.5 px-3',
-              lg: () => 'py-2 px-3.5',
-              xl: () => 'py-2 px-4',
+              xs: () => 'scale-p-xs',
+              sm: () => 'scale-p-sm',
+              md: () => 'scale-p-md',
+              lg: () => 'scale-p-lg',
+              xl: () => 'scale-p-xl',
             })(scale),
             toIntentMatch({
               neutral: () => {
-                return clsx(
-                  selected ? 'solid-neutral' : 'text-space-1 dark:text-cream-1 hover:bg-neutral hover:text-cream-1',
-                );
+                return clsx(selected ? 'solid-neutral' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
               },
               light: () => {
-                return clsx(
-                  selected ? 'solid-light' : 'text-space-1 dark:text-cream-1 hover:bg-light hover:text-cream-1',
-                );
+                return clsx(selected ? 'solid-light' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
               },
               dark: () => {
-                return clsx(
-                  selected ? 'solid-dark' : 'text-space-1 dark:text-cream-1 hover:bg-dark hover:text-cream-1',
-                );
+                return clsx(selected ? 'solid-dark' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
               },
               primary: () => {
-                return clsx(
-                  selected ? 'solid-primary' : 'text-space-1 dark:text-cream-1 hover:bg-primary hover:text-cream-1',
-                );
+                return clsx(selected ? 'solid-primary' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
               },
               info: () => {
-                return clsx(
-                  selected ? 'solid-info' : 'text-space-1 dark:text-cream-1 hover:bg-info hover:text-cream-1',
-                );
+                return clsx(selected ? 'solid-info' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
               },
               success: () => {
-                return clsx(
-                  selected ? 'solid-success' : 'text-space-1 dark:text-cream-1 hover:bg-success hover:text-cream-1',
-                );
+                return clsx(selected ? 'solid-success' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
               },
               accent: () => {
-                return clsx(
-                  selected ? 'solid-accent' : 'text-space-1 dark:text-cream-1 hover:bg-accent hover:text-cream-1',
-                );
+                return clsx(selected ? 'solid-accent' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
               },
               warning: () => {
-                return clsx(
-                  selected ? 'solid-warning' : 'text-space-1 dark:text-cream-1 hover:bg-warning hover:text-cream-1',
-                );
+                return clsx(selected ? 'solid-warning' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
               },
               danger: () => {
-                return clsx(
-                  selected ? 'solid-danger' : 'text-space-1 dark:text-cream-1 hover:bg-danger hover:text-cream-1',
-                );
+                return clsx(selected ? 'solid-danger' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
               },
             })(intent),
           )}

@@ -130,8 +130,8 @@ const themeColors = {
    */
   space: 'rgb(1, 4, 9)', // Layout background
   'space-1': 'rgb(33, 38, 45)', // UI background commonly
-  'space-2': 'rgb(48, 46, 53)', // UI border commonly
-  'space-3': 'rgb(63, 54, 61)', // UI border commonly
+  'space-2': 'rgb(41, 46, 50)', // UI border commonly
+  'space-3': 'rgb(49, 54, 65)', // UI border commonly
 };
 
 const palette = {
@@ -141,6 +141,7 @@ const palette = {
 };
 
 module.exports = {
+  intents,
   intentColorMap,
   intentColorKeys,
   intentColors,

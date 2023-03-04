@@ -1,62 +1,56 @@
-const { createComponentByIntent } = require('./createComponentByIntent');
+const { intentColorKeys } = require('../../presets/Colors');
 
 module.exports = ({ addComponents, theme }) => {
-  return addComponents({
-    ...createComponentByIntent('outlined', (intentColorKey) => {
-      const light = {
-        default: `${intentColorKey}`,
-        text: `${intentColorKey}`,
-        border: `${intentColorKey}`,
-      };
-      const dark = {
-        default: `${intentColorKey}2`,
-        text: `${intentColorKey}2`,
-        border: `${intentColorKey}2`,
-      };
-      return {
-        // Common
-        '@apply border': {},
+  const className = 'outlined';
+  const commonStyles = {
+    '@apply border outline-none': {},
+  };
 
-        // LightMode
-        '@apply bg-cream text-cream': {},
-        [`@apply text-${light.text} border-${light.border}`]: {},
+  // Light mode
+  const lightStyles = {};
+  intentColorKeys.forEach((key) => {
+    const intent = {
+      main: `${key}`,
+    };
 
-        '&:not(:disabled):hover': {
-          [`@apply bg-${light.default} text-cream-1`]: {},
-        },
+    lightStyles[`.${className}-${key}`] = {
+      ...commonStyles,
+      '@apply bg-transparent': {},
+      [`@apply text-${intent.main} border-${intent.main}`]: {},
 
-        // DarkMode
-        '.dark &': {
-          '@apply bg-space text-space': {},
-          [`@apply text-${dark.text} border-${dark.border}`]: {},
+      '&:not(:disabled):hover': {
+        [`@apply bg-${intent.main} text-cream-1`]: {},
+      },
 
-          '&:not(:disabled):hover': {
-            [`@apply bg-${dark.default} text-cream-1`]: {},
-          },
-        },
-      };
-    }),
-    ...createComponentByIntent('outlined-focus', (intentColorKey) => {
-      const light = {
-        default: `${intentColorKey}-6`,
-      };
-      const dark = {
-        default: `${intentColorKey}2-4`,
-      };
-      return {
-        '&:not(:disabled):focus': {
-          '@apply outline-none ring-2 ring-offset-1': {},
-          [`@apply ring-${light.default} ring-offset-cream`]: {},
-        },
-
-        // DarkMode
-        '.dark &': {
-          '&:not(:disabled):focus': {
-            '@apply outline-none ring-2 ring-offset-1': {},
-            [`@apply ring-${dark.default} ring-offset-space`]: {},
-          },
-        },
-      };
-    }),
+      '&:not(:disabled):focus': {
+        '@apply outline-none ring-2 ring-offset-1': {},
+        [`@apply ring-${intent.main} ring-offset-cream`]: {},
+      },
+    };
   });
+  addComponents(lightStyles);
+
+  // Dark mode
+  const darkStyles = {};
+  intentColorKeys.forEach((key) => {
+    const intent = {
+      main: `${key}2`,
+    };
+
+    darkStyles[`.dark .${className}-${key}`] = {
+      ...commonStyles,
+      '@apply bg-transparent text-cream': {},
+      [`@apply text-${intent.main} border-${intent.main}`]: {},
+
+      '&:not(:disabled):hover': {
+        [`@apply bg-${intent.main} text-cream-1`]: {},
+      },
+
+      '&:not(:disabled):focus': {
+        '@apply outline-none ring-2 ring-offset-1': {},
+        [`@apply ring-${intent.main} ring-offset-space`]: {},
+      },
+    };
+  });
+  addComponents(darkStyles);
 };

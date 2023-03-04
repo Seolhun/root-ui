@@ -14,7 +14,7 @@ const solid = require('./solid');
 // config(), for looking up values in the user’s Tailwind configuration
 // corePlugins(), for checking if a core plugin is enabled
 // e(), for manually escaping strings meant to be used in class names
-module.exports = plugin(function ({ addComponents, theme }) {
-  outlined({ addComponents, theme });
-  solid({ addComponents, theme });
+module.exports = plugin(function (options) {
+  outlined(options);
+  solid(options);
 });
