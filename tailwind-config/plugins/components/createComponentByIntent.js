@@ -1,22 +1,10 @@
-const isObject = require('lodash/isObject');
 const { intentColorKeys } = require('../../presets/Colors');
 
-function createIntentComponent(componentName, intentColorKey, { light, dark }) {
-  if (!isObject(light)) {
-    throw new Error('Required "light" object to create intent component');
-  }
-  if (!isObject(dark)) {
-    throw new Error('Required "dark" object to create intent component');
-  }
-
-  const componentClassName = `.${componentName}-${intentColorKey}`;
+function createIntentComponent(componentName, intentColorKey, styles) {
+  const className = `.${componentName}-${intentColorKey}`;
   return {
-    [componentClassName]: {
-      ...light,
-    },
-    // Class Strategy
-    [`.dark ${componentClassName}`]: {
-      ...dark,
+    [className]: {
+      ...styles,
     },
   };
 }

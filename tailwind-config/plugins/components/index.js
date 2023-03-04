@@ -1,7 +1,7 @@
 const plugin = require('tailwindcss/plugin');
 
-const { outlined } = require('./outlined');
-const { solid } = require('./solid');
+const outlined = require('./outlined');
+const solid = require('./solid');
 
 // addUtilities(), for registering new static utility styles
 // matchUtilities(), for registering new dynamic utility styles
@@ -15,8 +15,6 @@ const { solid } = require('./solid');
 // corePlugins(), for checking if a core plugin is enabled
 // e(), for manually escaping strings meant to be used in class names
 module.exports = plugin(function ({ addComponents, theme }) {
-  addComponents({
-    ...outlined({ theme }),
-    ...solid({ theme }),
-  });
+  addComponents(outlined({ theme }));
+  addComponents(solid({ theme }));
 });

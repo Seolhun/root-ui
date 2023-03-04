@@ -1,6 +1,6 @@
 const colors = require('tailwindcss/colors');
 const merge = require('lodash/merge');
-const { darken, alpha } = require('../utils');
+const { createIntentColor } = require('../utils');
 
 const intents = {
   light: {
@@ -27,45 +27,29 @@ const intents = {
   },
 };
 
-function createColor(color) {
-  return {
-    '50': alpha(color, 0.1),
-    '100': alpha(color, 0.15),
-    '200': alpha(color, 0.3),
-    '300': alpha(color, 0.4),
-    '400': color,
-    '500': darken(color, 0.1),
-    '600': darken(color, 0.2),
-    '700': darken(color, 0.3),
-    '800': darken(color, 0.4),
-    '900': darken(color, 0.5),
-  };
-}
-
+const intentColorKeys = ['primary', 'info', 'success', 'accent', 'warning', 'danger', 'neutral', 'light', 'dark'];
 const intentColorMap = {
   // Light
-  primary: createColor(intents.light.primary),
-  info: createColor(intents.light.info),
-  success: createColor(intents.light.success),
-  accent: createColor(intents.light.accent),
-  warning: createColor(intents.light.warning),
-  danger: createColor(intents.light.danger),
-  neutral: createColor(intents.light.neutral),
-  light: createColor(intents.light.light),
-  dark: createColor(intents.light.dark),
+  primary: createIntentColor(intents.light.primary),
+  info: createIntentColor(intents.light.info),
+  success: createIntentColor(intents.light.success),
+  accent: createIntentColor(intents.light.accent),
+  warning: createIntentColor(intents.light.warning),
+  danger: createIntentColor(intents.light.danger),
+  neutral: createIntentColor(intents.light.neutral),
+  light: createIntentColor(intents.light.light),
+  dark: createIntentColor(intents.light.dark),
   // Dark
-  primary2: createColor(intents.dark.primary),
-  info2: createColor(intents.dark.info),
-  success2: createColor(intents.dark.success),
-  accent2: createColor(intents.dark.accent),
-  warning2: createColor(intents.dark.warning),
-  danger2: createColor(intents.dark.danger),
-  neutral2: createColor(intents.dark.neutral),
-  light2: createColor(intents.dark.light),
-  dark2: createColor(intents.dark.dark),
+  primary_dark: createIntentColor(intents.dark.primary),
+  info_dark: createIntentColor(intents.dark.info),
+  success_dark: createIntentColor(intents.dark.success),
+  accent_dark: createIntentColor(intents.dark.accent),
+  warning_dark: createIntentColor(intents.dark.warning),
+  danger_dark: createIntentColor(intents.dark.danger),
+  neutral_dark: createIntentColor(intents.dark.neutral),
+  light_dark: createIntentColor(intents.dark.light),
+  dark_dark: createIntentColor(intents.dark.dark),
 };
-
-const intentColorKeys = Object.keys(intentColorMap);
 
 /**
  * 400 -> primary
@@ -112,6 +96,9 @@ const intentColors = {
   inherit: 'inherit',
 };
 
+/**
+ * @deprecated It couldn't be supported dark theme
+ */
 const typographyColors = {
   title: colors.zinc[900],
   description: colors.zinc[700],
