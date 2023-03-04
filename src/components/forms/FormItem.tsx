@@ -1,7 +1,7 @@
 import * as React from 'react';
 import clsx from 'clsx';
 
-import { RootIntent, RootScale, toScaleMatch } from '../../system';
+import { RootScale, toScaleMatch } from '../../system';
 import { FormLabel, FormLabelProps } from './FormLabel';
 import { FormHelp } from './FormHelp';
 import { Box } from '../common';
@@ -15,11 +15,6 @@ export interface FormItemProps extends ElementProps {
    * @default md
    */
   scale?: RootScale;
-
-  /**
-   * @default neutral
-   */
-  intent?: RootIntent;
 
   /**
    * Form label
@@ -43,7 +38,7 @@ export interface FormItemProps extends ElementProps {
 }
 
 export const FormItem = React.forwardRef<ElementType, FormItemProps>(
-  ({ children, className, scale = 'md', intent = 'neutral', label, htmlFor, help, required, ...others }, ref) => {
+  ({ children, className, scale = 'md', label, htmlFor, help, required, ...others }, ref) => {
     return (
       <Box
         {...others}
@@ -59,16 +54,12 @@ export const FormItem = React.forwardRef<ElementType, FormItemProps>(
         className={clsx(CLASSNAME, className)}
       >
         {label && (
-          <FormLabel scale={scale} intent={intent} htmlFor={htmlFor} required={required}>
+          <FormLabel scale={scale} htmlFor={htmlFor} required={required}>
             {label}
           </FormLabel>
         )}
         {children}
-        {help && (
-          <FormHelp scale={scale} intent={intent}>
-            {help}
-          </FormHelp>
-        )}
+        {help && <FormHelp scale={scale}>{help}</FormHelp>}
       </Box>
     );
   },

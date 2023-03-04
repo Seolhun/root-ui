@@ -1,7 +1,7 @@
 import * as React from 'react';
 import clsx from 'clsx';
 
-import { RootIntent, RootScale, toScaleMatch } from '../../system';
+import { RootScale, toScaleMatch } from '../../system';
 import { Box } from '../common';
 
 const CLASSNAME = 'Root__FormHelp';
@@ -13,15 +13,10 @@ export interface FormHelpProps extends ElementProps {
    * @default md
    */
   scale?: RootScale;
-
-  /**
-   * @default neutral
-   */
-  intent?: RootIntent;
 }
 
 export const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
-  ({ children, className, scale = 'md', intent = 'neutral', ...others }, ref) => {
+  ({ children, className, scale = 'md', ...others }, ref) => {
     return (
       <Box
         {...others}

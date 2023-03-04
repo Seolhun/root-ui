@@ -54,21 +54,3 @@ ScaleFormItems.args = {
   label: 'Name',
   help: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
 };
-
-const IntentFormItemTemplate = ({ ...rests }: FormItemProps) => {
-  return (
-    <StorybookContent noAlign>
-      {storiesIntentOptions.map((intent) => (
-        <FormItem {...rests} key={intent} intent={intent}>
-          <Input />
-        </FormItem>
-      ))}
-    </StorybookContent>
-  );
-};
-
-export const IntentFormItems = IntentFormItemTemplate.bind({});
-IntentFormItems.args = {
-  label: 'Name',
-  help: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-};

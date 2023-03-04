@@ -1,7 +1,7 @@
 import * as React from 'react';
 import clsx from 'clsx';
 
-import { RootIntent, RootScale, toScaleMatch } from '../../system';
+import { RootScale, toScaleMatch } from '../../system';
 import { Box } from '../common';
 
 const CLASSNAME = 'Root__FormLabel';
@@ -14,16 +14,11 @@ export interface FormLabelProps extends ElementProps {
    */
   scale?: RootScale;
 
-  /**
-   * @default neutral
-   */
-  intent?: RootIntent;
-
   required?: boolean;
 }
 
 export const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
-  ({ children, className, htmlFor, scale = 'md', intent = 'neutral', required, ...others }, ref) => {
+  ({ children, className, htmlFor, scale = 'md', required, ...others }, ref) => {
     return (
       <Box
         {...others}
