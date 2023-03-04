@@ -1,98 +1,75 @@
 const colors = require('tailwindcss/colors');
 const merge = require('lodash/merge');
-const { lighten, darken } = require('../utils');
+const { darken, alpha } = require('../utils');
 
-const primary = '#0077CC';
-const info = '#22d3ee';
-const success = '#00BFB3';
-const accent = '#F04E98';
-const warning = '#FEC514';
-const danger = '#BD271E';
+const intents = {
+  light: {
+    primary: '#0077CC',
+    info: '#22d3ee',
+    success: '#00BFB3',
+    accent: '#F04E98',
+    warning: '#FEC514',
+    danger: '#BD271E',
+    neutral: '#98A2B3',
+    light: '#F5F7FA',
+    dark: '#D3DAE6',
+  },
+  dark: {
+    primary: '#36A2EF',
+    info: '#06b6d4',
+    success: '#7DDED8',
+    accent: '#F68FBE',
+    warning: '#F3D371',
+    danger: '#F86B63',
+    neutral: '#98A2B3',
+    light: '#69707D',
+    dark: '#343741',
+  },
+};
+
+function createColor(color) {
+  return {
+    '50': alpha(color, 0.1),
+    '100': alpha(color, 0.15),
+    '200': alpha(color, 0.3),
+    '300': alpha(color, 0.4),
+    '400': color,
+    '500': darken(color, 0.1),
+    '600': darken(color, 0.2),
+    '700': darken(color, 0.3),
+    '800': darken(color, 0.4),
+    '900': darken(color, 0.5),
+  };
+}
 
 const intentColorMap = {
-  primary: {
-    '50': lighten(primary, 0.2),
-    '100': lighten(primary, 0.15),
-    '200': lighten(primary, 0.1),
-    '300': lighten(primary, 0.05),
-    '400': primary,
-    '500': darken(primary, 0.05),
-    '600': darken(primary, 0.1),
-    '700': darken(primary, 0.15),
-    '800': darken(primary, 0.2),
-    '900': darken(primary, 0.25),
-  },
-  info: {
-    '50': lighten(info, 0.2),
-    '100': lighten(info, 0.15),
-    '200': lighten(info, 0.1),
-    '300': lighten(info, 0.05),
-    '400': info,
-    '500': darken(info, 0.05),
-    '600': darken(info, 0.1),
-    '700': darken(info, 0.15),
-    '800': darken(info, 0.2),
-    '900': darken(info, 0.25),
-  },
-  success: {
-    '50': lighten(success, 0.2),
-    '100': lighten(success, 0.15),
-    '200': lighten(success, 0.1),
-    '300': lighten(success, 0.05),
-    '400': success,
-    '500': darken(success, 0.05),
-    '600': darken(success, 0.1),
-    '700': darken(success, 0.15),
-    '800': darken(success, 0.2),
-    '900': darken(success, 0.25),
-  },
-  accent: {
-    '50': lighten(accent, 0.2),
-    '100': lighten(accent, 0.15),
-    '200': lighten(accent, 0.1),
-    '300': lighten(accent, 0.05),
-    '400': accent,
-    '500': darken(accent, 0.05),
-    '600': darken(accent, 0.1),
-    '700': darken(accent, 0.15),
-    '800': darken(accent, 0.2),
-    '900': darken(accent, 0.25),
-  },
-  warning: {
-    '50': lighten(warning, 0.2),
-    '100': lighten(warning, 0.15),
-    '200': lighten(warning, 0.1),
-    '300': lighten(warning, 0.05),
-    '400': warning,
-    '500': darken(warning, 0.05),
-    '600': darken(warning, 0.1),
-    '700': darken(warning, 0.15),
-    '800': darken(warning, 0.2),
-    '900': darken(warning, 0.25),
-  },
-  danger: {
-    '50': lighten(danger, 0.2),
-    '100': lighten(danger, 0.15),
-    '200': lighten(danger, 0.1),
-    '300': lighten(danger, 0.05),
-    '400': danger,
-    '500': darken(danger, 0.05),
-    '600': darken(danger, 0.1),
-    '700': darken(danger, 0.15),
-    '800': darken(danger, 0.2),
-    '900': darken(danger, 0.25),
-  },
-  default: colors.gray,
-  neutral: colors.neutral,
-  light: colors.slate,
-  dark: colors.zinc,
+  // Light
+  primary: createColor(intents.light.primary),
+  info: createColor(intents.light.info),
+  success: createColor(intents.light.success),
+  accent: createColor(intents.light.accent),
+  warning: createColor(intents.light.warning),
+  danger: createColor(intents.light.danger),
+  neutral: createColor(intents.light.neutral),
+  light: createColor(intents.light.light),
+  dark: createColor(intents.light.dark),
+  // Dark
+  primary2: createColor(intents.dark.primary),
+  info2: createColor(intents.dark.info),
+  success2: createColor(intents.dark.success),
+  accent2: createColor(intents.dark.accent),
+  warning2: createColor(intents.dark.warning),
+  danger2: createColor(intents.dark.danger),
+  neutral2: createColor(intents.dark.neutral),
+  light2: createColor(intents.dark.light),
+  dark2: createColor(intents.dark.dark),
 };
 
 const intentColorKeys = Object.keys(intentColorMap);
 
 /**
  * 400 -> primary
- * 50  -> primary-
+ * 50  -> primary-0
  * 100 -> primary-1
  * 200 -> primary-2
  * 300 -> primary-3

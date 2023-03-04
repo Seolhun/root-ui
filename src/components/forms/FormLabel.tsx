@@ -15,13 +15,13 @@ export interface FormLabelProps extends ElementProps {
   scale?: RootScale;
 
   /**
-   * @default default
+   * @default neutral
    */
   intent?: RootIntent;
 }
 
-const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
-  ({ children, className, htmlFor, scale = 'md', intent = 'default', ...others }, ref) => {
+export const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
+  ({ children, className, htmlFor, scale = 'md', intent = 'neutral', ...others }, ref) => {
     return (
       <Box
         {...others}
@@ -37,13 +37,13 @@ const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
           xl: () => 'text-4 p-1',
         })(scale)}
         intentClassName={toIntentMatch({
-          default: () => 'text-default',
           neutral: () => 'text-neutral',
           light: () => 'text-light',
           dark: () => 'text-dark',
           primary: () => 'text-primary',
           info: () => 'text-info',
           success: () => 'text-success',
+          accent: () => clsx('text-accent'),
           warning: () => 'text-warning',
           danger: () => 'text-danger',
         })(intent)}
@@ -54,6 +54,3 @@ const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
     );
   },
 );
-
-export { FormLabel };
-export default FormLabel;

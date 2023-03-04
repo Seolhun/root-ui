@@ -36,13 +36,13 @@ const Input = React.forwardRef<ElementType, InputProps>(
           xl: () => 'text-4 py-2 px-4',
         })(scale)}
         intentClassName={toIntentMatch({
-          default: () => clsx('outline-default dark:outline-default'),
           neutral: () => clsx('outline-neutral dark:outline-neutral'),
           light: () => clsx('outline-light dark:outline-light'),
           dark: () => clsx('outline-dark dark:outline-dark'),
           primary: () => clsx('outline-primary dark:outline-primary'),
           info: () => clsx('outline-info dark:outline-info'),
           success: () => clsx('outline-success dark:outline-success'),
+          accent: () => clsx('outline-accent dark:outline-accent'),
           warning: () => clsx('outline-warning dark:outline-warning'),
           danger: () => clsx('outline-danger dark:outline-danger'),
         })(intent)}

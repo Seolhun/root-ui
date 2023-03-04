@@ -15,13 +15,13 @@ export interface FormHelpProps extends ElementProps {
   scale?: RootScale;
 
   /**
-   * @default default
+   * @default neutral
    */
   intent?: RootIntent;
 }
 
 const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
-  ({ children, className, scale = 'md', intent = 'default', ...others }, ref) => {
+  ({ children, className, scale = 'md', intent = 'neutral', ...others }, ref) => {
     return (
       <Box
         {...others}
@@ -35,13 +35,13 @@ const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
           xl: () => 'text-4 p-1',
         })(scale)}
         intentClassName={toIntentMatch({
-          default: () => clsx('text-default'),
           neutral: () => clsx('text-neutral'),
           light: () => clsx('text-light'),
           dark: () => clsx('text-dark'),
           primary: () => clsx('text-primary'),
           info: () => clsx('text-info'),
           success: () => clsx('text-success'),
+          accent: () => clsx('text-accent'),
           warning: () => clsx('text-warning'),
           danger: () => clsx('text-danger'),
         })(intent)}

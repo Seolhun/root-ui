@@ -7,7 +7,6 @@ export type RootIntent =
   | 'accent'
   | 'warning'
   | 'danger'
-  | 'default'
   | 'light'
   | 'dark'
   | 'neutral';

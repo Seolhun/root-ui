@@ -43,13 +43,13 @@ const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
           type="checkbox"
           id={htmlForAndID}
           intentClassName={toIntentMatch({
-            default: () => clsx('accent-default-6', 'dark:accent-default-6'),
             neutral: () => clsx('accent-neutral-6', 'dark:accent-neutral-6'),
             light: () => clsx('accent-light-6', 'dark:accent-light-6'),
             dark: () => clsx('accent-dark-6', 'dark:accent-dark-6'),
             primary: () => clsx('accent-primary-6', 'dark:accent-primary-6'),
             info: () => clsx('accent-info-6', 'dark:accent-info-6'),
             success: () => clsx('accent-success-6', 'dark:accent-success-6'),
+            accent: () => clsx('accent-accent-6', 'dark:accent-accent-6'),
             warning: () => clsx('accent-warning-6', 'dark:accent-warning-6'),
             danger: () => clsx('accent-danger-6', 'dark:accent-danger-6'),
           })(intent)}

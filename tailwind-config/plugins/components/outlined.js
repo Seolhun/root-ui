@@ -3,15 +3,15 @@ const { createComponentByIntent } = require('./createComponentByIntent');
 const outlined = ({ theme }) => {
   return createComponentByIntent('outlined', (intentColorKey) => {
     const light = {
-      default: intentColorKey,
-      text: intentColorKey,
-      border: intentColorKey,
+      default: `${intentColorKey}`,
+      text: `${intentColorKey}`,
+      border: `${intentColorKey}`,
       focus: `${intentColorKey}-6`,
     };
     const dark = {
       default: `${intentColorKey}`,
       text: `${intentColorKey}`,
-      border: intentColorKey,
+      border: `${intentColorKey}`,
       focus: `${intentColorKey}-4`,
     };
 
@@ -21,7 +21,7 @@ const outlined = ({ theme }) => {
     return {
       light: {
         ...defaultStyles,
-        [`@apply text-${light.text} bg-white border-${light.border}`]: {},
+        [`@apply text-${light.text} bg-cream border-${light.border}`]: {},
 
         '&:hover': {
           [`@apply text-cream bg-${light.default}`]: {},
@@ -33,7 +33,7 @@ const outlined = ({ theme }) => {
       },
       dark: {
         ...defaultStyles,
-        [`@apply text-${dark.text} bg-black border-${dark.border}`]: {},
+        [`@apply text-${dark.text} bg-space border-${dark.border}`]: {},
 
         '&:hover': {
           [`@apply text-space bg-${dark.default}`]: {},

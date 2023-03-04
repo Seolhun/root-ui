@@ -17,7 +17,7 @@ export interface FormItemProps extends ElementProps {
   scale?: RootScale;
 
   /**
-   * @default default
+   * @default neutral
    */
   intent?: RootIntent;
 
@@ -37,8 +37,8 @@ export interface FormItemProps extends ElementProps {
   htmlFor?: FormLabelProps['htmlFor'];
 }
 
-const FormItem = React.forwardRef<ElementType, FormItemProps>(
-  ({ children, className, scale = 'md', intent = 'default', label, htmlFor, help, ...others }, ref) => {
+export const FormItem = React.forwardRef<ElementType, FormItemProps>(
+  ({ children, className, scale = 'md', intent = 'neutral', label, htmlFor, help, ...others }, ref) => {
     return (
       <Box
         {...others}
@@ -52,13 +52,13 @@ const FormItem = React.forwardRef<ElementType, FormItemProps>(
           xl: () => 'text-4 p-1',
         })(scale)}
         intentClassName={toIntentMatch({
-          default: () => clsx('text-default'),
           neutral: () => clsx('text-neutral'),
           light: () => clsx('text-light'),
           dark: () => clsx('text-dark'),
           primary: () => clsx('text-primary'),
           info: () => clsx('text-info'),
           success: () => clsx('text-success'),
+          accent: () => clsx('text-accent'),
           warning: () => clsx('text-warning'),
           danger: () => clsx('text-danger'),
         })(intent)}
@@ -79,6 +79,3 @@ const FormItem = React.forwardRef<ElementType, FormItemProps>(
     );
   },
 );
-
-export { FormItem };
-export default FormItem;

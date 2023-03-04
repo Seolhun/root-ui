@@ -20,13 +20,13 @@ const BlockQuote = ({ className, children, intent = 'primary', ...rests }: Block
       {...rests}
       as="blockquote"
       intentClassName={toIntentMatch({
-        default: () => clsx('border-default'),
         neutral: () => clsx('border-neutral'),
         light: () => clsx('border-light'),
         dark: () => clsx('border-dark'),
         primary: () => clsx('border-primary'),
         info: () => clsx('border-info'),
         success: () => clsx('border-success'),
+        accent: () => clsx('border-accent'),
         warning: () => clsx('border-warning'),
         danger: () => clsx('border-danger'),
       })(intent)}

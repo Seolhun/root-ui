@@ -4,13 +4,13 @@ const solid = ({ theme }) => {
   return createComponentByIntent('solid', (intentColorKey) => {
     const light = {
       default: intentColorKey,
-      text: `${intentColorKey}-1`,
+      text: `cream-1`,
       hover: `${intentColorKey}-6`,
       focus: `${intentColorKey}-6`,
     };
     const dark = {
       default: intentColorKey,
-      text: `${intentColorKey}-1`,
+      text: `cream-1`,
       hover: `${intentColorKey}-6`,
       focus: `${intentColorKey}-6`,
     };

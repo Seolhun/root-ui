@@ -9,7 +9,6 @@ export const storiesIntentOptions: RootIntent[] = [
   'accent',
   'warning',
   'danger',
-  'default',
   'neutral',
   'light',
   'dark',
