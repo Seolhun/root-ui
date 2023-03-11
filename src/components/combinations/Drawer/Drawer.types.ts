@@ -1,3 +1,3 @@
 export type DrawerOnHideCallback = () => void;
 
-export type DrawerPlacement = 'right' | 'bottom' | 'left';
+export type DrawerPlacement = 'top' | 'right' | 'bottom' | 'left';

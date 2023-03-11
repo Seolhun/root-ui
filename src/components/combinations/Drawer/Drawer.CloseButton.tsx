@@ -12,7 +12,7 @@ export interface DrawerCloseButtonProps extends ElementProps {}
 
 const DrawerCloseButton = React.forwardRef<ElementType, DrawerCloseButtonProps>(
   ({ className, ...rests }: DrawerCloseButtonProps) => {
-    const onClose = useDrawerContext();
+    const { onClose } = useDrawerContext();
 
     return (
       <button
@@ -23,9 +23,9 @@ const DrawerCloseButton = React.forwardRef<ElementType, DrawerCloseButtonProps>(
           className,
           'inline-flex items-center',
           'p-1.5 ml-auto',
-          'bg-transparent hover:bg-dark-2',
-          'text-sm',
-          'text-light-4 hover:text-light-700',
+          'bg-transparent hover:bg-neutral-1',
+          'text-space-2 hover:text-space',
+          'dark:text-cream-2 dark:hover:text-cream',
           'rounded-lg',
         )}
         onClick={onClose}

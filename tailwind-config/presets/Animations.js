@@ -61,16 +61,26 @@ const Animations = {
     },
     'fade-in': {
       '0%': {
-        opacity: '0',
+        opacity: '0.5',
       },
       '100%': {
         opacity: '1',
       },
     },
+    'fade-in-top': {
+      '0%': {
+        opacity: '0.5',
+        transform: 'translate3d(0, -75%, 0)',
+      },
+      '100%': {
+        opacity: '1',
+        transform: 'translate3d(0, 0, 0)',
+      },
+    },
     'fade-in-right': {
       '0%': {
-        opacity: '0',
-        transform: 'translate3d(100%, 0, 0)',
+        opacity: '0.5',
+        transform: 'translate3d(75%, 0, 0)',
       },
       '100%': {
         opacity: '1',
@@ -79,8 +89,8 @@ const Animations = {
     },
     'fade-in-bottom': {
       '0%': {
-        opacity: '0',
-        transform: 'translate3d(0, 100%, 0)',
+        opacity: '0.5',
+        transform: 'translate3d(0, 75%, 0)',
       },
       '100%': {
         opacity: '1',
@@ -89,8 +99,8 @@ const Animations = {
     },
     'fade-in-left': {
       '0%': {
-        opacity: '0',
-        transform: 'translate3d(-100%, 0, 0)',
+        opacity: '0.5',
+        transform: 'translate3d(-75%, 0, 0)',
       },
       '100%': {
         opacity: '1',
@@ -110,7 +120,8 @@ const Animations = {
       'scale-down-0.75': 'scale-down-0.75',
       'scale-up-0.5': 'scale-up-0.5',
       'scale-down-0.5': 'scale-down-0.5',
-      'fade-in': 'fade-in-right',
+      'fade-in': 'fade-in',
+      'fade-in-top': 'fade-in-top',
       'fade-in-right': 'fade-in-right',
       'fade-in-bottom': 'fade-in-bottom',
       'fade-in-left': 'fade-in-left',

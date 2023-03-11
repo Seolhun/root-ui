@@ -2,12 +2,9 @@ import * as React from 'react';
 
 import { Button } from '../../../components/atomics';
 import { H4 } from '../../../components/typography';
-import { storiesScaleOptions } from '../../../stories';
+import { storiesScaleOptions, StorybookContent } from '../../../stories';
 
 import { Drawer } from './Drawer';
-import { DrawerFooter } from './Drawer.Footer';
-import { DrawerHeader } from './Drawer.Header';
-import { DrawerBody } from './Drawer.Body';
 
 export default {
   title: 'Combination/Drawer',
@@ -22,6 +19,9 @@ export default {
   },
 };
 
+/**
+ * @todo Light mode is not working because of context value is overwrite by dark mode
+ */
 const Drawers = ({ Header, Body, Footer, ...rests }) => {
   const [isShow, setShow] = React.useState(false);
 
@@ -38,15 +38,20 @@ const Drawers = ({ Header, Body, Footer, ...rests }) => {
   }, [onClose]);
 
   return (
-    <section style={{ height: '2000px' }}>
-      <Button onClick={onToggle}>Toggle Drawer</Button>
-
-      <Drawer {...rests} show={isShow} onClose={onClose} onConfirm={onConfirm}>
-        <DrawerHeader>{<H4>{Header}</H4>}</DrawerHeader>
-        <DrawerBody>{Body}</DrawerBody>
-        <DrawerFooter>{Footer}</DrawerFooter>
-      </Drawer>
-    </section>
+    <StorybookContent>
+      {({ root }) => {
+        return (
+          <>
+            <Button onClick={onToggle}>Toggle Drawer</Button>
+            <Drawer {...rests} show={isShow} onClose={onClose} onConfirm={onConfirm} root={root}>
+              <Drawer.Header>{<H4>{Header}</H4>}</Drawer.Header>
+              <Drawer.Body>{Body}</Drawer.Body>
+              <Drawer.Footer>{Footer}</Drawer.Footer>
+            </Drawer>
+          </>
+        );
+      }}
+    </StorybookContent>
   );
 };
 

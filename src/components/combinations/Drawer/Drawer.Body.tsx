@@ -14,7 +14,16 @@ export const DrawerBody = React.forwardRef<ElementType, DrawerBodyProps>(({ clas
     <div
       ref={ref}
       {...rests}
-      className={clsx(CLASSNAME, className, 'flex flex-1', 'px-4', 'break-all', 'border-light-2', 'overflow-y-auto')}
+      className={clsx(
+        CLASSNAME,
+        className,
+        'flex flex-1',
+        'scroll-mr-2',
+        'px-4',
+        'break-all',
+        'border-neutral-2',
+        'overflow-y-auto',
+      )}
     >
       {children}
     </div>

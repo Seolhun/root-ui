@@ -10,14 +10,14 @@ export interface StorybookContentProps {
 }
 
 export interface RenderChildrenArgs {
-  ref: HTMLDivElement | null;
+  root: HTMLDivElement | null;
   isDark: boolean;
 }
 
 export const StorybookContent = React.forwardRef<HTMLDivElement, StorybookContentProps>(
   ({ children, noAlign, noGap }, ref) => {
-    const [lightRef, setLightRef] = React.useState<HTMLDivElement | null>(null);
-    const [darkRef, setDarkRef] = React.useState<HTMLDivElement | null>(null);
+    const [lightRootElement, setLightRootElement] = React.useState<HTMLDivElement | null>(null);
+    const [darkRootElement, setDarkRootElement] = React.useState<HTMLDivElement | null>(null);
 
     const renderChildren = React.useCallback(
       (args: RenderChildrenArgs) => {
@@ -33,8 +33,9 @@ export const StorybookContent = React.forwardRef<HTMLDivElement, StorybookConten
     return (
       <div className="flex w-full h-full min-h-screen" ref={ref}>
         <div
-          ref={setLightRef}
+          ref={setLightRootElement}
           className={clsx(
+            'StorybookContent__Light',
             'flex flex-col flex-1 justify-center',
             {
               'items-center': !noAlign,
@@ -44,11 +45,12 @@ export const StorybookContent = React.forwardRef<HTMLDivElement, StorybookConten
             'p-4',
           )}
         >
-          {renderChildren({ ref: lightRef, isDark: false })}
+          {renderChildren({ root: lightRootElement, isDark: false })}
         </div>
         <div
-          ref={setDarkRef}
+          ref={setDarkRootElement}
           className={clsx(
+            'StorybookContent__Dark',
             'dark',
             'flex flex-col flex-1 justify-center',
             {
@@ -59,7 +61,7 @@ export const StorybookContent = React.forwardRef<HTMLDivElement, StorybookConten
             'p-4',
           )}
         >
-          {renderChildren({ ref: darkRef, isDark: true })}
+          {renderChildren({ root: darkRootElement, isDark: true })}
         </div>
       </div>
     );

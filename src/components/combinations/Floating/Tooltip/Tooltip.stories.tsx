@@ -21,9 +21,9 @@ export default {
 const TooltipsTemplate = ({ ...rests }) => {
   return (
     <StorybookContent>
-      {({ ref }) => {
+      {({ root }) => {
         return (
-          <Tooltip {...rests} root={ref}>
+          <Tooltip {...rests} root={root}>
             <Tooltip.Trigger>
               <Button>Tooltip Trigger</Button>
             </Tooltip.Trigger>
@@ -42,9 +42,9 @@ Tooltips.args = {};
 const ScaleTooltipTemplate = ({ ...rests }) => {
   return (
     <StorybookContent>
-      {({ ref }) => {
+      {({ root }) => {
         return storiesScaleOptions.map((scale) => (
-          <Tooltip {...rests} key={scale} scale={scale} root={ref}>
+          <Tooltip {...rests} key={scale} scale={scale} root={root}>
             <Tooltip.Trigger>
               <Button>Tooltip Trigger</Button>
             </Tooltip.Trigger>

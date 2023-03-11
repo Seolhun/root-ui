@@ -14,7 +14,7 @@ export interface TooltipProps extends TooltipOptions {
   scale?: RootScale;
 }
 
-export const TooltipProvider = ({ children, scale = 'md', ...options }: TooltipProps): JSX.Element => {
+export const TooltipRoot = ({ children, scale = 'md', ...options }: TooltipProps): JSX.Element => {
   const tooltipValues = useTooltip(options);
 
   return (

@@ -1,26 +1,46 @@
 import * as React from 'react';
 
-import { DrawerOnHideCallback } from './Drawer.types';
+import { DrawerPlacement } from './Drawer.types';
 
-export type DrawerContextValues = DrawerOnHideCallback;
+export interface DrawerContextValues {
+  /**
+   * To show Drawer
+   */
+  show: boolean;
 
-const DrawerContext = React.createContext<DrawerContextValues>(() => null);
+  /**
+   * To close Drawer (Escape)
+   */
+  onClose: () => void;
+
+  /**
+   * To confirm Drawer (Enter)
+   */
+  onConfirm?: () => void;
+
+  /**
+   * Set this to displayed placement
+   * @default right
+   */
+  placement?: DrawerPlacement;
+
+  /**
+   * Floating Portal root element
+   */
+  root?: HTMLElement | null;
+}
+
+export const DrawerContext = React.createContext<DrawerContextValues>({
+  show: false,
+
+  onClose: () => null,
+});
 DrawerContext.displayName = 'DrawerContext';
 
 export function useDrawerContext() {
   return React.useContext(DrawerContext);
 }
 
-export interface DrawerContextProviderProps {
+export interface DrawerContextProviderProps extends DrawerContextValues {
   children: React.ReactNode;
-
-  onClose: DrawerOnHideCallback;
 }
-
-export function DrawerContextProvider({ children, onClose }: DrawerContextProviderProps) {
-  const contextValue = React.useMemo(() => onClose, [onClose]);
-
-  return <DrawerContext.Provider value={contextValue}>{children}</DrawerContext.Provider>;
-}
-
-export default DrawerContextProvider;
