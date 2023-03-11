@@ -15,7 +15,7 @@ export const OptionGroup = clsx(
   'flex flex-1 flex-col',
   'w-full',
   'bg-cream-1 dark:bg-space-1',
-  'rounded shadow-md',
+  'rounded shadow',
   'overflow-y-auto',
   'z-10',
 );

@@ -44,7 +44,7 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(
             'inline-flex items-center shrink-0',
             'bg-cream-1 dark:bg-space-1',
             'border border-cream-3 dark:border-space-3',
-            'rounded-full shadow-md',
+            'rounded-full shadow',
             'focus:outline-none focus-visible:ring-2',
             'transition-colors duration-200 ease-in-out',
             disabled ? 'opacity-80 cursor-not-allowed' : 'cursor-pointer',
@@ -72,7 +72,7 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(
             className={clsx(
               'inline-flex justify-center items-center',
               'border',
-              'rounded-full shadow-md',
+              'rounded-full shadow',
               'transform transition',
               checked ? '' : 'bg-cream-3 dark:bg-space-3 border-cream-3 dark:border-space-3',
               disabled ? 'opacity-80' : '',

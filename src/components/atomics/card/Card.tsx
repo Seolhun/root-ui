@@ -36,7 +36,7 @@ const Card = React.forwardRef<ElementType, CardProps>(({ children, className, sc
         'text-space-1 dark:text-cream-1',
         'bg-cream-1 dark:bg-space-1',
         'border border-cream-3 dark:border-space-3',
-        'rounded-xl shadow-md',
+        'rounded-xl shadow',
         'break-all',
       )}
     >

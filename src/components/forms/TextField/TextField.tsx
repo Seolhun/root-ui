@@ -20,7 +20,7 @@ export const TextField = ({ className, scale = 'md', icon = 'SearchIcon', ...res
       scale={scale}
       className={clsx(
         'flex items-center',
-        'shadow-md',
+        'shadow',
         'border border-light-1',
         'ring-offset-1 focus-within:ring-1 focus-within:ring-primary-6',
         'outline-0',

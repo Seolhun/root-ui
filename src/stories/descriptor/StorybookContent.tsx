@@ -19,16 +19,13 @@ export const StorybookContent = React.forwardRef<HTMLDivElement, StorybookConten
     const [lightRootElement, setLightRootElement] = React.useState<HTMLDivElement | null>(null);
     const [darkRootElement, setDarkRootElement] = React.useState<HTMLDivElement | null>(null);
 
-    const renderChildren = React.useCallback(
-      (args: RenderChildrenArgs) => {
-        const isFunction = typeof children === 'function';
-        if (isFunction) {
-          return children(args);
-        }
-        return children;
-      },
-      [children],
-    );
+    const renderChildren = (args: RenderChildrenArgs) => {
+      const isFunction = typeof children === 'function';
+      if (isFunction) {
+        return children(args);
+      }
+      return children;
+    };
 
     return (
       <div className="flex w-full h-full min-h-screen" ref={ref}>
