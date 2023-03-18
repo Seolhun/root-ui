@@ -31,7 +31,7 @@ export interface DrawerProps extends DrawerContextValues {
 }
 
 export const DrawerRoot = React.forwardRef<ElementType, ElementProps & DrawerProps>(
-  ({ className, children, show, onClose, onConfirm, placement = 'right', root, ...others }, ref) => {
+  ({ children, show, onClose, onConfirm, placement = 'right', root, ...others }, ref) => {
     const contextValue = React.useMemo(() => {
       return {
         show,

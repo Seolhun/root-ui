@@ -38,7 +38,6 @@ export const DrawerFloating = React.forwardRef<ElementType, ElementProps & Drawe
           ref={ref}
           className={clsx(
             CLASSNAME,
-            className,
             {
               hidden: !show,
             },
@@ -51,17 +50,19 @@ export const DrawerFloating = React.forwardRef<ElementType, ElementProps & Drawe
           <div
             tabIndex={-1}
             aria-hidden={show ? 'true' : 'false'}
-            className={clsx(CLASSNAME, className, 'fixed', 'inset-0 md:inset-0', 'bg-neutral-1', 'opacity-60')}
+            className={clsx(`${CLASSNAME}__Background`, 'fixed', 'inset-0 md:inset-0', 'bg-neutral-1', 'opacity-60')}
             onClick={onClose}
           />
           <Card
             className={clsx(
-              'flex flex-col flex-1 gap-4',
+              `${CLASSNAME}__Card`,
+              className,
+              'fixed',
               {
-                'fixed top-0 right-0 left-0 h-4/6 w-full md:w-full rounded-t-none': placement === 'top',
-                'fixed top-0 right-0 bottom-0 h-screen w-9/12 rounded-r-none': placement === 'right',
-                'fixed top-0 bottom-0 left-0 h-screen w-9/12 rounded-l-none': placement === 'left',
-                'fixed right-0 bottom-0 left-0 h-4/6 w-full md:w-full rounded-b-none': placement === 'bottom',
+                'top-0 right-0 left-0 w-full md:w-full rounded-t-none': placement === 'top',
+                'top-0 right-0 bottom-0 h-screen rounded-r-none': placement === 'right',
+                'right-0 bottom-0 left-0 w-full md:w-full rounded-b-none': placement === 'bottom',
+                'top-0 bottom-0 left-0 h-screen rounded-l-none': placement === 'left',
               },
               {
                 'animate-[fade-in-top_0.2s_ease-in-out]': show && placement === 'top',
@@ -69,6 +70,7 @@ export const DrawerFloating = React.forwardRef<ElementType, ElementProps & Drawe
                 'animate-[fade-in-bottom_0.2s_ease-in-out]': show && placement === 'bottom',
                 'animate-[fade-in-left_0.2s_ease-in-out]': show && placement === 'left',
               },
+              'flex flex-col flex-1 gap-4',
             )}
           >
             {children}
