@@ -23,7 +23,7 @@ export const TabList = React.forwardRef<ElementType, TabListProps>(({ children, 
         'text-dark-9 dark:text-light-1',
         'bg-light-1/20 dark:bg-dark-9/20',
         'p-1',
-        'rounded-xl',
+        'rounded',
         'list-none',
       )}
     >

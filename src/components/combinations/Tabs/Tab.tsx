@@ -26,7 +26,7 @@ export const Tab = React.forwardRef<ElementType, TabProps>(({ children, classNam
   const { scale, intent } = useRootGroupContext();
 
   return (
-    <BaseTab {...rests} ref={ref} as="li" role="tab" className={clsx('w-full', 'outline-none ring-0')}>
+    <BaseTab {...rests} ref={ref} as="li" role="tab" className={clsx('w-full', 'outline-none')}>
       {({ selected }) => (
         <div
           className={clsx(
@@ -34,7 +34,7 @@ export const Tab = React.forwardRef<ElementType, TabProps>(({ children, classNam
             className,
             'w-full text-center',
             'transition',
-            'rounded-xl',
+            'rounded',
             'cursor-pointer',
             toScaleMatch({
               xs: () => 'scale-p-xs',
