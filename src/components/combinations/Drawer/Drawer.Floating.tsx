@@ -2,7 +2,6 @@ import * as React from 'react';
 import { FloatingPortal } from '@floating-ui/react';
 import clsx from 'clsx';
 
-import { Card } from '../../atomics';
 import { useDocumentEvent } from '../../../hooks';
 import { useDrawerContext } from './Drawer.Context';
 
@@ -51,11 +50,15 @@ export const DrawerFloating = React.forwardRef<ElementType, ElementProps & Drawe
             className={clsx(`${CLASSNAME}__Background`, 'fixed', 'inset-0 md:inset-0', 'bg-neutral-1', 'opacity-60')}
             onClick={onClose}
           />
-          <Card
+          <div
             className={clsx(
               `${CLASSNAME}__Card`,
               className,
               'fixed',
+              'bg-cream-1 text-space-1',
+              'dark:bg-space-1 dark:text-cream-1',
+              'border border-light-1 dark:border-dark-8',
+              'rounded shadow',
               {
                 'top-0 right-0 left-0 w-full md:w-full rounded-t-none': placement === 'top',
                 'top-0 right-0 bottom-0 h-screen rounded-r-none': placement === 'right',
@@ -72,7 +75,7 @@ export const DrawerFloating = React.forwardRef<ElementType, ElementProps & Drawe
             )}
           >
             {children}
-          </Card>
+          </div>
         </div>
       </FloatingPortal>
     );

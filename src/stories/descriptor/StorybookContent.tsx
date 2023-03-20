@@ -47,8 +47,7 @@ export const StorybookContent = React.forwardRef<HTMLDivElement, StorybookConten
         <div
           ref={setDarkRootElement}
           className={clsx(
-            'StorybookContent__Dark',
-            'dark',
+            'StorybookContent__Dark dark',
             'flex flex-col flex-1 justify-center',
             {
               'items-center': !noAlign,
