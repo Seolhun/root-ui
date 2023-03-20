@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 
-interface UsePortalProps<TargetElement extends HTMLElement = HTMLElement> {
+export interface UsePortalProps<TargetElement extends HTMLElement = HTMLElement> {
   show: boolean;
 
   children: React.ReactNode;
@@ -9,12 +9,9 @@ interface UsePortalProps<TargetElement extends HTMLElement = HTMLElement> {
   targetElement: TargetElement;
 }
 
-function usePortal({ children, show, targetElement }: UsePortalProps) {
+export function usePortal({ children, show, targetElement }: UsePortalProps) {
   if (show) {
     return null;
   }
   return ReactDOM.createPortal(children, targetElement);
 }
-
-export { usePortal };
-export default usePortal;

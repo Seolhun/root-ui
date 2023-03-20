@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-function useDocumentEvent<K extends keyof DocumentEventMap>(
+export function useDocumentEvent<K extends keyof DocumentEventMap>(
   type: K,
   callback: (event: DocumentEventMap[K]) => void,
   options?: boolean | AddEventListenerOptions,
@@ -13,6 +13,3 @@ function useDocumentEvent<K extends keyof DocumentEventMap>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }
-
-export { useDocumentEvent };
-export default useDocumentEvent;

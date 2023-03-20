@@ -9,7 +9,7 @@ type Container = React.MutableRefObject<HTMLElement | null> | HTMLElement | null
 type ContainerCollection = Container[] | Set<Container>;
 type ContainerInput = Container | ContainerCollection;
 
-function useOutsideClick(
+export function useOutsideClick(
   containers: ContainerInput | (() => ContainerInput),
   callback: (event: MouseEvent | PointerEvent | FocusEvent, target: HTMLElement) => void,
   enabled = true,
@@ -134,6 +134,3 @@ function useOutsideClick(
     true,
   );
 }
-
-export { useOutsideClick };
-export default useOutsideClick;

@@ -1,7 +1,7 @@
 import { useRef } from 'react';
-import useEffectOnce from './useEffectOnce';
+import { useEffectOnce } from './useEffectOnce';
 
-const useUnmount = (fn: () => any): void => {
+export const useUnmount = (fn: () => any): void => {
   const fnRef = useRef(fn);
 
   // update the ref each render so if it change the newest callback will be invoked
@@ -9,6 +9,3 @@ const useUnmount = (fn: () => any): void => {
 
   useEffectOnce(() => () => fnRef.current());
 };
-
-export { useUnmount };
-export default useUnmount;

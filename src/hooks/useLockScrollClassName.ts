@@ -3,7 +3,7 @@ import * as React from 'react';
 import { GlobalRootClassNameMap } from '../constants';
 
 const CLASSNAME = GlobalRootClassNameMap.WindowLockScroll;
-const useLockScrollClassName = (isVisible: boolean): void => {
+export const useLockScrollClassName = (isVisible: boolean): void => {
   React.useEffect(() => {
     if (isVisible) {
       document.documentElement.classList.add(CLASSNAME);
@@ -14,6 +14,3 @@ const useLockScrollClassName = (isVisible: boolean): void => {
     }
   }, [isVisible]);
 };
-
-export { useLockScrollClassName };
-export default useLockScrollClassName;

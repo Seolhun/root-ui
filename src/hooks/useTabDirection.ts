@@ -1,13 +1,13 @@
 import { useRef } from 'react';
 
-import useWindowEvent from './useWindowEvent';
+import { useWindowEvent } from './useWindowEvent';
 
 export enum TabDirection {
   Forwards,
   Backwards,
 }
 
-function useTabDirection() {
+export function useTabDirection() {
   const direction = useRef(TabDirection.Forwards);
 
   useWindowEvent(
@@ -22,6 +22,3 @@ function useTabDirection() {
 
   return direction;
 }
-
-export { useTabDirection };
-export default useTabDirection;

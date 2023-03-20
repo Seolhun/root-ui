@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const useDisclosure = () => {
+export const useDisclosure = () => {
   const [isShow, setShow] = React.useState(false);
 
   const onToggle = React.useCallback(() => {
@@ -22,6 +22,3 @@ const useDisclosure = () => {
     onShow,
   };
 };
-
-export { useDisclosure };
-export default useDisclosure;
