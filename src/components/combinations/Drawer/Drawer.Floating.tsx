@@ -3,7 +3,7 @@ import { FloatingPortal } from '@floating-ui/react';
 import clsx from 'clsx';
 
 import { Card } from '../../atomics';
-import { useDocumentEvent, useLockScrollClassName } from '../../../hooks';
+import { useDocumentEvent } from '../../../hooks';
 import { useDrawerContext } from './Drawer.Context';
 
 const CLASSNAME = 'Root__Drawer';
@@ -15,8 +15,6 @@ export interface DrawerFloatingProps {}
 export const DrawerFloating = React.forwardRef<ElementType, ElementProps & DrawerFloatingProps>(
   ({ className, children, ...others }, ref) => {
     const { show, onClose, onConfirm, placement, root } = useDrawerContext();
-
-    useLockScrollClassName(show);
 
     useDocumentEvent('keydown', (e) => {
       switch (e.key) {

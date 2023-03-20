@@ -8,7 +8,7 @@ export * from './useId';
 export * from './useIsMounted';
 export * from './useIsoMorphicEffect';
 export * from './useLatestValue';
-export * from './useLockScrollClassName';
+export * from './useLockScroll';
 export * from './useMount';
 export * from './useOutsideClick';
 export * from './useOwnerDocument';
