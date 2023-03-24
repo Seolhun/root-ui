@@ -4,8 +4,8 @@ import clsx from 'clsx';
 import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Loader';
-type ElementType = SVGSVGElement;
-type ElementProps = React.SVGProps<ElementType>;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 export interface LoaderProps extends ElementProps {
   /**
    * Set this to change scale
@@ -22,10 +22,8 @@ export interface LoaderProps extends ElementProps {
 const Loader = React.forwardRef<ElementType, LoaderProps>(
   ({ className, scale = 'md', intent = 'primary', ...rests }, ref) => {
     return (
-      <div className="inline-block">
+      <div {...rests} ref={ref} className="inline-block">
         <svg
-          {...rests}
-          ref={ref}
           className={clsx(
             CLASSNAME,
             className,
