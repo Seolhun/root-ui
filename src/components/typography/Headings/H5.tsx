@@ -7,13 +7,10 @@ const CLASSNAME = 'Root__H5';
 type ElementType = HTMLHeadingElement;
 export interface H5Props extends HeadingProps {}
 
-const H5 = React.forwardRef<ElementType, H5Props>(({ className, children, ...rests }, ref) => {
+export const H5 = React.forwardRef<ElementType, H5Props>(({ className, children, ...rests }, ref) => {
   return (
     <Heading {...rests} as="h5" ref={ref} className={clsx(CLASSNAME, className, 'mt-1 mb-2')}>
       {children}
     </Heading>
   );
 });
-
-export { H5 };
-export default H5;

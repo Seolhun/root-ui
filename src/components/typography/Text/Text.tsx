@@ -7,15 +7,14 @@ import { AgnosticTagProps } from '../../../system';
 const CLASSNAME = 'Root__Text';
 type ElementType = HTMLParagraphElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
-export interface TextProps extends ElementProps, AgnosticTagProps {}
+export interface TextProps {}
 
-const Text = React.forwardRef<ElementType, TextProps>(({ className, children, as = 'p', ...rests }, ref) => {
-  return (
-    <Box {...rests} as={as} ref={ref} className={clsx(CLASSNAME, className, 'text-space-1 dark:text-cream-1')}>
-      {children}
-    </Box>
-  );
-});
-
-export { Text };
-export default Text;
+export const Text = React.forwardRef<ElementType, ElementProps & AgnosticTagProps & TextProps>(
+  ({ className, children, as = 'p', ...rests }, ref) => {
+    return (
+      <Box {...rests} as={as} ref={ref} className={clsx(CLASSNAME, className, 'text-space-1 dark:text-cream-1')}>
+        {children}
+      </Box>
+    );
+  },
+);
