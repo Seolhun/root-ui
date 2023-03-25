@@ -7,17 +7,10 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface ContainerProps extends ElementProps {}
 
-const Container = React.forwardRef<ElementType, ContainerProps>(({ className, children, ...rests }, ref) => {
+export const Container = React.forwardRef<ElementType, ContainerProps>(({ className, children, ...others }, ref) => {
   return (
-    <div
-      ref={ref}
-      {...rests}
-      className={clsx(CLASSNAME, className, 'max-w-7xl mx-auto', 'lg:px-8 sm:px-6 px-4', 'py-6')}
-    >
+    <div {...others} ref={ref} className={clsx(CLASSNAME, className, 'max-w-8xl mx-auto w-full', 'px-2 md:px-4')}>
       {children}
     </div>
   );
 });
-
-export { Container };
-export default Container;

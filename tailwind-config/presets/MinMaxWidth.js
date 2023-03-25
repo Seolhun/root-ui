@@ -45,6 +45,7 @@ const MinMaxWidth = reduce(
     min: 'min-content',
     max: 'max-content',
     fit: 'fit-content',
+    '8xl': '96rem',
   },
 );
 
