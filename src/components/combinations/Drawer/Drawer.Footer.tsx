@@ -12,7 +12,10 @@ export interface DrawerFooterProps extends ElementProps {
 export const DrawerFooter = React.forwardRef<ElementType, DrawerFooterProps>(
   ({ className, children, ...rests }: DrawerFooterProps) => {
     return (
-      <div {...rests} className={clsx(CLASSNAME, className, 'flex', 'pb-4 px-4', 'rounded-b')}>
+      <div
+        {...rests}
+        className={clsx(CLASSNAME, className, 'flex', 'py-1 px-2', 'border-cream-3 dark:border-space-3', 'rounded-b')}
+      >
         {children}
       </div>
     );

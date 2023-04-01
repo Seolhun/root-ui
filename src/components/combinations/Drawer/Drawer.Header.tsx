@@ -1,7 +1,7 @@
 import * as React from 'react';
 import clsx from 'clsx';
 
-import DrawerCloseButton from './Drawer.CloseButton';
+import { DrawerCloseButton } from './Drawer.CloseButton';
 
 const CLASSNAME = 'Root__Drawer__Header';
 type ElementType = HTMLDivElement;
@@ -21,8 +21,8 @@ export const DrawerHeader = React.forwardRef<ElementType, DrawerHeaderProps>(
           CLASSNAME,
           className,
           'flex justify-between items-start',
-          'pt-4 px-4',
-          'border-light-2',
+          'py-1 px-2',
+          'border-cream-3 dark:border-space-3',
           'rounded-t',
         )}
       >
