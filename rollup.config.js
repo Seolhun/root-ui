@@ -1,28 +1,29 @@
-import { DEFAULT_EXTENSIONS } from '@babel/core'
-import typescript from '@rollup/plugin-typescript'
-import { nodeResolve } from '@rollup/plugin-node-resolve'
-import commonjs from '@rollup/plugin-commonjs'
-import babel from '@rollup/plugin-babel'
-import scss from 'rollup-plugin-scss'
-import postcss from 'rollup-plugin-postcss'
-import { terser } from 'rollup-plugin-terser'
-import { visualizer } from 'rollup-plugin-visualizer'
-import bundleSize from 'rollup-plugin-bundle-size'
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import json from "@rollup/plugin-json";
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
+import typescript from '@rollup/plugin-typescript';
+import postcss from 'rollup-plugin-postcss';
+import scss from 'rollup-plugin-scss';
+import { visualizer } from 'rollup-plugin-visualizer';
 
-import pkg from './package.json'
-const externals = Object.keys(pkg.peerDependencies || {})
-const extensions = DEFAULT_EXTENSIONS.concat(['.ts', '.tsx'])
+import pkg from './package.json';
+const externals = Object.keys(pkg.peerDependencies || {});
+const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
 const commonPlugins = [
   nodeResolve({
     mainFields: ['main', 'module'],
-    extensions
+    extensions,
   }),
   commonjs(),
+  json(),
   typescript({
     tsconfig: './tsconfig.build.json',
   }),
   babel({
+    babelHelpers: 'runtime',
     exclude: /node_modules/,
     extensions,
   }),
@@ -37,40 +38,41 @@ const commonPlugins = [
     },
     extract: true,
   }),
-  terser(),
-  visualizer({
-    filename: 'stats.html'
-  }),
-  bundleSize()
-]
+];
 
-const configGenerator = ({
-  output,
-  plugins = []
-}) => ({
+const appBundler = ({ output, plugins = [] }) => ({
   input: 'src/index.ts',
   output: {
     ...output,
     sourcemap: false,
   },
-  plugins: [
-    ...commonPlugins,
-    ...plugins
-  ],
-  external: [...externals]
-})
+  plugins: commonPlugins.concat(plugins),
+  external: externals,
+});
 
 export default [
-  configGenerator({
+  appBundler({
     output: {
       file: pkg.main,
-      format: 'cjs'
+      format: 'cjs',
     },
+    plugins: [
+      terser(),
+      visualizer({
+        filename: 'stats.html',
+      }),
+    ],
   }),
-  configGenerator({
+  appBundler({
     output: {
       file: pkg.module,
-      format: 'es'
-    }
-  })
-]
+      format: 'es',
+    },
+    plugins: [
+      terser(),
+      visualizer({
+        filename: 'stats.esm.html',
+      }),
+    ],
+  }),
+];
