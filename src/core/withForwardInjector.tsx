@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import React from 'react';
 
 export interface InjectorComponentProps<E extends HTMLElement> extends React.HTMLAttributes<E> {}
@@ -20,7 +20,7 @@ function mergeProps<
 >(props: P, injectorProps: InjectorProps) {
   const mergedProps = Object.assign({}, props, {
     ...injectorProps,
-    className: classNames(injectorProps?.className, props?.className),
+    className: clsx(injectorProps?.className, props?.className),
     style: Object.assign({}, injectorProps?.style, props?.style),
   });
   return mergedProps;

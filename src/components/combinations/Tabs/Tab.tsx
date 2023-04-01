@@ -26,7 +26,7 @@ export const Tab = React.forwardRef<ElementType, TabProps>(({ children, classNam
   const { scale, intent } = useRootGroupContext();
 
   return (
-    <BaseTab {...rests} ref={ref} as="li" role="tab" className={clsx('w-full', 'outline-none')}>
+    <BaseTab {...rests} ref={ref} as="li" className={clsx('w-full', 'outline-none')}>
       {({ selected }) => (
         <div
           className={clsx(

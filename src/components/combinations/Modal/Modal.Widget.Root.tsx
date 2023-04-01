@@ -8,7 +8,6 @@ import { GlobalRootDataAttributeMap, KeyboardKeyMap } from '../../../constants';
 import { forwardRefWithAs, render, RenderFeatures } from '../../../core';
 import {
   useOutsideClick,
-  useLockScroll,
   useOwnerDocument,
   useServerHandoffComplete,
   useEvent,
@@ -124,12 +123,6 @@ const _ModalWidgetRoot = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
       onKeyDown(event as any as React.KeyboardEvent<ElementType>);
       return;
     }
-  });
-
-  useLockScroll<ElementType>({
-    isVisible: show,
-    hasParent: hasParentModal,
-    element: internalModalRef,
   });
 
   React.useEffect(() => {

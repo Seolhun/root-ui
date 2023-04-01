@@ -1,0 +1,10 @@
+/// <reference types="react" />
+import { IconProps } from '../../icons';
+import { InputProps } from '../input';
+export interface TextFieldProps extends InputProps {
+    /**
+     * @default SearchIcon
+     */
+    icon?: IconProps['icon'];
+}
+export declare const TextField: ({ className, scale, icon, ...rests }: TextFieldProps) => JSX.Element;

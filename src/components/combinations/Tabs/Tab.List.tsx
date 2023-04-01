@@ -14,7 +14,6 @@ export const TabList = React.forwardRef<ElementType, TabListProps>(({ children, 
       {...rests}
       ref={ref}
       as="ul"
-      role="tablist"
       className={clsx(
         CLASSNAME,
         className,
