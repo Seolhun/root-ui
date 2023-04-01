@@ -24,6 +24,8 @@ jobs:
 
       - name: Install Packages
         run: npm i
+        env:
+          SEOLHUN_GITHUB_TOKEN: ${{secrets.SEOLHUN_GITHUB_TOKEN}}
 
       - name: Build Storybook
         run: npm run storybook:build
