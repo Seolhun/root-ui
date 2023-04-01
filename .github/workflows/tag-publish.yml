@@ -35,4 +35,4 @@ jobs:
 
       - run: npm publish
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          SEOLHUN_GITHUB_TOKEN: ${{secrets.SEOLHUN_GITHUB_TOKEN}}
