@@ -31,6 +31,11 @@ object-assign
  * Released under the MIT License.
  */
 
+/*!
+* tabbable 6.1.1
+* @license MIT, https://github.com/focus-trap/tabbable/blob/master/LICENSE
+*/
+
 /**
  * @license React
  * react-dom.production.min.js
