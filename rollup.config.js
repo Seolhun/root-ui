@@ -23,7 +23,6 @@ const commonPlugins = [
     tsconfig: './tsconfig.build.json',
   }),
   babel({
-    babelHelpers: 'runtime',
     exclude: /node_modules/,
     extensions,
   }),
