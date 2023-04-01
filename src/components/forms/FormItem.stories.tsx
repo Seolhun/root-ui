@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../stories';
 import { FormItem, FormItemProps } from './FormItem';
 import { Input } from './input';
+
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../stories';
 
 export default {
   title: 'Form/FormItem',

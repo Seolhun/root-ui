@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import { storiesScaleOptions, StorybookContent } from '../../../stories';
 import { Avatar, AvatarProps } from './Avatar';
+
+import { storiesScaleOptions, StorybookContent } from '../../../stories';
 
 export default {
   title: 'Atomic/Avatar',

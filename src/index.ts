@@ -1,5 +1,5 @@
-import './assets/tailwind.scss';
 import './assets/index.scss';
+import './assets/tailwind.scss';
 
 export * from './components';
 export * from './hooks';

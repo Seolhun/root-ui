@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Tab } from '@headlessui/react';
 import clsx from 'clsx';
+import * as React from 'react';
 
 const CLASSNAME = 'Root__Tab__Panels';
 type ElementType = HTMLUListElement;

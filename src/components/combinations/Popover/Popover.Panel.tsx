@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Popover } from '@headlessui/react';
 import clsx from 'clsx';
+import * as React from 'react';
 
 const CLASSNAME = 'Root__Popover__Panel';
 type ElementType = HTMLDivElement;

@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import { storiesScaleOptions } from '../../../stories';
-import { useDisclosure } from '../../../hooks';
-import { Button, Card } from '../../atomics';
-
 import { Modal } from './Modal';
+
+import { useDisclosure } from '../../../hooks';
+import { storiesScaleOptions } from '../../../stories';
+import { Button, Card } from '../../atomics';
 
 export default {
   title: 'Combination/Modal',

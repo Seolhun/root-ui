@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import { Maybe } from '../../../utils/fx';
 import { DropdownOption, DropdownOptionState } from './widgets';
+
+import { Maybe } from '../../../utils/fx';
 
 export interface UseDropdownRendererProps<Option extends DropdownOption, ActionOption = Option> {
   /**

@@ -1,9 +1,9 @@
 import * as React from 'react';
 
+import { Tooltip } from './Tooltip';
+
 import { storiesScaleOptions, StorybookContent } from '../../../../stories';
 import { Button } from '../../../atomics';
-
-import { Tooltip } from './Tooltip';
 
 export default {
   title: 'Combination/Tooltip',

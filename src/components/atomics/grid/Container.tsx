@@ -1,5 +1,5 @@
-import * as React from 'react';
 import clsx from 'clsx';
+import * as React from 'react';
 
 const CLASSNAME = 'Root__Grid__Container';
 type ElementType = HTMLDivElement;

@@ -1,9 +1,10 @@
-import * as React from 'react';
 import clsx from 'clsx';
+import * as React from 'react';
+
+import { useModalContext } from './Modal.Widget.Context';
+import { ModalWidgetPanel } from './Modal.Widget.Panel';
 
 import { RootScale, toScaleMatch } from '../../../system';
-import { ModalWidgetPanel } from './Modal.Widget.Panel';
-import { useModalContext } from './Modal.Widget.Context';
 
 const CLASSNAME = 'Root__Modal__Panel';
 type ElementType = HTMLDivElement;

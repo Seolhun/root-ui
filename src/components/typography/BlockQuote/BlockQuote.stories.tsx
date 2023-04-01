@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import { storiesIntentOptions, StorybookContent } from '../../../stories';
 import { BlockQuote, BlockQuoteProps } from './BlockQuote';
+
+import { storiesIntentOptions, StorybookContent } from '../../../stories';
 
 export default {
   title: 'TypoGraphy/BlockQuote',

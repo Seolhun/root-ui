@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { StorybookContent } from '../../../stories';
 
 import { P, PProps } from './P';
+
+import { StorybookContent } from '../../../stories';
 
 export default {
   title: 'TypoGraphy/Paragraph',

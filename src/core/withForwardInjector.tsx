@@ -1,5 +1,5 @@
-import React from 'react';
 import classNames from 'classnames';
+import React from 'react';
 
 export interface InjectorComponentProps<E extends HTMLElement> extends React.HTMLAttributes<E> {}
 

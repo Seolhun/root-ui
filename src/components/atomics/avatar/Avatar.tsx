@@ -1,5 +1,6 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
+
 import { RootScale, toScaleMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Avatar';

@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+
 import { useIsoMorphicEffect } from './useIsoMorphicEffect';
 
 export function useLatestValue<T>(value: T) {

@@ -1,9 +1,9 @@
 import * as React from 'react';
 
+import { focusElement } from './FocusManagements';
+
 import { useEventListener, useWatch } from '../../hooks';
 import { toMicrotask } from '../../utils';
-
-import { focusElement } from './FocusManagements';
 
 export interface UseRestoreFocusProps {
   ownerDocument: Document | null;

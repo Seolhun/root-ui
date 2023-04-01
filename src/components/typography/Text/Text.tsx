@@ -1,8 +1,8 @@
-import * as React from 'react';
 import clsx from 'clsx';
+import * as React from 'react';
 
-import { Box } from '../../common';
 import { AgnosticTagProps } from '../../../system';
+import { Box } from '../../common';
 
 const CLASSNAME = 'Root__Text';
 type ElementType = HTMLParagraphElement;

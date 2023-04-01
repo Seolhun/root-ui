@@ -1,6 +1,6 @@
 const concat = require('lodash/concat');
-const reduce = require('lodash/reduce');
 const range = require('lodash/range');
+const reduce = require('lodash/reduce');
 
 const { REM_STEP_SIZE } = require('./Variables');
 const ranges = concat(range(0, 10, 0.5), range(10, 401));

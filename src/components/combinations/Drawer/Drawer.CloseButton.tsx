@@ -1,7 +1,8 @@
-import * as React from 'react';
 import clsx from 'clsx';
+import * as React from 'react';
 
 import { useDrawerContext } from './Drawer.Context';
+
 import { Icon } from '../../icons';
 
 const CLASSNAME = 'Root__Drawer__CloseButton';

@@ -1,8 +1,9 @@
-import * as React from 'react';
 import clsx from 'clsx';
+import * as React from 'react';
+
+import { useModalContext } from './Modal.Widget.Context';
 
 import { Icon } from '../../icons';
-import { useModalContext } from './Modal.Widget.Context';
 
 const CLASSNAME = 'Root__Modal__CloseButton';
 type ElementType = HTMLButtonElement;

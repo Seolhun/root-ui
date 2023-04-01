@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { createPortal } from 'react-dom';
 
-import { RootUIProps, UnknownObject } from '../../types';
-import { optionalRef, useIsoMorphicEffect, useOwnerDocument, useSyncRefs, useServerHandoffComplete } from '../../hooks';
-import { isServer, toMicrotask } from '../../utils';
-import { forwardRefWithAs, render } from '../../core';
-import { GlobalRootDataAttributeMap } from '../../constants';
-
 import PortalGroup from './PortalGroup';
 import usePortalTarget from './usePortalTarget';
+
+import { GlobalRootDataAttributeMap } from '../../constants';
+import { forwardRefWithAs, render } from '../../core';
+import { optionalRef, useIsoMorphicEffect, useOwnerDocument, useSyncRefs, useServerHandoffComplete } from '../../hooks';
+import { RootUIProps, UnknownObject } from '../../types';
+import { isServer, toMicrotask } from '../../utils';
 
 const DEFAULT_PORTAL_TAG = React.Fragment;
 type PortalRenderPropArg = UnknownObject;
@@ -19,7 +19,7 @@ const _PortalRoot = <Tag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
 ) => {
   const internalPortalRootRef = React.useRef<HTMLElement | null>(null);
   const portalRef = useSyncRefs(
-    optionalRef<typeof internalPortalRootRef['current']>((ref) => {
+    optionalRef<(typeof internalPortalRootRef)['current']>((ref) => {
       internalPortalRootRef.current = ref;
     }),
     ref,

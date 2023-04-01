@@ -1,5 +1,6 @@
-const colors = require('tailwindcss/colors');
 const merge = require('lodash/merge');
+const colors = require('tailwindcss/colors');
+
 const { createIntentColor, alpha } = require('../utils');
 
 const intents = {

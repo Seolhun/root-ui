@@ -1,8 +1,9 @@
 import * as React from 'react';
 
+import { StackContextMessageEnum, StackContextOnUpdateCallback } from './StackContext.types';
+
 import { useEvent } from '../../hooks/useEvent';
 import { useIsoMorphicEffect } from '../../hooks/useIsoMorphicEffect';
-import { StackContextMessageEnum, StackContextOnUpdateCallback } from './StackContext.types';
 
 const StackContext = React.createContext<StackContextOnUpdateCallback>(() => {});
 StackContext.displayName = 'StackContext';

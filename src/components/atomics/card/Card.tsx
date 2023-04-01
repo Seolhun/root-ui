@@ -1,7 +1,7 @@
-import * as React from 'react';
 import clsx from 'clsx';
-import { RootScale, toScaleMatch } from '../../../system';
+import * as React from 'react';
 
+import { RootScale, toScaleMatch } from '../../../system';
 import { Box } from '../../common/box';
 
 const CLASSNAME = 'Root__Card';

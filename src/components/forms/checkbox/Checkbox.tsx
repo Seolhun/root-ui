@@ -1,9 +1,9 @@
-import * as React from 'react';
 import clsx from 'clsx';
+import * as React from 'react';
 
 import { RootIntent, RootScale, toIntentMatch } from '../../../system';
-import { FormLabel } from '../FormLabel';
 import { Box } from '../../common';
+import { FormLabel } from '../FormLabel';
 
 const CLASSNAME = 'Root__Checkbox';
 type ElementType = HTMLInputElement;

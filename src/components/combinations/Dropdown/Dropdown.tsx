@@ -1,7 +1,6 @@
-import * as React from 'react';
 import clsx from 'clsx';
+import * as React from 'react';
 
-import { Maybe } from '../../../utils/fx';
 import { useDropdownRenderer, UseDropdownRendererProps } from './useDropdownRenderer';
 import {
   DropdownWidget,
@@ -10,6 +9,8 @@ import {
   DropdownWidgetButtonClassName,
   DropdownWidgetOptionClassName,
 } from './widgets';
+
+import { Maybe } from '../../../utils/fx';
 
 export interface DropdownClasses {
   /**

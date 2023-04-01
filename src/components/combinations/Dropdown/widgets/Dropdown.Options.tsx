@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import clsx from 'clsx';
+import * as React from 'react';
 
 interface ElementProps {
   children: React.ReactNode;

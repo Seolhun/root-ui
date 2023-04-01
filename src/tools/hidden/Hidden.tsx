@@ -1,7 +1,7 @@
 import { ElementType, Ref } from 'react';
 
-import { RootUIProps } from '../../types';
 import { forwardRefWithAs, render } from '../../core';
+import { RootUIProps } from '../../types';
 
 const DEFAULT_VISUALLY_HIDDEN_TAG = 'div' as const;
 

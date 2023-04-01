@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
 import { Textarea, TextareaProps } from './Textarea';
+
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
 
 export default {
   title: 'Form/Textarea',

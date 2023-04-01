@@ -1,4 +1,5 @@
 import { pipe } from '@fxts/core';
+
 import * as O from './Option';
 
 describe('O.isSome', () => {

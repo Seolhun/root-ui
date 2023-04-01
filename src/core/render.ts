@@ -1,11 +1,11 @@
+import omit from 'lodash/omit';
 import * as React from 'react';
 
-import omit from 'lodash/omit';
-import { RootUIProps, XOR, RootUIUniqueKey, Expand } from '../types';
-import { GlobalRootDataAttributeMap } from '../constants';
-import { match, compact, isFunction, isEmpty, isUndefined } from '../utils';
-
 import { mergeProps } from './mergeProps';
+
+import { GlobalRootDataAttributeMap } from '../constants';
+import { RootUIProps, XOR, RootUIUniqueKey, Expand } from '../types';
+import { match, compact, isFunction, isEmpty, isUndefined } from '../utils';
 
 export enum RenderFeatures {
   /** No features at all */

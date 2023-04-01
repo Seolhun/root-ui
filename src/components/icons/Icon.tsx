@@ -1,6 +1,6 @@
-import * as React from 'react';
-import clsx from 'clsx';
 import * as HeroIcon from '@heroicons/react/outline';
+import clsx from 'clsx';
+import * as React from 'react';
 
 import { RootInherit, RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../system';
 import { Box } from '../common';

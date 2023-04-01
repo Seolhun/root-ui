@@ -1,9 +1,10 @@
-import * as React from 'react';
 import clsx from 'clsx';
+import * as React from 'react';
+
+import { FormHelp } from './FormHelp';
+import { FormLabel, FormLabelProps } from './FormLabel';
 
 import { RootScale, toScaleMatch } from '../../system';
-import { FormLabel, FormLabelProps } from './FormLabel';
-import { FormHelp } from './FormHelp';
 import { Box } from '../common';
 
 const CLASSNAME = 'Root__FormItem';

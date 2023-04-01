@@ -1,8 +1,9 @@
 import * as React from 'react';
 
+import { Switch, SwitchProps } from './Switch';
+
 import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
 import { Avatar } from '../../atomics';
-import { Switch, SwitchProps } from './Switch';
 
 export default {
   title: 'Form/Switch',

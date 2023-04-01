@@ -1,7 +1,11 @@
 import * as React from 'react';
 
-import { RootUIProps, RootUIReactTag } from '../../../types';
-import { FocusTrap, ForcePortalRoot, Portal, StackContextMessageEnum, StackProvider } from '../../../tools';
+import { ModalContext, ModalContextValues } from './Modal.Widget.Context';
+import { ActionTypes, StateDefinition, rootReducer } from './Modal.Widget.reducer';
+import { ModalPosition, ModalRenderPropArg } from './Modal.Widget.types';
+
+import { GlobalRootDataAttributeMap, KeyboardKeyMap } from '../../../constants';
+import { forwardRefWithAs, render, RenderFeatures } from '../../../core';
 import {
   useOutsideClick,
   useLockScroll,
@@ -12,13 +16,9 @@ import {
   useSyncRefs,
   useId,
 } from '../../../hooks';
+import { FocusTrap, ForcePortalRoot, Portal, StackContextMessageEnum, StackProvider } from '../../../tools';
+import { RootUIProps, RootUIReactTag } from '../../../types';
 import { match } from '../../../utils';
-import { GlobalRootDataAttributeMap, KeyboardKeyMap } from '../../../constants';
-import { forwardRefWithAs, render, RenderFeatures } from '../../../core';
-
-import { ModalContext, ModalContextValues } from './Modal.Widget.Context';
-import { ActionTypes, StateDefinition, rootReducer } from './Modal.Widget.reducer';
-import { ModalPosition, ModalRenderPropArg } from './Modal.Widget.types';
 
 const COMPONENT_NAME = 'Modal';
 const DEFAULT_TAG: RootUIReactTag = 'div';

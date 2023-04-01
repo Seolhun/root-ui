@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {
   autoUpdate,
   flip,
@@ -12,6 +11,7 @@ import {
   useInteractions,
   useRole,
 } from '@floating-ui/react';
+import * as React from 'react';
 
 import { TooltipFloatingReturns, TooltipIntersectionReturns, TooltipOptions } from './Tooltip.types';
 

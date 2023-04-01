@@ -1,9 +1,10 @@
-import * as React from 'react';
 import { FloatingPortal } from '@floating-ui/react';
 import clsx from 'clsx';
+import * as React from 'react';
+
+import { useDrawerContext } from './Drawer.Context';
 
 import { useDocumentEvent } from '../../../hooks';
-import { useDrawerContext } from './Drawer.Context';
 
 const CLASSNAME = 'Root__Drawer';
 type ElementType = HTMLDivElement;

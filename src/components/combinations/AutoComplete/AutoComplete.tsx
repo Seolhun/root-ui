@@ -1,14 +1,14 @@
-import React from 'react';
-import clsx from 'clsx';
 import { Combobox } from '@headlessui/react';
+import clsx from 'clsx';
 import isEmpty from 'lodash/isEmpty';
-
-import { Maybe } from '../../../utils/fx';
-import { RootScale, toScaleMatch } from '../../../system';
-import { Icon, IconProps } from '../../icons';
-import { AutoCompleteIdentify } from './AutoComplete.types';
+import React from 'react';
 
 import * as Styled from './AutoComplete.Styled';
+import { AutoCompleteIdentify } from './AutoComplete.types';
+
+import { RootScale, toScaleMatch } from '../../../system';
+import { Maybe } from '../../../utils/fx';
+import { Icon, IconProps } from '../../icons';
 
 const CLASSNAME = 'Root__AutoComplete';
 type Element = HTMLDivElement;

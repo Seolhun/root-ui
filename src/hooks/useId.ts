@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { isNil } from '../utils';
-
 import { useIsoMorphicEffect } from './useIsoMorphicEffect';
 import { useServerHandoffComplete } from './useServerHandoffComplete';
+
+import { isNil } from '../utils';
 
 let id = 0;
 function generateId() {

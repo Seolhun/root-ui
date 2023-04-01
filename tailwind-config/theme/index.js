@@ -1,15 +1,15 @@
-const plugin = require('tailwindcss/plugin');
-const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin');
 
+const { Animations } = require('../presets/Animations');
 const { palette } = require('../presets/Colors');
 const { FontSize } = require('../presets/FontSize');
-const { NegativeMargins } = require('../presets/Margin');
 const { Height } = require('../presets/Height');
+const { NegativeMargins } = require('../presets/Margin');
 const { MinHeight } = require('../presets/MinHeight');
-const { Width } = require('../presets/Width');
 const { MinMaxWidth } = require('../presets/MinMaxWidth');
-const { Animations } = require('../presets/Animations');
+const { Width } = require('../presets/Width');
 
 module.exports = plugin(function ({ addBase, theme }) {}, {
   /**

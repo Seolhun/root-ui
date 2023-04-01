@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { useMergeRefs } from '@floating-ui/react';
+import clsx from 'clsx';
+import * as React from 'react';
 
 import { useTooltipContext } from './useTooltipContext';
-import clsx from 'clsx';
 
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;

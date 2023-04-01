@@ -1,8 +1,8 @@
-import * as React from 'react';
 import clsx from 'clsx';
+import * as React from 'react';
 
-import { Text } from '../Text';
 import { AgnosticTagProps } from '../../../system';
+import { Text } from '../Text';
 
 const CLASSNAME = 'Root__Heading';
 type ElementType = HTMLHeadingElement;
