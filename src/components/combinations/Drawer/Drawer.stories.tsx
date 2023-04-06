@@ -19,7 +19,7 @@ export default {
   },
 };
 
-const BaseDrawer = ({ Header, Body, Footer, root, placement, ...rests }) => {
+const BaseTemplate = ({ Header, Body, Footer, root, placement, ...rests }) => {
   const [isShow, setShow] = React.useState(false);
 
   const onToggle = React.useCallback(() => {
@@ -49,16 +49,8 @@ const BaseDrawer = ({ Header, Body, Footer, root, placement, ...rests }) => {
 const Drawers = (props) => {
   return (
     <StorybookContent>
-      <StorybookContent.Light>
-        {({ root }) => {
-          return <BaseDrawer {...props} root={root} />;
-        }}
-      </StorybookContent.Light>
-      <StorybookContent.Dark>
-        {({ root }) => {
-          return <BaseDrawer {...props} root={root} />;
-        }}
-      </StorybookContent.Dark>
+      <StorybookContent.Light>{({ root }) => <BaseTemplate {...props} root={root} />}</StorybookContent.Light>
+      <StorybookContent.Dark>{({ root }) => <BaseTemplate {...props} root={root} />}</StorybookContent.Dark>
     </StorybookContent>
   );
 };

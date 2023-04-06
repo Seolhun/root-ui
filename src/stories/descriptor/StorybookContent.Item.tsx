@@ -54,6 +54,8 @@ export const StorybookContentItem = ({
   );
 };
 
-export const createStorybookContentItem = ({ className, ...others }: ElementProps) => {
-  return (props) => <StorybookContentItem {...others} {...props} className={className} />;
+export const createStorybookContentItem = (hocProps: ElementProps) => {
+  return ({ className, ...others }: ElementProps & StorybookContentItemProps) => (
+    <StorybookContentItem {...hocProps} {...others} className={clsx(hocProps.className, className)} />
+  );
 };

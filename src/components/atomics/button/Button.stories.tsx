@@ -23,14 +23,27 @@ export default {
   },
 };
 
-const ScaleButtons = ({ children, ...rests }: ButtonProps) => {
+const BaseTemplate = ({ children, ...others }: ButtonProps) => {
+  return <Button {...others}>{children}</Button>;
+};
+
+const ScaleButtons = ({ children, ...others }: ButtonProps) => {
   return (
     <StorybookContent>
-      {storiesScaleOptions.map((scale) => (
-        <Button {...rests} key={scale} scale={scale}>
-          {children}
-        </Button>
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale}>
+            {children}-{scale}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale}>
+            {children}-{scale}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
@@ -41,14 +54,23 @@ ScaleButtonsStories.args = {
   disabled: false,
 };
 
-const IntentButtons = ({ children, ...rests }: ButtonProps) => {
+const IntentButtons = ({ children, ...others }: ButtonProps) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <Button {...rests} key={intent} intent={intent}>
-          {children}-{intent}
-        </Button>
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent}>
+            {children}-{intent}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent}>
+            {children}-{intent}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
@@ -59,14 +81,23 @@ IntentButtonsStories.args = {
   disabled: false,
 };
 
-const IntentOutlinedButtons = ({ children, ...rests }: ButtonProps) => {
+const IntentOutlinedButtons = ({ children, ...others }: ButtonProps) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <Button {...rests} key={intent} intent={intent} outlined>
-          {children}-{intent}
-        </Button>
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent} outlined>
+            {children}-{intent}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent} outlined>
+            {children}-{intent}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
@@ -77,19 +108,23 @@ IntentOutlinedButtonsStories.args = {
   disabled: false,
 };
 
-const DisabledButtons = ({ children, ...rests }: ButtonProps) => {
+const DisabledButtons = ({ children, ...others }: ButtonProps) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <Button {...rests} key={intent} intent={intent}>
-          {children}-{intent}
-        </Button>
-      ))}
-      {storiesIntentOptions.map((intent) => (
-        <Button {...rests} key={intent} intent={intent} outlined>
-          {children}-{intent}
-        </Button>
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent}>
+            {children}-{intent}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent} outlined>
+            {children}-{intent}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };

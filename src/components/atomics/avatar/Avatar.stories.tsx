@@ -17,12 +17,23 @@ export default {
   },
 };
 
-const ScaleAvatar = ({ ...rests }: AvatarProps) => {
+const BaseTemplate = ({ ...others }: AvatarProps) => {
+  return <Avatar {...others} src="https://avatars.githubusercontent.com/u/16330024?v=4" />;
+};
+
+const ScaleAvatar = ({ ...others }: AvatarProps) => {
   return (
     <StorybookContent>
-      {storiesScaleOptions.map((scale) => (
-        <Avatar {...rests} key={scale} scale={scale} src="https://avatars.githubusercontent.com/u/16330024?v=4" />
-      ))}
+      <StorybookContent.Light>
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale} />
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark>
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale} />
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
