@@ -21,79 +21,94 @@ export default {
   },
 };
 
-const Selects = ({ children, ...rests }: SelectProps) => {
+const BaseTemplate = ({ children, ...others }: SelectProps) => {
+  const [value, setValue] = React.useState(others.value);
+  return (
+    <Select value={value} onChange={(e) => setValue(e.target.value)} {...others}>
+      {[10, 20, 30, 40, 50].map((num) => (
+        <option key={num} value={num}>
+          Show {num}
+        </option>
+      ))}
+    </Select>
+  );
+};
+
+const SelectsStories = ({ children, ...others }: SelectProps) => {
   return (
     <StorybookContent>
-      <Select {...rests}>
-        {[10, 20, 30, 40, 50].map((num) => (
-          <option key={num} value={num}>
-            Show {num}
-          </option>
-        ))}
-      </Select>
-      <Select {...rests} value={'is not empty'}>
-        {[10, 20, 30, 40, 50].map((num) => (
-          <option key={num} value={num}>
-            Show {num}
-          </option>
-        ))}
-      </Select>
-      <Select {...rests} disabled>
-        {[10, 20, 30, 40, 50].map((num) => (
-          <option key={num} value={num}>
-            Show {num}
-          </option>
-        ))}
-      </Select>
+      <StorybookContent.Light className="flex-col">
+        <BaseTemplate {...others}>{children}</BaseTemplate>
+        <BaseTemplate {...others} disabled>
+          {children}
+        </BaseTemplate>
+      </StorybookContent.Light>
+
+      <StorybookContent.Dark className="flex-col">
+        <BaseTemplate {...others}>{children}</BaseTemplate>
+        <BaseTemplate {...others} disabled>
+          {children}
+        </BaseTemplate>
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const SelectsStories = Selects.bind({});
-SelectsStories.args = {
+export const Selects = SelectsStories.bind({});
+Selects.args = {
   placeholder: 'placeholder',
 };
 
-const ScaleSelects = ({ ...rests }: SelectProps) => {
+const ScaleSelectsStories = ({ children, ...others }: SelectProps) => {
   return (
     <StorybookContent>
-      {storiesScaleOptions.map((scale) => (
-        <Select {...rests} key={scale} scale={scale}>
-          {[10, 20, 30, 40, 50].map((num) => (
-            <option key={num} value={num}>
-              Show {num}
-            </option>
-          ))}
-        </Select>
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Light>
+
+      <StorybookContent.Dark className="flex-col">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const ScaleSelectsStories = ScaleSelects.bind({});
-ScaleSelectsStories.args = {
-  value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+export const ScaleSelects = ScaleSelectsStories.bind({});
+ScaleSelects.args = {
   disabled: false,
 };
 
-const IntentSelects = ({ ...rests }: SelectProps) => {
+const IntentSelectsStories = ({ children, ...others }: SelectProps) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <Select {...rests} key={intent} intent={intent}>
-          {[10, 20, 30, 40, 50].map((num) => (
-            <option key={num} value={num}>
-              Show {num}
-            </option>
-          ))}
-        </Select>
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Light>
+
+      <StorybookContent.Dark className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const IntentSelectsStories = IntentSelects.bind({});
-IntentSelectsStories.args = {
-  value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+export const IntentSelects = IntentSelectsStories.bind({});
+IntentSelects.args = {
   disabled: false,
 };
