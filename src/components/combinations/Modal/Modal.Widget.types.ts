@@ -20,7 +20,7 @@ export interface ModalProps {
   /**
    * Keydown event handler
    */
-  onKeyDown?: (e: React.KeyboardEvent<Element>) => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLElement>) => void;
 
   /**
    * Init focus element

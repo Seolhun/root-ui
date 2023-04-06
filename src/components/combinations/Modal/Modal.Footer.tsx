@@ -9,7 +9,7 @@ export interface ModalFooterProps extends ElementProps {
   children: React.ReactNode;
 }
 
-const ModalFooter = React.forwardRef<ElementType, ModalFooterProps>(
+export const ModalFooter = React.forwardRef<ElementType, ModalFooterProps>(
   ({ className, children, ...rests }: ModalFooterProps) => {
     return (
       <div {...rests} className={clsx(CLASSNAME, className, 'flex', 'mt-2', 'rounded-b')}>
@@ -18,6 +18,3 @@ const ModalFooter = React.forwardRef<ElementType, ModalFooterProps>(
     );
   },
 );
-
-export { ModalFooter };
-export default ModalFooter;

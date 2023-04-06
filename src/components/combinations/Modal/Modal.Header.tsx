@@ -12,7 +12,7 @@ export interface ModalHeaderProps extends ElementProps {
   children: React.ReactNode;
 }
 
-const ModalHeader = React.forwardRef<ElementType, ModalHeaderProps>(({ className, children, ...rests }, ref) => {
+export const ModalHeader = React.forwardRef<ElementType, ModalHeaderProps>(({ className, children, ...rests }, ref) => {
   return (
     <div
       ref={ref}
@@ -26,6 +26,3 @@ const ModalHeader = React.forwardRef<ElementType, ModalHeaderProps>(({ className
     </div>
   );
 });
-
-export { ModalHeader };
-export default ModalHeader;
