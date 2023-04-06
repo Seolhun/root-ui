@@ -13,6 +13,5 @@ export interface TextareaProps extends ElementProps {
      */
     intent?: RootIntent;
 }
-declare const Textarea: React.ForwardRefExoticComponent<TextareaProps & React.RefAttributes<HTMLTextAreaElement>>;
-export { Textarea };
-export default Textarea;
+export declare const Textarea: React.ForwardRefExoticComponent<TextareaProps & React.RefAttributes<HTMLTextAreaElement>>;
+export {};

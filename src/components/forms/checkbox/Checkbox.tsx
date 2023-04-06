@@ -24,7 +24,7 @@ export interface CheckboxProps extends ElementProps {
   intent?: RootIntent;
 }
 
-const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
+export const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
   ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...rests }, ref) => {
     const htmlForAndID = htmlFor ?? rests.name;
     return (
@@ -60,6 +60,3 @@ const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
     );
   },
 );
-
-export { Checkbox };
-export default Checkbox;

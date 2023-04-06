@@ -9,7 +9,7 @@ export interface UseRestoreFocusProps {
   ownerDocument: Document | null;
 }
 
-function useRestoreFocus({ ownerDocument }: UseRestoreFocusProps, enabled: boolean) {
+export function useRestoreFocus({ ownerDocument }: UseRestoreFocusProps, enabled: boolean) {
   const restoreElement = React.useRef<HTMLElement | null>(null);
 
   // Capture the currently focused element, before we try to move the focus inside the FocusTrap.
@@ -55,6 +55,3 @@ function useRestoreFocus({ ownerDocument }: UseRestoreFocusProps, enabled: boole
     };
   }, []);
 }
-
-export { useRestoreFocus };
-export default useRestoreFocus;

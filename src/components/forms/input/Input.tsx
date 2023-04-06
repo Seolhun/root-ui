@@ -20,7 +20,7 @@ export interface InputProps extends ElementProps {
   intent?: RootIntent;
 }
 
-const Input = React.forwardRef<ElementType, InputProps>(
+export const Input = React.forwardRef<ElementType, InputProps>(
   ({ className, scale = 'md', intent = 'primary', ...rests }, ref) => {
     const rootUIContext = useRootUIContext();
 
@@ -65,6 +65,3 @@ const Input = React.forwardRef<ElementType, InputProps>(
     );
   },
 );
-
-export { Input };
-export default Input;

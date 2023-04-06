@@ -80,7 +80,4 @@ const _PortalRoot = <Tag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
   );
 };
 
-const Portal = Object.assign(forwardRefWithAs(_PortalRoot), { Group: PortalGroup });
-
-export { Portal };
-export default Portal;
+export const Portal = Object.assign(forwardRefWithAs(_PortalRoot), { Group: PortalGroup });

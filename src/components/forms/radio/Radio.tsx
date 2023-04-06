@@ -24,7 +24,7 @@ export interface RadioProps extends ElementProps {
   intent?: RootIntent;
 }
 
-const Radio = React.forwardRef<ElementType, RadioProps>(
+export const Radio = React.forwardRef<ElementType, RadioProps>(
   ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...rests }, ref) => {
     const htmlForAndID = htmlFor ?? rests.name;
     return (
@@ -60,6 +60,3 @@ const Radio = React.forwardRef<ElementType, RadioProps>(
     );
   },
 );
-
-export { Radio };
-export default Radio;

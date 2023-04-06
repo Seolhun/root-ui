@@ -8,8 +8,7 @@ export interface AccordionButtonRenderPropArg {
     open: boolean;
 }
 type PropsWeControl = keyof Pick<ElementProps, 'id' | 'type' | 'aria-expanded' | 'aria-controls' | 'onKeyDown' | 'onClick'>;
-declare const AccordionWidgetButton: (<Tag extends React.ElementType<any> = "button">(props: RootUIProps<Tag, AccordionButtonRenderPropArg, "id" | "aria-controls" | "aria-expanded" | "onKeyDown" | "onClick" | "type"> & AccordionButtonProps & ElementProps, ref: React.Ref<HTMLButtonElement>) => React.ReactElement<any, string | React.JSXElementConstructor<any>> | null) & {
+export declare const AccordionWidgetButton: (<Tag extends React.ElementType<any> = "button">(props: RootUIProps<Tag, AccordionButtonRenderPropArg, "id" | "aria-controls" | "aria-expanded" | "onKeyDown" | "onClick" | "type"> & AccordionButtonProps & ElementProps, ref: React.Ref<HTMLButtonElement>) => React.ReactElement<any, string | React.JSXElementConstructor<any>> | null) & {
     displayName: string;
 };
-export { AccordionWidgetButton };
-export default AccordionWidgetButton;
+export {};

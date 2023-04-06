@@ -30,7 +30,7 @@ export interface AccordionRootRenderPropArg {
   close(focusableElement?: HTMLElement | React.MutableRefObject<HTMLElement | null>): void;
 }
 
-const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot<
+export const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot<
   Tag extends React.ElementType = typeof DEFAULT_TAG,
 >(props: RootUIProps<Tag, AccordionRootRenderPropArg> & AccordionRootProps & ElementProps, ref: React.Ref<Tag>) {
   const { defaultOpen = false, ...rests } = props;
@@ -125,6 +125,3 @@ const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot<
     </AccordionContext.Provider>
   );
 });
-
-export { AccordionWidgetRoot };
-export default AccordionWidgetRoot;

@@ -14,6 +14,5 @@ export interface RadioProps extends ElementProps {
      */
     intent?: RootIntent;
 }
-declare const Radio: React.ForwardRefExoticComponent<RadioProps & React.RefAttributes<HTMLInputElement>>;
-export { Radio };
-export default Radio;
+export declare const Radio: React.ForwardRefExoticComponent<RadioProps & React.RefAttributes<HTMLInputElement>>;
+export {};

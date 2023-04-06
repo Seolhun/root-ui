@@ -16,7 +16,7 @@ function contains(containers: Set<React.MutableRefObject<HTMLElement | null>>, e
   return false;
 }
 
-function useFocusLock(
+export function useFocusLock(
   { ownerDocument, container, containers, previousActiveElement }: UseFocusLockProps,
   enabled: boolean,
 ) {
@@ -58,6 +58,3 @@ function useFocusLock(
     true,
   );
 }
-
-export { useFocusLock };
-export default useFocusLock;

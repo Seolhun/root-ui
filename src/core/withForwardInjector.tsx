@@ -26,7 +26,7 @@ function mergeProps<
   return mergedProps;
 }
 
-function withForwardInjector<
+export function withForwardInjector<
   InjectorProps extends InjectorComponentProps<E> = any,
   P extends InjectorComponentProps<E> = any,
   E extends HTMLElement = HTMLElement,
@@ -50,6 +50,3 @@ function withForwardInjector<
 
   return InjectedComponent;
 }
-
-export { withForwardInjector };
-export default withForwardInjector;

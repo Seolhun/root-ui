@@ -130,7 +130,4 @@ const _AccordionWidgetButton = <Tag extends React.ElementType = typeof DEFAULT_T
   });
 };
 
-const AccordionWidgetButton = forwardRefWithAs(_AccordionWidgetButton);
-
-export { AccordionWidgetButton };
-export default AccordionWidgetButton;
+export const AccordionWidgetButton = forwardRefWithAs(_AccordionWidgetButton);

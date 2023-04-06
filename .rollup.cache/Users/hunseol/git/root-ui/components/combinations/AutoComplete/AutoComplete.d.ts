@@ -43,8 +43,7 @@ export interface AutoCompleteProps<Item> {
     placeholder?: string;
 }
 declare function _AutoComplete<Item = any>({ scale, items, identify, query, onChangeInput, onKeydownInput, onSelectItem, selectedItem, displayedValue, loading, Loader, Empty, icon, className, placeholder, ...rests }: AutoCompleteProps<Item> & ElementProps, ref: React.ForwardedRef<HTMLDivElement>): JSX.Element;
-declare const AutoComplete: <Item>(props: AutoCompleteProps<Item> & ElementProps & {
+export declare const AutoComplete: <Item>(props: AutoCompleteProps<Item> & ElementProps & {
     ref?: React.ForwardedRef<HTMLDivElement> | undefined;
 }) => ReturnType<typeof _AutoComplete>;
-export { AutoComplete };
-export default AutoComplete;
+export {};

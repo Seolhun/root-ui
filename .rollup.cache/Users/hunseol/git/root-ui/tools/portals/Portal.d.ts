@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { RootUIProps, UnknownObject } from '../../types';
 type PortalRenderPropArg = UnknownObject;
-declare const Portal: (<Tag extends React.ElementType<any> = React.ExoticComponent<{
+export declare const Portal: (<Tag extends React.ElementType<any> = React.ExoticComponent<{
     children?: React.ReactNode;
 }>>(props: RootUIProps<Tag, UnknownObject, "1D45E01E-AF44-47C4-988A-19A94EBAF55C">, ref: React.Ref<HTMLElement>) => React.ReactPortal | null) & {
     displayName: string;
@@ -16,5 +16,4 @@ declare const Portal: (<Tag extends React.ElementType<any> = React.ExoticCompone
         displayName: string;
     };
 };
-export { Portal };
-export default Portal;
+export {};

@@ -166,12 +166,9 @@ function _AutoComplete<Item = any>(
   );
 }
 
-const AutoComplete = React.forwardRef(_AutoComplete) as <Item>(
+export const AutoComplete = React.forwardRef(_AutoComplete) as <Item>(
   props: AutoCompleteProps<Item> &
     ElementProps & {
       ref?: React.ForwardedRef<HTMLDivElement>;
     },
 ) => ReturnType<typeof _AutoComplete>;
-
-export { AutoComplete };
-export default AutoComplete;

@@ -14,6 +14,5 @@ export interface CheckboxProps extends ElementProps {
      */
     intent?: RootIntent;
 }
-declare const Checkbox: React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<HTMLInputElement>>;
-export { Checkbox };
-export default Checkbox;
+export declare const Checkbox: React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<HTMLInputElement>>;
+export {};

@@ -21,7 +21,7 @@ export interface AccordionPanelRenderPropArg {
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;
 const PanelRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Static;
 
-const AccordionWidgetPanel = forwardRefWithAs(function AccordionWidgetPanel<
+export const AccordionWidgetPanel = forwardRefWithAs(function AccordionWidgetPanel<
   Tag extends React.ElementType = typeof DEFAULT_TAG,
 >(
   props: RootUIProps<Tag, AccordionPanelRenderPropArg, PropsWeControl> &
@@ -76,6 +76,3 @@ const AccordionWidgetPanel = forwardRefWithAs(function AccordionWidgetPanel<
     </AccordionPanelContext.Provider>
   );
 });
-
-export { AccordionWidgetPanel };
-export default AccordionWidgetPanel;

@@ -36,7 +36,7 @@ export interface ProgressBarProps extends ElementProps {
   intent?: RootIntent;
 }
 
-const ProgressBar = React.forwardRef<ElementType, ProgressBarProps>(
+export const ProgressBar = React.forwardRef<ElementType, ProgressBarProps>(
   ({
     className,
     badge,
@@ -133,6 +133,3 @@ const ProgressBar = React.forwardRef<ElementType, ProgressBarProps>(
     );
   },
 );
-
-export { ProgressBar };
-export default ProgressBar;

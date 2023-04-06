@@ -20,7 +20,7 @@ export interface TextareaProps extends ElementProps {
   intent?: RootIntent;
 }
 
-const Textarea = React.forwardRef<ElementType, TextareaProps>(
+export const Textarea = React.forwardRef<ElementType, TextareaProps>(
   ({ className, scale = 'md', intent = 'primary', ...rests }, ref) => {
     return (
       <Box
@@ -62,6 +62,3 @@ const Textarea = React.forwardRef<ElementType, TextareaProps>(
     );
   },
 );
-
-export { Textarea };
-export default Textarea;

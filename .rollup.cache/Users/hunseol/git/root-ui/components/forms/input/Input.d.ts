@@ -13,6 +13,5 @@ export interface InputProps extends ElementProps {
      */
     intent?: RootIntent;
 }
-declare const Input: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<HTMLInputElement>>;
-export { Input };
-export default Input;
+export declare const Input: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<HTMLInputElement>>;
+export {};

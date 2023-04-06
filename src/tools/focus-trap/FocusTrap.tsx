@@ -96,9 +96,6 @@ const _FocusTrap = <Tag extends React.ElementType = typeof DEFAULT_FOCUS_TRAP_TA
   );
 };
 
-const FocusTrap = Object.assign(forwardRefWithAs(_FocusTrap), {
+export const FocusTrap = Object.assign(forwardRefWithAs(_FocusTrap), {
   features: Features,
 });
-
-export { FocusTrap };
-export default FocusTrap;

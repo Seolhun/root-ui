@@ -26,6 +26,5 @@ export interface ProgressBarProps extends ElementProps {
      */
     intent?: RootIntent;
 }
-declare const ProgressBar: React.ForwardRefExoticComponent<ProgressBarProps & React.RefAttributes<HTMLDivElement>>;
-export { ProgressBar };
-export default ProgressBar;
+export declare const ProgressBar: React.ForwardRefExoticComponent<ProgressBarProps & React.RefAttributes<HTMLDivElement>>;
+export {};
