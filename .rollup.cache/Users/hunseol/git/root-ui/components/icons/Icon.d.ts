@@ -1,6 +1,6 @@
 import * as HeroIcon from '@heroicons/react/outline';
 import * as React from 'react';
-import { RootInherit, RootIntent, RootScale } from '../../system';
+import { RootIntentInherit, RootIntent, RootScale } from '../../system';
 type ElementProps = React.HTMLAttributes<Element>;
 export interface IconProps {
     /**
@@ -10,7 +10,7 @@ export interface IconProps {
     /**
      * @default inherit
      */
-    intent?: RootIntent | RootInherit;
+    intent?: RootIntent | RootIntentInherit;
     /**
      * Set this to change scale
      * @default inherit

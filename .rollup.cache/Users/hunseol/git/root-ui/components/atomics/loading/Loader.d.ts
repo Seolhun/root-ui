@@ -13,6 +13,5 @@ export interface LoaderProps extends ElementProps {
      */
     intent?: RootIntent;
 }
-declare const Loader: React.ForwardRefExoticComponent<LoaderProps & React.RefAttributes<HTMLDivElement>>;
-export { Loader };
-export default Loader;
+export declare const Loader: React.ForwardRefExoticComponent<LoaderProps & React.RefAttributes<HTMLDivElement>>;
+export {};
