@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import * as React from 'react';
 
 import { Drawer } from './Drawer';
@@ -20,10 +19,7 @@ export default {
   },
 };
 
-/**
- * @todo Light mode is not working because of context value is overwrite by dark mode
- */
-const Drawers = ({ Header, Body, Footer, placement, ...rests }) => {
+const BaseDrawer = ({ Header, Body, Footer, root, placement, ...rests }) => {
   const [isShow, setShow] = React.useState(false);
 
   const onToggle = React.useCallback(() => {
@@ -39,29 +35,30 @@ const Drawers = ({ Header, Body, Footer, placement, ...rests }) => {
   }, [onClose]);
 
   return (
+    <div>
+      <Button onClick={onToggle}>Toggle Drawer</Button>
+      <Drawer {...rests} show={isShow} onClose={onClose} onConfirm={onConfirm} root={root}>
+        <Drawer.Header>{<H4>{Header}</H4>}</Drawer.Header>
+        <Drawer.Body>{Body}</Drawer.Body>
+        <Drawer.Footer>{Footer}</Drawer.Footer>
+      </Drawer>
+    </div>
+  );
+};
+
+const Drawers = (props) => {
+  return (
     <StorybookContent>
-      {({ root }) => {
-        return (
-          <>
-            <Button onClick={onToggle}>Toggle Drawer</Button>
-            <Drawer
-              {...rests}
-              show={isShow}
-              onClose={onClose}
-              onConfirm={onConfirm}
-              root={root}
-              className={clsx({
-                'h-4/6': placement === 'top' || placement === 'bottom',
-                'w-9/12': placement === 'right' || placement === 'left',
-              })}
-            >
-              <Drawer.Header>{<H4>{Header}</H4>}</Drawer.Header>
-              <Drawer.Body>{Body}</Drawer.Body>
-              <Drawer.Footer>{Footer}</Drawer.Footer>
-            </Drawer>
-          </>
-        );
-      }}
+      <StorybookContent.Light>
+        {({ root }) => {
+          return <BaseDrawer {...props} root={root} />;
+        }}
+      </StorybookContent.Light>
+      <StorybookContent.Dark>
+        {({ root }) => {
+          return <BaseDrawer {...props} root={root} />;
+        }}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
