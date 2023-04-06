@@ -32,7 +32,7 @@ const BaseTemplate = ({ children, ...others }: IconProps) => {
   return <Icon {...others}>{children}</Icon>;
 };
 
-const Icons = ({ children, ...others }: IconProps) => {
+const IconsStories = ({ children, ...others }: IconProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -53,12 +53,12 @@ const Icons = ({ children, ...others }: IconProps) => {
   );
 };
 
-export const IconsStories = Icons.bind({});
-IconsStories.args = {
+export const Icons = IconsStories.bind({});
+Icons.args = {
   icon: 'RocketLaunchIcon',
 };
 
-const InheritIcons = ({ children, color, ...others }: IconProps) => {
+const InheritIconsStories = ({ children, color, ...others }: IconProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light>
@@ -97,13 +97,13 @@ const InheritIcons = ({ children, color, ...others }: IconProps) => {
   );
 };
 
-export const InheritIconsStories = InheritIcons.bind({});
-InheritIconsStories.args = {
+export const InheritIcons = InheritIconsStories.bind({});
+InheritIcons.args = {
   icon: 'RocketLaunchIcon',
   color: 'blue',
 };
 
-const IntentIcons = ({ children, ...others }: IconProps) => {
+const IntentIconsStories = ({ children, ...others }: IconProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -124,8 +124,8 @@ const IntentIcons = ({ children, ...others }: IconProps) => {
   );
 };
 
-export const IntentIconsStories = IntentIcons.bind({});
-IntentIconsStories.args = {
+export const IntentIcons = IntentIconsStories.bind({});
+IntentIcons.args = {
   children: 'Icon',
   icon: 'RocketLaunchIcon',
 };

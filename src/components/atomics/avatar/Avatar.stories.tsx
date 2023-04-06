@@ -21,7 +21,7 @@ const BaseTemplate = ({ ...others }: AvatarProps) => {
   return <Avatar {...others} src="https://avatars.githubusercontent.com/u/16330024?v=4" />;
 };
 
-const ScaleAvatar = ({ ...others }: AvatarProps) => {
+const ScaleAvatarStories = ({ ...others }: AvatarProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light>
@@ -38,5 +38,5 @@ const ScaleAvatar = ({ ...others }: AvatarProps) => {
   );
 };
 
-export const ScaleAvatarStories = ScaleAvatar.bind({});
-ScaleAvatarStories.args = {};
+export const ScaleAvatar = ScaleAvatarStories.bind({});
+ScaleAvatar.args = {};

@@ -27,7 +27,7 @@ const BaseTemplate = ({ children, ...others }: LoaderProps) => {
   return <Loader {...others}>{children}</Loader>;
 };
 
-const ScaleLoader = ({ ...rests }: LoaderProps) => {
+const ScaleLoaderStories = ({ ...rests }: LoaderProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light>
@@ -44,10 +44,10 @@ const ScaleLoader = ({ ...rests }: LoaderProps) => {
   );
 };
 
-export const ScaleLoaderStories = ScaleLoader.bind({});
-ScaleLoaderStories.args = {};
+export const ScaleLoader = ScaleLoaderStories.bind({});
+ScaleLoader.args = {};
 
-const IntentLoaders = ({ children, ...rests }: LoaderProps) => {
+const IntentLoadersStories = ({ children, ...rests }: LoaderProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light>
@@ -64,5 +64,5 @@ const IntentLoaders = ({ children, ...rests }: LoaderProps) => {
   );
 };
 
-export const IntentLoadersStories = IntentLoaders.bind({});
-IntentLoadersStories.args = {};
+export const IntentLoaders = IntentLoadersStories.bind({});
+IntentLoaders.args = {};

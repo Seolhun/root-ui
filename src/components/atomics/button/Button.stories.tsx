@@ -27,7 +27,7 @@ const BaseTemplate = ({ children, ...others }: ButtonProps) => {
   return <Button {...others}>{children}</Button>;
 };
 
-const ScaleButtons = ({ children, ...others }: ButtonProps) => {
+const ScaleButtonsStories = ({ children, ...others }: ButtonProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -48,13 +48,13 @@ const ScaleButtons = ({ children, ...others }: ButtonProps) => {
   );
 };
 
-export const ScaleButtonsStories = ScaleButtons.bind({});
-ScaleButtonsStories.args = {
+export const ScaleButtons = ScaleButtonsStories.bind({});
+ScaleButtons.args = {
   children: 'Button',
   disabled: false,
 };
 
-const IntentButtons = ({ children, ...others }: ButtonProps) => {
+const IntentButtonsStories = ({ children, ...others }: ButtonProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -75,13 +75,13 @@ const IntentButtons = ({ children, ...others }: ButtonProps) => {
   );
 };
 
-export const IntentButtonsStories = IntentButtons.bind({});
-IntentButtonsStories.args = {
+export const IntentButtons = IntentButtonsStories.bind({});
+IntentButtons.args = {
   children: 'Button',
   disabled: false,
 };
 
-const IntentOutlinedButtons = ({ children, ...others }: ButtonProps) => {
+const IntentOutlinedButtonsStories = ({ children, ...others }: ButtonProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -102,13 +102,13 @@ const IntentOutlinedButtons = ({ children, ...others }: ButtonProps) => {
   );
 };
 
-export const IntentOutlinedButtonsStories = IntentOutlinedButtons.bind({});
-IntentOutlinedButtonsStories.args = {
+export const IntentOutlinedButtons = IntentOutlinedButtonsStories.bind({});
+IntentOutlinedButtons.args = {
   children: 'Button',
   disabled: false,
 };
 
-const DisabledButtons = ({ children, ...others }: ButtonProps) => {
+const DisabledButtonsStories = ({ children, ...others }: ButtonProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light>
@@ -147,8 +147,8 @@ const DisabledButtons = ({ children, ...others }: ButtonProps) => {
   );
 };
 
-export const DisabledButtonsStories = DisabledButtons.bind({});
-DisabledButtonsStories.args = {
+export const DisabledButtons = DisabledButtonsStories.bind({});
+DisabledButtons.args = {
   children: 'Button',
   disabled: true,
 };

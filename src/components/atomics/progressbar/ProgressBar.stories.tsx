@@ -27,7 +27,7 @@ const BaseTemplate = ({ children, ...others }: ProgressBarProps) => {
   return <ProgressBar {...others}>{children}</ProgressBar>;
 };
 
-const ScaleProgressBar = ({ children, ...rests }: ProgressBarProps) => {
+const ScaleProgressBarStories = ({ children, ...rests }: ProgressBarProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -48,13 +48,13 @@ const ScaleProgressBar = ({ children, ...rests }: ProgressBarProps) => {
   );
 };
 
-export const ScaleProgressBarStories = ScaleProgressBar.bind({});
-ScaleProgressBarStories.args = {
+export const ScaleProgressBar = ScaleProgressBarStories.bind({});
+ScaleProgressBar.args = {
   children: 'ProgressBar',
   badge: '',
 };
 
-const IntentProgressBars = ({ children, ...rests }: ProgressBarProps) => {
+const IntentProgressBarsStories = ({ children, ...rests }: ProgressBarProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -71,13 +71,13 @@ const IntentProgressBars = ({ children, ...rests }: ProgressBarProps) => {
   );
 };
 
-export const IntentProgressBarsStories = IntentProgressBars.bind({});
-IntentProgressBarsStories.args = {
+export const IntentProgressBars = IntentProgressBarsStories.bind({});
+IntentProgressBars.args = {
   children: 'ProgressBar',
   badge: '',
 };
 
-const BadgeProgressBars = ({ children, ...rests }: ProgressBarProps) => {
+const BadgeProgressBarsStories = ({ children, ...rests }: ProgressBarProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -94,8 +94,8 @@ const BadgeProgressBars = ({ children, ...rests }: ProgressBarProps) => {
   );
 };
 
-export const BadgeProgressBarsStories = BadgeProgressBars.bind({});
-BadgeProgressBarsStories.args = {
+export const BadgeProgressBars = BadgeProgressBarsStories.bind({});
+BadgeProgressBars.args = {
   children: 'ProgressBar',
   badge: 'Badge',
 };

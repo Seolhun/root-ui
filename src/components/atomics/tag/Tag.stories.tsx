@@ -27,7 +27,7 @@ const BaseTemplate = ({ children, ...others }: TagProps) => {
   return <Tag {...others}>{children}</Tag>;
 };
 
-const ScaleTags: React.FC<TagProps> = ({ children, ...others }) => {
+const ScaleTagsStories: React.FC<TagProps> = ({ children, ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -48,13 +48,13 @@ const ScaleTags: React.FC<TagProps> = ({ children, ...others }) => {
   );
 };
 
-export const ScaleTagsStories = ScaleTags.bind({});
-ScaleTagsStories.args = {
+export const ScaleTags = ScaleTagsStories.bind({});
+ScaleTags.args = {
   children: 'Tag',
   disabled: false,
 };
 
-const IntentTags: React.FC<TagProps> = ({ children, ...others }) => {
+const IntentTagsStories: React.FC<TagProps> = ({ children, ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -75,12 +75,12 @@ const IntentTags: React.FC<TagProps> = ({ children, ...others }) => {
   );
 };
 
-export const IntentTagsStories = IntentTags.bind({});
-IntentTagsStories.args = {
+export const IntentTags = IntentTagsStories.bind({});
+IntentTags.args = {
   children: 'Tag',
 };
 
-const IntentOutlinedTags: React.FC<TagProps> = ({ children, ...others }) => {
+const IntentOutlinedTagsStories: React.FC<TagProps> = ({ children, ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -101,12 +101,12 @@ const IntentOutlinedTags: React.FC<TagProps> = ({ children, ...others }) => {
   );
 };
 
-export const IntentOutlinedTagsStories = IntentOutlinedTags.bind({});
-IntentOutlinedTagsStories.args = {
+export const IntentOutlinedTags = IntentOutlinedTagsStories.bind({});
+IntentOutlinedTags.args = {
   children: 'Tag',
 };
 
-const DisabledTags = ({ children, ...others }: TagProps) => {
+const DisabledTagsStories = ({ children, ...others }: TagProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light>
@@ -145,8 +145,8 @@ const DisabledTags = ({ children, ...others }: TagProps) => {
   );
 };
 
-export const DisabledTagsStories = DisabledTags.bind({});
-DisabledTagsStories.args = {
+export const DisabledTags = DisabledTagsStories.bind({});
+DisabledTags.args = {
   children: 'Tag',
   disabled: true,
 };
