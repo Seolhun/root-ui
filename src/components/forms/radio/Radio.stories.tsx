@@ -23,60 +23,106 @@ export default {
   },
 };
 
-const Radios: React.FC<RadioProps> = ({ children, ...rests }) => {
+const BaseTemplate = ({ children, checked, ...others }: RadioProps) => {
+  const [isChecked, setChecked] = React.useState(checked);
+
+  React.useEffect(() => {
+    setChecked(checked);
+  }, [checked]);
+
+  return (
+    <Radio checked={isChecked} onChange={(e) => setChecked(e.target.checked)} {...others}>
+      {children}
+    </Radio>
+  );
+};
+
+const RadioTemplate = ({ children, ...others }: RadioProps) => {
   return (
     <StorybookContent>
-      <Radio {...rests}>{children}</Radio>
-      <Radio {...rests} checked>
-        {children}
-      </Radio>
-      <Radio {...rests} disabled>
-        {children}
-      </Radio>
-      <Radio {...rests} checked disabled>
-        {children}
-      </Radio>
+      <StorybookContent.Light className="flex-col">
+        <BaseTemplate {...others}>{children}</BaseTemplate>
+        <BaseTemplate {...others} checked>
+          {children}
+        </BaseTemplate>
+        <BaseTemplate {...others} disabled>
+          {children}
+        </BaseTemplate>
+        <BaseTemplate {...others} checked disabled>
+          {children}
+        </BaseTemplate>
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        <BaseTemplate {...others}>{children}</BaseTemplate>
+        <BaseTemplate {...others} checked>
+          {children}
+        </BaseTemplate>
+        <BaseTemplate {...others} disabled>
+          {children}
+        </BaseTemplate>
+        <BaseTemplate {...others} checked disabled>
+          {children}
+        </BaseTemplate>
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const RadiosStories = Radios.bind({});
-RadiosStories.args = {
+export const Radios = RadioTemplate.bind({});
+Radios.args = {
   children: 'Radio',
 };
 
-const ScaleRadios: React.FC<RadioProps> = ({ children, ...rests }) => {
+const ScaleRadioTemplate = ({ children, ...others }: RadioProps) => {
   return (
     <StorybookContent>
-      {storiesScaleOptions.map((scale) => (
-        <Radio {...rests} key={scale} scale={scale}>
-          {children}
-        </Radio>
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const ScaleRadiosStories = ScaleRadios.bind({});
-ScaleRadiosStories.args = {
+export const ScaleRadios = ScaleRadioTemplate.bind({});
+ScaleRadios.args = {
   children: 'Radio',
   disabled: false,
 };
 
-const IntentRadios: React.FC<RadioProps> = ({ children, ...rests }) => {
+const IntentRadioTemplate = ({ children, ...others }: RadioProps) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <Radio {...rests} key={intent} intent={intent}>
-          {children}
-        </Radio>
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const IntentRadiosStories = IntentRadios.bind({});
-IntentRadiosStories.args = {
+export const IntentRadio = IntentRadioTemplate.bind({});
+IntentRadio.args = {
   children: 'Radio',
   checked: true,
   disabled: false,

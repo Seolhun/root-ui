@@ -21,49 +21,74 @@ export default {
   },
 };
 
-const Inputs = ({ children, ...rests }: InputProps) => {
+const BaseTemplate = ({ children, ...others }: InputProps) => {
+  return <Input {...others}>{children}</Input>;
+};
+
+const InputTemplate = ({ children, ...rests }: InputProps) => {
   return (
     <StorybookContent>
-      <Input {...rests} />
-      <Input {...rests} value={'is not empty'} />
-      <Input {...rests} disabled />
+      <StorybookContent.Light className="flex-col">
+        <BaseTemplate {...rests} />
+        <BaseTemplate {...rests} value={'is not empty'} />
+        <BaseTemplate {...rests} disabled />
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        <BaseTemplate {...rests} />
+        <BaseTemplate {...rests} value={'is not empty'} />
+        <BaseTemplate {...rests} disabled />
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const InputsStories = Inputs.bind({});
-InputsStories.args = {
+export const Inputs = InputTemplate.bind({});
+Inputs.args = {
   placeholder: 'placeholder',
 };
 
-const ScaleInputs = ({ ...rests }: InputProps) => {
+const ScaleInputTemplate = ({ ...rests }: InputProps) => {
   return (
     <StorybookContent>
-      {storiesScaleOptions.map((scale) => (
-        <Input {...rests} key={scale} scale={scale} />
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...rests} key={scale} scale={scale} />
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...rests} key={scale} scale={scale} />
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const ScaleInputsStories = ScaleInputs.bind({});
-ScaleInputsStories.args = {
+export const ScaleInputs = ScaleInputTemplate.bind({});
+ScaleInputs.args = {
   value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
   disabled: false,
 };
 
-const IntentInputs = ({ ...rests }: InputProps) => {
+const IntentInputTemplate = ({ ...rests }: InputProps) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <Input {...rests} key={intent} intent={intent} />
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <Input {...rests} key={intent} intent={intent} />
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <Input {...rests} key={intent} intent={intent} />
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const IntentInputsStories = IntentInputs.bind({});
-IntentInputsStories.args = {
+export const IntentInputs = IntentInputTemplate.bind({});
+IntentInputs.args = {
   value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
   disabled: false,
 };
