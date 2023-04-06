@@ -25,7 +25,7 @@ export interface ButtonProps extends ElementProps {
   outlined?: boolean;
 }
 
-const Button = React.forwardRef<ElementType, ButtonProps>(
+export const Button = React.forwardRef<ElementType, ButtonProps>(
   ({ className, children, scale = 'md', intent = 'primary', outlined, ...rests }, ref) => {
     return (
       <button
@@ -38,7 +38,7 @@ const Button = React.forwardRef<ElementType, ButtonProps>(
           className,
           'flex items-center justify-center',
           'rounded',
-          'disabled:opacity-50 disabled:cursor-not-allowed',
+          'disabled:cursor-not-allowed',
           toScaleMatch({
             xs: () => 'scale-text-xs scale-p-xs',
             sm: () => 'scale-text-sm scale-p-sm',
@@ -64,6 +64,3 @@ const Button = React.forwardRef<ElementType, ButtonProps>(
     );
   },
 );
-
-export { Button };
-export default Button;

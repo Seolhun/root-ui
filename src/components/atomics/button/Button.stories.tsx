@@ -111,19 +111,37 @@ IntentOutlinedButtonsStories.args = {
 const DisabledButtons = ({ children, ...others }: ButtonProps) => {
   return (
     <StorybookContent>
-      <StorybookContent.Light className="flex-col">
-        {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent}>
-            {children}-{intent}
-          </BaseTemplate>
-        ))}
+      <StorybookContent.Light>
+        <div className="flex-col space-y-2">
+          {storiesIntentOptions.map((intent) => (
+            <BaseTemplate {...others} key={intent} intent={intent}>
+              {children}-{intent}
+            </BaseTemplate>
+          ))}
+        </div>
+        <div className="flex-col space-y-2">
+          {storiesIntentOptions.map((intent) => (
+            <BaseTemplate {...others} key={intent} intent={intent} outlined>
+              {children}-{intent}
+            </BaseTemplate>
+          ))}
+        </div>
       </StorybookContent.Light>
-      <StorybookContent.Dark className="flex-col">
-        {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent} outlined>
-            {children}-{intent}
-          </BaseTemplate>
-        ))}
+      <StorybookContent.Dark>
+        <div className="flex-col space-y-2">
+          {storiesIntentOptions.map((intent) => (
+            <BaseTemplate {...others} key={intent} intent={intent}>
+              {children}-{intent}
+            </BaseTemplate>
+          ))}
+        </div>
+        <div className="flex-col space-y-2">
+          {storiesIntentOptions.map((intent) => (
+            <BaseTemplate {...others} key={intent} intent={intent} outlined>
+              {children}-{intent}
+            </BaseTemplate>
+          ))}
+        </div>
       </StorybookContent.Dark>
     </StorybookContent>
   );
