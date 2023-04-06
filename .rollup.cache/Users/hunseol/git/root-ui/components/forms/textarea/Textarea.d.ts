@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootIntent, RootScale } from '../../../system';
+import { RootIntent, RootScale } from '~/system';
 type ElementType = HTMLTextAreaElement;
 type ElementProps = React.TextareaHTMLAttributes<ElementType>;
 export interface TextareaProps extends ElementProps {

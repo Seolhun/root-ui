@@ -1,14 +1,14 @@
+import { FloatingPortal } from '@floating-ui/react';
 import * as React from 'react';
-import { createPortal } from 'react-dom';
+
+import { GlobalRootDataAttributeMap } from '~/constants';
+import { forwardRefWithAs, render } from '~/core';
+import { optionalRef, useIsoMorphicEffect, useOwnerDocument, useSyncRefs, useServerHandoffComplete } from '~/hooks';
+import { RootUIProps, UnknownObject } from '~/types';
+import { isServer, toMicrotask } from '~/utils';
 
 import { PortalGroup } from './PortalGroup';
 import { usePortalTarget } from './usePortalTarget';
-
-import { GlobalRootDataAttributeMap } from '../../constants';
-import { forwardRefWithAs, render } from '../../core';
-import { optionalRef, useIsoMorphicEffect, useOwnerDocument, useSyncRefs, useServerHandoffComplete } from '../../hooks';
-import { RootUIProps, UnknownObject } from '../../types';
-import { isServer, toMicrotask } from '../../utils';
 
 const DEFAULT_PORTAL_TAG = React.Fragment;
 type PortalRenderPropArg = UnknownObject;
@@ -69,14 +69,15 @@ const _PortalRoot = <Tag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
 
   const ourProps = { ref: portalRef };
   const theirProps = props;
-  return createPortal(
-    render({
-      ourProps,
-      theirProps,
-      defaultTag: DEFAULT_PORTAL_TAG,
-      name: 'Portal',
-    }),
-    element,
+  return (
+    <FloatingPortal root={element}>
+      {render({
+        ourProps,
+        theirProps,
+        defaultTag: DEFAULT_PORTAL_TAG,
+        name: 'Portal',
+      })}
+    </FloatingPortal>
   );
 };
 

@@ -1,8 +1,9 @@
 import * as React from 'react';
 
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
+
 import { Switch, SwitchProps } from './Switch';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
 import { Avatar } from '../../atomics';
 
 export default {

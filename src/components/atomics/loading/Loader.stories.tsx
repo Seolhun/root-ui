@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Loader, LoaderProps } from './Loader';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
+import { Loader, LoaderProps } from './Loader';
 
 export default {
   title: 'Atomic/Loader',

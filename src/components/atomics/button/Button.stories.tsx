@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Button, ButtonProps } from './Button';
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
+import { Button, ButtonProps } from './Button';
 
 export default {
   title: 'Atomic/Button',

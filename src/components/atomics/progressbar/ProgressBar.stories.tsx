@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { ProgressBar, ProgressBarProps } from './ProgressBar';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
+import { ProgressBar, ProgressBarProps } from './ProgressBar';
 
 export default {
   title: 'Atomic/ProgressBar',

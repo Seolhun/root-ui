@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootIntent, RootScale } from '../../../system';
+import { RootIntent, RootScale } from '~/system';
 type ElementType = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 export interface ButtonProps extends ElementProps {

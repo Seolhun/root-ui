@@ -2,7 +2,8 @@ import { Tab as BaseTab } from '@headlessui/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../../system';
+import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '~/system';
+
 import { useRootGroupContext } from '../../common';
 
 const CLASSNAME = 'Root__Tab';

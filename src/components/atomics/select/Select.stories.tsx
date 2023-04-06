@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Select, SelectProps } from './Select';
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
+import { Select, SelectProps } from './Select';
 
 export default {
   title: 'Form/Select',

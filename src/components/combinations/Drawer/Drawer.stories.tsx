@@ -1,10 +1,11 @@
+import clsx from 'clsx';
 import * as React from 'react';
 
-import { Drawer } from './Drawer';
+import { Button } from '~/components/atomics';
+import { H4 } from '~/components/typography';
+import { storiesScaleOptions, StorybookContent } from '~/stories';
 
-import { Button } from '../../../components/atomics';
-import { H4 } from '../../../components/typography';
-import { storiesScaleOptions, StorybookContent } from '../../../stories';
+import { Drawer } from './Drawer';
 
 export default {
   title: 'Combination/Drawer',
@@ -19,7 +20,7 @@ export default {
   },
 };
 
-const BaseTemplate = ({ Header, Body, Footer, root, placement, ...rests }) => {
+const BaseTemplate = ({ Header, Body, Footer, root, placement, className, ...others }) => {
   const [isShow, setShow] = React.useState(false);
 
   const onToggle = React.useCallback(() => {
@@ -37,9 +38,21 @@ const BaseTemplate = ({ Header, Body, Footer, root, placement, ...rests }) => {
   return (
     <div>
       <Button onClick={onToggle}>Toggle Drawer</Button>
-      <Drawer {...rests} show={isShow} onClose={onClose} onConfirm={onConfirm} root={root}>
+      <Drawer
+        {...others}
+        placement={placement}
+        show={isShow}
+        onClose={onClose}
+        onConfirm={onConfirm}
+        root={root}
+        className={clsx({
+          className,
+          'h-4/6': placement === 'top' || placement === 'bottom',
+          'w-9/12': placement === 'right' || placement === 'left',
+        })}
+      >
         <Drawer.Header>{<H4>{Header}</H4>}</Drawer.Header>
-        <Drawer.Body>{Body}</Drawer.Body>
+        <Drawer.Body className="w-full md:w-6/12">{Body}</Drawer.Body>
         <Drawer.Footer>{Footer}</Drawer.Footer>
       </Drawer>
     </div>

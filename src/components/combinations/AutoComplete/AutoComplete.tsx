@@ -3,11 +3,12 @@ import clsx from 'clsx';
 import isEmpty from 'lodash/isEmpty';
 import React from 'react';
 
+import { RootScale, toScaleMatch } from '~/system';
+import { Optional } from '~/utils/fx';
+
 import * as Styled from './AutoComplete.Styled';
 import { AutoCompleteIdentify } from './AutoComplete.types';
 
-import { RootScale, toScaleMatch } from '../../../system';
-import { Optional } from '../../../utils/fx';
 import { Icon, IconProps } from '../../icons';
 
 const CLASSNAME = 'Root__AutoComplete';

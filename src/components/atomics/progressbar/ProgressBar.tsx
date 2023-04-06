@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
+import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '~/system';
+
 import { Tag } from '../tag';
 
 const CLASSNAME = 'Root__ProgressBar';

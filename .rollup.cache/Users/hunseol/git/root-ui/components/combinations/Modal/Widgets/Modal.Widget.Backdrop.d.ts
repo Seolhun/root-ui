@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { RootUIProps } from '~/types';
 import { ModalRenderPropArg } from './Modal.Widget.types';
-import { RootUIProps } from '../../../../types';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 export interface ModalBackdropProps extends ElementProps {

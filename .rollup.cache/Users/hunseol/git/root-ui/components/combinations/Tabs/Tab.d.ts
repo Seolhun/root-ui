@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootIntent, RootScale } from '../../../system';
+import { RootIntent, RootScale } from '~/system';
 type ElementType = HTMLLIElement;
 type ElementProps = React.LiHTMLAttributes<ElementType>;
 export interface TabProps extends ElementProps {

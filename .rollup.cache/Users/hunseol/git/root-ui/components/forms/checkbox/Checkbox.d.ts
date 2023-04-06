@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootIntent, RootScale } from '../../../system';
+import { RootIntent, RootScale } from '~/system';
 type ElementType = HTMLInputElement;
 type ElementProps = React.InputHTMLAttributes<ElementType>;
 export interface CheckboxProps extends ElementProps {

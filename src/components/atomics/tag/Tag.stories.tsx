@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Tag, TagProps } from './Tag';
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
+import { Tag, TagProps } from './Tag';
 
 export default {
   title: 'Atomic/Tag',

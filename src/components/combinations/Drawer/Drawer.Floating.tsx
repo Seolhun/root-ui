@@ -2,9 +2,9 @@ import { FloatingPortal } from '@floating-ui/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { useDrawerContext } from './Drawer.Context';
+import { useDocumentEvent } from '~/hooks';
 
-import { useDocumentEvent } from '../../../hooks';
+import { useDrawerContext } from './Drawer.Context';
 
 const CLASSNAME = 'Root__Drawer';
 type ElementType = HTMLDivElement;
@@ -53,7 +53,7 @@ export const DrawerFloating = React.forwardRef<ElementType, ElementProps & Drawe
           />
           <div
             className={clsx(
-              `${CLASSNAME}__Card`,
+              `${CLASSNAME}__Floating`,
               className,
               'fixed',
               'bg-cream-1 text-space-1',

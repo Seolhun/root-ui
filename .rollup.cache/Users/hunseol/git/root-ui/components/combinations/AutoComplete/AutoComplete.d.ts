@@ -1,7 +1,7 @@
 import React from 'react';
+import { RootScale } from '~/system';
+import { Optional } from '~/utils/fx';
 import { AutoCompleteIdentify } from './AutoComplete.types';
-import { RootScale } from '../../../system';
-import { Optional } from '../../../utils/fx';
 import { IconProps } from '../../icons';
 type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;

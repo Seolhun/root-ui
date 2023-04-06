@@ -1,9 +1,9 @@
 import * as React from 'react';
 
+import { RootScale, RootUIProvider } from '~/system';
+
 import { TooltipOptions } from './Tooltip.types';
 import { TooltipContext, useTooltip } from './useTooltipContext';
-
-import { RootScale, RootUIProvider } from '../../../../system';
 
 export interface TooltipProps extends TooltipOptions {
   children: React.ReactNode;

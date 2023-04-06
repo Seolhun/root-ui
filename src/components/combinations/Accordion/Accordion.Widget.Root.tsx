@@ -1,5 +1,11 @@
 import * as React from 'react';
 
+import { forwardRefWithAs, render } from '~/core';
+import { optionalRef, useEvent, useId, useSyncRefs } from '~/hooks';
+import { OpenClosedProvider, OpenClosedState } from '~/tools';
+import { RootUIProps, RootUIReactTag } from '~/types';
+import { getOwnerDocumentBy, match } from '~/utils';
+
 import {
   AccordionAPIContext,
   AccordionAPIContextValues,
@@ -9,12 +15,6 @@ import {
   StateDefinition,
 } from './Accordion.reducer';
 import { AccordionFocusableElement } from './Accordion.Widget.types';
-
-import { forwardRefWithAs, render } from '../../../core';
-import { optionalRef, useEvent, useId, useSyncRefs } from '../../../hooks';
-import { OpenClosedProvider, OpenClosedState } from '../../../tools';
-import { RootUIProps, RootUIReactTag } from '../../../types';
-import { getOwnerDocumentBy, match } from '../../../utils';
 
 const COMPONENT_NAME = 'Root__Accordion__Root';
 const DEFAULT_TAG: RootUIReactTag = React.Fragment;

@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Checkbox, CheckboxProps } from './Checkbox';
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
+import { Checkbox, CheckboxProps } from './Checkbox';
 
 export default {
   title: 'Form/Checkbox',

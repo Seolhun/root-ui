@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootUIProps } from '../../../types';
+import { RootUIProps } from '~/types';
 type ElementType = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 export interface AccordionButtonProps {

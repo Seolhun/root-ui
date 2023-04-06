@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Card, CardProps } from './Card';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
+import { Card, CardProps } from './Card';
 
 export default {
   title: 'Atomic/Card',

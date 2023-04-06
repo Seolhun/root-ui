@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { AgnosticTagProps } from '../../../system';
+import { AgnosticTagProps } from '~/system';
+
 import { Text } from '../Text';
 
 const CLASSNAME = 'Root__Heading';

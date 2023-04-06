@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Radio, RadioProps } from './Radio';
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
+import { Radio, RadioProps } from './Radio';
 
 export default {
   title: 'Form/Radio',

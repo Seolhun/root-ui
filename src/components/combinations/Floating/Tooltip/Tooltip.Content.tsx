@@ -2,9 +2,9 @@ import { FloatingPortal, useDelayGroup, useDelayGroupContext, useMergeRefs } fro
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { useTooltipContext } from './useTooltipContext';
+import { toScaleMatch, useRootUIContext } from '~/system';
 
-import { toScaleMatch, useRootUIContext } from '../../../../system';
+import { useTooltipContext } from './useTooltipContext';
 
 type ElementType = HTMLElement;
 type ElementProps = React.HTMLAttributes<ElementType>;

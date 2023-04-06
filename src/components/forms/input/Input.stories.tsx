@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Input, InputProps } from './Input';
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
+import { Input, InputProps } from './Input';
 
 export default {
   title: 'Form/Input',

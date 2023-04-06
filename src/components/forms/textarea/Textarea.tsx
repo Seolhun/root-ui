@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../../system';
+import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '~/system';
+
 import { Box } from '../../common';
 
 const CLASSNAME = 'Root__Textarea';

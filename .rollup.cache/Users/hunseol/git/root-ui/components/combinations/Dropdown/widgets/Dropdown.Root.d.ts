@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { Optional } from '~/utils/fx';
 import { DropdownOption } from './Dropdown.types';
-import { Optional } from '../../../../utils/fx';
 interface ElementProps {
     children: React.ReactNode;
     disabled?: boolean;

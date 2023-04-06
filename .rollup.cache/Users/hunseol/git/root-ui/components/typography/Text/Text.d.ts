@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AgnosticTagProps } from '../../../system';
+import { AgnosticTagProps } from '~/system';
 type ElementType = HTMLParagraphElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 export interface TextProps {

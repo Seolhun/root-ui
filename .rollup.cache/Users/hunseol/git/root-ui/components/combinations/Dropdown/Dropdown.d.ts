@@ -1,7 +1,7 @@
 /// <reference types="react" />
+import { Optional } from '~/utils/fx';
 import { UseDropdownRendererProps } from './useDropdownRenderer';
 import { DropdownOption, DropdownWidgetButtonClassName, DropdownWidgetOptionClassName } from './widgets';
-import { Optional } from '../../../utils/fx';
 export interface DropdownClasses {
     /**
      * Button className

@@ -1,9 +1,9 @@
 import * as React from 'react';
 
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
+
 import { TabGroupProps } from './Tab.Group';
 import { Tabs } from './Tabs';
-
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
 
 export default {
   title: 'Combination/Tabs',

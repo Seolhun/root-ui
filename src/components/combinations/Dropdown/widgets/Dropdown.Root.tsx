@@ -1,9 +1,9 @@
 import { Listbox } from '@headlessui/react';
 import * as React from 'react';
 
-import { DropdownOption } from './Dropdown.types';
+import { Optional } from '~/utils/fx';
 
-import { Optional } from '../../../../utils/fx';
+import { DropdownOption } from './Dropdown.types';
 
 interface ElementProps {
   children: React.ReactNode;
