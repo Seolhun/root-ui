@@ -15,10 +15,10 @@ export interface BlockQuoteProps {
 }
 
 export const BlockQuote = React.forwardRef<ElementType, ElementProps & BlockQuoteProps>(
-  ({ className, children, intent = 'primary', ...rests }, ref) => {
+  ({ className, children, intent = 'primary', ...others }, ref) => {
     return (
       <blockquote
-        {...rests}
+        {...others}
         ref={ref}
         className={clsx(
           CLASSNAME,

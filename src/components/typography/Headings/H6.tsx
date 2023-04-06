@@ -7,9 +7,9 @@ const CLASSNAME = 'Root__H6';
 type ElementType = HTMLHeadingElement;
 export interface H6Props extends HeadingProps {}
 
-export const H6 = React.forwardRef<ElementType, H6Props>(({ className, children, ...rests }, ref) => {
+export const H6 = React.forwardRef<ElementType, H6Props>(({ className, children, ...others }, ref) => {
   return (
-    <Heading {...rests} as="h6" ref={ref} className={clsx(CLASSNAME, className, 'mt-1 mb-2')}>
+    <Heading {...others} as="h6" ref={ref} className={clsx(CLASSNAME, className, 'mt-1 mb-2')}>
       {children}
     </Heading>
   );

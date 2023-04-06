@@ -8,6 +8,11 @@ export interface ModalRenderPropArg {
 
 export interface ModalProps {
   /**
+   * Portal element
+   */
+  root?: HTMLElement | null;
+
+  /**
    * To show modal
    */
   show: boolean;

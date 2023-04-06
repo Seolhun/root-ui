@@ -14,15 +14,15 @@ export default {
   title: 'TypoGraphy/Heading',
 };
 
-const Headings: React.FC<HeadingProps> = ({ children, ...rests }) => {
+const Headings: React.FC<HeadingProps> = ({ children, ...others }) => {
   return (
     <StorybookContent noAlign noGap>
-      <H1 {...rests}>{children}</H1>
-      <H2 {...rests}>{children}</H2>
-      <H3 {...rests}>{children}</H3>
-      <H4 {...rests}>{children}</H4>
-      <H5 {...rests}>{children}</H5>
-      <H6 {...rests}>{children}</H6>
+      <H1 {...others}>{children}</H1>
+      <H2 {...others}>{children}</H2>
+      <H3 {...others}>{children}</H3>
+      <H4 {...others}>{children}</H4>
+      <H5 {...others}>{children}</H5>
+      <H6 {...others}>{children}</H6>
     </StorybookContent>
   );
 };

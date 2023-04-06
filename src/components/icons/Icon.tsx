@@ -34,14 +34,14 @@ export interface IconProps extends ElementProps {
 }
 
 export const Icon = React.forwardRef<ElementType, IconProps>(
-  ({ className, icon, intent = 'inherit', scale = 'md', outlined, ...rests }, ref) => {
+  ({ className, icon, intent = 'inherit', scale = 'md', outlined, ...others }, ref) => {
     const Component = React.useMemo(() => {
       return outlined ? OutlineHeroIcon[icon] : SolidHeroIcon[icon];
     }, [outlined, icon]);
 
     return (
       <Box
-        {...rests}
+        {...others}
         ref={ref}
         as="i"
         scaleClassName={toScaleMatch({

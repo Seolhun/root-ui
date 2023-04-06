@@ -12,17 +12,25 @@ export interface ModalHeaderProps extends ElementProps {
   children: React.ReactNode;
 }
 
-export const ModalHeader = React.forwardRef<ElementType, ModalHeaderProps>(({ className, children, ...rests }, ref) => {
-  return (
-    <div
-      ref={ref}
-      {...rests}
-      className={clsx(CLASSNAME, className, 'flex justify-between items-start', 'border-light-2', 'rounded-t')}
-    >
-      <div className="flex-1 break-all line-clamp-2">
-        <ModalWidget.Title>{children}</ModalWidget.Title>
+export const ModalHeader = React.forwardRef<ElementType, ModalHeaderProps>(
+  ({ className, children, ...others }, ref) => {
+    return (
+      <div
+        ref={ref}
+        {...others}
+        className={clsx(
+          CLASSNAME,
+          className,
+          'flex justify-between items-start',
+          'border border-cream-3 dark:border-space-3',
+          'rounded-t',
+        )}
+      >
+        <div className="flex-1 break-all line-clamp-2">
+          <ModalWidget.Title>{children}</ModalWidget.Title>
+        </div>
+        <ModalCloseButton />
       </div>
-      <ModalCloseButton />
-    </div>
-  );
-});
+    );
+  },
+);

@@ -33,7 +33,7 @@ export interface AccordionRootRenderPropArg {
 export const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot<
   Tag extends React.ElementType = typeof DEFAULT_TAG,
 >(props: RootUIProps<Tag, AccordionRootRenderPropArg> & AccordionRootProps & ElementProps, ref: React.Ref<Tag>) {
-  const { defaultOpen = false, ...rests } = props;
+  const { defaultOpen = false, ...others } = props;
   const buttonId = `rootui-accordion-button-${useId()}`;
   const panelId = `rootui-accordion-panel-${useId()}`;
   const internalAccordionRef = React.useRef<HTMLElement | null>(null);
@@ -95,7 +95,7 @@ export const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot
     };
   }, [accordionRef]);
 
-  const theirProps = rests;
+  const theirProps = others;
 
   const slot = React.useMemo<AccordionRootRenderPropArg>(() => {
     return {

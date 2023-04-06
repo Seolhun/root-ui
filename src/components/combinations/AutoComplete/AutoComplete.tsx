@@ -86,7 +86,7 @@ function _AutoComplete<Item = any>(
     // HTMLAttributes
     className,
     placeholder,
-    ...rests
+    ...others
   }: AutoCompleteProps<Item> & ElementProps,
   ref: React.ForwardedRef<HTMLDivElement>,
 ) {
@@ -106,7 +106,7 @@ function _AutoComplete<Item = any>(
   }, [scale]);
 
   return (
-    <div {...rests} ref={ref} className={clsx(CLASSNAME, className, 'relative', 'bg-cream-1 dark:bg-space-1')}>
+    <div {...others} ref={ref} className={clsx(CLASSNAME, className, 'relative', 'bg-cream-1 dark:bg-space-1')}>
       <Combobox value={selectedItem} onChange={onSelectItem}>
         <div className={clsx(Styled.InputWrapper, 'bg-cream-1 dark:bg-space-1')}>
           <Icon className="mx-3" icon={icon} intent="light" scale={'sm'} />

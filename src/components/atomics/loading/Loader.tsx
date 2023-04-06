@@ -20,9 +20,9 @@ export interface LoaderProps extends ElementProps {
 }
 
 export const Loader = React.forwardRef<ElementType, LoaderProps>(
-  ({ className, scale = 'md', intent = 'primary', ...rests }, ref) => {
+  ({ className, scale = 'md', intent = 'primary', ...others }, ref) => {
     return (
-      <div {...rests} ref={ref} className="inline-block">
+      <div {...others} ref={ref} className="inline-block">
         <svg
           className={clsx(
             CLASSNAME,

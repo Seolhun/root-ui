@@ -26,12 +26,12 @@ export interface ButtonProps extends ElementProps {
 }
 
 export const Button = React.forwardRef<ElementType, ButtonProps>(
-  ({ className, children, scale = 'md', intent = 'primary', outlined, ...rests }, ref) => {
+  ({ className, children, scale = 'md', intent = 'primary', outlined, ...others }, ref) => {
     return (
       <button
         role="button"
         tabIndex={0}
-        {...rests}
+        {...others}
         ref={ref}
         className={clsx(
           CLASSNAME,

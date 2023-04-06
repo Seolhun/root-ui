@@ -7,4 +7,4 @@ export interface TextFieldProps extends InputProps {
      */
     icon?: IconProps['icon'];
 }
-export declare const TextField: ({ className, scale, icon, ...rests }: TextFieldProps) => JSX.Element;
+export declare const TextField: ({ className, scale, icon, ...others }: TextFieldProps) => JSX.Element;

@@ -58,7 +58,6 @@ export const DrawerFloating = React.forwardRef<ElementType, ElementProps & Drawe
               'fixed',
               'bg-cream-1 text-space-1',
               'dark:bg-space-1 dark:text-cream-1',
-              'border border-light-1 dark:border-dark-8',
               'rounded shadow',
               {
                 'top-0 right-0 left-0 w-full md:w-full rounded-t-none': placement === 'top',

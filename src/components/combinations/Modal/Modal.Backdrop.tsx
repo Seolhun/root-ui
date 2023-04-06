@@ -10,10 +10,10 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface ModalBackdropProps extends ElementProps {}
 
 export const ModalBackdrop = React.forwardRef<ElementType, ModalBackdropProps>(
-  ({ className, children, ...rests }, ref) => {
+  ({ className, children, ...others }, ref) => {
     return (
       <ModalWidgetBackdrop
-        {...rests}
+        {...others}
         ref={ref}
         tabIndex={-1}
         className={clsx(

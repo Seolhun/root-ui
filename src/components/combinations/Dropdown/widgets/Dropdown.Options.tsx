@@ -21,7 +21,7 @@ export const DropdownOptions = React.forwardRef<HTMLUListElement, DropdownOption
           'mt-1 py-1',
           'bg-cream-1 dark:bg-space-1',
           'text-space-1 dark:text-cream-1',
-          'border border-light-2 dark:border-space-2',
+          'border border-cream-3 dark:border-space-3',
           'shadow-md ring-1 ring-black ring-opacity-5',
           'rounded',
           'focus:outline-none',

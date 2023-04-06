@@ -4,19 +4,22 @@ import * as React from 'react';
 import { GlobalRootDataAttributeMap } from '~/constants';
 import { forwardRefWithAs, render } from '~/core';
 import { optionalRef, useIsoMorphicEffect, useOwnerDocument, useSyncRefs, useServerHandoffComplete } from '~/hooks';
-import { RootUIProps, UnknownObject } from '~/types';
+import { RootUIProps } from '~/types';
 import { isServer, toMicrotask } from '~/utils';
 
 import { PortalGroup } from './PortalGroup';
 import { usePortalTarget } from './usePortalTarget';
 
 const DEFAULT_PORTAL_TAG = React.Fragment;
-type PortalRenderPropArg = UnknownObject;
+export interface PortalRenderPropArg {
+  root?: HTMLElement | null;
+}
 
 const _PortalRoot = <Tag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
   props: RootUIProps<Tag, PortalRenderPropArg>,
   ref: React.Ref<HTMLElement>,
 ) => {
+  const { root, ...others } = props;
   const internalPortalRootRef = React.useRef<HTMLElement | null>(null);
   const portalRef = useSyncRefs(
     optionalRef<(typeof internalPortalRootRef)['current']>((ref) => {
@@ -28,7 +31,7 @@ const _PortalRoot = <Tag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
   const ownerDocument = useOwnerDocument(internalPortalRootRef);
   const target = usePortalTarget(internalPortalRootRef);
   const [element] = React.useState<HTMLDivElement | null>(() =>
-    isServer ? null : ownerDocument?.createElement('div') ?? null,
+    root ? root : isServer ? null : ownerDocument?.createElement('div') ?? null,
   );
 
   const isReady = useServerHandoffComplete();
@@ -68,7 +71,7 @@ const _PortalRoot = <Tag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
   }
 
   const ourProps = { ref: portalRef };
-  const theirProps = props;
+  const theirProps = others;
   return (
     <FloatingPortal root={element}>
       {render({

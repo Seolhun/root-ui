@@ -19,7 +19,7 @@ npm run storybook
 ### Build (with Storybook)
 
 ```bash
-npm run storybook:build
+npm run build:storybook:
 ```
 
 ### Production

@@ -25,18 +25,18 @@ const BaseTemplate = ({ children, ...others }: InputProps) => {
   return <Input {...others}>{children}</Input>;
 };
 
-const InputTemplate = ({ children, ...rests }: InputProps) => {
+const InputTemplate = ({ children, ...others }: InputProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
-        <BaseTemplate {...rests} />
-        <BaseTemplate {...rests} value={'is not empty'} />
-        <BaseTemplate {...rests} disabled />
+        <BaseTemplate {...others} />
+        <BaseTemplate {...others} value={'is not empty'} />
+        <BaseTemplate {...others} disabled />
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
-        <BaseTemplate {...rests} />
-        <BaseTemplate {...rests} value={'is not empty'} />
-        <BaseTemplate {...rests} disabled />
+        <BaseTemplate {...others} />
+        <BaseTemplate {...others} value={'is not empty'} />
+        <BaseTemplate {...others} disabled />
       </StorybookContent.Dark>
     </StorybookContent>
   );
@@ -47,17 +47,17 @@ Inputs.args = {
   placeholder: 'placeholder',
 };
 
-const ScaleInputTemplate = ({ ...rests }: InputProps) => {
+const ScaleInputTemplate = ({ ...others }: InputProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesScaleOptions.map((scale) => (
-          <BaseTemplate {...rests} key={scale} scale={scale} />
+          <BaseTemplate {...others} key={scale} scale={scale} />
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesScaleOptions.map((scale) => (
-          <BaseTemplate {...rests} key={scale} scale={scale} />
+          <BaseTemplate {...others} key={scale} scale={scale} />
         ))}
       </StorybookContent.Dark>
     </StorybookContent>
@@ -70,17 +70,17 @@ ScaleInputs.args = {
   disabled: false,
 };
 
-const IntentInputTemplate = ({ ...rests }: InputProps) => {
+const IntentInputTemplate = ({ ...others }: InputProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <Input {...rests} key={intent} intent={intent} />
+          <Input {...others} key={intent} intent={intent} />
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <Input {...rests} key={intent} intent={intent} />
+          <Input {...others} key={intent} intent={intent} />
         ))}
       </StorybookContent.Dark>
     </StorybookContent>

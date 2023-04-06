@@ -38,7 +38,7 @@ jobs:
 
       - name: Build Storybook
         if: ${{ always() }}
-        run: npm run storybook:build
+        run: npm run build:storybook
 
       - name: Build
         if: ${{ always() }}

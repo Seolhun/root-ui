@@ -45,10 +45,10 @@ export const ProgressBar = React.forwardRef<ElementType, ProgressBarProps>(
     simple = false,
     scale = 'md',
     intent = 'primary',
-    ...rests
+    ...others
   }: ProgressBarProps) => {
     return (
-      <div {...rests} className={clsx(CLASSNAME, className, 'relative', 'w-full')}>
+      <div {...others} className={clsx(CLASSNAME, className, 'relative', 'w-full')}>
         <div className="flex mb-2 items-center justify-between">
           <div>
             {badge && (

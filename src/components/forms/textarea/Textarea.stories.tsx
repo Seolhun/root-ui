@@ -25,18 +25,18 @@ const BaseTemplate = ({ children, ...others }: TextareaProps) => {
   return <Textarea {...others}>{children}</Textarea>;
 };
 
-const TextareaTemplate = ({ children, ...rests }: TextareaProps) => {
+const TextareaTemplate = ({ children, ...others }: TextareaProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
-        <BaseTemplate {...rests} />
-        <BaseTemplate {...rests} value={'is not empty'} />
-        <BaseTemplate {...rests} disabled />
+        <BaseTemplate {...others} />
+        <BaseTemplate {...others} value={'is not empty'} />
+        <BaseTemplate {...others} disabled />
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
-        <BaseTemplate {...rests} />
-        <BaseTemplate {...rests} value={'is not empty'} />
-        <BaseTemplate {...rests} disabled />
+        <BaseTemplate {...others} />
+        <BaseTemplate {...others} value={'is not empty'} />
+        <BaseTemplate {...others} disabled />
       </StorybookContent.Dark>
     </StorybookContent>
   );
@@ -47,17 +47,17 @@ Textareas.args = {
   placeholder: 'placeholder',
 };
 
-const ScaleTextareaTemplate = ({ ...rests }: TextareaProps) => {
+const ScaleTextareaTemplate = ({ ...others }: TextareaProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesScaleOptions.map((scale) => (
-          <BaseTemplate {...rests} key={scale} scale={scale} />
+          <BaseTemplate {...others} key={scale} scale={scale} />
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesScaleOptions.map((scale) => (
-          <BaseTemplate {...rests} key={scale} scale={scale} />
+          <BaseTemplate {...others} key={scale} scale={scale} />
         ))}
       </StorybookContent.Dark>
     </StorybookContent>
@@ -70,17 +70,17 @@ ScaleTextareas.args = {
   disabled: false,
 };
 
-const IntentTextareaTemplate = ({ ...rests }: TextareaProps) => {
+const IntentTextareaTemplate = ({ ...others }: TextareaProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <Textarea {...rests} key={intent} intent={intent} />
+          <Textarea {...others} key={intent} intent={intent} />
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <Textarea {...rests} key={intent} intent={intent} />
+          <Textarea {...others} key={intent} intent={intent} />
         ))}
       </StorybookContent.Dark>
     </StorybookContent>

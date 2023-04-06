@@ -18,20 +18,23 @@ export default {
   },
 };
 
-const TooltipsTemplate = ({ ...rests }) => {
+const BaseTemplate = ({ root, ...others }) => {
+  return (
+    <Tooltip {...others} root={root}>
+      <Tooltip.Trigger>
+        <Button>Tooltip Trigger</Button>
+      </Tooltip.Trigger>
+
+      <Tooltip.Content>Tooltip Content</Tooltip.Content>
+    </Tooltip>
+  );
+};
+
+const TooltipsTemplate = ({ ...others }) => {
   return (
     <StorybookContent>
-      {({ root }) => {
-        return (
-          <Tooltip {...rests} root={root}>
-            <Tooltip.Trigger>
-              <Button>Tooltip Trigger</Button>
-            </Tooltip.Trigger>
-
-            <Tooltip.Content>Tooltip Content</Tooltip.Content>
-          </Tooltip>
-        );
-      }}
+      <StorybookContent.Light>{({ root }) => <BaseTemplate {...others} root={root} />}</StorybookContent.Light>
+      <StorybookContent.Dark>{({ root }) => <BaseTemplate {...others} root={root} />}</StorybookContent.Dark>
     </StorybookContent>
   );
 };
@@ -39,20 +42,19 @@ const TooltipsTemplate = ({ ...rests }) => {
 export const Tooltips = TooltipsTemplate.bind({});
 Tooltips.args = {};
 
-const ScaleTooltipTemplate = ({ ...rests }) => {
+const ScaleTooltipTemplate = ({ ...others }) => {
   return (
     <StorybookContent>
-      {({ root }) => {
-        return storiesScaleOptions.map((scale) => (
-          <Tooltip {...rests} key={scale} scale={scale} root={root}>
-            <Tooltip.Trigger>
-              <Button>Tooltip Trigger</Button>
-            </Tooltip.Trigger>
-
-            <Tooltip.Content>Tooltip Content</Tooltip.Content>
-          </Tooltip>
-        ));
-      }}
+      <StorybookContent.Light>
+        {({ root }) =>
+          storiesScaleOptions.map((scale) => <BaseTemplate {...others} key={scale} scale={scale} root={root} />)
+        }
+      </StorybookContent.Light>
+      <StorybookContent.Dark>
+        {({ root }) =>
+          storiesScaleOptions.map((scale) => <BaseTemplate {...others} key={scale} scale={scale} root={root} />)
+        }
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };

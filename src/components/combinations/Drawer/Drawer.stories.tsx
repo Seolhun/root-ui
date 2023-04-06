@@ -52,7 +52,7 @@ const BaseTemplate = ({ Header, Body, Footer, root, placement, className, ...oth
         })}
       >
         <Drawer.Header>{<H4>{Header}</H4>}</Drawer.Header>
-        <Drawer.Body className="w-full md:w-6/12">{Body}</Drawer.Body>
+        <Drawer.Body>{Body}</Drawer.Body>
         <Drawer.Footer>{Footer}</Drawer.Footer>
       </Drawer>
     </div>

@@ -25,12 +25,12 @@ export interface TagProps extends ElementProps {
 }
 
 export const Tag = React.forwardRef<ElementType, TagProps>(
-  ({ className, children, scale = 'md', intent = 'primary', outlined, ...rests }, ref) => {
+  ({ className, children, scale = 'md', intent = 'primary', outlined, ...others }, ref) => {
     return (
       <button
         role="button"
         tabIndex={0}
-        {...rests}
+        {...others}
         ref={ref}
         className={clsx(
           CLASSNAME,

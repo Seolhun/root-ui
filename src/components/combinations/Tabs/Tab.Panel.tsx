@@ -10,9 +10,9 @@ type ElementProps = React.LiHTMLAttributes<ElementType>;
 
 export interface TabPanelProps extends ElementProps {}
 
-export const TabPanel = React.forwardRef<ElementType, TabPanelProps>(({ children, className, ...rests }, ref) => {
+export const TabPanel = React.forwardRef<ElementType, TabPanelProps>(({ children, className, ...others }, ref) => {
   return (
-    <Tab.Panel {...rests} ref={ref} as="li" className={clsx(CLASSNAME, className, 'w-full')}>
+    <Tab.Panel {...others} ref={ref} as="li" className={clsx(CLASSNAME, className, 'w-full')}>
       <Text>{children}</Text>
     </Tab.Panel>
   );

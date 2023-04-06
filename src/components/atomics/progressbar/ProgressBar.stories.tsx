@@ -27,19 +27,19 @@ const BaseTemplate = ({ children, ...others }: ProgressBarProps) => {
   return <ProgressBar {...others}>{children}</ProgressBar>;
 };
 
-const ScaleProgressBarStories = ({ children, ...rests }: ProgressBarProps) => {
+const ScaleProgressBarStories = ({ children, ...others }: ProgressBarProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesScaleOptions.map((scale) => (
-          <BaseTemplate {...rests} key={scale} scale={scale}>
+          <BaseTemplate {...others} key={scale} scale={scale}>
             {children}
           </BaseTemplate>
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesScaleOptions.map((scale) => (
-          <BaseTemplate {...rests} key={scale} scale={scale}>
+          <BaseTemplate {...others} key={scale} scale={scale}>
             {children}
           </BaseTemplate>
         ))}
@@ -54,17 +54,17 @@ ScaleProgressBar.args = {
   badge: '',
 };
 
-const IntentProgressBarsStories = ({ children, ...rests }: ProgressBarProps) => {
+const IntentProgressBarsStories = ({ children, ...others }: ProgressBarProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...rests} key={intent} intent={intent} />
+          <BaseTemplate {...others} key={intent} intent={intent} />
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...rests} key={intent} intent={intent} />
+          <BaseTemplate {...others} key={intent} intent={intent} />
         ))}
       </StorybookContent.Dark>
     </StorybookContent>
@@ -77,17 +77,17 @@ IntentProgressBars.args = {
   badge: '',
 };
 
-const BadgeProgressBarsStories = ({ children, ...rests }: ProgressBarProps) => {
+const BadgeProgressBarsStories = ({ children, ...others }: ProgressBarProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...rests} key={intent} intent={intent} />
+          <BaseTemplate {...others} key={intent} intent={intent} />
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...rests} key={intent} intent={intent} />
+          <BaseTemplate {...others} key={intent} intent={intent} />
         ))}
       </StorybookContent.Dark>
     </StorybookContent>

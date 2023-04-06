@@ -22,16 +22,16 @@ export interface InputProps extends ElementProps {
 }
 
 export const Input = React.forwardRef<ElementType, InputProps>(
-  ({ className, scale = 'md', intent = 'primary', ...rests }, ref) => {
+  ({ className, scale = 'md', intent = 'primary', ...others }, ref) => {
     const rootUIContext = useRootUIContext();
 
     const lastScale = rootUIContext.scale || scale;
     return (
       <Box
-        {...rests}
+        {...others}
         as="input"
         ref={ref}
-        id={rests.name}
+        id={others.name}
         scaleClassName={toScaleMatch({
           xs: () => 'text-2 py-1 px-2',
           sm: () => 'text-2.5 py-1.5 px-2.5',
@@ -58,7 +58,7 @@ export const Input = React.forwardRef<ElementType, InputProps>(
           'bg-cream-1 text-space-1',
           'dark:bg-space-1 dark:text-cream-1',
           'disabled:bg-neutral-1 disabled:border-neutral-4 disabled:placeholder:text-neutral-light',
-          'border border-light-3 dark:border-dark-7',
+          'border border-cream-3 dark:border-space-3',
           'rounded',
           'caret-neutral',
         )}

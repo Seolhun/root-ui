@@ -26,8 +26,8 @@ export interface RadioProps extends ElementProps {
 }
 
 export const Radio = React.forwardRef<ElementType, RadioProps>(
-  ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...rests }, ref) => {
-    const htmlForAndID = htmlFor ?? rests.name;
+  ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...others }, ref) => {
+    const htmlForAndID = htmlFor ?? others.name;
     return (
       <FormLabel
         className={clsx('inline-flex items-center cursor-pointer', {
@@ -38,7 +38,7 @@ export const Radio = React.forwardRef<ElementType, RadioProps>(
         scale={scale}
       >
         <Box
-          {...rests}
+          {...others}
           ref={ref}
           as="input"
           type="radio"

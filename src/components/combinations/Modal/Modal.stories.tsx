@@ -24,7 +24,6 @@ interface BaseTemplateProps extends ModalProps {
   Title: React.ReactNode;
   Content: React.ReactNode;
   Action: React.ReactNode;
-  root: HTMLElement;
 }
 
 const BaseTemplate = ({ Title, Content, Action, ...others }: BaseTemplateProps) => {
@@ -48,7 +47,7 @@ const BaseTemplate = ({ Title, Content, Action, ...others }: BaseTemplateProps) 
   );
 };
 
-const ModalTemplate = ({ ...others }: ModalProps) => {
+const ModalTemplate = ({ ...others }: BaseTemplateProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">

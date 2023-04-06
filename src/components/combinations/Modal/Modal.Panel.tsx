@@ -18,12 +18,12 @@ export interface ModalPanelProps extends ElementProps {
 }
 
 export const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
-  ({ className, children, scale = 'md', ...rests }, ref) => {
+  ({ className, children, scale = 'md', ...others }, ref) => {
     const [{ visible }] = useModalContext('Modal');
 
     return (
       <ModalWidget.Panel
-        {...rests}
+        {...others}
         ref={ref}
         className={clsx(
           CLASSNAME,

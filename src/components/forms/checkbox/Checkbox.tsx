@@ -26,8 +26,8 @@ export interface CheckboxProps extends ElementProps {
 }
 
 export const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
-  ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...rests }, ref) => {
-    const htmlForAndID = htmlFor ?? rests.name;
+  ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...others }, ref) => {
+    const htmlForAndID = htmlFor ?? others.name;
     return (
       <FormLabel
         className={clsx('inline-flex items-center cursor-pointer', {
@@ -38,7 +38,7 @@ export const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
         scale={scale}
       >
         <Box
-          {...rests}
+          {...others}
           ref={ref}
           as="input"
           type="checkbox"

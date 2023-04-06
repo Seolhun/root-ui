@@ -20,9 +20,8 @@ export const PopoverPanel = React.forwardRef<ElementType, PopoverPanelProps>(
           'block',
           'bg-cream-1 text-space-1',
           'dark:bg-space-1 dark:text-cream-1',
-          'border border-light-1 dark:border-dark-8',
+          'border border-cream-3 dark:border-space-3',
           'rounded shadow',
-          'break-all',
         )}
       >
         {children}

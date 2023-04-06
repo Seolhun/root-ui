@@ -34,7 +34,7 @@ export const ModalWidgetRoot = forwardRefWithAs(
     props: RootUIProps<Tag, ModalRootRenderPropArg, PropsWeControl> & ModalProps,
     ref: React.Ref<ElementType>,
   ) => {
-    const { show, onClose, onKeyDown, initialFocus, ...rests } = props;
+    const { show, onClose, onKeyDown, initialFocus, root, ...others } = props;
     const id = `rootui-modal-${useId()}`;
 
     const containers = React.useRef<Set<React.MutableRefObject<HTMLElement | null>>>(new Set());
@@ -149,7 +149,7 @@ export const ModalWidgetRoot = forwardRefWithAs(
       };
     }, [id, modalRef, show, state.id]);
 
-    const theirProps = rests;
+    const theirProps = others;
 
     const slot = React.useMemo<ModalRootRenderPropArg>(() => ({ visible: show }), [show]);
 
@@ -185,7 +185,7 @@ export const ModalWidgetRoot = forwardRefWithAs(
         })}
       >
         <ForcePortalRoot force={true}>
-          <Portal>
+          <Portal root={root}>
             <ModalContext.Provider value={contextValues}>
               <Portal.Group target={internalModalRef}>
                 <ForcePortalRoot force={false}>

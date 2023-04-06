@@ -23,11 +23,11 @@ export interface TabProps extends ElementProps {
   intent?: RootIntent;
 }
 
-export const Tab = React.forwardRef<ElementType, TabProps>(({ children, className, ...rests }, ref) => {
+export const Tab = React.forwardRef<ElementType, TabProps>(({ children, className, ...others }, ref) => {
   const { scale, intent } = useRootGroupContext();
 
   return (
-    <BaseTab {...rests} ref={ref} as="li" className={clsx('w-full', 'outline-none')}>
+    <BaseTab {...others} ref={ref} as="li" className={clsx('w-full', 'outline-none')}>
       {({ selected }) => (
         <div
           className={clsx(

@@ -27,17 +27,17 @@ const BaseTemplate = ({ children, ...others }: LoaderProps) => {
   return <Loader {...others}>{children}</Loader>;
 };
 
-const ScaleLoaderStories = ({ ...rests }: LoaderProps) => {
+const ScaleLoaderStories = ({ ...others }: LoaderProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light>
         {storiesScaleOptions.map((scale) => (
-          <BaseTemplate {...rests} key={scale} scale={scale} />
+          <BaseTemplate {...others} key={scale} scale={scale} />
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark>
         {storiesScaleOptions.map((scale) => (
-          <BaseTemplate {...rests} key={scale} scale={scale} />
+          <BaseTemplate {...others} key={scale} scale={scale} />
         ))}
       </StorybookContent.Dark>
     </StorybookContent>
@@ -47,17 +47,17 @@ const ScaleLoaderStories = ({ ...rests }: LoaderProps) => {
 export const ScaleLoader = ScaleLoaderStories.bind({});
 ScaleLoader.args = {};
 
-const IntentLoadersStories = ({ children, ...rests }: LoaderProps) => {
+const IntentLoadersStories = ({ children, ...others }: LoaderProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light>
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...rests} key={intent} intent={intent} />
+          <BaseTemplate {...others} key={intent} intent={intent} />
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark>
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...rests} key={intent} intent={intent} />
+          <BaseTemplate {...others} key={intent} intent={intent} />
         ))}
       </StorybookContent.Dark>
     </StorybookContent>

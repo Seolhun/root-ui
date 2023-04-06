@@ -22,13 +22,13 @@ export interface TextareaProps extends ElementProps {
 }
 
 export const Textarea = React.forwardRef<ElementType, TextareaProps>(
-  ({ className, scale = 'md', intent = 'primary', ...rests }, ref) => {
+  ({ className, scale = 'md', intent = 'primary', ...others }, ref) => {
     return (
       <Box
-        {...rests}
+        {...others}
         as="textarea"
         ref={ref}
-        id={rests.name}
+        id={others.name}
         scaleClassName={toScaleMatch({
           xs: () => 'text-2 py-1 px-2',
           sm: () => 'text-2.5 py-1.5 px-2.5',
@@ -55,7 +55,7 @@ export const Textarea = React.forwardRef<ElementType, TextareaProps>(
           'bg-cream-1 text-space-1',
           'dark:bg-space-1 dark:text-cream-1',
           'disabled:bg-neutral-1 disabled:border-neutral-4 disabled:placeholder:text-neutral-light',
-          'border border-light-3 dark:border-dark-7',
+          'border border-cream-3 dark:border-space-3',
           'rounded',
           'caret-neutral',
         )}

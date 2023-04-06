@@ -12,13 +12,13 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface ModalCloseButtonProps extends ElementProps {}
 
 export const ModalCloseButton = React.forwardRef<ElementType, ModalCloseButtonProps>(
-  ({ className, ...rests }: ModalCloseButtonProps) => {
+  ({ className, ...others }: ModalCloseButtonProps) => {
     const [{ onClose }] = useModalContext('Modal.CloseButton');
 
     return (
       <button
         type="button"
-        {...rests}
+        {...others}
         className={clsx(
           CLASSNAME,
           className,
