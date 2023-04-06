@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../../system';
+import { RootIntent, RootScale, toScaleMatch, toIntentMatch, useRootUIContext } from '../../../system';
 import { Box } from '../../common';
 
 const CLASSNAME = 'Root__Input';
@@ -22,6 +22,8 @@ export interface InputProps extends ElementProps {
 
 const Input = React.forwardRef<ElementType, InputProps>(
   ({ className, scale = 'md', intent = 'primary', ...rests }, ref) => {
+    const rootUIContext = useRootUIContext();
+
     return (
       <Box
         {...rests}
@@ -34,7 +36,7 @@ const Input = React.forwardRef<ElementType, InputProps>(
           md: () => 'text-3 py-1.5 px-3',
           lg: () => 'text-3.5 py-2 px-3.5',
           xl: () => 'text-4 py-2 px-4',
-        })(scale)}
+        })(rootUIContext.scale || scale)}
         intentClassName={toIntentMatch({
           neutral: () => clsx('outline-neutral dark:outline-neutral'),
           light: () => clsx('outline-light dark:outline-light'),

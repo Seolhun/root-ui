@@ -27,16 +27,16 @@ export const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
         aria-labelledby={htmlFor}
         htmlFor={htmlFor}
         scaleClassName={toScaleMatch({
-          xs: () => 'text-2 p-1',
-          sm: () => 'text-2.5 p-1',
-          md: () => 'text-3 p-1',
-          lg: () => 'text-3.5 p-1',
-          xl: () => 'text-4 p-1',
+          xs: () => 'scale-text-xs',
+          sm: () => 'scale-text-sm',
+          md: () => 'scale-text-md',
+          lg: () => 'scale-text-lg',
+          xl: () => 'scale-text-xl',
         })(scale)}
         className={clsx(CLASSNAME, className, 'flex items-center flex-wrap', 'text-space-1 dark:text-cream-1')}
       >
         {children}
-        {required && <sup className={clsx('text-danger dark:text-danger', 'text-4')}>*</sup>}
+        {required && <sup className={clsx('text-danger dark:text-danger2', 'text-4')}>*</sup>}
       </Box>
     );
   },

@@ -23,11 +23,11 @@ export const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
         as="p"
         ref={ref}
         scaleClassName={toScaleMatch({
-          xs: () => 'text-2 p-1',
-          sm: () => 'text-2.5 p-1',
-          md: () => 'text-3 p-1',
-          lg: () => 'text-3.5 p-1',
-          xl: () => 'text-4 p-1',
+          xs: () => 'scale-text-xs',
+          sm: () => 'scale-text-sm',
+          md: () => 'scale-text-md',
+          lg: () => 'scale-text-lg',
+          xl: () => 'scale-text-xl',
         })(scale)}
         className={clsx(CLASSNAME, className, 'flex items-center flex-wrap', 'text-space-1 dark:text-cream-1')}
       >

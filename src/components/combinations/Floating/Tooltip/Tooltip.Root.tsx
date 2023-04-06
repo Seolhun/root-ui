@@ -3,7 +3,7 @@ import * as React from 'react';
 import { TooltipOptions } from './Tooltip.types';
 import { TooltipContext, useTooltip } from './useTooltipContext';
 
-import { RootScale, RootScaleProvider } from '../../../../system';
+import { RootScale, RootUIProvider } from '../../../../system';
 
 export interface TooltipProps extends TooltipOptions {
   children: React.ReactNode;
@@ -20,7 +20,7 @@ export const TooltipRoot = ({ children, scale = 'md', ...options }: TooltipProps
 
   return (
     <TooltipContext.Provider value={tooltipValues}>
-      <RootScaleProvider scale={scale}>{children}</RootScaleProvider>
+      <RootUIProvider scale={scale}>{children}</RootUIProvider>
     </TooltipContext.Provider>
   );
 };
