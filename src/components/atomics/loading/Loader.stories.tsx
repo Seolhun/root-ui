@@ -23,12 +23,23 @@ export default {
   },
 };
 
+const BaseTemplate = ({ children, ...others }: LoaderProps) => {
+  return <Loader {...others}>{children}</Loader>;
+};
+
 const ScaleLoader = ({ ...rests }: LoaderProps) => {
   return (
     <StorybookContent>
-      {storiesScaleOptions.map((scale) => (
-        <Loader {...rests} key={scale} scale={scale} />
-      ))}
+      <StorybookContent.Light>
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...rests} key={scale} scale={scale} />
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark>
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...rests} key={scale} scale={scale} />
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
@@ -39,14 +50,19 @@ ScaleLoaderStories.args = {};
 const IntentLoaders = ({ children, ...rests }: LoaderProps) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <Loader {...rests} key={intent} intent={intent} />
-      ))}
+      <StorybookContent.Light>
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...rests} key={intent} intent={intent} />
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark>
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...rests} key={intent} intent={intent} />
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
 export const IntentLoadersStories = IntentLoaders.bind({});
-IntentLoadersStories.args = {
-  children: 'Loader',
-};
+IntentLoadersStories.args = {};
