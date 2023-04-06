@@ -1,12 +1,13 @@
-import * as HeroIcon from '@heroicons/react/outline';
+import * as OutlineHeroIcon from '@heroicons/react/24/outline';
+import * as SolidHeroIcon from '@heroicons/react/24/solid';
 import * as React from 'react';
 import { RootIntentInherit, RootIntent, RootScale } from '../../system';
 type ElementProps = React.HTMLAttributes<Element>;
-export interface IconProps {
+export interface IconProps extends ElementProps {
     /**
      * Icon name
      */
-    icon: keyof typeof HeroIcon;
+    icon: keyof typeof SolidHeroIcon | keyof typeof OutlineHeroIcon;
     /**
      * @default inherit
      */
@@ -16,7 +17,10 @@ export interface IconProps {
      * @default inherit
      */
     scale?: RootScale;
+    /**
+     * Outlined icons
+     */
+    outlined?: boolean;
 }
-declare const Icon: React.ForwardRefExoticComponent<IconProps & ElementProps & React.RefAttributes<HTMLDivElement>>;
-export { Icon };
-export default Icon;
+export declare const Icon: React.ForwardRefExoticComponent<IconProps & React.RefAttributes<HTMLDivElement>>;
+export {};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { AutoCompleteIdentify } from './AutoComplete.types';
 import { RootScale } from '../../../system';
-import { Maybe } from '../../../utils/fx';
+import { Optional } from '../../../utils/fx';
 import { IconProps } from '../../icons';
 type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
@@ -12,7 +12,7 @@ export interface AutoCompleteProps<Item> {
     onChangeInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onKeydownInput: (e: React.KeyboardEvent<HTMLInputElement>) => void;
     onSelectItem: (item: Item) => void;
-    selectedItem?: Maybe<Item>;
+    selectedItem?: Optional<Item>;
     /**
      * To display value by transforming item.
      */
@@ -30,7 +30,7 @@ export interface AutoCompleteProps<Item> {
      */
     Empty?: React.ReactNode;
     /**
-     * @default "SearchIcon"
+     * @default "MagnifyingGlassIcon"
      */
     icon?: IconProps['icon'];
     /**

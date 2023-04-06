@@ -3,7 +3,7 @@ import { IconProps } from '../../icons';
 import { InputProps } from '../input';
 export interface TextFieldProps extends InputProps {
     /**
-     * @default SearchIcon
+     * @default "MagnifyingGlassIcon"
      */
     icon?: IconProps['icon'];
 }

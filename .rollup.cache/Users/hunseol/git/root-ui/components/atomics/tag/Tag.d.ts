@@ -17,6 +17,5 @@ export interface TagProps extends ElementProps {
      */
     outlined?: boolean;
 }
-declare const Tag: React.ForwardRefExoticComponent<TagProps & React.RefAttributes<HTMLButtonElement>>;
-export { Tag };
-export default Tag;
+export declare const Tag: React.ForwardRefExoticComponent<TagProps & React.RefAttributes<HTMLButtonElement>>;
+export {};

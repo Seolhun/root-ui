@@ -17,6 +17,5 @@ export interface ButtonProps extends ElementProps {
      */
     outlined?: boolean;
 }
-declare const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>;
-export { Button };
-export default Button;
+export declare const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>;
+export {};

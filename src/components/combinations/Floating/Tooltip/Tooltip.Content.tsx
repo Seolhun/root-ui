@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import { useTooltipContext } from './useTooltipContext';
 
-import { toScaleMatch, useRootScaleContext } from '../../../../system';
+import { toScaleMatch, useRootUIContext } from '../../../../system';
 
 type ElementType = HTMLElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
@@ -16,7 +16,7 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
     const contextValues = useTooltipContext();
     const { setCurrentId } = useDelayGroupContext();
     const tooltipId = React.useId();
-    const { scale } = useRootScaleContext();
+    const { scale } = useRootUIContext();
 
     const mergedRef = useMergeRefs([contextValues?.refs.setFloating || null, ref]);
 

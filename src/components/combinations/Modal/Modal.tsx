@@ -11,17 +11,16 @@ import { ModalWidgetRoot } from './Modal.Widget.Root';
 import { ModalWidgetTitle } from './Modal.Widget.Title';
 
 export const Modal = Object.assign(ModalWidgetRoot, {
-  Overlay: ModalOverlay,
-  Backdrop: ModalBackdrop,
-  Panel: ModalPanel,
-  Header: ModalHeader,
-  Content: ModalContent,
-  Footer: ModalFooter,
-
   Widgets: {
     Overlay: ModalWidgetOverlay,
     Backdrop: ModalWidgetBackdrop,
     Panel: ModalWidgetPanel,
     Title: ModalWidgetTitle,
   },
+  Overlay: ModalOverlay,
+  Backdrop: ModalBackdrop,
+  Panel: ModalPanel,
+  Header: ModalHeader,
+  Content: ModalContent,
+  Footer: ModalFooter,
 });

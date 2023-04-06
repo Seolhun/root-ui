@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { createPortal } from 'react-dom';
 
-import PortalGroup from './PortalGroup';
-import usePortalTarget from './usePortalTarget';
+import { PortalGroup } from './PortalGroup';
+import { usePortalTarget } from './usePortalTarget';
 
 import { GlobalRootDataAttributeMap } from '../../constants';
 import { forwardRefWithAs, render } from '../../core';

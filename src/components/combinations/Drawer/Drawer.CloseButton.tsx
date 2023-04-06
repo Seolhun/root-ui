@@ -31,7 +31,7 @@ const DrawerCloseButton = React.forwardRef<ElementType, DrawerCloseButtonProps>(
         )}
         onClick={onClose}
       >
-        <Icon aria-hidden="true" icon="XIcon" />
+        <Icon aria-hidden="true" icon="XMarkIcon" />
         <span className="sr-only">Close Drawer</span>
       </button>
     );

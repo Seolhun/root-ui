@@ -1,9 +1,10 @@
 import * as React from 'react';
 
 import { Modal } from './Modal';
+import { ModalProps } from './Modal.Widget.types';
 
 import { useDisclosure } from '../../../hooks';
-import { storiesScaleOptions } from '../../../stories';
+import { StorybookContent, storiesScaleOptions } from '../../../stories';
 import { Button, Card } from '../../atomics';
 
 export default {
@@ -19,7 +20,14 @@ export default {
   },
 };
 
-const Modals = ({ Title, Content, Action, ...rests }) => {
+interface BaseTemplateProps extends ModalProps {
+  root: React.RefObject<HTMLDivElement>;
+  Title: React.ReactNode;
+  Content: React.ReactNode;
+  Action: React.ReactNode;
+}
+
+const BaseTemplate = ({ Title, Content, Action, ...others }: BaseTemplateProps) => {
   const { isShow, onClose, onToggle } = useDisclosure();
 
   return (
@@ -29,7 +37,7 @@ const Modals = ({ Title, Content, Action, ...rests }) => {
       <Modal className="relative z-50" show={isShow} onClose={onClose}>
         <Modal.Overlay>
           <Modal.Backdrop />
-          <Modal.Panel {...rests}>
+          <Modal.Panel {...others}>
             <Modal.Header>{Title}</Modal.Header>
             <Modal.Content>{Content}</Modal.Content>
             <Modal.Footer>{Action}</Modal.Footer>
@@ -40,21 +48,42 @@ const Modals = ({ Title, Content, Action, ...rests }) => {
   );
 };
 
-export const ModalsStories = Modals.bind({});
-ModalsStories.args = {
+const ModalTemplate = ({ children, ...others }: ModalProps) => {
+  return (
+    <StorybookContent>
+      <StorybookContent.Light className="flex-col">
+        {({ root }) => (
+          <BaseTemplate {...others} root={root}>
+            {children}
+          </BaseTemplate>
+        )}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {({ root }) => (
+          <BaseTemplate {...others} root={root}>
+            {children}
+          </BaseTemplate>
+        )}
+      </StorybookContent.Dark>
+    </StorybookContent>
+  );
+};
+
+export const Modals = ModalTemplate.bind({});
+Modals.args = {
   Title: 'Title',
   Content: 'Content',
   Action: 'Action',
 };
 
-export const LongModalsStories = Modals.bind({});
-LongModalsStories.args = {
+export const LongModals = ModalTemplate.bind({});
+LongModals.args = {
   Title: Array.from(Array(1000), () => 'Title').join(' '),
   Content: Array.from(Array(1000), () => 'Content').join(' '),
   Action: 'Action',
 };
 
-const InnerModals = ({ ...rests }) => {
+const InnerModalTemplate = ({ ...others }) => {
   const { isShow, onClose, onShow } = useDisclosure();
   const { isShow: isShow2, onClose: onClose2, onShow: onShow2 } = useDisclosure();
   const { isShow: isShow3, onClose: onClose3, onShow: onShow3 } = useDisclosure();
@@ -68,7 +97,7 @@ const InnerModals = ({ ...rests }) => {
       <Modal className="relative z-50" show={isShow} onClose={onClose}>
         <Modal.Backdrop />
         <Modal.Overlay>
-          <Modal.Panel {...rests}>
+          <Modal.Panel {...others}>
             <Modal.Header>Modal1</Modal.Header>
             <Modal.Content>Modal1</Modal.Content>
             <Modal.Footer>
@@ -78,7 +107,7 @@ const InnerModals = ({ ...rests }) => {
 
           <Modal className="relative z-50" show={isShow2} onClose={onClose2}>
             <Modal.Overlay>
-              <Modal.Panel {...rests}>
+              <Modal.Panel {...others}>
                 <Modal.Header>Modal2</Modal.Header>
                 <Modal.Content>Modal2</Modal.Content>
                 <Modal.Footer>
@@ -89,7 +118,7 @@ const InnerModals = ({ ...rests }) => {
 
             <Modal className="relative z-50" show={isShow3} onClose={onClose3}>
               <Modal.Overlay>
-                <Modal.Panel {...rests}>
+                <Modal.Panel {...others}>
                   <Modal.Header>Modal3</Modal.Header>
                   <Modal.Content>Modal3</Modal.Content>
                   <Modal.Footer>
@@ -105,5 +134,5 @@ const InnerModals = ({ ...rests }) => {
   );
 };
 
-export const InnerModalsStories = InnerModals.bind({});
-InnerModalsStories.args = {};
+export const InnerModals = InnerModalTemplate.bind({});
+InnerModals.args = {};

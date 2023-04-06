@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { DropdownOption } from './Dropdown.types';
-import { Maybe } from '../../../../utils/fx';
+import { Optional } from '../../../../utils/fx';
 interface ElementProps {
     children: React.ReactNode;
     disabled?: boolean;
@@ -9,11 +9,11 @@ export interface DropdownRootProps<Option extends DropdownOption> extends Elemen
     /**
      * Selected option
      */
-    value: Maybe<Option>;
+    value: Optional<Option>;
     /**
      * Change option handler
      */
-    onChange: (option: Maybe<Option>) => void;
+    onChange: (option: Optional<Option>) => void;
 }
 export declare function DropdownRoot<Option extends DropdownOption>({ children, value, onChange, disabled, }: DropdownRootProps<Option>): JSX.Element;
 export {};

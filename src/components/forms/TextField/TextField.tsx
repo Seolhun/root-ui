@@ -9,12 +9,12 @@ const CLASSNAME = 'Root__TextField';
 
 export interface TextFieldProps extends InputProps {
   /**
-   * @default SearchIcon
+   * @default "MagnifyingGlassIcon"
    */
   icon?: IconProps['icon'];
 }
 
-export const TextField = ({ className, scale = 'md', icon = 'SearchIcon', ...rests }: TextFieldProps) => {
+export const TextField = ({ className, scale = 'md', icon = 'MagnifyingGlassIcon', ...rests }: TextFieldProps) => {
   return (
     <Card
       scale={scale}

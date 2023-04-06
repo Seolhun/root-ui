@@ -7,7 +7,7 @@ import * as Styled from './AutoComplete.Styled';
 import { AutoCompleteIdentify } from './AutoComplete.types';
 
 import { RootScale, toScaleMatch } from '../../../system';
-import { Maybe } from '../../../utils/fx';
+import { Optional } from '../../../utils/fx';
 import { Icon, IconProps } from '../../icons';
 
 const CLASSNAME = 'Root__AutoComplete';
@@ -27,7 +27,7 @@ export interface AutoCompleteProps<Item> {
 
   onSelectItem: (item: Item) => void;
 
-  selectedItem?: Maybe<Item>;
+  selectedItem?: Optional<Item>;
 
   /**
    * To display value by transforming item.
@@ -50,7 +50,7 @@ export interface AutoCompleteProps<Item> {
   Empty?: React.ReactNode;
 
   /**
-   * @default "SearchIcon"
+   * @default "MagnifyingGlassIcon"
    */
   icon?: IconProps['icon'];
 
@@ -81,7 +81,7 @@ function _AutoComplete<Item = any>(
     loading,
     Loader,
     Empty = 'There are no suggestions',
-    icon = 'SearchIcon',
+    icon = 'MagnifyingGlassIcon',
     // HTMLAttributes
     className,
     placeholder,

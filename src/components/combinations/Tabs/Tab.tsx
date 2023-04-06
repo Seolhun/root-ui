@@ -44,33 +44,15 @@ export const Tab = React.forwardRef<ElementType, TabProps>(({ children, classNam
               xl: () => 'scale-p-xl',
             })(scale),
             toIntentMatch({
-              neutral: () => {
-                return clsx(selected ? 'solid-neutral' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
-              },
-              light: () => {
-                return clsx(selected ? 'solid-light' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
-              },
-              dark: () => {
-                return clsx(selected ? 'solid-dark' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
-              },
-              primary: () => {
-                return clsx(selected ? 'solid-primary' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
-              },
-              info: () => {
-                return clsx(selected ? 'solid-info' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
-              },
-              success: () => {
-                return clsx(selected ? 'solid-success' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
-              },
-              accent: () => {
-                return clsx(selected ? 'solid-accent' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
-              },
-              warning: () => {
-                return clsx(selected ? 'solid-warning' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
-              },
-              danger: () => {
-                return clsx(selected ? 'solid-danger' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1');
-              },
+              neutral: () => clsx(selected ? 'solid-neutral' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+              light: () => clsx(selected ? 'solid-light' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+              dark: () => clsx(selected ? 'solid-dark' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+              primary: () => clsx(selected ? 'solid-primary' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+              info: () => clsx(selected ? 'solid-info' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+              success: () => clsx(selected ? 'solid-success' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+              accent: () => clsx(selected ? 'solid-accent' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+              warning: () => clsx(selected ? 'solid-warning' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+              danger: () => clsx(selected ? 'solid-danger' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
             })(intent),
           )}
         >

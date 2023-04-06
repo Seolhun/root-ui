@@ -13,7 +13,7 @@ export interface StorybookContentItemProps {
 }
 
 export interface RenderChildrenArgs {
-  root: HTMLDivElement | null;
+  root: HTMLElement | null;
 }
 
 export const StorybookContentItem = ({
@@ -55,7 +55,9 @@ export const StorybookContentItem = ({
 };
 
 export const createStorybookContentItem = (hocProps: ElementProps) => {
-  return ({ className, ...others }: ElementProps & StorybookContentItemProps) => (
-    <StorybookContentItem {...hocProps} {...others} className={clsx(hocProps.className, className)} />
+  return ({ children, className, ...others }: ElementProps & StorybookContentItemProps) => (
+    <StorybookContentItem {...hocProps} {...others} className={clsx(hocProps.className, className)}>
+      {children}
+    </StorybookContentItem>
   );
 };

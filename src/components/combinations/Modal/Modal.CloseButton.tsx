@@ -31,7 +31,7 @@ const ModalCloseButton = React.forwardRef<ElementType, ModalCloseButtonProps>(
         )}
         onClick={onClose}
       >
-        <Icon aria-hidden="true" icon="XIcon" />
+        <Icon aria-hidden="true" icon="XMarkIcon" />
         <span className="sr-only">Close modal</span>
       </button>
     );
