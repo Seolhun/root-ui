@@ -25,7 +25,7 @@ export interface BoxProps {
 export interface BoxRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;
 
-const Box = forwardRefWithAs(function Box<Tag extends keyof JSX.IntrinsicElements = typeof DEFAULT_TAG>(
+export const Box = forwardRefWithAs(function Box<Tag extends keyof JSX.IntrinsicElements = typeof DEFAULT_TAG>(
   {
     scaleClassName,
     intentClassName,
@@ -55,6 +55,3 @@ const Box = forwardRefWithAs(function Box<Tag extends keyof JSX.IntrinsicElement
     slot: {},
   });
 });
-
-export { Box };
-export default Box;

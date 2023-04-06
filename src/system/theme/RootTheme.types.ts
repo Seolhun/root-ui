@@ -1,4 +1,4 @@
-export type RootInherit = 'inherit';
+export type RootIntentInherit = 'inherit';
 
 export type RootIntent =
   | 'primary'
@@ -11,4 +11,5 @@ export type RootIntent =
   | 'dark'
   | 'neutral';
 
+export type RootScaleNone = 'none';
 export type RootScale = 'xs' | 'sm' | 'md' | 'lg' | 'xl';

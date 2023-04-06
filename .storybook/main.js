@@ -16,7 +16,7 @@ module.exports = {
   ],
   webpackFinal: async (config) => {
     config.resolve.alias = {
-      '@': context,
+      '~': context,
     }
     config.devServer = {
       hot: true,

@@ -2,7 +2,7 @@ import * as HeroIcon from '@heroicons/react/outline';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootInherit, RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../system';
+import { RootIntentInherit, RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../system';
 import { Box } from '../common';
 
 const CLASSNAME = 'Root__Icon';
@@ -18,7 +18,7 @@ export interface IconProps {
   /**
    * @default inherit
    */
-  intent?: RootIntent | RootInherit;
+  intent?: RootIntent | RootIntentInherit;
 
   /**
    * Set this to change scale
