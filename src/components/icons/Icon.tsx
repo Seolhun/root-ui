@@ -3,7 +3,8 @@ import * as SolidHeroIcon from '@heroicons/react/24/solid';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntentInherit, RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../system';
+import { RootIntentInherit, RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUIContext } from '~/system';
+
 import { Box } from '../common';
 
 const CLASSNAME = 'Root__Icon';
@@ -35,6 +36,8 @@ export interface IconProps extends ElementProps {
 
 export const Icon = React.forwardRef<ElementType, IconProps>(
   ({ className, icon, intent = 'inherit', scale = 'md', outlined, ...others }, ref) => {
+    const rootUIContext = useRootUIContext();
+
     const Component = React.useMemo(() => {
       return outlined ? OutlineHeroIcon[icon] : SolidHeroIcon[icon];
     }, [outlined, icon]);

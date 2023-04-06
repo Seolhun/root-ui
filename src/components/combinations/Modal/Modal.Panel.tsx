@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { RootScale, toScaleMatch } from '~/system';
 
-import { useModalContext, ModalWidget } from './Widgets';
+import { useModalContext, ModalWidgetPanel } from './Widgets';
 
 const CLASSNAME = 'Root__Modal__Panel';
 type ElementType = HTMLDivElement;
@@ -22,7 +22,7 @@ export const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
     const [{ visible }] = useModalContext('Modal');
 
     return (
-      <ModalWidget.Panel
+      <ModalWidgetPanel
         {...others}
         ref={ref}
         className={clsx(
@@ -49,7 +49,7 @@ export const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
         )}
       >
         {children}
-      </ModalWidget.Panel>
+      </ModalWidgetPanel>
     );
   },
 );

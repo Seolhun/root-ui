@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import * as React from 'react';
 
 import { Button, Card } from '~/components/atomics';
@@ -47,7 +48,7 @@ const BaseTemplate = ({ Title, Content, Action, ...others }: BaseTemplateProps) 
   );
 };
 
-const ModalTemplate = ({ ...others }: BaseTemplateProps) => {
+const ModalTemplate: Story<BaseTemplateProps> = ({ ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -74,7 +75,7 @@ LongModals.args = {
   Action: 'Action',
 };
 
-const InnerModalTemplate = ({ ...others }) => {
+const InnerModalTemplate: Story<ModalProps> = ({ ...others }) => {
   const { isShow, onClose, onShow } = useDisclosure();
   const { isShow: isShow2, onClose: onClose2, onShow: onShow2 } = useDisclosure();
   const { isShow: isShow3, onClose: onClose3, onShow: onShow3 } = useDisclosure();

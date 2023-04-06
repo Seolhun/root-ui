@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import * as React from 'react';
 
 import { ModalCloseButton } from './Modal.CloseButton';
-import { ModalWidget } from './Widgets';
+import { ModalWidgetTitle } from './Widgets';
 
 const CLASSNAME = 'Root__Modal__Header';
 type ElementType = HTMLDivElement;
@@ -18,16 +18,10 @@ export const ModalHeader = React.forwardRef<ElementType, ModalHeaderProps>(
       <div
         ref={ref}
         {...others}
-        className={clsx(
-          CLASSNAME,
-          className,
-          'flex justify-between items-start',
-          'border border-cream-3 dark:border-space-3',
-          'rounded-t',
-        )}
+        className={clsx(CLASSNAME, className, 'flex justify-between items-start', 'rounded-t')}
       >
         <div className="flex-1 break-all line-clamp-2">
-          <ModalWidget.Title>{children}</ModalWidget.Title>
+          <ModalWidgetTitle>{children}</ModalWidgetTitle>
         </div>
         <ModalCloseButton />
       </div>

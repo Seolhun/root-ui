@@ -22,7 +22,7 @@ export const ModalWidgetBackdrop = forwardRefWithAs(
     props: RootUIProps<Tag, ModalBackdropRenderPropArg, PropsWeControl> & ModalBackdropProps,
     ref: React.Ref<ElementType>,
   ) => {
-    const id = `rootui-modal-backdrop-${useId()}`;
+    const id = `RootUI__Modal__Backdrop-${useId()}`;
     const [{ visible }, state] = useModalContext(COMPONENT_NAME);
     const backdropRef = useSyncRefs(ref);
 

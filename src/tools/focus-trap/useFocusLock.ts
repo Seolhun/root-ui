@@ -1,6 +1,6 @@
-import { focusElement } from './FocusManagements';
+import { useEventListener, useIsMounted } from '~/hooks';
 
-import { useEventListener, useIsMounted } from '../../hooks';
+import { focusElement } from './FocusManagements';
 
 export interface UseFocusLockProps {
   ownerDocument: Document | null;

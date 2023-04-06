@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { ModalWidget } from './Widgets';
+import { ModalWidgetOverlay } from './Widgets';
 
 const CLASSNAME = 'Root__Modal__Overlay';
 type ElementType = HTMLDivElement;
@@ -12,13 +12,13 @@ export interface ModalOverlayProps extends ElementProps {}
 export const ModalOverlay = React.forwardRef<ElementType, ModalOverlayProps>(
   ({ className, children, ...others }, ref) => {
     return (
-      <ModalWidget.Overlay
+      <ModalWidgetOverlay
         {...others}
         ref={ref}
         className={clsx(CLASSNAME, className, 'fixed', 'inset-0 md:inset-0', 'overflow-y-auto')}
       >
         {children}
-      </ModalWidget.Overlay>
+      </ModalWidgetOverlay>
     );
   },
 );

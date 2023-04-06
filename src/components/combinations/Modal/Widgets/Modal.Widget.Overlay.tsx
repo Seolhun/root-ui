@@ -23,7 +23,7 @@ export const ModalWidgetOverlay = forwardRefWithAs(
     props: RootUIProps<Tag, ModalOverlayRenderPropArg, PropsWeControl> & ModalWidgetOverlayProps,
     ref: React.Ref<ElementType>,
   ) => {
-    const id = `rootui-modal-overlay-${useId()}`;
+    const id = `RootUI__Modal__Overlay-${useId()}`;
     const [{ visible, onClose }] = useModalContext(COMPONENT_NAME);
     const overlayRef = useSyncRefs(ref);
 

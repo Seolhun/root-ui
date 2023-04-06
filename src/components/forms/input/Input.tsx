@@ -1,9 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { Box } from '~/components/common';
 import { RootIntent, RootScale, toScaleMatch, toIntentMatch, useRootUIContext } from '~/system';
-
-import { Box } from '../../common';
 
 const CLASSNAME = 'Root__Input';
 type ElementType = HTMLInputElement;

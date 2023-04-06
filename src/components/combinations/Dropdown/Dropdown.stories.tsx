@@ -1,12 +1,11 @@
 import * as React from 'react';
 
+import { Avatar } from '~/components/atomics';
 import { StorybookContent } from '~/stories';
 import { Optional } from '~/utils/fx';
 
 import { Dropdown, DropdownProps } from './Dropdown';
 import { DropdownOption, DropdownOptionState } from './widgets';
-
-import { Avatar } from '../../atomics';
 
 export default {
   title: 'Combination/Dropdown',

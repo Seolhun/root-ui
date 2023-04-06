@@ -1,9 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { Box } from '~/components/common';
 import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '~/system';
-
-import { Box } from '../../common';
 
 const CLASSNAME = 'Root__Textarea';
 type ElementType = HTMLTextAreaElement;

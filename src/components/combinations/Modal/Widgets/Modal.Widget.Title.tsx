@@ -22,7 +22,7 @@ export const ModalWidgetTitle = forwardRefWithAs(
     props: RootUIProps<Tag, ModalTitleRenderPropArg, PropsWeControl> & ModalTitleProps,
     ref: React.Ref<ElementType>,
   ) => {
-    const id = `rootui-modal-title-${useId()}`;
+    const id = `RootUI__Modal__Title-${useId()}`;
     const [{ visible, setModalTitleId }] = useModalContext(COMPONENT_NAME);
     const titleRef = useSyncRefs(ref);
 

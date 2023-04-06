@@ -35,7 +35,7 @@ export const ModalWidgetRoot = forwardRefWithAs(
     ref: React.Ref<ElementType>,
   ) => {
     const { show, onClose, onKeyDown, initialFocus, root, ...others } = props;
-    const id = `rootui-modal-${useId()}`;
+    const id = `RootUI__Modal__${useId()}`;
 
     const containers = React.useRef<Set<React.MutableRefObject<HTMLElement | null>>>(new Set());
     const internalModalRef = React.useRef<ElementType | null>(null);

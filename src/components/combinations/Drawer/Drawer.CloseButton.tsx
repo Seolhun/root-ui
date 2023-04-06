@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { useDrawerContext } from './Drawer.Context';
+import { Icon } from '~/components/icons';
 
-import { Icon } from '../../icons';
+import { useDrawerContext } from './Drawer.Context';
 
 const CLASSNAME = 'Root__Drawer__CloseButton';
 type ElementType = HTMLButtonElement;

@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { useModalContext } from './Widgets';
+import { Icon } from '~/components/icons';
 
-import { Icon } from '../../icons';
+import { useModalContext } from './Widgets';
 
 const CLASSNAME = 'Root__Modal__CloseButton';
 type ElementType = HTMLButtonElement;
@@ -22,6 +22,7 @@ export const ModalCloseButton = React.forwardRef<ElementType, ModalCloseButtonPr
         className={clsx(
           CLASSNAME,
           className,
+          'absolute right-1 top-1',
           'inline-flex items-center',
           'p-1.5 ml-auto',
           'bg-transparent hover:bg-neutral-1',

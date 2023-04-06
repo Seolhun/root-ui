@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Icon, IconProps } from './Icon';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../stories';
+import { Icon, IconProps } from './Icon';
 
 export default {
   title: 'Atomic/Icon',

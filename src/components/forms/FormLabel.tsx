@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootScale, toScaleMatch } from '../../system';
+import { RootScale, toScaleMatch } from '~/system';
+
 import { Box } from '../common';
 
 const CLASSNAME = 'Root__FormLabel';

@@ -1,10 +1,9 @@
 import * as React from 'react';
 
+import { Avatar } from '~/components/atomics';
 import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
 
 import { Switch, SwitchProps } from './Switch';
-
-import { Avatar } from '../../atomics';
 
 export default {
   title: 'Form/Switch',

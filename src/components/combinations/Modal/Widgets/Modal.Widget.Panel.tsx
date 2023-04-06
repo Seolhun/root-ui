@@ -22,7 +22,7 @@ export const ModalWidgetPanel = forwardRefWithAs(
     props: RootUIProps<Tag, ModalPanelRenderPropArg, PropsWeControl> & ModalWidgetPanelProps,
     ref: React.Ref<ElementType>,
   ) => {
-    const id = `rootui-modal-panel-${useId()}`;
+    const id = `RootUI__Modal__Panel-${useId()}`;
     const [{ visible }, state] = useModalContext(COMPONENT_NAME);
     const panelRef = useSyncRefs(ref, state.panelRef);
 

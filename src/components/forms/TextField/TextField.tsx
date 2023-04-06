@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Card } from '../../atomics';
-import { Icon, IconProps } from '../../icons';
+import { Icon, IconProps } from '~/components/atomic';
+import { Card } from '~/components/atomics';
+
 import { Input, InputProps } from '../input';
 
 const CLASSNAME = 'Root__TextField';

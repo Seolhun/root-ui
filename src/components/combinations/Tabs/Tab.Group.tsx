@@ -2,9 +2,8 @@ import { Tab } from '@headlessui/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { RootGroupContextValues, RootGroupProvider } from '~/components/common';
 import { RootIntent, RootScale } from '~/system';
-
-import { RootGroupContextValues, RootGroupProvider } from '../../common';
 
 const CLASSNAME = 'Root__TabGroup';
 type ElementType = HTMLDivElement;

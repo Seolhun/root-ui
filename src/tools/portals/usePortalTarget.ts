@@ -1,11 +1,11 @@
 import * as React from 'react';
 
+import { GlobalRootDataAttributeMap } from '~/constants';
+import { useOwnerDocument } from '~/hooks';
+import { isServer } from '~/utils';
+
 import { useForcePortalRoot } from './PortalForceRoot';
 import { PortalGroupContext } from './PortalGroup';
-
-import { GlobalRootDataAttributeMap } from '../../constants';
-import { useOwnerDocument } from '../../hooks';
-import { isServer } from '../../utils';
 
 export function usePortalTarget(ref: React.MutableRefObject<HTMLElement | null>): HTMLElement | null {
   const forceInRoot = useForcePortalRoot();

@@ -2,9 +2,8 @@ import { Tab as BaseTab } from '@headlessui/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { useRootGroupContext } from '~/components/common';
 import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '~/system';
-
-import { useRootGroupContext } from '../../common';
 
 const CLASSNAME = 'Root__Tab';
 type ElementType = HTMLLIElement;
