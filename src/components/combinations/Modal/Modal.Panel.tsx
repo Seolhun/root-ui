@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { useModalContext } from './Modal.Widget.Context';
-import { ModalWidgetPanel } from './Modal.Widget.Panel';
+import { useModalContext, ModalWidget } from './Widgets';
 
 import { RootScale, toScaleMatch } from '../../../system';
 
@@ -23,7 +22,7 @@ export const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
     const [{ visible }] = useModalContext('Modal');
 
     return (
-      <ModalWidgetPanel
+      <ModalWidget.Panel
         {...rests}
         ref={ref}
         className={clsx(
@@ -50,7 +49,7 @@ export const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
         )}
       >
         {children}
-      </ModalWidgetPanel>
+      </ModalWidget.Panel>
     );
   },
 );

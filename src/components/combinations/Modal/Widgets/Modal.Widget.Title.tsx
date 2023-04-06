@@ -1,11 +1,11 @@
 import * as React from 'react';
 
+import { forwardRefWithAs, render } from '~/core';
+import { useSyncRefs, useId } from '~/hooks';
+import { RootUIProps, RootUIReactTag } from '~/types';
+
 import { useModalContext } from './Modal.Widget.Context';
 import { ModalRenderPropArg } from './Modal.Widget.types';
-
-import { forwardRefWithAs, render } from '../../../core';
-import { useSyncRefs, useId } from '../../../hooks';
-import { RootUIProps, RootUIReactTag } from '../../../types';
 
 const COMPONENT_NAME = 'Root__Modal__Title';
 const DEFAULT_TAG: RootUIReactTag = 'h5';

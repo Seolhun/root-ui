@@ -9,6 +9,5 @@ export interface ModalPanelProps extends ElementProps {
      */
     scale?: RootScale;
 }
-declare const ModalPanel: React.ForwardRefExoticComponent<ModalPanelProps & React.RefAttributes<HTMLDivElement>>;
-export { ModalPanel };
-export default ModalPanel;
+export declare const ModalPanel: React.ForwardRefExoticComponent<ModalPanelProps & React.RefAttributes<HTMLDivElement>>;
+export {};

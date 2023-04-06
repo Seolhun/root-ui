@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { useModalContext } from './Modal.Widget.Context';
+import { useModalContext } from './Widgets';
 
 import { Icon } from '../../icons';
 

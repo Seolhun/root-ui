@@ -3,9 +3,9 @@ import * as React from 'react';
 import { useModalContext } from './Modal.Widget.Context';
 import { ModalRenderPropArg } from './Modal.Widget.types';
 
-import { forwardRefWithAs, render } from '../../../core';
-import { useSyncRefs, useId } from '../../../hooks';
-import { RootUIProps, RootUIReactTag } from '../../../types';
+import { forwardRefWithAs, render } from '../../../../core';
+import { useSyncRefs, useId } from '../../../../hooks';
+import { RootUIProps, RootUIReactTag } from '../../../../types';
 
 const COMPONENT_NAME = 'Root__Modal__Backdrop';
 const DEFAULT_TAG: RootUIReactTag = 'div';

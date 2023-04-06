@@ -4,7 +4,7 @@ import * as React from 'react';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface StorybookContentItemProps {
+export interface StorybookContentItemProps extends Omit<ElementProps, 'children'> {
   children: React.ReactNode | ((args: RenderChildrenArgs) => React.ReactNode);
 
   noAlign?: boolean;
@@ -16,13 +16,7 @@ export interface RenderChildrenArgs {
   root: HTMLElement | null;
 }
 
-export const StorybookContentItem = ({
-  children,
-  className,
-  noAlign,
-  noGap,
-  ...others
-}: ElementProps & StorybookContentItemProps) => {
+export const StorybookContentItem = ({ children, className, noAlign, noGap, ...others }: StorybookContentItemProps) => {
   const [root, setRoot] = React.useState<HTMLDivElement | null>(null);
 
   const renderChildren = (args: RenderChildrenArgs) => {
@@ -55,7 +49,7 @@ export const StorybookContentItem = ({
 };
 
 export const createStorybookContentItem = (hocProps: ElementProps) => {
-  return ({ children, className, ...others }: ElementProps & StorybookContentItemProps) => (
+  return ({ children, className, ...others }: StorybookContentItemProps) => (
     <StorybookContentItem {...hocProps} {...others} className={clsx(hocProps.className, className)}>
       {children}
     </StorybookContentItem>

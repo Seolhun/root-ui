@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { Modal } from './Modal';
-import { ModalProps } from './Modal.Widget.types';
+import { Button, Card } from '~/components/atomics';
+import { useDisclosure } from '~/hooks';
+import { StorybookContent, storiesScaleOptions } from '~/stories';
 
-import { useDisclosure } from '../../../hooks';
-import { StorybookContent, storiesScaleOptions } from '../../../stories';
-import { Button, Card } from '../../atomics';
+import { Modal } from './Modal';
+import { ModalProps } from './Widgets';
 
 export default {
   title: 'Combination/Modal',
@@ -21,10 +21,10 @@ export default {
 };
 
 interface BaseTemplateProps extends ModalProps {
-  root: React.RefObject<HTMLDivElement>;
   Title: React.ReactNode;
   Content: React.ReactNode;
   Action: React.ReactNode;
+  root: HTMLElement;
 }
 
 const BaseTemplate = ({ Title, Content, Action, ...others }: BaseTemplateProps) => {
@@ -48,22 +48,14 @@ const BaseTemplate = ({ Title, Content, Action, ...others }: BaseTemplateProps) 
   );
 };
 
-const ModalTemplate = ({ children, ...others }: ModalProps) => {
+const ModalTemplate = ({ ...others }: ModalProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
-        {({ root }) => (
-          <BaseTemplate {...others} root={root}>
-            {children}
-          </BaseTemplate>
-        )}
+        {({ root }) => <BaseTemplate {...others} root={root} />}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
-        {({ root }) => (
-          <BaseTemplate {...others} root={root}>
-            {children}
-          </BaseTemplate>
-        )}
+        {({ root }) => <BaseTemplate {...others} root={root} />}
       </StorybookContent.Dark>
     </StorybookContent>
   );
