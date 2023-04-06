@@ -1,4 +1,5 @@
-import * as HeroIcon from '@heroicons/react/outline';
+import * as OutlineHeroIcon from '@heroicons/react/24/outline';
+import * as SolidHeroIcon from '@heroicons/react/24/solid';
 import clsx from 'clsx';
 import * as React from 'react';
 
@@ -9,11 +10,11 @@ const CLASSNAME = 'Root__Icon';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
 
-export interface IconProps {
+export interface IconProps extends ElementProps {
   /**
    * Icon name
    */
-  icon: keyof typeof HeroIcon;
+  icon: keyof typeof SolidHeroIcon | keyof typeof OutlineHeroIcon;
 
   /**
    * @default inherit
@@ -25,11 +26,18 @@ export interface IconProps {
    * @default inherit
    */
   scale?: RootScale;
+
+  /**
+   * Outlined icons
+   */
+  outlined?: boolean;
 }
 
-const Icon = React.forwardRef<ElementType, IconProps & ElementProps>(
-  ({ className, icon, intent = 'inherit', scale = 'md', ...rests }, ref) => {
-    const Component = HeroIcon[icon];
+export const Icon = React.forwardRef<ElementType, IconProps>(
+  ({ className, icon, intent = 'inherit', scale = 'md', outlined, ...rests }, ref) => {
+    const Component = React.useMemo(() => {
+      return outlined ? OutlineHeroIcon[icon] : SolidHeroIcon[icon];
+    }, [outlined, icon]);
 
     return (
       <Box
@@ -61,6 +69,3 @@ const Icon = React.forwardRef<ElementType, IconProps & ElementProps>(
     );
   },
 );
-
-export { Icon };
-export default Icon;

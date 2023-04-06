@@ -44,7 +44,7 @@ export const StorybookContentItem = ({
         'min-h-full',
         {
           'items-center': !noAlign,
-          'gap-4': !noGap,
+          'gap-2': !noGap,
         },
         'p-4',
       )}

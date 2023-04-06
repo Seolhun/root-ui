@@ -110,14 +110,14 @@ const DisabledTags = ({ children, ...others }: TagProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light>
-        <div className="flex-col space-y-2">
+        <div className="flex flex-col space-y-2">
           {storiesIntentOptions.map((intent) => (
             <BaseTemplate {...others} key={intent} intent={intent}>
               {children}
             </BaseTemplate>
           ))}
         </div>
-        <div className="flex-col space-y-2">
+        <div className="flex flex-col space-y-2">
           {storiesIntentOptions.map((intent) => (
             <BaseTemplate {...others} key={intent} intent={intent} outlined>
               {children}
@@ -126,14 +126,14 @@ const DisabledTags = ({ children, ...others }: TagProps) => {
         </div>
       </StorybookContent.Light>
       <StorybookContent.Dark>
-        <div className="flex-col space-y-2">
+        <div className="flex flex-col space-y-2">
           {storiesIntentOptions.map((intent) => (
             <BaseTemplate {...others} key={intent} intent={intent}>
               {children}
             </BaseTemplate>
           ))}
         </div>
-        <div className="flex-col space-y-2">
+        <div className="flex flex-col space-y-2">
           {storiesIntentOptions.map((intent) => (
             <BaseTemplate {...others} key={intent} intent={intent} outlined>
               {children}
