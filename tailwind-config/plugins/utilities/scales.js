@@ -7,11 +7,11 @@ const SCALES = {
     xl: 16,
   },
   PADDING: {
-    xs: 'py-2 px-4',
-    sm: 'py-3 px-6',
-    md: 'py-4 px-8',
-    lg: 'py-5 px-10',
-    xl: 'py-6 px-12',
+    xs: { y: 2, x: 4 },
+    sm: { y: 3, x: 6 },
+    md: { y: 4, x: 8 },
+    lg: { y: 5, x: 10 },
+    xl: { y: 6, x: 12 },
   },
   TEXT: {
     xs: 'text-4',
@@ -32,11 +32,17 @@ const scales = ({ theme }) => {
     };
   }, {});
 
-  const scalesByPadding = Object.entries(SCALES.PADDING).reduce((acc, [k, v]) => {
+  const scalesByPadding = Object.entries(SCALES.PADDING).reduce((acc, [k, { y, x }]) => {
     return {
       ...acc,
       [`.scale-p-${k}`]: {
-        [`@apply ${v}`]: {},
+        [`@apply py-${y} px-${x}`]: {},
+      },
+      [`.scale-py-${k}`]: {
+        [`@apply py-${y}`]: {},
+      },
+      [`.scale-px-${k}`]: {
+        [`@apply py-${x}`]: {},
       },
     };
   }, {});

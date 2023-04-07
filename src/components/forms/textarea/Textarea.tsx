@@ -29,11 +29,11 @@ export const Textarea = React.forwardRef<ElementType, TextareaProps>(
         ref={ref}
         id={others.name}
         scaleClassName={toScaleMatch({
-          xs: () => 'text-2 py-1 px-2',
-          sm: () => 'text-2.5 py-1.5 px-2.5',
-          md: () => 'text-3 py-1.5 px-3',
-          lg: () => 'text-3.5 py-2 px-3.5',
-          xl: () => 'text-4 py-2 px-4',
+          xs: () => 'scale-text-xs scale-py-xs',
+          sm: () => 'scale-text-sm scale-py-sm',
+          md: () => 'scale-text-md scale-py-md',
+          lg: () => 'scale-text-lg scale-py-lg',
+          xl: () => 'scale-text-xl scale-py-xl',
         })(scale)}
         intentClassName={toIntentMatch({
           neutral: () => clsx('outline-neutral dark:outline-neutral'),
@@ -51,6 +51,7 @@ export const Textarea = React.forwardRef<ElementType, TextareaProps>(
           className,
           'block',
           'w-full',
+          'px-4',
           'bg-cream-1 text-space-1',
           'dark:bg-space-1 dark:text-cream-1',
           'disabled:bg-neutral-1 disabled:border-neutral-4 disabled:placeholder:text-neutral-light',
