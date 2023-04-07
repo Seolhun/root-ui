@@ -55,15 +55,15 @@ export const Icon = React.forwardRef<ElementType, IconProps>(
           xl: () => 'scale-xl',
         })(scale)}
         intentClassName={toIntentMatch({
-          neutral: () => 'text-neutral',
-          light: () => 'text-light',
-          dark: () => 'text-dark',
-          primary: () => 'text-primary',
-          info: () => 'text-info',
-          success: () => 'text-success',
-          accent: () => 'text-accent',
-          warning: () => 'text-warning',
-          danger: () => 'text-danger',
+          neutral: () => 'text-neutral dark:text-neutral2',
+          light: () => 'text-light dark:text-light2',
+          dark: () => 'text-dark dark:text-dark2',
+          primary: () => 'text-primary dark:text-primary2',
+          info: () => 'text-info dark:text-info2',
+          success: () => 'text-success dark:text-success2',
+          accent: () => 'text-accent dark:text-accent2',
+          warning: () => 'text-warning dark:text-warning2',
+          danger: () => 'text-danger dark:text-danger2',
         })(intent)}
         className={clsx(CLASSNAME, className, 'inline-flex items-center justify-center')}
       >

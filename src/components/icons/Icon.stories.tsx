@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import * as React from 'react';
 
 import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
@@ -42,7 +43,7 @@ const IconsStories = ({ children, ...others }: IconProps) => {
           </BaseTemplate>
         ))}
       </StorybookContent.Light>
-      <StorybookContent.Dark className="flex-col">
+      <StorybookContent.Dark className="flex-col text-white">
         {storiesScaleOptions.map((scale) => (
           <BaseTemplate {...others} key={scale} scale={scale}>
             {children}
@@ -53,7 +54,7 @@ const IconsStories = ({ children, ...others }: IconProps) => {
   );
 };
 
-export const Icons = IconsStories.bind({});
+export const Icons: Story<IconProps> = IconsStories.bind({});
 Icons.args = {
   icon: 'RocketLaunchIcon',
 };
@@ -97,40 +98,13 @@ const InheritIconsStories = ({ children, color, ...others }: IconProps) => {
   );
 };
 
-export const InheritIcons = InheritIconsStories.bind({});
+export const InheritIcons: Story<IconProps> = InheritIconsStories.bind({});
 InheritIcons.args = {
   icon: 'RocketLaunchIcon',
   color: 'blue',
 };
 
 const IntentIconsStories = ({ children, ...others }: IconProps) => {
-  return (
-    <StorybookContent>
-      <StorybookContent.Light className="flex-col">
-        {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent} outlined>
-            {children}-{intent}
-          </BaseTemplate>
-        ))}
-      </StorybookContent.Light>
-      <StorybookContent.Dark className="flex-col">
-        {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent} outlined>
-            {children}-{intent}
-          </BaseTemplate>
-        ))}
-      </StorybookContent.Dark>
-    </StorybookContent>
-  );
-};
-
-export const IntentIcons = IntentIconsStories.bind({});
-IntentIcons.args = {
-  children: 'Icon',
-  icon: 'RocketLaunchIcon',
-};
-
-const OutlinedIconsStories = ({ children, ...others }: IconProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light>
@@ -169,8 +143,8 @@ const OutlinedIconsStories = ({ children, ...others }: IconProps) => {
   );
 };
 
-export const OutlinedIcons = OutlinedIconsStories.bind({});
-OutlinedIcons.args = {
+export const IntentIcons: Story<IconProps> = IntentIconsStories.bind({});
+IntentIcons.args = {
   children: 'Icon',
   icon: 'RocketLaunchIcon',
 };
