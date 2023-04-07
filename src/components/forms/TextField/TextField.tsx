@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Icon, IconProps } from '~/components/atomic';
 import { Card } from '~/components/atomics';
+import { Icon, IconProps } from '~/components/icons';
 
 import { Input, InputProps } from '../input';
 

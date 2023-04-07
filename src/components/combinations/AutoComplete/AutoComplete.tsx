@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import isEmpty from 'lodash/isEmpty';
 import React from 'react';
 
-import { Icon, IconProps } from '~/components/atomic';
+import { Icon, IconProps } from '~/components/icons';
 import { RootScale, toScaleMatch } from '~/system';
 import { Optional } from '~/utils/fx';
 
