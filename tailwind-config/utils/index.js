@@ -1,4 +1,6 @@
 const Color = require('color');
+const concat = require('lodash/concat');
+const range = require('lodash/range');
 
 const alpha = (clr, val) => Color(clr).alpha(val).rgb().string();
 const lighten = (clr, val) => Color(clr).lighten(val).rgb().string();
@@ -19,9 +21,12 @@ function createIntentColor(color) {
   };
 }
 
+const presetRanges = concat(range(0, 10, 0.5), range(10, 401));
+
 module.exports = {
   alpha,
   lighten,
   darken,
   createIntentColor,
+  presetRanges,
 };
