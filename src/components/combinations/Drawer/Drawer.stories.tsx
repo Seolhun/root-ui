@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
@@ -6,6 +7,7 @@ import { H4 } from '~/components/typography';
 import { storiesScaleOptions, StorybookContent } from '~/stories';
 
 import { Drawer } from './Drawer';
+import { DrawerProps } from './Drawer.Root';
 
 export default {
   title: 'Combination/Drawer',
@@ -20,7 +22,16 @@ export default {
   },
 };
 
-const BaseTemplate = ({ Header, Body, Footer, root, placement, className, ...others }) => {
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
+type BaseTemplateProps = ElementProps &
+  DrawerProps & {
+    Header: React.ReactNode;
+    Body: React.ReactNode;
+    Footer: React.ReactNode;
+  };
+
+const BaseTemplate = ({ Header, Body, Footer, root, placement, className, ...others }: BaseTemplateProps) => {
   const [isShow, setShow] = React.useState(false);
 
   const onToggle = React.useCallback(() => {
@@ -59,7 +70,7 @@ const BaseTemplate = ({ Header, Body, Footer, root, placement, className, ...oth
   );
 };
 
-const Drawers = (props) => {
+const Drawers: Story<BaseTemplateProps> = (props) => {
   return (
     <StorybookContent>
       <StorybookContent.Light>{({ root }) => <BaseTemplate {...props} root={root} />}</StorybookContent.Light>

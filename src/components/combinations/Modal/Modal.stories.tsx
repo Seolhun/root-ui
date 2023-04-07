@@ -21,13 +21,16 @@ export default {
   },
 };
 
-interface BaseTemplateProps extends ModalProps {
-  Title: React.ReactNode;
-  Content: React.ReactNode;
-  Action: React.ReactNode;
-}
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
+type BaseTemplateProps = ElementProps &
+  ModalProps & {
+    Header: React.ReactNode;
+    Body: React.ReactNode;
+    Footer: React.ReactNode;
+  };
 
-const BaseTemplate = ({ Title, Content, Action, root, ...others }: BaseTemplateProps) => {
+const BaseTemplate = ({ Header, Body, Footer, root, ...others }: BaseTemplateProps) => {
   const { isShow, onClose, onToggle } = useDisclosure();
 
   return (
@@ -38,9 +41,9 @@ const BaseTemplate = ({ Title, Content, Action, root, ...others }: BaseTemplateP
         <Modal.Overlay>
           <Modal.Backdrop />
           <Modal.Panel {...others} className="space-y-2">
-            <Modal.Header>{Title}</Modal.Header>
-            <Modal.Body>{Content}</Modal.Body>
-            <Modal.Footer>{Action}</Modal.Footer>
+            <Modal.Header>{Header}</Modal.Header>
+            <Modal.Body>{Body}</Modal.Body>
+            <Modal.Footer>{Footer}</Modal.Footer>
           </Modal.Panel>
         </Modal.Overlay>
       </Modal>
@@ -53,14 +56,14 @@ const ModalTemplate: Story<BaseTemplateProps> = ({ ...others }) => {
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {({ root }) => (
-          <section style={{ height: '2000px' }}>
+          <section style={{ minHeight: '2000px' }}>
             <BaseTemplate {...others} root={root} />
           </section>
         )}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {({ root }) => (
-          <section style={{ height: '2000px' }}>
+          <section style={{ minHeight: '2000px' }}>
             <BaseTemplate {...others} root={root} />
           </section>
         )}
@@ -71,16 +74,16 @@ const ModalTemplate: Story<BaseTemplateProps> = ({ ...others }) => {
 
 export const Modals = ModalTemplate.bind({});
 Modals.args = {
-  Title: 'Title',
-  Content: 'Content',
-  Action: 'Action',
+  Header: 'Header',
+  Body: 'Body',
+  Footer: 'Footer',
 };
 
 export const LongModals = ModalTemplate.bind({});
 LongModals.args = {
-  Title: Array.from(Array(1000), () => 'Title').join(' '),
-  Content: Array.from(Array(1000), () => 'Content').join(' '),
-  Action: 'Action',
+  Header: Array.from(Array(1000), () => 'Header').join(' '),
+  Body: Array.from(Array(1000), () => 'Body').join(' '),
+  Footer: 'Footer',
 };
 
 const InnerModalTemplate: Story<ModalProps> = ({ ...others }) => {
@@ -89,7 +92,7 @@ const InnerModalTemplate: Story<ModalProps> = ({ ...others }) => {
   const { isShow: isShow3, onClose: onClose3, onShow: onShow3 } = useDisclosure();
 
   return (
-    <section style={{ height: '2000px' }}>
+    <section style={{ minHeight: '2000px' }}>
       <Button onClick={onShow}>Toggle modal</Button>
 
       <Card className="z-50 mt-8 p-8">The highest priority z-index 50 Card</Card>

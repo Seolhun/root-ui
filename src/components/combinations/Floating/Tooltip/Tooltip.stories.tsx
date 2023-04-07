@@ -1,9 +1,11 @@
+import { Story } from '@storybook/react';
 import * as React from 'react';
 
 import { Button } from '~/components/atomics';
 import { storiesScaleOptions, StorybookContent } from '~/stories';
 
 import { Tooltip } from './Tooltip';
+import { TooltipProps } from './Tooltip.Root';
 
 export default {
   title: 'Combination/Tooltip',
@@ -30,7 +32,7 @@ const BaseTemplate = ({ root, ...others }) => {
   );
 };
 
-const TooltipsTemplate = ({ ...others }) => {
+const TooltipsTemplate: Story<TooltipProps> = ({ ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light>{({ root }) => <BaseTemplate {...others} root={root} />}</StorybookContent.Light>
@@ -42,15 +44,15 @@ const TooltipsTemplate = ({ ...others }) => {
 export const Tooltips = TooltipsTemplate.bind({});
 Tooltips.args = {};
 
-const ScaleTooltipTemplate = ({ ...others }) => {
+const ScaleTooltipTemplate: Story<TooltipProps> = ({ ...others }) => {
   return (
     <StorybookContent>
-      <StorybookContent.Light>
+      <StorybookContent.Light className="flex flex-col space-y-2">
         {({ root }) =>
           storiesScaleOptions.map((scale) => <BaseTemplate {...others} key={scale} scale={scale} root={root} />)
         }
       </StorybookContent.Light>
-      <StorybookContent.Dark>
+      <StorybookContent.Dark className="flex flex-col space-y-2">
         {({ root }) =>
           storiesScaleOptions.map((scale) => <BaseTemplate {...others} key={scale} scale={scale} root={root} />)
         }

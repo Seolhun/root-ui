@@ -47,15 +47,33 @@ export const Button = React.forwardRef<ElementType, ButtonProps>(
             xl: () => 'scale-text-xl scale-p-xl',
           })(scale),
           toIntentMatch({
-            neutral: () => clsx(outlined ? 'outlined-neutral' : 'solid-neutral'),
-            light: () => clsx(outlined ? 'outlined-light' : 'solid-light'),
-            dark: () => clsx(outlined ? 'outlined-dark' : 'solid-dark'),
-            primary: () => clsx(outlined ? 'outlined-primary' : 'solid-primary'),
-            info: () => clsx(outlined ? 'outlined-info' : 'solid-info'),
-            success: () => clsx(outlined ? 'outlined-success' : 'solid-success'),
-            accent: () => clsx(outlined ? 'outlined-accent' : 'solid-accent'),
-            warning: () => clsx(outlined ? 'outlined-warning' : 'solid-warning'),
-            danger: () => clsx(outlined ? 'outlined-danger' : 'solid-danger'),
+            neutral: () => {
+              return clsx(outlined ? 'outlined-neutral dark:outlined-neutral2' : 'solid-neutral dark:solid-neutral');
+            },
+            light: () => {
+              return clsx(outlined ? 'outlined-light dark:outlined-light2' : 'solid-light dark:solid-light');
+            },
+            dark: () => {
+              return clsx(outlined ? 'outlined-dark dark:outlined-dark2' : 'solid-dark dark:solid-dark');
+            },
+            primary: () => {
+              return clsx(outlined ? 'outlined-primary dark:outlined-primary2' : 'solid-primary dark:solid-primary');
+            },
+            info: () => {
+              return clsx(outlined ? 'outlined-info dark:outlined-info2' : 'solid-info dark:solid-info');
+            },
+            success: () => {
+              return clsx(outlined ? 'outlined-success dark:outlined-success2' : 'solid-success dark:solid-success');
+            },
+            accent: () => {
+              return clsx(outlined ? 'outlined-accent dark:outlined-accent2' : 'solid-accent dark:solid-accent');
+            },
+            warning: () => {
+              return clsx(outlined ? 'outlined-warning dark:outlined-warning2' : 'solid-warning dark:solid-warning');
+            },
+            danger: () => {
+              return clsx(outlined ? 'outlined-danger dark:outlined-danger2' : 'solid-danger dark:solid-danger');
+            },
           })(intent),
         )}
       >

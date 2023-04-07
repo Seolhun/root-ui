@@ -43,7 +43,7 @@ export const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
           'min-h-full h-auto md:min-h-auto md:h-auto',
           'py-4 px-6',
           'm-auto md:my-12',
-          'rounded-none md:rounded-2xl',
+          'rounded-none md:rounded',
           'shadow ',
           'transform transition-all origin-top',
           {

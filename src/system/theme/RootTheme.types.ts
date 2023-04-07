@@ -13,3 +13,8 @@ export type RootIntent =
 
 export type RootScaleNone = 'none';
 export type RootScale = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
+type Alignment = 'start' | 'end';
+type Side = 'top' | 'right' | 'bottom' | 'left';
+type AlignedPlacement = `${Side}-${Alignment}`;
+export type RootPlacement = Side | AlignedPlacement;
