@@ -20,7 +20,7 @@ export const ModalHeader = React.forwardRef<ElementType, ModalHeaderProps>(
         {...others}
         className={clsx(CLASSNAME, className, 'flex justify-between items-start', 'rounded-t')}
       >
-        <div className="flex-1 break-all line-clamp-2">
+        <div className="line-clamp-2">
           <ModalWidgetTitle>{children}</ModalWidgetTitle>
         </div>
         <ModalCloseButton />

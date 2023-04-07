@@ -31,7 +31,7 @@ const _PortalRoot = <Tag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
   const ownerDocument = useOwnerDocument(internalPortalRootRef);
   const target = usePortalTarget(internalPortalRootRef);
   const [element] = React.useState<HTMLDivElement | null>(() =>
-    root ? root : isServer ? null : ownerDocument?.createElement('div') ?? null,
+    isServer ? null : ownerDocument?.createElement('div') ?? null,
   );
 
   const isReady = useServerHandoffComplete();
@@ -73,7 +73,7 @@ const _PortalRoot = <Tag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
   const ourProps = { ref: portalRef };
   const theirProps = others;
   return (
-    <FloatingPortal root={element}>
+    <FloatingPortal root={root || element}>
       {render({
         ourProps,
         theirProps,

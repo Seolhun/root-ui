@@ -1,5 +1,5 @@
 import { ModalBackdrop } from './Modal.Backdrop';
-import { ModalContent } from './Modal.Content';
+import { ModalBody } from './Modal.Body';
 import { ModalFooter } from './Modal.Footer';
 import { ModalHeader } from './Modal.Header';
 import { ModalOverlay } from './Modal.Overlay';
@@ -23,6 +23,6 @@ export const Modal = Object.assign(ModalWidgetRoot, {
   Backdrop: ModalBackdrop,
   Panel: ModalPanel,
   Header: ModalHeader,
-  Content: ModalContent,
+  Body: ModalBody,
   Footer: ModalFooter,
 });

@@ -22,12 +22,11 @@ export const ModalCloseButton = React.forwardRef<ElementType, ModalCloseButtonPr
         className={clsx(
           CLASSNAME,
           className,
-          'absolute right-1 top-1',
           'inline-flex items-center',
           'p-1.5 ml-auto',
           'bg-transparent hover:bg-neutral-1',
-          'text-cream-2 hover:text-cream',
           'text-space-2 hover:text-space',
+          'dark:text-cream-2 dark:hover:text-cream',
           'rounded-full',
         )}
         onClick={onClose}

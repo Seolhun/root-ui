@@ -27,24 +27,24 @@ interface BaseTemplateProps extends ModalProps {
   Action: React.ReactNode;
 }
 
-const BaseTemplate = ({ Title, Content, Action, ...others }: BaseTemplateProps) => {
+const BaseTemplate = ({ Title, Content, Action, root, ...others }: BaseTemplateProps) => {
   const { isShow, onClose, onToggle } = useDisclosure();
 
   return (
-    <section style={{ height: '2000px' }}>
+    <>
       <Button onClick={onToggle}>Toggle modal</Button>
 
-      <Modal className="relative z-50" show={isShow} onClose={onClose}>
+      <Modal className="relative z-50" show={isShow} onClose={onClose} root={root}>
         <Modal.Overlay>
           <Modal.Backdrop />
-          <Modal.Panel {...others}>
+          <Modal.Panel {...others} className="space-y-2">
             <Modal.Header>{Title}</Modal.Header>
-            <Modal.Content>{Content}</Modal.Content>
+            <Modal.Body>{Content}</Modal.Body>
             <Modal.Footer>{Action}</Modal.Footer>
           </Modal.Panel>
         </Modal.Overlay>
       </Modal>
-    </section>
+    </>
   );
 };
 
@@ -52,10 +52,18 @@ const ModalTemplate: Story<BaseTemplateProps> = ({ ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
-        {({ root }) => <BaseTemplate {...others} root={root} />}
+        {({ root }) => (
+          <section style={{ height: '2000px' }}>
+            <BaseTemplate {...others} root={root} />
+          </section>
+        )}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
-        {({ root }) => <BaseTemplate {...others} root={root} />}
+        {({ root }) => (
+          <section style={{ height: '2000px' }}>
+            <BaseTemplate {...others} root={root} />
+          </section>
+        )}
       </StorybookContent.Dark>
     </StorybookContent>
   );
@@ -91,7 +99,7 @@ const InnerModalTemplate: Story<ModalProps> = ({ ...others }) => {
         <Modal.Overlay>
           <Modal.Panel {...others}>
             <Modal.Header>Modal1</Modal.Header>
-            <Modal.Content>Modal1</Modal.Content>
+            <Modal.Body>Modal1</Modal.Body>
             <Modal.Footer>
               <Button onClick={onShow2}>Open Nested Modal</Button>
             </Modal.Footer>
@@ -101,7 +109,7 @@ const InnerModalTemplate: Story<ModalProps> = ({ ...others }) => {
             <Modal.Overlay>
               <Modal.Panel {...others}>
                 <Modal.Header>Modal2</Modal.Header>
-                <Modal.Content>Modal2</Modal.Content>
+                <Modal.Body>Modal2</Modal.Body>
                 <Modal.Footer>
                   <Button onClick={onShow3}>Open Nested Modal</Button>
                 </Modal.Footer>
@@ -112,7 +120,7 @@ const InnerModalTemplate: Story<ModalProps> = ({ ...others }) => {
               <Modal.Overlay>
                 <Modal.Panel {...others}>
                   <Modal.Header>Modal3</Modal.Header>
-                  <Modal.Content>Modal3</Modal.Content>
+                  <Modal.Body>Modal3</Modal.Body>
                   <Modal.Footer>
                     <Button onClick={onShow3}>Open Nested Modal</Button>
                   </Modal.Footer>
