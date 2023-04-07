@@ -3,11 +3,11 @@ import clsx from 'clsx';
 import * as React from 'react';
 
 const CLASSNAME = 'Root__Popover';
-type ElementType = HTMLDivElement;
+type ElementType = HTMLElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface PopoverRootProps extends Omit<ElementProps, 'children'> {
-  children: ((args: PopoverRootRenderArgs) => JSX.Element) | JSX.Element;
+export interface PopoverProps {
+  children: ((args: PopoverRootRenderArgs) => JSX.Element) | JSX.Element | JSX.Element[];
 }
 
 export interface PopoverRootRenderArgs {
@@ -17,7 +17,7 @@ export interface PopoverRootRenderArgs {
   ) => void;
 }
 
-export const PopoverRoot = React.forwardRef<ElementType, PopoverRootProps>(
+export const PopoverRoot = React.forwardRef<ElementType, Omit<ElementProps, 'children'> & PopoverProps>(
   ({ className, children, ...others }, ref) => {
     return (
       <Popover {...others} ref={ref} className={clsx(CLASSNAME, className, 'relative')}>

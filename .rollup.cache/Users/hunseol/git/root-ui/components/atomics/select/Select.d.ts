@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootIntent, RootScale } from '../../../system';
+import { RootIntent, RootScale } from '~/system';
 type ElementType = HTMLSelectElement;
 type ElementProps = React.SelectHTMLAttributes<ElementType>;
 export interface SelectProps extends ElementProps {

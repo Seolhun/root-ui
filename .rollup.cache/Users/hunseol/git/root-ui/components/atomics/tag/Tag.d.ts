@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootIntent, RootScale } from '../../../system';
+import { RootIntent, RootScale } from '~/system';
 type ElementType = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 export interface TagProps extends ElementProps {
@@ -17,6 +17,5 @@ export interface TagProps extends ElementProps {
      */
     outlined?: boolean;
 }
-declare const Tag: React.ForwardRefExoticComponent<TagProps & React.RefAttributes<HTMLButtonElement>>;
-export { Tag };
-export default Tag;
+export declare const Tag: React.ForwardRefExoticComponent<TagProps & React.RefAttributes<HTMLButtonElement>>;
+export {};

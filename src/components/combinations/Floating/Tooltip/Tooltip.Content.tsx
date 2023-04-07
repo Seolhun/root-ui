@@ -2,9 +2,9 @@ import { FloatingPortal, useDelayGroup, useDelayGroupContext, useMergeRefs } fro
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { useTooltipContext } from './useTooltipContext';
+import { toScaleMatch, useRootUIContext } from '~/system';
 
-import { toScaleMatch, useRootScaleContext } from '../../../../system';
+import { useTooltipContext } from './useTooltipContext';
 
 type ElementType = HTMLElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
@@ -16,7 +16,7 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
     const contextValues = useTooltipContext();
     const { setCurrentId } = useDelayGroupContext();
     const tooltipId = React.useId();
-    const { scale } = useRootScaleContext();
+    const { scale } = useRootUIContext();
 
     const mergedRef = useMergeRefs([contextValues?.refs.setFloating || null, ref]);
 
@@ -41,7 +41,7 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
               'max-w-150',
               'py-1 px-2',
               'rounded',
-              'border border-light-3 dark:border-dark-7',
+              'border border-cream-3 dark:border-space-3',
               'bg-cream-1 text-space-1',
               'dark:bg-space-1 dark:text-cream-1',
               toScaleMatch({

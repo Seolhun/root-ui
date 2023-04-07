@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
+import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '~/system';
 
 const CLASSNAME = 'Root__Loader';
 type ElementType = HTMLDivElement;
@@ -19,10 +19,10 @@ export interface LoaderProps extends ElementProps {
   intent?: RootIntent;
 }
 
-const Loader = React.forwardRef<ElementType, LoaderProps>(
-  ({ className, scale = 'md', intent = 'primary', ...rests }, ref) => {
+export const Loader = React.forwardRef<ElementType, LoaderProps>(
+  ({ className, scale = 'md', intent = 'primary', ...others }, ref) => {
     return (
-      <div {...rests} ref={ref} className="inline-block">
+      <div {...others} ref={ref} className="inline-block">
         <svg
           className={clsx(
             CLASSNAME,
@@ -36,15 +36,15 @@ const Loader = React.forwardRef<ElementType, LoaderProps>(
               xl: () => 'scale-xl',
             })(scale),
             toIntentMatch({
-              neutral: () => clsx('text-neutral-2 fill-neutral'),
-              light: () => clsx('text-light-2 fill-light'),
-              dark: () => clsx('text-dark-2 fill-dark'),
-              primary: () => clsx('text-primary-2 fill-primary'),
-              info: () => clsx('text-info-2 fill-info'),
-              success: () => clsx('text-success-2 fill-success'),
-              accent: () => clsx('text-accent-2 fill-accent'),
-              warning: () => clsx('text-warning-2 fill-warning'),
-              danger: () => clsx('text-danger-2 fill-danger'),
+              neutral: () => clsx('text-neutral-2 fill-neutral dark:text-neutral2-2 dark:fill-neutral2'),
+              light: () => clsx('text-light-2 fill-light dark:text-light2-2 dark:fill-light2'),
+              dark: () => clsx('text-dark-2 fill-dark dark:text-dark2-2 dark:fill-dark2'),
+              primary: () => clsx('text-primary-2 fill-primary dark:text-primary2-2 dark:fill-primary2'),
+              info: () => clsx('text-info-2 fill-info dark:text-info2-2 dark:fill-info2'),
+              success: () => clsx('text-success-2 fill-success dark:text-success2-2 dark:fill-success2'),
+              accent: () => clsx('text-accent-2 fill-accent dark:text-accent2-2 dark:fill-accent2'),
+              warning: () => clsx('text-warning-2 fill-warning dark:text-warning2-2 dark:fill-warning2'),
+              danger: () => clsx('text-danger-2 fill-danger dark:text-danger2-2 dark:fill-danger2'),
             })(intent),
           )}
           aria-hidden="true"
@@ -66,6 +66,3 @@ const Loader = React.forwardRef<ElementType, LoaderProps>(
     );
   },
 );
-
-export { Loader };
-export default Loader;

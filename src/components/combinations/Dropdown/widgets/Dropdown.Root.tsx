@@ -1,9 +1,9 @@
 import { Listbox } from '@headlessui/react';
 import * as React from 'react';
 
-import { DropdownOption } from './Dropdown.types';
+import { Optional } from '~/utils/fx';
 
-import { Maybe } from '../../../../utils/fx';
+import { DropdownOption } from './Dropdown.types';
 
 interface ElementProps {
   children: React.ReactNode;
@@ -15,12 +15,12 @@ export interface DropdownRootProps<Option extends DropdownOption> extends Elemen
   /**
    * Selected option
    */
-  value: Maybe<Option>;
+  value: Optional<Option>;
 
   /**
    * Change option handler
    */
-  onChange: (option: Maybe<Option>) => void;
+  onChange: (option: Optional<Option>) => void;
 }
 
 export function DropdownRoot<Option extends DropdownOption>({

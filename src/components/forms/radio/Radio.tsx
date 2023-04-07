@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toIntentMatch } from '../../../system';
-import { Box } from '../../common';
+import { Box } from '~/components/common';
+import { RootIntent, RootScale, toIntentMatch } from '~/system';
+
 import { FormLabel } from '../FormLabel';
 
 const CLASSNAME = 'Root__Radio';
@@ -24,9 +25,9 @@ export interface RadioProps extends ElementProps {
   intent?: RootIntent;
 }
 
-const Radio = React.forwardRef<ElementType, RadioProps>(
-  ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...rests }, ref) => {
-    const htmlForAndID = htmlFor ?? rests.name;
+export const Radio = React.forwardRef<ElementType, RadioProps>(
+  ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...others }, ref) => {
+    const htmlForAndID = htmlFor ?? others.name;
     return (
       <FormLabel
         className={clsx('inline-flex items-center cursor-pointer', {
@@ -37,7 +38,7 @@ const Radio = React.forwardRef<ElementType, RadioProps>(
         scale={scale}
       >
         <Box
-          {...rests}
+          {...others}
           ref={ref}
           as="input"
           type="radio"
@@ -60,6 +61,3 @@ const Radio = React.forwardRef<ElementType, RadioProps>(
     );
   },
 );
-
-export { Radio };
-export default Radio;

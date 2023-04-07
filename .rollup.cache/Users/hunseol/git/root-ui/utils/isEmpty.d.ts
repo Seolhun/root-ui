@@ -1,3 +1,1 @@
-declare function isEmpty(value: any): value is any[];
-export { isEmpty };
-export default isEmpty;
+export declare function isEmpty(value: any): value is any[];

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { RootIntent, RootScale } from '../../system';
+import { RootIntent, RootScale } from '~/system';
 
 export interface RootGroupContextValues {
   /**

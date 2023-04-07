@@ -6,9 +6,9 @@ const CLASSNAME = 'Root__Popover__Button';
 type ElementType = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 
-export interface PopoverButtonProps extends ElementProps {}
+export interface PopoverButtonProps {}
 
-export const PopoverButton = React.forwardRef<ElementType, PopoverButtonProps>(
+export const PopoverButton = React.forwardRef<ElementType, ElementProps & PopoverButtonProps>(
   ({ className, children, ...others }, ref) => {
     return (
       <Popover.Button {...others} ref={ref} className={clsx(CLASSNAME, className)}>

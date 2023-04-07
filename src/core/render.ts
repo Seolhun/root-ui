@@ -60,7 +60,7 @@ function privateRender<Tag extends React.ElementType, Slot>(
   tag: React.ElementType,
   name: string,
 ) {
-  const { as: Component = tag, children, refName = 'ref', ...rests } = omit(props, ['unmount', 'static']);
+  const { as: Component = tag, children, refName = 'ref', ...others } = omit(props, ['unmount', 'static']);
 
   // This allows us to use `<HeadlessUIComponent as={MyComponent} refName="innerRef" />`
   const refRelatedProps = !isUndefined(props.ref) ? { [refName]: props.ref } : {};
@@ -70,8 +70,8 @@ function privateRender<Tag extends React.ElementType, Slot>(
     | React.ReactElement[];
 
   // Allow for className to be a function with the slot as the contents
-  if (rests.className && isFunction(rests.className)) {
-    (rests as any).className = rests.className(slot);
+  if (others.className && isFunction(others.className)) {
+    (others as any).className = others.className(slot);
   }
 
   const dataAttributes: Record<string, string> = {};
@@ -92,7 +92,7 @@ function privateRender<Tag extends React.ElementType, Slot>(
   }
 
   if (Component === React.Fragment) {
-    if (Object.keys(compact(rests)).length > 0) {
+    if (Object.keys(compact(others)).length > 0) {
       if (!React.isValidElement(resolvedChildren) || !isEmpty(resolvedChildren)) {
         throw new Error(
           [
@@ -100,7 +100,7 @@ function privateRender<Tag extends React.ElementType, Slot>(
             '',
             `The current component <${name} /> is rendering a "Fragment".`,
             `However we need to passthrough the following props:`,
-            Object.keys(rests)
+            Object.keys(others)
               .map((line) => `  - ${line}`)
               .join('\n'),
             '',
@@ -123,7 +123,7 @@ function privateRender<Tag extends React.ElementType, Slot>(
            * Filter out undefined values so that they don't override the existing values
            * @todo remove as any
            */
-          mergeProps(resolvedChildren.props as any, compact(omit(rests, ['ref']))),
+          mergeProps(resolvedChildren.props as any, compact(omit(others, ['ref']))),
           dataAttributes,
           refRelatedProps,
         ),
@@ -135,7 +135,7 @@ function privateRender<Tag extends React.ElementType, Slot>(
     Component,
     Object.assign(
       {},
-      omit(rests, ['ref']),
+      omit(others, ['ref']),
       Component !== React.Fragment && refRelatedProps,
       Component !== React.Fragment && dataAttributes,
     ),
@@ -162,15 +162,15 @@ export function render<Feature extends RenderFeatures, Tag extends React.Element
   const featureFlags = features ?? RenderFeatures.None;
 
   if (featureFlags & RenderFeatures.Static) {
-    const { static: isStatic = false, ...rests } = props as PropsForFeatures<RenderFeatures.Static>;
+    const { static: isStatic = false, ...others } = props as PropsForFeatures<RenderFeatures.Static>;
     // When the `static` prop is passed as `true`, then the user is in control, thus we don't care about anything else
     if (isStatic) {
-      return privateRender(rests, slot, defaultTag, name);
+      return privateRender(others, slot, defaultTag, name);
     }
   }
 
   if (featureFlags & RenderFeatures.RenderStrategy) {
-    const { unmount = true, ...rests } = props as PropsForFeatures<RenderFeatures.RenderStrategy>;
+    const { unmount = true, ...others } = props as PropsForFeatures<RenderFeatures.RenderStrategy>;
     const strategy = unmount ? RootRenderStrategyEnum.Unmount : RootRenderStrategyEnum.Hidden;
 
     return match(strategy, {
@@ -179,7 +179,7 @@ export function render<Feature extends RenderFeatures, Tag extends React.Element
       },
       [RootRenderStrategyEnum.Hidden]() {
         const props = {
-          ...rests,
+          ...others,
           hidden: true,
           style: {
             display: 'none',

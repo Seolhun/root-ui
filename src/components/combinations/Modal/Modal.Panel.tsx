@@ -1,10 +1,9 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { useModalContext } from './Modal.Widget.Context';
-import { ModalWidgetPanel } from './Modal.Widget.Panel';
+import { RootScale, toScaleMatch } from '~/system';
 
-import { RootScale, toScaleMatch } from '../../../system';
+import { useModalContext, ModalWidgetPanel } from './Widgets';
 
 const CLASSNAME = 'Root__Modal__Panel';
 type ElementType = HTMLDivElement;
@@ -18,13 +17,13 @@ export interface ModalPanelProps extends ElementProps {
   scale?: RootScale;
 }
 
-const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
-  ({ className, children, scale = 'md', ...rests }, ref) => {
+export const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
+  ({ className, children, scale = 'md', ...others }, ref) => {
     const [{ visible }] = useModalContext('Modal');
 
     return (
       <ModalWidgetPanel
-        {...rests}
+        {...others}
         ref={ref}
         className={clsx(
           CLASSNAME,
@@ -39,10 +38,13 @@ const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
             lg: () => 'w-full md:w-8/12',
             xl: () => 'w-full md:w-10/12',
           })(scale),
+          'bg-cream-1 text-space-1',
+          'dark:bg-space-1 dark:text-cream-1',
           'min-h-full h-auto md:min-h-auto md:h-auto',
           'py-4 px-6',
           'm-auto md:my-12',
-          'shadow rounded-none md:rounded-2xl',
+          'rounded-none md:rounded',
+          'shadow ',
           'transform transition-all origin-top',
           {
             'animate-[fade-in_0.2s_ease-in-out]': visible,
@@ -54,6 +56,3 @@ const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
     );
   },
 );
-
-export { ModalPanel };
-export default ModalPanel;

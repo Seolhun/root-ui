@@ -1,13 +1,13 @@
 import * as React from 'react';
 
+import { GlobalRootDataAttributeMap } from '~/constants';
+import { useOwnerDocument } from '~/hooks';
+import { isServer } from '~/utils';
+
 import { useForcePortalRoot } from './PortalForceRoot';
 import { PortalGroupContext } from './PortalGroup';
 
-import { GlobalRootDataAttributeMap } from '../../constants';
-import { useOwnerDocument } from '../../hooks';
-import { isServer } from '../../utils';
-
-function usePortalTarget(ref: React.MutableRefObject<HTMLElement | null>): HTMLElement | null {
+export function usePortalTarget(ref: React.MutableRefObject<HTMLElement | null>): HTMLElement | null {
   const forceInRoot = useForcePortalRoot();
   const groupTarget = React.useContext(PortalGroupContext);
 
@@ -59,6 +59,3 @@ function usePortalTarget(ref: React.MutableRefObject<HTMLElement | null>): HTMLE
 
   return target;
 }
-
-export { usePortalTarget };
-export default usePortalTarget;

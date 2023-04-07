@@ -1,6 +1,6 @@
-import { focusElement } from './FocusManagements';
+import { useEventListener, useIsMounted } from '~/hooks';
 
-import { useEventListener, useIsMounted } from '../../hooks';
+import { focusElement } from './FocusManagements';
 
 export interface UseFocusLockProps {
   ownerDocument: Document | null;
@@ -16,7 +16,7 @@ function contains(containers: Set<React.MutableRefObject<HTMLElement | null>>, e
   return false;
 }
 
-function useFocusLock(
+export function useFocusLock(
   { ownerDocument, container, containers, previousActiveElement }: UseFocusLockProps,
   enabled: boolean,
 ) {
@@ -58,6 +58,3 @@ function useFocusLock(
     true,
   );
 }
-
-export { useFocusLock };
-export default useFocusLock;

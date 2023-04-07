@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Loader, LoaderProps } from './Loader';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
+import { Loader, LoaderProps } from './Loader';
 
 export default {
   title: 'Atomic/Loader',
@@ -23,30 +23,46 @@ export default {
   },
 };
 
-const ScaleLoader = ({ ...rests }: LoaderProps) => {
+const BaseTemplate = ({ children, ...others }: LoaderProps) => {
+  return <Loader {...others}>{children}</Loader>;
+};
+
+const ScaleLoaderStories = ({ ...others }: LoaderProps) => {
   return (
     <StorybookContent>
-      {storiesScaleOptions.map((scale) => (
-        <Loader {...rests} key={scale} scale={scale} />
-      ))}
+      <StorybookContent.Light>
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale} />
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark>
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale} />
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const ScaleLoaderStories = ScaleLoader.bind({});
-ScaleLoaderStories.args = {};
+export const ScaleLoader = ScaleLoaderStories.bind({});
+ScaleLoader.args = {};
 
-const IntentLoaders = ({ children, ...rests }: LoaderProps) => {
+const IntentLoadersStories = ({ children, ...others }: LoaderProps) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <Loader {...rests} key={intent} intent={intent} />
-      ))}
+      <StorybookContent.Light>
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent} />
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark>
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent} />
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const IntentLoadersStories = IntentLoaders.bind({});
-IntentLoadersStories.args = {
-  children: 'Loader',
-};
+export const IntentLoaders = IntentLoadersStories.bind({});
+IntentLoaders.args = {};

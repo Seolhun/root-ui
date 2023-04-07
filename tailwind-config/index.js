@@ -4,7 +4,7 @@ module.exports = [
   /**
    * theme is positioned first to allow other plugins to override
    */
-  require('./theme'),
+  require('./RootUI.tailwind.config'),
   require('./plugins/base'),
   require('./plugins/variants'),
   require('./plugins/components'),

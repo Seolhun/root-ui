@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Tag, TagProps } from './Tag';
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
+import { Tag, TagProps } from './Tag';
 
 export default {
   title: 'Atomic/Tag',
@@ -23,77 +23,130 @@ export default {
   },
 };
 
-const ScaleTags: React.FC<TagProps> = ({ children, ...others }) => {
+const BaseTemplate = ({ children, ...others }: TagProps) => {
+  return <Tag {...others}>{children}</Tag>;
+};
+
+const ScaleTagsStories: React.FC<TagProps> = ({ children, ...others }) => {
   return (
     <StorybookContent>
-      {storiesScaleOptions.map((scale) => (
-        <Tag {...others} key={scale} scale={scale}>
-          {children}
-        </Tag>
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const ScaleTagsStories = ScaleTags.bind({});
-ScaleTagsStories.args = {
+export const ScaleTags = ScaleTagsStories.bind({});
+ScaleTags.args = {
   children: 'Tag',
   disabled: false,
 };
 
-const IntentTags: React.FC<TagProps> = ({ children, ...others }) => {
+const IntentTagsStories: React.FC<TagProps> = ({ children, ...others }) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <Tag {...others} key={intent} intent={intent}>
-          {children}-{intent}
-        </Tag>
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const IntentTagsStories = IntentTags.bind({});
-IntentTagsStories.args = {
+export const IntentTags = IntentTagsStories.bind({});
+IntentTags.args = {
   children: 'Tag',
 };
 
-const IntentOutlinedTags: React.FC<TagProps> = ({ children, ...others }) => {
+const IntentOutlinedTagsStories: React.FC<TagProps> = ({ children, ...others }) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <Tag {...others} key={intent} intent={intent} outlined>
-          {children}-{intent}
-        </Tag>
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent} outlined>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent} outlined>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const IntentOutlinedTagsStories = IntentOutlinedTags.bind({});
-IntentOutlinedTagsStories.args = {
+export const IntentOutlinedTags = IntentOutlinedTagsStories.bind({});
+IntentOutlinedTags.args = {
   children: 'Tag',
 };
 
-const DisabledTags = ({ children, ...others }: TagProps) => {
+const DisabledTagsStories = ({ children, ...others }: TagProps) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <Tag {...others} key={intent} intent={intent}>
-          {children}-{intent}
-        </Tag>
-      ))}
-      {storiesIntentOptions.map((intent) => (
-        <Tag {...others} key={intent} intent={intent} outlined>
-          {children}-{intent}
-        </Tag>
-      ))}
+      <StorybookContent.Light>
+        <div className="flex flex-col space-y-2">
+          {storiesIntentOptions.map((intent) => (
+            <BaseTemplate {...others} key={intent} intent={intent}>
+              {children}
+            </BaseTemplate>
+          ))}
+        </div>
+        <div className="flex flex-col space-y-2">
+          {storiesIntentOptions.map((intent) => (
+            <BaseTemplate {...others} key={intent} intent={intent} outlined>
+              {children}
+            </BaseTemplate>
+          ))}
+        </div>
+      </StorybookContent.Light>
+      <StorybookContent.Dark>
+        <div className="flex flex-col space-y-2">
+          {storiesIntentOptions.map((intent) => (
+            <BaseTemplate {...others} key={intent} intent={intent}>
+              {children}
+            </BaseTemplate>
+          ))}
+        </div>
+        <div className="flex flex-col space-y-2">
+          {storiesIntentOptions.map((intent) => (
+            <BaseTemplate {...others} key={intent} intent={intent} outlined>
+              {children}
+            </BaseTemplate>
+          ))}
+        </div>
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const DisabledTagsStories = DisabledTags.bind({});
-DisabledTagsStories.args = {
+export const DisabledTags = DisabledTagsStories.bind({});
+DisabledTags.args = {
   children: 'Tag',
   disabled: true,
 };

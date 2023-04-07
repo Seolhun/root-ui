@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootScale } from '../../../system';
+import { RootScale } from '~/system';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 export interface ModalPanelProps extends ElementProps {
@@ -9,6 +9,5 @@ export interface ModalPanelProps extends ElementProps {
      */
     scale?: RootScale;
 }
-declare const ModalPanel: React.ForwardRefExoticComponent<ModalPanelProps & React.RefAttributes<HTMLDivElement>>;
-export { ModalPanel };
-export default ModalPanel;
+export declare const ModalPanel: React.ForwardRefExoticComponent<ModalPanelProps & React.RefAttributes<HTMLDivElement>>;
+export {};

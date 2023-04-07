@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootIntent, RootScale } from '../../../system';
+import { RootIntent, RootScale } from '~/system';
 type ElementType = HTMLTextAreaElement;
 type ElementProps = React.TextareaHTMLAttributes<ElementType>;
 export interface TextareaProps extends ElementProps {
@@ -13,6 +13,5 @@ export interface TextareaProps extends ElementProps {
      */
     intent?: RootIntent;
 }
-declare const Textarea: React.ForwardRefExoticComponent<TextareaProps & React.RefAttributes<HTMLTextAreaElement>>;
-export { Textarea };
-export default Textarea;
+export declare const Textarea: React.ForwardRefExoticComponent<TextareaProps & React.RefAttributes<HTMLTextAreaElement>>;
+export {};

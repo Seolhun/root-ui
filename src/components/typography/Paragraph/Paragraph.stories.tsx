@@ -1,22 +1,22 @@
 import * as React from 'react';
 
-import { P, PProps } from './P';
+import { StorybookContent } from '~/stories';
 
-import { StorybookContent } from '../../../stories';
+import { P, PProps } from './P';
 
 export default {
   title: 'TypoGraphy/Paragraph',
 };
 
-const Paragraph: React.FC<PProps> = ({ children, ...rests }) => {
+const Paragraph: React.FC<PProps> = ({ children, ...others }) => {
   return (
     <StorybookContent>
-      <P {...rests}>{children}</P>
-      <P {...rests}>{children}</P>
-      <P {...rests}>{children}</P>
-      <P {...rests}>{children}</P>
-      <P {...rests}>{children}</P>
-      <P {...rests}>{children}</P>
+      <P {...others}>{children}</P>
+      <P {...others}>{children}</P>
+      <P {...others}>{children}</P>
+      <P {...others}>{children}</P>
+      <P {...others}>{children}</P>
+      <P {...others}>{children}</P>
     </StorybookContent>
   );
 };

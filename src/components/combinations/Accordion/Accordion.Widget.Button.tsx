@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-import { ActionTypes, useAccordionContext, useAccordionPanelContext } from './Accordion.reducer';
+import { KeyboardKeyMap } from '~/constants';
+import { forwardRefWithAs, render } from '~/core';
+import { useEvent, useResolveButtonType, useSyncRefs } from '~/hooks';
+import { OpenClosedState } from '~/tools';
+import { RootUIProps, RootUIReactTag } from '~/types';
+import { isDisabledReactIssue7711 } from '~/utils/bugs';
 
-import { KeyboardKeyMap } from '../../../constants';
-import { forwardRefWithAs, render } from '../../../core';
-import { useEvent, useResolveButtonType, useSyncRefs } from '../../../hooks';
-import { OpenClosedState } from '../../../tools';
-import { RootUIProps, RootUIReactTag } from '../../../types';
-import { isDisabledReactIssue7711 } from '../../../utils/bugs';
+import { ActionTypes, useAccordionContext, useAccordionPanelContext } from './Accordion.reducer';
 
 const COMPONENT_NAME = 'Root__Accordion__Button';
 const DEFAULT_TAG: RootUIReactTag = 'button';
@@ -130,7 +130,4 @@ const _AccordionWidgetButton = <Tag extends React.ElementType = typeof DEFAULT_T
   });
 };
 
-const AccordionWidgetButton = forwardRefWithAs(_AccordionWidgetButton);
-
-export { AccordionWidgetButton };
-export default AccordionWidgetButton;
+export const AccordionWidgetButton = forwardRefWithAs(_AccordionWidgetButton);

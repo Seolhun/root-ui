@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 
-import { RootScale, toScaleMatch } from '../../../system';
+import { RootScale, toScaleMatch } from '~/system';
 
 const CLASSNAME = 'Root__Avatar';
 type ElementType = HTMLImageElement;
@@ -21,7 +21,7 @@ export interface AvatarProps {
 }
 
 export const Avatar = React.forwardRef<ElementType, AvatarProps & ElementProps>(
-  ({ className, scale = 'md', alt = 'avatar', onError, emptySrc, ...rests }, ref) => {
+  ({ className, scale = 'md', alt = 'avatar', onError, emptySrc, ...others }, ref) => {
     const onImageError = React.useCallback(
       (e: React.UIEvent<ElementType>) => {
         onError?.(e);
@@ -36,7 +36,7 @@ export const Avatar = React.forwardRef<ElementType, AvatarProps & ElementProps>(
     return (
       <picture className={clsx(CLASSNAME, className, 'inline-block')}>
         <img
-          {...rests}
+          {...others}
           ref={ref}
           className={clsx(
             'rounded-full',

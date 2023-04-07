@@ -1,11 +1,11 @@
 import * as React from 'react';
 
+import { Avatar } from '~/components/atomics';
+import { StorybookContent } from '~/stories';
+import { Optional } from '~/utils/fx';
+
 import { Dropdown, DropdownProps } from './Dropdown';
 import { DropdownOption, DropdownOptionState } from './widgets';
-
-import { StorybookContent } from '../../../stories';
-import { Maybe } from '../../../utils/fx';
-import { Avatar } from '../../atomics';
 
 export default {
   title: 'Combination/Dropdown',
@@ -25,14 +25,14 @@ const DEFAULT_OPTIONS = Array.from<number, ProfileOption>(Array(10), (_, i) => {
   };
 });
 
-const DropdownTemplate = ({ ...rests }: DropdownProps) => {
-  const [selectedOption, setSelectedOption] = React.useState<Maybe<ProfileOption>>(DEFAULT_OPTIONS[0]);
+const DropdownTemplate = ({ ...others }: DropdownProps) => {
+  const [selectedOption, setSelectedOption] = React.useState<Optional<ProfileOption>>(DEFAULT_OPTIONS[0]);
 
-  const identify = React.useCallback((option: Maybe<ProfileOption>) => {
+  const identify = React.useCallback((option: Optional<ProfileOption>) => {
     return option?.value || '';
   }, []);
 
-  const renderOption = React.useCallback((option: Maybe<ProfileOption>, _state?: DropdownOptionState) => {
+  const renderOption = React.useCallback((option: Optional<ProfileOption>, _state?: DropdownOptionState) => {
     if (!option) {
       return null;
     }
@@ -45,7 +45,7 @@ const DropdownTemplate = ({ ...rests }: DropdownProps) => {
     );
   }, []);
 
-  const onChangeOption = React.useCallback((nextOption: Maybe<ProfileOption>) => {
+  const onChangeOption = React.useCallback((nextOption: Optional<ProfileOption>) => {
     console.debug(nextOption);
     if (nextOption) {
       setSelectedOption(nextOption);
@@ -55,7 +55,7 @@ const DropdownTemplate = ({ ...rests }: DropdownProps) => {
   return (
     <StorybookContent>
       <Dropdown
-        {...rests}
+        {...others}
         identify={identify}
         options={DEFAULT_OPTIONS}
         selectedOption={selectedOption}
@@ -69,10 +69,10 @@ const DropdownTemplate = ({ ...rests }: DropdownProps) => {
 export const Dropdowns = DropdownTemplate.bind({});
 Dropdowns.args = {};
 
-const MultiDropdownTemplate = ({ ...rests }: DropdownProps) => {
+const MultiDropdownTemplate = ({ ...others }: DropdownProps) => {
   const [selectedOption, setSelectedOption] = React.useState<ProfileOption[]>([]);
 
-  const identify = React.useCallback((options: Maybe<ProfileOption | ProfileOption[]>) => {
+  const identify = React.useCallback((options: Optional<ProfileOption | ProfileOption[]>) => {
     if (Array.isArray(options)) {
       return options.reduce((acc, option) => `${acc}, ${option.value}`, '');
     }
@@ -80,7 +80,7 @@ const MultiDropdownTemplate = ({ ...rests }: DropdownProps) => {
   }, []);
 
   const renderOption = React.useCallback(
-    (option: Maybe<ProfileOption | ProfileOption[]>, _state?: DropdownOptionState) => {
+    (option: Optional<ProfileOption | ProfileOption[]>, _state?: DropdownOptionState) => {
       if (!option) {
         return null;
       }
@@ -111,7 +111,7 @@ const MultiDropdownTemplate = ({ ...rests }: DropdownProps) => {
     [],
   );
 
-  const onChangeOption = React.useCallback((nextOption: Maybe<ProfileOption[]>) => {
+  const onChangeOption = React.useCallback((nextOption: Optional<ProfileOption[]>) => {
     if (nextOption) {
       setSelectedOption(nextOption);
     }
@@ -120,7 +120,7 @@ const MultiDropdownTemplate = ({ ...rests }: DropdownProps) => {
   return (
     <StorybookContent>
       <Dropdown<ProfileOption, ProfileOption[]>
-        {...rests}
+        {...others}
         identify={identify}
         options={DEFAULT_OPTIONS}
         onChange={onChangeOption}

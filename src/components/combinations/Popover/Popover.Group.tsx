@@ -6,9 +6,9 @@ const CLASSNAME = 'Root__Popover__Group';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface PopoverGroupProps extends ElementProps {}
+export interface PopoverGroupProps {}
 
-export const PopoverGroup = React.forwardRef<ElementType, PopoverGroupProps>(
+export const PopoverGroup = React.forwardRef<ElementType, ElementProps & PopoverGroupProps>(
   ({ className, children, ...others }, ref) => {
     return (
       <Popover.Group {...others} ref={ref} className={clsx(CLASSNAME, className)}>

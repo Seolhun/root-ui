@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootIntent, RootScale } from '../../../system';
+import { RootIntent, RootScale } from '~/system';
 type ElementType = HTMLInputElement;
 type ElementProps = React.InputHTMLAttributes<ElementType>;
 export interface CheckboxProps extends ElementProps {
@@ -14,6 +14,5 @@ export interface CheckboxProps extends ElementProps {
      */
     intent?: RootIntent;
 }
-declare const Checkbox: React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<HTMLInputElement>>;
-export { Checkbox };
-export default Checkbox;
+export declare const Checkbox: React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<HTMLInputElement>>;
+export {};

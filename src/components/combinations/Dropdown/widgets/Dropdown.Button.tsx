@@ -27,7 +27,7 @@ export const DropdownButton = React.forwardRef<HTMLButtonElement, DropdownButton
             'py-2 px-4',
             'bg-cream-1 dark:bg-space-1',
             'text-space-1 dark:text-cream-1',
-            'border border-light-2 dark:border-space-2',
+            'border border-cream-3 dark:border-space-3',
             'shadow-md rounded',
             'cursor-pointer',
             {

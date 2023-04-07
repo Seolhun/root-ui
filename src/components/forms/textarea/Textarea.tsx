@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../../system';
-import { Box } from '../../common';
+import { Box } from '~/components/common';
+import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '~/system';
 
 const CLASSNAME = 'Root__Textarea';
 type ElementType = HTMLTextAreaElement;
@@ -20,20 +20,20 @@ export interface TextareaProps extends ElementProps {
   intent?: RootIntent;
 }
 
-const Textarea = React.forwardRef<ElementType, TextareaProps>(
-  ({ className, scale = 'md', intent = 'primary', ...rests }, ref) => {
+export const Textarea = React.forwardRef<ElementType, TextareaProps>(
+  ({ className, scale = 'md', intent = 'primary', ...others }, ref) => {
     return (
       <Box
-        {...rests}
+        {...others}
         as="textarea"
         ref={ref}
-        id={rests.name}
+        id={others.name}
         scaleClassName={toScaleMatch({
-          xs: () => 'text-2 py-1 px-2',
-          sm: () => 'text-2.5 py-1.5 px-2.5',
-          md: () => 'text-3 py-1.5 px-3',
-          lg: () => 'text-3.5 py-2 px-3.5',
-          xl: () => 'text-4 py-2 px-4',
+          xs: () => 'scale-text-xs scale-py-xs',
+          sm: () => 'scale-text-sm scale-py-sm',
+          md: () => 'scale-text-md scale-py-md',
+          lg: () => 'scale-text-lg scale-py-lg',
+          xl: () => 'scale-text-xl scale-py-xl',
         })(scale)}
         intentClassName={toIntentMatch({
           neutral: () => clsx('outline-neutral dark:outline-neutral'),
@@ -51,10 +51,11 @@ const Textarea = React.forwardRef<ElementType, TextareaProps>(
           className,
           'block',
           'w-full',
+          'px-4',
           'bg-cream-1 text-space-1',
           'dark:bg-space-1 dark:text-cream-1',
           'disabled:bg-neutral-1 disabled:border-neutral-4 disabled:placeholder:text-neutral-light',
-          'border border-light-3 dark:border-dark-7',
+          'border border-cream-3 dark:border-space-3',
           'rounded',
           'caret-neutral',
         )}
@@ -62,6 +63,3 @@ const Textarea = React.forwardRef<ElementType, TextareaProps>(
     );
   },
 );
-
-export { Textarea };
-export default Textarea;

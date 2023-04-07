@@ -3,8 +3,8 @@ import { IconProps } from '../../icons';
 import { InputProps } from '../input';
 export interface TextFieldProps extends InputProps {
     /**
-     * @default SearchIcon
+     * @default "MagnifyingGlassIcon"
      */
     icon?: IconProps['icon'];
 }
-export declare const TextField: ({ className, scale, icon, ...rests }: TextFieldProps) => JSX.Element;
+export declare const TextField: ({ className, scale, icon, ...others }: TextFieldProps) => JSX.Element;

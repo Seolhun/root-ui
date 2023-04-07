@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { forwardRefWithAs, render } from '../../../core';
-import { useSyncRefs, useId } from '../../../hooks';
-import { RootUIProps, RootUIReactTag } from '../../../types';
+import { forwardRefWithAs, render } from '~/core';
+import { useSyncRefs, useId } from '~/hooks';
+import { RootUIProps, RootUIReactTag } from '~/types';
 
 const COMPONENT_NAME = 'Root__Box';
 const DEFAULT_TAG: RootUIReactTag = 'div';
@@ -25,7 +25,7 @@ export interface BoxProps {
 export interface BoxRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;
 
-const Box = forwardRefWithAs(function Box<Tag extends keyof JSX.IntrinsicElements = typeof DEFAULT_TAG>(
+export const Box = forwardRefWithAs(function Box<Tag extends keyof JSX.IntrinsicElements = typeof DEFAULT_TAG>(
   {
     scaleClassName,
     intentClassName,
@@ -55,6 +55,3 @@ const Box = forwardRefWithAs(function Box<Tag extends keyof JSX.IntrinsicElement
     slot: {},
   });
 });
-
-export { Box };
-export default Box;

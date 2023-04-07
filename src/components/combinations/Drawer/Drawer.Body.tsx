@@ -9,19 +9,19 @@ export interface DrawerBodyProps extends ElementProps {
   children: React.ReactNode;
 }
 
-export const DrawerBody = React.forwardRef<ElementType, DrawerBodyProps>(({ className, children, ...rests }, ref) => {
+export const DrawerBody = React.forwardRef<ElementType, DrawerBodyProps>(({ className, children, ...others }, ref) => {
   return (
     <div
       ref={ref}
-      {...rests}
+      {...others}
       className={clsx(
         CLASSNAME,
         className,
         'flex flex-1',
-        'scroll-mr-2',
+        'w-full',
         'py-1 px-2',
         'border-cream-3 dark:border-space-3',
-        'break-all',
+        'scroll-mr-2',
         'overflow-y-auto',
       )}
     >

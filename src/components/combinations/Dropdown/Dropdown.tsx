@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { Optional } from '~/utils/fx';
+
 import { useDropdownRenderer, UseDropdownRendererProps } from './useDropdownRenderer';
 import {
   DropdownWidget,
@@ -9,8 +11,6 @@ import {
   DropdownWidgetButtonClassName,
   DropdownWidgetOptionClassName,
 } from './widgets';
-
-import { Maybe } from '../../../utils/fx';
 
 export interface DropdownClasses {
   /**
@@ -31,12 +31,12 @@ export interface DropdownProps<Option extends DropdownOption = DropdownOption, A
   /**
    * Selected option
    */
-  selectedOption: Maybe<ActionOption>;
+  selectedOption: Optional<ActionOption>;
 
   /**
    * Change option handler
    */
-  onChange: (option: Maybe<ActionOption>) => void;
+  onChange: (option: Optional<ActionOption>) => void;
 
   /**
    * Could be selected multiple options

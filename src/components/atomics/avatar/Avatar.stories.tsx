@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Avatar, AvatarProps } from './Avatar';
+import { storiesScaleOptions, StorybookContent } from '~/stories';
 
-import { storiesScaleOptions, StorybookContent } from '../../../stories';
+import { Avatar, AvatarProps } from './Avatar';
 
 export default {
   title: 'Atomic/Avatar',
@@ -17,15 +17,26 @@ export default {
   },
 };
 
-const ScaleAvatar = ({ ...rests }: AvatarProps) => {
+const BaseTemplate = ({ ...others }: AvatarProps) => {
+  return <Avatar {...others} src="https://avatars.githubusercontent.com/u/16330024?v=4" />;
+};
+
+const ScaleAvatarStories = ({ ...others }: AvatarProps) => {
   return (
     <StorybookContent>
-      {storiesScaleOptions.map((scale) => (
-        <Avatar {...rests} key={scale} scale={scale} src="https://avatars.githubusercontent.com/u/16330024?v=4" />
-      ))}
+      <StorybookContent.Light>
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale} />
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark>
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale} />
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const ScaleAvatarStories = ScaleAvatar.bind({});
-ScaleAvatarStories.args = {};
+export const ScaleAvatar = ScaleAvatarStories.bind({});
+ScaleAvatar.args = {};

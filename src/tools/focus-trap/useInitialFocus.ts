@@ -1,11 +1,11 @@
 import * as React from 'react';
 
+import { useIsMounted, useWatch } from '~/hooks';
+import { toMicrotask } from '~/utils';
+
 import { Focus, focusElement, focusIn, FocusResult } from './FocusManagements';
 
-import { useIsMounted, useWatch } from '../../hooks';
-import { toMicrotask } from '../../utils';
-
-function useInitialFocus(
+export function useInitialFocus(
   {
     ownerDocument,
     container,
@@ -66,6 +66,3 @@ function useInitialFocus(
 
   return previousActiveElement;
 }
-
-export { useInitialFocus };
-export default useInitialFocus;

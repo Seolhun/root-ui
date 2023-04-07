@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { AccordionPanelContext, ActionTypes, useAccordionAPIContext, useAccordionContext } from './Accordion.reducer';
+import { forwardRefWithAs, PropsForFeatures, render, RenderFeatures } from '~/core';
+import { useSyncRefs } from '~/hooks';
+import { OpenClosedState, useOpenClosed } from '~/tools';
+import { RootUIProps, RootUIReactTag } from '~/types';
 
-import { forwardRefWithAs, PropsForFeatures, render, RenderFeatures } from '../../../core';
-import { useSyncRefs } from '../../../hooks';
-import { OpenClosedState, useOpenClosed } from '../../../tools';
-import { RootUIProps, RootUIReactTag } from '../../../types';
+import { AccordionPanelContext, ActionTypes, useAccordionAPIContext, useAccordionContext } from './Accordion.reducer';
 
 const COMPONENT_NAME = 'Root__Accordion__Panel';
 const DEFAULT_TAG: RootUIReactTag = 'div';
@@ -21,7 +21,7 @@ export interface AccordionPanelRenderPropArg {
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;
 const PanelRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Static;
 
-const AccordionWidgetPanel = forwardRefWithAs(function AccordionWidgetPanel<
+export const AccordionWidgetPanel = forwardRefWithAs(function AccordionWidgetPanel<
   Tag extends React.ElementType = typeof DEFAULT_TAG,
 >(
   props: RootUIProps<Tag, AccordionPanelRenderPropArg, PropsWeControl> &
@@ -76,6 +76,3 @@ const AccordionWidgetPanel = forwardRefWithAs(function AccordionWidgetPanel<
     </AccordionPanelContext.Provider>
   );
 });
-
-export { AccordionWidgetPanel };
-export default AccordionWidgetPanel;

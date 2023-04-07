@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useEvent } from './useEvent';
 
-function useWatch<Dependencies extends any[]>(
+export function useWatch<Dependencies extends any[]>(
   cb: (newValues: [...Dependencies], oldValues: [...Dependencies]) => void | (() => void),
   dependencies: [...Dependencies],
 ) {
@@ -21,6 +21,3 @@ function useWatch<Dependencies extends any[]>(
     }
   }, [action, dependencies]);
 }
-
-export { useWatch };
-export default useWatch;

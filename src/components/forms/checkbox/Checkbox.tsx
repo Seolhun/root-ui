@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toIntentMatch } from '../../../system';
-import { Box } from '../../common';
+import { Box } from '~/components/common';
+import { RootIntent, RootScale, toIntentMatch } from '~/system';
+
 import { FormLabel } from '../FormLabel';
 
 const CLASSNAME = 'Root__Checkbox';
@@ -24,9 +25,9 @@ export interface CheckboxProps extends ElementProps {
   intent?: RootIntent;
 }
 
-const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
-  ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...rests }, ref) => {
-    const htmlForAndID = htmlFor ?? rests.name;
+export const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
+  ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...others }, ref) => {
+    const htmlForAndID = htmlFor ?? others.name;
     return (
       <FormLabel
         className={clsx('inline-flex items-center cursor-pointer', {
@@ -37,7 +38,7 @@ const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
         scale={scale}
       >
         <Box
-          {...rests}
+          {...others}
           ref={ref}
           as="input"
           type="checkbox"
@@ -60,6 +61,3 @@ const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
     );
   },
 );
-
-export { Checkbox };
-export default Checkbox;

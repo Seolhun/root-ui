@@ -122,10 +122,10 @@ const themeColors = {
   /**
    * for Light UI
    */
-  cream: 'rgb(246, 248, 250)', // Layout background
+  cream: 'rgb(250, 250, 250)', // Layout background
   'cream-1': 'rgb(255, 255, 255)', // UI background commonly
-  'cream-2': 'rgb(216, 222, 228)', // UI border commonly
-  'cream-3': 'rgb(208, 215, 222)', // UI border commonly
+  'cream-2': 'rgb(245, 245, 245)', // UI border commonly
+  'cream-3': 'rgb(230, 230, 230)', // UI border commonly
   /**
    * for Dark UI
    */

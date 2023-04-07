@@ -11,12 +11,6 @@ export type None = null | undefined;
 export type Some<T> = T;
 
 /**
- * It is some or none
- * use "isSome" or "isNone" utils to check validation considering what you want.
- */
-export type Maybe<T> = Some<T> | None;
-
-/**
  * It is some or null
  * use "isSome" or "isNull" utils to check validation considering what you want.
  */
@@ -26,6 +20,6 @@ export type Nullable<T> = Some<T> | null;
  * It is some or undefined
  * use "isSome" or "isUndefined" utils to check validation considering what you want.
  */
-export type Optional<T> = Some<T> | undefined;
+export type Optional<T> = Some<T> | None;
 
-export type GetOrElse = <R>(fallback: R) => <T>(value: Maybe<T>) => T | R;
+export type GetOrElse = <R>(fallback: R) => <T>(value: Optional<T>) => T | R;

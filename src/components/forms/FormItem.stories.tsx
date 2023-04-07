@@ -1,9 +1,9 @@
 import * as React from 'react';
 
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
+
 import { FormItem, FormItemProps } from './FormItem';
 import { Input } from './input';
-
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../stories';
 
 export default {
   title: 'Form/FormItem',
@@ -22,12 +22,19 @@ export default {
   },
 };
 
-const FormItemsTemplate = ({ children, ...rests }: FormItemProps) => {
+const FormItemsTemplate = ({ children, ...others }: FormItemProps) => {
   return (
-    <StorybookContent noAlign>
-      <FormItem {...rests}>
-        <Input />
-      </FormItem>
+    <StorybookContent>
+      <StorybookContent.Light className="flex-col" noAlign>
+        <FormItem {...others}>
+          <Input />
+        </FormItem>
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col" noAlign>
+        <FormItem {...others}>
+          <Input />
+        </FormItem>
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
@@ -38,14 +45,23 @@ FormItems.args = {
   help: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
 };
 
-const ScaleFormItemTemplate = ({ ...rests }: FormItemProps) => {
+const ScaleFormItemTemplate = ({ ...others }: FormItemProps) => {
   return (
-    <StorybookContent noAlign>
-      {storiesScaleOptions.map((scale) => (
-        <FormItem {...rests} key={scale} scale={scale}>
-          <Input />
-        </FormItem>
-      ))}
+    <StorybookContent>
+      <StorybookContent.Light className="flex-col" noAlign>
+        {storiesScaleOptions.map((scale) => (
+          <FormItem {...others} key={scale} scale={scale}>
+            <Input />
+          </FormItem>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col" noAlign>
+        {storiesScaleOptions.map((scale) => (
+          <FormItem {...others} key={scale} scale={scale}>
+            <Input />
+          </FormItem>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
