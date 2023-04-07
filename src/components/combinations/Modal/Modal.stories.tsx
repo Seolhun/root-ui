@@ -1,10 +1,12 @@
+import { Story } from '@storybook/react';
 import * as React from 'react';
 
-import { Modal } from './Modal';
+import { Button, Card } from '~/components/atomics';
+import { useDisclosure } from '~/hooks';
+import { StorybookContent, storiesScaleOptions } from '~/stories';
 
-import { useDisclosure } from '../../../hooks';
-import { storiesScaleOptions } from '../../../stories';
-import { Button, Card } from '../../atomics';
+import { Modal } from './Modal';
+import { ModalProps } from './Widgets';
 
 export default {
   title: 'Combination/Modal',
@@ -19,48 +21,78 @@ export default {
   },
 };
 
-const Modals = ({ Title, Content, Action, ...rests }) => {
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
+type BaseTemplateProps = ElementProps &
+  ModalProps & {
+    Header: React.ReactNode;
+    Body: React.ReactNode;
+    Footer: React.ReactNode;
+  };
+
+const BaseTemplate = ({ Header, Body, Footer, root, ...others }: BaseTemplateProps) => {
   const { isShow, onClose, onToggle } = useDisclosure();
 
   return (
-    <section style={{ height: '2000px' }}>
+    <>
       <Button onClick={onToggle}>Toggle modal</Button>
 
-      <Modal className="relative z-50" show={isShow} onClose={onClose}>
+      <Modal className="relative z-50" show={isShow} onClose={onClose} root={root}>
         <Modal.Overlay>
           <Modal.Backdrop />
-          <Modal.Panel {...rests}>
-            <Modal.Header>{Title}</Modal.Header>
-            <Modal.Content>{Content}</Modal.Content>
-            <Modal.Footer>{Action}</Modal.Footer>
+          <Modal.Panel {...others} className="space-y-2">
+            <Modal.Header>{Header}</Modal.Header>
+            <Modal.Body>{Body}</Modal.Body>
+            <Modal.Footer>{Footer}</Modal.Footer>
           </Modal.Panel>
         </Modal.Overlay>
       </Modal>
-    </section>
+    </>
   );
 };
 
-export const ModalsStories = Modals.bind({});
-ModalsStories.args = {
-  Title: 'Title',
-  Content: 'Content',
-  Action: 'Action',
+const ModalTemplate: Story<BaseTemplateProps> = ({ ...others }) => {
+  return (
+    <StorybookContent>
+      <StorybookContent.Light className="flex-col">
+        {({ root }) => (
+          <section style={{ minHeight: '2000px' }}>
+            <BaseTemplate {...others} root={root} />
+          </section>
+        )}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {({ root }) => (
+          <section style={{ minHeight: '2000px' }}>
+            <BaseTemplate {...others} root={root} />
+          </section>
+        )}
+      </StorybookContent.Dark>
+    </StorybookContent>
+  );
 };
 
-export const LongModalsStories = Modals.bind({});
-LongModalsStories.args = {
-  Title: Array.from(Array(1000), () => 'Title').join(' '),
-  Content: Array.from(Array(1000), () => 'Content').join(' '),
-  Action: 'Action',
+export const Modals = ModalTemplate.bind({});
+Modals.args = {
+  Header: 'Header',
+  Body: 'Body',
+  Footer: 'Footer',
 };
 
-const InnerModals = ({ ...rests }) => {
+export const LongModals = ModalTemplate.bind({});
+LongModals.args = {
+  Header: Array.from(Array(1000), () => 'Header').join(' '),
+  Body: Array.from(Array(1000), () => 'Body').join(' '),
+  Footer: 'Footer',
+};
+
+const InnerModalTemplate: Story<ModalProps> = ({ ...others }) => {
   const { isShow, onClose, onShow } = useDisclosure();
   const { isShow: isShow2, onClose: onClose2, onShow: onShow2 } = useDisclosure();
   const { isShow: isShow3, onClose: onClose3, onShow: onShow3 } = useDisclosure();
 
   return (
-    <section style={{ height: '2000px' }}>
+    <section style={{ minHeight: '2000px' }}>
       <Button onClick={onShow}>Toggle modal</Button>
 
       <Card className="z-50 mt-8 p-8">The highest priority z-index 50 Card</Card>
@@ -68,9 +100,9 @@ const InnerModals = ({ ...rests }) => {
       <Modal className="relative z-50" show={isShow} onClose={onClose}>
         <Modal.Backdrop />
         <Modal.Overlay>
-          <Modal.Panel {...rests}>
+          <Modal.Panel {...others}>
             <Modal.Header>Modal1</Modal.Header>
-            <Modal.Content>Modal1</Modal.Content>
+            <Modal.Body>Modal1</Modal.Body>
             <Modal.Footer>
               <Button onClick={onShow2}>Open Nested Modal</Button>
             </Modal.Footer>
@@ -78,9 +110,9 @@ const InnerModals = ({ ...rests }) => {
 
           <Modal className="relative z-50" show={isShow2} onClose={onClose2}>
             <Modal.Overlay>
-              <Modal.Panel {...rests}>
+              <Modal.Panel {...others}>
                 <Modal.Header>Modal2</Modal.Header>
-                <Modal.Content>Modal2</Modal.Content>
+                <Modal.Body>Modal2</Modal.Body>
                 <Modal.Footer>
                   <Button onClick={onShow3}>Open Nested Modal</Button>
                 </Modal.Footer>
@@ -89,9 +121,9 @@ const InnerModals = ({ ...rests }) => {
 
             <Modal className="relative z-50" show={isShow3} onClose={onClose3}>
               <Modal.Overlay>
-                <Modal.Panel {...rests}>
+                <Modal.Panel {...others}>
                   <Modal.Header>Modal3</Modal.Header>
-                  <Modal.Content>Modal3</Modal.Content>
+                  <Modal.Body>Modal3</Modal.Body>
                   <Modal.Footer>
                     <Button onClick={onShow3}>Open Nested Modal</Button>
                   </Modal.Footer>
@@ -105,5 +137,5 @@ const InnerModals = ({ ...rests }) => {
   );
 };
 
-export const InnerModalsStories = InnerModals.bind({});
-InnerModalsStories.args = {};
+export const InnerModals = InnerModalTemplate.bind({});
+InnerModals.args = {};

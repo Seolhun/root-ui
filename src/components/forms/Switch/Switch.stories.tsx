@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { Switch, SwitchProps } from './Switch';
+import { Avatar } from '~/components/atomics';
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
-import { Avatar } from '../../atomics';
+import { Switch, SwitchProps } from './Switch';
 
 export default {
   title: 'Form/Switch',
@@ -24,49 +24,85 @@ export default {
   },
 };
 
-const Switchs: React.FC<SwitchProps> = ({ ...rests }) => {
-  const [checked, setChecked] = React.useState(false);
+const BaseTemplate = ({ children, checked, ...others }: SwitchProps) => {
+  const [isChecked, setChecked] = React.useState(checked);
+
+  React.useEffect(() => {
+    setChecked(checked);
+  }, [checked]);
+
+  return (
+    <Switch checked={isChecked} onChange={setChecked} {...others}>
+      {children}
+    </Switch>
+  );
+};
+
+const SwitchTemplate = ({ ...others }: SwitchProps) => {
   return (
     <StorybookContent>
-      <Switch checked={checked} onChange={setChecked} {...rests}></Switch>
-      <Switch checked={checked} onChange={setChecked} {...rests} disabled></Switch>
-      <Switch checked={checked} onChange={setChecked} {...rests}>
-        <Avatar src="https://avatars.githubusercontent.com/u/16330024?v=4" />
-      </Switch>
+      <StorybookContent.Light className="flex-col">
+        <BaseTemplate {...others}></BaseTemplate>
+        <BaseTemplate {...others} disabled></BaseTemplate>
+        <BaseTemplate {...others}>
+          <Avatar src="https://avatars.githubusercontent.com/u/16330024?v=4" />
+        </BaseTemplate>
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        <BaseTemplate {...others}></BaseTemplate>
+        <BaseTemplate {...others} disabled></BaseTemplate>
+        <BaseTemplate {...others}>
+          <Avatar src="https://avatars.githubusercontent.com/u/16330024?v=4" />
+        </BaseTemplate>
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const SwitchsStories = Switchs.bind({});
-SwitchsStories.args = {};
+export const Switches = SwitchTemplate.bind({});
+Switches.args = {};
 
-const ScaleSwitchs = ({ ...rests }: SwitchProps) => {
+const ScaleSwitchTemplate = ({ ...others }: SwitchProps) => {
   return (
     <StorybookContent>
-      {storiesScaleOptions.map((scale) => (
-        <Switch {...rests} key={scale} scale={scale}></Switch>
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale}></BaseTemplate>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale}></BaseTemplate>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const ScaleSwitchsStories = ScaleSwitchs.bind({});
-ScaleSwitchsStories.args = {
+export const ScaleSwitch = ScaleSwitchTemplate.bind({});
+ScaleSwitch.args = {
   disabled: false,
 };
 
-const IntentSwitchs = ({ ...rests }: SwitchProps) => {
+const IntentSwitchTemplate = ({ ...others }: SwitchProps) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <Switch {...rests} key={intent} intent={intent}></Switch>
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent}></BaseTemplate>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent}></BaseTemplate>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const IntentSwitchsStories = IntentSwitchs.bind({});
-IntentSwitchsStories.args = {
+export const IntentSwitches = IntentSwitchTemplate.bind({});
+IntentSwitches.args = {
+  disabled: false,
   checked: true,
-  disabled: false,
 };

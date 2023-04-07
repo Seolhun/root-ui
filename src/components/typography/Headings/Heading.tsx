@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { AgnosticTagProps } from '../../../system';
+import { AgnosticTagProps } from '~/system';
+
 import { Text } from '../Text';
 
 const CLASSNAME = 'Root__Heading';
@@ -12,9 +13,9 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface HeadingProps extends ElementProps {}
 
 export const Heading = React.forwardRef<ElementType, HeadingProps & Required<AgnosticTagProps>>(
-  ({ className, children, as, ...rests }, ref) => {
+  ({ className, children, as, ...others }, ref) => {
     return (
-      <Text {...rests} as={as} ref={ref} className={clsx(CLASSNAME, className, 'leading-normal')}>
+      <Text {...others} as={as} ref={ref} className={clsx(CLASSNAME, className, 'leading-normal')}>
         {children}
       </Text>
     );

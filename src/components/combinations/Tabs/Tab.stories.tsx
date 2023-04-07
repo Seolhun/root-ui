@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import { Tabs } from './Tabs';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
+import { TabGroupProps } from './Tab.Group';
+import { Tabs } from './Tabs';
 
 export default {
   title: 'Combination/Tabs',
@@ -26,71 +27,69 @@ export default {
   },
 };
 
-// ----------------------------------------------------------------
-const TabTemplate = ({ onClick, ...args }) => {
+const BaseTemplate = ({ onClick, ...others }: TabGroupProps) => {
   return (
-    <StorybookContent noAlign noGap>
-      <Tabs {...args}>
-        <Tabs.List>
-          <Tabs.Tab onClick={onClick}>Show 1</Tabs.Tab>
-          <Tabs.Tab onClick={onClick}>Show 2</Tabs.Tab>
-          <Tabs.Tab onClick={onClick}>Show 3</Tabs.Tab>
-        </Tabs.List>
+    <Tabs {...others}>
+      <Tabs.List>
+        <Tabs.Tab onClick={onClick as any}>Show 1</Tabs.Tab>
+        <Tabs.Tab onClick={onClick as any}>Show 2</Tabs.Tab>
+        <Tabs.Tab onClick={onClick as any}>Show 3</Tabs.Tab>
+      </Tabs.List>
 
-        <Tabs.PanelList>
-          <Tabs.Panel>First Item</Tabs.Panel>
-          <Tabs.Panel>Second Item</Tabs.Panel>
-          <Tabs.Panel>Third Item</Tabs.Panel>
-        </Tabs.PanelList>
-      </Tabs>
+      <Tabs.PanelList>
+        <Tabs.Panel>First Item</Tabs.Panel>
+        <Tabs.Panel>Second Item</Tabs.Panel>
+        <Tabs.Panel>Third Item</Tabs.Panel>
+      </Tabs.PanelList>
+    </Tabs>
+  );
+};
+
+const TabTemplate = ({ onClick, ...others }) => {
+  return (
+    <StorybookContent>
+      <StorybookContent.Light className="flex flex-col" noAlign noGap>
+        <BaseTemplate {...others} />
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex flex-col" noAlign noGap>
+        <BaseTemplate {...others} />
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 export const DefaultTab = TabTemplate.bind({});
 
-// ----------------------------------------------------------------
-const ScaleTabTemplate = ({ onClick, ...args }) => {
+const ScaleTabTemplate = ({ onClick, ...others }) => {
   return (
     <StorybookContent>
-      {storiesScaleOptions.map((scale) => (
-        <Tabs {...args} key={scale} scale={scale}>
-          <Tabs.List>
-            <Tabs.Tab onClick={onClick}>Show 1</Tabs.Tab>
-            <Tabs.Tab onClick={onClick}>Show 2</Tabs.Tab>
-            <Tabs.Tab onClick={onClick}>Show 3</Tabs.Tab>
-          </Tabs.List>
-
-          <Tabs.PanelList>
-            <Tabs.Panel>First Item</Tabs.Panel>
-            <Tabs.Panel>Second Item</Tabs.Panel>
-            <Tabs.Panel>Third Item</Tabs.Panel>
-          </Tabs.PanelList>
-        </Tabs>
-      ))}
+      <StorybookContent.Light className="flex flex-col" noAlign noGap>
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale} />
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex flex-col" noAlign noGap>
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale} />
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 export const ScaleTab = ScaleTabTemplate.bind({});
 
-// ----------------------------------------------------------------
-const IntentTabTemplate = ({ onClick, ...args }) => {
+const IntentTabTemplate = ({ onClick, ...others }) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <Tabs {...args} key={intent} intent={intent}>
-          <Tabs.List>
-            <Tabs.Tab onClick={onClick}>Show 1</Tabs.Tab>
-            <Tabs.Tab onClick={onClick}>Show 2</Tabs.Tab>
-            <Tabs.Tab onClick={onClick}>Show 3</Tabs.Tab>
-          </Tabs.List>
-
-          <Tabs.PanelList>
-            <Tabs.Panel>First Item</Tabs.Panel>
-            <Tabs.Panel>Second Item</Tabs.Panel>
-            <Tabs.Panel>Third Item</Tabs.Panel>
-          </Tabs.PanelList>
-        </Tabs>
-      ))}
+      <StorybookContent.Light className="flex flex-col" noAlign noGap>
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent} />
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex flex-col" noAlign noGap>
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent} />
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };

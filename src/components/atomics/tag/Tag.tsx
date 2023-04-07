@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
+import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '~/system';
 
 const CLASSNAME = 'Root__Tag';
 type ElementType = HTMLButtonElement;
@@ -24,13 +24,13 @@ export interface TagProps extends ElementProps {
   outlined?: boolean;
 }
 
-const Tag = React.forwardRef<ElementType, TagProps>(
-  ({ className, children, scale = 'md', intent = 'primary', outlined, ...rests }, ref) => {
+export const Tag = React.forwardRef<ElementType, TagProps>(
+  ({ className, children, scale = 'md', intent = 'primary', outlined, ...others }, ref) => {
     return (
       <button
         role="button"
         tabIndex={0}
-        {...rests}
+        {...others}
         ref={ref}
         className={clsx(
           CLASSNAME,
@@ -38,7 +38,7 @@ const Tag = React.forwardRef<ElementType, TagProps>(
           'flex items-center justify-center',
           'rounded-full',
           'cursor-pointer',
-          'disabled:opacity-50 disabled:cursor-not-allowed',
+          'disabled:cursor-not-allowed',
           toScaleMatch({
             xs: () => 'scale-text-xs scale-p-xs',
             sm: () => 'scale-text-sm scale-p-sm',
@@ -64,6 +64,3 @@ const Tag = React.forwardRef<ElementType, TagProps>(
     );
   },
 );
-
-export { Tag };
-export default Tag;

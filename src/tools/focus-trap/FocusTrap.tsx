@@ -1,11 +1,6 @@
 import * as React from 'react';
 
-import { Focus, focusIn } from './FocusManagements';
-import { useFocusLock } from './useFocusLock';
-import { useInitialFocus } from './useInitialFocus';
-import { useRestoreFocus } from './useRestoreFocus';
-
-import { forwardRefWithAs, render } from '../../core';
+import { forwardRefWithAs, render } from '~/core';
 import {
   TabDirection,
   useEvent,
@@ -13,10 +8,15 @@ import {
   useServerHandoffComplete,
   useSyncRefs,
   useTabDirection,
-} from '../../hooks';
-import { Hidden, HiddenFeatures } from '../../tools/hidden';
-import { RootUIProps, RootUIReactTag } from '../../types';
-import { match } from '../../utils';
+} from '~/hooks';
+import { Hidden, HiddenFeatures } from '~/tools/hidden';
+import { RootUIProps, RootUIReactTag } from '~/types';
+import { match } from '~/utils';
+
+import { Focus, focusIn } from './FocusManagements';
+import { useFocusLock } from './useFocusLock';
+import { useInitialFocus } from './useInitialFocus';
+import { useRestoreFocus } from './useRestoreFocus';
 
 export interface FocusTrapProps {
   initialFocus?: React.MutableRefObject<HTMLElement | null>;
@@ -96,9 +96,6 @@ const _FocusTrap = <Tag extends React.ElementType = typeof DEFAULT_FOCUS_TRAP_TA
   );
 };
 
-const FocusTrap = Object.assign(forwardRefWithAs(_FocusTrap), {
+export const FocusTrap = Object.assign(forwardRefWithAs(_FocusTrap), {
   features: Features,
 });
-
-export { FocusTrap };
-export default FocusTrap;

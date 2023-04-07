@@ -8,9 +8,14 @@ type ElementType = HTMLParagraphElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 export interface PProps {}
 
-export const P = React.forwardRef<ElementType, ElementProps & PProps>(({ className, children, ...rests }, ref) => {
+export const P = React.forwardRef<ElementType, ElementProps & PProps>(({ className, children, ...others }, ref) => {
   return (
-    <Text {...rests} as="p" ref={ref} className={clsx(CLASSNAME, className, 'font-light', 'leading-snug', 'mt-0 mb-1')}>
+    <Text
+      {...others}
+      as="p"
+      ref={ref}
+      className={clsx(CLASSNAME, className, 'font-light', 'leading-snug', 'mt-0 mb-1')}
+    >
       {children}
     </Text>
   );

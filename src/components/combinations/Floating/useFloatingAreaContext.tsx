@@ -18,7 +18,7 @@ export interface FloatingAreaProps {
   children: React.ReactNode;
 }
 
-export const FloatingAreaProvider = ({ children }: FloatingAreaProps): JSX.Element => {
+export const FloatingAreaProvider = ({ children }: FloatingAreaProps) => {
   const ref = React.useRef<HTMLDivElement>(null);
 
   return (

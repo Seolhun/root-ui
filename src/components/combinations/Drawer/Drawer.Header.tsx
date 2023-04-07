@@ -12,11 +12,11 @@ export interface DrawerHeaderProps extends ElementProps {
 }
 
 export const DrawerHeader = React.forwardRef<ElementType, DrawerHeaderProps>(
-  ({ className, children, ...rests }, ref) => {
+  ({ className, children, ...others }, ref) => {
     return (
       <div
         ref={ref}
-        {...rests}
+        {...others}
         className={clsx(
           CLASSNAME,
           className,

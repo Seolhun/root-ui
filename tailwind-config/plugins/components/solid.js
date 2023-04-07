@@ -20,6 +20,10 @@ module.exports = ({ addComponents, theme }) => {
       ...commonStyles,
       [`@apply text-${intent.text} bg-${intent.main} border-${intent.main}`]: {},
 
+      '&:disabled': {
+        [`@apply opacity-40`]: {},
+      },
+
       '&:not(:disabled):hover': {
         [`@apply bg-${intent.hover}`]: {},
       },
@@ -45,6 +49,10 @@ module.exports = ({ addComponents, theme }) => {
     darkStyles[`.dark .${className}-${key}`] = {
       ...commonStyles,
       [`@apply text-${intent.text} bg-${intent.main} border-${intent.main}`]: {},
+
+      '&:disabled': {
+        [`@apply opacity-40`]: {},
+      },
 
       '&:not(:disabled):hover': {
         [`@apply bg-${intent.hover}`]: {},

@@ -18,6 +18,10 @@ module.exports = ({ addComponents, theme }) => {
       '@apply bg-transparent': {},
       [`@apply text-${intent.main} border-${intent.main}`]: {},
 
+      '&:disabled': {
+        [`@apply opacity-70`]: {},
+      },
+
       '&:not(:disabled):hover': {
         [`@apply bg-${intent.main} text-cream-1`]: {},
       },
@@ -41,6 +45,10 @@ module.exports = ({ addComponents, theme }) => {
       ...commonStyles,
       '@apply bg-transparent text-cream': {},
       [`@apply text-${intent.main} border-${intent.main}`]: {},
+
+      '&:disabled': {
+        [`@apply opacity-70`]: {},
+      },
 
       '&:not(:disabled):hover': {
         [`@apply bg-${intent.main} text-cream-1`]: {},

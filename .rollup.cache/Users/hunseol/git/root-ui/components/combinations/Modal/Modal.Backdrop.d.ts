@@ -3,6 +3,5 @@ type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 export interface ModalBackdropProps extends ElementProps {
 }
-declare const ModalBackdrop: React.ForwardRefExoticComponent<ModalBackdropProps & React.RefAttributes<HTMLDivElement>>;
-export { ModalBackdrop };
-export default ModalBackdrop;
+export declare const ModalBackdrop: React.ForwardRefExoticComponent<ModalBackdropProps & React.RefAttributes<HTMLDivElement>>;
+export {};

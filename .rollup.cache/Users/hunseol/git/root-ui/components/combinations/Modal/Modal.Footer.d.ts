@@ -4,6 +4,5 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface ModalFooterProps extends ElementProps {
     children: React.ReactNode;
 }
-declare const ModalFooter: React.ForwardRefExoticComponent<ModalFooterProps & React.RefAttributes<HTMLDivElement>>;
-export { ModalFooter };
-export default ModalFooter;
+export declare const ModalFooter: React.ForwardRefExoticComponent<ModalFooterProps & React.RefAttributes<HTMLDivElement>>;
+export {};

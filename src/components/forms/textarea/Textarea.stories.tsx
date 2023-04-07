@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { Textarea, TextareaProps } from './Textarea';
+import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '../../../stories';
+import { Textarea, TextareaProps } from './Textarea';
 
 export default {
   title: 'Form/Textarea',
@@ -21,49 +21,74 @@ export default {
   },
 };
 
-const Textareas = ({ children, ...rests }: TextareaProps) => {
+const BaseTemplate = ({ children, ...others }: TextareaProps) => {
+  return <Textarea {...others}>{children}</Textarea>;
+};
+
+const TextareaTemplate = ({ children, ...others }: TextareaProps) => {
   return (
     <StorybookContent>
-      <Textarea {...rests} />
-      <Textarea {...rests} value={'is not empty'} />
-      <Textarea {...rests} disabled />
+      <StorybookContent.Light className="flex-col">
+        <BaseTemplate {...others} />
+        <BaseTemplate {...others} value={'is not empty'} />
+        <BaseTemplate {...others} disabled />
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        <BaseTemplate {...others} />
+        <BaseTemplate {...others} value={'is not empty'} />
+        <BaseTemplate {...others} disabled />
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const TextareasStories = Textareas.bind({});
-TextareasStories.args = {
+export const Textareas = TextareaTemplate.bind({});
+Textareas.args = {
   placeholder: 'placeholder',
 };
 
-const ScaleTextareas = ({ ...rests }: TextareaProps) => {
+const ScaleTextareaTemplate = ({ ...others }: TextareaProps) => {
   return (
     <StorybookContent>
-      {storiesScaleOptions.map((scale) => (
-        <Textarea {...rests} key={scale} scale={scale} />
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale} />
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale} />
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const ScaleTextareasStories = ScaleTextareas.bind({});
-ScaleTextareasStories.args = {
+export const ScaleTextareas = ScaleTextareaTemplate.bind({});
+ScaleTextareas.args = {
   value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
   disabled: false,
 };
 
-const IntentTextareas = ({ ...rests }: TextareaProps) => {
+const IntentTextareaTemplate = ({ ...others }: TextareaProps) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <Textarea {...rests} key={intent} intent={intent} />
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <Textarea {...others} key={intent} intent={intent} />
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <Textarea {...others} key={intent} intent={intent} />
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const IntentTextareasStories = IntentTextareas.bind({});
-IntentTextareasStories.args = {
+export const IntentTextareas = IntentTextareaTemplate.bind({});
+IntentTextareas.args = {
   value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
   disabled: false,
 };

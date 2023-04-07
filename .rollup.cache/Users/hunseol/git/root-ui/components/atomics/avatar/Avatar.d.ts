@@ -1,5 +1,5 @@
 import React from 'react';
-import { RootScale } from '../../../system';
+import { RootScale } from '~/system';
 type ElementType = HTMLImageElement;
 type ElementProps = React.ImgHTMLAttributes<ElementType>;
 export interface AvatarProps {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ModalRenderPropArg } from './Modal.Widget.types';
-import { RootUIProps } from '../../../types';
+import { RootUIProps } from '~/types';
 type ElementType = HTMLHeadingElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 export interface ModalTitleProps extends ElementProps {

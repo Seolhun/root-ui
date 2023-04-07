@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '../../../system';
+import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '~/system';
 
 const CLASSNAME = 'Root__Select';
 type ElementType = HTMLSelectElement;
@@ -21,34 +21,40 @@ export interface SelectProps extends ElementProps {
 }
 
 export const Select = React.forwardRef<ElementType, SelectProps>(
-  ({ children, className, scale = 'md', intent = 'primary', ...rests }, ref) => {
+  ({ children, className, scale = 'md', intent = 'primary', ...others }, ref) => {
     return (
       <select
-        {...rests}
+        {...others}
         ref={ref}
-        id={rests.name}
+        id={others.name}
         className={clsx(
           CLASSNAME,
           className,
-          'shadow-sm border border-gray-4 focus:ring-gray-800 block w-full sm:text-sm rounded',
-          'px-2',
+          'block w-full',
+          'bg-cream-1 text-space-1',
+          'dark:bg-space-1 dark:text-cream-1',
+          'border border-cream-3 dark:border-space-3',
+          'disabled:bg-neutral-1 disabled:border-neutral-4 disabled:placeholder:text-neutral-light',
+          'px-4',
+          'rounded',
+          'px-4',
           toScaleMatch({
-            xs: () => 'text-2 py-1',
-            sm: () => 'text-2.5 py-1.5',
-            md: () => 'text-3 py-1.5',
-            lg: () => 'text-3.5 py-2',
-            xl: () => 'text-4 py-2',
+            xs: () => 'scale-text-xs scale-py-xs',
+            sm: () => 'scale-text-sm scale-py-sm',
+            md: () => 'scale-text-md scale-py-md',
+            lg: () => 'scale-text-lg scale-py-lg',
+            xl: () => 'scale-text-xl scale-py-xl',
           })(scale),
           toIntentMatch({
-            neutral: () => clsx('outline-neutral dark:outline-neutral'),
-            light: () => clsx('outline-light dark:outline-light'),
-            dark: () => clsx('outline-dark dark:outline-dark'),
-            primary: () => clsx('outline-primary dark:outline-primary'),
-            info: () => clsx('outline-info dark:outline-info'),
-            success: () => clsx('outline-success dark:outline-success'),
-            accent: () => clsx('outline-accent dark:outline-accent'),
-            warning: () => clsx('outline-warning dark:outline-warning'),
-            danger: () => clsx('outline-danger dark:outline-danger'),
+            neutral: () => clsx('outline-neutral dark:outline-neutral2'),
+            light: () => clsx('outline-light dark:outline-light2'),
+            dark: () => clsx('outline-dark dark:outline-dark2'),
+            primary: () => clsx('outline-primary dark:outline-primary2'),
+            info: () => clsx('outline-info dark:outline-info2'),
+            success: () => clsx('outline-success dark:outline-success2'),
+            accent: () => clsx('outline-accent dark:outline-accent2'),
+            warning: () => clsx('outline-warning dark:outline-warning2'),
+            danger: () => clsx('outline-danger dark:outline-danger2'),
           })(intent),
         )}
       >

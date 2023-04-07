@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootIntent, RootScale } from '../../../system';
+import { RootIntent, RootScale } from '~/system';
 type ElementType = HTMLInputElement;
 type ElementProps = React.InputHTMLAttributes<ElementType>;
 export interface RadioProps extends ElementProps {
@@ -14,6 +14,5 @@ export interface RadioProps extends ElementProps {
      */
     intent?: RootIntent;
 }
-declare const Radio: React.ForwardRefExoticComponent<RadioProps & React.RefAttributes<HTMLInputElement>>;
-export { Radio };
-export default Radio;
+export declare const Radio: React.ForwardRefExoticComponent<RadioProps & React.RefAttributes<HTMLInputElement>>;
+export {};

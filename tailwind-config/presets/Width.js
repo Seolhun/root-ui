@@ -1,16 +1,15 @@
-const concat = require('lodash/concat');
-const range = require('lodash/range');
 const reduce = require('lodash/reduce');
 
 const { REM_STEP_SIZE } = require('./Variables');
-const ranges = concat(range(0, 10, 0.5), range(10, 401));
+
+const { presetRanges } = require('../utils');
 
 const Width = reduce(
-  ranges,
+  presetRanges,
   (acc, v) => {
     return {
       ...acc,
-      [v]: v * REM_STEP_SIZE + 'rem',
+      [v]: `${v * REM_STEP_SIZE}rem`,
     };
   },
   {

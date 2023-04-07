@@ -1,7 +1,7 @@
 import { ElementType, Ref } from 'react';
 
-import { forwardRefWithAs, render } from '../../core';
-import { RootUIProps } from '../../types';
+import { forwardRefWithAs, render } from '~/core';
+import { RootUIProps } from '~/types';
 
 const DEFAULT_VISUALLY_HIDDEN_TAG = 'div' as const;
 
@@ -48,7 +48,4 @@ const _Hidden = <Tag extends ElementType = typeof DEFAULT_VISUALLY_HIDDEN_TAG>(
   });
 };
 
-const Hidden = forwardRefWithAs(_Hidden);
-
-export { Hidden };
-export default Hidden;
+export const Hidden = forwardRefWithAs(_Hidden);

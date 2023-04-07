@@ -1,22 +1,25 @@
+import { FloatingPortal } from '@floating-ui/react';
 import * as React from 'react';
-import { createPortal } from 'react-dom';
 
-import PortalGroup from './PortalGroup';
-import usePortalTarget from './usePortalTarget';
+import { GlobalRootDataAttributeMap } from '~/constants';
+import { forwardRefWithAs, render } from '~/core';
+import { optionalRef, useIsoMorphicEffect, useOwnerDocument, useSyncRefs, useServerHandoffComplete } from '~/hooks';
+import { RootUIProps } from '~/types';
+import { isServer, toMicrotask } from '~/utils';
 
-import { GlobalRootDataAttributeMap } from '../../constants';
-import { forwardRefWithAs, render } from '../../core';
-import { optionalRef, useIsoMorphicEffect, useOwnerDocument, useSyncRefs, useServerHandoffComplete } from '../../hooks';
-import { RootUIProps, UnknownObject } from '../../types';
-import { isServer, toMicrotask } from '../../utils';
+import { PortalGroup } from './PortalGroup';
+import { usePortalTarget } from './usePortalTarget';
 
 const DEFAULT_PORTAL_TAG = React.Fragment;
-type PortalRenderPropArg = UnknownObject;
+export interface PortalRenderPropArg {
+  root?: HTMLElement | null;
+}
 
 const _PortalRoot = <Tag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
   props: RootUIProps<Tag, PortalRenderPropArg>,
   ref: React.Ref<HTMLElement>,
 ) => {
+  const { root, ...others } = props;
   const internalPortalRootRef = React.useRef<HTMLElement | null>(null);
   const portalRef = useSyncRefs(
     optionalRef<(typeof internalPortalRootRef)['current']>((ref) => {
@@ -68,19 +71,17 @@ const _PortalRoot = <Tag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
   }
 
   const ourProps = { ref: portalRef };
-  const theirProps = props;
-  return createPortal(
-    render({
-      ourProps,
-      theirProps,
-      defaultTag: DEFAULT_PORTAL_TAG,
-      name: 'Portal',
-    }),
-    element,
+  const theirProps = others;
+  return (
+    <FloatingPortal root={root || element}>
+      {render({
+        ourProps,
+        theirProps,
+        defaultTag: DEFAULT_PORTAL_TAG,
+        name: 'Portal',
+      })}
+    </FloatingPortal>
   );
 };
 
-const Portal = Object.assign(forwardRefWithAs(_PortalRoot), { Group: PortalGroup });
-
-export { Portal };
-export default Portal;
+export const Portal = Object.assign(forwardRefWithAs(_PortalRoot), { Group: PortalGroup });

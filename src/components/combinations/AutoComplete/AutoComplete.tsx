@@ -3,12 +3,12 @@ import clsx from 'clsx';
 import isEmpty from 'lodash/isEmpty';
 import React from 'react';
 
+import { Icon, IconProps } from '~/components/icons';
+import { RootScale, toScaleMatch } from '~/system';
+import { Optional } from '~/utils/fx';
+
 import * as Styled from './AutoComplete.Styled';
 import { AutoCompleteIdentify } from './AutoComplete.types';
-
-import { RootScale, toScaleMatch } from '../../../system';
-import { Maybe } from '../../../utils/fx';
-import { Icon, IconProps } from '../../icons';
 
 const CLASSNAME = 'Root__AutoComplete';
 type Element = HTMLDivElement;
@@ -27,7 +27,7 @@ export interface AutoCompleteProps<Item> {
 
   onSelectItem: (item: Item) => void;
 
-  selectedItem?: Maybe<Item>;
+  selectedItem?: Optional<Item>;
 
   /**
    * To display value by transforming item.
@@ -50,7 +50,7 @@ export interface AutoCompleteProps<Item> {
   Empty?: React.ReactNode;
 
   /**
-   * @default "SearchIcon"
+   * @default "MagnifyingGlassIcon"
    */
   icon?: IconProps['icon'];
 
@@ -81,11 +81,11 @@ function _AutoComplete<Item = any>(
     loading,
     Loader,
     Empty = 'There are no suggestions',
-    icon = 'SearchIcon',
+    icon = 'MagnifyingGlassIcon',
     // HTMLAttributes
     className,
     placeholder,
-    ...rests
+    ...others
   }: AutoCompleteProps<Item> & ElementProps,
   ref: React.ForwardedRef<HTMLDivElement>,
 ) {
@@ -105,7 +105,7 @@ function _AutoComplete<Item = any>(
   }, [scale]);
 
   return (
-    <div {...rests} ref={ref} className={clsx(CLASSNAME, className, 'relative', 'bg-cream-1 dark:bg-space-1')}>
+    <div {...others} ref={ref} className={clsx(CLASSNAME, className, 'relative', 'bg-cream-1 dark:bg-space-1')}>
       <Combobox value={selectedItem} onChange={onSelectItem}>
         <div className={clsx(Styled.InputWrapper, 'bg-cream-1 dark:bg-space-1')}>
           <Icon className="mx-3" icon={icon} intent="light" scale={'sm'} />
@@ -166,12 +166,9 @@ function _AutoComplete<Item = any>(
   );
 }
 
-const AutoComplete = React.forwardRef(_AutoComplete) as <Item>(
+export const AutoComplete = React.forwardRef(_AutoComplete) as <Item>(
   props: AutoCompleteProps<Item> &
     ElementProps & {
       ref?: React.ForwardedRef<HTMLDivElement>;
     },
 ) => ReturnType<typeof _AutoComplete>;
-
-export { AutoComplete };
-export default AutoComplete;

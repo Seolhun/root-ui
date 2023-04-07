@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { Optional } from '~/utils/fx';
 import { DropdownOption } from './Dropdown.Widget.types';
-import { Maybe } from '../../../../utils/fx';
 interface ElementProps {
     children: React.ReactNode;
     disabled?: boolean;
@@ -9,11 +9,11 @@ export interface DropdownWidgetRootProps<Option extends DropdownOption, ActionOp
     /**
      * Selected option
      */
-    value: Maybe<ActionOption>;
+    value: Optional<ActionOption>;
     /**
      * Change option handler
      */
-    onChange: (option: Maybe<ActionOption>) => void;
+    onChange: (option: Optional<ActionOption>) => void;
     /**
      * Could be multi select
      */

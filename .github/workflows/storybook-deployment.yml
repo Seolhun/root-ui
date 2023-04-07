@@ -28,7 +28,7 @@ jobs:
           SEOLHUN_GITHUB_TOKEN: ${{secrets.SEOLHUN_GITHUB_TOKEN}}
 
       - name: Build Storybook
-        run: npm run storybook:build
+        run: npm run build:storybook
 
       - name: Deploy Storybook
         uses: JamesIves/github-pages-deploy-action@v4.2.5

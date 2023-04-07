@@ -1,5 +1,11 @@
 import * as React from 'react';
 
+import { forwardRefWithAs, render } from '~/core';
+import { optionalRef, useEvent, useId, useSyncRefs } from '~/hooks';
+import { OpenClosedProvider, OpenClosedState } from '~/tools';
+import { RootUIProps, RootUIReactTag } from '~/types';
+import { getOwnerDocumentBy, match } from '~/utils';
+
 import {
   AccordionAPIContext,
   AccordionAPIContextValues,
@@ -9,12 +15,6 @@ import {
   StateDefinition,
 } from './Accordion.reducer';
 import { AccordionFocusableElement } from './Accordion.Widget.types';
-
-import { forwardRefWithAs, render } from '../../../core';
-import { optionalRef, useEvent, useId, useSyncRefs } from '../../../hooks';
-import { OpenClosedProvider, OpenClosedState } from '../../../tools';
-import { RootUIProps, RootUIReactTag } from '../../../types';
-import { getOwnerDocumentBy, match } from '../../../utils';
 
 const COMPONENT_NAME = 'Root__Accordion__Root';
 const DEFAULT_TAG: RootUIReactTag = React.Fragment;
@@ -30,10 +30,10 @@ export interface AccordionRootRenderPropArg {
   close(focusableElement?: HTMLElement | React.MutableRefObject<HTMLElement | null>): void;
 }
 
-const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot<
+export const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot<
   Tag extends React.ElementType = typeof DEFAULT_TAG,
 >(props: RootUIProps<Tag, AccordionRootRenderPropArg> & AccordionRootProps & ElementProps, ref: React.Ref<Tag>) {
-  const { defaultOpen = false, ...rests } = props;
+  const { defaultOpen = false, ...others } = props;
   const buttonId = `rootui-accordion-button-${useId()}`;
   const panelId = `rootui-accordion-panel-${useId()}`;
   const internalAccordionRef = React.useRef<HTMLElement | null>(null);
@@ -95,7 +95,7 @@ const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot<
     };
   }, [accordionRef]);
 
-  const theirProps = rests;
+  const theirProps = others;
 
   const slot = React.useMemo<AccordionRootRenderPropArg>(() => {
     return {
@@ -125,6 +125,3 @@ const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot<
     </AccordionContext.Provider>
   );
 });
-
-export { AccordionWidgetRoot };
-export default AccordionWidgetRoot;

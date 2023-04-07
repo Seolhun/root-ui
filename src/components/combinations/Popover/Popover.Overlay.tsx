@@ -6,9 +6,9 @@ const CLASSNAME = 'Root__Popover__Overlay';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface PopoverOverlayProps extends ElementProps {}
+export interface PopoverOverlayProps {}
 
-export const PopoverOverlay = React.forwardRef<ElementType, PopoverOverlayProps>(
+export const PopoverOverlay = React.forwardRef<ElementType, ElementProps & PopoverOverlayProps>(
   ({ className, children, ...others }, ref) => {
     return (
       <Popover.Overlay

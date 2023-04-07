@@ -2,7 +2,7 @@ import { useRef } from 'react';
 
 import { useIsoMorphicEffect } from './useIsoMorphicEffect';
 
-function useIsMounted() {
+export function useIsMounted() {
   const mounted = useRef(false);
 
   useIsoMorphicEffect(() => {
@@ -14,6 +14,3 @@ function useIsMounted() {
 
   return mounted;
 }
-
-export { useIsMounted };
-export default useIsMounted;

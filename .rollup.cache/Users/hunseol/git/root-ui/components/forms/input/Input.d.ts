@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootIntent, RootScale } from '../../../system';
+import { RootIntent, RootScale } from '~/system';
 type ElementType = HTMLInputElement;
 type ElementProps = React.InputHTMLAttributes<ElementType>;
 export interface InputProps extends ElementProps {
@@ -13,6 +13,5 @@ export interface InputProps extends ElementProps {
      */
     intent?: RootIntent;
 }
-declare const Input: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<HTMLInputElement>>;
-export { Input };
-export default Input;
+export declare const Input: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<HTMLInputElement>>;
+export {};

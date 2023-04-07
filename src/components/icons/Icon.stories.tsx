@@ -1,9 +1,9 @@
+import { Story } from '@storybook/react';
 import * as React from 'react';
 
-import { Icon, IconProps } from './Icon';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../stories';
-import { toIntentMatch } from '../../system';
+import { Icon, IconProps } from './Icon';
 
 export default {
   title: 'Atomic/Icon',
@@ -21,68 +21,130 @@ export default {
         options: storiesIntentOptions,
       },
     },
+    color: {
+      control: {
+        type: 'color',
+      },
+    },
   },
 };
 
-const Icons = ({ children, ...rests }: IconProps) => {
+const BaseTemplate = ({ children, ...others }: IconProps) => {
+  return <Icon {...others}>{children}</Icon>;
+};
+
+const IconsStories = ({ children, ...others }: IconProps) => {
   return (
     <StorybookContent>
-      {storiesScaleOptions.map((scale) => (
-        <Icon {...rests} key={scale} scale={scale}>
-          {children}
-        </Icon>
-      ))}
+      <StorybookContent.Light className="flex-col">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col text-white">
+        {storiesScaleOptions.map((scale) => (
+          <BaseTemplate {...others} key={scale} scale={scale}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const IconsStories = Icons.bind({});
-IconsStories.args = {
-  icon: 'AcademicCapIcon',
+export const Icons: Story<IconProps> = IconsStories.bind({});
+Icons.args = {
+  icon: 'RocketLaunchIcon',
 };
 
-const InheritIcons = ({ children, ...rests }: IconProps) => {
+const InheritIconsStories = ({ children, color, ...others }: IconProps) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <div
-          key={intent}
-          className={toIntentMatch({
-            neutral: () => 'text-neutral',
-            light: () => 'text-light',
-            dark: () => 'text-dark',
-            primary: () => 'text-primary',
-            info: () => 'text-info',
-            success: () => 'text-success',
-            accent: () => 'text-accent',
-            warning: () => 'text-warning',
-            danger: () => 'text-danger',
-          })(intent)}
-        >
-          <Icon {...rests}>{children}</Icon>
+      <StorybookContent.Light>
+        <div className="flex flex-col items-center space-y-2" style={{ color }}>
+          {storiesScaleOptions.map((scale) => (
+            <BaseTemplate {...others} key={scale} scale={scale}>
+              {children}-{scale}
+            </BaseTemplate>
+          ))}
         </div>
-      ))}
+        <div className="flex flex-col items-center space-y-2" style={{ color }}>
+          {storiesScaleOptions.map((scale) => (
+            <BaseTemplate {...others} key={scale} scale={scale} outlined>
+              {children}-{scale}
+            </BaseTemplate>
+          ))}
+        </div>
+      </StorybookContent.Light>
+      <StorybookContent.Dark>
+        <div className="flex flex-col items-center space-y-2" style={{ color }}>
+          {storiesScaleOptions.map((scale) => (
+            <BaseTemplate {...others} key={scale} scale={scale}>
+              {children}-{scale}
+            </BaseTemplate>
+          ))}
+        </div>
+        <div className="flex flex-col items-center space-y-2" style={{ color }}>
+          {storiesScaleOptions.map((scale) => (
+            <BaseTemplate {...others} key={scale} scale={scale} outlined>
+              {children}-{scale}
+            </BaseTemplate>
+          ))}
+        </div>
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const InheritIconsStories = InheritIcons.bind({});
-InheritIconsStories.args = {
-  icon: 'AcademicCapIcon',
+export const InheritIcons: Story<IconProps> = InheritIconsStories.bind({});
+InheritIcons.args = {
+  icon: 'RocketLaunchIcon',
+  color: 'blue',
 };
 
-const IntentIcons = ({ children, ...rests }: IconProps) => {
+const IntentIconsStories = ({ children, ...others }: IconProps) => {
   return (
     <StorybookContent>
-      {storiesIntentOptions.map((intent) => (
-        <Icon {...rests} key={intent} intent={intent} />
-      ))}
+      <StorybookContent.Light>
+        <div className="flex flex-col items-center space-y-2">
+          {storiesIntentOptions.map((intent) => (
+            <BaseTemplate {...others} key={intent} intent={intent}>
+              {children}-{intent}
+            </BaseTemplate>
+          ))}
+        </div>
+        <div className="flex flex-col items-center space-y-2">
+          {storiesIntentOptions.map((intent) => (
+            <BaseTemplate {...others} key={intent} intent={intent} outlined>
+              {children}-{intent}
+            </BaseTemplate>
+          ))}
+        </div>
+      </StorybookContent.Light>
+      <StorybookContent.Dark>
+        <div className="flex flex-col items-center space-y-2">
+          {storiesIntentOptions.map((intent) => (
+            <BaseTemplate {...others} key={intent} intent={intent}>
+              {children}-{intent}
+            </BaseTemplate>
+          ))}
+        </div>
+        <div className="flex flex-col items-center space-y-2">
+          {storiesIntentOptions.map((intent) => (
+            <BaseTemplate {...others} key={intent} intent={intent} outlined>
+              {children}-{intent}
+            </BaseTemplate>
+          ))}
+        </div>
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const IntentIconsStories = IntentIcons.bind({});
-IntentIconsStories.args = {
+export const IntentIcons: Story<IconProps> = IntentIconsStories.bind({});
+IntentIcons.args = {
   children: 'Icon',
-  icon: 'AcademicCapIcon',
+  icon: 'RocketLaunchIcon',
 };

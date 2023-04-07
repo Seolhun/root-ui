@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootIntent } from '../../../system';
+import { RootIntent } from '~/system';
 type ElementProps = React.HTMLAttributes<HTMLQuoteElement>;
 export interface BlockQuoteProps {
     /**

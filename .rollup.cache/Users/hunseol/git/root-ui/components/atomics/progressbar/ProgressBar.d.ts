@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootIntent, RootScale } from '../../../system';
+import { RootIntent, RootScale } from '~/system';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 export interface ProgressBarProps extends ElementProps {
@@ -26,6 +26,5 @@ export interface ProgressBarProps extends ElementProps {
      */
     intent?: RootIntent;
 }
-declare const ProgressBar: React.ForwardRefExoticComponent<ProgressBarProps & React.RefAttributes<HTMLDivElement>>;
-export { ProgressBar };
-export default ProgressBar;
+export declare const ProgressBar: React.ForwardRefExoticComponent<ProgressBarProps & React.RefAttributes<HTMLDivElement>>;
+export {};

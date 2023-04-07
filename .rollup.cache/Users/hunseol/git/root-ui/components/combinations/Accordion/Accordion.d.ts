@@ -1,5 +1,5 @@
 /// <reference types="react" />
-declare const Accordion: (<Tag extends import("react").ElementType<any> = (props: any) => import("react").ReactElement<any, any> | null>(props: Omit<import("../../../types").PropsOf<Tag>, "children" | "className" | "as" | "refName"> & import("../../../types").RootUIOurProps<Tag, import("./Accordion.Widget.Root").AccordionRootRenderPropArg> & (true extends (import("../../../types").PropsOf<Tag> extends infer T ? T extends import("../../../types").PropsOf<Tag> ? T extends never ? never : "className" extends infer T_1 ? T_1 extends "className" ? T_1 extends keyof T ? true : never : never : never : never : never) ? {
+export declare const Accordion: (<Tag extends import("react").ElementType<any> = (props: any) => import("react").ReactElement<any, any> | null>(props: Omit<import("../../../types").PropsOf<Tag>, "children" | "className" | "as" | "refName"> & import("../../../types").RootUIOurProps<Tag, import("./Accordion.Widget.Root").AccordionRootRenderPropArg> & (true extends (import("../../../types").PropsOf<Tag> extends infer T ? T extends import("../../../types").PropsOf<Tag> ? T extends never ? never : "className" extends infer T_1 ? T_1 extends "className" ? T_1 extends keyof T ? true : never : never : never : never : never) ? {
     className?: import("../../../types").PropsOf<Tag>["className"] | ((bag: import("./Accordion.Widget.Root").AccordionRootRenderPropArg) => string) | undefined;
 } : import("../../../types").UnknownObject) & import("./Accordion.Widget.Root").AccordionRootProps & import("react").HTMLAttributes<HTMLDivElement>, ref: import("react").Ref<Tag>) => JSX.Element) & {
     displayName: string;
@@ -23,5 +23,3 @@ declare const Accordion: (<Tag extends import("react").ElementType<any> = (props
         };
     };
 };
-export { Accordion };
-export default Accordion;
