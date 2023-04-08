@@ -30,18 +30,21 @@ export interface IconProps extends ElementProps {
 
   /**
    * Outlined icons
+   * @default outline
    */
-  outlined?: boolean;
+  variant?: 'solid' | 'outline';
 }
 
 export const Icon = React.forwardRef<ElementType, IconProps>(
-  ({ className, icon, intent = 'inherit', scale = 'md', outlined, ...others }, ref) => {
+  ({ className, icon, intent = 'inherit', scale = 'md', variant = 'outline', ...others }, ref) => {
     const rootUIContext = useRootUIContext();
 
     const Component = React.useMemo(() => {
-      return outlined ? OutlineHeroIcon[icon] : SolidHeroIcon[icon];
-    }, [outlined, icon]);
+      return variant === 'outline' ? OutlineHeroIcon[icon] : SolidHeroIcon[icon];
+    }, [variant, icon]);
 
+    const targetScale = rootUIContext.scale || scale;
+    const targetIntent = rootUIContext.intent || intent;
     return (
       <Box
         {...others}
@@ -53,7 +56,7 @@ export const Icon = React.forwardRef<ElementType, IconProps>(
           md: () => 'scale-md',
           lg: () => 'scale-lg',
           xl: () => 'scale-xl',
-        })(scale)}
+        })(targetScale)}
         intentClassName={toIntentMatch({
           neutral: () => 'text-neutral dark:text-neutral2',
           light: () => 'text-light dark:text-light2',
@@ -64,7 +67,7 @@ export const Icon = React.forwardRef<ElementType, IconProps>(
           accent: () => 'text-accent dark:text-accent2',
           warning: () => 'text-warning dark:text-warning2',
           danger: () => 'text-danger dark:text-danger2',
-        })(intent)}
+        })(targetIntent)}
         className={clsx(CLASSNAME, className, 'inline-flex items-center justify-center')}
       >
         <Component className="w-full" />
