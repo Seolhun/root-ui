@@ -50,7 +50,7 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(
             'rounded-full shadow',
             'focus:outline-none focus-visible:ring-2',
             'transition-colors duration-200 ease-in-out',
-            disabled ? 'opacity-75 cursor-not-allowed' : 'cursor-pointer',
+            disabled ? 'opacity-95 cursor-not-allowed' : 'cursor-pointer',
             {
               'bg-white dark:bg-black': !checked,
             },
@@ -83,9 +83,6 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(
                 : 'bg-cream-2 dark:bg-space-2 border-cream-3 dark:border-space-3',
               'rounded-full shadow-xl',
               'transform transition',
-              {
-                'opacity-80': disabled,
-              },
               toScaleMatch({
                 xs: () => clsx('h-[16px] w-[16px]', checked ? 'translate-x-[24px]' : 'translate-x-[2px]'),
                 sm: () => clsx('h-[20px] w-[20px]', checked ? 'translate-x-[28px]' : 'translate-x-[2px]'),

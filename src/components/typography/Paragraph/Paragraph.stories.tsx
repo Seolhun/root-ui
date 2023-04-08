@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import * as React from 'react';
 
 import { StorybookContent } from '~/stories';
@@ -8,15 +9,28 @@ export default {
   title: 'TypoGraphy/Paragraph',
 };
 
-const Paragraph: React.FC<PProps> = ({ children, ...others }) => {
+const BaseTemplate = ({ children, ...others }) => {
+  return (
+    <>
+      <P {...others}>{children}</P>
+      <P {...others}>{children}</P>
+      <P {...others}>{children}</P>
+      <P {...others}>{children}</P>
+      <P {...others}>{children}</P>
+      <P {...others}>{children}</P>
+    </>
+  );
+};
+
+const Paragraph: Story<PProps> = ({ children, ...others }) => {
   return (
     <StorybookContent>
-      <P {...others}>{children}</P>
-      <P {...others}>{children}</P>
-      <P {...others}>{children}</P>
-      <P {...others}>{children}</P>
-      <P {...others}>{children}</P>
-      <P {...others}>{children}</P>
+      <StorybookContent.Light className="flex flex-col space-y-2" noAlign noGap>
+        <BaseTemplate {...others}>{children}</BaseTemplate>
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex flex-col space-y-2" noAlign noGap>
+        <BaseTemplate {...others}>{children}</BaseTemplate>
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };

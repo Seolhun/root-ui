@@ -1,6 +1,6 @@
+import { Story } from '@storybook/react';
 import * as React from 'react';
 
-import { Avatar } from '~/components/atomics';
 import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
 
 import { Switch, SwitchProps } from './Switch';
@@ -38,21 +38,21 @@ const BaseTemplate = ({ children, checked, ...others }: SwitchProps) => {
   );
 };
 
-const SwitchTemplate = ({ ...others }: SwitchProps) => {
+const SwitchTemplate: Story<SwitchProps> = ({ ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         <BaseTemplate {...others}></BaseTemplate>
         <BaseTemplate {...others} disabled></BaseTemplate>
         <BaseTemplate {...others}>
-          <Avatar src="https://avatars.githubusercontent.com/u/16330024?v=4" />
+          <img src="https://avatars.githubusercontent.com/u/16330024?v=4" className="rounded-full" />
         </BaseTemplate>
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         <BaseTemplate {...others}></BaseTemplate>
         <BaseTemplate {...others} disabled></BaseTemplate>
         <BaseTemplate {...others}>
-          <Avatar src="https://avatars.githubusercontent.com/u/16330024?v=4" />
+          <img src="https://avatars.githubusercontent.com/u/16330024?v=4" className="rounded-full" />
         </BaseTemplate>
       </StorybookContent.Dark>
     </StorybookContent>
@@ -62,7 +62,7 @@ const SwitchTemplate = ({ ...others }: SwitchProps) => {
 export const Switches = SwitchTemplate.bind({});
 Switches.args = {};
 
-const ScaleSwitchTemplate = ({ ...others }: SwitchProps) => {
+const ScaleSwitchTemplate: Story<SwitchProps> = ({ ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -84,7 +84,7 @@ ScaleSwitch.args = {
   disabled: false,
 };
 
-const IntentSwitchTemplate = ({ ...others }: SwitchProps) => {
+const IntentSwitchTemplate: Story<SwitchProps> = ({ ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">

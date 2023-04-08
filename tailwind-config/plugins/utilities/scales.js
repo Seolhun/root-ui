@@ -7,11 +7,11 @@ const SCALES = {
     xl: 16,
   },
   PADDING: {
-    xs: { y: 2, x: 4 },
-    sm: { y: 3, x: 6 },
-    md: { y: 4, x: 8 },
-    lg: { y: 5, x: 10 },
-    xl: { y: 6, x: 12 },
+    xs: { y: 4, x: 4 },
+    sm: { y: 4.5, x: 6 },
+    md: { y: 5, x: 8 },
+    lg: { y: 6, x: 10 },
+    xl: { y: 6.5, x: 12 },
   },
   TEXT: {
     xs: 'text-4',

@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import * as React from 'react';
 
 import { storiesIntentOptions, StorybookContent } from '~/stories';
@@ -17,10 +18,19 @@ export default {
   },
 };
 
-const BlockQuotes: React.FC<BlockQuoteProps> = ({ children, ...others }) => {
+const BaseTemplate = ({ children, ...others }) => {
+  return <BlockQuote {...others}>{children}</BlockQuote>;
+};
+
+const BlockQuotes: Story<BlockQuoteProps> = ({ children, ...others }) => {
   return (
-    <StorybookContent noAlign noGap>
-      <BlockQuote {...others}>{children}</BlockQuote>
+    <StorybookContent>
+      <StorybookContent.Light className="flex flex-col space-y-4" noAlign noGap>
+        <BaseTemplate {...others}>{children}</BaseTemplate>
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex flex-col space-y-4" noAlign noGap>
+        <BaseTemplate {...others}>{children}</BaseTemplate>
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };
@@ -31,14 +41,23 @@ BlockQuoteStories.args = {
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusamus animi aliquid molestiae vitae similique asperiores illum, sit quisquam, veritatis rerum. Illum, quia ut? Nemo sunt explicabo in provident id?',
 };
 
-const IntentBlockQuotes: React.FC<BlockQuoteProps> = ({ children, ...others }) => {
+const IntentBlockQuotes: Story<BlockQuoteProps> = ({ children, ...others }) => {
   return (
-    <StorybookContent noAlign noGap>
-      {storiesIntentOptions.map((intent) => (
-        <BlockQuote {...others} key={intent} intent={intent}>
-          {children}
-        </BlockQuote>
-      ))}
+    <StorybookContent>
+      <StorybookContent.Light className="flex flex-col space-y-4" noAlign noGap>
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex flex-col space-y-4" noAlign noGap>
+        {storiesIntentOptions.map((intent) => (
+          <BaseTemplate {...others} key={intent} intent={intent}>
+            {children}
+          </BaseTemplate>
+        ))}
+      </StorybookContent.Dark>
     </StorybookContent>
   );
 };

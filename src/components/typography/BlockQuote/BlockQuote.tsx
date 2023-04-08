@@ -7,14 +7,14 @@ const CLASSNAME = 'Root__BlockQuote';
 type ElementType = HTMLQuoteElement;
 type ElementProps = React.HTMLAttributes<HTMLQuoteElement>;
 
-export interface BlockQuoteProps {
+export interface BlockQuoteProps extends ElementProps {
   /**
    * @default primary
    */
   intent?: RootIntent;
 }
 
-export const BlockQuote = React.forwardRef<ElementType, ElementProps & BlockQuoteProps>(
+export const BlockQuote = React.forwardRef<ElementType, BlockQuoteProps>(
   ({ className, children, intent = 'primary', ...others }, ref) => {
     return (
       <blockquote
@@ -25,7 +25,7 @@ export const BlockQuote = React.forwardRef<ElementType, ElementProps & BlockQuot
           className,
           'text-base font-light leading-snug',
           'text-neutral dark:text-neutral2',
-          'mt-0 mb-4 pl-2',
+          'mt-0 mb-4 pl-8',
           'border-l-4',
           toIntentMatch({
             neutral: () => clsx('border-neutral'),
