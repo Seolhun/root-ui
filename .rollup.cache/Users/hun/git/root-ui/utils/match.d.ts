@@ -1,0 +1,1 @@
+export declare function match<Key extends string | number, ReturnValue = unknown, Argument = any>(key: Key, lookup: Record<Key, ReturnValue | ((...args: Argument[]) => ReturnValue)>, ...args: Argument[]): ReturnValue;
