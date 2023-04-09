@@ -61,9 +61,9 @@ export const DrawerFloating = React.forwardRef<ElementType, ElementProps & Drawe
               'rounded shadow',
               {
                 'top-0 right-0 left-0 w-full md:w-full rounded-t-none': placement === 'top',
-                'top-0 right-0 bottom-0 h-screen rounded-r-none': placement === 'right',
+                'top-0 right-0 bottom-0 h-full rounded-r-none': placement === 'right',
                 'right-0 bottom-0 left-0 w-full md:w-full rounded-b-none': placement === 'bottom',
-                'top-0 bottom-0 left-0 h-screen rounded-l-none': placement === 'left',
+                'top-0 bottom-0 left-0 h-full rounded-l-none': placement === 'left',
               },
               {
                 'animate-[fade-in-top_0.2s_ease-in-out]': show && placement === 'top',
