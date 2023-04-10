@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import * as React from 'react';
 
 import { Avatar } from '~/components/atomics';
@@ -14,18 +15,15 @@ export default {
 
 interface ProfileOption extends DropdownOption {
   avatar: string;
-
   value: string;
 }
 
-const DEFAULT_OPTIONS = Array.from<number, ProfileOption>(Array(10), (_, i) => {
-  return {
-    avatar: 'https://avatars.githubusercontent.com/u/16330024?v=4',
-    value: `value-${i}_${i}_${i}_${i}_${i}_${i}`,
-  };
-});
+const DEFAULT_OPTIONS = Array.from<number, ProfileOption>(Array(10), (_, i) => ({
+  avatar: 'https://avatars.githubusercontent.com/u/16330024?v=4',
+  value: `value-${i}_${i}_${i}_${i}_${i}_${i}`,
+}));
 
-const DropdownTemplate = ({ ...others }: DropdownProps) => {
+const BaseTemplate = ({ ...others }: DropdownProps) => {
   const [selectedOption, setSelectedOption] = React.useState<Optional<ProfileOption>>(DEFAULT_OPTIONS[0]);
 
   const identify = React.useCallback((option: Optional<ProfileOption>) => {
@@ -66,10 +64,23 @@ const DropdownTemplate = ({ ...others }: DropdownProps) => {
   );
 };
 
-export const Dropdowns = DropdownTemplate.bind({});
+const _Dropdowns = (props: DropdownProps) => {
+  return (
+    <StorybookContent>
+      <StorybookContent.Light>
+        <BaseTemplate {...props} />
+      </StorybookContent.Light>
+      <StorybookContent.Dark>
+        <BaseTemplate {...props} />
+      </StorybookContent.Dark>
+    </StorybookContent>
+  );
+};
+
+export const Dropdowns: Story<DropdownProps> = _Dropdowns.bind({});
 Dropdowns.args = {};
 
-const MultiDropdownTemplate = ({ ...others }: DropdownProps) => {
+const _MultiDropdowns = ({ ...others }: DropdownProps) => {
   const [selectedOption, setSelectedOption] = React.useState<ProfileOption[]>([]);
 
   const identify = React.useCallback((options: Optional<ProfileOption | ProfileOption[]>) => {
@@ -135,7 +146,7 @@ const MultiDropdownTemplate = ({ ...others }: DropdownProps) => {
   );
 };
 
-export const MultiDropdowns = MultiDropdownTemplate.bind({});
+export const MultiDropdowns: Story<DropdownProps> = _MultiDropdowns.bind({});
 MultiDropdowns.args = {
   multiple: true,
 };
