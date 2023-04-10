@@ -5,7 +5,7 @@ import { DrawerFloating } from './Drawer.Floating';
 import { DrawerPlacement } from './Drawer.types';
 
 export interface DrawerProps extends DrawerContextValues {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 
   /**
    * Set this to displayed placement
