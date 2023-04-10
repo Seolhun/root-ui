@@ -3,13 +3,13 @@ import * as React from 'react';
 
 import { useDrawerContext } from './Drawer.Context';
 
-const CLASSNAME = 'Root__Drawer__Main';
+const CLASSNAME = 'Root__Drawer__Panel';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface DrawerMainProps {}
+export interface DrawerPanelProps {}
 
-export const DrawerMain = React.forwardRef<ElementType, ElementProps & DrawerMainProps>(
+export const DrawerPanel = React.forwardRef<ElementType, ElementProps & DrawerPanelProps>(
   ({ className, children, ...others }, ref) => {
     const { show, placement } = useDrawerContext();
 

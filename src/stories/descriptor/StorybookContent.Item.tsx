@@ -34,10 +34,10 @@ export const StorybookContentItem = ({ children, className, noAlign, noGap, ...o
       className={clsx(
         className,
         'StorybookContentItem',
-        'flex flex-1 justify-center',
+        'flex flex-1 ',
         'min-h-full',
         {
-          'items-center': !noAlign,
+          'items-center justify-center': !noAlign,
           'gap-2': !noGap,
         },
         'p-4',

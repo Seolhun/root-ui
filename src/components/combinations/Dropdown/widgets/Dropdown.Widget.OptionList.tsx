@@ -2,14 +2,13 @@ import { Listbox, Transition } from '@headlessui/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
-interface ElementProps {
-  children: React.ReactNode;
-}
+type ElementType = HTMLUListElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface DropdownWidgetOptionsProps extends ElementProps {}
+export interface DropdownWidgetOptionListProps extends ElementProps {}
 
-export const DropdownWidgetOptions = React.forwardRef<HTMLUListElement, DropdownWidgetOptionsProps>(
-  ({ children }, ref) => {
+export const DropdownWidgetOptionList = React.forwardRef<HTMLUListElement, DropdownWidgetOptionListProps>(
+  ({ children, className, ...others }, ref) => {
     return (
       <Transition
         as={React.Fragment}
@@ -18,18 +17,17 @@ export const DropdownWidgetOptions = React.forwardRef<HTMLUListElement, Dropdown
         leaveTo="opacity-0"
       >
         <Listbox.Options
+          {...others}
           ref={ref}
           className={clsx(
+            className,
             'absolute',
             'flex flex-1 flex-col',
             'w-full',
-            'max-h-60 overflow-y-auto overflow-x-hidden',
-            'mt-1 py-1',
             'bg-cream-1 dark:bg-space-1',
             'text-space-1 dark:text-cream-1',
-            'border border-cream-3 dark:border-space-3',
-            'shadow-md ring-1 ring-black ring-opacity-5',
-            'rounded',
+            'shadow rounded',
+            'overflow-y-auto overflow-x-hidden',
             'focus:outline-none',
             'list-none',
           )}

@@ -19,9 +19,14 @@ export function useSyncRefs<RefType>(
 
   const syncRefs = useEvent((value: RefType) => {
     for (const ref of cache.current) {
-      if (ref == null) continue;
-      if (typeof ref === 'function') ref(value);
-      else ref.current = value;
+      if (ref == null) {
+        continue;
+      }
+      if (typeof ref === 'function') {
+        ref(value);
+      } else {
+        ref.current = value;
+      }
     }
   });
 

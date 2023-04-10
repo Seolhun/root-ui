@@ -1,3 +1,3 @@
-import { DropdownRoot } from './Dropdown.Root';
+import { DropdownWidget } from './widgets';
 
-export const Dropdown = Object.assign(DropdownRoot, {});
+export const Dropdown = DropdownWidget;

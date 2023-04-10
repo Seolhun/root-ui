@@ -1,43 +1,32 @@
 import { Listbox } from '@headlessui/react';
+import clsx from 'clsx';
 import * as React from 'react';
 
-import { Optional } from '~/utils/fx';
+import { DropdownOption, DropdownWidgetProps } from './Dropdown.Widget.types';
 
-import { DropdownOption } from './Dropdown.Widget.types';
-
-interface ElementProps {
-  children: React.ReactNode;
-
-  disabled?: boolean;
-}
-
-export interface DropdownWidgetRootProps<Option extends DropdownOption, ActionOption = Option> extends ElementProps {
-  /**
-   * Selected option
-   */
-  value: Optional<ActionOption>;
-
-  /**
-   * Change option handler
-   */
-  onChange: (option: Optional<ActionOption>) => void;
-
-  /**
-   * Could be multi select
-   */
-  multiple?: boolean;
-}
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
 export function DropdownWidgetRoot<Option extends DropdownOption, ActionOption = Option>({
   children,
-  value,
-  onChange,
+  className,
   disabled,
+  // DropdownWidgetProps
+  option,
+  onChangeOption,
   multiple,
-}: DropdownWidgetRootProps<Option, ActionOption>) {
+  // FloatingProps
+  placement,
+  strategy,
+  offset = 5,
+  // ElementProps
+  ...others
+}: ElementProps & DropdownWidgetProps<Option, ActionOption>) {
   return (
-    <Listbox value={value} onChange={onChange} disabled={disabled} multiple={multiple}>
-      <div className="relative mt-1">{children}</div>
+    <Listbox value={option} onChange={onChangeOption} disabled={disabled} multiple={multiple}>
+      <div {...others} className={clsx(className, 'relative')}>
+        {children}
+      </div>
     </Listbox>
   );
 }

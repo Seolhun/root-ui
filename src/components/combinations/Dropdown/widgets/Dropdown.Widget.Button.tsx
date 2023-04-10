@@ -2,36 +2,33 @@ import { Listbox } from '@headlessui/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
+import * as Classes from './Dropdown.Classes';
 import { DropdownWidgetButtonClassName } from './Dropdown.Widget.types';
 
-interface ElementProps {
-  className?: DropdownWidgetButtonClassName;
+type ElementType = HTMLButtonElement;
+type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 
-  children: React.ReactNode;
+export interface DropdownWidgetButtonProps extends Omit<ElementProps, 'className'> {
+  className?: DropdownWidgetButtonClassName;
 }
 
-export interface DropdownWidgetButtonProps extends ElementProps {}
-
 export const DropdownWidgetButton = React.forwardRef<HTMLButtonElement, DropdownWidgetButtonProps>(
-  ({ className, children }: DropdownWidgetButtonProps, ref) => {
+  ({ className, children, ...others }: DropdownWidgetButtonProps, ref) => {
     return (
       <Listbox.Button
+        {...others}
         ref={ref}
         className={(state) => {
           const { disabled } = state;
           return clsx(
             typeof className === 'function' ? className(state) : className,
+            Classes.BaseItem,
             'relative',
-            'flex flex-1 items-center',
-            'w-full min-h-20',
-            'py-2 px-4',
-            'bg-cream-1 dark:bg-space-1',
             'text-space-1 dark:text-cream-1',
-            'border border-cream-3 dark:border-space-3',
-            'shadow-md rounded',
-            'cursor-pointer',
+            'bg-cream-1 dark:bg-space-1',
+            'shadow rounded',
             {
-              'bg-light-2 dark:bg-dark-7 opacity-70 cursor-not-allowed': disabled,
+              'bg-neutral-1 dark:bg-neutral2-1 opacity-70 cursor-not-allowed': disabled,
             },
           );
         }}
