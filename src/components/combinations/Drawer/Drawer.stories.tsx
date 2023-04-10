@@ -62,9 +62,11 @@ const BaseTemplate = ({ Header, Body, Footer, root, placement, className, ...oth
           'w-9/12': placement === 'right' || placement === 'left',
         })}
       >
-        <Drawer.Header>{<H4>{Header}</H4>}</Drawer.Header>
-        <Drawer.Body>{Body}</Drawer.Body>
-        <Drawer.Footer>{Footer}</Drawer.Footer>
+        <Drawer.Main>
+          <Drawer.Header>{<H4>{Header}</H4>}</Drawer.Header>
+          <Drawer.Body>{Body}</Drawer.Body>
+          <Drawer.Footer>{Footer}</Drawer.Footer>
+        </Drawer.Main>
       </Drawer>
     </div>
   );
