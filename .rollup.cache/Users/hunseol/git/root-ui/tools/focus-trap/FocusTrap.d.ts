@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootUIProps } from '../../types';
+import { RootUIProps } from '~/types';
 export interface FocusTrapProps {
     initialFocus?: React.MutableRefObject<HTMLElement | null>;
     features?: Features;
@@ -19,9 +19,9 @@ declare enum Features {
     /** Enable all features. */
     All = 30
 }
-export declare const FocusTrap: (<Tag extends React.ElementType<any> = "div">({ initialFocus, containers, features, ...theirProps }: Omit<import("../../types").PropsOf<Tag>, "children" | "className" | "as" | "refName"> & import("../../types").RootUIOurProps<Tag, import("../../types").UnknownObject> & (true extends (import("../../types").PropsOf<Tag> extends infer T ? T extends import("../../types").PropsOf<Tag> ? T extends never ? never : "className" extends infer T_1 ? T_1 extends "className" ? T_1 extends keyof T ? true : never : never : never : never : never) ? {
-    className?: import("../../types").PropsOf<Tag>["className"] | ((bag: import("../../types").UnknownObject) => string) | undefined;
-} : import("../../types").UnknownObject) & FocusTrapProps, ref: React.Ref<HTMLDivElement>) => JSX.Element) & {
+export declare const FocusTrap: (<Tag extends React.ElementType<any> = "div">({ initialFocus, containers, features, ...theirProps }: Omit<import("~/types").PropsOf<Tag>, "children" | "className" | "as" | "refName"> & import("~/types").RootUIOurProps<Tag, import("~/types").UnknownObject> & (true extends (import("~/types").PropsOf<Tag> extends infer T ? T extends import("~/types").PropsOf<Tag> ? T extends never ? never : "className" extends infer T_1 ? T_1 extends "className" ? T_1 extends keyof T ? true : never : never : never : never : never) ? {
+    className?: import("~/types").PropsOf<Tag>["className"] | ((bag: import("~/types").UnknownObject) => string) | undefined;
+} : import("~/types").UnknownObject) & FocusTrapProps, ref: React.Ref<HTMLDivElement>) => JSX.Element) & {
     displayName: string;
 } & {
     features: typeof Features;

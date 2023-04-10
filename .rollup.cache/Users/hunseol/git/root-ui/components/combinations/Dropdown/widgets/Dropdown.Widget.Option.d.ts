@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { DropdownOption, DropdownOptionState, DropdownWidgetOptionClassName } from './Dropdown.Widget.types';
-interface ElementProps {
+type ElementType = HTMLLIElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
+export interface DropdownWidgetOptionProps<Option extends DropdownOption = DropdownOption> extends Omit<ElementProps, 'children' | 'className'> {
     className?: DropdownWidgetOptionClassName;
     children: (state: DropdownOptionState) => React.ReactNode;
-}
-export interface DropdownWidgetOptionProps<Option extends DropdownOption = DropdownOption> extends ElementProps {
     value: Option;
     disabled?: boolean;
 }

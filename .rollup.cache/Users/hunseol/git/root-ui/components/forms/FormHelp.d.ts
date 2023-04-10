@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootScale } from '../../system';
+import { RootScale } from '~/system';
 type ElementType = HTMLParagraphElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 export interface FormHelpProps extends ElementProps {

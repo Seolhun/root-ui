@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { IconProps } from '../../icons';
+import { IconProps } from '~/components/icons';
 import { InputProps } from '../input';
 export interface TextFieldProps extends InputProps {
     /**

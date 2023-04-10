@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RootScale } from '../../system';
+import { RootScale } from '~/system';
 type ElementType = HTMLLabelElement;
 type ElementProps = React.LabelHTMLAttributes<ElementType>;
 export interface FormLabelProps extends ElementProps {

@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { DropdownWidgetButtonClassName } from './Dropdown.Widget.types';
-interface ElementProps {
+type ElementType = HTMLButtonElement;
+type ElementProps = React.ButtonHTMLAttributes<ElementType>;
+export interface DropdownWidgetButtonProps extends Omit<ElementProps, 'className'> {
     className?: DropdownWidgetButtonClassName;
-    children: React.ReactNode;
-}
-export interface DropdownWidgetButtonProps extends ElementProps {
 }
 export declare const DropdownWidgetButton: React.ForwardRefExoticComponent<DropdownWidgetButtonProps & React.RefAttributes<HTMLButtonElement>>;
 export {};

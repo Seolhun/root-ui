@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { DrawerContextValues } from './Drawer.Context';
 import { DrawerPlacement } from './Drawer.types';
-type ElementType = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<ElementType>;
 export interface DrawerProps extends DrawerContextValues {
+    children: React.ReactNode;
     /**
      * Set this to displayed placement
      * @default right
@@ -22,5 +21,4 @@ export interface DrawerProps extends DrawerContextValues {
      */
     onConfirm?: () => void;
 }
-export declare const DrawerRoot: React.ForwardRefExoticComponent<ElementProps & DrawerProps & React.RefAttributes<HTMLDivElement>>;
-export {};
+export declare const DrawerRoot: ({ children, show, onClose, onConfirm, placement, root, ...others }: DrawerProps) => JSX.Element;

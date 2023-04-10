@@ -49,22 +49,18 @@ const BaseTemplate = ({ Header, Body, Footer, root, placement, className, ...oth
   return (
     <div>
       <Button onClick={onToggle}>Toggle Drawer</Button>
-      <Drawer
-        {...others}
-        placement={placement}
-        show={isShow}
-        onClose={onClose}
-        onConfirm={onConfirm}
-        root={root}
-        className={clsx({
-          className,
-          'h-4/6': placement === 'top' || placement === 'bottom',
-          'w-9/12': placement === 'right' || placement === 'left',
-        })}
-      >
-        <Drawer.Header>{<H4>{Header}</H4>}</Drawer.Header>
-        <Drawer.Body>{Body}</Drawer.Body>
-        <Drawer.Footer>{Footer}</Drawer.Footer>
+      <Drawer {...others} placement={placement} show={isShow} onClose={onClose} onConfirm={onConfirm} root={root}>
+        <Drawer.Panel
+          className={clsx({
+            className,
+            'h-4/6': placement === 'top' || placement === 'bottom',
+            'w-9/12': placement === 'right' || placement === 'left',
+          })}
+        >
+          <Drawer.Header>{<H4>{Header}</H4>}</Drawer.Header>
+          <Drawer.Body>{Body}</Drawer.Body>
+          <Drawer.Footer>{Footer}</Drawer.Footer>
+        </Drawer.Panel>
       </Drawer>
     </div>
   );

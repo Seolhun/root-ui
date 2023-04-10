@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { RootIntent } from '~/system';
 type ElementProps = React.HTMLAttributes<HTMLQuoteElement>;
-export interface BlockQuoteProps {
+export interface BlockQuoteProps extends ElementProps {
     /**
      * @default primary
      */
     intent?: RootIntent;
 }
-export declare const BlockQuote: React.ForwardRefExoticComponent<ElementProps & BlockQuoteProps & React.RefAttributes<HTMLQuoteElement>>;
+export declare const BlockQuote: React.ForwardRefExoticComponent<BlockQuoteProps & React.RefAttributes<HTMLQuoteElement>>;
 export {};

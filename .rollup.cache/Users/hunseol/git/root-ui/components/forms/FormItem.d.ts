@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { RootScale } from '~/system';
 import { FormLabelProps } from './FormLabel';
-import { RootScale } from '../../system';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 export interface FormItemProps extends ElementProps {

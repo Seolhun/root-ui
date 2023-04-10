@@ -4,10 +4,9 @@ import { DrawerContext, DrawerContextValues } from './Drawer.Context';
 import { DrawerFloating } from './Drawer.Floating';
 import { DrawerPlacement } from './Drawer.types';
 
-type ElementType = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<ElementType>;
-
 export interface DrawerProps extends DrawerContextValues {
+  children: React.ReactNode;
+
   /**
    * Set this to displayed placement
    * @default right
@@ -30,24 +29,28 @@ export interface DrawerProps extends DrawerContextValues {
   onConfirm?: () => void;
 }
 
-export const DrawerRoot = React.forwardRef<ElementType, ElementProps & DrawerProps>(
-  ({ children, show, onClose, onConfirm, placement = 'right', root, ...others }, ref) => {
-    const contextValue = React.useMemo(() => {
-      return {
-        show,
-        onClose,
-        onConfirm,
-        placement,
-        root,
-      };
-    }, [onClose, onConfirm, placement, root, show]);
+export const DrawerRoot = ({
+  children,
+  show,
+  onClose,
+  onConfirm,
+  placement = 'right',
+  root,
+  ...others
+}: DrawerProps) => {
+  const contextValue = React.useMemo(() => {
+    return {
+      show,
+      onClose,
+      onConfirm,
+      placement,
+      root,
+    };
+  }, [onClose, onConfirm, placement, root, show]);
 
-    return (
-      <DrawerContext.Provider value={contextValue}>
-        <DrawerFloating {...others} ref={ref}>
-          {children}
-        </DrawerFloating>
-      </DrawerContext.Provider>
-    );
-  },
-);
+  return (
+    <DrawerContext.Provider value={contextValue}>
+      <DrawerFloating {...others}>{children}</DrawerFloating>
+    </DrawerContext.Provider>
+  );
+};
