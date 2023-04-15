@@ -34,8 +34,8 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(
     const { checked, disabled } = others;
     const rootUIContext = useRootUIContext();
 
-    const lastScale = rootUIContext.scale || scale;
-    const lastIntent = rootUIContext.intent || intent;
+    const targetScale = rootUIContext.scale || scale;
+    const targetIntent = rootUIContext.intent || intent;
     return (
       <BaseSwitch.Group>
         <BaseSwitch
@@ -60,7 +60,7 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(
               md: () => 'h-[30px] w-[60px]',
               lg: () => 'h-[34px] w-[68px]',
               xl: () => 'h-[38px] w-[76px]',
-            })(lastScale),
+            })(targetScale),
             toIntentMatch({
               neutral: () => clsx('solid-neutral dark:solid-neutral2'),
               light: () => clsx('solid-light dark:solid-light2'),
@@ -71,7 +71,7 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(
               accent: () => clsx('solid-accent dark:solid-accent2'),
               warning: () => clsx('solid-warning dark:solid-warning2'),
               danger: () => clsx('solid-danger dark:solid-danger2'),
-            })(lastIntent),
+            })(targetIntent),
           )}
         >
           <span
@@ -89,7 +89,7 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(
                 md: () => clsx('h-[24px] w-[24px]', checked ? 'translate-x-[32px]' : 'translate-x-[2px]'),
                 lg: () => clsx('h-[28px] w-[28px]', checked ? 'translate-x-[36px]' : 'translate-x-[2px]'),
                 xl: () => clsx('h-[32px] w-[32px]', checked ? 'translate-x-[40px]' : 'translate-x-[2px]'),
-              })(lastScale),
+              })(targetScale),
             )}
           >
             {children}

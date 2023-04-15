@@ -23,7 +23,8 @@ export const Input = React.forwardRef<ElementType, InputProps>(
   ({ className, scale = 'md', intent = 'primary', ...others }, ref) => {
     const rootUIContext = useRootUIContext();
 
-    const lastScale = rootUIContext.scale || scale;
+    const targetScale = rootUIContext.scale || scale;
+    const targetIntent = rootUIContext.intent || intent;
     return (
       <input
         {...others}
@@ -46,7 +47,7 @@ export const Input = React.forwardRef<ElementType, InputProps>(
             md: () => 'scale-text-md scale-py-md',
             lg: () => 'scale-text-lg scale-py-lg',
             xl: () => 'scale-text-xl scale-py-xl',
-          })(lastScale),
+          })(targetScale),
           toIntentMatch({
             neutral: () => clsx('outline-neutral dark:outline-neutral'),
             light: () => clsx('outline-light dark:outline-light'),
@@ -57,7 +58,7 @@ export const Input = React.forwardRef<ElementType, InputProps>(
             accent: () => clsx('outline-accent dark:outline-accent'),
             warning: () => clsx('outline-warning dark:outline-warning'),
             danger: () => clsx('outline-danger dark:outline-danger'),
-          })(intent),
+          })(targetIntent),
         )}
       />
     );

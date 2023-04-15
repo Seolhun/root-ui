@@ -2,8 +2,7 @@ import { Tab as BaseTab } from '@headlessui/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { useRootGroupContext } from '~/components/common';
-import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '~/system';
+import { RootIntent, RootScale, toScaleMatch, toIntentMatch, useRootUIContext } from '~/system';
 
 const CLASSNAME = 'Root__Tab';
 type ElementType = HTMLLIElement;
@@ -22,43 +21,47 @@ export interface TabProps extends ElementProps {
   intent?: RootIntent;
 }
 
-export const Tab = React.forwardRef<ElementType, TabProps>(({ children, className, ...others }, ref) => {
-  const { scale, intent } = useRootGroupContext();
+export const Tab = React.forwardRef<ElementType, TabProps>(
+  ({ children, className, scale = 'md', intent = 'primary', ...others }, ref) => {
+    const rootUIContext = useRootUIContext();
 
-  return (
-    <BaseTab {...others} ref={ref} as="li" className={clsx('w-full', 'outline-none')}>
-      {({ selected }) => (
-        <div
-          className={clsx(
-            CLASSNAME,
-            className,
-            'w-full text-center',
-            'transition',
-            'rounded',
-            'cursor-pointer',
-            toScaleMatch({
-              xs: () => 'scale-p-xs',
-              sm: () => 'scale-p-sm',
-              md: () => 'scale-p-md',
-              lg: () => 'scale-p-lg',
-              xl: () => 'scale-p-xl',
-            })(scale),
-            toIntentMatch({
-              neutral: () => clsx(selected ? 'solid-neutral' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
-              light: () => clsx(selected ? 'solid-light' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
-              dark: () => clsx(selected ? 'solid-dark' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
-              primary: () => clsx(selected ? 'solid-primary' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
-              info: () => clsx(selected ? 'solid-info' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
-              success: () => clsx(selected ? 'solid-success' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
-              accent: () => clsx(selected ? 'solid-accent' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
-              warning: () => clsx(selected ? 'solid-warning' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
-              danger: () => clsx(selected ? 'solid-danger' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
-            })(intent),
-          )}
-        >
-          {children}
-        </div>
-      )}
-    </BaseTab>
-  );
-});
+    const targetScale = rootUIContext.scale || scale;
+    const targetIntent = rootUIContext.intent || intent;
+    return (
+      <BaseTab {...others} ref={ref} as="li" className={clsx('w-full', 'outline-none')}>
+        {({ selected }) => (
+          <div
+            className={clsx(
+              CLASSNAME,
+              className,
+              'w-full text-center',
+              'transition',
+              'rounded',
+              'cursor-pointer',
+              toScaleMatch({
+                xs: () => 'scale-p-xs',
+                sm: () => 'scale-p-sm',
+                md: () => 'scale-p-md',
+                lg: () => 'scale-p-lg',
+                xl: () => 'scale-p-xl',
+              })(targetScale),
+              toIntentMatch({
+                neutral: () => clsx(selected ? 'solid-neutral' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+                light: () => clsx(selected ? 'solid-light' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+                dark: () => clsx(selected ? 'solid-dark' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+                primary: () => clsx(selected ? 'solid-primary' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+                info: () => clsx(selected ? 'solid-info' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+                success: () => clsx(selected ? 'solid-success' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+                accent: () => clsx(selected ? 'solid-accent' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+                warning: () => clsx(selected ? 'solid-warning' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+                danger: () => clsx(selected ? 'solid-danger' : 'text-space-1 dark:text-cream-1 hover:bg-neutral-1'),
+              })(targetIntent),
+            )}
+          >
+            {children}
+          </div>
+        )}
+      </BaseTab>
+    );
+  },
+);

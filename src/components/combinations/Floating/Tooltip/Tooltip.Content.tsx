@@ -13,10 +13,10 @@ export interface TooltipContentProps extends ElementProps {}
 
 export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>(
   ({ children, className, ...others }, ref) => {
+    const rootUIContext = useRootUIContext();
     const contextValues = useTooltipContext();
     const { setCurrentId } = useDelayGroupContext();
     const tooltipId = React.useId();
-    const { scale } = useRootUIContext();
 
     const mergedRef = useMergeRefs([contextValues?.refs.setFloating || null, ref]);
 
@@ -30,6 +30,7 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
       }
     }, [contextValues.open, tooltipId, setCurrentId]);
 
+    const targetScale = rootUIContext.scale;
     return (
       <FloatingPortal root={contextValues.root}>
         {contextValues?.open && (
@@ -50,7 +51,7 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
                 md: () => 'scale-text-md scale-p-md',
                 lg: () => 'scale-text-lg scale-p-lg',
                 xl: () => 'scale-text-xl scale-p-xl',
-              })(scale),
+              })(targetScale),
             )}
             style={{
               ...others.style,

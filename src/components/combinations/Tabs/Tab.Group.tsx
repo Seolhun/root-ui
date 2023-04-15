@@ -2,7 +2,6 @@ import { Tab } from '@headlessui/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootGroupContextValues, RootGroupProvider } from '~/components/common';
 import { RootIntent, RootScale } from '~/system';
 
 const CLASSNAME = 'Root__TabGroup';
@@ -63,27 +62,18 @@ export const TabGroup = React.forwardRef<ElementType, TabGroupProps>(
     },
     ref,
   ) => {
-    const contextValue = React.useMemo<RootGroupContextValues>(() => {
-      return {
-        scale,
-        intent,
-      };
-    }, [intent, scale]);
-
     return (
-      <RootGroupProvider value={contextValue}>
-        <Tab.Group
-          defaultIndex={defaultIndex}
-          onChange={onChangeTab}
-          selectedIndex={selectedIndex}
-          vertical={vertical}
-          manual={manual}
-        >
-          <div {...others} ref={ref} className={clsx(CLASSNAME, className, 'group', 'w-full')}>
-            {children}
-          </div>
-        </Tab.Group>
-      </RootGroupProvider>
+      <Tab.Group
+        defaultIndex={defaultIndex}
+        onChange={onChangeTab}
+        selectedIndex={selectedIndex}
+        vertical={vertical}
+        manual={manual}
+      >
+        <div {...others} ref={ref} className={clsx(CLASSNAME, className, 'group', 'w-full')}>
+          {children}
+        </div>
+      </Tab.Group>
     );
   },
 );
