@@ -2,7 +2,7 @@ import { FloatingPortal, useDelayGroup, useDelayGroupContext, useMergeRefs } fro
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { toScaleMatch, useRootUIContext } from '~/system';
+import { toScaleMatch, useRootUI } from '~/system';
 
 import { useTooltipContext } from './useTooltipContext';
 
@@ -13,7 +13,7 @@ export interface TooltipContentProps extends ElementProps {}
 
 export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>(
   ({ children, className, ...others }, ref) => {
-    const rootUIContext = useRootUIContext();
+    const { scale } = useRootUI();
     const contextValues = useTooltipContext();
     const { setCurrentId } = useDelayGroupContext();
     const tooltipId = React.useId();
@@ -30,7 +30,6 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
       }
     }, [contextValues.open, tooltipId, setCurrentId]);
 
-    const targetScale = rootUIContext.scale;
     return (
       <FloatingPortal root={contextValues.root}>
         {contextValues?.open && (
@@ -51,7 +50,7 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
                 md: () => 'scale-text-md scale-p-md',
                 lg: () => 'scale-text-lg scale-p-lg',
                 xl: () => 'scale-text-xl scale-p-xl',
-              })(targetScale),
+              })(scale),
             )}
             style={{
               ...others.style,

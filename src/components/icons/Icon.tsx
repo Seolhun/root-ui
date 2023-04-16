@@ -3,9 +3,7 @@ import * as SolidHeroIcon from '@heroicons/react/24/solid';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntentInherit, RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUIContext } from '~/system';
-
-import { Box } from '../common';
+import { RootIntentInherit, RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '~/system';
 
 const CLASSNAME = 'Root__Icon';
 type ElementType = HTMLDivElement;
@@ -36,42 +34,46 @@ export interface IconProps extends ElementProps {
 }
 
 export const Icon = React.forwardRef<ElementType, IconProps>(
-  ({ className, icon, intent = 'inherit', scale = 'md', variant = 'outline', ...others }, ref) => {
-    const rootUIContext = useRootUIContext();
+  ({ className, icon, variant = 'outline', ...others }, ref) => {
+    const { scale, intent } = useRootUI({
+      scale: others?.scale ?? 'md',
+      intent: others?.intent ?? 'inherit',
+    });
 
     const Component = React.useMemo(() => {
       return variant === 'outline' ? OutlineHeroIcon[icon] : SolidHeroIcon[icon];
     }, [variant, icon]);
 
-    const targetScale = rootUIContext.scale || scale;
-    const targetIntent = rootUIContext.intent || intent;
     return (
-      <Box
+      <i
         {...others}
         ref={ref}
-        as="i"
-        scaleClassName={toScaleMatch({
-          xs: () => 'scale-xs',
-          sm: () => 'scale-sm',
-          md: () => 'scale-md',
-          lg: () => 'scale-lg',
-          xl: () => 'scale-xl',
-        })(targetScale)}
-        intentClassName={toIntentMatch({
-          neutral: () => 'text-neutral dark:text-neutral2',
-          light: () => 'text-light dark:text-light2',
-          dark: () => 'text-dark dark:text-dark2',
-          primary: () => 'text-primary dark:text-primary2',
-          info: () => 'text-info dark:text-info2',
-          success: () => 'text-success dark:text-success2',
-          accent: () => 'text-accent dark:text-accent2',
-          warning: () => 'text-warning dark:text-warning2',
-          danger: () => 'text-danger dark:text-danger2',
-        })(targetIntent)}
-        className={clsx(CLASSNAME, className, 'inline-flex items-center justify-center')}
+        className={clsx(
+          CLASSNAME,
+          className,
+          'inline-flex items-center justify-center',
+          toScaleMatch({
+            xs: () => 'scale-xs',
+            sm: () => 'scale-sm',
+            md: () => 'scale-md',
+            lg: () => 'scale-lg',
+            xl: () => 'scale-xl',
+          })(scale),
+          toIntentMatch({
+            neutral: () => 'text-neutral dark:text-neutral2',
+            light: () => 'text-light dark:text-light2',
+            dark: () => 'text-dark dark:text-dark2',
+            primary: () => 'text-primary dark:text-primary2',
+            info: () => 'text-info dark:text-info2',
+            success: () => 'text-success dark:text-success2',
+            accent: () => 'text-accent dark:text-accent2',
+            warning: () => 'text-warning dark:text-warning2',
+            danger: () => 'text-danger dark:text-danger2',
+          })(intent),
+        )}
       >
         <Component className="w-full" />
-      </Box>
+      </i>
     );
   },
 );

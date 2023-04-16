@@ -1,12 +1,8 @@
 import * as React from 'react';
 
-import { RootScale, RootIntent } from './RootTheme.types';
+import { RootUIGroupContextValues } from './RootUIGroup.Context';
 
-export interface RootUIContextValues {
-  scale?: RootScale;
-
-  intent?: RootIntent;
-}
+export interface RootUIContextValues extends RootUIGroupContextValues {}
 
 export const RootUIContext = React.createContext<RootUIContextValues>({});
 RootUIContext.displayName = 'RootUIContext';
