@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["global-externals:@storybook/addons", "../../../.storybook/manager.js"],
+  "sourcesContent": ["export default __STORYBOOKADDONS__;\nconst { addons, types, mockChannel } = __STORYBOOKADDONS__;\nexport { addons, types, mockChannel };", "import { addons } from '@storybook/addons';\n\n/**\n * @see https://storybook.js.org/docs/react/configure/features-and-behavior\n */\naddons.setConfig({\n  isFullscreen: false,\n  showNav: true,\n  showPanel: true,\n  panelPosition: 'bottom',\n  enableShortcuts: true,\n  isToolshown: true,\n  theme: undefined,\n  selectedPanel: undefined,\n  initialActive: 'sidebar',\n  sidebar: {\n    showRoots: false,\n    collapsedRoots: ['other'],\n  },\n  toolbar: {\n    title: {\n      hidden: false,\n    },\n    zoom: {\n      hidden: false,\n    },\n    eject: {\n      hidden: false,\n    },\n    copy: {\n      hidden: false,\n    },\n    fullscreen: {\n      hidden: false,\n    },\n  },\n});\n"],
+  "mappings": ";AAAA,IAAOA,EAAQ,oBACT,CAAE,OAAAC,EAAQ,MAAAC,EAAO,YAAAC,CAAY,EAAI,oBCIvCC,EAAO,UAAU,CACf,aAAc,GACd,QAAS,GACT,UAAW,GACX,cAAe,SACf,gBAAiB,GACjB,YAAa,GACb,MAAO,OACP,cAAe,OACf,cAAe,UACf,QAAS,CACP,UAAW,GACX,eAAgB,CAAC,OAAO,CAC1B,EACA,QAAS,CACP,MAAO,CACL,OAAQ,EACV,EACA,KAAM,CACJ,OAAQ,EACV,EACA,MAAO,CACL,OAAQ,EACV,EACA,KAAM,CACJ,OAAQ,EACV,EACA,WAAY,CACV,OAAQ,EACV,CACF,CACF,CAAC",
+  "names": ["addons_default", "addons", "types", "mockChannel", "addons"]
+}
