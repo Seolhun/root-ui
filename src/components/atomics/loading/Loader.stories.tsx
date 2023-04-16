@@ -30,12 +30,12 @@ const BaseTemplate = ({ children, ...others }: LoaderProps) => {
 const ScaleLoaderStories = ({ ...others }: LoaderProps) => {
   return (
     <StorybookContent>
-      <StorybookContent.Light>
+      <StorybookContent.Light className="flex flex-col">
         {storiesScaleOptions.map((scale) => (
           <BaseTemplate {...others} key={scale} scale={scale} />
         ))}
       </StorybookContent.Light>
-      <StorybookContent.Dark>
+      <StorybookContent.Dark className="flex flex-col">
         {storiesScaleOptions.map((scale) => (
           <BaseTemplate {...others} key={scale} scale={scale} />
         ))}
@@ -50,12 +50,12 @@ ScaleLoader.args = {};
 const IntentLoadersStories = ({ children, ...others }: LoaderProps) => {
   return (
     <StorybookContent>
-      <StorybookContent.Light>
+      <StorybookContent.Light className="flex flex-col">
         {storiesIntentOptions.map((intent) => (
           <BaseTemplate {...others} key={intent} intent={intent} />
         ))}
       </StorybookContent.Light>
-      <StorybookContent.Dark>
+      <StorybookContent.Dark className="flex flex-col">
         {storiesIntentOptions.map((intent) => (
           <BaseTemplate {...others} key={intent} intent={intent} />
         ))}
