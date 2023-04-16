@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
 import { Avatar } from '~/components/atomics';
@@ -87,7 +87,7 @@ const _Dropdowns = (props: DropdownWidgetProps<ProfileOption, ProfileOption[]>) 
   );
 };
 
-export const Dropdowns: Story<DropdownWidgetProps<ProfileOption, ProfileOption[]>> = _Dropdowns.bind({});
+export const Dropdowns: StoryFn<DropdownWidgetProps<ProfileOption, ProfileOption[]>> = _Dropdowns.bind({});
 Dropdowns.args = {};
 
 const MultiDropdownTemplate = ({ ...others }: DropdownWidgetProps<ProfileOption, ProfileOption[]>) => {
@@ -174,7 +174,7 @@ const _MultiDropdowns = (props: DropdownWidgetProps<ProfileOption, ProfileOption
   );
 };
 
-export const MultiDropdowns: Story<DropdownWidgetProps<ProfileOption, ProfileOption[]>> = _MultiDropdowns.bind({});
+export const MultiDropdowns: StoryFn<DropdownWidgetProps<ProfileOption, ProfileOption[]>> = _MultiDropdowns.bind({});
 MultiDropdowns.args = {
   multiple: true,
 };

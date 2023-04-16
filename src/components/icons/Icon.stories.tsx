@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
 import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
@@ -54,7 +54,7 @@ const IconsStories = ({ children, ...others }: IconProps) => {
   );
 };
 
-export const Icons: Story<IconProps> = IconsStories.bind({});
+export const Icons: StoryFn<IconProps> = IconsStories.bind({});
 Icons.args = {
   icon: 'RocketLaunchIcon',
 };
@@ -98,7 +98,7 @@ const InheritIconsStories = ({ children, color, ...others }: IconProps) => {
   );
 };
 
-export const InheritIcons: Story<IconProps> = InheritIconsStories.bind({});
+export const InheritIcons: StoryFn<IconProps> = InheritIconsStories.bind({});
 InheritIcons.args = {
   icon: 'RocketLaunchIcon',
   color: 'blue',
@@ -143,7 +143,7 @@ const IntentIconsStories = ({ children, ...others }: IconProps) => {
   );
 };
 
-export const IntentIcons: Story<IconProps> = IntentIconsStories.bind({});
+export const IntentIcons: StoryFn<IconProps> = IntentIconsStories.bind({});
 IntentIcons.args = {
   children: 'Icon',
   icon: 'RocketLaunchIcon',

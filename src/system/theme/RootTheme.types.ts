@@ -1,3 +1,4 @@
+export type RootIntentNone = 'none';
 export type RootIntentInherit = 'inherit';
 
 export type RootIntent =
@@ -9,10 +10,12 @@ export type RootIntent =
   | 'danger'
   | 'light'
   | 'dark'
-  | 'neutral';
+  | 'neutral'
+  | RootIntentInherit
+  | RootIntentNone;
 
 export type RootScaleNone = 'none';
-export type RootScale = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type RootScale = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | RootScaleNone;
 
 type Alignment = 'start' | 'end';
 type Side = 'top' | 'right' | 'bottom' | 'left';

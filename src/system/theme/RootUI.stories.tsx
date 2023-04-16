@@ -1,107 +1,147 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
-import { FormHelp, FormItem, FormLabel, H6, Input } from '~/components';
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
+import { Button, FormHelp, FormItem, FormLabel, H6, Input, Select } from '~/components';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
-import { RootUIContextValues, RootUIProvider, RootUIProviderProps } from './RootUI.Context';
-import { RootUIGroupContextValues, RootUIGroupProvider } from './RootUIGroup.Context';
+import { RootIntent, RootScale } from './RootTheme.types';
+import { RootUIProvider, RootUIProviderProps } from './RootUI.Context';
+import { RootUIGroupProvider } from './RootUIGroup.Context';
 
 export default {
   title: 'System/RootUI',
-  component: RootUIGroupProvider,
-  scale: {
-    control: {
-      type: 'select',
-      options: storiesScaleOptions,
-    },
-  },
-  intent: {
-    control: {
-      type: 'select',
-      options: storiesIntentOptions,
-    },
-  },
 };
 
-const GroupContextTemplate = ({ ...others }: RootUIGroupContextValues) => {
+const GroupContextTemplate = () => {
+  const [localScale, setLocalScale] = React.useState<RootScale>('md');
+  const [groupScale, setGroupScale] = React.useState<RootScale>('md');
+  const [globalScale, setGlobalScale] = React.useState<RootScale>('md');
+  const [localIntent, setLocalIntent] = React.useState<RootIntent>('primary');
+  const [groupIntent, setGroupIntent] = React.useState<RootIntent>('primary');
+  const [globalIntent, setGlobalIntent] = React.useState<RootIntent>('primary');
+
   return (
-    <RootUIGroupProvider {...others}>
-      <div className="space-y-4">
-        <H6>Each props</H6>
-        <div>
-          <FormLabel scale="sm">FormLabel - sm</FormLabel>
-          <Input scale="lg" placeholder="Input - lg" />
-          <FormHelp scale="xs">FormHelp - xs</FormHelp>
+    <div className="flex flex-col space-y-12">
+      <div className="flex flex-col space-y-2">
+        <div className="flex space-x-4">
+          <FormItem label="1. Local scale">
+            <Select className="px-4" onChange={(e) => setLocalScale(e.target.value as RootScale)} value={localScale}>
+              {storiesScaleOptions.map((scale) => (
+                <option key={scale} value={scale}>
+                  {scale}
+                </option>
+              ))}
+            </Select>
+          </FormItem>
+          <FormItem label="2. Group scale">
+            <Select className="px-4" onChange={(e) => setGroupScale(e.target.value as RootScale)} value={groupScale}>
+              {storiesScaleOptions.map((scale) => (
+                <option key={scale} value={scale}>
+                  {scale}
+                </option>
+              ))}
+            </Select>
+          </FormItem>
+          <FormItem label="3. Global scale">
+            <Select className="px-4" onChange={(e) => setGlobalScale(e.target.value as RootScale)} value={globalScale}>
+              {storiesScaleOptions.map((scale) => (
+                <option key={scale} value={scale}>
+                  {scale}
+                </option>
+              ))}
+            </Select>
+          </FormItem>
         </div>
-
-        <div>
-          <H6>Group Context</H6>
-          <div>
-            <FormLabel>FormLabel</FormLabel>
-            <Input />
-            <FormHelp>FormHelp</FormHelp>
-          </div>
-        </div>
-      </div>
-    </RootUIGroupProvider>
-  );
-};
-
-const _GroupContext = ({ children, ...others }: RootUIProviderProps) => {
-  return (
-    <StorybookContent>
-      <StorybookContent.Light className="flex-col" noAlign noGap>
-        <GroupContextTemplate {...others}></GroupContextTemplate>
-      </StorybookContent.Light>
-      <StorybookContent.Dark className="flex-col" noAlign noGap>
-        <GroupContextTemplate {...others}></GroupContextTemplate>
-      </StorybookContent.Dark>
-    </StorybookContent>
-  );
-};
-
-export const GroupContext: Story<RootUIProviderProps> = _GroupContext.bind({});
-GroupContext.args = {};
-
-const GlobalContextTemplate = ({ ...others }: RootUIContextValues) => {
-  return (
-    <RootUIProvider {...others}>
-      <div className="space-y-4">
-        <div>
-          <H6>Group Context</H6>
-          <div>
-            <FormItem label="FormLabel" help="FormHelp">
-              <Input />
+        <div className="flex flex-col space-y-4">
+          <div className="flex space-x-4">
+            <FormItem label="1. Local intent">
+              <Select
+                className="px-4"
+                onChange={(e) => setLocalIntent(e.target.value as RootIntent)}
+                value={localIntent}
+              >
+                {storiesIntentOptions.map((intent) => (
+                  <option key={intent} value={intent}>
+                    {intent}
+                  </option>
+                ))}
+              </Select>
+            </FormItem>
+            <FormItem label="2. Group intent">
+              <Select
+                className="px-4"
+                onChange={(e) => setGroupIntent(e.target.value as RootIntent)}
+                value={groupIntent}
+              >
+                {storiesIntentOptions.map((intent) => (
+                  <option key={intent} value={intent}>
+                    {intent}
+                  </option>
+                ))}
+              </Select>
+            </FormItem>
+            <FormItem label="3. Global intent">
+              <Select
+                className="px-4"
+                onChange={(e) => setGlobalIntent(e.target.value as RootIntent)}
+                value={globalIntent}
+              >
+                {storiesIntentOptions.map((intent) => (
+                  <option key={intent} value={intent}>
+                    {intent}
+                  </option>
+                ))}
+              </Select>
             </FormItem>
           </div>
         </div>
-
-        <div>
-          <H6>Global Context</H6>
-          <div>
-            <FormLabel>FormLabel</FormLabel>
-            <Input />
-            <FormHelp>FormHelp</FormHelp>
-          </div>
-        </div>
       </div>
-    </RootUIProvider>
+
+      <div className="space-y-4">
+        <RootUIProvider intent={globalIntent} scale={globalScale}>
+          <RootUIGroupProvider intent={groupIntent} scale={groupScale}>
+            <div>
+              <H6>Each props</H6>
+              <div>
+                <FormLabel scale={localScale}>FormLabel</FormLabel>
+                <Input intent={localIntent} scale={localScale} placeholder="Input" />
+                <FormHelp scale={localScale}>FormHelp</FormHelp>
+                <Button intent={localIntent} scale={localScale}>
+                  Button
+                </Button>
+              </div>
+            </div>
+
+            <div>
+              <H6>Group Context</H6>
+              <div>
+                <FormLabel scale={localScale}>FormLabel</FormLabel>
+                <Input intent={localIntent} scale={localScale} placeholder="Input" />
+                <FormHelp scale={localScale}>FormHelp</FormHelp>
+                <Button intent={localIntent} scale={localScale}>
+                  Button
+                </Button>
+              </div>
+            </div>
+          </RootUIGroupProvider>
+        </RootUIProvider>
+      </div>
+    </div>
   );
 };
 
-const _GlobalContext = ({ children, ...others }: RootUIProviderProps) => {
+const _RootUIContext = () => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col" noAlign noGap>
-        <GlobalContextTemplate {...others} />
+        <GroupContextTemplate></GroupContextTemplate>
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col" noAlign noGap>
-        <GlobalContextTemplate {...others} />
+        <GroupContextTemplate></GroupContextTemplate>
       </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const GlobalContext: Story<RootUIProviderProps> = _GlobalContext.bind({});
-GlobalContext.args = {};
+export const RootUIContext: StoryFn<RootUIProviderProps> = _RootUIContext.bind({});
+RootUIContext.args = {};

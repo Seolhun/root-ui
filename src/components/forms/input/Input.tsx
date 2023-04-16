@@ -21,9 +21,12 @@ export interface InputProps extends ElementProps {
 
 export const Input = React.forwardRef<ElementType, InputProps>(({ className, ...others }, ref) => {
   const { scale, intent } = useRootUI({
-    scale: others?.scale ?? 'md',
-    intent: others?.intent ?? 'primary',
+    intent: others?.intent,
+    defaultIntent: 'primary',
+    scale: others?.scale,
+    defaultScale: 'md',
   });
+
   return (
     <input
       {...others}

@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
 import { storiesIntentOptions, StorybookContent } from '~/stories';
@@ -22,7 +22,7 @@ const BaseTemplate = ({ children, ...others }) => {
   return <BlockQuote {...others}>{children}</BlockQuote>;
 };
 
-const BlockQuotes: Story<BlockQuoteProps> = ({ children, ...others }) => {
+const BlockQuotes: StoryFn<BlockQuoteProps> = ({ children, ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex flex-col space-y-4" noAlign noGap>
@@ -41,7 +41,7 @@ BlockQuoteStories.args = {
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusamus animi aliquid molestiae vitae similique asperiores illum, sit quisquam, veritatis rerum. Illum, quia ut? Nemo sunt explicabo in provident id?',
 };
 
-const IntentBlockQuotes: Story<BlockQuoteProps> = ({ children, ...others }) => {
+const IntentBlockQuotes: StoryFn<BlockQuoteProps> = ({ children, ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex flex-col space-y-4" noAlign noGap>

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '~/system';
+import { RootIntent, RootScale, toScaleMatch, toIntentMatch, useRootUI } from '~/system';
 
 const CLASSNAME = 'Root__Button';
 type ElementType = HTMLButtonElement;
@@ -26,7 +26,14 @@ export interface ButtonProps extends ElementProps {
 }
 
 export const Button = React.forwardRef<ElementType, ButtonProps>(
-  ({ className, children, scale = 'md', intent = 'primary', outlined, ...others }, ref) => {
+  ({ className, children, outlined, ...others }, ref) => {
+    const { scale, intent } = useRootUI({
+      intent: others?.intent,
+      defaultIntent: 'primary',
+      scale: others?.scale,
+      defaultScale: 'md',
+    });
+
     return (
       <button
         role="button"

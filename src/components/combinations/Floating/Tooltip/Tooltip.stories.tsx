@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
 import { Button } from '~/components/atomics';
@@ -32,7 +32,7 @@ const BaseTemplate = ({ root, ...others }) => {
   );
 };
 
-const TooltipsTemplate: Story<TooltipProps> = ({ ...others }) => {
+const TooltipsTemplate: StoryFn<TooltipProps> = ({ ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light>{({ root }) => <BaseTemplate {...others} root={root} />}</StorybookContent.Light>
@@ -44,7 +44,7 @@ const TooltipsTemplate: Story<TooltipProps> = ({ ...others }) => {
 export const Tooltips = TooltipsTemplate.bind({});
 Tooltips.args = {};
 
-const ScaleTooltipTemplate: Story<TooltipProps> = ({ ...others }) => {
+const ScaleTooltipTemplate: StoryFn<TooltipProps> = ({ ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex flex-col space-y-2">

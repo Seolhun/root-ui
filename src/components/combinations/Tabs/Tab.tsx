@@ -23,8 +23,10 @@ export interface TabProps extends ElementProps {
 
 export const Tab = React.forwardRef<ElementType, TabProps>(({ children, className, ...others }, ref) => {
   const { scale, intent } = useRootUI({
-    scale: others?.scale ?? 'md',
-    intent: others?.intent ?? 'primary',
+    intent: others?.intent,
+    defaultIntent: 'primary',
+    scale: others?.scale,
+    defaultScale: 'md',
   });
 
   return (

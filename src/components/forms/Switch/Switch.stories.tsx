@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
 import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
@@ -38,7 +38,7 @@ const BaseTemplate = ({ children, checked, ...others }: SwitchProps) => {
   );
 };
 
-const SwitchTemplate: Story<SwitchProps> = ({ ...others }) => {
+const SwitchTemplate: StoryFn<SwitchProps> = ({ ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -62,7 +62,7 @@ const SwitchTemplate: Story<SwitchProps> = ({ ...others }) => {
 export const Switches = SwitchTemplate.bind({});
 Switches.args = {};
 
-const ScaleSwitchTemplate: Story<SwitchProps> = ({ ...others }) => {
+const ScaleSwitchTemplate: StoryFn<SwitchProps> = ({ ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -84,7 +84,7 @@ ScaleSwitch.args = {
   disabled: false,
 };
 
-const IntentSwitchTemplate: Story<SwitchProps> = ({ ...others }) => {
+const IntentSwitchTemplate: StoryFn<SwitchProps> = ({ ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
