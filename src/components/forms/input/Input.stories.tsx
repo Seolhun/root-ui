@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import * as React from 'react';
 
 import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
@@ -42,7 +43,7 @@ const InputTemplate = ({ children, ...others }: InputProps) => {
   );
 };
 
-export const Inputs = InputTemplate.bind({});
+export const Inputs: Story<InputProps> = InputTemplate.bind({});
 Inputs.args = {
   placeholder: 'placeholder',
 };
@@ -64,7 +65,7 @@ const ScaleInputTemplate = ({ ...others }: InputProps) => {
   );
 };
 
-export const ScaleInputs = ScaleInputTemplate.bind({});
+export const ScaleInputs: Story<InputProps> = ScaleInputTemplate.bind({});
 ScaleInputs.args = {
   value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
   disabled: false,
@@ -87,7 +88,7 @@ const IntentInputTemplate = ({ ...others }: InputProps) => {
   );
 };
 
-export const IntentInputs = IntentInputTemplate.bind({});
+export const IntentInputs: Story<InputProps> = IntentInputTemplate.bind({});
 IntentInputs.args = {
   value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
   disabled: false,

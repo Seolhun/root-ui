@@ -1,18 +1,12 @@
 import * as React from 'react';
 
-import { RootScale, RootUIProvider } from '~/system';
+import { RootUIGroupContextValues, RootUIGroupProvider } from '~/system';
 
 import { TooltipOptions } from './Tooltip.types';
 import { TooltipContext, useTooltip } from './useTooltipContext';
 
-export interface TooltipProps extends TooltipOptions {
+export interface TooltipProps extends TooltipOptions, RootUIGroupContextValues {
   children: React.ReactNode;
-
-  /**
-   * Set this to change scale
-   * @default md
-   */
-  scale?: RootScale;
 }
 
 export const TooltipRoot = ({ children, scale = 'md', ...options }: TooltipProps) => {
@@ -20,7 +14,7 @@ export const TooltipRoot = ({ children, scale = 'md', ...options }: TooltipProps
 
   return (
     <TooltipContext.Provider value={tooltipValues}>
-      <RootUIProvider scale={scale}>{children}</RootUIProvider>
+      <RootUIGroupProvider scale={scale}>{children}</RootUIGroupProvider>
     </TooltipContext.Provider>
   );
 };

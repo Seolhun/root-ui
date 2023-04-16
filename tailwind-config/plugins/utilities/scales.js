@@ -7,18 +7,18 @@ const SCALES = {
     xl: 16,
   },
   PADDING: {
-    xs: { y: 4, x: 4 },
-    sm: { y: 4.5, x: 6 },
-    md: { y: 5, x: 8 },
-    lg: { y: 6, x: 10 },
-    xl: { y: 6.5, x: 12 },
+    xs: { y: 2, x: 4 },
+    sm: { y: 3, x: 6 },
+    md: { y: 4, x: 8 },
+    lg: { y: 5, x: 10 },
+    xl: { y: 6, x: 12 },
   },
   TEXT: {
-    xs: 'text-4',
-    sm: 'text-5',
-    md: 'text-6',
-    lg: 'text-7',
-    xl: 'text-8',
+    xs: 'text-5',
+    sm: 'text-6',
+    md: 'text-7',
+    lg: 'text-8',
+    xl: 'text-9',
   },
 };
 

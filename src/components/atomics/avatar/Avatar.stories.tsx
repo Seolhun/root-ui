@@ -1,3 +1,4 @@
+import { Story } from '@storybook/react';
 import * as React from 'react';
 
 import { storiesScaleOptions, StorybookContent } from '~/stories';
@@ -24,12 +25,12 @@ const BaseTemplate = ({ ...others }: AvatarProps) => {
 const ScaleAvatarStories = ({ ...others }: AvatarProps) => {
   return (
     <StorybookContent>
-      <StorybookContent.Light>
+      <StorybookContent.Light className="flex flex-col">
         {storiesScaleOptions.map((scale) => (
           <BaseTemplate {...others} key={scale} scale={scale} />
         ))}
       </StorybookContent.Light>
-      <StorybookContent.Dark>
+      <StorybookContent.Dark className="flex flex-col">
         {storiesScaleOptions.map((scale) => (
           <BaseTemplate {...others} key={scale} scale={scale} />
         ))}
@@ -38,5 +39,5 @@ const ScaleAvatarStories = ({ ...others }: AvatarProps) => {
   );
 };
 
-export const ScaleAvatar = ScaleAvatarStories.bind({});
+export const ScaleAvatar: Story<AvatarProps> = ScaleAvatarStories.bind({});
 ScaleAvatar.args = {};
