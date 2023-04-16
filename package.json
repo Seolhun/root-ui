@@ -117,7 +117,7 @@
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-scss": "^4.0.0",
     "rollup-plugin-visualizer": "^5.9.0",
-    "sass": "^1.58.3",
+    "sass": "^1.62.0",
     "sass-loader": "^13.2.0",
     "storybook": "^7.0.5",
     "style-loader": "^3.3.1",
