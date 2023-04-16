@@ -32,8 +32,10 @@ export interface SwitchProps {
 export const Switch = React.forwardRef<ElementType, SwitchProps>(({ className, children, ...others }, ref) => {
   const { checked, disabled } = others;
   const { scale, intent } = useRootUI({
-    scale: others?.scale ?? 'md',
-    intent: others?.intent ?? 'primary',
+    intent: others?.intent,
+    defaultIntent: 'primary',
+    scale: others?.scale,
+    defaultScale: 'md',
   });
 
   return (

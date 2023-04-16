@@ -1,12 +1,10 @@
 import * as React from 'react';
-import { RootScale, RootIntent } from './RootTheme.types';
-export interface RootUIContextValues {
-    scale?: RootScale;
-    intent?: RootIntent;
+import { RootUIGroupContextValues } from './RootUIGroup.Context';
+export interface RootUIContextValues extends RootUIGroupContextValues {
 }
 export declare const RootUIContext: React.Context<RootUIContextValues>;
 export interface RootUIProviderProps extends RootUIContextValues {
     children: React.ReactNode;
 }
-export declare function RootUIProvider({ children, scale, intent }: RootUIProviderProps): JSX.Element;
+export declare function RootUIProvider({ children, intent, defaultIntent, scale, defaultScale }: RootUIProviderProps): JSX.Element;
 export declare function useRootUIContext(): RootUIContextValues;

@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
@@ -66,7 +66,7 @@ const BaseTemplate = ({ Header, Body, Footer, root, placement, className, ...oth
   );
 };
 
-const Drawers: Story<BaseTemplateProps> = (props) => {
+const Drawers: StoryFn<BaseTemplateProps> = (props) => {
   return (
     <StorybookContent>
       <StorybookContent.Light>{({ root }) => <BaseTemplate {...props} root={root} />}</StorybookContent.Light>

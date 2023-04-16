@@ -36,8 +36,10 @@ export interface IconProps extends ElementProps {
 export const Icon = React.forwardRef<ElementType, IconProps>(
   ({ className, icon, variant = 'outline', ...others }, ref) => {
     const { scale, intent } = useRootUI({
-      scale: others?.scale ?? 'md',
-      intent: others?.intent ?? 'inherit',
+      intent: others?.intent,
+      defaultIntent: 'inherit',
+      scale: others?.scale,
+      defaultScale: 'md',
     });
 
     const Component = React.useMemo(() => {

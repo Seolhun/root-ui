@@ -1,12 +1,13 @@
 import * as React from 'react';
 
-import { RootScale, RootIntent, RootIntentInherit } from './RootTheme.types';
-import { RootScaleNone } from './RootTheme.types';
+import { RootScale, RootIntent } from './RootTheme.types';
 
 export interface RootUIGroupContextValues {
-  scale?: RootScale | RootScaleNone;
+  scale?: RootScale;
+  defaultScale?: RootScale;
 
-  intent?: RootIntent | RootIntentInherit;
+  intent?: RootIntent;
+  defaultIntent?: RootIntent;
 }
 
 export const RootUIGroupContext = React.createContext<RootUIGroupContextValues>({});
@@ -16,13 +17,21 @@ export interface RootUIGroupProviderProps extends RootUIGroupContextValues {
   children: React.ReactNode;
 }
 
-export function RootUIGroupProvider({ children, scale, intent }: RootUIGroupProviderProps) {
+export function RootUIGroupProvider({
+  children,
+  intent,
+  defaultIntent,
+  scale,
+  defaultScale,
+}: RootUIGroupProviderProps) {
   const contextValues = React.useMemo(() => {
     return {
-      scale,
       intent,
+      defaultIntent,
+      scale,
+      defaultScale,
     };
-  }, [scale, intent]);
+  }, [intent, defaultIntent, scale, defaultScale]);
 
   return <RootUIGroupContext.Provider value={contextValues}>{children}</RootUIGroupContext.Provider>;
 }

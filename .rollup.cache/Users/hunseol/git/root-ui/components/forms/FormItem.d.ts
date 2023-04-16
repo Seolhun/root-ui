@@ -5,8 +5,8 @@ type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 export interface FormItemProps extends ElementProps {
     /**
-     * Set this to change scale
-     * @default md
+     * scale
+     * @default 'md'
      */
     scale?: RootScale;
     /**

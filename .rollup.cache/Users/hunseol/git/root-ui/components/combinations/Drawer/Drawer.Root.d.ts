@@ -2,7 +2,7 @@ import * as React from 'react';
 import { DrawerContextValues } from './Drawer.Context';
 import { DrawerPlacement } from './Drawer.types';
 export interface DrawerProps extends DrawerContextValues {
-    children: React.ReactNode;
+    children?: React.ReactNode;
     /**
      * Set this to displayed placement
      * @default right

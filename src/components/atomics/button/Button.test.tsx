@@ -15,6 +15,7 @@ describe('Button Test', () => {
   test('Button: Intent', () => {
     let button = render(<Button>Button</Button>);
     expect(button.container.getElementsByClassName('solid-primary').length).toBe(1);
+
     button = render(<Button intent="success">Button</Button>);
     expect(button.container.getElementsByClassName('solid-success').length).toBe(1);
   });

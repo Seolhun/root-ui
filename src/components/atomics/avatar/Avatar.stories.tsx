@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
 import { storiesScaleOptions, StorybookContent } from '~/stories';
@@ -39,5 +39,5 @@ const ScaleAvatarStories = ({ ...others }: AvatarProps) => {
   );
 };
 
-export const ScaleAvatar: Story<AvatarProps> = ScaleAvatarStories.bind({});
+export const ScaleAvatar: StoryFn<AvatarProps> = ScaleAvatarStories.bind({});
 ScaleAvatar.args = {};

@@ -4,8 +4,8 @@ type ElementType = HTMLParagraphElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 export interface FormHelpProps extends ElementProps {
     /**
-     * Set this to change scale
-     * @default md
+     * scale
+     * @default 'md'
      */
     scale?: RootScale;
 }

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import * as React from 'react';
 
 import { Box } from '~/components/common/box';
-import { RootScale, RootScaleNone, toScaleMatch } from '~/system';
+import { RootScale, toScaleMatch } from '~/system';
 
 const CLASSNAME = 'Root__Card';
 type ElementType = HTMLDivElement;
@@ -13,7 +13,7 @@ export interface CardProps extends ElementProps {
    * Set this to change scale
    * @default md
    */
-  scale?: RootScale | RootScaleNone;
+  scale?: RootScale;
 }
 
 export const Card = React.forwardRef<ElementType, CardProps>(

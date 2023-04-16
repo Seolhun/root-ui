@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
 import { StorybookContent } from '~/stories';
@@ -22,7 +22,7 @@ const BaseTemplate = ({ children, ...others }) => {
   );
 };
 
-const Paragraph: Story<PProps> = ({ children, ...others }) => {
+const Paragraph: StoryFn<PProps> = ({ children, ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex flex-col space-y-2" noAlign noGap>

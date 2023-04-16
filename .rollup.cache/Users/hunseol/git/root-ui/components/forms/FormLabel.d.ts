@@ -4,8 +4,8 @@ type ElementType = HTMLLabelElement;
 type ElementProps = React.LabelHTMLAttributes<ElementType>;
 export interface FormLabelProps extends ElementProps {
     /**
-     * Set this to change scale
-     * @default md
+     * scale
+     * @default 'md'
      */
     scale?: RootScale;
     required?: boolean;
