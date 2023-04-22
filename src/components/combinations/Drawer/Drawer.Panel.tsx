@@ -21,7 +21,7 @@ export const DrawerPanel = React.forwardRef<ElementType, ElementProps & DrawerPa
           CLASSNAME,
           className,
           'fixed',
-          'flex flex-col flex-1 gap-4',
+          'flex flex-col flex-1',
           'bg-cream-1 text-space-1',
           'dark:bg-space-1 dark:text-cream-1',
           'rounded shadow',

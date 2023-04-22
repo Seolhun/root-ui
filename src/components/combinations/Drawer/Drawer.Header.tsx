@@ -21,7 +21,6 @@ export const DrawerHeader = React.forwardRef<ElementType, DrawerHeaderProps>(
           CLASSNAME,
           className,
           'flex justify-between items-start',
-          'py-1 px-2',
           'border-cream-3 dark:border-space-3',
           'rounded-t',
         )}

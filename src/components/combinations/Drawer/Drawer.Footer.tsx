@@ -14,7 +14,7 @@ export const DrawerFooter = React.forwardRef<ElementType, DrawerFooterProps>(
     return (
       <div
         {...others}
-        className={clsx(CLASSNAME, className, 'flex', 'py-1 px-2', 'border-cream-3 dark:border-space-3', 'rounded-b')}
+        className={clsx(CLASSNAME, className, 'flex', 'border-cream-3 dark:border-space-3', 'rounded-b')}
       >
         {children}
       </div>

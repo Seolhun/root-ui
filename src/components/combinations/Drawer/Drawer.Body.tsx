@@ -19,7 +19,6 @@ export const DrawerBody = React.forwardRef<ElementType, DrawerBodyProps>(({ clas
         className,
         'flex flex-1',
         'w-full',
-        'py-1 px-2',
         'border-cream-3 dark:border-space-3',
         'scroll-mr-2',
         'overflow-y-auto',
