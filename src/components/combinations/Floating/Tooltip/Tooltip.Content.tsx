@@ -2,6 +2,7 @@ import { FloatingPortal, useDelayGroup, useDelayGroupContext, useMergeRefs } fro
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { useIsoMorphicEffect } from '~/hooks';
 import { toScaleMatch, useRootUI } from '~/system';
 
 import { useTooltipContext } from './useTooltipContext';
@@ -24,7 +25,7 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
       id: tooltipId,
     });
 
-    React.useLayoutEffect(() => {
+    useIsoMorphicEffect(() => {
       if (contextValues.open) {
         setCurrentId(tooltipId);
       }
