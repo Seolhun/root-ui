@@ -2,7 +2,7 @@ name: PR Test & Report
 
 on:
   pull_request:
-    branches: [main, develop, /^release/.*$/, /^feature/.*$/, /^bugfix/.*$/, /^hotfix/.*$/, /^support/.*$/]
+    branches: [main, develop, /^release\/.*$/, /^feature\/.*$/, /^bugfix\/.*$/, /^hotfix\/.*$/, /^support\/.*$/]
     types: [opened, synchronize, reopened]
     paths-ignore:
       - '**/*.md'
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
 
     steps:
       - name: Checkout
@@ -24,8 +24,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install Packages
-        if: ${{ always() }}
-        run: npm i
+        run: npm ci
         env:
           SEOLHUN_GITHUB_TOKEN: ${{secrets.SEOLHUN_GITHUB_TOKEN}}
 
@@ -38,9 +37,7 @@ jobs:
         run: npm run test
 
       - name: Build Storybook
-        if: ${{ always() }}
         run: npm run build:storybook
 
       - name: Build
-        if: ${{ always() }}
         run: npm run build

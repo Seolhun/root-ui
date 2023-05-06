@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
 
     steps:
       - name: Checkout
@@ -23,8 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install Packages
-        if: ${{ always() }}
-        run: npm i
+        run: npm ci
         env:
           SEOLHUN_GITHUB_TOKEN: ${{secrets.SEOLHUN_GITHUB_TOKEN}}
 
@@ -36,6 +35,8 @@ jobs:
         if: ${{ always() }}
         run: npm run test
 
+      - name: Build Storybook
+        run: npm run build:storybook
+
       - name: Build
-        if: ${{ always() }}
         run: npm run build
