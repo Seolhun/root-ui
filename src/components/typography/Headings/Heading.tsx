@@ -1,23 +1,20 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { Box } from '~/components/common';
 import { AgnosticTagProps } from '~/system';
 
-import { Text } from '../Text';
-
 const CLASSNAME = 'Root__Heading';
-type ElementType = HTMLHeadingElement;
+type ElementType = HTMLParagraphElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
-
-// It is for common usage for heading element. so, ElementProps is required.
 export interface HeadingProps extends ElementProps {}
 
-export const Heading = React.forwardRef<ElementType, HeadingProps & Required<AgnosticTagProps>>(
+export const Heading = React.forwardRef<ElementType, AgnosticTagProps & HeadingProps>(
   ({ className, children, as, ...others }, ref) => {
     return (
-      <Text {...others} as={as} ref={ref} className={clsx(CLASSNAME, className, 'leading-normal')}>
+      <Box {...others} as={as} ref={ref} className={clsx(CLASSNAME, className)}>
         {children}
-      </Text>
+      </Box>
     );
   },
 );
