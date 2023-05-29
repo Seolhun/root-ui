@@ -95,7 +95,7 @@
     "jest-environment-jsdom": "^29.3.1",
     "mini-css-extract-plugin": "^2.7.2",
     "node-sass": "^7.0.3",
-    "postcss": "^8.4.21",
+    "postcss": "^8.4.24",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",
     "postcss-loader": "^7.0.1",
