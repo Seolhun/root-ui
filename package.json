@@ -44,7 +44,7 @@
   "dependencies": {
     "@floating-ui/react": "^0.22.2",
     "@fxts/core": "^0.14.0",
-    "@headlessui/react": "^1.7.13",
+    "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.17",
     "@storybook/cli": "^7.0.5",
     "@tailwindcss/aspect-ratio": "^0.4.2",
