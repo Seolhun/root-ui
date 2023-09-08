@@ -18,7 +18,6 @@ export const DropdownWidgetOptionList = React.forwardRef<HTMLUListElement, Dropd
       >
         <Listbox.Options
           {...others}
-          ref={ref}
           className={clsx(
             className,
             'absolute',
@@ -31,6 +30,7 @@ export const DropdownWidgetOptionList = React.forwardRef<HTMLUListElement, Dropd
             'focus:outline-none',
             'list-none',
           )}
+          ref={ref}
         >
           {children}
         </Listbox.Options>

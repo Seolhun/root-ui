@@ -9,7 +9,7 @@ export interface DrawerBodyProps extends ElementProps {
   children: React.ReactNode;
 }
 
-export const DrawerBody = React.forwardRef<ElementType, DrawerBodyProps>(({ className, children, ...others }, ref) => {
+export const DrawerBody = React.forwardRef<ElementType, DrawerBodyProps>(({ children, className, ...others }, ref) => {
   return (
     <div
       ref={ref}

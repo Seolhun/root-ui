@@ -9,19 +9,19 @@ type ElementProps = React.ImgHTMLAttributes<ElementType>;
 
 export interface AvatarProps {
   /**
+   * To handle image error when it has error.
+   */
+  emptySrc?: string;
+
+  /**
    * Set this to change scale
    * @default md
    */
   scale?: RootScale;
-
-  /**
-   * To handle image error when it has error.
-   */
-  emptySrc?: string;
 }
 
 export const Avatar = React.forwardRef<ElementType, AvatarProps & ElementProps>(
-  ({ className, scale = 'md', alt = 'avatar', onError, emptySrc, ...others }, ref) => {
+  ({ alt = 'avatar', className, emptySrc, onError, scale = 'md', ...others }, ref) => {
     const onImageError = React.useCallback(
       (e: React.UIEvent<ElementType>) => {
         onError?.(e);
@@ -37,19 +37,19 @@ export const Avatar = React.forwardRef<ElementType, AvatarProps & ElementProps>(
       <picture className={clsx(CLASSNAME, className, 'inline-block')}>
         <img
           {...others}
-          ref={ref}
           className={clsx(
             'rounded-full',
             toScaleMatch({
-              xs: () => 'scale-xs',
-              sm: () => 'scale-sm',
-              md: () => 'scale-md',
               lg: () => 'scale-lg',
+              md: () => 'scale-md',
+              sm: () => 'scale-sm',
               xl: () => 'scale-xl',
+              xs: () => 'scale-xs',
             })(scale),
           )}
           alt={alt}
           onError={emptySrc ? undefined : onImageError}
+          ref={ref}
         />
       </picture>
     );

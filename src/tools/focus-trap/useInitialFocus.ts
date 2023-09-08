@@ -7,13 +7,13 @@ import { Focus, focusElement, focusIn, FocusResult } from './FocusManagements';
 
 export function useInitialFocus(
   {
-    ownerDocument,
     container,
     initialFocus,
+    ownerDocument,
   }: {
-    ownerDocument: Document | null;
     container: React.MutableRefObject<HTMLElement | null>;
     initialFocus?: React.MutableRefObject<HTMLElement | null>;
+    ownerDocument: Document | null;
   },
   enabled: boolean,
 ) {

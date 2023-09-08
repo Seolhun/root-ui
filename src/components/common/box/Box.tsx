@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import * as React from 'react';
 
 import { forwardRefWithAs, render } from '~/core';
-import { useSyncRefs, useId } from '~/hooks';
+import { useId, useSyncRefs } from '~/hooks';
 import { RootUIProps, RootUIReactTag } from '~/types';
 
 const COMPONENT_NAME = 'Root__Box';
@@ -13,23 +13,23 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface BoxProps {
   /**
-   * Set RootScale className
-   */
-  scaleClassName?: string;
-
-  /**
    * Set RootIntent className
    */
   intentClassName?: string;
+
+  /**
+   * Set RootScale className
+   */
+  scaleClassName?: string;
 }
 export interface BoxRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;
 
 export const Box = forwardRefWithAs(function Box<Tag extends keyof JSX.IntrinsicElements = typeof DEFAULT_TAG>(
   {
-    scaleClassName,
-    intentClassName,
     className,
+    intentClassName,
+    scaleClassName,
     ...others
   }: RootUIProps<Tag, BoxRenderPropArg, PropsWeControl> & BoxProps & JSX.IntrinsicElements[Tag],
   ref: React.Ref<ElementType>,
@@ -39,19 +39,19 @@ export const Box = forwardRefWithAs(function Box<Tag extends keyof JSX.Intrinsic
 
   const ourProps = React.useMemo(() => {
     return {
-      ref: rootRef,
       id,
+      ref: rootRef,
     };
   }, [rootRef, id]);
 
   return render({
+    defaultTag: DEFAULT_TAG,
+    name: COMPONENT_NAME,
     ourProps,
+    slot: {},
     theirProps: {
       ...others,
       className: clsx(scaleClassName, intentClassName, className),
     },
-    defaultTag: DEFAULT_TAG,
-    name: COMPONENT_NAME,
-    slot: {},
   });
 });

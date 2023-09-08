@@ -1,29 +1,29 @@
 import * as React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
 import { Radio, RadioProps } from './Radio';
 
 export default {
-  title: 'Form/Radio',
-  component: Radio,
   argTypes: {
-    scale: {
-      control: {
-        type: 'select',
-        options: storiesScaleOptions,
-      },
-    },
     intent: {
       control: {
-        type: 'select',
         options: storiesIntentOptions,
+        type: 'select',
+      },
+    },
+    scale: {
+      control: {
+        options: storiesScaleOptions,
+        type: 'select',
       },
     },
   },
+  component: Radio,
+  title: 'Form/Radio',
 };
 
-const BaseTemplate = ({ children, checked, ...others }: RadioProps) => {
+const BaseTemplate = ({ checked, children, ...others }: RadioProps) => {
   const [isChecked, setChecked] = React.useState(checked);
 
   React.useEffect(() => {
@@ -105,14 +105,14 @@ const IntentRadioTemplate = ({ children, ...others }: RadioProps) => {
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent}>
+          <BaseTemplate {...others} intent={intent} key={intent}>
             {children}
           </BaseTemplate>
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent}>
+          <BaseTemplate {...others} intent={intent} key={intent}>
             {children}
           </BaseTemplate>
         ))}
@@ -123,7 +123,7 @@ const IntentRadioTemplate = ({ children, ...others }: RadioProps) => {
 
 export const IntentRadio = IntentRadioTemplate.bind({});
 IntentRadio.args = {
-  children: 'Radio',
   checked: true,
+  children: 'Radio',
   disabled: false,
 };

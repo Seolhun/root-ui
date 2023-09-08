@@ -19,30 +19,30 @@ import { useInitialFocus } from './useInitialFocus';
 import { useRestoreFocus } from './useRestoreFocus';
 
 export interface FocusTrapProps {
-  initialFocus?: React.MutableRefObject<HTMLElement | null>;
-  features?: Features;
   containers?: React.MutableRefObject<Set<React.MutableRefObject<HTMLElement | null>>>;
+  features?: Features;
+  initialFocus?: React.MutableRefObject<HTMLElement | null>;
 }
 
 const DEFAULT_FOCUS_TRAP_TAG: RootUIReactTag = 'div';
 
 enum Features {
-  /** No features enabled for the focus trap. */
-  None = 1 << 0,
-  /** Ensure that we move focus initially into the container. */
-  InitialFocus = 1 << 1,
-  /** Ensure that pressing `Tab` and `Shift+Tab` is trapped within the container. */
-  TabLock = 1 << 2,
-  /** Ensure that programmatically moving focus outside of the container is disallowed. */
-  FocusLock = 1 << 3,
-  /** Ensure that we restore the focus when unmounting the focus trap. */
-  RestoreFocus = 1 << 4,
   /** Enable all features. */
   All = InitialFocus | TabLock | FocusLock | RestoreFocus,
+  /** Ensure that programmatically moving focus outside of the container is disallowed. */
+  FocusLock = 1 << 3,
+  /** Ensure that we move focus initially into the container. */
+  InitialFocus = 1 << 1,
+  /** No features enabled for the focus trap. */
+  None = 1 << 0,
+  /** Ensure that we restore the focus when unmounting the focus trap. */
+  RestoreFocus = 1 << 4,
+  /** Ensure that pressing `Tab` and `Shift+Tab` is trapped within the container. */
+  TabLock = 1 << 2,
 }
 
 const _FocusTrap = <Tag extends React.ElementType = typeof DEFAULT_FOCUS_TRAP_TAG>(
-  { initialFocus, containers, features = Features.All, ...theirProps }: RootUIProps<Tag> & FocusTrapProps,
+  { containers, features = Features.All, initialFocus, ...theirProps }: RootUIProps<Tag> & FocusTrapProps,
   ref: React.Ref<HTMLDivElement>,
 ) => {
   const container = React.useRef<HTMLDivElement | null>(null);
@@ -57,11 +57,11 @@ const _FocusTrap = <Tag extends React.ElementType = typeof DEFAULT_FOCUS_TRAP_TA
   useRestoreFocus({ ownerDocument }, Boolean(features & Features.RestoreFocus));
 
   const previousActiveElement = useInitialFocus(
-    { ownerDocument, container, initialFocus },
+    { container, initialFocus, ownerDocument },
     Boolean(features & Features.InitialFocus),
   );
 
-  useFocusLock({ ownerDocument, container, containers, previousActiveElement }, Boolean(features & Features.FocusLock));
+  useFocusLock({ container, containers, ownerDocument, previousActiveElement }, Boolean(features & Features.FocusLock));
 
   const handleFocus = useEvent(() => {
     const el = container.current as HTMLElement;
@@ -69,8 +69,8 @@ const _FocusTrap = <Tag extends React.ElementType = typeof DEFAULT_FOCUS_TRAP_TA
       return;
     }
     match(direction.current, {
-      [TabDirection.Forwards]: () => focusIn(el, Focus.First),
       [TabDirection.Backwards]: () => focusIn(el, Focus.Last),
+      [TabDirection.Forwards]: () => focusIn(el, Focus.First),
     });
   });
 
@@ -81,16 +81,16 @@ const _FocusTrap = <Tag extends React.ElementType = typeof DEFAULT_FOCUS_TRAP_TA
   return (
     <>
       {Boolean(features & Features.TabLock) && (
-        <Hidden as="button" type="button" onFocus={handleFocus} features={HiddenFeatures.Focusable} />
+        <Hidden as="button" features={HiddenFeatures.Focusable} onFocus={handleFocus} type="button" />
       )}
       {render({
-        ourProps,
-        theirProps,
         defaultTag: DEFAULT_FOCUS_TRAP_TAG,
         name: 'FocusTrap',
+        ourProps,
+        theirProps,
       })}
       {Boolean(features & Features.TabLock) && (
-        <Hidden as="button" type="button" onFocus={handleFocus} features={HiddenFeatures.Focusable} />
+        <Hidden as="button" features={HiddenFeatures.Focusable} onFocus={handleFocus} type="button" />
       )}
     </>
   );

@@ -2,21 +2,21 @@
  * @see https://www.w3.org/TR/uievents-key/#named-key-attribute-values
  */
 export enum KeyboardKeyMap {
-  Space = ' ',
+  ArrowDown = 'ArrowDown',
+  ArrowLeft = 'ArrowLeft',
+  ArrowRight = 'ArrowRight',
+  ArrowUp = 'ArrowUp',
+  Backspace = 'Backspace',
+
+  Delete = 'Delete',
+  End = 'End',
   Enter = 'Enter',
   Escape = 'Escape',
-  Backspace = 'Backspace',
-  Delete = 'Delete',
-
-  ArrowLeft = 'ArrowLeft',
-  ArrowUp = 'ArrowUp',
-  ArrowRight = 'ArrowRight',
-  ArrowDown = 'ArrowDown',
 
   Home = 'Home',
-  End = 'End',
+  PageDown = 'PageDown',
 
   PageUp = 'PageUp',
-  PageDown = 'PageDown',
+  Space = ' ',
   Tab = 'Tab',
 }

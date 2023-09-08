@@ -3,7 +3,7 @@ import { MutableRefObject } from 'react';
 import { isServer } from './isServer';
 
 export function getOwnerDocumentBy<T extends Element | MutableRefObject<Element | null>>(
-  element: T | null | undefined,
+  element: null | T | undefined,
 ) {
   if (isServer) {
     return null;

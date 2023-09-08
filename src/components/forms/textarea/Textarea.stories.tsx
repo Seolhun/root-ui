@@ -1,24 +1,24 @@
 import * as React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
 import { Textarea, TextareaProps } from './Textarea';
 
 export default {
-  title: 'Form/Textarea',
   component: Textarea,
-  scale: {
-    control: {
-      type: 'select',
-      options: storiesScaleOptions,
-    },
-  },
   intent: {
     control: {
-      type: 'select',
       options: storiesIntentOptions,
+      type: 'select',
     },
   },
+  scale: {
+    control: {
+      options: storiesScaleOptions,
+      type: 'select',
+    },
+  },
+  title: 'Form/Textarea',
 };
 
 const BaseTemplate = ({ children, ...others }: TextareaProps) => {
@@ -66,8 +66,8 @@ const ScaleTextareaTemplate = ({ ...others }: TextareaProps) => {
 
 export const ScaleTextareas = ScaleTextareaTemplate.bind({});
 ScaleTextareas.args = {
-  value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
   disabled: false,
+  value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
 };
 
 const IntentTextareaTemplate = ({ ...others }: TextareaProps) => {
@@ -75,12 +75,12 @@ const IntentTextareaTemplate = ({ ...others }: TextareaProps) => {
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <Textarea {...others} key={intent} intent={intent} />
+          <Textarea {...others} intent={intent} key={intent} />
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <Textarea {...others} key={intent} intent={intent} />
+          <Textarea {...others} intent={intent} key={intent} />
         ))}
       </StorybookContent.Dark>
     </StorybookContent>
@@ -89,6 +89,6 @@ const IntentTextareaTemplate = ({ ...others }: TextareaProps) => {
 
 export const IntentTextareas = IntentTextareaTemplate.bind({});
 IntentTextareas.args = {
-  value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
   disabled: false,
+  value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
 };

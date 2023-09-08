@@ -4,7 +4,7 @@ import { StateDefinition } from './Modal.Widget.reducer';
 
 export type ModalOnCloseCallback = () => void;
 
-export type ModalSetTitleCallback = (titleId: string | null) => void;
+export type ModalSetTitleCallback = (titleId: null | string) => void;
 
 export type ModalContextValues = [
   {

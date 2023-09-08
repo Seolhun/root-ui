@@ -3,9 +3,9 @@ import { useEventListener, useIsMounted } from '~/hooks';
 import { focusElement } from './FocusManagements';
 
 export interface UseFocusLockProps {
-  ownerDocument: Document | null;
   container: React.MutableRefObject<HTMLElement | null>;
   containers?: React.MutableRefObject<Set<React.MutableRefObject<HTMLElement | null>>>;
+  ownerDocument: Document | null;
   previousActiveElement: React.MutableRefObject<HTMLElement | null>;
 }
 
@@ -17,7 +17,7 @@ function contains(containers: Set<React.MutableRefObject<HTMLElement | null>>, e
 }
 
 export function useFocusLock(
-  { ownerDocument, container, containers, previousActiveElement }: UseFocusLockProps,
+  { container, containers, ownerDocument, previousActiveElement }: UseFocusLockProps,
   enabled: boolean,
 ) {
   const mounted = useIsMounted();

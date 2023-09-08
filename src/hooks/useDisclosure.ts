@@ -17,8 +17,8 @@ export const useDisclosure = () => {
 
   return {
     isShow,
-    onToggle,
     onClose,
     onShow,
+    onToggle,
   };
 };

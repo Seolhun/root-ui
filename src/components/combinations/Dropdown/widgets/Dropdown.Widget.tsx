@@ -5,6 +5,6 @@ import { DropdownWidgetRoot } from './Dropdown.Widget.Root';
 
 export const DropdownWidget = Object.assign(DropdownWidgetRoot, {
   Button: DropdownWidgetButton,
-  OptionList: DropdownWidgetOptionList,
   Option: DropdownWidgetOption,
+  OptionList: DropdownWidgetOptionList,
 });

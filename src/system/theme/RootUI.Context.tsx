@@ -11,13 +11,13 @@ export interface RootUIProviderProps extends RootUIContextValues {
   children: React.ReactNode;
 }
 
-export function RootUIProvider({ children, intent, defaultIntent, scale, defaultScale }: RootUIProviderProps) {
+export function RootUIProvider({ children, defaultIntent, defaultScale, intent, scale }: RootUIProviderProps) {
   const contextValues = React.useMemo(() => {
     return {
-      intent,
       defaultIntent,
-      scale,
       defaultScale,
+      intent,
+      scale,
     };
   }, [intent, defaultIntent, scale, defaultScale]);
 

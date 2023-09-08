@@ -8,16 +8,16 @@ import { Tooltip } from './Tooltip';
 import { TooltipProps } from './Tooltip.Root';
 
 export default {
-  title: 'Combination/Tooltip',
-  component: Tooltip,
   argTypes: {
     scale: {
       control: {
-        type: 'select',
         options: storiesScaleOptions,
+        type: 'select',
       },
     },
   },
+  component: Tooltip,
+  title: 'Combination/Tooltip',
 };
 
 const BaseTemplate = ({ root, ...others }) => {
@@ -49,12 +49,12 @@ const ScaleTooltipTemplate: StoryFn<TooltipProps> = ({ ...others }) => {
     <StorybookContent>
       <StorybookContent.Light className="flex flex-col space-y-2">
         {({ root }) =>
-          storiesScaleOptions.map((scale) => <BaseTemplate {...others} key={scale} scale={scale} root={root} />)
+          storiesScaleOptions.map((scale) => <BaseTemplate {...others} key={scale} root={root} scale={scale} />)
         }
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex flex-col space-y-2">
         {({ root }) =>
-          storiesScaleOptions.map((scale) => <BaseTemplate {...others} key={scale} scale={scale} root={root} />)
+          storiesScaleOptions.map((scale) => <BaseTemplate {...others} key={scale} root={root} scale={scale} />)
         }
       </StorybookContent.Dark>
     </StorybookContent>

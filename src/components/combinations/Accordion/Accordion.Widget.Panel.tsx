@@ -15,8 +15,8 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface AccordionPanelProps {}
 export interface AccordionPanelRenderPropArg {
-  open: boolean;
   close: (focusableElement?: HTMLElement | React.MutableRefObject<HTMLElement | null>) => void;
+  open: boolean;
 }
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;
 const PanelRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Static;
@@ -48,8 +48,8 @@ export const AccordionWidgetPanel = forwardRefWithAs(function AccordionWidgetPan
 
   const ourProps = React.useMemo(() => {
     return {
-      ref: panelRef,
       id: state.panelId,
+      ref: panelRef,
     };
   }, [panelRef, state.panelId]);
 
@@ -57,21 +57,21 @@ export const AccordionWidgetPanel = forwardRefWithAs(function AccordionWidgetPan
 
   const slot = React.useMemo<AccordionPanelRenderPropArg>(() => {
     return {
-      open: state.accordionState === OpenClosedState.Open,
       close,
+      open: state.accordionState === OpenClosedState.Open,
     };
   }, [state, close]);
 
   return (
     <AccordionPanelContext.Provider value={state.panelId}>
       {render({
-        ourProps,
-        theirProps,
-        slot,
         defaultTag: DEFAULT_TAG,
         features: PanelRenderFeatures,
-        visible,
         name: COMPONENT_NAME,
+        ourProps,
+        slot,
+        theirProps,
+        visible,
       })}
     </AccordionPanelContext.Provider>
   );

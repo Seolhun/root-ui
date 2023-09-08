@@ -3,41 +3,41 @@ import * as React from 'react';
 
 import { Button, Card } from '~/components/atomics';
 import { useDisclosure } from '~/hooks';
-import { StorybookContent, storiesScaleOptions } from '~/stories';
+import { storiesScaleOptions, StorybookContent } from '~/stories';
 
 import { Modal } from './Modal';
 import { ModalProps } from './Widgets';
 
 export default {
-  title: 'Combination/Modal',
-  component: Modal,
   argTypes: {
     scale: {
       control: {
-        type: 'select',
         options: storiesScaleOptions,
+        type: 'select',
       },
     },
   },
+  component: Modal,
+  title: 'Combination/Modal',
 };
 
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 type BaseTemplateProps = ElementProps &
   ModalProps & {
-    Header: React.ReactNode;
     Body: React.ReactNode;
     Footer: React.ReactNode;
+    Header: React.ReactNode;
   };
 
-const BaseTemplate = ({ Header, Body, Footer, root, ...others }: BaseTemplateProps) => {
+const BaseTemplate = ({ Body, Footer, Header, root, ...others }: BaseTemplateProps) => {
   const { isShow, onClose, onToggle } = useDisclosure();
 
   return (
     <>
       <Button onClick={onToggle}>Toggle modal</Button>
 
-      <Modal className="relative z-50" show={isShow} onClose={onClose} root={root}>
+      <Modal className="relative z-50" onClose={onClose} root={root} show={isShow}>
         <Modal.Overlay>
           <Modal.Backdrop />
           <Modal.Panel {...others} className="space-y-2">
@@ -74,16 +74,16 @@ const ModalTemplate: StoryFn<BaseTemplateProps> = ({ ...others }) => {
 
 export const Modals = ModalTemplate.bind({});
 Modals.args = {
-  Header: 'Header',
   Body: 'Body',
   Footer: 'Footer',
+  Header: 'Header',
 };
 
 export const LongModals = ModalTemplate.bind({});
 LongModals.args = {
-  Header: Array.from(Array(1000), () => 'Header').join(' '),
   Body: Array.from(Array(1000), () => 'Body').join(' '),
   Footer: 'Footer',
+  Header: Array.from(Array(1000), () => 'Header').join(' '),
 };
 
 const InnerModalTemplate: StoryFn<ModalProps> = ({ ...others }) => {
@@ -97,7 +97,7 @@ const InnerModalTemplate: StoryFn<ModalProps> = ({ ...others }) => {
 
       <Card className="z-50 mt-8 p-8">The highest priority z-index 50 Card</Card>
 
-      <Modal className="relative z-50" show={isShow} onClose={onClose}>
+      <Modal className="relative z-50" onClose={onClose} show={isShow}>
         <Modal.Backdrop />
         <Modal.Overlay>
           <Modal.Panel {...others}>
@@ -108,7 +108,7 @@ const InnerModalTemplate: StoryFn<ModalProps> = ({ ...others }) => {
             </Modal.Footer>
           </Modal.Panel>
 
-          <Modal className="relative z-50" show={isShow2} onClose={onClose2}>
+          <Modal className="relative z-50" onClose={onClose2} show={isShow2}>
             <Modal.Overlay>
               <Modal.Panel {...others}>
                 <Modal.Header>Modal2</Modal.Header>
@@ -119,7 +119,7 @@ const InnerModalTemplate: StoryFn<ModalProps> = ({ ...others }) => {
               </Modal.Panel>
             </Modal.Overlay>
 
-            <Modal className="relative z-50" show={isShow3} onClose={onClose3}>
+            <Modal className="relative z-50" onClose={onClose3} show={isShow3}>
               <Modal.Overlay>
                 <Modal.Panel {...others}>
                   <Modal.Header>Modal3</Modal.Header>

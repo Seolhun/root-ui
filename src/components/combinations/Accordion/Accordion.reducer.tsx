@@ -4,11 +4,11 @@ import { OpenClosedState } from '~/tools';
 
 export interface StateDefinition {
   accordionState: OpenClosedState;
-  linkedPanel: boolean;
-  buttonRef: React.MutableRefObject<HTMLButtonElement | null>;
-  panelRef: React.MutableRefObject<HTMLDivElement | null>;
   buttonId: string;
+  buttonRef: React.MutableRefObject<HTMLButtonElement | null>;
+  linkedPanel: boolean;
   panelId: string;
+  panelRef: React.MutableRefObject<HTMLDivElement | null>;
 }
 
 export enum ActionTypes {
@@ -21,11 +21,11 @@ export enum ActionTypes {
 }
 
 export type Actions =
-  | { type: ActionTypes.ToggleAccordion }
+  | { buttonId: string; type: ActionTypes.SetButtonId }
+  | { panelId: string; type: ActionTypes.SetPanelId }
   | { type: ActionTypes.CloseAccordion }
-  | { type: ActionTypes.SetButtonId; buttonId: string }
-  | { type: ActionTypes.SetPanelId; panelId: string }
   | { type: ActionTypes.LinkPanel }
+  | { type: ActionTypes.ToggleAccordion }
   | { type: ActionTypes.UnlinkPanel };
 
 export const rootReducer: React.Reducer<StateDefinition, Actions> = (state, action) => {
@@ -117,7 +117,7 @@ export function useAccordionAPIContext(component: string) {
   return context;
 }
 
-export const AccordionPanelContext = React.createContext<string | null>(null);
+export const AccordionPanelContext = React.createContext<null | string>(null);
 AccordionPanelContext.displayName = 'AccordionPanelContext';
 
 export function useAccordionPanelContext() {

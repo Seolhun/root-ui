@@ -10,28 +10,28 @@ import { Drawer } from './Drawer';
 import { DrawerProps } from './Drawer.Root';
 
 export default {
-  title: 'Combination/Drawer',
-  component: Drawer,
   argTypes: {
     scale: {
       control: {
-        type: 'select',
         options: storiesScaleOptions,
+        type: 'select',
       },
     },
   },
+  component: Drawer,
+  title: 'Combination/Drawer',
 };
 
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 type BaseTemplateProps = ElementProps &
   DrawerProps & {
-    Header: React.ReactNode;
     Body: React.ReactNode;
     Footer: React.ReactNode;
+    Header: React.ReactNode;
   };
 
-const BaseTemplate = ({ Header, Body, Footer, root, placement, className, ...others }: BaseTemplateProps) => {
+const BaseTemplate = ({ Body, Footer, Header, className, placement, root, ...others }: BaseTemplateProps) => {
   const [isShow, setShow] = React.useState(false);
 
   const onToggle = React.useCallback(() => {
@@ -49,7 +49,7 @@ const BaseTemplate = ({ Header, Body, Footer, root, placement, className, ...oth
   return (
     <div>
       <Button onClick={onToggle}>Toggle Drawer</Button>
-      <Drawer {...others} placement={placement} show={isShow} onClose={onClose} onConfirm={onConfirm} root={root}>
+      <Drawer {...others} onClose={onClose} onConfirm={onConfirm} placement={placement} root={root} show={isShow}>
         <Drawer.Panel
           className={clsx({
             className,
@@ -77,16 +77,16 @@ const Drawers: StoryFn<BaseTemplateProps> = (props) => {
 
 export const DrawersStories = Drawers.bind({});
 DrawersStories.args = {
-  Header: 'Header',
   Body: 'Body',
   Footer: 'Footer',
+  Header: 'Header',
   placement: 'right',
 };
 
 export const LongDrawersStories = Drawers.bind({});
 LongDrawersStories.args = {
-  Header: Array.from(Array(1000), () => 'Header').join(' '),
   Body: Array.from(Array(1000), () => 'Body').join(' '),
   Footer: 'Footer',
+  Header: Array.from(Array(1000), () => 'Header').join(' '),
   placement: 'right',
 };

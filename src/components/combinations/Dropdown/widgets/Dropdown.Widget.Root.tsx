@@ -11,19 +11,19 @@ export function DropdownWidgetRoot<Option extends DropdownOption, ActionOption =
   children,
   className,
   disabled,
+  multiple,
+  offset = 5,
+  onChangeOption,
   // DropdownWidgetProps
   option,
-  onChangeOption,
-  multiple,
   // FloatingProps
   placement,
   strategy,
-  offset = 5,
   // ElementProps
   ...others
 }: ElementProps & DropdownWidgetProps<Option, ActionOption>) {
   return (
-    <Listbox value={option} onChange={onChangeOption} disabled={disabled} multiple={multiple}>
+    <Listbox disabled={disabled} multiple={multiple} onChange={onChangeOption} value={option}>
       <div {...others} className={clsx(className, 'relative')}>
         {children}
       </div>

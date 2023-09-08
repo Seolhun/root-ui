@@ -12,8 +12,6 @@ export const TabList = React.forwardRef<ElementType, TabListProps>(({ children, 
   return (
     <Tab.List
       {...others}
-      ref={ref}
-      as="ul"
       className={clsx(
         CLASSNAME,
         className,
@@ -25,6 +23,8 @@ export const TabList = React.forwardRef<ElementType, TabListProps>(({ children, 
         'rounded',
         'list-none',
       )}
+      as="ul"
+      ref={ref}
     >
       {children}
     </Tab.List>

@@ -21,20 +21,20 @@ export interface UseTooltipProps extends TooltipOptions {
 
 export interface UseTooltipReturns extends TooltipFloatingReturns, TooltipIntersectionReturns {
   open?: boolean;
-  setOpen?: (open: boolean) => void;
-
   /**
    * Portal target element
    */
   root?: HTMLElement | null;
+
+  setOpen?: (open: boolean) => void;
 }
 
 export function useTooltip({
-  initialOpen = false,
-  placement = 'bottom',
-  open: controlledOpen,
-  onOpenChange: setControlledOpen,
   disabled,
+  initialOpen = false,
+  onOpenChange: setControlledOpen,
+  open: controlledOpen,
+  placement = 'bottom',
   root,
 }: UseTooltipProps = {}): UseTooltipReturns {
   const [uncontrolledOpen, setUncontrolledOpen] = React.useState<boolean>(initialOpen);
@@ -45,11 +45,6 @@ export function useTooltip({
   const { delay } = useDelayGroupContext();
 
   const floatingData = useFloating({
-    placement,
-    open,
-    strategy: 'fixed',
-    onOpenChange: setOpen,
-    whileElementsMounted: autoUpdate,
     middleware: [
       offset(5),
       flip(),
@@ -57,14 +52,19 @@ export function useTooltip({
         padding: 5,
       }),
     ],
+    onOpenChange: setOpen,
+    open,
+    placement,
+    strategy: 'fixed',
+    whileElementsMounted: autoUpdate,
   });
 
   const { context } = floatingData;
 
   const hover = useHover(context, {
-    move: false,
-    enabled: !disabled,
     delay,
+    enabled: !disabled,
+    move: false,
   });
   const focus = useFocus(context, {
     enabled: !disabled,
@@ -77,8 +77,8 @@ export function useTooltip({
   return React.useMemo<UseTooltipReturns>(
     () => ({
       open,
-      setOpen,
       root,
+      setOpen,
       ...interactions,
       ...floatingData,
     }),

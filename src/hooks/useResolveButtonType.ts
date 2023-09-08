@@ -1,8 +1,8 @@
-import { useState, MutableRefObject } from 'react';
+import { MutableRefObject, useState } from 'react';
 
 import { useIsoMorphicEffect } from './useIsoMorphicEffect';
 
-function resolveType<Tag>(props: { type?: string; as?: Tag }) {
+function resolveType<Tag>(props: { as?: Tag; type?: string }) {
   if (props.type) return props.type;
 
   const tag = props.as ?? 'button';
@@ -12,7 +12,7 @@ function resolveType<Tag>(props: { type?: string; as?: Tag }) {
 }
 
 export function useResolveButtonType<Tag>(
-  props: { type?: string; as?: Tag },
+  props: { as?: Tag; type?: string },
   ref: MutableRefObject<HTMLElement | null>,
 ) {
   const [type, setType] = useState(() => resolveType(props));

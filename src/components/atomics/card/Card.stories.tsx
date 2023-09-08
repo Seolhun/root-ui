@@ -5,22 +5,22 @@ import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/s
 import { Card, CardProps } from './Card';
 
 export default {
-  title: 'Atomic/Card',
-  component: Card,
   argTypes: {
-    scale: {
-      control: {
-        type: 'select',
-        options: storiesScaleOptions,
-      },
-    },
     intent: {
       control: {
-        type: 'select',
         options: storiesIntentOptions,
+        type: 'select',
+      },
+    },
+    scale: {
+      control: {
+        options: storiesScaleOptions,
+        type: 'select',
       },
     },
   },
+  component: Card,
+  title: 'Atomic/Card',
 };
 
 const BaseTemplate = ({ children, ...others }: CardProps) => {

@@ -3,7 +3,7 @@ import * as React from 'react';
 export function useDocumentEvent<K extends keyof DocumentEventMap>(
   type: K,
   callback: (event: DocumentEventMap[K]) => void,
-  options?: boolean | AddEventListenerOptions,
+  options?: AddEventListenerOptions | boolean,
 ) {
   React.useEffect(function initEvent() {
     document.addEventListener<K>(type, callback, options);

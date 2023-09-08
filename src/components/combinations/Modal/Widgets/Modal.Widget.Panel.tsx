@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { forwardRefWithAs, render } from '~/core';
-import { useSyncRefs, useId, useEvent } from '~/hooks';
+import { useEvent, useId, useSyncRefs } from '~/hooks';
 import { RootUIProps, RootUIReactTag } from '~/types';
 
 import { useModalContext } from './Modal.Widget.Context';
@@ -32,9 +32,9 @@ export const ModalWidgetPanel = forwardRefWithAs(
 
     const ourProps = React.useMemo(() => {
       return {
-        ref: panelRef,
         id,
         onClick: handleClick,
+        ref: panelRef,
       };
     }, [id, panelRef, handleClick]);
 
@@ -43,11 +43,11 @@ export const ModalWidgetPanel = forwardRefWithAs(
     const slot = React.useMemo<ModalPanelRenderPropArg>(() => ({ visible }), [visible]);
 
     return render({
-      ourProps,
-      theirProps,
       defaultTag: DEFAULT_TAG,
       name: COMPONENT_NAME,
+      ourProps,
       slot,
+      theirProps,
     });
   },
 );

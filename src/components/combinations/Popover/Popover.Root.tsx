@@ -11,16 +11,16 @@ export interface PopoverProps {
 }
 
 export interface PopoverRootRenderArgs {
-  open: boolean;
   close: (
-    focusableElement?: HTMLElement | React.MutableRefObject<HTMLElement | null> | React.MouseEvent<HTMLElement>,
+    focusableElement?: HTMLElement | React.MouseEvent<HTMLElement> | React.MutableRefObject<HTMLElement | null>,
   ) => void;
+  open: boolean;
 }
 
 export const PopoverRoot = React.forwardRef<ElementType, Omit<ElementProps, 'children'> & PopoverProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
-      <Popover {...others} ref={ref} className={clsx(CLASSNAME, className, 'relative')}>
+      <Popover {...others} className={clsx(CLASSNAME, className, 'relative')} ref={ref}>
         {typeof children === 'function' ? ({ close, open }) => children({ close, open }) : children}
       </Popover>
     );

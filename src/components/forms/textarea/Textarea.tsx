@@ -2,50 +2,29 @@ import clsx from 'clsx';
 import * as React from 'react';
 
 import { Box } from '~/components/common';
-import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '~/system';
+import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '~/system';
 
 const CLASSNAME = 'Root__Textarea';
 type ElementType = HTMLTextAreaElement;
 type ElementProps = React.TextareaHTMLAttributes<ElementType>;
 export interface TextareaProps extends ElementProps {
   /**
+   * @default primary
+   */
+  intent?: RootIntent;
+
+  /**
    * Set this to change scale
    * @default md
    */
   scale?: RootScale;
-
-  /**
-   * @default primary
-   */
-  intent?: RootIntent;
 }
 
 export const Textarea = React.forwardRef<ElementType, TextareaProps>(
-  ({ className, scale = 'md', intent = 'primary', ...others }, ref) => {
+  ({ className, intent = 'primary', scale = 'md', ...others }, ref) => {
     return (
       <Box
         {...others}
-        as="textarea"
-        ref={ref}
-        id={others.name}
-        scaleClassName={toScaleMatch({
-          xs: () => 'scale-text-xs scale-py-xs',
-          sm: () => 'scale-text-sm scale-py-sm',
-          md: () => 'scale-text-md scale-py-md',
-          lg: () => 'scale-text-lg scale-py-lg',
-          xl: () => 'scale-text-xl scale-py-xl',
-        })(scale)}
-        intentClassName={toIntentMatch({
-          neutral: () => clsx('outline-neutral dark:outline-neutral'),
-          light: () => clsx('outline-light dark:outline-light'),
-          dark: () => clsx('outline-dark dark:outline-dark'),
-          primary: () => clsx('outline-primary dark:outline-primary'),
-          info: () => clsx('outline-info dark:outline-info'),
-          success: () => clsx('outline-success dark:outline-success'),
-          accent: () => clsx('outline-accent dark:outline-accent'),
-          warning: () => clsx('outline-warning dark:outline-warning'),
-          danger: () => clsx('outline-danger dark:outline-danger'),
-        })(intent)}
         className={clsx(
           CLASSNAME,
           className,
@@ -59,6 +38,27 @@ export const Textarea = React.forwardRef<ElementType, TextareaProps>(
           'rounded',
           'caret-neutral',
         )}
+        intentClassName={toIntentMatch({
+          accent: () => clsx('outline-accent dark:outline-accent'),
+          danger: () => clsx('outline-danger dark:outline-danger'),
+          dark: () => clsx('outline-dark dark:outline-dark'),
+          info: () => clsx('outline-info dark:outline-info'),
+          light: () => clsx('outline-light dark:outline-light'),
+          neutral: () => clsx('outline-neutral dark:outline-neutral'),
+          primary: () => clsx('outline-primary dark:outline-primary'),
+          success: () => clsx('outline-success dark:outline-success'),
+          warning: () => clsx('outline-warning dark:outline-warning'),
+        })(intent)}
+        scaleClassName={toScaleMatch({
+          lg: () => 'scale-text-lg scale-py-lg',
+          md: () => 'scale-text-md scale-py-md',
+          sm: () => 'scale-text-sm scale-py-sm',
+          xl: () => 'scale-text-xl scale-py-xl',
+          xs: () => 'scale-text-xs scale-py-xs',
+        })(scale)}
+        as="textarea"
+        id={others.name}
+        ref={ref}
       />
     );
   },

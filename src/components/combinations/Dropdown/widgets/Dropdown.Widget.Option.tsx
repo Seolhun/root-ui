@@ -10,22 +10,21 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface DropdownWidgetOptionProps<Option extends DropdownOption = DropdownOption>
   extends Omit<ElementProps, 'children' | 'className'> {
-  className?: DropdownWidgetOptionClassName;
-
   children: (state: DropdownOptionState) => React.ReactNode;
 
-  value: Option;
+  className?: DropdownWidgetOptionClassName;
 
   disabled?: boolean;
+
+  value: Option;
 }
 
 export const DropdownWidgetOption = React.forwardRef<HTMLLIElement, DropdownWidgetOptionProps>(
-  ({ children, className, value, disabled }, ref) => {
+  ({ children, className, disabled, value }, ref) => {
     return (
       <Listbox.Option
-        ref={ref}
         className={(state) => {
-          const { active, selected, disabled } = state;
+          const { active, disabled, selected } = state;
           return clsx(
             className,
             Classes.BaseItem,
@@ -36,8 +35,9 @@ export const DropdownWidgetOption = React.forwardRef<HTMLLIElement, DropdownWidg
             disabled ? 'bg-neutral dark:bg-neutral2 opacity-70 cursor-not-allowed' : 'cursor-pointer',
           );
         }}
-        value={value}
         disabled={disabled}
+        ref={ref}
+        value={value}
       >
         {(state: DropdownOptionState) => <>{children(state)}</>}
       </Listbox.Option>

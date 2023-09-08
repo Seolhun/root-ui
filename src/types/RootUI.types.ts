@@ -10,7 +10,7 @@ export type RootUIReactTag = keyof JSX.IntrinsicElements | React.JSXElementConst
 
 export type Expand<T> = T extends infer O ? Record<keyof O, O[keyof O]> : never;
 
-export type UnknownObject = Record<string | number | symbol, unknown>;
+export type UnknownObject = Record<number | string | symbol, unknown>;
 
 type HasProperty<T extends UnknownObject, K extends PropertyKey> = T extends never
   ? never
@@ -20,7 +20,7 @@ type HasProperty<T extends UnknownObject, K extends PropertyKey> = T extends nev
 
 export type PropsOf<Tag extends RootUIReactTag> = Tag extends React.ElementType ? React.ComponentProps<Tag> : never;
 
-type PropsWeControl = 'as' | 'children' | 'refName' | 'className';
+type PropsWeControl = 'as' | 'children' | 'className' | 'refName';
 
 // Resolve the props of the component, but ensure to omit certain props that we control
 type CleanProps<
@@ -33,7 +33,7 @@ type CleanProps<
 // Add certain props that we control
 export interface RootUIOurProps<Tag extends RootUIReactTag, Slot> {
   as?: Tag;
-  children?: React.ReactNode | ((bag: Slot) => React.ReactElement);
+  children?: ((bag: Slot) => React.ReactElement) | React.ReactNode;
   refName?: string;
 }
 
@@ -43,7 +43,7 @@ export interface RootUIOurProps<Tag extends RootUIReactTag, Slot> {
 type ClassNameOverride<Tag extends RootUIReactTag, Slot = UnknownObject> =
   // Order is important here, because `never extends true` is `true`...
   true extends HasProperty<PropsOf<Tag>, 'className'>
-    ? { className?: PropsOf<Tag>['className'] | ((bag: Slot) => string) }
+    ? { className?: ((bag: Slot) => string) | PropsOf<Tag>['className'] }
     : UnknownObject;
 
 // Provide clean TypeScript props, which exposes some of our custom API's.
@@ -65,6 +65,6 @@ export type XOR<T, U> = T | U extends RootUIUniqueKey
   ? (Without<T, U> & U) | (Without<U, T> & T)
   : T | U;
 
-export type ByComparator<T> = (keyof T & string) | ((a: T, b: T) => boolean);
+export type ByComparator<T> = ((a: T, b: T) => boolean) | (keyof T & string);
 
 export type EnsureArray<T> = T extends any[] ? T : Expand<T>[];

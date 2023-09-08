@@ -9,7 +9,7 @@ export function optionalRef<T>(cb: (ref: T) => void, isOptional = true) {
 }
 
 export function useSyncRefs<RefType>(
-  ...refs: (React.MutableRefObject<RefType | null> | ((instance: RefType) => void) | null)[]
+  ...refs: (((instance: RefType) => void) | null | React.MutableRefObject<null | RefType>)[]
 ) {
   const cache = React.useRef(refs);
 

@@ -15,10 +15,9 @@ export interface TextFieldProps extends InputProps {
   icon?: IconProps['icon'];
 }
 
-export const TextField = ({ className, scale = 'md', icon = 'MagnifyingGlassIcon', ...others }: TextFieldProps) => {
+export const TextField = ({ className, icon = 'MagnifyingGlassIcon', scale = 'md', ...others }: TextFieldProps) => {
   return (
     <Card
-      scale={scale}
       className={clsx(
         'flex items-center',
         'shadow',
@@ -27,9 +26,10 @@ export const TextField = ({ className, scale = 'md', icon = 'MagnifyingGlassIcon
         'outline-0',
         CLASSNAME,
       )}
+      scale={scale}
     >
       <Icon icon={icon} intent="light" scale={scale} />
-      <Input {...others} scale={scale} className={clsx('border-none outline-0', className)} />
+      <Input {...others} className={clsx('border-none outline-0', className)} scale={scale} />
     </Card>
   );
 };

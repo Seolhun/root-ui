@@ -1,25 +1,25 @@
 import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
 import { Input, InputProps } from './Input';
 
 export default {
-  title: 'Form/Input',
   component: Input,
-  scale: {
-    control: {
-      type: 'select',
-      options: storiesScaleOptions,
-    },
-  },
   intent: {
     control: {
-      type: 'select',
       options: storiesIntentOptions,
+      type: 'select',
     },
   },
+  scale: {
+    control: {
+      options: storiesScaleOptions,
+      type: 'select',
+    },
+  },
+  title: 'Form/Input',
 };
 
 const BaseTemplate = ({ children, ...others }: InputProps) => {
@@ -67,8 +67,8 @@ const ScaleInputTemplate = ({ ...others }: InputProps) => {
 
 export const ScaleInputs: StoryFn<InputProps> = ScaleInputTemplate.bind({});
 ScaleInputs.args = {
-  value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
   disabled: false,
+  value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
 };
 
 const IntentInputTemplate = ({ ...others }: InputProps) => {
@@ -76,12 +76,12 @@ const IntentInputTemplate = ({ ...others }: InputProps) => {
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <Input {...others} key={intent} intent={intent} />
+          <Input {...others} intent={intent} key={intent} />
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <Input {...others} key={intent} intent={intent} />
+          <Input {...others} intent={intent} key={intent} />
         ))}
       </StorybookContent.Dark>
     </StorybookContent>
@@ -90,6 +90,6 @@ const IntentInputTemplate = ({ ...others }: InputProps) => {
 
 export const IntentInputs: StoryFn<InputProps> = IntentInputTemplate.bind({});
 IntentInputs.args = {
-  value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
   disabled: false,
+  value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
 };

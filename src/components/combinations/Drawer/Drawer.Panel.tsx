@@ -10,13 +10,12 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface DrawerPanelProps {}
 
 export const DrawerPanel = React.forwardRef<ElementType, ElementProps & DrawerPanelProps>(
-  ({ className, children, ...others }, ref) => {
-    const { show, placement } = useDrawerContext();
+  ({ children, className, ...others }, ref) => {
+    const { placement, show } = useDrawerContext();
 
     return (
       <div
         {...others}
-        ref={ref}
         className={clsx(
           CLASSNAME,
           className,
@@ -26,18 +25,19 @@ export const DrawerPanel = React.forwardRef<ElementType, ElementProps & DrawerPa
           'dark:bg-space-1 dark:text-cream-1',
           'rounded shadow',
           {
-            'top-0 right-0 left-0 w-full md:w-full rounded-t-none': placement === 'top',
-            'top-0 right-0 bottom-0 h-full rounded-r-none': placement === 'right',
             'right-0 bottom-0 left-0 w-full md:w-full rounded-b-none': placement === 'bottom',
             'top-0 bottom-0 left-0 h-full rounded-l-none': placement === 'left',
+            'top-0 right-0 bottom-0 h-full rounded-r-none': placement === 'right',
+            'top-0 right-0 left-0 w-full md:w-full rounded-t-none': placement === 'top',
           },
           {
-            'animate-[fade-in-top_0.2s_ease-in-out]': show && placement === 'top',
-            'animate-[fade-in-right_0.2s_ease-in-out]': show && placement === 'right',
             'animate-[fade-in-bottom_0.2s_ease-in-out]': show && placement === 'bottom',
             'animate-[fade-in-left_0.2s_ease-in-out]': show && placement === 'left',
+            'animate-[fade-in-right_0.2s_ease-in-out]': show && placement === 'right',
+            'animate-[fade-in-top_0.2s_ease-in-out]': show && placement === 'top',
           },
         )}
+        ref={ref}
       >
         {children}
       </div>

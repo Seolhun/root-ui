@@ -3,7 +3,7 @@ import * as SolidHeroIcon from '@heroicons/react/24/solid';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntentInherit, RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '~/system';
+import { RootIntent, RootIntentInherit, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '~/system';
 
 const CLASSNAME = 'Root__Icon';
 type ElementType = HTMLDivElement;
@@ -13,7 +13,7 @@ export interface IconProps extends ElementProps {
   /**
    * Icon name
    */
-  icon: keyof typeof SolidHeroIcon | keyof typeof OutlineHeroIcon;
+  icon: keyof typeof OutlineHeroIcon | keyof typeof SolidHeroIcon;
 
   /**
    * @default inherit
@@ -30,16 +30,16 @@ export interface IconProps extends ElementProps {
    * Outlined icons
    * @default outline
    */
-  variant?: 'solid' | 'outline';
+  variant?: 'outline' | 'solid';
 }
 
 export const Icon = React.forwardRef<ElementType, IconProps>(
   ({ className, icon, variant = 'outline', ...others }, ref) => {
-    const { scale, intent } = useRootUI({
-      intent: others?.intent,
+    const { intent, scale } = useRootUI({
       defaultIntent: 'inherit',
-      scale: others?.scale,
       defaultScale: 'md',
+      intent: others?.intent,
+      scale: others?.scale,
     });
 
     const Component = React.useMemo(() => {
@@ -49,30 +49,30 @@ export const Icon = React.forwardRef<ElementType, IconProps>(
     return (
       <i
         {...others}
-        ref={ref}
         className={clsx(
           CLASSNAME,
           className,
           'inline-flex items-center justify-center',
           toScaleMatch({
-            xs: () => 'scale-xs',
-            sm: () => 'scale-sm',
-            md: () => 'scale-md',
             lg: () => 'scale-lg',
+            md: () => 'scale-md',
+            sm: () => 'scale-sm',
             xl: () => 'scale-xl',
+            xs: () => 'scale-xs',
           })(scale),
           toIntentMatch({
-            neutral: () => 'text-neutral dark:text-neutral2',
-            light: () => 'text-light dark:text-light2',
-            dark: () => 'text-dark dark:text-dark2',
-            primary: () => 'text-primary dark:text-primary2',
-            info: () => 'text-info dark:text-info2',
-            success: () => 'text-success dark:text-success2',
             accent: () => 'text-accent dark:text-accent2',
-            warning: () => 'text-warning dark:text-warning2',
             danger: () => 'text-danger dark:text-danger2',
+            dark: () => 'text-dark dark:text-dark2',
+            info: () => 'text-info dark:text-info2',
+            light: () => 'text-light dark:text-light2',
+            neutral: () => 'text-neutral dark:text-neutral2',
+            primary: () => 'text-primary dark:text-primary2',
+            success: () => 'text-success dark:text-success2',
+            warning: () => 'text-warning dark:text-warning2',
           })(intent),
         )}
+        ref={ref}
       >
         <Component className="w-full" />
       </i>

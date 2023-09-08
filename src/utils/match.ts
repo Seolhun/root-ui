@@ -1,6 +1,6 @@
-export function match<Key extends string | number, ReturnValue = unknown, Argument = any>(
+export function match<Key extends number | string, ReturnValue = unknown, Argument = any>(
   key: Key,
-  lookup: Record<Key, ReturnValue | ((...args: Argument[]) => ReturnValue)>,
+  lookup: Record<Key, ((...args: Argument[]) => ReturnValue) | ReturnValue>,
   ...args: Argument[]
 ): ReturnValue {
   if (key in lookup) {

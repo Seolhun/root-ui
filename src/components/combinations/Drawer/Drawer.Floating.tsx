@@ -13,8 +13,8 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface DrawerFloatingProps {}
 
 export const DrawerFloating = React.forwardRef<ElementType, ElementProps & DrawerFloatingProps>(
-  ({ className, children, ...others }, ref) => {
-    const { show, onClose, onConfirm, root } = useDrawerContext();
+  ({ children, className, ...others }, ref) => {
+    const { onClose, onConfirm, root, show } = useDrawerContext();
 
     useDocumentEvent('keydown', (e) => {
       switch (e.key) {
@@ -33,7 +33,6 @@ export const DrawerFloating = React.forwardRef<ElementType, ElementProps & Drawe
       <FloatingPortal root={root}>
         <div
           {...others}
-          ref={ref}
           className={clsx(
             CLASSNAME,
             {
@@ -44,12 +43,13 @@ export const DrawerFloating = React.forwardRef<ElementType, ElementProps & Drawe
             'overflow-y-auto',
             'z-50',
           )}
+          ref={ref}
         >
           <div
-            tabIndex={-1}
             aria-hidden={show ? 'true' : 'false'}
             className={clsx(`${CLASSNAME}__Background`, 'fixed', 'inset-0 md:inset-0', 'bg-neutral-1', 'opacity-60')}
             onClick={onClose}
+            tabIndex={-1}
           />
           {children}
         </div>

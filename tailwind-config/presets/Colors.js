@@ -1,30 +1,30 @@
 const merge = require('lodash/merge');
 const colors = require('tailwindcss/colors');
 
-const { createIntentColor, alpha } = require('../utils');
+const { alpha, createIntentColor } = require('../utils');
 
 const intents = {
-  light: {
-    primary: '#0077CC',
-    info: '#22d3ee',
-    success: '#00BFB3',
-    accent: '#F04E98',
-    warning: '#FEC514',
-    danger: '#BD271E',
-    neutral: '#98A2B3',
-    light: '#D3DAE6',
-    dark: '#69707D',
-  },
   dark: {
-    primary: '#36A2EF',
-    info: '#06b6d4',
-    success: '#7DDED8',
     accent: '#F68FBE',
-    warning: '#F3D371',
     danger: '#F86B63',
-    neutral: '#98A2B3',
-    light: '#69707D',
     dark: '#343741',
+    info: '#06b6d4',
+    light: '#69707D',
+    neutral: '#98A2B3',
+    primary: '#36A2EF',
+    success: '#7DDED8',
+    warning: '#F3D371',
+  },
+  light: {
+    accent: '#F04E98',
+    danger: '#BD271E',
+    dark: '#69707D',
+    info: '#22d3ee',
+    light: '#D3DAE6',
+    neutral: '#98A2B3',
+    primary: '#0077CC',
+    success: '#00BFB3',
+    warning: '#FEC514',
   },
 };
 
@@ -34,26 +34,26 @@ const intents = {
  */
 const intentColorKeys = ['primary', 'info', 'success', 'accent', 'warning', 'danger', 'neutral', 'light', 'dark'];
 const intentColorMap = {
+  accent: createIntentColor(intents.light.accent),
+  accent2: createIntentColor(intents.dark.accent),
+  danger: createIntentColor(intents.light.danger),
+  danger2: createIntentColor(intents.dark.danger),
+  dark: createIntentColor(intents.light.dark),
+  dark2: createIntentColor(intents.dark.dark),
+  info: createIntentColor(intents.light.info),
+  info2: createIntentColor(intents.dark.info),
+  light: createIntentColor(intents.light.light),
+  light2: createIntentColor(intents.dark.light),
+  neutral: createIntentColor(intents.light.neutral),
+  neutral2: createIntentColor(intents.dark.neutral),
   // Light
   primary: createIntentColor(intents.light.primary),
-  info: createIntentColor(intents.light.info),
-  success: createIntentColor(intents.light.success),
-  accent: createIntentColor(intents.light.accent),
-  warning: createIntentColor(intents.light.warning),
-  danger: createIntentColor(intents.light.danger),
-  neutral: createIntentColor(intents.light.neutral),
-  light: createIntentColor(intents.light.light),
-  dark: createIntentColor(intents.light.dark),
   // Dark
   primary2: createIntentColor(intents.dark.primary),
-  info2: createIntentColor(intents.dark.info),
+  success: createIntentColor(intents.light.success),
   success2: createIntentColor(intents.dark.success),
-  accent2: createIntentColor(intents.dark.accent),
+  warning: createIntentColor(intents.light.warning),
   warning2: createIntentColor(intents.dark.warning),
-  danger2: createIntentColor(intents.dark.danger),
-  neutral2: createIntentColor(intents.dark.neutral),
-  light2: createIntentColor(intents.dark.light),
-  dark2: createIntentColor(intents.dark.dark),
 };
 
 /**
@@ -95,27 +95,27 @@ const intentColors = {
       ...createIntentColorMap(values, key),
     };
   }, {}),
-  white: colors.white,
   black: colors.black,
-  transparent: 'transparent',
   inherit: 'inherit',
+  transparent: 'transparent',
+  white: colors.white,
 };
 
 const typographyColors = {
-  'typography-text': '#343741',
-  'typography-title': '#1A1C21',
+  'typography-accent': '#C4407C',
+  'typography-danger': '#BD271E',
   'typography-description': '#69707D',
   'typography-disabled': '#ABB4C4',
-  'typography-link': '#0071C2',
-  'typography-primary': '#0071C2',
-  'typography-success': '#007E77',
-  'typography-accent': '#C4407C',
-  'typography-warning': '#8A6A0A',
-  'typography-danger': '#BD271E',
-  // State
-  'typography-page-background': '#FAFBFD',
   'typography-focus-background': alpha('#0077CC', 0.9),
   'typography-highlight': alpha('#FEC514', 0.9),
+  'typography-link': '#0071C2',
+  // State
+  'typography-page-background': '#FAFBFD',
+  'typography-primary': '#0071C2',
+  'typography-success': '#007E77',
+  'typography-text': '#343741',
+  'typography-title': '#1A1C21',
+  'typography-warning': '#8A6A0A',
 };
 
 const themeColors = {
@@ -142,11 +142,11 @@ const palette = {
 };
 
 module.exports = {
-  intents,
-  intentColorMap,
   intentColorKeys,
+  intentColorMap,
   intentColors,
-  typographyColors,
-  themeColors,
+  intents,
   palette,
+  themeColors,
+  typographyColors,
 };

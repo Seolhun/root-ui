@@ -1,4 +1,4 @@
-import { disposables, match, getOwnerDocumentBy } from '~/utils';
+import { disposables, getOwnerDocumentBy, match } from '~/utils';
 
 /**
  * @see https://stackoverflow.com/a/30753870
@@ -20,16 +20,16 @@ const FOCUSABLE_SELECTORS = [
 export enum Focus {
   /** Focus the first non-disabled element */
   First = 1 << 0,
-  /** Focus the previous non-disabled element */
-  Previous = 1 << 1,
-  /** Focus the next non-disabled element */
-  Next = 1 << 2,
   /** Focus the last non-disabled element */
   Last = 1 << 3,
-  /** Wrap tab around */
-  WrapAround = 1 << 4,
+  /** Focus the next non-disabled element */
+  Next = 1 << 2,
   /** Prevent scrolling the focusable elements into view */
   NoScroll = 1 << 5,
+  /** Focus the previous non-disabled element */
+  Previous = 1 << 1,
+  /** Wrap tab around */
+  WrapAround = 1 << 4,
 }
 
 export enum FocusResult {
@@ -44,8 +44,8 @@ export enum FocusResult {
 }
 
 enum Direction {
-  Previous = -1,
   Next = 1,
+  Previous = -1,
 }
 
 export function getFocusableElements(container: HTMLElement | null = document.body) {
@@ -66,9 +66,6 @@ export function isFocusableElement(element: HTMLElement, mode: FocusableMode = F
   if (element === getOwnerDocumentBy(element)?.body) return false;
 
   return match(mode, {
-    [FocusableMode.Strict]() {
-      return element.matches(FOCUSABLE_SELECTORS);
-    },
     [FocusableMode.Loose]() {
       let next: HTMLElement | null = element;
       while (next !== null) {
@@ -78,6 +75,9 @@ export function isFocusableElement(element: HTMLElement, mode: FocusableMode = F
         next = next.parentElement;
       }
       return false;
+    },
+    [FocusableMode.Strict]() {
+      return element.matches(FOCUSABLE_SELECTORS);
     },
   });
 }

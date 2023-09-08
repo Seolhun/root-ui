@@ -7,7 +7,7 @@ import { RootUIProps, UnknownObject } from '~/types';
 const DEFAULT_GROUP_TAG = React.Fragment;
 type PortalGroupRenderPropArg = UnknownObject;
 
-export const PortalGroupContext = React.createContext<React.MutableRefObject<HTMLElement | null> | null>(null);
+export const PortalGroupContext = React.createContext<null | React.MutableRefObject<HTMLElement | null>>(null);
 PortalGroupContext.displayName = 'PortalGroupContext';
 
 export const PortalGroup = forwardRefWithAs(
@@ -25,10 +25,10 @@ export const PortalGroup = forwardRefWithAs(
     return (
       <PortalGroupContext.Provider value={target}>
         {render({
-          ourProps,
-          theirProps,
           defaultTag: DEFAULT_GROUP_TAG,
           name: 'Popover.Group',
+          ourProps,
+          theirProps,
         })}
       </PortalGroupContext.Provider>
     );

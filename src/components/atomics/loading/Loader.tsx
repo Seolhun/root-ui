@@ -8,48 +8,48 @@ type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 export interface LoaderProps extends ElementProps {
   /**
+   * @default primary
+   */
+  intent?: RootIntent;
+
+  /**
    * Set this to change scale
    * @default md
    */
   scale?: RootScale;
-
-  /**
-   * @default primary
-   */
-  intent?: RootIntent;
 }
 
 export const Loader = React.forwardRef<ElementType, LoaderProps>(
-  ({ className, scale = 'md', intent = 'primary', ...others }, ref) => {
+  ({ className, intent = 'primary', scale = 'md', ...others }, ref) => {
     return (
-      <div {...others} ref={ref} className="inline-block">
+      <div {...others} className="inline-block" ref={ref}>
         <svg
           className={clsx(
             CLASSNAME,
             className,
             'animate-spin',
             toScaleMatch({
-              xs: () => 'scale-xs',
-              sm: () => 'scale-sm',
-              md: () => 'scale-md',
               lg: () => 'scale-lg',
+              md: () => 'scale-md',
+              sm: () => 'scale-sm',
               xl: () => 'scale-xl',
+              xs: () => 'scale-xs',
             })(scale),
             toIntentMatch({
-              neutral: () => clsx('text-neutral-2 fill-neutral dark:text-neutral2-2 dark:fill-neutral2'),
-              light: () => clsx('text-light-2 fill-light dark:text-light2-2 dark:fill-light2'),
-              dark: () => clsx('text-dark-2 fill-dark dark:text-dark2-2 dark:fill-dark2'),
-              primary: () => clsx('text-primary-2 fill-primary dark:text-primary2-2 dark:fill-primary2'),
-              info: () => clsx('text-info-2 fill-info dark:text-info2-2 dark:fill-info2'),
-              success: () => clsx('text-success-2 fill-success dark:text-success2-2 dark:fill-success2'),
               accent: () => clsx('text-accent-2 fill-accent dark:text-accent2-2 dark:fill-accent2'),
-              warning: () => clsx('text-warning-2 fill-warning dark:text-warning2-2 dark:fill-warning2'),
               danger: () => clsx('text-danger-2 fill-danger dark:text-danger2-2 dark:fill-danger2'),
+              dark: () => clsx('text-dark-2 fill-dark dark:text-dark2-2 dark:fill-dark2'),
+              info: () => clsx('text-info-2 fill-info dark:text-info2-2 dark:fill-info2'),
+              light: () => clsx('text-light-2 fill-light dark:text-light2-2 dark:fill-light2'),
+              neutral: () => clsx('text-neutral-2 fill-neutral dark:text-neutral2-2 dark:fill-neutral2'),
+              primary: () => clsx('text-primary-2 fill-primary dark:text-primary2-2 dark:fill-primary2'),
+              success: () => clsx('text-success-2 fill-success dark:text-success2-2 dark:fill-success2'),
+              warning: () => clsx('text-warning-2 fill-warning dark:text-warning2-2 dark:fill-warning2'),
             })(intent),
           )}
           aria-hidden="true"
-          viewBox="0 0 100 100"
           fill="none"
+          viewBox="0 0 100 100"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path

@@ -14,7 +14,7 @@ function hasIntent(intent?: RootIntent): intent is RootIntent {
   return !!intent && intent !== 'none';
 }
 
-export function useRootUI({ intent, defaultIntent, scale, defaultScale }: Partial<UseRootUIProps> = {}) {
+export function useRootUI({ defaultIntent, defaultScale, intent, scale }: Partial<UseRootUIProps> = {}) {
   const rootUIGroupValues = useRootUIGroupContext();
   const rootUIValues = useRootUIContext();
 
@@ -71,7 +71,7 @@ export function useRootUI({ intent, defaultIntent, scale, defaultScale }: Partia
   ]);
 
   return {
-    scale: rootScale,
     intent: rootIntent,
+    scale: rootScale,
   };
 }

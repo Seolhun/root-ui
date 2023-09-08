@@ -5,22 +5,22 @@ import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/s
 import { Loader, LoaderProps } from './Loader';
 
 export default {
-  title: 'Atomic/Loader',
-  component: Loader,
   argTypes: {
-    scale: {
-      control: {
-        type: 'select',
-        options: storiesScaleOptions,
-      },
-    },
     intent: {
       control: {
-        type: 'select',
         options: storiesIntentOptions,
+        type: 'select',
+      },
+    },
+    scale: {
+      control: {
+        options: storiesScaleOptions,
+        type: 'select',
       },
     },
   },
+  component: Loader,
+  title: 'Atomic/Loader',
 };
 
 const BaseTemplate = ({ children, ...others }: LoaderProps) => {
@@ -52,12 +52,12 @@ const IntentLoadersStories = ({ children, ...others }: LoaderProps) => {
     <StorybookContent>
       <StorybookContent.Light className="flex flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent} />
+          <BaseTemplate {...others} intent={intent} key={intent} />
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent} />
+          <BaseTemplate {...others} intent={intent} key={intent} />
         ))}
       </StorybookContent.Dark>
     </StorybookContent>

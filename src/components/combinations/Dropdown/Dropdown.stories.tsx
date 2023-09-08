@@ -6,13 +6,13 @@ import { StorybookContent } from '~/stories';
 import { Optional } from '~/utils/fx';
 
 import { Dropdown } from './Dropdown';
-import { DropdownRenderOptionFunction, DropdownIdentifyFunction } from './Dropdown.types';
+import { DropdownIdentifyFunction, DropdownRenderOptionFunction } from './Dropdown.types';
 import { useDropdownRenderer } from './useDropdownRenderer';
 import { DropdownOption, DropdownOptionState, DropdownWidgetProps } from './widgets';
 
 export default {
-  title: 'Combination/Dropdown',
   component: Dropdown,
+  title: 'Combination/Dropdown',
 };
 
 interface ProfileOption extends DropdownOption {
@@ -64,7 +64,7 @@ const DropdownTemplate = ({ ...others }: DropdownWidgetProps<ProfileOption, Prof
           const { disabled } = option;
           const key = identify(option);
           return (
-            <Dropdown.Option key={key} value={option} disabled={disabled}>
+            <Dropdown.Option disabled={disabled} key={key} value={option}>
               {(state: DropdownOptionState) => <>{optionRenderer(option, state)}</>}
             </Dropdown.Option>
           );
@@ -113,7 +113,7 @@ const MultiDropdownTemplate = ({ ...others }: DropdownWidgetProps<ProfileOption,
         return (
           <div className="flex flex-wrap gap-2">
             {option.map((o) => (
-              <div key={o.value} className="flex items-center gap-x-2 truncate mt-1 mr-2">
+              <div className="flex items-center gap-x-2 truncate mt-1 mr-2" key={o.value}>
                 <Avatar src={o.avatar} />
                 <div className="truncate">{o.value}</div>
               </div>
@@ -151,7 +151,7 @@ const MultiDropdownTemplate = ({ ...others }: DropdownWidgetProps<ProfileOption,
           const { disabled } = option;
           const key = identify(option);
           return (
-            <Dropdown.Option key={key} value={option} disabled={disabled}>
+            <Dropdown.Option disabled={disabled} key={key} value={option}>
               {(state: DropdownOptionState) => <>{optionRenderer(option, state)}</>}
             </Dropdown.Option>
           );

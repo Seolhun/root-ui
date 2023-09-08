@@ -104,7 +104,7 @@ const GroupContextTemplate = () => {
               <H6>Each props</H6>
               <div>
                 <FormLabel scale={localScale}>FormLabel</FormLabel>
-                <Input intent={localIntent} scale={localScale} placeholder="Input" />
+                <Input intent={localIntent} placeholder="Input" scale={localScale} />
                 <FormHelp scale={localScale}>FormHelp</FormHelp>
                 <Button intent={localIntent} scale={localScale}>
                   Button
@@ -116,7 +116,7 @@ const GroupContextTemplate = () => {
               <H6>Group Context</H6>
               <div>
                 <FormLabel scale={localScale}>FormLabel</FormLabel>
-                <Input intent={localIntent} scale={localScale} placeholder="Input" />
+                <Input intent={localIntent} placeholder="Input" scale={localScale} />
                 <FormHelp scale={localScale}>FormHelp</FormHelp>
                 <Button intent={localIntent} scale={localScale}>
                   Button

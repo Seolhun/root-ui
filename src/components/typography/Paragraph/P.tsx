@@ -10,9 +10,9 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface PProps extends ElementProps {}
 
 export const P = React.forwardRef<ElementType, AgnosticTagProps & PProps>(
-  ({ className, children, as = 'p', ...others }, ref) => {
+  ({ as = 'p', children, className, ...others }, ref) => {
     return (
-      <Box {...others} as={as} ref={ref} className={clsx(CLASSNAME, className, 'leading-snug', 'mt-0 mb-1')}>
+      <Box {...others} as={as} className={clsx(CLASSNAME, className, 'leading-snug', 'mt-0 mb-1')} ref={ref}>
         {children}
       </Box>
     );

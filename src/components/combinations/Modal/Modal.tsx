@@ -5,24 +5,24 @@ import { ModalHeader } from './Modal.Header';
 import { ModalOverlay } from './Modal.Overlay';
 import { ModalPanel } from './Modal.Panel';
 import {
-  ModalWidgetRoot,
   ModalWidgetBackdrop,
   ModalWidgetOverlay,
   ModalWidgetPanel,
+  ModalWidgetRoot,
   ModalWidgetTitle,
 } from './Widgets';
 
 export const Modal = Object.assign(ModalWidgetRoot, {
+  Backdrop: ModalBackdrop,
+  Body: ModalBody,
+  Footer: ModalFooter,
+  Header: ModalHeader,
+  Overlay: ModalOverlay,
+  Panel: ModalPanel,
   Widgets: {
-    Overlay: ModalWidgetOverlay,
     Backdrop: ModalWidgetBackdrop,
+    Overlay: ModalWidgetOverlay,
     Panel: ModalWidgetPanel,
     Title: ModalWidgetTitle,
   },
-  Overlay: ModalOverlay,
-  Backdrop: ModalBackdrop,
-  Panel: ModalPanel,
-  Header: ModalHeader,
-  Body: ModalBody,
-  Footer: ModalFooter,
 });

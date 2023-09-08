@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { forwardRefWithAs, render } from '~/core';
-import { useSyncRefs, useId } from '~/hooks';
+import { useId, useSyncRefs } from '~/hooks';
 import { RootUIProps, RootUIReactTag } from '~/types';
 
 import { useModalContext } from './Modal.Widget.Context';
@@ -15,7 +15,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface ModalBackdropProps extends ElementProps {}
 export interface ModalBackdropRenderPropArg extends ModalRenderPropArg {}
-type PropsWeControl = keyof Pick<ElementProps, 'id' | 'aria-hidden'>;
+type PropsWeControl = keyof Pick<ElementProps, 'aria-hidden' | 'id'>;
 
 export const ModalWidgetBackdrop = forwardRefWithAs(
   <Tag extends React.ElementType = typeof DEFAULT_TAG>(
@@ -34,9 +34,9 @@ export const ModalWidgetBackdrop = forwardRefWithAs(
 
     const ourProps = React.useMemo(() => {
       return {
-        ref: backdropRef,
         id,
         'aria-hidden': true,
+        ref: backdropRef,
       };
     }, [id, backdropRef]);
 
@@ -45,11 +45,11 @@ export const ModalWidgetBackdrop = forwardRefWithAs(
     const slot = React.useMemo<ModalBackdropRenderPropArg>(() => ({ visible }), [visible]);
 
     return render({
-      ourProps,
-      theirProps,
       defaultTag: DEFAULT_TAG,
       name: COMPONENT_NAME,
+      ourProps,
       slot,
+      theirProps,
     });
   },
 );

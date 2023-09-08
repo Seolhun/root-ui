@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useEvent } from './useEvent';
 
 export function useWatch<Dependencies extends any[]>(
-  cb: (newValues: [...Dependencies], oldValues: [...Dependencies]) => void | (() => void),
+  cb: (newValues: [...Dependencies], oldValues: [...Dependencies]) => (() => void) | void,
   dependencies: [...Dependencies],
 ) {
   const track = React.useRef<typeof dependencies>([] as unknown as [...Dependencies]);

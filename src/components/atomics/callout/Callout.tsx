@@ -20,25 +20,25 @@ export const Callout = React.forwardRef<ElementType, CalloutProps>(
     return (
       <div
         {...others}
-        ref={ref}
         className={clsx(
           className,
           CLASSNAME,
           toIntentMatch(
             {
-              neutral: () => 'bg-neutral-0',
-              light: () => 'bg-light-0',
-              dark: () => 'bg-dark-0',
-              primary: () => 'bg-primary-0',
-              info: () => 'bg-info-0',
-              success: () => 'bg-success-0',
               accent: () => 'bg-accent-0',
-              warning: () => 'bg-warning-0',
               danger: () => 'bg-danger-0',
+              dark: () => 'bg-dark-0',
+              info: () => 'bg-info-0',
+              light: () => 'bg-light-0',
+              neutral: () => 'bg-neutral-0',
+              primary: () => 'bg-primary-0',
+              success: () => 'bg-success-0',
+              warning: () => 'bg-warning-0',
             },
             intent,
           ),
         )}
+        ref={ref}
       >
         {children}
       </div>

@@ -3,20 +3,20 @@ import * as React from 'react';
 import { GlobalRootDataAttributeMap, KeyboardKeyMap } from '~/constants';
 import { forwardRefWithAs, render, RenderFeatures } from '~/core';
 import {
+  useEvent,
+  useEventListener,
+  useId,
   useOutsideClick,
   useOwnerDocument,
   useServerHandoffComplete,
-  useEvent,
-  useEventListener,
   useSyncRefs,
-  useId,
 } from '~/hooks';
 import { FocusTrap, ForcePortalRoot, Portal, StackContextMessageEnum, StackProvider } from '~/tools';
 import { RootUIProps, RootUIReactTag } from '~/types';
 import { match } from '~/utils';
 
 import { ModalContext, ModalContextValues } from './Modal.Widget.Context';
-import { ActionTypes, StateDefinition, rootReducer } from './Modal.Widget.reducer';
+import { ActionTypes, rootReducer, StateDefinition } from './Modal.Widget.reducer';
 import { ModalPosition, ModalProps, ModalRenderPropArg } from './Modal.Widget.types';
 
 const COMPONENT_NAME = 'Modal';
@@ -27,14 +27,14 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 
 const modalRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Static;
 export interface ModalRootRenderPropArg extends ModalRenderPropArg {}
-type PropsWeControl = keyof Pick<ElementProps, 'id' | 'role' | 'aria-modal' | 'aria-labelledby'>;
+type PropsWeControl = keyof Pick<ElementProps, 'aria-labelledby' | 'aria-modal' | 'id' | 'role'>;
 
 export const ModalWidgetRoot = forwardRefWithAs(
   <Tag extends React.ElementType = typeof DEFAULT_TAG>(
     props: RootUIProps<Tag, ModalRootRenderPropArg, PropsWeControl> & ModalProps,
     ref: React.Ref<ElementType>,
   ) => {
-    const { show, onClose, onKeyDown, initialFocus, root, ...others } = props;
+    const { initialFocus, onClose, onKeyDown, root, show, ...others } = props;
     const id = `RootUI__Modal__${useId()}`;
 
     const containers = React.useRef<Set<React.MutableRefObject<HTMLElement | null>>>(new Set());
@@ -58,8 +58,8 @@ export const ModalWidgetRoot = forwardRefWithAs(
     const hasParentModal = React.useContext(ModalContext) !== null;
     const position: ModalPosition = hasParentModal ? 'parent' : 'leaf';
 
-    const setModalTitleId = useEvent((id: string | null) => {
-      return dispatch({ type: ActionTypes.SetTitleId, payload: id });
+    const setModalTitleId = useEvent((id: null | string) => {
+      return dispatch({ payload: id, type: ActionTypes.SetTitleId });
     });
 
     const onCloseModal = useEvent(() => onClose());
@@ -131,9 +131,9 @@ export const ModalWidgetRoot = forwardRefWithAs(
     const contextValues = React.useMemo<ModalContextValues>(() => {
       return [
         {
-          visible: show,
-          setModalTitleId,
           onClose: onCloseModal,
+          setModalTitleId,
+          visible: show,
         },
         state,
       ];
@@ -141,11 +141,11 @@ export const ModalWidgetRoot = forwardRefWithAs(
 
     const ourProps = React.useMemo(() => {
       return {
-        ref: modalRef,
         id,
-        role: 'modal',
-        'aria-modal': show,
         'aria-labelledby': state.id,
+        'aria-modal': show,
+        ref: modalRef,
+        role: 'modal',
       };
     }, [id, modalRef, show, state.id]);
 
@@ -156,8 +156,8 @@ export const ModalWidgetRoot = forwardRefWithAs(
     const focusTrapFeatures = React.useMemo(() => {
       if (enabled) {
         return match(position, {
-          parent: FocusTrap.features.RestoreFocus,
           leaf: FocusTrap.features.All & ~FocusTrap.features.FocusLock,
+          parent: FocusTrap.features.RestoreFocus,
         });
       }
       return FocusTrap.features.None;
@@ -165,9 +165,6 @@ export const ModalWidgetRoot = forwardRefWithAs(
 
     return (
       <StackProvider
-        type={COMPONENT_NAME}
-        enabled={enabled}
-        element={internalModalRef}
         onUpdate={useEvent((message, type, element) => {
           if (type !== 'Modal') {
             return;
@@ -183,20 +180,23 @@ export const ModalWidgetRoot = forwardRefWithAs(
             },
           });
         })}
+        element={internalModalRef}
+        enabled={enabled}
+        type={COMPONENT_NAME}
       >
         <ForcePortalRoot force={true}>
           <Portal root={root}>
             <ModalContext.Provider value={contextValues}>
               <Portal.Group target={internalModalRef}>
                 <ForcePortalRoot force={false}>
-                  <FocusTrap initialFocus={initialFocus} containers={containers} features={focusTrapFeatures}>
+                  <FocusTrap containers={containers} features={focusTrapFeatures} initialFocus={initialFocus}>
                     {render({
-                      ourProps,
-                      theirProps,
                       defaultTag: DEFAULT_TAG,
-                      name: COMPONENT_NAME,
-                      slot,
                       features: modalRenderFeatures,
+                      name: COMPONENT_NAME,
+                      ourProps,
+                      slot,
+                      theirProps,
                       visible: show,
                     })}
                   </FocusTrap>

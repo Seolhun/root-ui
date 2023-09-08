@@ -14,12 +14,12 @@ export type Some<T> = T;
  * It is some or null
  * use "isSome" or "isNull" utils to check validation considering what you want.
  */
-export type Nullable<T> = Some<T> | null;
+export type Nullable<T> = null | Some<T>;
 
 /**
  * It is some or undefined
  * use "isSome" or "isUndefined" utils to check validation considering what you want.
  */
-export type Optional<T> = Some<T> | None;
+export type Optional<T> = None | Some<T>;
 
-export type GetOrElse = <R>(fallback: R) => <T>(value: Optional<T>) => T | R;
+export type GetOrElse = <R>(fallback: R) => <T>(value: Optional<T>) => R | T;

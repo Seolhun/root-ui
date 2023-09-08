@@ -1,37 +1,35 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toScaleMatch, toIntentMatch, useRootUI } from '~/system';
+import { RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '~/system';
 
 const CLASSNAME = 'Root__Input';
 type ElementType = HTMLInputElement;
 type ElementProps = React.InputHTMLAttributes<ElementType>;
 export interface InputProps extends ElementProps {
   /**
+   * @default primary
+   */
+  intent?: RootIntent;
+
+  /**
    * Set this to change scale
    * @default md
    */
   scale?: RootScale;
-
-  /**
-   * @default primary
-   */
-  intent?: RootIntent;
 }
 
 export const Input = React.forwardRef<ElementType, InputProps>(({ className, ...others }, ref) => {
-  const { scale, intent } = useRootUI({
-    intent: others?.intent,
+  const { intent, scale } = useRootUI({
     defaultIntent: 'primary',
-    scale: others?.scale,
     defaultScale: 'md',
+    intent: others?.intent,
+    scale: others?.scale,
   });
 
   return (
     <input
       {...others}
-      ref={ref}
-      id={others.name}
       className={clsx(
         CLASSNAME,
         className,
@@ -44,24 +42,26 @@ export const Input = React.forwardRef<ElementType, InputProps>(({ className, ...
         'rounded',
         'caret-neutral',
         toScaleMatch({
-          xs: () => 'scale-text-xs scale-py-xs',
-          sm: () => 'scale-text-sm scale-py-sm',
-          md: () => 'scale-text-md scale-py-md',
           lg: () => 'scale-text-lg scale-py-lg',
+          md: () => 'scale-text-md scale-py-md',
+          sm: () => 'scale-text-sm scale-py-sm',
           xl: () => 'scale-text-xl scale-py-xl',
+          xs: () => 'scale-text-xs scale-py-xs',
         })(scale),
         toIntentMatch({
-          neutral: () => clsx('outline-neutral dark:outline-neutral'),
-          light: () => clsx('outline-light dark:outline-light'),
-          dark: () => clsx('outline-dark dark:outline-dark'),
-          primary: () => clsx('outline-primary dark:outline-primary'),
-          info: () => clsx('outline-info dark:outline-info'),
-          success: () => clsx('outline-success dark:outline-success'),
           accent: () => clsx('outline-accent dark:outline-accent'),
-          warning: () => clsx('outline-warning dark:outline-warning'),
           danger: () => clsx('outline-danger dark:outline-danger'),
+          dark: () => clsx('outline-dark dark:outline-dark'),
+          info: () => clsx('outline-info dark:outline-info'),
+          light: () => clsx('outline-light dark:outline-light'),
+          neutral: () => clsx('outline-neutral dark:outline-neutral'),
+          primary: () => clsx('outline-primary dark:outline-primary'),
+          success: () => clsx('outline-success dark:outline-success'),
+          warning: () => clsx('outline-warning dark:outline-warning'),
         })(intent),
       )}
+      id={others.name}
+      ref={ref}
     />
   );
 });

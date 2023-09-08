@@ -9,12 +9,12 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface PopoverOverlayProps {}
 
 export const PopoverOverlay = React.forwardRef<ElementType, ElementProps & PopoverOverlayProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <Popover.Overlay
         {...others}
-        ref={ref}
         className={clsx(CLASSNAME, className, 'fixed inset-0 bg-black opacity-30')}
+        ref={ref}
       >
         {children}
       </Popover.Overlay>

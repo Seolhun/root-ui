@@ -15,34 +15,10 @@ type Element = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
 
 export interface AutoCompleteProps<Item> {
-  query: string;
-
-  identify: AutoCompleteIdentify<Item>;
-
-  items: Item[];
-
-  onChangeInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
-
-  onKeydownInput: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-
-  onSelectItem: (item: Item) => void;
-
-  selectedItem?: Optional<Item>;
-
   /**
    * To display value by transforming item.
    */
   displayedValue?: (item: Item) => string;
-
-  /**
-   * Loading state
-   */
-  loading?: boolean;
-
-  /**
-   * To render loading state
-   */
-  Loader?: React.ReactNode;
 
   /**
    * To render empty state
@@ -54,37 +30,61 @@ export interface AutoCompleteProps<Item> {
    */
   icon?: IconProps['icon'];
 
+  identify: AutoCompleteIdentify<Item>;
+
+  items: Item[];
+
   /**
-   * @default md
+   * To render loading state
    */
-  scale?: RootScale;
+  Loader?: React.ReactNode;
+
+  /**
+   * Loading state
+   */
+  loading?: boolean;
+
+  onChangeInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
+
+  onKeydownInput: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+
+  onSelectItem: (item: Item) => void;
 
   /**
    * Autocomplete input placeholder
    */
   placeholder?: string;
+
+  query: string;
+
+  /**
+   * @default md
+   */
+  scale?: RootScale;
+
+  selectedItem?: Optional<Item>;
 }
 
 function _AutoComplete<Item = any>(
   {
-    // Root
-    scale = 'md',
+    Empty = 'There are no suggestions',
+    Loader,
+    // HTMLAttributes
+    className,
+    displayedValue,
+    icon = 'MagnifyingGlassIcon',
+    identify,
     // Props
     items,
-    identify,
-    query,
+    loading,
     onChangeInput,
     onKeydownInput,
     onSelectItem,
-    selectedItem,
-    displayedValue,
-    loading,
-    Loader,
-    Empty = 'There are no suggestions',
-    icon = 'MagnifyingGlassIcon',
-    // HTMLAttributes
-    className,
     placeholder,
+    query,
+    // Root
+    scale = 'md',
+    selectedItem,
     ...others
   }: AutoCompleteProps<Item> & ElementProps,
   ref: React.ForwardedRef<HTMLDivElement>,
@@ -96,22 +96,20 @@ function _AutoComplete<Item = any>(
    */
   const scaleClassName = React.useMemo(() => {
     return toScaleMatch({
-      xs: () => 'text-2 py-2 px-3',
-      sm: () => 'text-2.5` py-2 px-3',
-      md: () => 'text-3 py-2 px-3',
       lg: () => 'text-3.5 py-2.5 px-4',
+      md: () => 'text-3 py-2 px-3',
+      sm: () => 'text-2.5` py-2 px-3',
       xl: () => 'text-4 py-3 px-5',
+      xs: () => 'text-2 py-2 px-3',
     })(scale);
   }, [scale]);
 
   return (
-    <div {...others} ref={ref} className={clsx(CLASSNAME, className, 'relative', 'bg-cream-1 dark:bg-space-1')}>
-      <Combobox value={selectedItem} onChange={onSelectItem}>
+    <div {...others} className={clsx(CLASSNAME, className, 'relative', 'bg-cream-1 dark:bg-space-1')} ref={ref}>
+      <Combobox onChange={onSelectItem} value={selectedItem}>
         <div className={clsx(Styled.InputWrapper, 'bg-cream-1 dark:bg-space-1')}>
           <Icon className="mx-3" icon={icon} intent="light" scale={'sm'} />
           <Combobox.Input
-            ref={inputRef}
-            type="search"
             className={clsx(
               scaleClassName,
               'bg-cream-1 dark:bg-space-1',
@@ -120,11 +118,13 @@ function _AutoComplete<Item = any>(
               'pl-0',
               'outline-none',
             )}
-            value={query}
+            displayValue={displayedValue}
             onChange={onChangeInput}
             onKeyDown={onKeydownInput}
-            displayValue={displayedValue}
             placeholder={placeholder}
+            ref={inputRef}
+            type="search"
+            value={query}
           />
         </div>
         <div className={Styled.OptionGroupWrapper}>
@@ -139,8 +139,6 @@ function _AutoComplete<Item = any>(
                   const identifiedItem = identify(item);
                   return (
                     <Combobox.Option
-                      key={identifiedItem.key}
-                      value={identifiedItem.value}
                       className={({ active, selected }) => {
                         return clsx(
                           Styled.Option,
@@ -150,9 +148,11 @@ function _AutoComplete<Item = any>(
                           }),
                         );
                       }}
+                      key={identifiedItem.key}
+                      value={identifiedItem.value}
                     >
-                      {({ active, selected, disabled }) => (
-                        <>{identifiedItem.children({ active, selected, disabled })}</>
+                      {({ active, disabled, selected }) => (
+                        <>{identifiedItem.children({ active, disabled, selected })}</>
                       )}
                     </Combobox.Option>
                   );

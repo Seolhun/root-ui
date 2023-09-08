@@ -18,28 +18,28 @@ export interface FormHelpProps extends ElementProps {
 
 export const FormHelp = React.forwardRef<ElementType, FormHelpProps>(({ children, className, ...others }, ref) => {
   const { scale } = useRootUI({
-    scale: others?.scale,
     defaultScale: 'md',
+    scale: others?.scale,
   });
 
   return (
     <Box
       {...others}
-      as="p"
-      ref={ref}
       className={clsx(
         CLASSNAME,
         className,
         'flex items-center flex-wrap',
         'text-space-1 dark:text-cream-1',
         toScaleMatch({
-          xs: () => 'scale-text-xs',
-          sm: () => 'scale-text-sm',
-          md: () => 'scale-text-md',
           lg: () => 'scale-text-lg',
+          md: () => 'scale-text-md',
+          sm: () => 'scale-text-sm',
           xl: () => 'scale-text-xl',
+          xs: () => 'scale-text-xs',
         })(scale),
       )}
+      as="p"
+      ref={ref}
     >
       {children}
     </Box>

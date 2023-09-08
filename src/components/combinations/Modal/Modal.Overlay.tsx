@@ -10,12 +10,12 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface ModalOverlayProps extends ElementProps {}
 
 export const ModalOverlay = React.forwardRef<ElementType, ModalOverlayProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <ModalWidgetOverlay
         {...others}
-        ref={ref}
         className={clsx(CLASSNAME, className, 'fixed', 'inset-0 md:inset-0', 'overflow-y-auto')}
+        ref={ref}
       >
         {children}
       </ModalWidgetOverlay>

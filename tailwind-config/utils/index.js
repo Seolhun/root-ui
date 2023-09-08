@@ -25,8 +25,8 @@ const presetRanges = concat(range(0, 10, 0.5), range(10, 401));
 
 module.exports = {
   alpha,
-  lighten,
-  darken,
   createIntentColor,
+  darken,
+  lighten,
   presetRanges,
 };

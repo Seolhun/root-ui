@@ -14,13 +14,13 @@ export function useStackContext() {
 
 export interface StackProviderProps {
   children: React.ReactNode;
-  onUpdate?: StackContextOnUpdateCallback;
-  type: string;
   element: React.MutableRefObject<HTMLElement | null>;
   enabled?: boolean;
+  onUpdate?: StackContextOnUpdateCallback;
+  type: string;
 }
 
-export function StackProvider({ children, onUpdate, type, element, enabled }: StackProviderProps) {
+export function StackProvider({ children, element, enabled, onUpdate, type }: StackProviderProps) {
   const parentUpdate = useStackContext();
 
   const notify = useEvent((...args: Parameters<StackContextOnUpdateCallback>) => {

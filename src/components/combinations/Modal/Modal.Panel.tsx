@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { RootScale, toScaleMatch } from '~/system';
 
-import { useModalContext, ModalWidgetPanel } from './Widgets';
+import { ModalWidgetPanel, useModalContext } from './Widgets';
 
 const CLASSNAME = 'Root__Modal__Panel';
 type ElementType = HTMLDivElement;
@@ -18,13 +18,12 @@ export interface ModalPanelProps extends ElementProps {
 }
 
 export const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
-  ({ className, children, scale = 'md', ...others }, ref) => {
+  ({ children, className, scale = 'md', ...others }, ref) => {
     const [{ visible }] = useModalContext('Modal');
 
     return (
       <ModalWidgetPanel
         {...others}
-        ref={ref}
         className={clsx(
           CLASSNAME,
           className,
@@ -32,11 +31,11 @@ export const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
           'block',
           'bg-white',
           toScaleMatch({
-            xs: () => 'w-full md:w-4/12',
-            sm: () => 'w-full md:w-5/12',
-            md: () => 'w-full md:w-6/12',
             lg: () => 'w-full md:w-8/12',
+            md: () => 'w-full md:w-6/12',
+            sm: () => 'w-full md:w-5/12',
             xl: () => 'w-full md:w-10/12',
+            xs: () => 'w-full md:w-4/12',
           })(scale),
           'bg-cream-1 text-space-1',
           'dark:bg-space-1 dark:text-cream-1',
@@ -50,6 +49,7 @@ export const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
             'animate-[fade-in_0.2s_ease-in-out]': visible,
           },
         )}
+        ref={ref}
       >
         {children}
       </ModalWidgetPanel>

@@ -5,36 +5,6 @@ export function disposables() {
   const queue: Callback[] = [];
 
   const api = {
-    enqueue(fn: Callback) {
-      queue.push(fn);
-    },
-
-    addEventListener<TEventName extends keyof WindowEventMap>(
-      element: HTMLElement,
-      name: TEventName,
-      listener: (event: WindowEventMap[TEventName]) => any,
-      options?: boolean | AddEventListenerOptions,
-    ) {
-      element.addEventListener(name, listener as any, options);
-      return api.add(() => element.removeEventListener(name, listener as any, options));
-    },
-
-    requestAnimationFrame(...args: Parameters<typeof requestAnimationFrame>) {
-      const raf = requestAnimationFrame(...args);
-      return api.add(() => cancelAnimationFrame(raf));
-    },
-
-    nextFrame(...args: Parameters<typeof requestAnimationFrame>) {
-      return api.requestAnimationFrame(() => {
-        return api.requestAnimationFrame(...args);
-      });
-    },
-
-    setTimeout(...args: Parameters<typeof setTimeout>) {
-      const timer = setTimeout(...args);
-      return api.add(() => clearTimeout(timer));
-    },
-
     add(cb: Callback) {
       disposables.push(cb);
       return () => {
@@ -46,10 +16,40 @@ export function disposables() {
       };
     },
 
+    addEventListener<TEventName extends keyof WindowEventMap>(
+      element: HTMLElement,
+      name: TEventName,
+      listener: (event: WindowEventMap[TEventName]) => any,
+      options?: AddEventListenerOptions | boolean,
+    ) {
+      element.addEventListener(name, listener as any, options);
+      return api.add(() => element.removeEventListener(name, listener as any, options));
+    },
+
     dispose() {
       for (const dispose of disposables.splice(0)) {
         dispose();
       }
+    },
+
+    enqueue(fn: Callback) {
+      queue.push(fn);
+    },
+
+    nextFrame(...args: Parameters<typeof requestAnimationFrame>) {
+      return api.requestAnimationFrame(() => {
+        return api.requestAnimationFrame(...args);
+      });
+    },
+
+    requestAnimationFrame(...args: Parameters<typeof requestAnimationFrame>) {
+      const raf = requestAnimationFrame(...args);
+      return api.add(() => cancelAnimationFrame(raf));
+    },
+
+    setTimeout(...args: Parameters<typeof setTimeout>) {
+      const timer = setTimeout(...args);
+      return api.add(() => clearTimeout(timer));
     },
 
     async workQueue() {

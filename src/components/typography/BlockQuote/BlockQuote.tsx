@@ -15,11 +15,10 @@ export interface BlockQuoteProps extends ElementProps {
 }
 
 export const BlockQuote = React.forwardRef<ElementType, BlockQuoteProps>(
-  ({ className, children, intent = 'primary', ...others }, ref) => {
+  ({ children, className, intent = 'primary', ...others }, ref) => {
     return (
       <blockquote
         {...others}
-        ref={ref}
         className={clsx(
           CLASSNAME,
           className,
@@ -28,17 +27,18 @@ export const BlockQuote = React.forwardRef<ElementType, BlockQuoteProps>(
           'mt-0 mb-4 pl-8',
           'border-l-4',
           toIntentMatch({
-            neutral: () => clsx('border-neutral'),
-            light: () => clsx('border-light'),
-            dark: () => clsx('border-dark'),
-            primary: () => clsx('border-primary'),
-            info: () => clsx('border-info'),
-            success: () => clsx('border-success'),
             accent: () => clsx('border-accent'),
-            warning: () => clsx('border-warning'),
             danger: () => clsx('border-danger'),
+            dark: () => clsx('border-dark'),
+            info: () => clsx('border-info'),
+            light: () => clsx('border-light'),
+            neutral: () => clsx('border-neutral'),
+            primary: () => clsx('border-primary'),
+            success: () => clsx('border-success'),
+            warning: () => clsx('border-warning'),
           })(intent),
         )}
+        ref={ref}
       >
         {children}
       </blockquote>

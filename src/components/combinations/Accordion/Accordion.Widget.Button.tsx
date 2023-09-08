@@ -21,7 +21,7 @@ export interface AccordionButtonRenderPropArg {
 }
 type PropsWeControl = keyof Pick<
   ElementProps,
-  'id' | 'type' | 'aria-expanded' | 'aria-controls' | 'onKeyDown' | 'onClick'
+  'aria-controls' | 'aria-expanded' | 'id' | 'onClick' | 'onKeyDown' | 'type'
 >;
 
 const _AccordionWidgetButton = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
@@ -87,17 +87,17 @@ const _AccordionWidgetButton = <Tag extends React.ElementType = typeof DEFAULT_T
 
   const ourProps = React.useMemo(() => {
     if (isWithinPanel) {
-      return { ref: buttonRef, type, onKeyDown: handleKeyDown, onClick: handleClick };
+      return { onClick: handleClick, onKeyDown: handleKeyDown, ref: buttonRef, type };
     }
     return {
-      ref: buttonRef,
       id: state.buttonId,
-      type,
-      'aria-expanded': props.disabled ? undefined : state.accordionState === OpenClosedState.Open,
       'aria-controls': state.linkedPanel ? state.panelId : undefined,
+      'aria-expanded': props.disabled ? undefined : state.accordionState === OpenClosedState.Open,
+      onClick: handleClick,
       onKeyDown: handleKeyDown,
       onKeyUp: handleKeyUp,
-      onClick: handleClick,
+      ref: buttonRef,
+      type,
     };
   }, [
     buttonRef,
@@ -122,11 +122,11 @@ const _AccordionWidgetButton = <Tag extends React.ElementType = typeof DEFAULT_T
   }, [state]);
 
   return render({
-    ourProps,
-    theirProps,
-    slot,
     defaultTag: DEFAULT_TAG,
     name: COMPONENT_NAME,
+    ourProps,
+    slot,
+    theirProps,
   });
 };
 

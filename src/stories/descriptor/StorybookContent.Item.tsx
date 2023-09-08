@@ -5,7 +5,7 @@ type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface StorybookContentItemProps extends Omit<ElementProps, 'children'> {
-  children: React.ReactNode | ((args: RenderChildrenArgs) => React.ReactNode);
+  children: ((args: RenderChildrenArgs) => React.ReactNode) | React.ReactNode;
 
   noAlign?: boolean;
 
@@ -30,18 +30,18 @@ export const StorybookContentItem = ({ children, className, noAlign, noGap, ...o
   return (
     <div
       {...others}
-      ref={setRoot}
       className={clsx(
         className,
         'StorybookContentItem',
         'flex flex-1 ',
         'min-h-full',
         {
-          'items-center justify-center': !noAlign,
           'gap-2': !noGap,
+          'items-center justify-center': !noAlign,
         },
         'p-4',
       )}
+      ref={setRoot}
     >
       {renderChildren({ root })}
     </div>

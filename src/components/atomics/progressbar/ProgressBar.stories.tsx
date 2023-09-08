@@ -5,22 +5,22 @@ import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/s
 import { ProgressBar, ProgressBarProps } from './ProgressBar';
 
 export default {
-  title: 'Atomic/ProgressBar',
-  component: ProgressBar,
   argTypes: {
-    scale: {
-      control: {
-        type: 'select',
-        options: storiesScaleOptions,
-      },
-    },
     intent: {
       control: {
-        type: 'select',
         options: storiesIntentOptions,
+        type: 'select',
+      },
+    },
+    scale: {
+      control: {
+        options: storiesScaleOptions,
+        type: 'select',
       },
     },
   },
+  component: ProgressBar,
+  title: 'Atomic/ProgressBar',
 };
 
 const BaseTemplate = ({ children, ...others }: ProgressBarProps) => {
@@ -50,8 +50,8 @@ const ScaleProgressBarStories = ({ children, ...others }: ProgressBarProps) => {
 
 export const ScaleProgressBar = ScaleProgressBarStories.bind({});
 ScaleProgressBar.args = {
-  children: 'ProgressBar',
   badge: '',
+  children: 'ProgressBar',
 };
 
 const IntentProgressBarsStories = ({ children, ...others }: ProgressBarProps) => {
@@ -59,12 +59,12 @@ const IntentProgressBarsStories = ({ children, ...others }: ProgressBarProps) =>
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent} />
+          <BaseTemplate {...others} intent={intent} key={intent} />
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent} />
+          <BaseTemplate {...others} intent={intent} key={intent} />
         ))}
       </StorybookContent.Dark>
     </StorybookContent>
@@ -73,8 +73,8 @@ const IntentProgressBarsStories = ({ children, ...others }: ProgressBarProps) =>
 
 export const IntentProgressBars = IntentProgressBarsStories.bind({});
 IntentProgressBars.args = {
-  children: 'ProgressBar',
   badge: '',
+  children: 'ProgressBar',
 };
 
 const BadgeProgressBarsStories = ({ children, ...others }: ProgressBarProps) => {
@@ -82,12 +82,12 @@ const BadgeProgressBarsStories = ({ children, ...others }: ProgressBarProps) => 
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent} />
+          <BaseTemplate {...others} intent={intent} key={intent} />
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent} />
+          <BaseTemplate {...others} intent={intent} key={intent} />
         ))}
       </StorybookContent.Dark>
     </StorybookContent>
@@ -96,6 +96,6 @@ const BadgeProgressBarsStories = ({ children, ...others }: ProgressBarProps) => 
 
 export const BadgeProgressBars = BadgeProgressBarsStories.bind({});
 BadgeProgressBars.args = {
-  children: 'ProgressBar',
   badge: 'Badge',
+  children: 'ProgressBar',
 };

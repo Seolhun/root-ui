@@ -2,21 +2,21 @@ export type RootNone = 'none';
 
 export type RootIntentInherit = 'inherit';
 export type RootIntent =
-  | 'primary'
-  | 'info'
-  | 'success'
   | 'accent'
-  | 'warning'
   | 'danger'
-  | 'light'
   | 'dark'
+  | 'info'
+  | 'light'
   | 'neutral'
+  | 'primary'
+  | 'success'
+  | 'warning'
   | RootIntentInherit
   | RootNone;
 
-export type RootScale = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | RootNone;
+export type RootScale = 'lg' | 'md' | 'sm' | 'xl' | 'xs' | RootNone;
 
-type Alignment = 'start' | 'end';
-type Side = 'top' | 'right' | 'bottom' | 'left';
+type Alignment = 'end' | 'start';
+type Side = 'bottom' | 'left' | 'right' | 'top';
 type AlignedPlacement = `${Side}-${Alignment}`;
-export type RootPlacement = Side | AlignedPlacement;
+export type RootPlacement = AlignedPlacement | Side;

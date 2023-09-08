@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { forwardRefWithAs, render } from '~/core';
-import { useSyncRefs, useId, useEvent } from '~/hooks';
+import { useEvent, useId, useSyncRefs } from '~/hooks';
 import { RootUIProps, RootUIReactTag } from '~/types';
 import { isDisabledReactIssue7711 } from '~/utils/bugs';
 
@@ -16,7 +16,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface ModalWidgetOverlayProps extends ElementProps {}
 export interface ModalOverlayRenderPropArg extends ModalRenderPropArg {}
-type PropsWeControl = keyof Pick<ElementProps, 'id' | 'aria-hidden' | 'onClick'>;
+type PropsWeControl = keyof Pick<ElementProps, 'aria-hidden' | 'id' | 'onClick'>;
 
 export const ModalWidgetOverlay = forwardRefWithAs(
   <Tag extends React.ElementType = typeof DEFAULT_TAG>(
@@ -24,7 +24,7 @@ export const ModalWidgetOverlay = forwardRefWithAs(
     ref: React.Ref<ElementType>,
   ) => {
     const id = `RootUI__Modal__Overlay-${useId()}`;
-    const [{ visible, onClose }] = useModalContext(COMPONENT_NAME);
+    const [{ onClose, visible }] = useModalContext(COMPONENT_NAME);
     const overlayRef = useSyncRefs(ref);
 
     const handleClick = useEvent((event: React.MouseEvent) => {
@@ -41,10 +41,10 @@ export const ModalWidgetOverlay = forwardRefWithAs(
 
     const ourProps = React.useMemo(() => {
       return {
-        ref: overlayRef,
         id,
         'aria-hidden': true,
         onClick: handleClick,
+        ref: overlayRef,
       };
     }, [handleClick, id, overlayRef]);
 
@@ -53,11 +53,11 @@ export const ModalWidgetOverlay = forwardRefWithAs(
     const slot = React.useMemo<ModalOverlayRenderPropArg>(() => ({ visible }), [visible]);
 
     return render({
-      ourProps,
-      theirProps,
       defaultTag: DEFAULT_TAG,
       name: COMPONENT_NAME,
+      ourProps,
       slot,
+      theirProps,
     });
   },
 );

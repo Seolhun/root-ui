@@ -10,10 +10,9 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface TabGroupProps extends ElementProps {
   /**
-   * Set this to change scale
-   * @default md
+   * Tab default index
    */
-  scale?: RootScale;
+  defaultIndex?: number;
 
   /**
    * @default primary
@@ -21,14 +20,20 @@ export interface TabGroupProps extends ElementProps {
   intent?: RootIntent;
 
   /**
-   * Tab default index
+   * Is tab manual?
    */
-  defaultIndex?: number;
+  manual?: boolean;
 
   /**
    * Tab onChange
    */
   onChangeTab?: (index: number) => void;
+
+  /**
+   * Set this to change scale
+   * @default md
+   */
+  scale?: RootScale;
 
   /**
    * Selected tab index
@@ -39,11 +44,6 @@ export interface TabGroupProps extends ElementProps {
    * Tab direction
    */
   vertical?: boolean;
-
-  /**
-   * Is tab manual?
-   */
-  manual?: boolean;
 }
 
 export const TabGroup = React.forwardRef<ElementType, TabGroupProps>(
@@ -51,13 +51,13 @@ export const TabGroup = React.forwardRef<ElementType, TabGroupProps>(
     {
       children,
       className,
-      scale = 'md',
-      intent = 'primary',
       defaultIndex,
+      intent = 'primary',
+      manual,
       onChangeTab,
+      scale = 'md',
       selectedIndex,
       vertical,
-      manual,
       ...others
     },
     ref,
@@ -65,12 +65,12 @@ export const TabGroup = React.forwardRef<ElementType, TabGroupProps>(
     return (
       <Tab.Group
         defaultIndex={defaultIndex}
+        manual={manual}
         onChange={onChangeTab}
         selectedIndex={selectedIndex}
         vertical={vertical}
-        manual={manual}
       >
-        <div {...others} ref={ref} className={clsx(CLASSNAME, className, 'group', 'w-full')}>
+        <div {...others} className={clsx(CLASSNAME, className, 'group', 'w-full')} ref={ref}>
           {children}
         </div>
       </Tab.Group>

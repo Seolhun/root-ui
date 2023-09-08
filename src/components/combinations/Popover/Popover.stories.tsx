@@ -4,25 +4,25 @@ import { usePopper } from 'react-popper';
 
 import { Button, Card } from '~/components/atomics';
 import { Icon } from '~/components/icons';
-import { StorybookContent, storiesPlacements } from '~/stories';
+import { storiesPlacements, StorybookContent } from '~/stories';
 
 import { Popover } from './Popover';
 
 export default {
-  title: 'Combination/Popover',
-  component: Popover,
   argTypes: {
     onClick: {
       action: 'clicked',
     },
     placement: {
       control: {
-        type: 'select',
-        options: storiesPlacements,
         defaultValue: 'bottom-start',
+        options: storiesPlacements,
+        type: 'select',
       },
     },
   },
+  component: Popover,
+  title: 'Combination/Popover',
 };
 
 const PopoversTemplate = () => {
@@ -218,8 +218,7 @@ export const _PopoverGroups = PopoverGroups.bind({});
 const PopoversPositionWithPopperTemplate = ({ placement }) => {
   const [referenceElement, setReferenceElement] = React.useState<HTMLButtonElement | null>(null);
   const [popperElement, setPopperElement] = React.useState<HTMLDivElement | null>(null);
-  const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    placement,
+  const { attributes, styles } = usePopper(referenceElement, popperElement, {
     modifiers: [
       {
         name: 'offset',
@@ -228,6 +227,7 @@ const PopoversPositionWithPopperTemplate = ({ placement }) => {
         },
       },
     ],
+    placement,
   });
 
   return (
@@ -239,7 +239,7 @@ const PopoversPositionWithPopperTemplate = ({ placement }) => {
           <Button>Show Popover</Button>
         </Popover.Button>
 
-        <Popover.Panel {...attributes.popper} ref={setPopperElement} style={styles.popper} className="absolute z-10">
+        <Popover.Panel {...attributes.popper} className="absolute z-10" ref={setPopperElement} style={styles.popper}>
           <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
             <Icon icon="AcademicCapIcon" />
             <p>First Item</p>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { forwardRefWithAs, render } from '~/core';
-import { useSyncRefs, useId } from '~/hooks';
+import { useId, useSyncRefs } from '~/hooks';
 import { RootUIProps, RootUIReactTag } from '~/types';
 
 import { useModalContext } from './Modal.Widget.Context';
@@ -23,7 +23,7 @@ export const ModalWidgetTitle = forwardRefWithAs(
     ref: React.Ref<ElementType>,
   ) => {
     const id = `RootUI__Modal__Title-${useId()}`;
-    const [{ visible, setModalTitleId }] = useModalContext(COMPONENT_NAME);
+    const [{ setModalTitleId, visible }] = useModalContext(COMPONENT_NAME);
     const titleRef = useSyncRefs(ref);
 
     React.useEffect(() => {
@@ -33,8 +33,8 @@ export const ModalWidgetTitle = forwardRefWithAs(
 
     const ourProps = React.useMemo(() => {
       return {
-        ref: titleRef,
         id,
+        ref: titleRef,
       };
     }, [id, titleRef]);
 
@@ -43,11 +43,11 @@ export const ModalWidgetTitle = forwardRefWithAs(
     const slot = React.useMemo<ModalTitleRenderPropArg>(() => ({ visible }), [visible]);
 
     return render({
-      ourProps,
-      theirProps,
       defaultTag: DEFAULT_TAG,
       name: COMPONENT_NAME,
+      ourProps,
       slot,
+      theirProps,
     });
   },
 );

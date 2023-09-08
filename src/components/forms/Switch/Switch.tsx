@@ -8,41 +8,40 @@ const CLASSNAME = 'Root__Switch';
 type ElementType = HTMLInputElement;
 
 export interface SwitchProps {
+  checked?: boolean;
+
+  children?: React.ReactNode;
+
+  className?: string;
+  defaultChecked?: boolean;
+  disabled?: boolean;
+  /**
+   * @default primary
+   */
+  intent?: RootIntent;
+  name?: string;
+  onChange?: (checked: boolean) => void;
   /**
    * Set this to change scale
    * @default md
    */
   scale?: RootScale;
-
-  /**
-   * @default primary
-   */
-  intent?: RootIntent;
-
-  children?: React.ReactNode;
-  className?: string;
-  name?: string;
   value?: string;
-  onChange?: (checked: boolean) => void;
-  checked?: boolean;
-  defaultChecked?: boolean;
-  disabled?: boolean;
 }
 
-export const Switch = React.forwardRef<ElementType, SwitchProps>(({ className, children, ...others }, ref) => {
+export const Switch = React.forwardRef<ElementType, SwitchProps>(({ children, className, ...others }, ref) => {
   const { checked, disabled } = others;
-  const { scale, intent } = useRootUI({
-    intent: others?.intent,
+  const { intent, scale } = useRootUI({
     defaultIntent: 'primary',
-    scale: others?.scale,
     defaultScale: 'md',
+    intent: others?.intent,
+    scale: others?.scale,
   });
 
   return (
     <BaseSwitch.Group>
       <BaseSwitch
         {...others}
-        ref={ref as any}
         className={clsx(
           CLASSNAME,
           className,
@@ -57,24 +56,25 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(({ className, c
             'bg-white dark:bg-black': !checked,
           },
           toScaleMatch({
-            xs: () => 'h-[22px] w-[44px]',
-            sm: () => 'h-[26px] w-[52px]',
-            md: () => 'h-[30px] w-[60px]',
             lg: () => 'h-[34px] w-[68px]',
+            md: () => 'h-[30px] w-[60px]',
+            sm: () => 'h-[26px] w-[52px]',
             xl: () => 'h-[38px] w-[76px]',
+            xs: () => 'h-[22px] w-[44px]',
           })(scale),
           toIntentMatch({
-            neutral: () => clsx('solid-neutral dark:solid-neutral2'),
-            light: () => clsx('solid-light dark:solid-light2'),
-            dark: () => clsx('solid-dark dark:solid-dark2'),
-            primary: () => clsx('solid-primary dark:solid-primary2'),
-            info: () => clsx('solid-info dark:solid-info2'),
-            success: () => clsx('solid-success dark:solid-success2'),
             accent: () => clsx('solid-accent dark:solid-accent2'),
-            warning: () => clsx('solid-warning dark:solid-warning2'),
             danger: () => clsx('solid-danger dark:solid-danger2'),
+            dark: () => clsx('solid-dark dark:solid-dark2'),
+            info: () => clsx('solid-info dark:solid-info2'),
+            light: () => clsx('solid-light dark:solid-light2'),
+            neutral: () => clsx('solid-neutral dark:solid-neutral2'),
+            primary: () => clsx('solid-primary dark:solid-primary2'),
+            success: () => clsx('solid-success dark:solid-success2'),
+            warning: () => clsx('solid-warning dark:solid-warning2'),
           })(intent),
         )}
+        ref={ref as any}
       >
         <span
           className={clsx(
@@ -86,11 +86,11 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(({ className, c
             'rounded-full shadow-xl',
             'transform transition',
             toScaleMatch({
-              xs: () => clsx('h-[16px] w-[16px]', checked ? 'translate-x-[24px]' : 'translate-x-[2px]'),
-              sm: () => clsx('h-[20px] w-[20px]', checked ? 'translate-x-[28px]' : 'translate-x-[2px]'),
-              md: () => clsx('h-[24px] w-[24px]', checked ? 'translate-x-[32px]' : 'translate-x-[2px]'),
               lg: () => clsx('h-[28px] w-[28px]', checked ? 'translate-x-[36px]' : 'translate-x-[2px]'),
+              md: () => clsx('h-[24px] w-[24px]', checked ? 'translate-x-[32px]' : 'translate-x-[2px]'),
+              sm: () => clsx('h-[20px] w-[20px]', checked ? 'translate-x-[28px]' : 'translate-x-[2px]'),
               xl: () => clsx('h-[32px] w-[32px]', checked ? 'translate-x-[40px]' : 'translate-x-[2px]'),
+              xs: () => clsx('h-[16px] w-[16px]', checked ? 'translate-x-[24px]' : 'translate-x-[2px]'),
             })(scale),
           )}
         >

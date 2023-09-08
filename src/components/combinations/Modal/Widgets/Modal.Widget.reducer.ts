@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export interface StateDefinition {
-  id: string | null;
+  id: null | string;
   panelRef: React.MutableRefObject<HTMLDivElement | null>;
 }
 
@@ -9,7 +9,7 @@ export enum ActionTypes {
   SetTitleId,
 }
 
-export type Actions = { type: ActionTypes.SetTitleId; payload: string | null };
+export type Actions = { payload: null | string; type: ActionTypes.SetTitleId };
 
 export const rootReducer: React.Reducer<StateDefinition, Actions> = (state, action) => {
   switch (action.type) {

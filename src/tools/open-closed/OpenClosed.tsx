@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export const OpenClosedContext = React.createContext<OpenClosedState | null>(null);
+export const OpenClosedContext = React.createContext<null | OpenClosedState>(null);
 OpenClosedContext.displayName = 'OpenClosedContext';
 
 export enum OpenClosedState {
@@ -13,10 +13,10 @@ export function useOpenClosed() {
 }
 
 export interface OpenClosedProviderProps {
-  value: OpenClosedState;
   children: React.ReactNode;
+  value: OpenClosedState;
 }
 
-export function OpenClosedProvider({ value, children }: OpenClosedProviderProps): React.ReactElement {
+export function OpenClosedProvider({ children, value }: OpenClosedProviderProps): React.ReactElement {
   return <OpenClosedContext.Provider value={value}>{children}</OpenClosedContext.Provider>;
 }

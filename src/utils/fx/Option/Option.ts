@@ -1,4 +1,4 @@
-import { Optional, Some, None, GetOrElse } from './Option.types';
+import { GetOrElse, None, Optional, Some } from './Option.types';
 
 /**
  * Options

@@ -6,6 +6,7 @@ import { OpenClosedProvider, OpenClosedState } from '~/tools';
 import { RootUIProps, RootUIReactTag } from '~/types';
 import { getOwnerDocumentBy, match } from '~/utils';
 
+import { AccordionFocusableElement } from './Accordion.Widget.types';
 import {
   AccordionAPIContext,
   AccordionAPIContextValues,
@@ -14,7 +15,6 @@ import {
   rootReducer,
   StateDefinition,
 } from './Accordion.reducer';
-import { AccordionFocusableElement } from './Accordion.Widget.types';
 
 const COMPONENT_NAME = 'Root__Accordion__Root';
 const DEFAULT_TAG: RootUIReactTag = React.Fragment;
@@ -26,8 +26,8 @@ export interface AccordionRootProps {
   defaultOpen?: boolean;
 }
 export interface AccordionRootRenderPropArg {
-  open: boolean;
   close(focusableElement?: HTMLElement | React.MutableRefObject<HTMLElement | null>): void;
+  open: boolean;
 }
 
 export const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot<
@@ -51,18 +51,18 @@ export const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot
   const initState = React.useMemo<StateDefinition>(() => {
     return {
       accordionState: defaultOpen ? OpenClosedState.Open : OpenClosedState.Closed,
-      linkedPanel: false,
-      buttonRef,
-      panelRef,
       buttonId,
+      buttonRef,
+      linkedPanel: false,
       panelId,
+      panelRef,
     };
   }, [buttonId, defaultOpen, panelId]);
   const reducerBag = React.useReducer(rootReducer, initState);
   const [{ accordionState }, dispatch] = reducerBag;
 
-  React.useEffect(() => dispatch({ type: ActionTypes.SetButtonId, buttonId }), [buttonId, dispatch]);
-  React.useEffect(() => dispatch({ type: ActionTypes.SetPanelId, panelId }), [panelId, dispatch]);
+  React.useEffect(() => dispatch({ buttonId, type: ActionTypes.SetButtonId }), [buttonId, dispatch]);
+  React.useEffect(() => dispatch({ panelId, type: ActionTypes.SetPanelId }), [panelId, dispatch]);
 
   const close = useEvent((focusableElement?: AccordionFocusableElement | null) => {
     dispatch({ type: ActionTypes.CloseAccordion });
@@ -99,8 +99,8 @@ export const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot
 
   const slot = React.useMemo<AccordionRootRenderPropArg>(() => {
     return {
-      open: accordionState === OpenClosedState.Open,
       close,
+      open: accordionState === OpenClosedState.Open,
     };
   }, [accordionState, close]);
 
@@ -109,16 +109,16 @@ export const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot
       <AccordionAPIContext.Provider value={api}>
         <OpenClosedProvider
           value={match(accordionState, {
-            [OpenClosedState.Open]: OpenClosedState.Open,
             [OpenClosedState.Closed]: OpenClosedState.Closed,
+            [OpenClosedState.Open]: OpenClosedState.Open,
           })}
         >
           {render({
-            ourProps,
-            theirProps,
-            slot,
             defaultTag: DEFAULT_TAG,
             name: COMPONENT_NAME,
+            ourProps,
+            slot,
+            theirProps,
           })}
         </OpenClosedProvider>
       </AccordionAPIContext.Provider>

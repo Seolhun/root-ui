@@ -1,11 +1,10 @@
 import omit from 'lodash/omit';
 import * as React from 'react';
 
-import { mergeProps } from './mergeProps';
-
 import { GlobalRootDataAttributeMap } from '../constants';
-import { RootUIProps, XOR, RootUIUniqueKey, Expand } from '../types';
-import { match, compact, isFunction, isEmpty, isUndefined } from '../utils';
+import { Expand, RootUIProps, RootUIUniqueKey, XOR } from '../types';
+import { compact, isEmpty, isFunction, isUndefined, match } from '../utils';
+import { mergeProps } from './mergeProps';
 
 export enum RenderFeatures {
   /** No features at all */
@@ -42,12 +41,12 @@ export type PropsForFeatures<T extends RenderFeatures> = XOR<
 >;
 
 interface RootRenderProps<Feature extends RenderFeatures, Tag extends React.ElementType, Slot> {
-  ourProps: Expand<RootUIProps<Tag, Slot, any> & PropsForFeatures<Feature>>;
-  theirProps: Expand<RootUIProps<Tag, Slot, any>>;
   defaultTag: React.ElementType;
-  name: string;
-  slot?: Slot;
   features?: Feature;
+  name: string;
+  ourProps: Expand<RootUIProps<Tag, Slot, any> & PropsForFeatures<Feature>>;
+  slot?: Slot;
+  theirProps: Expand<RootUIProps<Tag, Slot, any>>;
   /**
    * @default true
    */
@@ -144,12 +143,12 @@ function privateRender<Tag extends React.ElementType, Slot>(
 }
 
 export function render<Feature extends RenderFeatures, Tag extends React.ElementType, Slot>({
-  ourProps,
-  theirProps,
   defaultTag,
-  name,
-  slot,
   features,
+  name,
+  ourProps,
+  slot,
+  theirProps,
   visible = true,
 }: RootRenderProps<Feature, Tag, Slot>) {
   const props = mergeProps(theirProps, ourProps);
@@ -174,9 +173,6 @@ export function render<Feature extends RenderFeatures, Tag extends React.Element
     const strategy = unmount ? RootRenderStrategyEnum.Unmount : RootRenderStrategyEnum.Hidden;
 
     return match(strategy, {
-      [RootRenderStrategyEnum.Unmount]() {
-        return null;
-      },
       [RootRenderStrategyEnum.Hidden]() {
         const props = {
           ...others,
@@ -186,6 +182,9 @@ export function render<Feature extends RenderFeatures, Tag extends React.Element
           },
         };
         return privateRender(props, slot, defaultTag, name);
+      },
+      [RootRenderStrategyEnum.Unmount]() {
+        return null;
       },
     });
   }

@@ -2,9 +2,9 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 
 export interface UsePortalProps<TargetElement extends HTMLElement = HTMLElement> {
-  show: boolean;
-
   children: React.ReactNode;
+
+  show: boolean;
 
   targetElement: TargetElement;
 }

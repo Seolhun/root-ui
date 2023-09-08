@@ -4,11 +4,6 @@ import { DrawerPlacement } from './Drawer.types';
 
 export interface DrawerContextValues {
   /**
-   * To show Drawer
-   */
-  show: boolean;
-
-  /**
    * To close Drawer (Escape)
    */
   onClose: () => void;
@@ -28,12 +23,17 @@ export interface DrawerContextValues {
    * Floating Portal root element
    */
   root?: HTMLElement | null;
+
+  /**
+   * To show Drawer
+   */
+  show: boolean;
 }
 
 export const DrawerContext = React.createContext<DrawerContextValues>({
-  show: false,
-
   onClose: () => null,
+
+  show: false,
 });
 DrawerContext.displayName = 'DrawerContext';
 

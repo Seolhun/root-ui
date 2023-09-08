@@ -6,7 +6,7 @@ import { TabPanels } from './Tab.Panels';
 
 export const Tabs = Object.assign(TabGroup, {
   List: TabList,
-  Tab: Tab,
-  PanelList: TabPanels,
   Panel: TabPanel,
+  PanelList: TabPanels,
+  Tab: Tab,
 });

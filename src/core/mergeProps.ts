@@ -7,7 +7,7 @@ export function mergeProps(...listOfProps: RootUIProps<any, any>[]) {
 
   const target: RootUIProps<any, any> = {};
 
-  const eventHandlers: Record<string, ((event: { defaultPrevented: boolean }, ...args: any[]) => void | undefined)[]> =
+  const eventHandlers: Record<string, ((event: { defaultPrevented: boolean }, ...args: any[]) => undefined | void)[]> =
     {};
 
   for (const props of listOfProps) {
@@ -38,7 +38,7 @@ export function mergeProps(...listOfProps: RootUIProps<any, any>[]) {
   // Merge event handlers
   for (const eventName in eventHandlers) {
     Object.assign(target, {
-      [eventName](event: { nativeEvent?: Event; defaultPrevented: boolean }, ...args: any[]) {
+      [eventName](event: { defaultPrevented: boolean; nativeEvent?: Event }, ...args: any[]) {
         const handlers = eventHandlers[eventName];
         for (const handler of handlers) {
           if ((event instanceof Event || event?.nativeEvent instanceof Event) && event.defaultPrevented) {

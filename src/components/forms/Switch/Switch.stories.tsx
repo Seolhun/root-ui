@@ -1,30 +1,30 @@
-import { StoryFn } from '@storybook/react';
+import { StoryObj } from '@storybook/react';
 import * as React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
 import { Switch, SwitchProps } from './Switch';
 
 export default {
-  title: 'Form/Switch',
-  component: Switch,
   argTypes: {
-    scale: {
-      control: {
-        type: 'select',
-        options: storiesScaleOptions,
-      },
-    },
     intent: {
       control: {
-        type: 'select',
         options: storiesIntentOptions,
+        type: 'select',
+      },
+    },
+    scale: {
+      control: {
+        options: storiesScaleOptions,
+        type: 'select',
       },
     },
   },
+  component: Switch,
+  title: 'Form/Switch',
 };
 
-const BaseTemplate = ({ children, checked, ...others }: SwitchProps) => {
+const BaseTemplate = ({ checked, children, ...others }: SwitchProps) => {
   const [isChecked, setChecked] = React.useState(checked);
 
   React.useEffect(() => {
@@ -38,71 +38,70 @@ const BaseTemplate = ({ children, checked, ...others }: SwitchProps) => {
   );
 };
 
-const SwitchTemplate: StoryFn<SwitchProps> = ({ ...others }) => {
-  return (
-    <StorybookContent>
-      <StorybookContent.Light className="flex-col">
-        <BaseTemplate {...others}></BaseTemplate>
-        <BaseTemplate {...others} disabled></BaseTemplate>
-        <BaseTemplate {...others}>
-          <img src="https://avatars.githubusercontent.com/u/16330024?v=4" className="rounded-full" />
-        </BaseTemplate>
-      </StorybookContent.Light>
-      <StorybookContent.Dark className="flex-col">
-        <BaseTemplate {...others}></BaseTemplate>
-        <BaseTemplate {...others} disabled></BaseTemplate>
-        <BaseTemplate {...others}>
-          <img src="https://avatars.githubusercontent.com/u/16330024?v=4" className="rounded-full" />
-        </BaseTemplate>
-      </StorybookContent.Dark>
-    </StorybookContent>
-  );
+export const Switches: StoryObj<SwitchProps> = {
+  render: ({ ...others }) => {
+    return (
+      <StorybookContent>
+        <StorybookContent.Light className="flex-col">
+          <BaseTemplate {...others}></BaseTemplate>
+          <BaseTemplate {...others} disabled></BaseTemplate>
+          <BaseTemplate {...others}>
+            <img className="rounded-full" src="https://avatars.githubusercontent.com/u/16330024?v=4" />
+          </BaseTemplate>
+        </StorybookContent.Light>
+        <StorybookContent.Dark className="flex-col">
+          <BaseTemplate {...others}></BaseTemplate>
+          <BaseTemplate {...others} disabled></BaseTemplate>
+          <BaseTemplate {...others}>
+            <img className="rounded-full" src="https://avatars.githubusercontent.com/u/16330024?v=4" />
+          </BaseTemplate>
+        </StorybookContent.Dark>
+      </StorybookContent>
+    );
+  },
 };
 
-export const Switches = SwitchTemplate.bind({});
-Switches.args = {};
-
-const ScaleSwitchTemplate: StoryFn<SwitchProps> = ({ ...others }) => {
-  return (
-    <StorybookContent>
-      <StorybookContent.Light className="flex-col">
-        {storiesScaleOptions.map((scale) => (
-          <BaseTemplate {...others} key={scale} scale={scale}></BaseTemplate>
-        ))}
-      </StorybookContent.Light>
-      <StorybookContent.Dark className="flex-col">
-        {storiesScaleOptions.map((scale) => (
-          <BaseTemplate {...others} key={scale} scale={scale}></BaseTemplate>
-        ))}
-      </StorybookContent.Dark>
-    </StorybookContent>
-  );
+export const ScaleSwitch: StoryObj<SwitchProps> = {
+  args: {
+    disabled: false,
+  },
+  render: ({ ...others }) => {
+    return (
+      <StorybookContent>
+        <StorybookContent.Light className="flex-col">
+          {storiesScaleOptions.map((scale) => (
+            <BaseTemplate {...others} key={scale} scale={scale}></BaseTemplate>
+          ))}
+        </StorybookContent.Light>
+        <StorybookContent.Dark className="flex-col">
+          {storiesScaleOptions.map((scale) => (
+            <BaseTemplate {...others} key={scale} scale={scale}></BaseTemplate>
+          ))}
+        </StorybookContent.Dark>
+      </StorybookContent>
+    );
+  },
 };
 
-export const ScaleSwitch = ScaleSwitchTemplate.bind({});
-ScaleSwitch.args = {
-  disabled: false,
-};
-
-const IntentSwitchTemplate: StoryFn<SwitchProps> = ({ ...others }) => {
-  return (
-    <StorybookContent>
-      <StorybookContent.Light className="flex-col">
-        {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent}></BaseTemplate>
-        ))}
-      </StorybookContent.Light>
-      <StorybookContent.Dark className="flex-col">
-        {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent}></BaseTemplate>
-        ))}
-      </StorybookContent.Dark>
-    </StorybookContent>
-  );
-};
-
-export const IntentSwitches = IntentSwitchTemplate.bind({});
-IntentSwitches.args = {
-  disabled: false,
-  checked: true,
+export const IntentSwitches: StoryObj<SwitchProps> = {
+  args: {
+    checked: true,
+    disabled: false,
+  },
+  render: ({ ...others }) => {
+    return (
+      <StorybookContent>
+        <StorybookContent.Light className="flex-col">
+          {storiesIntentOptions.map((intent) => (
+            <BaseTemplate {...others} intent={intent} key={intent}></BaseTemplate>
+          ))}
+        </StorybookContent.Light>
+        <StorybookContent.Dark className="flex-col">
+          {storiesIntentOptions.map((intent) => (
+            <BaseTemplate {...others} intent={intent} key={intent}></BaseTemplate>
+          ))}
+        </StorybookContent.Dark>
+      </StorybookContent>
+    );
+  },
 };

@@ -13,8 +13,6 @@ export const Card = React.forwardRef<ElementType, CardProps>(({ children, classN
   return (
     <Box
       {...others}
-      ref={ref}
-      as="div"
       className={clsx(
         CLASSNAME,
         className,
@@ -23,6 +21,8 @@ export const Card = React.forwardRef<ElementType, CardProps>(({ children, classN
         'bg-cream-1 dark:bg-space-1',
         'rounded shadow',
       )}
+      as="div"
+      ref={ref}
     >
       {children}
     </Box>

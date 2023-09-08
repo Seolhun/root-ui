@@ -36,7 +36,6 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
         {contextValues?.open && (
           <div
             {...contextValues?.getFloatingProps(others)}
-            ref={mergedRef}
             className={clsx(
               className,
               'max-w-150',
@@ -46,21 +45,22 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
               'bg-cream-1 text-space-1',
               'dark:bg-space-1 dark:text-cream-1',
               toScaleMatch({
-                xs: () => 'scale-text-xs scale-p-xs',
-                sm: () => 'scale-text-sm scale-p-sm',
-                md: () => 'scale-text-md scale-p-md',
                 lg: () => 'scale-text-lg scale-p-lg',
+                md: () => 'scale-text-md scale-p-md',
+                sm: () => 'scale-text-sm scale-p-sm',
                 xl: () => 'scale-text-xl scale-p-xl',
+                xs: () => 'scale-text-xs scale-p-xs',
               })(scale),
             )}
             style={{
               ...others.style,
+              left: contextValues?.x ?? 0,
               position: contextValues?.strategy,
               top: contextValues?.y ?? 0,
-              left: contextValues?.x ?? 0,
               visibility: contextValues?.x == null ? 'hidden' : 'visible',
               zIndex: 1e7,
             }}
+            ref={mergedRef}
           >
             {children}
           </div>

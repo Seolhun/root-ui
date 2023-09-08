@@ -11,17 +11,6 @@ type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 export interface FormItemProps extends ElementProps {
   /**
-   * scale
-   * @default 'md'
-   */
-  scale?: RootScale;
-
-  /**
-   * Form label
-   */
-  label?: React.ReactNode;
-
-  /**
    * Form help
    */
   help?: React.ReactNode;
@@ -32,13 +21,24 @@ export interface FormItemProps extends ElementProps {
   htmlFor?: FormLabelProps['htmlFor'];
 
   /**
+   * Form label
+   */
+  label?: React.ReactNode;
+
+  /**
    * Form label required
    */
   required?: boolean;
+
+  /**
+   * scale
+   * @default 'md'
+   */
+  scale?: RootScale;
 }
 
 export const FormItem = React.forwardRef<ElementType, FormItemProps>(
-  ({ children, className, label, htmlFor, help, required, ...others }, ref) => {
+  ({ children, className, help, htmlFor, label, required, ...others }, ref) => {
     const { scale } = useRootUI({
       scale: others?.scale ?? 'md',
     });
@@ -46,22 +46,22 @@ export const FormItem = React.forwardRef<ElementType, FormItemProps>(
     return (
       <div
         {...others}
-        ref={ref}
         className={clsx(
           CLASSNAME,
           className,
           'space-y-1',
           toScaleMatch({
-            xs: () => 'scale-text-xs',
-            sm: () => 'scale-text-sm',
-            md: () => 'scale-text-md',
             lg: () => 'scale-text-lg',
+            md: () => 'scale-text-md',
+            sm: () => 'scale-text-sm',
             xl: () => 'scale-text-xl',
+            xs: () => 'scale-text-xs',
           })(scale),
         )}
+        ref={ref}
       >
         {label && (
-          <FormLabel scale={scale} htmlFor={htmlFor} required={required}>
+          <FormLabel htmlFor={htmlFor} required={required} scale={scale}>
             {label}
           </FormLabel>
         )}

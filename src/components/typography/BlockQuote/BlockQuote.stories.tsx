@@ -6,16 +6,16 @@ import { storiesIntentOptions, StorybookContent } from '~/stories';
 import { BlockQuote, BlockQuoteProps } from './BlockQuote';
 
 export default {
-  title: 'TypoGraphy/BlockQuote',
-  component: BlockQuote,
   argTypes: {
     intent: {
       control: {
-        type: 'select',
         options: storiesIntentOptions,
+        type: 'select',
       },
     },
   },
+  component: BlockQuote,
+  title: 'TypoGraphy/BlockQuote',
 };
 
 const BaseTemplate = ({ children, ...others }) => {
@@ -46,14 +46,14 @@ const IntentBlockQuotes: StoryFn<BlockQuoteProps> = ({ children, ...others }) =>
     <StorybookContent>
       <StorybookContent.Light className="flex flex-col space-y-4" noAlign noGap>
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent}>
+          <BaseTemplate {...others} intent={intent} key={intent}>
             {children}
           </BaseTemplate>
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex flex-col space-y-4" noAlign noGap>
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent}>
+          <BaseTemplate {...others} intent={intent} key={intent}>
             {children}
           </BaseTemplate>
         ))}

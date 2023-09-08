@@ -1,9 +1,9 @@
 import { Optional } from '~/utils/fx';
 
-type Alignment = 'start' | 'end';
-type Side = 'top' | 'right' | 'bottom' | 'left';
+type Alignment = 'end' | 'start';
+type Side = 'bottom' | 'left' | 'right' | 'top';
 type AlignedPlacement = `${Side}-${Alignment}`;
-export type DropdownFloatingPlacement = Side | AlignedPlacement;
+export type DropdownFloatingPlacement = AlignedPlacement | Side;
 
 export type DropdownFloatingStrategy = 'absolute' | 'fixed';
 
@@ -14,9 +14,15 @@ export interface DropdownWidgetProps<Option extends DropdownOption, ActionOption
   disabled?: boolean;
 
   /**
-   * Selected option
+   * Could be multi select
    */
-  option: Optional<ActionOption>;
+  multiple?: boolean;
+
+  /**
+   * Dropdown floating offset
+   * @default 5
+   */
+  offset?: number;
 
   /**
    * Change option handler
@@ -24,9 +30,9 @@ export interface DropdownWidgetProps<Option extends DropdownOption, ActionOption
   onChangeOption: (option: Optional<ActionOption>) => void;
 
   /**
-   * Could be multi select
+   * Selected option
    */
-  multiple?: boolean;
+  option: Optional<ActionOption>;
 
   /**
    * Dropdown floating placement
@@ -37,28 +43,22 @@ export interface DropdownWidgetProps<Option extends DropdownOption, ActionOption
    * Dropdown floating strategy
    */
   strategy?: DropdownFloatingStrategy;
-
-  /**
-   * Dropdown floating offset
-   * @default 5
-   */
-  offset?: number;
 }
 
 export interface DropdownOption extends Partial<DropdownOptionState> {}
 
 export interface DropdownOptionState {
   active: boolean;
-  selected: boolean;
   disabled: boolean;
+  selected: boolean;
 }
 
 export interface DropdownButtonState {
-  open: boolean;
   disabled: boolean;
+  open: boolean;
   value: any;
 }
 
-export type DropdownWidgetButtonClassName = string | ((state: DropdownButtonState) => string);
+export type DropdownWidgetButtonClassName = ((state: DropdownButtonState) => string) | string;
 
-export type DropdownWidgetOptionClassName = string | ((state: DropdownOptionState) => string);
+export type DropdownWidgetOptionClassName = ((state: DropdownOptionState) => string) | string;

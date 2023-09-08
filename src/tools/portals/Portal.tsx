@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { GlobalRootDataAttributeMap } from '~/constants';
 import { forwardRefWithAs, render } from '~/core';
-import { optionalRef, useIsoMorphicEffect, useOwnerDocument, useSyncRefs, useServerHandoffComplete } from '~/hooks';
+import { optionalRef, useIsoMorphicEffect, useOwnerDocument, useServerHandoffComplete, useSyncRefs } from '~/hooks';
 import { RootUIProps } from '~/types';
 import { isServer, toMicrotask } from '~/utils';
 
@@ -75,10 +75,10 @@ const _PortalRoot = <Tag extends React.ElementType = typeof DEFAULT_PORTAL_TAG>(
   return (
     <FloatingPortal root={root || element}>
       {render({
-        ourProps,
-        theirProps,
         defaultTag: DEFAULT_PORTAL_TAG,
         name: 'Portal',
+        ourProps,
+        theirProps,
       })}
     </FloatingPortal>
   );

@@ -1,17 +1,16 @@
 import * as React from 'react';
 
-import { useDocumentEvent } from './useDocumentEvent';
-
 import { FocusableMode, isFocusableElement } from '../tools/focus-trap/FocusManagements';
 import { isFunction } from '../utils';
+import { useDocumentEvent } from './useDocumentEvent';
 
-type Container = React.MutableRefObject<HTMLElement | null> | HTMLElement | null;
+type Container = HTMLElement | null | React.MutableRefObject<HTMLElement | null>;
 type ContainerCollection = Container[] | Set<Container>;
 type ContainerInput = Container | ContainerCollection;
 
 export function useOutsideClick(
-  containers: ContainerInput | (() => ContainerInput),
-  callback: (event: MouseEvent | PointerEvent | FocusEvent, target: HTMLElement) => void,
+  containers: (() => ContainerInput) | ContainerInput,
+  callback: (event: FocusEvent | MouseEvent | PointerEvent, target: HTMLElement) => void,
   enabled = true,
 ) {
   // TODO: remove this once the React bug has been fixed: https://github.com/facebook/react/issues/24657
@@ -25,7 +24,7 @@ export function useOutsideClick(
   }, [enabled]);
 
   const handleOutsideClick = React.useCallback(
-    <E extends MouseEvent | PointerEvent | FocusEvent>(event: E, resolveTarget: (event: E) => HTMLElement | null) => {
+    <E extends FocusEvent | MouseEvent | PointerEvent>(event: E, resolveTarget: (event: E) => HTMLElement | null) => {
       if (!enabledRef.current) {
         return;
       }

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toScaleMatch, toIntentMatch } from '~/system';
+import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '~/system';
 
 const CLASSNAME = 'Root__Select';
 type ElementType = HTMLSelectElement;
@@ -9,24 +9,22 @@ type ElementProps = React.SelectHTMLAttributes<ElementType>;
 
 export interface SelectProps extends ElementProps {
   /**
+   * @default primary
+   */
+  intent?: RootIntent;
+
+  /**
    * Set this to change scale
    * @default md
    */
   scale?: RootScale;
-
-  /**
-   * @default primary
-   */
-  intent?: RootIntent;
 }
 
 export const Select = React.forwardRef<ElementType, SelectProps>(
-  ({ children, className, scale = 'md', intent = 'primary', ...others }, ref) => {
+  ({ children, className, intent = 'primary', scale = 'md', ...others }, ref) => {
     return (
       <select
         {...others}
-        ref={ref}
-        id={others.name}
         className={clsx(
           CLASSNAME,
           className,
@@ -39,24 +37,26 @@ export const Select = React.forwardRef<ElementType, SelectProps>(
           'rounded',
           'px-4',
           toScaleMatch({
-            xs: () => 'scale-text-xs scale-py-xs',
-            sm: () => 'scale-text-sm scale-py-sm',
-            md: () => 'scale-text-md scale-py-md',
             lg: () => 'scale-text-lg scale-py-lg',
+            md: () => 'scale-text-md scale-py-md',
+            sm: () => 'scale-text-sm scale-py-sm',
             xl: () => 'scale-text-xl scale-py-xl',
+            xs: () => 'scale-text-xs scale-py-xs',
           })(scale),
           toIntentMatch({
-            neutral: () => clsx('outline-neutral dark:outline-neutral2'),
-            light: () => clsx('outline-light dark:outline-light2'),
-            dark: () => clsx('outline-dark dark:outline-dark2'),
-            primary: () => clsx('outline-primary dark:outline-primary2'),
-            info: () => clsx('outline-info dark:outline-info2'),
-            success: () => clsx('outline-success dark:outline-success2'),
             accent: () => clsx('outline-accent dark:outline-accent2'),
-            warning: () => clsx('outline-warning dark:outline-warning2'),
             danger: () => clsx('outline-danger dark:outline-danger2'),
+            dark: () => clsx('outline-dark dark:outline-dark2'),
+            info: () => clsx('outline-info dark:outline-info2'),
+            light: () => clsx('outline-light dark:outline-light2'),
+            neutral: () => clsx('outline-neutral dark:outline-neutral2'),
+            primary: () => clsx('outline-primary dark:outline-primary2'),
+            success: () => clsx('outline-success dark:outline-success2'),
+            warning: () => clsx('outline-warning dark:outline-warning2'),
           })(intent),
         )}
+        id={others.name}
+        ref={ref}
       >
         {children}
       </select>

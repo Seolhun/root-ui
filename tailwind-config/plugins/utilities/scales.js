@@ -1,24 +1,24 @@
 const SCALES = {
-  SIZE: {
-    xs: 8,
-    sm: 10,
-    md: 12,
-    lg: 14,
-    xl: 16,
-  },
   PADDING: {
-    xs: { y: 2, x: 4 },
-    sm: { y: 3, x: 6 },
-    md: { y: 4, x: 8 },
-    lg: { y: 5, x: 10 },
-    xl: { y: 6, x: 12 },
+    lg: { x: 10, y: 5 },
+    md: { x: 8, y: 4 },
+    sm: { x: 6, y: 3 },
+    xl: { x: 12, y: 6 },
+    xs: { x: 4, y: 2 },
+  },
+  SIZE: {
+    lg: 14,
+    md: 12,
+    sm: 10,
+    xl: 16,
+    xs: 8,
   },
   TEXT: {
-    xs: 'text-5',
-    sm: 'text-6',
-    md: 'text-7',
     lg: 'text-8',
+    md: 'text-7',
+    sm: 'text-6',
     xl: 'text-9',
+    xs: 'text-5',
   },
 };
 
@@ -32,17 +32,17 @@ const scales = ({ theme }) => {
     };
   }, {});
 
-  const scalesByPadding = Object.entries(SCALES.PADDING).reduce((acc, [k, { y, x }]) => {
+  const scalesByPadding = Object.entries(SCALES.PADDING).reduce((acc, [k, { x, y }]) => {
     return {
       ...acc,
       [`.scale-p-${k}`]: {
         [`@apply py-${y} px-${x}`]: {},
       },
-      [`.scale-py-${k}`]: {
-        [`@apply py-${y}`]: {},
-      },
       [`.scale-px-${k}`]: {
         [`@apply py-${x}`]: {},
+      },
+      [`.scale-py-${k}`]: {
+        [`@apply py-${y}`]: {},
       },
     };
   }, {});

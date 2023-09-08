@@ -10,7 +10,7 @@ export interface DrawerFooterProps extends ElementProps {
 }
 
 export const DrawerFooter = React.forwardRef<ElementType, DrawerFooterProps>(
-  ({ className, children, ...others }: DrawerFooterProps) => {
+  ({ children, className, ...others }: DrawerFooterProps) => {
     return (
       <div
         {...others}

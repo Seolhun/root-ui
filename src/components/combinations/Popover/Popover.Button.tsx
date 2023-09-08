@@ -9,9 +9,9 @@ type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 export interface PopoverButtonProps {}
 
 export const PopoverButton = React.forwardRef<ElementType, ElementProps & PopoverButtonProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
-      <Popover.Button {...others} ref={ref} className={clsx(CLASSNAME, className)}>
+      <Popover.Button {...others} className={clsx(CLASSNAME, className)} ref={ref}>
         {children}
       </Popover.Button>
     );

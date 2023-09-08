@@ -12,7 +12,7 @@ export interface TabPanelProps extends ElementProps {}
 
 export const TabPanel = React.forwardRef<ElementType, TabPanelProps>(({ children, className, ...others }, ref) => {
   return (
-    <Tab.Panel {...others} ref={ref} as="li" className={clsx(CLASSNAME, className, 'w-full')}>
+    <Tab.Panel {...others} as="li" className={clsx(CLASSNAME, className, 'w-full')} ref={ref}>
       <Text>{children}</Text>
     </Tab.Panel>
   );

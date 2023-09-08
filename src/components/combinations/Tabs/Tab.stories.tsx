@@ -6,25 +6,25 @@ import { TabGroupProps } from './Tab.Group';
 import { Tabs } from './Tabs';
 
 export default {
-  title: 'Combination/Tabs',
-  component: Tabs,
   argTypes: {
-    scale: {
-      control: {
-        type: 'select',
-        options: storiesScaleOptions,
-      },
-    },
     intent: {
       control: {
-        type: 'select',
         options: storiesIntentOptions,
+        type: 'select',
       },
     },
     onClick: {
       action: 'clicked',
     },
+    scale: {
+      control: {
+        options: storiesScaleOptions,
+        type: 'select',
+      },
+    },
   },
+  component: Tabs,
+  title: 'Combination/Tabs',
 };
 
 const BaseTemplate = ({ onClick, ...others }: TabGroupProps) => {
@@ -82,12 +82,12 @@ const IntentTabTemplate = ({ onClick, ...others }) => {
     <StorybookContent>
       <StorybookContent.Light className="flex flex-col" noAlign noGap>
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent} />
+          <BaseTemplate {...others} intent={intent} key={intent} />
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex flex-col" noAlign noGap>
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent} />
+          <BaseTemplate {...others} intent={intent} key={intent} />
         ))}
       </StorybookContent.Dark>
     </StorybookContent>

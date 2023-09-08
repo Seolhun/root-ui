@@ -14,19 +14,19 @@ export interface CheckboxProps extends ElementProps {
   htmlFor?: string;
 
   /**
+   * @default primary
+   */
+  intent?: RootIntent;
+
+  /**
    * Set this to change scale
    * @default md
    */
   scale?: RootScale;
-
-  /**
-   * @default primary
-   */
-  intent?: RootIntent;
 }
 
 export const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
-  ({ className, children, htmlFor, scale = 'md', intent = 'primary', disabled, ...others }, ref) => {
+  ({ children, className, disabled, htmlFor, intent = 'primary', scale = 'md', ...others }, ref) => {
     const htmlForAndID = htmlFor ?? others.name;
     return (
       <FormLabel
@@ -39,22 +39,22 @@ export const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
       >
         <Box
           {...others}
-          ref={ref}
-          as="input"
-          type="checkbox"
-          id={htmlForAndID}
           intentClassName={toIntentMatch({
-            neutral: () => clsx('accent-neutral-6', 'dark:accent-neutral-6'),
-            light: () => clsx('accent-light-6', 'dark:accent-light-6'),
-            dark: () => clsx('accent-dark-6', 'dark:accent-dark-6'),
-            primary: () => clsx('accent-primary-6', 'dark:accent-primary-6'),
-            info: () => clsx('accent-info-6', 'dark:accent-info-6'),
-            success: () => clsx('accent-success-6', 'dark:accent-success-6'),
             accent: () => clsx('accent-accent-6', 'dark:accent-accent-6'),
-            warning: () => clsx('accent-warning-6', 'dark:accent-warning-6'),
             danger: () => clsx('accent-danger-6', 'dark:accent-danger-6'),
+            dark: () => clsx('accent-dark-6', 'dark:accent-dark-6'),
+            info: () => clsx('accent-info-6', 'dark:accent-info-6'),
+            light: () => clsx('accent-light-6', 'dark:accent-light-6'),
+            neutral: () => clsx('accent-neutral-6', 'dark:accent-neutral-6'),
+            primary: () => clsx('accent-primary-6', 'dark:accent-primary-6'),
+            success: () => clsx('accent-success-6', 'dark:accent-success-6'),
+            warning: () => clsx('accent-warning-6', 'dark:accent-warning-6'),
           })(intent)}
+          as="input"
           className={clsx(CLASSNAME, className, 'inline-block')}
+          id={htmlForAndID}
+          ref={ref}
+          type="checkbox"
         />
         <span className="ml-2">{children}</span>
       </FormLabel>

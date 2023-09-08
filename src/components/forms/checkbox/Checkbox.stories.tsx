@@ -1,29 +1,29 @@
 import * as React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
 import { Checkbox, CheckboxProps } from './Checkbox';
 
 export default {
-  title: 'Form/Checkbox',
-  component: Checkbox,
   argTypes: {
-    scale: {
-      control: {
-        type: 'select',
-        options: storiesScaleOptions,
-      },
-    },
     intent: {
       control: {
-        type: 'select',
         options: storiesIntentOptions,
+        type: 'select',
+      },
+    },
+    scale: {
+      control: {
+        options: storiesScaleOptions,
+        type: 'select',
       },
     },
   },
+  component: Checkbox,
+  title: 'Form/Checkbox',
 };
 
-const BaseTemplate = ({ children, checked, ...others }: CheckboxProps) => {
+const BaseTemplate = ({ checked, children, ...others }: CheckboxProps) => {
   const [isChecked, setChecked] = React.useState(checked);
 
   React.useEffect(() => {
@@ -105,14 +105,14 @@ const IntentCheckboxTemplate = ({ children, ...others }: CheckboxProps) => {
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent}>
+          <BaseTemplate {...others} intent={intent} key={intent}>
             {children}
           </BaseTemplate>
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent}>
+          <BaseTemplate {...others} intent={intent} key={intent}>
             {children}
           </BaseTemplate>
         ))}
@@ -123,7 +123,7 @@ const IntentCheckboxTemplate = ({ children, ...others }: CheckboxProps) => {
 
 export const IntentCheckbox = IntentCheckboxTemplate.bind({});
 IntentCheckbox.args = {
-  children: 'Checkbox',
   checked: true,
+  children: 'Checkbox',
   disabled: false,
 };

@@ -15,9 +15,9 @@ export const TooltipTrigger = React.forwardRef<ElementType, ElementProps>(({ chi
 
   return (
     <div
-      ref={mergedRef}
       className={clsx(className, 'inline-block')}
       data-state={contextValues?.open ? 'open' : 'closed'}
+      ref={mergedRef}
       {...contextValues?.getReferenceProps(props)}
     >
       {children}

@@ -1,17 +1,17 @@
 import React from 'react';
 
 export interface AutoCompleteItem {
+  children: (args: AutoCompleteItemChildrenArgs) => React.ReactNode;
+
   key: string;
 
   value: any;
-
-  children: (args: AutoCompleteItemChildrenArgs) => React.ReactNode;
 }
 
 export interface AutoCompleteItemChildrenArgs {
   active: boolean;
-  selected: boolean;
   disabled: boolean;
+  selected: boolean;
 }
 
 export type AutoCompleteIdentify<Item> = (item: Item) => AutoCompleteItem;

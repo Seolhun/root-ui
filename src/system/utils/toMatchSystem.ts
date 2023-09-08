@@ -1,6 +1,6 @@
 import { curry } from '@fxts/core';
 
-import { RootScale, RootIntent } from '../theme';
+import { RootIntent, RootScale } from '../theme';
 
 const toMatch = <Key extends string, R>(lookup: Partial<Record<Key, () => R>>, key: Key) => {
   const callback = lookup[key];

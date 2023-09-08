@@ -11,16 +11,15 @@ export interface PopoverPanelProps {
 }
 
 interface PopoverPanelRenderPropArg {
-  open: boolean;
   close: (focusableElement?: HTMLElement | React.MutableRefObject<HTMLElement | null>) => void;
+  open: boolean;
 }
 
 export const PopoverPanel = React.forwardRef<ElementType, Omit<ElementProps, 'children'> & PopoverPanelProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <Popover.Panel
         {...others}
-        ref={ref}
         className={clsx(
           CLASSNAME,
           className,
@@ -29,6 +28,7 @@ export const PopoverPanel = React.forwardRef<ElementType, Omit<ElementProps, 'ch
           'text-space-1 dark:text-cream-1',
           'rounded shadow',
         )}
+        ref={ref}
       >
         {children}
       </Popover.Panel>

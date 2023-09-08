@@ -8,14 +8,9 @@ export interface ModalRenderPropArg {
 
 export interface ModalProps {
   /**
-   * Portal element
+   * Init focus element
    */
-  root?: HTMLElement | null;
-
-  /**
-   * To show modal
-   */
-  show: boolean;
+  initialFocus?: React.MutableRefObject<HTMLElement | null>;
 
   /**
    * To close modal (Escape Key)
@@ -28,7 +23,12 @@ export interface ModalProps {
   onKeyDown?: (e: React.KeyboardEvent<HTMLElement>) => void;
 
   /**
-   * Init focus element
+   * Portal element
    */
-  initialFocus?: React.MutableRefObject<HTMLElement | null>;
+  root?: HTMLElement | null;
+
+  /**
+   * To show modal
+   */
+  show: boolean;
 }

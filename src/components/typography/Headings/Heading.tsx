@@ -10,9 +10,9 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface HeadingProps extends ElementProps {}
 
 export const Heading = React.forwardRef<ElementType, AgnosticTagProps & HeadingProps>(
-  ({ className, children, as, ...others }, ref) => {
+  ({ as, children, className, ...others }, ref) => {
     return (
-      <Box {...others} as={as} ref={ref} className={clsx(CLASSNAME, className)}>
+      <Box {...others} as={as} className={clsx(CLASSNAME, className)} ref={ref}>
         {children}
       </Box>
     );

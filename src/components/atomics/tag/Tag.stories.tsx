@@ -1,26 +1,26 @@
 import * as React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
 import { Tag, TagProps } from './Tag';
 
 export default {
-  title: 'Atomic/Tag',
-  component: Tag,
   argTypes: {
-    scale: {
-      control: {
-        type: 'select',
-        options: storiesScaleOptions,
-      },
-    },
     intent: {
       control: {
-        type: 'select',
         options: storiesIntentOptions,
+        type: 'select',
+      },
+    },
+    scale: {
+      control: {
+        options: storiesScaleOptions,
+        type: 'select',
       },
     },
   },
+  component: Tag,
+  title: 'Atomic/Tag',
 };
 
 const BaseTemplate = ({ children, ...others }: TagProps) => {
@@ -59,14 +59,14 @@ const IntentTagsStories: React.FC<TagProps> = ({ children, ...others }) => {
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent}>
+          <BaseTemplate {...others} intent={intent} key={intent}>
             {children}
           </BaseTemplate>
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent}>
+          <BaseTemplate {...others} intent={intent} key={intent}>
             {children}
           </BaseTemplate>
         ))}
@@ -85,14 +85,14 @@ const IntentOutlinedTagsStories: React.FC<TagProps> = ({ children, ...others }) 
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent} outlined>
+          <BaseTemplate {...others} intent={intent} key={intent} outlined>
             {children}
           </BaseTemplate>
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent} outlined>
+          <BaseTemplate {...others} intent={intent} key={intent} outlined>
             {children}
           </BaseTemplate>
         ))}
@@ -112,14 +112,14 @@ const DisabledTagsStories = ({ children, ...others }: TagProps) => {
       <StorybookContent.Light>
         <div className="flex flex-col space-y-2">
           {storiesIntentOptions.map((intent) => (
-            <BaseTemplate {...others} key={intent} intent={intent}>
+            <BaseTemplate {...others} intent={intent} key={intent}>
               {children}
             </BaseTemplate>
           ))}
         </div>
         <div className="flex flex-col space-y-2">
           {storiesIntentOptions.map((intent) => (
-            <BaseTemplate {...others} key={intent} intent={intent} outlined>
+            <BaseTemplate {...others} intent={intent} key={intent} outlined>
               {children}
             </BaseTemplate>
           ))}
@@ -128,14 +128,14 @@ const DisabledTagsStories = ({ children, ...others }: TagProps) => {
       <StorybookContent.Dark>
         <div className="flex flex-col space-y-2">
           {storiesIntentOptions.map((intent) => (
-            <BaseTemplate {...others} key={intent} intent={intent}>
+            <BaseTemplate {...others} intent={intent} key={intent}>
               {children}
             </BaseTemplate>
           ))}
         </div>
         <div className="flex flex-col space-y-2">
           {storiesIntentOptions.map((intent) => (
-            <BaseTemplate {...others} key={intent} intent={intent} outlined>
+            <BaseTemplate {...others} intent={intent} key={intent} outlined>
               {children}
             </BaseTemplate>
           ))}

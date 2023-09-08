@@ -13,11 +13,10 @@ export interface DropdownWidgetButtonProps extends Omit<ElementProps, 'className
 }
 
 export const DropdownWidgetButton = React.forwardRef<HTMLButtonElement, DropdownWidgetButtonProps>(
-  ({ className, children, ...others }: DropdownWidgetButtonProps, ref) => {
+  ({ children, className, ...others }: DropdownWidgetButtonProps, ref) => {
     return (
       <Listbox.Button
         {...others}
-        ref={ref}
         className={(state) => {
           const { disabled } = state;
           return clsx(
@@ -32,6 +31,7 @@ export const DropdownWidgetButton = React.forwardRef<HTMLButtonElement, Dropdown
             },
           );
         }}
+        ref={ref}
       >
         {children}
       </Listbox.Button>

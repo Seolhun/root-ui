@@ -1,30 +1,30 @@
 import * as React from 'react';
 
-import { storiesScaleOptions, storiesIntentOptions, StorybookContent } from '~/stories';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
 import { Select, SelectProps } from './Select';
 
 export default {
-  title: 'Form/Select',
   component: Select,
-  scale: {
-    control: {
-      type: 'select',
-      options: storiesScaleOptions,
-    },
-  },
   intent: {
     control: {
-      type: 'select',
       options: storiesIntentOptions,
+      type: 'select',
     },
   },
+  scale: {
+    control: {
+      options: storiesScaleOptions,
+      type: 'select',
+    },
+  },
+  title: 'Form/Select',
 };
 
 const BaseTemplate = ({ children, ...others }: SelectProps) => {
   const [value, setValue] = React.useState(others.value);
   return (
-    <Select value={value} onChange={(e) => setValue(e.target.value)} {...others}>
+    <Select onChange={(e) => setValue(e.target.value)} value={value} {...others}>
       {[10, 20, 30, 40, 50].map((num) => (
         <option key={num} value={num}>
           Show {num}
@@ -91,7 +91,7 @@ const IntentSelectsStories = ({ children, ...others }: SelectProps) => {
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent}>
+          <BaseTemplate {...others} intent={intent} key={intent}>
             {children}
           </BaseTemplate>
         ))}
@@ -99,7 +99,7 @@ const IntentSelectsStories = ({ children, ...others }: SelectProps) => {
 
       <StorybookContent.Dark className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} key={intent} intent={intent}>
+          <BaseTemplate {...others} intent={intent} key={intent}>
             {children}
           </BaseTemplate>
         ))}

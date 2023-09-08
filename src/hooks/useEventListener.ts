@@ -3,10 +3,10 @@ import * as React from 'react';
 import { useLatestValue } from './useLatestValue';
 
 export function useEventListener<K extends keyof WindowEventMap>(
-  element: HTMLElement | Document | Window | EventTarget | null | undefined,
+  element: Document | EventTarget | HTMLElement | null | undefined | Window,
   type: K,
   listener: (event: WindowEventMap[K]) => any,
-  options?: boolean | AddEventListenerOptions,
+  options?: AddEventListenerOptions | boolean,
 ) {
   const listenerRef = useLatestValue(listener);
 

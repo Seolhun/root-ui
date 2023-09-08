@@ -8,6 +8,16 @@ export interface DrawerProps extends DrawerContextValues {
   children?: React.ReactNode;
 
   /**
+   * To close Drawer (Escape)
+   */
+  onClose: () => void;
+
+  /**
+   * To confirm Drawer (Enter)
+   */
+  onConfirm?: () => void;
+
+  /**
    * Set this to displayed placement
    * @default right
    */
@@ -17,34 +27,24 @@ export interface DrawerProps extends DrawerContextValues {
    * To show Drawer
    */
   show: boolean;
-
-  /**
-   * To close Drawer (Escape)
-   */
-  onClose: () => void;
-
-  /**
-   * To confirm Drawer (Enter)
-   */
-  onConfirm?: () => void;
 }
 
 export const DrawerRoot = ({
   children,
-  show,
   onClose,
   onConfirm,
   placement = 'right',
   root,
+  show,
   ...others
 }: DrawerProps) => {
   const contextValue = React.useMemo(() => {
     return {
-      show,
       onClose,
       onConfirm,
       placement,
       root,
+      show,
     };
   }, [onClose, onConfirm, placement, root, show]);
 
