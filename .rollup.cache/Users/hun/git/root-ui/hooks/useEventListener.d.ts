@@ -1,1 +1,0 @@
-export declare function useEventListener<K extends keyof WindowEventMap>(element: HTMLElement | Document | Window | EventTarget | null | undefined, type: K, listener: (event: WindowEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;

@@ -30,3 +30,6 @@ docs
 # Visualizer
 stats.html
 stats.*.html
+
+# Rollup
+.rollup.cache
