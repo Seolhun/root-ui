@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { ModalWidgetPanel, useModalContext } from '../Widgets';
 import { useDrawerContext } from './Drawer.Context';
 
 const CLASSNAME = 'Root__Drawer__Panel';
@@ -11,10 +12,11 @@ export interface DrawerPanelProps {}
 
 export const DrawerPanel = React.forwardRef<ElementType, ElementProps & DrawerPanelProps>(
   ({ children, className, ...others }, ref) => {
-    const { placement, show } = useDrawerContext();
+    const { placement } = useDrawerContext();
+    const [{ visible }] = useModalContext('Drawer');
 
     return (
-      <div
+      <ModalWidgetPanel
         {...others}
         className={clsx(
           CLASSNAME,
@@ -31,16 +33,16 @@ export const DrawerPanel = React.forwardRef<ElementType, ElementProps & DrawerPa
             'top-0 right-0 left-0 w-full md:w-full rounded-t-none': placement === 'top',
           },
           {
-            'animate-[fade-in-bottom_0.2s_ease-in-out]': show && placement === 'bottom',
-            'animate-[fade-in-left_0.2s_ease-in-out]': show && placement === 'left',
-            'animate-[fade-in-right_0.2s_ease-in-out]': show && placement === 'right',
-            'animate-[fade-in-top_0.2s_ease-in-out]': show && placement === 'top',
+            'animate-[fade-in-bottom_0.2s_ease-in-out]': visible && placement === 'bottom',
+            'animate-[fade-in-left_0.2s_ease-in-out]': visible && placement === 'left',
+            'animate-[fade-in-right_0.2s_ease-in-out]': visible && placement === 'right',
+            'animate-[fade-in-top_0.2s_ease-in-out]': visible && placement === 'top',
           },
         )}
         ref={ref}
       >
         {children}
-      </div>
+      </ModalWidgetPanel>
     );
   },
 );

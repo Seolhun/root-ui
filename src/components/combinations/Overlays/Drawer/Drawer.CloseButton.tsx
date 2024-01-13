@@ -1,9 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Icon } from '~/components/icons';
-
-import { useDrawerContext } from './Drawer.Context';
+import { useModalContext } from '../Widgets';
 
 const CLASSNAME = 'Root__Drawer__CloseButton';
 type ElementType = HTMLButtonElement;
@@ -12,8 +10,8 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface DrawerCloseButtonProps extends ElementProps {}
 
 export const DrawerCloseButton = React.forwardRef<ElementType, DrawerCloseButtonProps>(
-  ({ className, ...others }: DrawerCloseButtonProps) => {
-    const { onClose } = useDrawerContext();
+  ({ children, className, ...others }: DrawerCloseButtonProps) => {
+    const [{ onClose }] = useModalContext('Drawer');
 
     return (
       <button
@@ -31,7 +29,7 @@ export const DrawerCloseButton = React.forwardRef<ElementType, DrawerCloseButton
         )}
         onClick={onClose}
       >
-        <Icon aria-hidden="true" icon="XMarkIcon" />
+        {children}
         <span className="sr-only">Close Drawer</span>
       </button>
     );

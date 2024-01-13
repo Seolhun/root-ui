@@ -7,7 +7,7 @@ import { H4 } from '~/components/typography';
 import { storiesScaleOptions, StorybookContent } from '~/stories';
 
 import { Drawer } from './Drawer';
-import { DrawerProps } from './Drawer.Root';
+import { DrawerProps } from './Drawer.types';
 
 export default {
   argTypes: {
@@ -49,18 +49,21 @@ const BaseTemplate = ({ Body, Footer, Header, className, placement, root, ...oth
   return (
     <div>
       <Button onClick={onToggle}>Toggle Drawer</Button>
-      <Drawer {...others} onClose={onClose} onConfirm={onConfirm} placement={placement} root={root} show={isShow}>
-        <Drawer.Panel
-          className={clsx({
-            className,
-            'h-4/6': placement === 'top' || placement === 'bottom',
-            'w-9/12': placement === 'right' || placement === 'left',
-          })}
-        >
-          <Drawer.Header>{<H4>{Header}</H4>}</Drawer.Header>
-          <Drawer.Body>{Body}</Drawer.Body>
-          <Drawer.Footer>{Footer}</Drawer.Footer>
-        </Drawer.Panel>
+      <Drawer {...others} onClose={onClose} placement={placement} root={root} show={isShow}>
+        <Drawer.Overlay>
+          <Drawer.Backdrop />
+          <Drawer.Panel
+            className={clsx({
+              className,
+              'h-4/6': placement === 'top' || placement === 'bottom',
+              'w-9/12': placement === 'right' || placement === 'left',
+            })}
+          >
+            <Drawer.Header>{<H4>{Header}</H4>}</Drawer.Header>
+            <Drawer.Body>{Body}</Drawer.Body>
+            <Drawer.Footer>{Footer}</Drawer.Footer>
+          </Drawer.Panel>
+        </Drawer.Overlay>
       </Drawer>
     </div>
   );
