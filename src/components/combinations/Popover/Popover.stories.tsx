@@ -1,9 +1,9 @@
+import { AcademicCapIcon, BookmarkIcon, RocketLaunchIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import * as React from 'react';
 import { usePopper } from 'react-popper';
 
 import { Button, Card } from '~/components/atomics';
-import { Icon } from '~/components/icons';
 import { storiesPlacements, StorybookContent } from '~/stories';
 
 import { Popover } from './Popover';
@@ -34,15 +34,15 @@ const PopoversTemplate = () => {
 
       <Popover.Panel className={clsx('absolute z-10')}>
         <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-          <Icon icon="AcademicCapIcon" />
+          <AcademicCapIcon />
           <p>First Item</p>
         </a>
         <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-          <Icon icon="BookmarkIcon" />
+          <BookmarkIcon />
           <p>Second Item</p>
         </a>
         <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-          <Icon icon="RocketLaunchIcon" />
+          <RocketLaunchIcon />
           <p>Third Item</p>
         </a>
       </Popover.Panel>
@@ -75,15 +75,15 @@ const PopoversCloseButtonTemplate = () => {
         {({ close }) => (
           <div>
             <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-              <Icon icon="AcademicCapIcon" />
+              <AcademicCapIcon />
               <p>First Item</p>
             </a>
             <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-              <Icon icon="BookmarkIcon" />
+              <BookmarkIcon />
               <p>Second Item</p>
             </a>
             <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-              <Icon icon="RocketLaunchIcon" />
+              <RocketLaunchIcon />
               <p>Third Item</p>
             </a>
             <div className="flex items-end mt-2">
@@ -121,15 +121,15 @@ const PopoversOverlayTemplate = () => {
         <Popover.Overlay className="fixed inset-0 bg-dark opacity-30" />
         <Popover.Panel className={clsx('absolute z-10')}>
           <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-            <Icon icon="AcademicCapIcon" />
+            <AcademicCapIcon />
             <p>First Item</p>
           </a>
           <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-            <Icon icon="BookmarkIcon" />
+            <BookmarkIcon />
             <p>Second Item</p>
           </a>
           <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-            <Icon icon="RocketLaunchIcon" />
+            <RocketLaunchIcon />
             <p>Third Item</p>
           </a>
         </Popover.Panel>
@@ -163,15 +163,15 @@ const PopoverGroupTemplate = () => {
 
         <Popover.Panel className={clsx('absolute z-10 min-w-100')}>
           <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-            <Icon icon="AcademicCapIcon" />
+            <AcademicCapIcon />
             <p>First Item</p>
           </a>
           <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-            <Icon icon="BookmarkIcon" />
+            <BookmarkIcon />
             <p>Second Item</p>
           </a>
           <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-            <Icon icon="RocketLaunchIcon" />
+            <RocketLaunchIcon />
             <p>Third Item</p>
           </a>
         </Popover.Panel>
@@ -184,15 +184,15 @@ const PopoverGroupTemplate = () => {
 
         <Popover.Panel className={clsx('absolute z-10 min-w-100')}>
           <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-            <Icon icon="AcademicCapIcon" />
+            <AcademicCapIcon />
             <p>First Item</p>
           </a>
           <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-            <Icon icon="BookmarkIcon" />
+            <BookmarkIcon />
             <p>Second Item</p>
           </a>
           <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-            <Icon icon="RocketLaunchIcon" />
+            <RocketLaunchIcon />
             <p>Third Item</p>
           </a>
         </Popover.Panel>
@@ -241,15 +241,15 @@ const PopoversPositionWithPopperTemplate = ({ placement }) => {
 
         <Popover.Panel {...attributes.popper} className="absolute z-10" ref={setPopperElement} style={styles.popper}>
           <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-            <Icon icon="AcademicCapIcon" />
+            <AcademicCapIcon />
             <p>First Item</p>
           </a>
           <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-            <Icon icon="BookmarkIcon" />
+            <BookmarkIcon />
             <p>Second Item</p>
           </a>
           <a className="flex items-center gap-x-2 scale-p-md hover:bg-dark-2 cursor-pointer py-1 px-2 rounded">
-            <Icon icon="RocketLaunchIcon" />
+            <RocketLaunchIcon />
             <p>Third Item</p>
           </a>
         </Popover.Panel>

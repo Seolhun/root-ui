@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import * as React from 'react';
 
 import { Card } from '~/components/atomics';
-import { Icon, IconProps } from '~/components/icons';
 
 import { Input, InputProps } from '../input';
 
@@ -10,12 +9,17 @@ const CLASSNAME = 'Root__TextField';
 
 export interface TextFieldProps extends InputProps {
   /**
-   * @default "MagnifyingGlassIcon"
+   * To render prefix element before input
    */
-  icon?: IconProps['icon'];
+  Prefix?: React.ReactNode;
+
+  /**
+   * To render suffix element after input
+   */
+  Suffix?: React.ReactNode;
 }
 
-export const TextField = ({ className, icon = 'MagnifyingGlassIcon', scale = 'md', ...others }: TextFieldProps) => {
+export const TextField = ({ Prefix, Suffix, className, scale = 'md', ...others }: TextFieldProps) => {
   return (
     <Card
       className={clsx(
@@ -27,8 +31,9 @@ export const TextField = ({ className, icon = 'MagnifyingGlassIcon', scale = 'md
         CLASSNAME,
       )}
     >
-      <Icon icon={icon} intent="light" scale={scale} />
+      {Prefix && Prefix}
       <Input {...others} className={clsx('border-none outline-0', className)} scale={scale} />
+      {Suffix && Suffix}
     </Card>
   );
 };

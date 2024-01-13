@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Icon } from '~/components/icons';
-
 import { useModalContext } from '../Widgets';
 
 const CLASSNAME = 'Root__Modal__CloseButton';
@@ -12,7 +10,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface ModalCloseButtonProps extends ElementProps {}
 
 export const ModalCloseButton = React.forwardRef<ElementType, ModalCloseButtonProps>(
-  ({ className, ...others }: ModalCloseButtonProps) => {
+  ({ children, className, ...others }: ModalCloseButtonProps) => {
     const [{ onClose }] = useModalContext('Modal.CloseButton');
 
     return (
@@ -31,7 +29,7 @@ export const ModalCloseButton = React.forwardRef<ElementType, ModalCloseButtonPr
         )}
         onClick={onClose}
       >
-        <Icon aria-hidden="true" icon="XMarkIcon" />
+        {children}
         <span className="sr-only">Close modal</span>
       </button>
     );

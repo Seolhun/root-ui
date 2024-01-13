@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import isEmpty from 'lodash/isEmpty';
 import * as React from 'react';
 
-import { Icon, IconProps } from '~/components/icons';
 import { RootScale, toScaleMatch } from '~/system';
 import { Optional } from '~/utils/fx';
 
@@ -24,11 +23,6 @@ export interface AutoCompleteProps<Item> {
    * To render empty state
    */
   Empty?: React.ReactNode;
-
-  /**
-   * @default "MagnifyingGlassIcon"
-   */
-  icon?: IconProps['icon'];
 
   identify: AutoCompleteIdentify<Item>;
 
@@ -55,6 +49,11 @@ export interface AutoCompleteProps<Item> {
    */
   placeholder?: string;
 
+  /**
+   * To render prefix element before input
+   */
+  Prefix?: React.ReactNode;
+
   query: string;
 
   /**
@@ -63,16 +62,22 @@ export interface AutoCompleteProps<Item> {
   scale?: RootScale;
 
   selectedItem?: Optional<Item>;
+
+  /**
+   * To render suffix element after input
+   */
+  Suffix?: React.ReactNode;
 }
 
 function _AutoComplete<Item = any>(
   {
     Empty = 'There are no suggestions',
     Loader,
+    Prefix,
+    Suffix,
     // HTMLAttributes
     className,
     displayedValue,
-    icon = 'MagnifyingGlassIcon',
     identify,
     // Props
     items,
@@ -108,7 +113,7 @@ function _AutoComplete<Item = any>(
     <div {...others} className={clsx(CLASSNAME, className, 'relative', 'bg-cream-1 dark:bg-space-1')} ref={ref}>
       <Combobox onChange={onSelectItem} value={selectedItem}>
         <div className={clsx(Styled.InputWrapper, 'bg-cream-1 dark:bg-space-1')}>
-          <Icon className="mx-3" icon={icon} intent="light" scale={'sm'} />
+          {Prefix && Prefix}
           <Combobox.Input
             className={clsx(
               scaleClassName,
@@ -126,6 +131,7 @@ function _AutoComplete<Item = any>(
             type="search"
             value={query}
           />
+          {Suffix && Suffix}
         </div>
         <div className={Styled.OptionGroupWrapper}>
           <Combobox.Options className={clsx(Styled.OptionGroup)}>
