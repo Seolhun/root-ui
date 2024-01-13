@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { ModalWidgetBackdrop } from './Widgets/Modal.Widget.Backdrop';
+import { ModalWidgetBackdrop } from './Widgets';
 
 const CLASSNAME = 'Root__Modal__Backdrop';
 type ElementType = HTMLDivElement;

@@ -12,6 +12,13 @@ import {
   ModalWidgetTitle,
 } from './Widgets';
 
+export const ModalWidget = Object.assign(ModalWidgetRoot, {
+  Backdrop: ModalWidgetBackdrop,
+  Overlay: ModalWidgetOverlay,
+  Panel: ModalWidgetPanel,
+  Title: ModalWidgetTitle,
+});
+
 export const Modal = Object.assign(ModalWidgetRoot, {
   Backdrop: ModalBackdrop,
   Body: ModalBody,
@@ -19,10 +26,4 @@ export const Modal = Object.assign(ModalWidgetRoot, {
   Header: ModalHeader,
   Overlay: ModalOverlay,
   Panel: ModalPanel,
-  Widgets: {
-    Backdrop: ModalWidgetBackdrop,
-    Overlay: ModalWidgetOverlay,
-    Panel: ModalWidgetPanel,
-    Title: ModalWidgetTitle,
-  },
 });
