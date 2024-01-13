@@ -1,6 +1,6 @@
 import { RootIntent, RootPlacement, RootScale } from '~/system';
 
-export const storiesScaleOptions: RootScale[] = ['xs', 'sm', 'md', 'lg', 'xl', 'none'];
+export const storiesScaleOptions: RootScale[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 
 export const storiesIntentOptions: RootIntent[] = [
   'primary',
@@ -12,7 +12,6 @@ export const storiesIntentOptions: RootIntent[] = [
   'neutral',
   'light',
   'dark',
-  'inherit',
   'none',
 ];
 
