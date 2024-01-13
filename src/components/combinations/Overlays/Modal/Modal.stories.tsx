@@ -5,8 +5,8 @@ import { Button, Card } from '~/components/atomics';
 import { useDisclosure } from '~/hooks';
 import { storiesScaleOptions, StorybookContent } from '~/stories';
 
+import { ModalProps } from '../Widgets';
 import { Modal } from './Modal';
-import { ModalProps } from './Widgets';
 
 export default {
   argTypes: {

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { ModalWidgetOverlay } from './Widgets';
+import { ModalWidgetOverlay } from '../Widgets';
 
 const CLASSNAME = 'Root__Modal__Overlay';
 type ElementType = HTMLDivElement;

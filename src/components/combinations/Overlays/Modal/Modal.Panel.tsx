@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { RootScale, toScaleMatch } from '~/system';
 
-import { ModalWidgetPanel, useModalContext } from './Widgets';
+import { ModalWidgetPanel, useModalContext } from '../Widgets';
 
 const CLASSNAME = 'Root__Modal__Panel';
 type ElementType = HTMLDivElement;
