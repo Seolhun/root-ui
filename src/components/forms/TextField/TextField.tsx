@@ -26,7 +26,6 @@ export const TextField = ({ className, icon = 'MagnifyingGlassIcon', scale = 'md
         'outline-0',
         CLASSNAME,
       )}
-      scale={scale}
     >
       <Icon icon={icon} intent="light" scale={scale} />
       <Input {...others} className={clsx('border-none outline-0', className)} scale={scale} />
