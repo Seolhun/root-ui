@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 export interface AutoCompleteItem {
   children: (args: AutoCompleteItemChildrenArgs) => React.ReactNode;

@@ -1,7 +1,7 @@
 import { Combobox } from '@headlessui/react';
 import clsx from 'clsx';
 import isEmpty from 'lodash/isEmpty';
-import React from 'react';
+import * as React from 'react';
 
 import { Icon, IconProps } from '~/components/icons';
 import { RootScale, toScaleMatch } from '~/system';

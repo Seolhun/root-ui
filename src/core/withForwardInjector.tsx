@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react';
+import * as React from 'react';
 
 export interface InjectorComponentProps<E extends HTMLElement> extends React.HTMLAttributes<E> {}
 

@@ -1,6 +1,5 @@
 export type RootNone = 'none';
 
-export type RootIntentInherit = 'inherit';
 export type RootIntent =
   | 'accent'
   | 'danger'
@@ -11,7 +10,6 @@ export type RootIntent =
   | 'primary'
   | 'success'
   | 'warning'
-  | RootIntentInherit
   | RootNone;
 
 export type RootScale = 'lg' | 'md' | 'sm' | 'xl' | 'xs' | RootNone;
