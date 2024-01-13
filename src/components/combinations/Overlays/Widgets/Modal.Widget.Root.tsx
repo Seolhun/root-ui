@@ -17,7 +17,7 @@ import { match } from '~/utils';
 
 import { ModalContext, ModalContextValues } from './Modal.Widget.Context';
 import { ActionTypes, rootReducer, StateDefinition } from './Modal.Widget.reducer';
-import { ModalPosition, ModalProps, ModalRenderPropArg } from './Modal.Widget.types';
+import { ModalPosition, ModalWidgetProps, ModalWidgetRenderPropArg } from './Modal.Widget.types';
 
 const COMPONENT_NAME = 'Modal';
 const DEFAULT_TAG: RootUIReactTag = 'div';
@@ -26,12 +26,18 @@ type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
 const modalRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Static;
-export interface ModalRootRenderPropArg extends ModalRenderPropArg {}
-type PropsWeControl = keyof Pick<ElementProps, 'aria-labelledby' | 'aria-modal' | 'id' | 'role'>;
+export interface ModalWidgetRootRenderPropArg extends ModalWidgetRenderPropArg {}
+export type ModalWidgetPropsWeControl = keyof Pick<ElementProps, 'aria-labelledby' | 'aria-modal' | 'id' | 'role'>;
+export type ModalWidgetRootProps<Tag extends React.ElementType> = RootUIProps<
+  Tag,
+  ModalWidgetRootRenderPropArg,
+  ModalWidgetPropsWeControl
+> &
+  ModalWidgetProps;
 
 export const ModalWidgetRoot = forwardRefWithAs(
   <Tag extends React.ElementType = typeof DEFAULT_TAG>(
-    props: RootUIProps<Tag, ModalRootRenderPropArg, PropsWeControl> & ModalProps,
+    props: ModalWidgetRootProps<Tag>,
     ref: React.Ref<ElementType>,
   ) => {
     const { initialFocus, onClose, onKeyDown, root, show, ...others } = props;
@@ -151,7 +157,7 @@ export const ModalWidgetRoot = forwardRefWithAs(
 
     const theirProps = others;
 
-    const slot = React.useMemo<ModalRootRenderPropArg>(() => ({ visible: show }), [show]);
+    const slot = React.useMemo<ModalWidgetRootRenderPropArg>(() => ({ visible: show }), [show]);
 
     const focusTrapFeatures = React.useMemo(() => {
       if (enabled) {

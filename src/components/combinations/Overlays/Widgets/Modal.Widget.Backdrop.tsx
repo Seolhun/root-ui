@@ -5,7 +5,7 @@ import { useId, useSyncRefs } from '~/hooks';
 import { RootUIProps, RootUIReactTag } from '~/types';
 
 import { useModalContext } from './Modal.Widget.Context';
-import { ModalRenderPropArg } from './Modal.Widget.types';
+import { ModalWidgetRenderPropArg } from './Modal.Widget.types';
 
 const COMPONENT_NAME = 'Root__Modal__Backdrop';
 const DEFAULT_TAG: RootUIReactTag = 'div';
@@ -14,7 +14,7 @@ type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface ModalBackdropProps extends ElementProps {}
-export interface ModalBackdropRenderPropArg extends ModalRenderPropArg {}
+export interface ModalBackdropRenderPropArg extends ModalWidgetRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'aria-hidden' | 'id'>;
 
 export const ModalWidgetBackdrop = forwardRefWithAs(

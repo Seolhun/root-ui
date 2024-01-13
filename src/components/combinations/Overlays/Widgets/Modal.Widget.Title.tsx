@@ -5,7 +5,7 @@ import { useId, useSyncRefs } from '~/hooks';
 import { RootUIProps, RootUIReactTag } from '~/types';
 
 import { useModalContext } from './Modal.Widget.Context';
-import { ModalRenderPropArg } from './Modal.Widget.types';
+import { ModalWidgetRenderPropArg } from './Modal.Widget.types';
 
 const COMPONENT_NAME = 'Root__Modal__Title';
 const DEFAULT_TAG: RootUIReactTag = 'h5';
@@ -14,7 +14,7 @@ type ElementType = HTMLHeadingElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface ModalTitleProps extends ElementProps {}
-export interface ModalTitleRenderPropArg extends ModalRenderPropArg {}
+export interface ModalTitleRenderPropArg extends ModalWidgetRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;
 
 export const ModalWidgetTitle = forwardRefWithAs(
