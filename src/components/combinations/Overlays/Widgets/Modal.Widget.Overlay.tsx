@@ -6,7 +6,7 @@ import { RootUIProps, RootUIReactTag } from '~/types';
 import { isDisabledReactIssue7711 } from '~/utils/bugs';
 
 import { useModalContext } from './Modal.Widget.Context';
-import { ModalRenderPropArg } from './Modal.Widget.types';
+import { ModalWidgetRenderPropArg } from './Modal.Widget.types';
 
 const COMPONENT_NAME = 'Root__Modal__Overlay';
 const DEFAULT_TAG: RootUIReactTag = 'div';
@@ -15,7 +15,7 @@ type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface ModalWidgetOverlayProps extends ElementProps {}
-export interface ModalOverlayRenderPropArg extends ModalRenderPropArg {}
+export interface ModalOverlayRenderPropArg extends ModalWidgetRenderPropArg {}
 type PropsWeControl = keyof Pick<ElementProps, 'aria-hidden' | 'id' | 'onClick'>;
 
 export const ModalWidgetOverlay = forwardRefWithAs(

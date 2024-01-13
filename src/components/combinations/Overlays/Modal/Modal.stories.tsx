@@ -6,7 +6,7 @@ import { useDisclosure } from '~/hooks';
 import { storiesScaleOptions, StorybookContent } from '~/stories';
 
 import { Modal } from './Modal';
-import { ModalProps } from './Widgets';
+import { ModalProps } from './Modal.types';
 
 export default {
   argTypes: {

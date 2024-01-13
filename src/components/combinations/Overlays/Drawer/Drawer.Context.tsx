@@ -4,37 +4,13 @@ import { DrawerPlacement } from './Drawer.types';
 
 export interface DrawerContextValues {
   /**
-   * To close Drawer (Escape)
-   */
-  onClose: () => void;
-
-  /**
-   * To confirm Drawer (Enter)
-   */
-  onConfirm?: () => void;
-
-  /**
    * Set this to displayed placement
    * @default right
    */
   placement?: DrawerPlacement;
-
-  /**
-   * Floating Portal root element
-   */
-  root?: HTMLElement | null;
-
-  /**
-   * To show Drawer
-   */
-  show: boolean;
 }
 
-export const DrawerContext = React.createContext<DrawerContextValues>({
-  onClose: () => null,
-
-  show: false,
-});
+export const DrawerContext = React.createContext(null as unknown as DrawerContextValues);
 DrawerContext.displayName = 'DrawerContext';
 
 export function useDrawerContext() {

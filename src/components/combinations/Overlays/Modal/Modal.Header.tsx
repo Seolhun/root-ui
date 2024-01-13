@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { ModalWidgetTitle } from '../Widgets';
 import { ModalCloseButton } from './Modal.CloseButton';
-import { ModalWidgetTitle } from './Widgets';
 
 const CLASSNAME = 'Root__Modal__Header';
 type ElementType = HTMLDivElement;

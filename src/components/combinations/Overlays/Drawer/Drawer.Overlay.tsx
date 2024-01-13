@@ -1,15 +1,15 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { ModalWidgetOverlay } from './Widgets';
+import { ModalWidgetOverlay } from '../Widgets';
 
-const CLASSNAME = 'Root__Modal__Overlay';
+const CLASSNAME = 'Root__Drawer__Overlay';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface ModalOverlayProps extends ElementProps {}
+export interface DrawerOverlayProps extends ElementProps {}
 
-export const ModalOverlay = React.forwardRef<ElementType, ModalOverlayProps>(
+export const DrawerOverlay = React.forwardRef<ElementType, DrawerOverlayProps>(
   ({ children, className, ...others }, ref) => {
     return (
       <ModalWidgetOverlay

@@ -1,15 +1,15 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { ModalWidgetBackdrop } from './Widgets/Modal.Widget.Backdrop';
+import { ModalWidgetBackdrop } from '../Widgets';
 
-const CLASSNAME = 'Root__Modal__Backdrop';
+const CLASSNAME = 'Root__Drawer__Backdrop';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface ModalBackdropProps extends ElementProps {}
+export interface DrawerBackdropProps extends ElementProps {}
 
-export const ModalBackdrop = React.forwardRef<ElementType, ModalBackdropProps>(
+export const DrawerBackdrop = React.forwardRef<ElementType, DrawerBackdropProps>(
   ({ children, className, ...others }, ref) => {
     return (
       <ModalWidgetBackdrop

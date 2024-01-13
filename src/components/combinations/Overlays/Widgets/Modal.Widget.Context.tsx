@@ -29,9 +29,3 @@ export function useModalContext(component: string) {
   }
   return context;
 }
-
-export interface ModalContextProviderProps {
-  children: React.ReactNode;
-
-  onClose: ModalOnCloseCallback;
-}

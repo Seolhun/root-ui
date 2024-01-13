@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { Icon } from '~/components/icons';
 
-import { useModalContext } from './Widgets';
+import { useModalContext } from '../Widgets';
 
 const CLASSNAME = 'Root__Modal__CloseButton';
 type ElementType = HTMLButtonElement;
