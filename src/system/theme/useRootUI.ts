@@ -60,7 +60,7 @@ export function useRootUI({ defaultIntent, defaultScale, intent, scale }: Partia
     if (hasIntent(rootUIValues.defaultIntent)) {
       return rootUIValues.defaultIntent;
     }
-    return defaultIntent || 'inherit';
+    return defaultIntent || 'none';
   }, [
     defaultIntent,
     intent,
