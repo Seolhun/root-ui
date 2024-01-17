@@ -52,14 +52,8 @@ export const IconButton = React.forwardRef<ElementType, IconButtonProps>(
             danger: () => {
               return clsx(outlined ? 'outlined-danger dark:outlined-danger2' : 'solid-danger dark:solid-danger2');
             },
-            dark: () => {
-              return clsx(outlined ? 'outlined-dark dark:outlined-dark2' : 'solid-dark dark:solid-dark2');
-            },
             info: () => {
               return clsx(outlined ? 'outlined-info dark:outlined-info2' : 'solid-info dark:solid-info2');
-            },
-            light: () => {
-              return clsx(outlined ? 'outlined-light dark:outlined-light2' : 'solid-light dark:solid-light2');
             },
             neutral: () => {
               return clsx(outlined ? 'outlined-neutral dark:outlined-neutral2' : 'solid-neutral dark:solid-neutral2');

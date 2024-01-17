@@ -42,8 +42,8 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
               'py-1 px-2',
               'rounded',
               'border border-cream-3 dark:border-space-3',
-              'bg-cream-1 text-space-1',
-              'dark:bg-space-1 dark:text-cream-1',
+              'text-space-2 dark:text-cream-2',
+              'bg-cream-1 dark:bg-space-1',
               toScaleMatch({
                 lg: () => 'scale-text-lg scale-p-lg',
                 md: () => 'scale-text-md scale-p-md',

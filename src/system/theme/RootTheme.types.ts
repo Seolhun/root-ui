@@ -1,16 +1,6 @@
 export type RootNone = 'none';
 
-export type RootIntent =
-  | 'accent'
-  | 'danger'
-  | 'dark'
-  | 'info'
-  | 'light'
-  | 'neutral'
-  | 'primary'
-  | 'success'
-  | 'warning'
-  | RootNone;
+export type RootIntent = 'accent' | 'danger' | 'info' | 'neutral' | 'primary' | 'success' | 'warning' | RootNone;
 
 export type RootScale = 'lg' | 'md' | 'sm' | 'xl' | 'xs' | RootNone;
 

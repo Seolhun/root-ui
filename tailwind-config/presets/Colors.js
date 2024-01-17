@@ -16,15 +16,13 @@ const intents = {
     warning: '#F3D371',
   },
   light: {
-    accent: '#F04E98',
-    danger: '#BD271E',
-    dark: '#69707D',
-    info: '#22d3ee',
-    light: '#D3DAE6',
+    accent: '#f76fb1',
+    danger: '#ff5959',
+    info: '#2ccfe4',
     neutral: '#98A2B3',
     primary: '#0077CC',
-    success: '#00BFB3',
-    warning: '#FEC514',
+    success: '#6ee437',
+    warning: '#fe8f39',
   },
 };
 
@@ -32,18 +30,14 @@ const intents = {
  * To generate intent colors by keys
  * intent is for light mode, intent2 is for dark mode.
  */
-const intentColorKeys = ['primary', 'info', 'success', 'accent', 'warning', 'danger', 'neutral', 'light', 'dark'];
+const intentColorKeys = ['primary', 'info', 'success', 'accent', 'warning', 'danger', 'neutral'];
 const intentColorMap = {
   accent: createIntentColor(intents.light.accent),
   accent2: createIntentColor(intents.dark.accent),
   danger: createIntentColor(intents.light.danger),
   danger2: createIntentColor(intents.dark.danger),
-  dark: createIntentColor(intents.light.dark),
-  dark2: createIntentColor(intents.dark.dark),
   info: createIntentColor(intents.light.info),
   info2: createIntentColor(intents.dark.info),
-  light: createIntentColor(intents.light.light),
-  light2: createIntentColor(intents.dark.light),
   neutral: createIntentColor(intents.light.neutral),
   neutral2: createIntentColor(intents.dark.neutral),
   // Light
@@ -101,24 +95,23 @@ const intentColors = {
   white: colors.white,
 };
 
-const typographyColors = {
-  'typography-accent': '#C4407C',
-  'typography-danger': '#BD271E',
-  'typography-description': '#69707D',
-  'typography-disabled': '#ABB4C4',
-  'typography-focus-background': alpha('#0077CC', 0.9),
-  'typography-highlight': alpha('#FEC514', 0.9),
-  'typography-link': '#0071C2',
-  // State
-  'typography-page-background': '#FAFBFD',
-  'typography-primary': '#0071C2',
-  'typography-success': '#007E77',
-  'typography-text': '#343741',
-  'typography-title': '#1A1C21',
-  'typography-warning': '#8A6A0A',
-};
-
+/**
+ * @see https://uicolors.app/create
+ */
 const themeColors = {
+  'brilliant-rose': {
+    '50': '#fdf2f8',
+    '100': '#fce7f2',
+    '200': '#fccee6',
+    '300': '#fba6d1',
+    '400': '#f76fb1',
+    '500': '#f04e98',
+    '600': '#df2370',
+    '700': '#c11556',
+    '800': '#a01447',
+    '900': '#85163f',
+    '950': '#510621',
+  },
   /**
    * for Light UI
    */
@@ -126,6 +119,73 @@ const themeColors = {
   'cream-1': 'rgb(255, 255, 255)', // UI background commonly
   'cream-2': 'rgb(245, 245, 245)', // UI border commonly
   'cream-3': 'rgb(230, 230, 230)', // UI border commonly
+
+  jaffa: {
+    '50': '#fff7ed',
+    '100': '#ffecd4',
+    '200': '#ffd6a9',
+    '300': '#ffb872',
+    '400': '#fe8f39',
+    '500': '#fd6f12',
+    '600': '#ed5409',
+    '700': '#c53d09',
+    '800': '#9c3110',
+    '900': '#7e2a10',
+    '950': '#441206',
+  },
+  malachite: {
+    '50': '#f0fee7',
+    '100': '#defbcc',
+    '200': '#bdf89e',
+    '300': '#94f066',
+    '400': '#6ee437',
+    '500': '#50d219',
+    '600': '#38a10f',
+    '700': '#2c7b10',
+    '800': '#276113',
+    '900': '#235215',
+    '950': '#0d2e05',
+  },
+  portage: {
+    '50': '#eef0ff',
+    '100': '#e0e4ff',
+    '200': '#c6cdff',
+    '300': '#a4abfd',
+    '400': '#8f8ffa',
+    '500': '#6b61f3',
+    '600': '#5c44e7',
+    '700': '#5036cc',
+    '800': '#412fa4',
+    '900': '#382d82',
+    '950': '#231a4c',
+  },
+  scooter: {
+    '50': '#edfdfe',
+    '100': '#d1f9fc',
+    '200': '#a9f1f8',
+    '300': '#6ee5f2',
+    '400': '#2ccfe4',
+    '500': '#12c7e2',
+    '600': '#108eaa',
+    '700': '#14728a',
+    '800': '#1a5d70',
+    '900': '#1a4d5f',
+    '950': '#0b3341',
+  },
+  seashell: {
+    '50': '#f8f8f8',
+    '100': '#f0f0f0',
+    '200': '#dcdcdc',
+    '300': '#bdbdbd',
+    '400': '#989898',
+    '500': '#7c7c7c',
+    '600': '#656565',
+    '700': '#525252',
+    '800': '#464646',
+    '900': '#3d3d3d',
+    '950': '#292929',
+  },
+
   /**
    * for Dark UI
    */
@@ -133,11 +193,24 @@ const themeColors = {
   'space-1': 'rgb(33, 38, 45)', // UI background commonly
   'space-2': 'rgb(41, 46, 50)', // UI border commonly
   'space-3': 'rgb(49, 54, 65)', // UI border commonly
+
+  thunderbird: {
+    '50': '#fff0f0',
+    '100': '#ffdddd',
+    '200': '#ffc1c1',
+    '300': '#ff9595',
+    '400': '#ff5959',
+    '500': '#ff2626',
+    '600': '#fc0606',
+    '700': '#e00000',
+    '800': '#af0505',
+    '900': '#900c0c',
+    '950': '#500000',
+  },
 };
 
 const palette = {
   ...intentColors,
-  ...typographyColors,
   ...themeColors,
 };
 
@@ -148,5 +221,4 @@ module.exports = {
   intents,
   palette,
   themeColors,
-  typographyColors,
 };

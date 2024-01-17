@@ -65,9 +65,7 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(({ children, cl
           toIntentMatch({
             accent: () => clsx('solid-accent dark:solid-accent2'),
             danger: () => clsx('solid-danger dark:solid-danger2'),
-            dark: () => clsx('solid-dark dark:solid-dark2'),
             info: () => clsx('solid-info dark:solid-info2'),
-            light: () => clsx('solid-light dark:solid-light2'),
             neutral: () => clsx('solid-neutral dark:solid-neutral2'),
             primary: () => clsx('solid-primary dark:solid-primary2'),
             success: () => clsx('solid-success dark:solid-success2'),

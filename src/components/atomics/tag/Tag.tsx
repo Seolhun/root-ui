@@ -54,9 +54,7 @@ export const Tag = React.forwardRef<ElementType, TagProps>(({ children, classNam
         toIntentMatch({
           accent: () => clsx(outlined ? 'outlined-accent' : 'solid-accent'),
           danger: () => clsx(outlined ? 'outlined-danger' : 'solid-danger'),
-          dark: () => clsx(outlined ? 'outlined-dark' : 'solid-dark'),
           info: () => clsx(outlined ? 'outlined-info' : 'solid-info'),
-          light: () => clsx(outlined ? 'outlined-light' : 'solid-light'),
           neutral: () => clsx(outlined ? 'outlined-neutral' : 'solid-neutral'),
           primary: () => clsx(outlined ? 'outlined-primary' : 'solid-primary'),
           success: () => clsx(outlined ? 'outlined-success' : 'solid-success'),

@@ -66,9 +66,7 @@ export const ProgressBar = React.forwardRef<ElementType, ProgressBarProps>(
                   toIntentMatch({
                     accent: () => clsx('text-accent dark:text-accent2'),
                     danger: () => clsx('text-danger dark:text-danger2'),
-                    dark: () => clsx('text-dark dark:text-dark2'),
                     info: () => clsx('text-info dark:text-info2'),
-                    light: () => clsx('text-light dark:text-light2'),
                     neutral: () => clsx('text-neutral dark:text-neutral2'),
                     primary: () => clsx('text-primary dark:text-primary2'),
                     success: () => clsx('text-success dark:text-success2'),
@@ -89,9 +87,7 @@ export const ProgressBar = React.forwardRef<ElementType, ProgressBarProps>(
             toIntentMatch({
               accent: () => clsx('bg-accent/20 dark:bg-accent2/30'),
               danger: () => clsx('bg-danger/20 dark:bg-danger2/30'),
-              dark: () => clsx('bg-dark/20 dark:bg-dark2/30'),
               info: () => clsx('bg-info/20 dark:bg-info2/30'),
-              light: () => clsx('bg-light/20 dark:bg-light2/30'),
               neutral: () => clsx('bg-neutral/20 dark:bg-neutral2/30'),
               primary: () => clsx('bg-primary/20 dark:bg-primary2/30'),
               success: () => clsx('bg-success/20 dark:bg-success2/30'),
@@ -115,9 +111,7 @@ export const ProgressBar = React.forwardRef<ElementType, ProgressBarProps>(
               toIntentMatch({
                 accent: () => clsx('bg-accent dark:bg-accent2'),
                 danger: () => clsx('bg-danger dark:bg-danger2'),
-                dark: () => clsx('bg-dark dark:bg-dark2'),
                 info: () => clsx('bg-info dark:bg-info2'),
-                light: () => clsx('bg-light dark:bg-light2'),
                 neutral: () => clsx('bg-neutral dark:bg-neutral2'),
                 primary: () => clsx('bg-primary dark:bg-primary2'),
                 success: () => clsx('bg-success dark:bg-success2'),

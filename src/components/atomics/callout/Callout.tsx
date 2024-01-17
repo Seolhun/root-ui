@@ -27,9 +27,7 @@ export const Callout = React.forwardRef<ElementType, CalloutProps>(
             {
               accent: () => 'bg-accent-0',
               danger: () => 'bg-danger-0',
-              dark: () => 'bg-dark-0',
               info: () => 'bg-info-0',
-              light: () => 'bg-light-0',
               neutral: () => 'bg-neutral-0',
               primary: () => 'bg-primary-0',
               success: () => 'bg-success-0',

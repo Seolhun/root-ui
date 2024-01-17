@@ -23,7 +23,7 @@ export const DropdownWidgetButton = React.forwardRef<HTMLButtonElement, Dropdown
             typeof className === 'function' ? className(state) : className,
             Classes.BaseItem,
             'relative',
-            'text-space-1 dark:text-cream-1',
+            'text-space-2 dark:text-cream-2',
             'bg-cream-1 dark:bg-space-1',
             'shadow rounded',
             {
