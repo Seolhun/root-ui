@@ -47,7 +47,6 @@
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/line-clamp": "^0.4.4",
     "clsx": "^1.2.1",
     "color": "^4.2.3"
   },
