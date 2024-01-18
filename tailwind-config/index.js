@@ -6,7 +6,8 @@ module.exports = [
   require('./RootUI.tailwind.config'),
   require('./plugins/line-clamp'),
   require('./plugins/scales'),
-  require('./plugins/base'),
+  require('./plugins/heading'),
+  require('./plugins/solid'),
+  require('./plugins/outlined'),
   require('./plugins/variants'),
-  require('./plugins/components'),
 ];

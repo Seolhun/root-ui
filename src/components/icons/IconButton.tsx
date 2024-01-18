@@ -47,25 +47,25 @@ export const IconButton = React.forwardRef<ElementType, IconButtonProps>(
           'p-3 rounded-full',
           toIntentMatch({
             accent: () => {
-              return clsx(outlined ? 'outlined-accent dark:outlined-accent2' : 'solid-accent dark:solid-accent2');
+              return clsx(outlined ? 'outlined-accent dark:outlined-accent' : 'solid-accent dark:solid-accent');
             },
             danger: () => {
-              return clsx(outlined ? 'outlined-danger dark:outlined-danger2' : 'solid-danger dark:solid-danger2');
+              return clsx(outlined ? 'outlined-danger dark:outlined-danger' : 'solid-danger dark:solid-danger');
             },
             info: () => {
-              return clsx(outlined ? 'outlined-info dark:outlined-info2' : 'solid-info dark:solid-info2');
+              return clsx(outlined ? 'outlined-info dark:outlined-info' : 'solid-info dark:solid-info');
             },
             neutral: () => {
-              return clsx(outlined ? 'outlined-neutral dark:outlined-neutral2' : 'solid-neutral dark:solid-neutral2');
+              return clsx(outlined ? 'outlined-neutral dark:outlined-neutral' : 'solid-neutral dark:solid-neutral');
             },
             primary: () => {
-              return clsx(outlined ? 'outlined-primary dark:outlined-primary2' : 'solid-primary dark:solid-primary2');
+              return clsx(outlined ? 'outlined-primary dark:outlined-primary' : 'solid-primary dark:solid-primary');
             },
             success: () => {
-              return clsx(outlined ? 'outlined-success dark:outlined-success2' : 'solid-success dark:solid-success2');
+              return clsx(outlined ? 'outlined-success dark:outlined-success' : 'solid-success dark:solid-success');
             },
             warning: () => {
-              return clsx(outlined ? 'outlined-warning dark:outlined-warning2' : 'solid-warning dark:solid-warning2');
+              return clsx(outlined ? 'outlined-warning dark:outlined-warning' : 'solid-warning dark:solid-warning');
             },
           })(intent),
         )}
