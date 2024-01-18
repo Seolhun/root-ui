@@ -42,15 +42,13 @@ export const Loader = React.forwardRef<ElementType, LoaderProps>(({ className, .
             xs: () => 'scale-xs',
           })(scale),
           toIntentMatch({
-            accent: () => clsx('text-accent-2 fill-accent dark:text-accent2-2 dark:fill-accent2'),
-            danger: () => clsx('text-danger-2 fill-danger dark:text-danger2-2 dark:fill-danger2'),
-            dark: () => clsx('text-dark-2 fill-dark dark:text-dark2-2 dark:fill-dark2'),
-            info: () => clsx('text-info-2 fill-info dark:text-info2-2 dark:fill-info2'),
-            light: () => clsx('text-light-2 fill-light dark:text-light2-2 dark:fill-light2'),
-            neutral: () => clsx('text-neutral-2 fill-neutral dark:text-neutral2-2 dark:fill-neutral2'),
-            primary: () => clsx('text-primary-2 fill-primary dark:text-primary2-2 dark:fill-primary2'),
-            success: () => clsx('text-success-2 fill-success dark:text-success2-2 dark:fill-success2'),
-            warning: () => clsx('text-warning-2 fill-warning dark:text-warning2-2 dark:fill-warning2'),
+            accent: () => clsx('text-accent-2 fill-accent dark:text-accent-2 dark:fill-accent'),
+            danger: () => clsx('text-danger-2 fill-danger dark:text-danger-2 dark:fill-danger'),
+            info: () => clsx('text-info-2 fill-info dark:text-info-2 dark:fill-info'),
+            neutral: () => clsx('text-neutral-2 fill-neutral dark:text-neutral-2 dark:fill-neutral'),
+            primary: () => clsx('text-primary-2 fill-primary dark:text-primary-2 dark:fill-primary'),
+            success: () => clsx('text-success-2 fill-success dark:text-success-2 dark:fill-success'),
+            warning: () => clsx('text-warning-2 fill-warning dark:text-warning-2 dark:fill-warning'),
           })(intent),
         )}
         aria-hidden="true"

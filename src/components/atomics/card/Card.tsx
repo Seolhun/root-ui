@@ -17,7 +17,7 @@ export const Card = React.forwardRef<ElementType, CardProps>(({ children, classN
         CLASSNAME,
         className,
         'block',
-        'text-space-1 dark:text-cream-1',
+        'text-space-2 dark:text-cream-2',
         'bg-cream-1 dark:bg-space-1',
         'rounded shadow',
       )}

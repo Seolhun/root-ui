@@ -63,15 +63,13 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(({ children, cl
             xs: () => 'h-[22px] w-[44px]',
           })(scale),
           toIntentMatch({
-            accent: () => clsx('solid-accent dark:solid-accent2'),
-            danger: () => clsx('solid-danger dark:solid-danger2'),
-            dark: () => clsx('solid-dark dark:solid-dark2'),
-            info: () => clsx('solid-info dark:solid-info2'),
-            light: () => clsx('solid-light dark:solid-light2'),
-            neutral: () => clsx('solid-neutral dark:solid-neutral2'),
-            primary: () => clsx('solid-primary dark:solid-primary2'),
-            success: () => clsx('solid-success dark:solid-success2'),
-            warning: () => clsx('solid-warning dark:solid-warning2'),
+            accent: () => clsx('solid-accent dark:solid-accent'),
+            danger: () => clsx('solid-danger dark:solid-danger'),
+            info: () => clsx('solid-info dark:solid-info'),
+            neutral: () => clsx('solid-neutral dark:solid-neutral'),
+            primary: () => clsx('solid-primary dark:solid-primary'),
+            success: () => clsx('solid-success dark:solid-success'),
+            warning: () => clsx('solid-warning dark:solid-warning'),
           })(intent),
         )}
         ref={ref as any}

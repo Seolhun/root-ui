@@ -29,10 +29,10 @@ export const DropdownWidgetOption = React.forwardRef<HTMLLIElement, DropdownWidg
             className,
             Classes.BaseItem,
             {
-              'bg-neutral-1 dark:bg-neutral2-1 text-space-1 dark:text-cream-1': active && !selected,
-              'bg-primary dark:bg-primary2 text-cream-1 dark:text-cream-1': selected,
+              'bg-neutral-1 dark:bg-neutral-1 text-space-1 dark:text-cream-1': active && !selected,
+              'bg-primary dark:bg-primary text-cream-1 dark:text-cream-1': selected,
             },
-            disabled ? 'bg-neutral dark:bg-neutral2 opacity-70 cursor-not-allowed' : 'cursor-pointer',
+            disabled ? 'bg-neutral dark:bg-neutral opacity-70 cursor-not-allowed' : 'cursor-pointer',
           );
         }}
         disabled={disabled}
