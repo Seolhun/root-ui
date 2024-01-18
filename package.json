@@ -105,7 +105,7 @@
     "rollup-plugin-scss": "^4.0.0",
     "rollup-plugin-visualizer": "^5.12.0",
     "sass": "^1.58.3",
-    "sass-loader": "^13.2.0",
+    "sass-loader": "^14.0.0",
     "storybook": "^7.6.10",
     "style-loader": "^3.3.1",
     "ts-essentials": "^9.2.0",
