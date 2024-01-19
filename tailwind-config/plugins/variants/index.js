@@ -13,4 +13,5 @@ const plugin = require('tailwindcss/plugin');
 // e(), for manually escaping strings meant to be used in class names
 module.exports = plugin(function ({ addVariant, theme }) {
   addVariant('hocus', ['&:hover', '&:focus']);
+  addVariant('checked', ['&:checked']);
 });

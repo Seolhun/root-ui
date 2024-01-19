@@ -8,17 +8,19 @@ const themeColors = {
   /**
    * for Light UI
    */
-  cream: 'rgb(250, 250, 250)', // Layout background
-  'cream-1': 'rgb(255, 255, 255)', // UI background commonly
-  'cream-2': 'rgb(245, 245, 245)', // UI border commonly
-  'cream-3': 'rgb(230, 230, 230)', // UI border commonly
+  cream: '#fafafa', // Layout background
+  'cream-1': '#fff', // UI background commonly
+  'cream-2': '#f5f5f5', // UI border commonly
+  'cream-3': '#efefef', // UI border commonly
+  'cream-4': '#dcdcdc', // UI border commonly
   /**
    * for Dark UI
    */
-  space: 'rgb(1, 4, 9)', // Layout background
-  'space-1': 'rgb(33, 38, 45)', // UI background commonly
-  'space-2': 'rgb(41, 46, 50)', // UI border commonly
-  'space-3': 'rgb(49, 54, 65)', // UI border commonly
+  space: '#010409', // Layout background
+  'space-1': '#000', // UI background commonly
+  'space-2': '#1c1e21', // UI border commonly
+  'space-3': '#1c1e21', // UI border commonly
+  'space-4': '#27292b', // UI border commonly
 
   neutral: {
     '50': '#f8f8f8',

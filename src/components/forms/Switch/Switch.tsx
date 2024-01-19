@@ -47,14 +47,10 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(({ children, cl
           className,
           'relative',
           'inline-flex items-center shrink-0',
-          'border border-cream-3 dark:border-space-3',
           'rounded-full shadow',
           'focus:outline-none focus-visible:ring-2',
           'transition-colors duration-200 ease-in-out',
           disabled ? 'opacity-95 cursor-not-allowed' : 'cursor-pointer',
-          {
-            'bg-white dark:bg-black': !checked,
-          },
           toScaleMatch({
             lg: () => 'h-[34px] w-[68px]',
             md: () => 'h-[30px] w-[60px]',
@@ -62,14 +58,46 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(({ children, cl
             xl: () => 'h-[38px] w-[76px]',
             xs: () => 'h-[22px] w-[44px]',
           })(scale),
+          'border border-neutral-4 dark:border-neutral-8',
+          {
+            'bg-cream-1 dark:bg-space-3': !checked,
+          },
           toIntentMatch({
-            accent: () => clsx('solid-accent dark:solid-accent'),
-            danger: () => clsx('solid-danger dark:solid-danger'),
-            info: () => clsx('solid-info dark:solid-info'),
-            neutral: () => clsx('solid-neutral dark:solid-neutral'),
-            primary: () => clsx('solid-primary dark:solid-primary'),
-            success: () => clsx('solid-success dark:solid-success'),
-            warning: () => clsx('solid-warning dark:solid-warning'),
+            accent: () => {
+              return clsx({
+                'bg-accent dark:bg-accent': checked,
+              });
+            },
+            danger: () => {
+              return clsx({
+                'bg-danger dark:bg-danger': checked,
+              });
+            },
+            info: () => {
+              return clsx({
+                'bg-info dark:bg-info': checked,
+              });
+            },
+            neutral: () => {
+              return clsx({
+                'bg-neutral dark:bg-neutral': checked,
+              });
+            },
+            primary: () => {
+              return clsx({
+                'bg-primary dark:bg-primary': checked,
+              });
+            },
+            success: () => {
+              return clsx({
+                'bg-success dark:bg-success': checked,
+              });
+            },
+            warning: () => {
+              return clsx({
+                'bg-warning dark:bg-warning': checked,
+              });
+            },
           })(intent),
         )}
         ref={ref as any}
@@ -77,10 +105,7 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(({ children, cl
         <span
           className={clsx(
             'inline-flex justify-center items-center',
-            'border-2',
-            checked
-              ? 'bg-white dark:bg-white border-cream'
-              : 'bg-cream-2 dark:bg-space-2 border-cream-3 dark:border-space-3',
+            checked ? 'bg-white dark:bg-white ' : 'bg-neutral-3 dark:neutral-3',
             'rounded-full shadow-xl',
             'transform transition',
             toScaleMatch({

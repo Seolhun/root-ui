@@ -85,15 +85,6 @@ module.exports = plugin(
     );
   },
   {
-    theme: {
-      scale: {
-        lg: 'lg',
-        md: 'md',
-        sm: 'sm',
-        xl: 'xl',
-        xs: 'xs',
-      },
-    },
     variants: {
       scale: ['responsive'],
     },

@@ -69,6 +69,13 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
         width: 'width',
       },
       width: Width,
+      scale: {
+        lg: 'lg',
+        md: 'md',
+        sm: 'sm',
+        xl: 'xl',
+        xs: 'xs',
+      },
     },
     fontFamily: {
       roboto: ['"Roboto"', ...defaultTheme.fontFamily.sans],
@@ -87,6 +94,7 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
     variants: {
       extend: {
         backgroundColor: ['checked', 'disabled', 'hover', 'focus', 'active'],
+        border: ['checked', 'disabled', 'hover', 'focus', 'active'],
         borderColor: ['checked', 'disabled', 'hover', 'focus', 'active'],
         cursor: ['disabled'],
         opacity: ['disabled'],
@@ -94,6 +102,7 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
          * @see https://tailwindcss.com/docs/transition-property
          */
         transitionProperty: ['hover', 'focus'],
+        translate: ['hover', 'focus', 'checked'],
         width: ['focus'],
       },
     },
