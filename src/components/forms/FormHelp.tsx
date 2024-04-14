@@ -29,7 +29,6 @@ export const FormHelp = React.forwardRef<ElementType, FormHelpProps>(({ children
         CLASSNAME,
         className,
         'flex items-center flex-wrap',
-        'text-space-1 dark:text-cream-1',
         toScaleMatch({
           lg: () => 'scale-text-lg',
           md: () => 'scale-text-md',
