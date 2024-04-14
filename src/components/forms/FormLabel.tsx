@@ -44,7 +44,7 @@ export const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
         ref={ref}
       >
         {children}
-        {required && <sup className={clsx('text-danger dark:text-danger2', 'text-4')}>*</sup>}
+        {required && <sup className={clsx('text-danger dark:text-danger2', 'text-6')}>*</sup>}
       </label>
     );
   },
