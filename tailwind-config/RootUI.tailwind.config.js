@@ -4,13 +4,18 @@ const plugin = require('tailwindcss/plugin');
 
 const { Animations } = require('./presets/Animations');
 const { palette } = require('./presets/Colors');
-const { FontSize } = require('./presets/FontSize');
-const { Height } = require('./presets/Height');
-const { Margin } = require('./presets/Margin');
-const { MinHeight } = require('./presets/MinHeight');
-const { MinMaxWidth } = require('./presets/MinMaxWidth');
-const { Padding } = require('./presets/Padding');
-const { Width } = require('./presets/Width');
+const {
+  spacingExtend,
+  insetExtend,
+  zIndexExtend,
+  marginExtend,
+  paddingExtend,
+  heightExtend,
+  minMaxHeightExtend,
+  widthExtend,
+  minMaxWidthExtend,
+  fontSizeExtend,
+} = require('./presets/extends');
 
 module.exports = plugin(function ({ addBase, theme }) {}, {
   /**
@@ -43,8 +48,6 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
         inherit: 'inherit',
         transparent: 'transparent',
       },
-      fontSize: FontSize,
-      height: Height,
       lineHeight: {
         '11': '2.75rem',
         '12': '3rem',
@@ -53,11 +56,6 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
         '15': '3.75rem',
         '16': '4rem',
       },
-      margin: Margin,
-      maxWidth: MinMaxWidth,
-      minHeight: MinHeight,
-      minWidth: MinMaxWidth,
-      padding: Padding,
       transitionDuration: {
         '1500': '1500ms',
         '2000': '2000ms',
@@ -68,7 +66,6 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
         spacing: 'margin, padding',
         width: 'width',
       },
-      width: Width,
       scale: {
         lg: 'lg',
         md: 'md',
@@ -76,6 +73,18 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
         xl: 'xl',
         xs: 'xs',
       },
+      fontSize: fontSizeExtend,
+      margin: marginExtend,
+      padding: paddingExtend,
+      width: widthExtend,
+      maxWidth: minMaxWidthExtend,
+      minWidth: minMaxWidthExtend,
+      height: heightExtend,
+      minHeight: minMaxHeightExtend,
+      maxHeight: minMaxHeightExtend,
+      inset: insetExtend,
+      spacing: spacingExtend,
+      zIndex: zIndexExtend,
     },
     fontFamily: {
       roboto: ['"Roboto"', ...defaultTheme.fontFamily.sans],
