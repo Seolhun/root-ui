@@ -7,28 +7,24 @@ on:
       - '**/*.md'
 
 jobs:
-  deploy-storybook:
+  storybook-ci-cd:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
+    env:
+      GITHUB_TOKEN: ${{secrets.SEOLHUN_GITHUB_TOKEN}}
+      SEOLHUN_GITHUB_TOKEN: ${{secrets.SEOLHUN_GITHUB_TOKEN}}
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
+      - name: Setup Node.js & pnpm
+        uses: ./.github/actions/node-pnpm-setup
 
       - name: Install Packages
-        run: npm ci
-        env:
-          SEOLHUN_GITHUB_TOKEN: ${{secrets.SEOLHUN_GITHUB_TOKEN}}
+        run: pnpm i
 
       - name: Build Storybook
-        run: npm run build:storybook
+        run: pnpm run build:storybook
 
       - name: Deploy Storybook
         uses: JamesIves/github-pages-deploy-action@v4.2.5
