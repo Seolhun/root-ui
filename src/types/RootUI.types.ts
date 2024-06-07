@@ -15,8 +15,8 @@ export type UnknownObject = Record<number | string | symbol, unknown>;
 type HasProperty<T extends UnknownObject, K extends PropertyKey> = T extends never
   ? never
   : K extends keyof T
-  ? true
-  : never;
+    ? true
+    : never;
 
 export type PropsOf<Tag extends RootUIReactTag> = Tag extends React.ElementType ? React.ComponentProps<Tag> : never;
 
@@ -58,12 +58,12 @@ type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
 export type XOR<T, U> = T | U extends RootUIUniqueKey
   ? never
   : T extends RootUIUniqueKey
-  ? U
-  : U extends RootUIUniqueKey
-  ? T
-  : T | U extends UnknownObject
-  ? (Without<T, U> & U) | (Without<U, T> & T)
-  : T | U;
+    ? U
+    : U extends RootUIUniqueKey
+      ? T
+      : T | U extends UnknownObject
+        ? (Without<T, U> & U) | (Without<U, T> & T)
+        : T | U;
 
 export type ByComparator<T> = ((a: T, b: T) => boolean) | (keyof T & string);
 

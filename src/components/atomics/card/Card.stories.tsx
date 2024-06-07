@@ -1,21 +1,20 @@
 import * as React from 'react';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
-
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
 import { Card, CardProps } from './Card';
 
 export default {
   argTypes: {
     intent: {
       control: {
-        options: storiesIntentOptions,
         type: 'select',
+        options: storiesIntentOptions,
       },
     },
     scale: {
       control: {
-        options: storiesScaleOptions,
         type: 'select',
+        options: storiesScaleOptions,
       },
     },
   },

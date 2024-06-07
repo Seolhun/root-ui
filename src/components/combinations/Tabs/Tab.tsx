@@ -2,7 +2,7 @@ import { Tab as BaseTab } from '@headlessui/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '~/system';
+import { RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '../../../system';
 
 const CLASSNAME = 'Root__Tab';
 type ElementType = HTMLLIElement;
@@ -21,7 +21,7 @@ export interface TabProps extends ElementProps {
   scale?: RootScale;
 }
 
-export const Tab = React.forwardRef<ElementType, TabProps>(({ children, className, ...others }, ref) => {
+export const Tab = React.forwardRef<ElementType, TabProps>(({ className, children, ...others }, ref) => {
   const { intent, scale } = useRootUI({
     defaultIntent: 'primary',
     defaultScale: 'md',

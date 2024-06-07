@@ -1,33 +1,14 @@
+import { Meta, StoryObj } from '@storybook/react/*';
 import * as React from 'react';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
-
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
 import { Tag, TagProps } from './Tag';
-
-export default {
-  argTypes: {
-    intent: {
-      control: {
-        options: storiesIntentOptions,
-        type: 'select',
-      },
-    },
-    scale: {
-      control: {
-        options: storiesScaleOptions,
-        type: 'select',
-      },
-    },
-  },
-  component: Tag,
-  title: 'Atomic/Tag',
-};
 
 const BaseTemplate = ({ children, ...others }: TagProps) => {
   return <Tag {...others}>{children}</Tag>;
 };
 
-const ScaleTagsStories: React.FC<TagProps> = ({ children, ...others }) => {
+const ScaleTagsStories = ({ children, ...others }: TagProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -48,13 +29,15 @@ const ScaleTagsStories: React.FC<TagProps> = ({ children, ...others }) => {
   );
 };
 
-export const ScaleTags = ScaleTagsStories.bind({});
-ScaleTags.args = {
-  children: 'Tag',
-  disabled: false,
+export const ScaleTags: StoryObj<TagProps> = {
+  args: {
+    children: 'Tag',
+    disabled: false,
+  },
+  render: ScaleTagsStories,
 };
 
-const IntentTagsStories: React.FC<TagProps> = ({ children, ...others }) => {
+const IntentTagsStories = ({ children, ...others }: TagProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -75,12 +58,14 @@ const IntentTagsStories: React.FC<TagProps> = ({ children, ...others }) => {
   );
 };
 
-export const IntentTags = IntentTagsStories.bind({});
-IntentTags.args = {
-  children: 'Tag',
+export const IntentTags: StoryObj<TagProps> = {
+  args: {
+    children: 'Tag',
+  },
+  render: IntentTagsStories,
 };
 
-const IntentOutlinedTagsStories: React.FC<TagProps> = ({ children, ...others }) => {
+const IntentOutlinedTagsStories = ({ children, ...others }: TagProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
@@ -101,9 +86,11 @@ const IntentOutlinedTagsStories: React.FC<TagProps> = ({ children, ...others }) 
   );
 };
 
-export const IntentOutlinedTags = IntentOutlinedTagsStories.bind({});
-IntentOutlinedTags.args = {
-  children: 'Tag',
+export const IntentOutlinedTags: StoryObj<TagProps> = {
+  args: {
+    children: 'Tag',
+  },
+  render: IntentOutlinedTagsStories,
 };
 
 const DisabledTagsStories = ({ children, ...others }: TagProps) => {
@@ -145,8 +132,30 @@ const DisabledTagsStories = ({ children, ...others }: TagProps) => {
   );
 };
 
-export const DisabledTags = DisabledTagsStories.bind({});
-DisabledTags.args = {
-  children: 'Tag',
-  disabled: true,
+export const DisabledTags: StoryObj<TagProps> = {
+  args: {
+    children: 'Tag',
+    disabled: true,
+  },
+  render: DisabledTagsStories,
 };
+
+const meta: Meta<typeof Tag> = {
+  argTypes: {
+    intent: {
+      control: {
+        type: 'select',
+        options: storiesIntentOptions,
+      },
+    },
+    scale: {
+      control: {
+        type: 'select',
+        options: storiesScaleOptions,
+      },
+    },
+  },
+  title: 'Atomic/Tag',
+};
+
+export default meta;

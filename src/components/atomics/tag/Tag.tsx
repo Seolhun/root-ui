@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '~/system';
+import { RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '../../../system';
 
 const CLASSNAME = 'Root__Tag';
 type ElementType = HTMLButtonElement;
@@ -24,7 +24,7 @@ export interface TagProps extends ElementProps {
   scale?: RootScale;
 }
 
-export const Tag = React.forwardRef<ElementType, TagProps>(({ children, className, outlined, ...others }, ref) => {
+export const Tag = React.forwardRef<ElementType, TagProps>(({ className, children, outlined, ...others }, ref) => {
   const { intent, scale } = useRootUI({
     defaultIntent: 'primary',
     defaultScale: 'md',
