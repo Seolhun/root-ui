@@ -13,11 +13,11 @@
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowJs": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "strict": true,
     "alwaysStrict": true,
@@ -46,11 +46,11 @@
     "inlineSources": false,
     "isolatedModules": true,
     "preserveWatchOutput": true,
+    "baseUrl": ".",
     "typeRoots": [
       "./node_modules/@types",
-      "./@types"
+      "./@types",
     ],
-    "baseUrl": ".",
   },
   "include": [
     "src",
