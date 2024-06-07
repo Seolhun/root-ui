@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { useEvent } from '~/hooks/useEvent';
-import { useIsoMorphicEffect } from '~/hooks/useIsoMorphicEffect';
+import { useEvent } from '../../hooks/useEvent';
+import { useIsoMorphicEffect } from '../../hooks/useIsoMorphicEffect';
 
 import { StackContextMessageEnum, StackContextOnUpdateCallback } from './StackContext.types';
 

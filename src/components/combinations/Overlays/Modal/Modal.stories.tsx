@@ -1,9 +1,9 @@
 import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
-import { Button, Card } from '~/components/atomics';
-import { useDisclosure } from '~/hooks';
-import { storiesScaleOptions, StorybookContent } from '~/stories';
+import { Button, Card } from '../../../../components/atomics';
+import { useDisclosure } from '../../../../hooks';
+import { storiesScaleOptions, StorybookContent } from '../../../../stories';
 
 import { Modal } from './Modal';
 import { ModalProps } from './Modal.types';

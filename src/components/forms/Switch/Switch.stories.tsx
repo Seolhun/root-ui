@@ -1,7 +1,7 @@
 import { StoryObj } from '@storybook/react';
 import * as React from 'react';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
 
 import { Switch, SwitchProps } from './Switch';
 

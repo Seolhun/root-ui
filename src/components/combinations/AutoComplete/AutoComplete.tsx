@@ -3,8 +3,8 @@ import clsx from 'clsx';
 import isEmpty from 'lodash/isEmpty';
 import * as React from 'react';
 
-import { RootScale, toScaleMatch } from '~/system';
-import { Optional } from '~/utils/fx';
+import { RootScale, toScaleMatch } from '../../../system';
+import { Optional } from '../../../utils/fx';
 
 import * as Styled from './AutoComplete.Styled';
 import { AutoCompleteIdentify } from './AutoComplete.types';

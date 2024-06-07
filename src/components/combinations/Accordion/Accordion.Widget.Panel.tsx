@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { forwardRefWithAs, PropsForFeatures, render, RenderFeatures } from '~/core';
-import { useSyncRefs } from '~/hooks';
-import { OpenClosedState, useOpenClosed } from '~/tools';
-import { RootUIProps, RootUIReactTag } from '~/types';
+import { forwardRefWithAs, PropsForFeatures, render, RenderFeatures } from '../../../core';
+import { useSyncRefs } from '../../../hooks';
+import { OpenClosedState, useOpenClosed } from '../../../tools';
+import { RootUIProps, RootUIReactTag } from '../../../types';
 
 import { AccordionPanelContext, ActionTypes, useAccordionAPIContext, useAccordionContext } from './Accordion.reducer';
 

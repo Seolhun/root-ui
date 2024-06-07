@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
 
 import { Loader, LoaderProps } from './Loader';
 

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '~/system';
+import { RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '../../../system';
 
 const CLASSNAME = 'Root__Tag';
 type ElementType = HTMLButtonElement;

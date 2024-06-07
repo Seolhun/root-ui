@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, toIntentMatch } from '~/system';
+import { RootIntent, toIntentMatch } from '../../../system';
 
 const CLASSNAME = 'Root__BlockQuote';
 type ElementType = HTMLQuoteElement;

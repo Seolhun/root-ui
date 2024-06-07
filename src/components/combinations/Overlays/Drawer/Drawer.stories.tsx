@@ -2,9 +2,9 @@ import { StoryFn } from '@storybook/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Button } from '~/components/atomics';
-import { H4 } from '~/components/typography';
-import { storiesScaleOptions, StorybookContent } from '~/stories';
+import { Button } from '../../../../components/atomics';
+import { H4 } from '../../../../components/typography';
+import { storiesScaleOptions, StorybookContent } from '../../../../stories';
 
 import { Drawer } from './Drawer';
 import { DrawerProps } from './Drawer.types';

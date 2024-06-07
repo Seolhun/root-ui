@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootScale, toScaleMatch } from '~/system';
+import { RootScale, toScaleMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Avatar';
 type ElementType = HTMLImageElement;

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootScale, toScaleMatch, useRootUI } from '~/system';
+import { RootScale, toScaleMatch, useRootUI } from '../../system';
 
 import { FormHelp } from './FormHelp';
 import { FormLabel, FormLabelProps } from './FormLabel';

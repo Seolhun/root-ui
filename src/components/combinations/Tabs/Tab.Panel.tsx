@@ -2,7 +2,7 @@ import { Tab } from '@headlessui/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Text } from '~/components/typography';
+import { Text } from '../../../components/typography';
 
 const CLASSNAME = 'Root__Tab__Panel';
 type ElementType = HTMLLIElement;

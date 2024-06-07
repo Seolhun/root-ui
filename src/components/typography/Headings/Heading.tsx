@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Box } from '~/components/common';
-import { AgnosticTagProps } from '~/system';
+import { Box } from '../../../components/common';
+import { AgnosticTagProps } from '../../../system';
 
 const CLASSNAME = 'Root__Heading';
 type ElementType = HTMLParagraphElement;

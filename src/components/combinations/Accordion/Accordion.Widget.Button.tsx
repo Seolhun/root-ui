@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { KeyboardKeyMap } from '~/constants';
-import { forwardRefWithAs, render } from '~/core';
-import { useEvent, useResolveButtonType, useSyncRefs } from '~/hooks';
-import { OpenClosedState } from '~/tools';
-import { RootUIProps, RootUIReactTag } from '~/types';
-import { isDisabledReactIssue7711 } from '~/utils/bugs';
+import { KeyboardKeyMap } from '../../../constants';
+import { forwardRefWithAs, render } from '../../../core';
+import { useEvent, useResolveButtonType, useSyncRefs } from '../../../hooks';
+import { OpenClosedState } from '../../../tools';
+import { RootUIProps, RootUIReactTag } from '../../../types';
+import { isDisabledReactIssue7711 } from '../../../utils/bugs';
 
 import { ActionTypes, useAccordionContext, useAccordionPanelContext } from './Accordion.reducer';
 

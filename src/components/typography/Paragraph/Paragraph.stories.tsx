@@ -1,7 +1,7 @@
 import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
-import { StorybookContent } from '~/stories';
+import { StorybookContent } from '../../../stories';
 
 import { P, PProps } from './P';
 

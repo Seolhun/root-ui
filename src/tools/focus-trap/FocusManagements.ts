@@ -1,4 +1,4 @@
-import { disposables, getOwnerDocumentBy, match } from '~/utils';
+import { disposables, getOwnerDocumentBy, match } from '../../utils';
 
 /**
  * @see https://stackoverflow.com/a/30753870

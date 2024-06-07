@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Card } from '~/components/atomics';
+import { Card } from '../../../components/atomics/card/Card';
 
 import { Input, InputProps } from '../input';
 

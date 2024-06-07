@@ -1,4 +1,4 @@
-import { Optional } from '~/utils/fx';
+import { Optional } from '../../../utils/fx';
 
 import { DropdownOption, DropdownOptionState } from './widgets';
 

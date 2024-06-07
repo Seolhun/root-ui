@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Box } from '~/components/common/box';
+import { Box } from '../../../components/common/box';
 
 const CLASSNAME = 'Root__Card';
 type ElementType = HTMLDivElement;

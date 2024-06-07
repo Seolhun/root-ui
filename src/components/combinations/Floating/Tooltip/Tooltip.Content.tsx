@@ -2,8 +2,8 @@ import { FloatingPortal, useDelayGroup, useDelayGroupContext, useMergeRefs } fro
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { useIsoMorphicEffect } from '~/hooks';
-import { toScaleMatch, useRootUI } from '~/system';
+import { useIsoMorphicEffect } from '../../../../hooks';
+import { toScaleMatch, useRootUI } from '../../../../system';
 
 import { useTooltipContext } from './useTooltipContext';
 
