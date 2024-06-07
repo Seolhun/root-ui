@@ -1,6 +1,6 @@
 import { Combobox } from '@headlessui/react';
 import clsx from 'clsx';
-import isEmpty from 'lodash/isEmpty';
+import { isEmpty } from 'lodash-es';
 import * as React from 'react';
 
 import { RootScale, toScaleMatch } from '../../../system';

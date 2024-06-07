@@ -1,4 +1,4 @@
-import omit from 'lodash/omit';
+import { omit } from 'lodash-es';
 import * as React from 'react';
 
 import { GlobalRootDataAttributeMap } from '../constants';

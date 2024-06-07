@@ -41,8 +41,8 @@ export const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot
     optionalRef(
       (ref) => {
         internalAccordionRef.current = ref as unknown as HTMLElement | null;
-        // @ts-expect-error The `as` prop _can_ be a Fragment
       },
+      // @ts-expect-error The `as` prop _can_ be a Fragment
       props.as === undefined || props.as === Fragment,
     ),
   );
