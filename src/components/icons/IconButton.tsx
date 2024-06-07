@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '~/system';
+import { RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '../../system';
 
 const CLASSNAME = 'Root__Icon';
 type ElementType = HTMLButtonElement;
@@ -27,7 +27,7 @@ export interface IconButtonProps extends ElementProps {
 }
 
 export const IconButton = React.forwardRef<ElementType, IconButtonProps>(
-  ({ children, className, variant = 'outline', ...others }, ref) => {
+  ({ className, children, variant = 'outline', ...others }, ref) => {
     const { intent, scale } = useRootUI({
       defaultIntent: 'primary',
       defaultScale: 'md',

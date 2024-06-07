@@ -8,8 +8,8 @@ type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
 export function DropdownWidgetRoot<Option extends DropdownOption, ActionOption = Option>({
-  children,
   className,
+  children,
   disabled,
   multiple,
   offset = 5,

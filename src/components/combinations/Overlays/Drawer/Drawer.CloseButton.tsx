@@ -10,7 +10,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface DrawerCloseButtonProps extends ElementProps {}
 
 export const DrawerCloseButton = React.forwardRef<ElementType, DrawerCloseButtonProps>(
-  ({ children, className, ...others }: DrawerCloseButtonProps) => {
+  ({ className, children, ...others }: DrawerCloseButtonProps) => {
     const [{ onClose }] = useModalContext('Drawer');
 
     return (
