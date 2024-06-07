@@ -1,5 +1,11 @@
 # @seolhun/root-ui
 
+## 0.8.3-alpha.2
+
+### Patch Changes
+
+- chore: change tsup to rollup
+
 ## 0.8.3-alpha.1
 
 ### Patch Changes

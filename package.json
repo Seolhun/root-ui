@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "name": "@seolhun/root-ui",
-  "version": "0.8.3-alpha.1",
+  "version": "0.8.3-alpha.2",
   "publishConfig": {
     "access": "restricted",
     "registry": "https://npm.pkg.github.com"
