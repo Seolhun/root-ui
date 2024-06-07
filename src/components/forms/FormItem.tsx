@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootScale, toScaleMatch, useRootUI } from '~/system';
-
+import { RootScale, toScaleMatch, useRootUI } from '../../system';
 import { FormHelp } from './FormHelp';
 import { FormLabel, FormLabelProps } from './FormLabel';
 
@@ -38,7 +37,7 @@ export interface FormItemProps extends ElementProps {
 }
 
 export const FormItem = React.forwardRef<ElementType, FormItemProps>(
-  ({ children, className, help, htmlFor, label, required, ...others }, ref) => {
+  ({ className, children, help, htmlFor, label, required, ...others }, ref) => {
     const { scale } = useRootUI({
       scale: others?.scale ?? 'md',
     });

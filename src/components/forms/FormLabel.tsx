@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootScale, toScaleMatch, useRootUI } from '~/system';
+import { RootScale, toScaleMatch, useRootUI } from '../../system';
 
 const CLASSNAME = 'Root__FormLabel';
 type ElementType = HTMLLabelElement;
@@ -17,7 +17,7 @@ export interface FormLabelProps extends ElementProps {
 }
 
 export const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
-  ({ children, className, htmlFor, required, ...others }, ref) => {
+  ({ className, children, htmlFor, required, ...others }, ref) => {
     const { scale } = useRootUI({
       defaultScale: 'md',
       scale: others?.scale,

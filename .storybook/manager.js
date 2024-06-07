@@ -1,4 +1,4 @@
-import { addons } from '@storybook/addons';
+import { addons } from '@storybook/manager-api';
 
 /**
  * @see https://storybook.js.org/docs/react/configure/features-and-behavior

@@ -245,14 +245,14 @@ const fontSizeExtend = reduce(
 );
 
 module.exports = {
-  spacingExtend,
-  insetExtend,
-  zIndexExtend,
-  marginExtend,
-  paddingExtend,
-  heightExtend,
-  minMaxHeightExtend,
-  widthExtend,
-  minMaxWidthExtend,
   fontSizeExtend,
+  heightExtend,
+  insetExtend,
+  marginExtend,
+  minMaxHeightExtend,
+  minMaxWidthExtend,
+  paddingExtend,
+  spacingExtend,
+  widthExtend,
+  zIndexExtend,
 };

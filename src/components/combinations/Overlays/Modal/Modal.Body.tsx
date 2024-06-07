@@ -7,7 +7,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface ModalBodyProps extends ElementProps {}
 
-export const ModalBody = React.forwardRef<ElementType, ModalBodyProps>(({ children, className, ...others }, ref) => {
+export const ModalBody = React.forwardRef<ElementType, ModalBodyProps>(({ className, children, ...others }, ref) => {
   return (
     <div
       ref={ref}

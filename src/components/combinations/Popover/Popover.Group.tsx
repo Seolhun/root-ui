@@ -9,7 +9,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface PopoverGroupProps {}
 
 export const PopoverGroup = React.forwardRef<ElementType, ElementProps & PopoverGroupProps>(
-  ({ children, className, ...others }, ref) => {
+  ({ className, children, ...others }, ref) => {
     return (
       <Popover.Group {...others} className={clsx(CLASSNAME, className)} ref={ref}>
         {children}
