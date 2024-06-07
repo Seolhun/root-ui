@@ -29,7 +29,7 @@ export interface SwitchProps {
   value?: string;
 }
 
-export const Switch = React.forwardRef<ElementType, SwitchProps>(({ children, className, ...others }, ref) => {
+export const Switch = React.forwardRef<ElementType, SwitchProps>(({ className, children, ...others }, ref) => {
   const { checked, disabled } = others;
   const { intent, scale } = useRootUI({
     defaultIntent: 'primary',

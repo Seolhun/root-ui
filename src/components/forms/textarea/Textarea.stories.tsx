@@ -1,21 +1,20 @@
 import * as React from 'react';
 
 import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
-
 import { Textarea, TextareaProps } from './Textarea';
 
 export default {
   component: Textarea,
   intent: {
     control: {
-      options: storiesIntentOptions,
       type: 'select',
+      options: storiesIntentOptions,
     },
   },
   scale: {
     control: {
-      options: storiesScaleOptions,
       type: 'select',
+      options: storiesScaleOptions,
     },
   },
   title: 'Form/Textarea',

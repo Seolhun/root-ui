@@ -5,7 +5,6 @@ import * as React from 'react';
 
 import { RootScale, toScaleMatch } from '../../../system';
 import { Optional } from '../../../utils/fx';
-
 import * as Styled from './AutoComplete.Styled';
 import { AutoCompleteIdentify } from './AutoComplete.types';
 
@@ -71,12 +70,12 @@ export interface AutoCompleteProps<Item> {
 
 function _AutoComplete<Item = any>(
   {
+    // HTMLAttributes
+    className,
     Empty = 'There are no suggestions',
     Loader,
     Prefix,
     Suffix,
-    // HTMLAttributes
-    className,
     displayedValue,
     identify,
     // Props

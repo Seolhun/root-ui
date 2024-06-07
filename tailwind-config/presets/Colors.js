@@ -5,6 +5,19 @@ const colors = require('tailwindcss/colors');
  * @see https://uicolors.app/create
  */
 const themeColors = {
+  accent: {
+    '50': '#fdf2f8',
+    '100': '#fce7f2',
+    '200': '#fccee6',
+    '300': '#fba6d1',
+    '400': '#f76fb1',
+    '500': '#f04e98',
+    '600': '#df2370',
+    '700': '#c11556',
+    '800': '#a01447',
+    '900': '#85163f',
+    '950': '#510621',
+  },
   /**
    * for Light UI
    */
@@ -13,15 +26,36 @@ const themeColors = {
   'cream-2': '#f5f5f5', // UI border commonly
   'cream-3': '#efefef', // UI border commonly
   'cream-4': '#dcdcdc', // UI border commonly
-  /**
-   * for Dark UI
-   */
-  space: '#010409', // Layout background
-  'space-1': '#000', // UI background commonly
-  'space-2': '#1c1e21', // UI border commonly
-  'space-3': '#1c1e21', // UI border commonly
-  'space-4': '#27292b', // UI border commonly
+  'cream-5': '#c0c0c0', // New shade, slightly darker than cream-4
+  'cream-6': '#a9a9a9', // New shade, slightly darker than cream-5
+  'cream-7': '#8b8b8b', // New shade, slightly darker than cream-6
 
+  danger: {
+    '50': '#fff0f0',
+    '100': '#ffdddd',
+    '200': '#ffc1c1',
+    '300': '#ff9595',
+    '400': '#ff5959',
+    '500': '#ff2626',
+    '600': '#fc0606',
+    '700': '#e00000',
+    '800': '#af0505',
+    '900': '#900c0c',
+    '950': '#500000',
+  },
+  info: {
+    '50': '#edfdfe',
+    '100': '#d1f9fc',
+    '200': '#a9f1f8',
+    '300': '#6ee5f2',
+    '400': '#2ccfe4',
+    '500': '#12c7e2',
+    '600': '#108eaa',
+    '700': '#14728a',
+    '800': '#1a5d70',
+    '900': '#1a4d5f',
+    '950': '#0b3341',
+  },
   neutral: {
     '50': '#f8f8f8',
     '100': '#f0f0f0',
@@ -48,32 +82,16 @@ const themeColors = {
     '900': '#000cb8',
     '950': '#000366',
   },
-  info: {
-    '50': '#edfdfe',
-    '100': '#d1f9fc',
-    '200': '#a9f1f8',
-    '300': '#6ee5f2',
-    '400': '#2ccfe4',
-    '500': '#12c7e2',
-    '600': '#108eaa',
-    '700': '#14728a',
-    '800': '#1a5d70',
-    '900': '#1a4d5f',
-    '950': '#0b3341',
-  },
-  accent: {
-    '50': '#fdf2f8',
-    '100': '#fce7f2',
-    '200': '#fccee6',
-    '300': '#fba6d1',
-    '400': '#f76fb1',
-    '500': '#f04e98',
-    '600': '#df2370',
-    '700': '#c11556',
-    '800': '#a01447',
-    '900': '#85163f',
-    '950': '#510621',
-  },
+
+  // Space Theme (Dark)
+  space: '#010409', // Layout background
+  'space-1': '#000', // UI background commonly
+  'space-2': '#1c1e21', // UI border commonly
+  'space-3': '#1c1e21', // UI border commonly
+  'space-4': '#27292b', // UI border commonly
+  'space-5': '#3a3c3f', // New shade, slightly lighter than space-4
+  'space-6': '#4d4f52', // New shade, slightly lighter than space-5
+  'space-7': '#606265', // New shade, slightly lighter than space-6
   success: {
     '50': '#f0fee7',
     '100': '#defbcc',
@@ -100,19 +118,6 @@ const themeColors = {
     '900': '#7e2a10',
     '950': '#441206',
   },
-  danger: {
-    '50': '#fff0f0',
-    '100': '#ffdddd',
-    '200': '#ffc1c1',
-    '300': '#ff9595',
-    '400': '#ff5959',
-    '500': '#ff2626',
-    '600': '#fc0606',
-    '700': '#e00000',
-    '800': '#af0505',
-    '900': '#900c0c',
-    '950': '#500000',
-  },
 };
 
 /**
@@ -127,13 +132,13 @@ const intentColorKeyObject = intentColorKeys.reduce((acc, key) => {
   };
 }, {});
 const intentColorMap = {
+  accent: themeColors.accent,
+  danger: themeColors.danger,
+  info: themeColors.info,
   neutral: themeColors.neutral,
   primary: themeColors.primary,
-  info: themeColors.info,
-  accent: themeColors.accent,
   success: themeColors.success,
   warning: themeColors.warning,
-  danger: themeColors.danger,
 };
 
 /**

@@ -10,7 +10,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface DrawerBackdropProps extends ElementProps {}
 
 export const DrawerBackdrop = React.forwardRef<ElementType, DrawerBackdropProps>(
-  ({ children, className, ...others }, ref) => {
+  ({ className, children, ...others }, ref) => {
     return (
       <ModalWidgetBackdrop
         {...others}

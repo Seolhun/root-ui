@@ -8,7 +8,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface DropdownWidgetOptionListProps extends ElementProps {}
 
 export const DropdownWidgetOptionList = React.forwardRef<HTMLUListElement, DropdownWidgetOptionListProps>(
-  ({ children, className, ...others }, ref) => {
+  ({ className, children, ...others }, ref) => {
     return (
       <Transition
         as={React.Fragment}

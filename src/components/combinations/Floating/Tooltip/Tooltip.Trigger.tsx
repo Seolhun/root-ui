@@ -7,7 +7,7 @@ import { useTooltipContext } from './useTooltipContext';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
-export const TooltipTrigger = React.forwardRef<ElementType, ElementProps>(({ children, className, ...props }, ref) => {
+export const TooltipTrigger = React.forwardRef<ElementType, ElementProps>(({ className, children, ...props }, ref) => {
   const contextValues = useTooltipContext();
   const childrenRef = (children as any)?.ref;
 

@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import * as React from 'react';
 
 import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
-
 import { Tag } from '../tag';
 
 const CLASSNAME = 'Root__ProgressBar';
@@ -39,8 +38,8 @@ export interface ProgressBarProps extends ElementProps {
 
 export const ProgressBar = React.forwardRef<ElementType, ProgressBarProps>(
   ({
-    badge,
     className,
+    badge,
     intent = 'primary',
     progress = 0,
     scale = 'md',

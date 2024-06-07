@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import { RootUIGroupContextValues, RootUIGroupProvider } from '../../../../system';
-
 import { TooltipOptions } from './Tooltip.types';
 import { TooltipContext, useTooltip } from './useTooltipContext';
 

@@ -2,15 +2,14 @@ import { StoryObj } from '@storybook/react';
 import * as React from 'react';
 
 import { storiesScaleOptions, StorybookContent } from '../../../stories';
-
 import { Avatar, AvatarProps } from './Avatar';
 
 export default {
   argTypes: {
     scale: {
       control: {
-        options: storiesScaleOptions,
         type: 'select',
+        options: storiesScaleOptions,
       },
     },
   },

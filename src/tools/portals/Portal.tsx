@@ -6,7 +6,6 @@ import { forwardRefWithAs, render } from '../../core';
 import { optionalRef, useIsoMorphicEffect, useOwnerDocument, useServerHandoffComplete, useSyncRefs } from '../../hooks';
 import { RootUIProps } from '../../types';
 import { isServer, toMicrotask } from '../../utils';
-
 import { PortalGroup } from './PortalGroup';
 import { usePortalTarget } from './usePortalTarget';
 

@@ -1,5 +1,4 @@
 import { useEventListener, useIsMounted } from '../../hooks';
-
 import { focusElement } from './FocusManagements';
 
 export interface UseFocusLockProps {

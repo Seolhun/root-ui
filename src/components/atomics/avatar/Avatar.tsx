@@ -21,7 +21,7 @@ export interface AvatarProps {
 }
 
 export const Avatar = React.forwardRef<ElementType, AvatarProps & ElementProps>(
-  ({ alt = 'avatar', className, emptySrc, onError, scale = 'md', ...others }, ref) => {
+  ({ className, alt = 'avatar', emptySrc, onError, scale = 'md', ...others }, ref) => {
     const onImageError = React.useCallback(
       (e: React.UIEvent<ElementType>) => {
         onError?.(e);

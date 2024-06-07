@@ -4,7 +4,6 @@ import * as React from 'react';
 import { Avatar } from '../../../components/atomics';
 import { StorybookContent } from '../../../stories';
 import { Optional } from '../../../utils/fx';
-
 import { Dropdown } from './Dropdown';
 import { DropdownIdentifyFunction, DropdownRenderOptionFunction } from './Dropdown.types';
 import { useDropdownRenderer } from './useDropdownRenderer';

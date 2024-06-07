@@ -2,7 +2,6 @@ import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
 import { StorybookContent } from '../../../stories';
-
 import { H1 } from './H1';
 import { H2 } from './H2';
 import { H3 } from './H3';

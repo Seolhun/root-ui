@@ -16,7 +16,7 @@ export interface CalloutProps extends ElementProps {
 }
 
 export const Callout = React.forwardRef<ElementType, CalloutProps>(
-  ({ children, className, intent = 'primary', ...others }, ref) => {
+  ({ className, children, intent = 'primary', ...others }, ref) => {
     return (
       <div
         {...others}

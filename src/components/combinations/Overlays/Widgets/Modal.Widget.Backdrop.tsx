@@ -3,7 +3,6 @@ import * as React from 'react';
 import { forwardRefWithAs, render } from '../../../../core';
 import { useId, useSyncRefs } from '../../../../hooks';
 import { RootUIProps, RootUIReactTag } from '../../../../types';
-
 import { useModalContext } from './Modal.Widget.Context';
 import { ModalWidgetRenderPropArg } from './Modal.Widget.types';
 
@@ -35,8 +34,8 @@ export const ModalWidgetBackdrop = forwardRefWithAs(
     const ourProps = React.useMemo(() => {
       return {
         id,
-        'aria-hidden': true,
         ref: backdropRef,
+        'aria-hidden': true,
       };
     }, [id, backdropRef]);
 

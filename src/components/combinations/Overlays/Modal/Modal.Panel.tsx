@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import * as React from 'react';
 
 import { RootScale, toScaleMatch } from '../../../../system';
-
 import { ModalWidgetPanel, useModalContext } from '../Widgets';
 
 const CLASSNAME = 'Root__Modal__Panel';
@@ -18,7 +17,7 @@ export interface ModalPanelProps extends ElementProps {
 }
 
 export const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
-  ({ children, className, scale = 'md', ...others }, ref) => {
+  ({ className, children, scale = 'md', ...others }, ref) => {
     const [{ visible }] = useModalContext('Modal');
 
     return (
@@ -39,11 +38,12 @@ export const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(
           })(scale),
           'text-space-2 dark:text-cream-2',
           'bg-cream-1 dark:bg-space-1',
+          'border border-cream-3 dark:border-space-3',
           'min-h-full h-auto md:min-h-auto md:h-auto',
           'py-4 px-6',
           'm-auto md:my-12',
           'rounded-none md:rounded',
-          'shadow ',
+          'shadow',
           'transform transition-all origin-top',
           {
             'animate-[fade-in_0.2s_ease-in-out]': visible,

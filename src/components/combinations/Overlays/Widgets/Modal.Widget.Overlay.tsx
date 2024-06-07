@@ -4,7 +4,6 @@ import { forwardRefWithAs, render } from '../../../../core';
 import { useEvent, useId, useSyncRefs } from '../../../../hooks';
 import { RootUIProps, RootUIReactTag } from '../../../../types';
 import { isDisabledReactIssue7711 } from '../../../../utils/bugs';
-
 import { useModalContext } from './Modal.Widget.Context';
 import { ModalWidgetRenderPropArg } from './Modal.Widget.types';
 
@@ -42,9 +41,9 @@ export const ModalWidgetOverlay = forwardRefWithAs(
     const ourProps = React.useMemo(() => {
       return {
         id,
+        ref: overlayRef,
         'aria-hidden': true,
         onClick: handleClick,
-        ref: overlayRef,
       };
     }, [handleClick, id, overlayRef]);
 

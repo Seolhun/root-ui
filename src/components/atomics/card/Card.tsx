@@ -9,7 +9,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface CardProps extends ElementProps {}
 
-export const Card = React.forwardRef<ElementType, CardProps>(({ children, className, ...others }, ref) => {
+export const Card = React.forwardRef<ElementType, CardProps>(({ className, children, ...others }, ref) => {
   return (
     <Box
       {...others}

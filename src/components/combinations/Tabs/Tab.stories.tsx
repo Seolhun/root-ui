@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
-
 import { TabGroupProps } from './Tab.Group';
 import { Tabs } from './Tabs';
 
@@ -9,8 +8,8 @@ export default {
   argTypes: {
     intent: {
       control: {
-        options: storiesIntentOptions,
         type: 'select',
+        options: storiesIntentOptions,
       },
     },
     onClick: {
@@ -18,8 +17,8 @@ export default {
     },
     scale: {
       control: {
-        options: storiesScaleOptions,
         type: 'select',
+        options: storiesScaleOptions,
       },
     },
   },

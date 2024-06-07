@@ -3,7 +3,6 @@ import * as React from 'react';
 
 import { Button } from '../../../../components/atomics';
 import { storiesScaleOptions, StorybookContent } from '../../../../stories';
-
 import { Tooltip } from './Tooltip';
 import { TooltipProps } from './Tooltip.Root';
 
@@ -11,8 +10,8 @@ export default {
   argTypes: {
     scale: {
       control: {
-        options: storiesScaleOptions,
         type: 'select',
+        options: storiesScaleOptions,
       },
     },
   },

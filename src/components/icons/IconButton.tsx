@@ -27,7 +27,7 @@ export interface IconButtonProps extends ElementProps {
 }
 
 export const IconButton = React.forwardRef<ElementType, IconButtonProps>(
-  ({ children, className, variant = 'outline', ...others }, ref) => {
+  ({ className, children, variant = 'outline', ...others }, ref) => {
     const { intent, scale } = useRootUI({
       defaultIntent: 'primary',
       defaultScale: 'md',

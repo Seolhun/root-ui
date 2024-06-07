@@ -5,7 +5,6 @@ import { optionalRef, useEvent, useId, useSyncRefs } from '../../../hooks';
 import { OpenClosedProvider, OpenClosedState } from '../../../tools';
 import { RootUIProps, RootUIReactTag } from '../../../types';
 import { getOwnerDocumentBy, match } from '../../../utils';
-
 import { AccordionFocusableElement } from './Accordion.Widget.types';
 import {
   AccordionAPIContext,
@@ -39,10 +38,13 @@ export const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot
   const internalAccordionRef = React.useRef<HTMLElement | null>(null);
   const accordionRef = useSyncRefs(
     ref,
-    optionalRef((ref) => {
-      internalAccordionRef.current = ref as unknown as HTMLElement | null;
-      // @ts-expect-error The `as` prop _can_ be a Fragment
-    }, props.as === undefined || props.as === Fragment),
+    optionalRef(
+      (ref) => {
+        internalAccordionRef.current = ref as unknown as HTMLElement | null;
+        // @ts-expect-error The `as` prop _can_ be a Fragment
+      },
+      props.as === undefined || props.as === Fragment,
+    ),
   );
 
   const panelRef = React.useRef<StateDefinition['panelRef']['current']>(null);
@@ -61,8 +63,8 @@ export const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot
   const reducerBag = React.useReducer(rootReducer, initState);
   const [{ accordionState }, dispatch] = reducerBag;
 
-  React.useEffect(() => dispatch({ buttonId, type: ActionTypes.SetButtonId }), [buttonId, dispatch]);
-  React.useEffect(() => dispatch({ panelId, type: ActionTypes.SetPanelId }), [panelId, dispatch]);
+  React.useEffect(() => dispatch({ type: ActionTypes.SetButtonId, buttonId }), [buttonId, dispatch]);
+  React.useEffect(() => dispatch({ type: ActionTypes.SetPanelId, panelId }), [panelId, dispatch]);
 
   const close = useEvent((focusableElement?: AccordionFocusableElement | null) => {
     dispatch({ type: ActionTypes.CloseAccordion });

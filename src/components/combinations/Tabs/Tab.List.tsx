@@ -8,7 +8,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface TabListProps extends ElementProps {}
 
-export const TabList = React.forwardRef<ElementType, TabListProps>(({ children, className, ...others }, ref) => {
+export const TabList = React.forwardRef<ElementType, TabListProps>(({ className, children, ...others }, ref) => {
   return (
     <Tab.List
       {...others}

@@ -20,8 +20,8 @@ const _Hidden = <Tag extends ElementType = typeof DEFAULT_VISUALLY_HIDDEN_TAG>(
 ) => {
   const { features = HiddenFeatures.None, ...theirProps } = props;
   const ourProps = {
-    'aria-hidden': (features & HiddenFeatures.Focusable) === HiddenFeatures.Focusable ? true : undefined,
     ref,
+    'aria-hidden': (features & HiddenFeatures.Focusable) === HiddenFeatures.Focusable ? true : undefined,
     style: {
       borderWidth: '0',
       clip: 'rect(0, 0, 0, 0)',

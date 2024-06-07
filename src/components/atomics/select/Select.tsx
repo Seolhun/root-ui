@@ -21,7 +21,7 @@ export interface SelectProps extends ElementProps {
 }
 
 export const Select = React.forwardRef<ElementType, SelectProps>(
-  ({ children, className, intent = 'primary', scale = 'md', ...others }, ref) => {
+  ({ className, children, intent = 'primary', scale = 'md', ...others }, ref) => {
     return (
       <select
         {...others}

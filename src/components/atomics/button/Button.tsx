@@ -26,7 +26,7 @@ export interface ButtonProps extends ElementProps {
 }
 
 export const Button = React.forwardRef<ElementType, ButtonProps>(
-  ({ children, className, outlined, ...others }, ref) => {
+  ({ className, children, outlined, ...others }, ref) => {
     const { intent, scale } = useRootUI({
       defaultIntent: 'primary',
       defaultScale: 'md',

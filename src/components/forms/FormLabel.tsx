@@ -17,7 +17,7 @@ export interface FormLabelProps extends ElementProps {
 }
 
 export const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
-  ({ children, className, htmlFor, required, ...others }, ref) => {
+  ({ className, children, htmlFor, required, ...others }, ref) => {
     const { scale } = useRootUI({
       defaultScale: 'md',
       scale: others?.scale,

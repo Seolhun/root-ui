@@ -49,8 +49,8 @@ export interface TabGroupProps extends ElementProps {
 export const TabGroup = React.forwardRef<ElementType, TabGroupProps>(
   (
     {
-      children,
       className,
+      children,
       defaultIndex,
       intent = 'primary',
       manual,

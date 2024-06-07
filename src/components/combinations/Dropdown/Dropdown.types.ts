@@ -1,5 +1,4 @@
 import { Optional } from '../../../utils/fx';
-
 import { DropdownOption, DropdownOptionState } from './widgets';
 
 export type DropdownIdentifyFunction<Option extends DropdownOption, ActionOption = Option> = (

@@ -12,7 +12,6 @@ import {
 import { Hidden, HiddenFeatures } from '../../tools/hidden';
 import { RootUIProps, RootUIReactTag } from '../../types';
 import { match } from '../../utils';
-
 import { Focus, focusIn } from './FocusManagements';
 import { useFocusLock } from './useFocusLock';
 import { useInitialFocus } from './useInitialFocus';

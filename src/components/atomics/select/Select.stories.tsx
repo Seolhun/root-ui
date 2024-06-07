@@ -1,21 +1,20 @@
 import * as React from 'react';
 
 import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
-
 import { Select, SelectProps } from './Select';
 
 export default {
   component: Select,
   intent: {
     control: {
-      options: storiesIntentOptions,
       type: 'select',
+      options: storiesIntentOptions,
     },
   },
   scale: {
     control: {
-      options: storiesScaleOptions,
       type: 'select',
+      options: storiesScaleOptions,
     },
   },
   title: 'Form/Select',

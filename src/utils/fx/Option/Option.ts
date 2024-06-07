@@ -13,5 +13,5 @@ export const isNone = <T>(value: Optional<T>): value is None => isNil(value);
  * GetOrElse
  * @param fallback
  */
-export const getOrElse: GetOrElse = (fallback) => (value) => isSome(value) ? value : fallback;
+export const getOrElse: GetOrElse = (fallback) => (value) => (isSome(value) ? value : fallback);
 export const isStrictEqual = <T>(v1: Optional<T>, v2: Optional<T>): boolean => isSome(v1) && isSome(v2) && v1 === v2;

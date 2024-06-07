@@ -5,7 +5,6 @@ import { usePopper } from 'react-popper';
 
 import { Button, Card } from '../../../components/atomics';
 import { storiesPlacements, StorybookContent } from '../../../stories';
-
 import { Popover } from './Popover';
 
 export default {
@@ -15,9 +14,9 @@ export default {
     },
     placement: {
       control: {
+        type: 'select',
         defaultValue: 'bottom-start',
         options: storiesPlacements,
-        type: 'select',
       },
     },
   },

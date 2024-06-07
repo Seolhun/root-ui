@@ -24,7 +24,7 @@ export interface TagProps extends ElementProps {
   scale?: RootScale;
 }
 
-export const Tag = React.forwardRef<ElementType, TagProps>(({ children, className, outlined, ...others }, ref) => {
+export const Tag = React.forwardRef<ElementType, TagProps>(({ className, children, outlined, ...others }, ref) => {
   const { intent, scale } = useRootUI({
     defaultIntent: 'primary',
     defaultScale: 'md',

@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { useEvent } from '../../hooks/useEvent';
 import { useIsoMorphicEffect } from '../../hooks/useIsoMorphicEffect';
-
 import { StackContextMessageEnum, StackContextOnUpdateCallback } from './StackContext.types';
 
 const StackContext = React.createContext<StackContextOnUpdateCallback>(() => {});
@@ -20,7 +19,7 @@ export interface StackProviderProps {
   type: string;
 }
 
-export function StackProvider({ children, element, enabled, onUpdate, type }: StackProviderProps) {
+export function StackProvider({ type, children, element, enabled, onUpdate }: StackProviderProps) {
   const parentUpdate = useStackContext();
 
   const notify = useEvent((...args: Parameters<StackContextOnUpdateCallback>) => {
