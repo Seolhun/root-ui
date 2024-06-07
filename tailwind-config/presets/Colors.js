@@ -18,6 +18,7 @@ const themeColors = {
     '900': '#85163f',
     '950': '#510621',
   },
+
   /**
    * for Light UI
    */
@@ -92,6 +93,7 @@ const themeColors = {
   'space-5': '#3a3c3f', // New shade, slightly lighter than space-4
   'space-6': '#4d4f52', // New shade, slightly lighter than space-5
   'space-7': '#606265', // New shade, slightly lighter than space-6
+
   success: {
     '50': '#f0fee7',
     '100': '#defbcc',
