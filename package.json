@@ -29,13 +29,13 @@
     "dist",
     "LICENSE",
     "README.md",
+    "tailwind-config",
     "tailwind.config.js"
   ],
   "scripts": {
     "type:check": "tsc --noEmit --project tsconfig.build.json",
     "prebuild": "rimraf dist/*",
     "build": "tsup",
-    "test": "jest --coverage",
     "lint": "eslint --ext .js,.ts,.tsx,.jsx ./",
     "lint:fix": "eslint --ext .js,.ts,.tsx,.jsx ./ --fix",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx}'",
