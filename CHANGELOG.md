@@ -1,5 +1,11 @@
 # @seolhun/root-ui
 
+## 0.8.3-alpha.1
+
+### Patch Changes
+
+- chore: update bundling removed css
+
 ## 0.8.3-alpha.0
 
 ### Patch Changes
