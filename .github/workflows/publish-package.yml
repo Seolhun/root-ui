@@ -7,8 +7,8 @@ on:
       - main
   pull_request:
     branches:
-      - /^release/.*$/
-      - /^feature/.*$/
+      - /^release\/.*$/
+      - /^feature\/.*$/
     types: [opened, synchronize, reopened]
 
 jobs:
