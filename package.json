@@ -5,7 +5,6 @@
   "types": "dist/legacy/index.d.ts",
   "main": "dist/legacy/index.cjs",
   "module": "dist/legacy/index.js",
-  "type": "module",
   "exports": {
     ".": {
       "import": {
