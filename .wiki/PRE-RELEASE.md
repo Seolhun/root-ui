@@ -27,7 +27,7 @@ pnpm changeset pre enter alpha # run only once
 어떤 패키지를 배포할지 선택하고 버전과 변경 사항을 추가합니다.
 
 ```sh
-pnpm changeset:add
+pnpm changeset
 ```
 
 ### 4. Versioning and commit

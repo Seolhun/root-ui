@@ -18,6 +18,7 @@
     },
     "./modern/index.css": "./dist/modern/index.css",
     "./legacy/index.css": "./dist/legacy/index.css",
+    "./tailwind.config.js": "./tailwind.config.js",
     "./package.json": "./package.json"
   },
   "publishConfig": {
@@ -28,22 +29,19 @@
     "dist",
     "LICENSE",
     "README.md",
-    "tailwind-config",
     "tailwind.config.js"
   ],
   "scripts": {
     "type:check": "tsc --noEmit --project tsconfig.build.json",
     "prebuild": "rimraf dist/*",
     "build": "tsup",
-    "start": "node express.js",
-    "dev": "node build/dev-server.js",
     "test": "jest --coverage",
     "lint": "eslint --ext .js,.ts,.tsx,.jsx ./",
     "lint:fix": "eslint --ext .js,.ts,.tsx,.jsx ./ --fix",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx}'",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build -o docs",
-    "changeset:add": "changeset add",
+    "changeset": "changeset add",
     "changeset:version": "changeset version",
     "changeset:publish": "changeset publish"
   },
