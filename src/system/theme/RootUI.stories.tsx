@@ -1,9 +1,8 @@
 import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
-import { Button, FormHelp, FormItem, FormLabel, H6, Input, Select } from '~/components';
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
-
+import { Button, FormHelp, FormItem, FormLabel, H6, Input, Select } from '../../components';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../stories';
 import { RootIntent, RootScale } from './RootTheme.types';
 import { RootUIProvider, RootUIProviderProps } from './RootUI.Context';
 import { RootUIGroupProvider } from './RootUIGroup.Context';

@@ -7,7 +7,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface StorybookContentRootProps {}
 
 export const StorybookContentRoot = React.forwardRef<ElementType, ElementProps & StorybookContentRootProps>(
-  ({ children, className, ...others }, ref) => {
+  ({ className, children, ...others }, ref) => {
     return (
       <div {...others} className={clsx(className, 'flex w-full h-full min-h-screen')} ref={ref}>
         {children}

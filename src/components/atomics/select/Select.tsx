@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '~/system';
+import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Select';
 type ElementType = HTMLSelectElement;
@@ -21,7 +21,7 @@ export interface SelectProps extends ElementProps {
 }
 
 export const Select = React.forwardRef<ElementType, SelectProps>(
-  ({ children, className, intent = 'primary', scale = 'md', ...others }, ref) => {
+  ({ className, children, intent = 'primary', scale = 'md', ...others }, ref) => {
     return (
       <select
         {...others}

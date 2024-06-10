@@ -1,4 +1,4 @@
-import { RootIntent, RootPlacement, RootScale } from '~/system';
+import { RootIntent, RootPlacement, RootScale } from '../../system';
 
 export const storiesScaleOptions: RootScale[] = ['xs', 'sm', 'md', 'lg', 'xl'];
 

@@ -1,0 +1,13 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "@seolhun/root-ui": "0.8.2"
+  },
+  "changesets": [
+    "curvy-fishes-buy",
+    "eleven-pigs-argue",
+    "hot-turtles-rhyme",
+    "two-jokes-fail"
+  ]
+}

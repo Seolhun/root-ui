@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { forwardRefWithAs, render } from '~/core';
-import { useId, useSyncRefs } from '~/hooks';
-import { RootUIProps, RootUIReactTag } from '~/types';
+import { forwardRefWithAs, render } from '../../../core';
+import { useId, useSyncRefs } from '../../../hooks';
+import { RootUIProps, RootUIReactTag } from '../../../types';
 
 const COMPONENT_NAME = 'Root__Box';
 const DEFAULT_TAG: RootUIReactTag = 'div';

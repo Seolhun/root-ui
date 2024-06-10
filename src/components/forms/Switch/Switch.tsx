@@ -2,7 +2,7 @@ import { Switch as BaseSwitch } from '@headlessui/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '~/system';
+import { RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '../../../system';
 
 const CLASSNAME = 'Root__Switch';
 type ElementType = HTMLInputElement;
@@ -29,7 +29,7 @@ export interface SwitchProps {
   value?: string;
 }
 
-export const Switch = React.forwardRef<ElementType, SwitchProps>(({ children, className, ...others }, ref) => {
+export const Switch = React.forwardRef<ElementType, SwitchProps>(({ className, children, ...others }, ref) => {
   const { checked, disabled } = others;
   const { intent, scale } = useRootUI({
     defaultIntent: 'primary',
