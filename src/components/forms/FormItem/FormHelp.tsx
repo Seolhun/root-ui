@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootScale, toScaleMatch, useRootUI } from '../../system';
-import { Box } from '../common';
+import { RootScale, toScaleMatch, useRootUI } from '../../../system';
+import { Box } from '../../common';
 
 const CLASSNAME = 'Root__FormHelp';
 type ElementType = HTMLParagraphElement;
@@ -28,6 +28,7 @@ export const FormHelp = React.forwardRef<ElementType, FormHelpProps>(({ classNam
         CLASSNAME,
         className,
         'flex items-center flex-wrap',
+        'text-space-1 dark:text-cream-1',
         toScaleMatch({
           lg: () => 'scale-text-lg',
           md: () => 'scale-text-md',

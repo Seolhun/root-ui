@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { Box } from '../../../components/common/box/Box';
 import { RootIntent, RootScale, toIntentMatch } from '../../../system';
-import { FormLabel } from '../FormLabel';
+import { FormLabel } from '../FormItem/FormLabel';
 
 const CLASSNAME = 'Root__Radio';
 type ElementType = HTMLInputElement;
