@@ -1,10 +1,9 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Box } from '~/components/common';
-import { RootIntent, RootScale, toIntentMatch } from '~/system';
-
-import { FormLabel } from '../FormLabel';
+import { Box } from '../../../components/common/box/Box';
+import { RootIntent, RootScale, toIntentMatch } from '../../../system';
+import { FormLabel } from '../FormItem/FormLabel';
 
 const CLASSNAME = 'Root__Checkbox';
 type ElementType = HTMLInputElement;
@@ -26,7 +25,7 @@ export interface CheckboxProps extends ElementProps {
 }
 
 export const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
-  ({ children, className, disabled, htmlFor, intent = 'primary', scale = 'md', ...others }, ref) => {
+  ({ className, children, disabled, htmlFor, intent = 'primary', scale = 'md', ...others }, ref) => {
     const htmlForAndID = htmlFor ?? others.name;
     return (
       <FormLabel

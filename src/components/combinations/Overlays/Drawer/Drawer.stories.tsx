@@ -1,26 +1,12 @@
-import { StoryFn } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Button } from '~/components/atomics';
-import { H4 } from '~/components/typography';
-import { storiesScaleOptions, StorybookContent } from '~/stories';
-
+import { Button } from '../../../../components/atomics';
+import { H4 } from '../../../../components/typography';
+import { StorybookContent } from '../../../../stories';
 import { Drawer } from './Drawer';
 import { DrawerProps } from './Drawer.types';
-
-export default {
-  argTypes: {
-    scale: {
-      control: {
-        options: storiesScaleOptions,
-        type: 'select',
-      },
-    },
-  },
-  component: Drawer,
-  title: 'Combination/Drawer',
-};
 
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
@@ -31,7 +17,7 @@ type BaseTemplateProps = ElementProps &
     Header: React.ReactNode;
   };
 
-const BaseTemplate = ({ Body, Footer, Header, className, placement, root, ...others }: BaseTemplateProps) => {
+const BaseTemplate = ({ className, Body, Footer, Header, placement, root, ...others }: BaseTemplateProps) => {
   const [isShow, setShow] = React.useState(false);
 
   const onToggle = React.useCallback(() => {
@@ -41,10 +27,6 @@ const BaseTemplate = ({ Body, Footer, Header, className, placement, root, ...oth
   const onClose = React.useCallback(() => {
     setShow(false);
   }, []);
-
-  const onConfirm = React.useCallback(() => {
-    onClose();
-  }, [onClose]);
 
   return (
     <div>
@@ -78,18 +60,28 @@ const Drawers: StoryFn<BaseTemplateProps> = (props) => {
   );
 };
 
-export const DrawersStories = Drawers.bind({});
-DrawersStories.args = {
-  Body: 'Body',
-  Footer: 'Footer',
-  Header: 'Header',
-  placement: 'right',
+export const DefaultDrawers: StoryObj<BaseTemplateProps> = {
+  args: {
+    Body: 'Body',
+    Footer: 'Footer',
+    Header: 'Header',
+    placement: 'right',
+  },
+  render: (args) => <Drawers {...args} />,
 };
 
-export const LongDrawersStories = Drawers.bind({});
-LongDrawersStories.args = {
-  Body: Array.from(Array(1000), () => 'Body').join(' '),
-  Footer: 'Footer',
-  Header: Array.from(Array(1000), () => 'Header').join(' '),
-  placement: 'right',
+export const LongDrawers: StoryObj<BaseTemplateProps> = {
+  args: {
+    Body: Array.from(Array(1000), () => 'Body').join(' '),
+    Footer: 'Footer',
+    Header: Array.from(Array(1000), () => 'Header').join(' '),
+    placement: 'right',
+  },
+  render: (args) => <Drawers {...args} />,
 };
+
+const meta: Meta<typeof Drawer> = {
+  title: 'Combination/Drawer',
+};
+
+export default meta;

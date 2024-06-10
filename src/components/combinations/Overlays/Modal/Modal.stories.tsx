@@ -1,25 +1,11 @@
-import { StoryFn } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import * as React from 'react';
 
-import { Button, Card } from '~/components/atomics';
-import { useDisclosure } from '~/hooks';
-import { storiesScaleOptions, StorybookContent } from '~/stories';
-
+import { Button, Card } from '../../../../components/atomics';
+import { useDisclosure } from '../../../../hooks';
+import { storiesScaleOptions, StorybookContent } from '../../../../stories';
 import { Modal } from './Modal';
 import { ModalProps } from './Modal.types';
-
-export default {
-  argTypes: {
-    scale: {
-      control: {
-        options: storiesScaleOptions,
-        type: 'select',
-      },
-    },
-  },
-  component: Modal,
-  title: 'Combination/Modal',
-};
 
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
@@ -72,18 +58,17 @@ const ModalTemplate: StoryFn<BaseTemplateProps> = ({ ...others }) => {
   );
 };
 
-export const Modals = ModalTemplate.bind({});
-Modals.args = {
-  Body: 'Body',
-  Footer: 'Footer',
-  Header: 'Header',
+export const Modals: StoryObj<BaseTemplateProps> = {
+  render: ModalTemplate,
 };
 
-export const LongModals = ModalTemplate.bind({});
-LongModals.args = {
-  Body: Array.from(Array(1000), () => 'Body').join(' '),
-  Footer: 'Footer',
-  Header: Array.from(Array(1000), () => 'Header').join(' '),
+export const LongModals: StoryObj<BaseTemplateProps> = {
+  args: {
+    Body: Array.from(Array(1000), () => 'Body').join(' '),
+    Footer: 'Footer',
+    Header: Array.from(Array(1000), () => 'Header').join(' '),
+  },
+  render: ModalTemplate,
 };
 
 const InnerModalTemplate: StoryFn<ModalProps> = ({ ...others }) => {
@@ -137,5 +122,20 @@ const InnerModalTemplate: StoryFn<ModalProps> = ({ ...others }) => {
   );
 };
 
-export const InnerModals = InnerModalTemplate.bind({});
-InnerModals.args = {};
+export const InnerModals: StoryObj<ModalProps> = {
+  render: InnerModalTemplate,
+};
+
+const meta: Meta<typeof Modal> = {
+  argTypes: {
+    scale: {
+      control: {
+        type: 'select',
+        options: storiesScaleOptions,
+      },
+    },
+  },
+  title: 'Combination/Modal',
+};
+
+export default meta;

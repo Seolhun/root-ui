@@ -14,6 +14,9 @@ function hasIntent(intent?: RootIntent): intent is RootIntent {
   return !!intent && intent !== 'none';
 }
 
+/**
+ * @deprecated Don't use this functions, all component should be independent of the theme.
+ */
 export function useRootUI({ defaultIntent, defaultScale, intent, scale }: Partial<UseRootUIProps> = {}) {
   const rootUIGroupValues = useRootUIGroupContext();
   const rootUIValues = useRootUIContext();

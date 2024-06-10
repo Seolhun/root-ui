@@ -20,7 +20,7 @@ export interface DropdownWidgetOptionProps<Option extends DropdownOption = Dropd
 }
 
 export const DropdownWidgetOption = React.forwardRef<HTMLLIElement, DropdownWidgetOptionProps>(
-  ({ children, className, disabled, value }, ref) => {
+  ({ className, children, disabled, value }, ref) => {
     return (
       <Listbox.Option
         className={(state) => {

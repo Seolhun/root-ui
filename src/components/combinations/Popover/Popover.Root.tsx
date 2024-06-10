@@ -18,7 +18,7 @@ export interface PopoverRootRenderArgs {
 }
 
 export const PopoverRoot = React.forwardRef<ElementType, Omit<ElementProps, 'children'> & PopoverProps>(
-  ({ children, className, ...others }, ref) => {
+  ({ className, children, ...others }, ref) => {
     return (
       <Popover {...others} className={clsx(CLASSNAME, className, 'relative')} ref={ref}>
         {typeof children === 'function' ? ({ close, open }) => children({ close, open }) : children}

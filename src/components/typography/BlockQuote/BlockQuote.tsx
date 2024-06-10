@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, toIntentMatch } from '~/system';
+import { RootIntent, toIntentMatch } from '../../../system';
 
 const CLASSNAME = 'Root__BlockQuote';
 type ElementType = HTMLQuoteElement;
@@ -15,7 +15,7 @@ export interface BlockQuoteProps extends ElementProps {
 }
 
 export const BlockQuote = React.forwardRef<ElementType, BlockQuoteProps>(
-  ({ children, className, intent = 'primary', ...others }, ref) => {
+  ({ className, children, intent = 'primary', ...others }, ref) => {
     return (
       <blockquote
         {...others}
