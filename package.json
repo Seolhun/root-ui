@@ -6,7 +6,6 @@
     "access": "restricted",
     "registry": "https://npm.pkg.github.com"
   },
-  "types": "dist/legacy/index.d.ts",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
