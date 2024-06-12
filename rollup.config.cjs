@@ -1,6 +1,6 @@
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
-import json from "@rollup/plugin-json";
+import json from '@rollup/plugin-json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
@@ -14,8 +14,8 @@ const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
 const commonPlugins = [
   nodeResolve({
-    mainFields: ['main', 'module'],
     extensions,
+    mainFields: ['main', 'module'],
   }),
   commonjs(),
   json(),
@@ -30,23 +30,23 @@ const commonPlugins = [
     config: {
       path: './postcss.config.js',
     },
+    extract: true,
     // modules: true,
     minimize: true,
     use: {
       sass: scss,
     },
-    extract: true,
   }),
 ];
 
 const appBundler = ({ output, plugins = [] }) => ({
+  external: externals,
   input: 'src/index.ts',
   output: {
     ...output,
     sourcemap: false,
   },
   plugins: commonPlugins.concat(plugins),
-  external: externals,
 });
 
 export default [
