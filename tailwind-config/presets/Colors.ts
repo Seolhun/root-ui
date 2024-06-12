@@ -1,10 +1,10 @@
-const merge = require('lodash/merge');
-const colors = require('tailwindcss/colors');
+import { merge } from 'lodash-es';
+import colors from 'tailwindcss/colors';
 
 /**
  * @see https://uicolors.app/create
  */
-const themeColors = {
+export const themeColors = {
   accent: {
     '50': '#fdf2f8',
     '100': '#fce7f2',
@@ -126,14 +126,14 @@ const themeColors = {
  * To generate intent colors by keys
  * intent is for light mode, intent2 is for dark mode.
  */
-const intentColorKeys = ['primary', 'info', 'success', 'accent', 'warning', 'danger', 'neutral'];
-const intentColorKeyObject = intentColorKeys.reduce((acc, key) => {
+export const intentColorKeys = ['primary', 'info', 'success', 'accent', 'warning', 'danger', 'neutral'];
+export const intentColorKeyObject = intentColorKeys.reduce((acc, key) => {
   return {
     ...acc,
     [key]: key,
   };
 }, {});
-const intentColorMap = {
+export const intentColorMap = {
   accent: themeColors.accent,
   danger: themeColors.danger,
   info: themeColors.info,
@@ -141,7 +141,7 @@ const intentColorMap = {
   primary: themeColors.primary,
   success: themeColors.success,
   warning: themeColors.warning,
-};
+} as const;
 
 /**
  * 400 -> intent
@@ -169,14 +169,14 @@ function changeNumberToIndex(intentColorMap, intentKey) {
     }
     return merge(acc, values);
   }, {});
-  return colors;
+  return colors as Record<string, string>;
 }
 
 /**
  * @see changeColorToIndex
  * It is for intent colors to create custom theme for UI library
  */
-const intentColors = {
+export const intentColors = {
   ...Object.entries(intentColorMap).reduce((acc, [key, values]) => {
     return {
       ...acc,
@@ -187,16 +187,7 @@ const intentColors = {
   white: colors.white,
 };
 
-const palette = {
+export const palette = {
   ...themeColors,
   ...intentColors,
-};
-
-module.exports = {
-  intentColorKeyObject,
-  intentColorKeys,
-  intentColorMap,
-  intentColors,
-  palette,
-  themeColors,
 };

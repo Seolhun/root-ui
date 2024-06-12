@@ -1,10 +1,10 @@
-const colors = require('tailwindcss/colors');
-const defaultTheme = require('tailwindcss/defaultTheme');
-const plugin = require('tailwindcss/plugin');
+import colors from 'tailwindcss/colors';
+import defaultTheme from 'tailwindcss/defaultTheme';
+import plugin from 'tailwindcss/plugin';
 
-const { Animations } = require('./presets/Animations');
-const { palette } = require('./presets/Colors');
-const {
+import { Animations } from './presets/Animations';
+import { palette } from './presets/Colors';
+import {
   fontSizeExtend,
   heightExtend,
   insetExtend,
@@ -15,9 +15,9 @@ const {
   spacingExtend,
   widthExtend,
   zIndexExtend,
-} = require('./presets/extends');
+} from './presets/extends';
 
-module.exports = plugin(function ({ addBase, theme }) {}, {
+export default plugin(function ({ addBase, theme }) {}, {
   /**
    * @see https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually
    */

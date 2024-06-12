@@ -1,27 +1,15 @@
+import { CustomThemeConfig } from 'tailwindcss/types/config';
+
 /**
  * @see https://github.com/animate-css/animate.css/tree/main/source
  */
-const Animations = {
+export const Animations: Pick<CustomThemeConfig, 'keyframes'> = {
   keyframes: {
     /**
      * @example animate-[scale-down_1s_ease-in-out]
      * @example animate-[fade-in_0.2s_ease-out]
      * @example animate-[scale-down_1s_ease-in-out_infinite]
      */
-    animation: {
-      'fade-in': 'fade-in',
-      'fade-in-bottom': 'fade-in-bottom',
-      'fade-in-left': 'fade-in-left',
-      'fade-in-right': 'fade-in-right',
-      'fade-in-top': 'fade-in-top',
-      'scale-down': 'scale-down',
-      'scale-down-0.5': 'scale-down-0.5',
-      'scale-down-0.75': 'scale-down-0.75',
-      'scale-up': 'scale-up',
-      'scale-up-0.5': 'scale-up-0.5',
-      'scale-up-0.75': 'scale-up-0.75',
-      wiggle: 'wiggle',
-    },
     'fade-in': {
       '0%': {
         opacity: '0.5',
@@ -127,8 +115,4 @@ const Animations = {
       },
     },
   },
-};
-
-module.exports = {
-  Animations,
 };

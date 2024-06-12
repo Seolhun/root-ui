@@ -1,37 +1,36 @@
-const plugin = require('tailwindcss/plugin');
-const { intentColorKeyObject } = require('../../presets/Colors');
+import plugin from 'tailwindcss/plugin';
+
+import { intentColorKeyObject } from '../../presets/Colors';
 
 const baseStyles = {
   '@apply border outline-none': {},
 };
 
-module.exports = plugin(
+export default plugin(
   function ({ matchUtilities, theme }) {
     const values = theme('intents');
 
     matchUtilities(
       {
-        solid: (value) => {
-          const text = 'cream-1';
+        outlined: (value) => {
           const main = `${value}`;
-          const focus = `${value}-6`;
-          const hover = `${value}-6`;
           return {
             ...baseStyles,
             '&:disabled': {
-              [`@apply opacity-40`]: {},
+              [`@apply opacity-70`]: {},
             },
-
             '&:not(:disabled):focus': {
-              '@apply ring-2 ring-offset-1': {},
-              [`@apply ring-${focus} ring-offset-cream ring-offset-cream`]: {},
+              '@apply outline-none ring-2 ring-offset-1': {},
+              [`@apply ring-${main} ring-offset-cream`]: {},
             },
 
             '&:not(:disabled):hover': {
-              [`@apply bg-${hover}`]: {},
+              [`@apply bg-${main} text-cream-1`]: {},
             },
 
-            [`@apply text-${text} bg-${main} border-${main}`]: {},
+            '@apply bg-transparent': {},
+
+            [`@apply text-${main} border-${main}`]: {},
           };
         },
       },

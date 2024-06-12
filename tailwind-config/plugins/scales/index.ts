@@ -1,4 +1,4 @@
-const plugin = require('tailwindcss/plugin');
+import plugin from 'tailwindcss/plugin';
 
 const SCALES = {
   PADDING: {
@@ -24,7 +24,7 @@ const SCALES = {
   },
 };
 
-module.exports = plugin(
+export default plugin(
   function ({ matchUtilities, theme }) {
     const values = theme('scale');
 
@@ -32,6 +32,10 @@ module.exports = plugin(
       {
         scale: (value) => {
           const v = SCALES.SIZE[value];
+          console.debug('values', {
+            key: value,
+            value: v,
+          });
           return {
             [`@apply w-${v} h-${v} min-w-${v} min-h-${v}`]: {},
           };
