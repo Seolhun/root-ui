@@ -9,7 +9,9 @@ export type FormItemContextValues = {
   scale?: RootScale;
 };
 
-export const FormItemContext = React.createContext(null as unknown as FormItemContextValues);
+export const FormItemContext = React.createContext<FormItemContextValues>({
+  scale: 'md',
+});
 
 export interface FormItemContextProviderProps extends FormItemContextValues {
   children: React.ReactNode;

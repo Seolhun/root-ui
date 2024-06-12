@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import { toScaleMatch } from '../../../system';
 import { useFormItemContext } from './FormItem.Context';
+import { Required } from './Required';
 
 const CLASSNAME = 'Root__FormLabel';
 type ElementType = HTMLLabelElement;
@@ -36,7 +37,7 @@ export const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
         ref={ref}
       >
         {children}
-        {required && <sup className={clsx('text-danger dark:text-danger2', 'text-6')}>*</sup>}
+        {required && <Required />}
       </label>
     );
   },

@@ -1,5 +1,11 @@
 # @seolhun/root-ui
 
+## 0.8.3-alpha.5
+
+### Patch Changes
+
+- refactor: fix the scale in form components
+
 ## 0.8.3-alpha.4
 
 ### Patch Changes

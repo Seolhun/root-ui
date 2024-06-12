@@ -34,7 +34,6 @@ export const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
           'cursor-pointer': !disabled,
         })}
         htmlFor={htmlForAndID}
-        scale={scale}
       >
         <Box
           {...others}

@@ -34,7 +34,6 @@ export const Radio = React.forwardRef<ElementType, RadioProps>(
           'cursor-pointer': !disabled,
         })}
         htmlFor={htmlForAndID}
-        scale={scale}
       >
         <Box
           {...others}
