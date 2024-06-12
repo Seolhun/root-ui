@@ -1,16 +1,15 @@
 import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
-import { storiesIntentOptions, StorybookContent } from '~/stories';
-
+import { storiesIntentOptions, StorybookContent } from '../../../stories';
 import { BlockQuote, BlockQuoteProps } from './BlockQuote';
 
 export default {
   argTypes: {
     intent: {
       control: {
-        options: storiesIntentOptions,
         type: 'select',
+        options: storiesIntentOptions,
       },
     },
   },

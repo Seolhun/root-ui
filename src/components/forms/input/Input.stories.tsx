@@ -1,22 +1,21 @@
 import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
-
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
 import { Input, InputProps } from './Input';
 
 export default {
   component: Input,
   intent: {
     control: {
-      options: storiesIntentOptions,
       type: 'select',
+      options: storiesIntentOptions,
     },
   },
   scale: {
     control: {
-      options: storiesScaleOptions,
       type: 'select',
+      options: storiesScaleOptions,
     },
   },
   title: 'Form/Input',

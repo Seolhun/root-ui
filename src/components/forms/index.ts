@@ -5,6 +5,4 @@ export * from './textarea';
 
 export * from './Switch';
 export * from './TextField';
-export * from './FormHelp';
 export * from './FormItem';
-export * from './FormLabel';

@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Card } from '~/components/atomics';
-
+import { Card } from '../../../components/atomics/card/Card';
 import { Input, InputProps } from '../input';
 
 const CLASSNAME = 'Root__TextField';
@@ -19,7 +18,7 @@ export interface TextFieldProps extends InputProps {
   Suffix?: React.ReactNode;
 }
 
-export const TextField = ({ Prefix, Suffix, className, scale = 'md', ...others }: TextFieldProps) => {
+export const TextField = ({ className, Prefix, Suffix, scale = 'md', ...others }: TextFieldProps) => {
   return (
     <Card
       className={clsx(

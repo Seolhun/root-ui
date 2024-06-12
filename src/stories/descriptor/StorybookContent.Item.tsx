@@ -16,7 +16,7 @@ export interface RenderChildrenArgs {
   root: HTMLElement | null;
 }
 
-export const StorybookContentItem = ({ children, className, noAlign, noGap, ...others }: StorybookContentItemProps) => {
+export const StorybookContentItem = ({ className, children, noAlign, noGap, ...others }: StorybookContentItemProps) => {
   const [root, setRoot] = React.useState<HTMLDivElement | null>(null);
 
   const renderChildren = (args: RenderChildrenArgs) => {
@@ -49,7 +49,7 @@ export const StorybookContentItem = ({ children, className, noAlign, noGap, ...o
 };
 
 export const createStorybookContentItem = (hocProps: ElementProps) => {
-  return ({ children, className, ...others }: StorybookContentItemProps) => (
+  return ({ className, children, ...others }: StorybookContentItemProps) => (
     <StorybookContentItem {...hocProps} {...others} className={clsx(hocProps.className, className)}>
       {children}
     </StorybookContentItem>

@@ -1,4 +1,4 @@
-import { Optional } from '~/utils/fx';
+import { Optional } from '../../../../utils/fx';
 
 type Alignment = 'end' | 'start';
 type Side = 'bottom' | 'left' | 'right' | 'top';
