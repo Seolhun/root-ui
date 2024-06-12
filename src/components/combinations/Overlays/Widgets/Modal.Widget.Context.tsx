@@ -21,11 +21,7 @@ ModalContext.displayName = 'ModalContext';
 export function useModalContext(component: string) {
   const context = React.useContext(ModalContext);
   if (context === null) {
-    const err = new Error(`<${component} /> is missing a parent <Modal /> component.`);
-    if (Error.captureStackTrace) {
-      Error.captureStackTrace(err, useModalContext);
-    }
-    throw err;
+    throw new Error(`<${component} /> is missing a parent <Modal /> component.`);
   }
   return context;
 }

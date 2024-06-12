@@ -11,8 +11,7 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{secrets.SEOLHUN_GITHUB_TOKEN}}
-      SEOLHUN_GITHUB_TOKEN: ${{secrets.SEOLHUN_GITHUB_TOKEN}}
+      GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
 
     steps:
       - name: Checkout

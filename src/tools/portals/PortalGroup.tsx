@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { forwardRefWithAs, render } from '~/core';
-import { useSyncRefs } from '~/hooks';
-import { RootUIProps, UnknownObject } from '~/types';
+import { forwardRefWithAs, render } from '../../core';
+import { useSyncRefs } from '../../hooks';
+import { RootUIProps, UnknownObject } from '../../types';
 
 const DEFAULT_GROUP_TAG = React.Fragment;
 type PortalGroupRenderPropArg = UnknownObject;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { OpenClosedState } from '~/tools';
+import { OpenClosedState } from '../../../tools';
 
 export interface StateDefinition {
   accordionState: OpenClosedState;
@@ -93,9 +93,7 @@ AccordionContext.displayName = 'AccordionContext';
 export function useAccordionContext(component: string) {
   const context = React.useContext(AccordionContext);
   if (context === null) {
-    const err = new Error(`<${component} /> is missing a parent <Accordion /> component.`);
-    if (Error.captureStackTrace) Error.captureStackTrace(err, useAccordionContext);
-    throw err;
+    throw new Error(`<${component} /> is missing a parent <Accordion /> component.`);
   }
   return context;
 }
@@ -110,9 +108,7 @@ AccordionAPIContext.displayName = 'AccordionAPIContext';
 export function useAccordionAPIContext(component: string) {
   const context = React.useContext(AccordionAPIContext);
   if (context === null) {
-    const err = new Error(`<${component} /> is missing a parent <Accordion /> component.`);
-    if (Error.captureStackTrace) Error.captureStackTrace(err, useAccordionAPIContext);
-    throw err;
+    throw new Error(`<${component} /> is missing a parent <Accordion /> component.`);
   }
   return context;
 }

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { forwardRefWithAs, render } from '~/core';
+import { forwardRefWithAs, render } from '../../core';
 import {
   TabDirection,
   useEvent,
@@ -8,11 +8,10 @@ import {
   useServerHandoffComplete,
   useSyncRefs,
   useTabDirection,
-} from '~/hooks';
-import { Hidden, HiddenFeatures } from '~/tools/hidden';
-import { RootUIProps, RootUIReactTag } from '~/types';
-import { match } from '~/utils';
-
+} from '../../hooks';
+import { Hidden, HiddenFeatures } from '../../tools/hidden';
+import { RootUIProps, RootUIReactTag } from '../../types';
+import { match } from '../../utils';
 import { Focus, focusIn } from './FocusManagements';
 import { useFocusLock } from './useFocusLock';
 import { useInitialFocus } from './useInitialFocus';

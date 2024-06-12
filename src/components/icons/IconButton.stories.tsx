@@ -3,8 +3,7 @@ import { RocketLaunchIcon as SolidRocketLaunchIcon } from '@heroicons/react/24/s
 import { StoryFn } from '@storybook/react';
 import * as React from 'react';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
-
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../stories';
 import { IconButton, IconButtonProps } from './IconButton';
 
 export default {
@@ -16,14 +15,14 @@ export default {
     },
     intent: {
       control: {
-        options: storiesIntentOptions,
         type: 'select',
+        options: storiesIntentOptions,
       },
     },
     scale: {
       control: {
-        options: storiesScaleOptions,
         type: 'select',
+        options: storiesScaleOptions,
       },
     },
   },

@@ -2,7 +2,7 @@ import { Tab } from '@headlessui/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale } from '~/system';
+import { RootIntent, RootScale } from '../../../system';
 
 const CLASSNAME = 'Root__TabGroup';
 type ElementType = HTMLDivElement;
@@ -49,8 +49,8 @@ export interface TabGroupProps extends ElementProps {
 export const TabGroup = React.forwardRef<ElementType, TabGroupProps>(
   (
     {
-      children,
       className,
+      children,
       defaultIndex,
       intent = 'primary',
       manual,

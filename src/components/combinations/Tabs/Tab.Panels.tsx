@@ -8,7 +8,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface TabPanelsProps extends ElementProps {}
 
-export const TabPanels = React.forwardRef<ElementType, TabPanelsProps>(({ children, className, ...others }, ref) => {
+export const TabPanels = React.forwardRef<ElementType, TabPanelsProps>(({ className, children, ...others }, ref) => {
   return (
     <Tab.Panels {...others} as="ul" className={clsx(CLASSNAME, className, 'list-none')} ref={ref}>
       {children}
