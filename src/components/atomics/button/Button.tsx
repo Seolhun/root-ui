@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '../../../system';
+import { RootIntent, RootScale, toIntentMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Button';
 type ElementType = HTMLButtonElement;
@@ -26,14 +26,7 @@ export interface ButtonProps extends ElementProps {
 }
 
 export const Button = React.forwardRef<ElementType, ButtonProps>(
-  ({ className, children, outlined, ...others }, ref) => {
-    const { intent, scale } = useRootUI({
-      defaultIntent: 'primary',
-      defaultScale: 'md',
-      intent: others?.intent,
-      scale: others?.scale,
-    });
-
+  ({ className, children, intent = 'primary', outlined, scale = 'md', ...others }, ref) => {
     return (
       <button
         role="button"
@@ -42,16 +35,8 @@ export const Button = React.forwardRef<ElementType, ButtonProps>(
         className={clsx(
           CLASSNAME,
           className,
-          'flex items-center justify-center',
-          'rounded',
-          'disabled:cursor-not-allowed',
-          toScaleMatch({
-            lg: () => 'scale-text-lg scale-p-lg',
-            md: () => 'scale-text-md scale-p-md',
-            sm: () => 'scale-text-sm scale-p-sm',
-            xl: () => 'scale-text-xl scale-p-xl',
-            xs: () => 'scale-text-xs scale-p-xs',
-          })(scale),
+          'btn',
+          `btn-scale-${scale}`,
           toIntentMatch({
             accent: () => {
               return clsx(outlined ? 'outlined-accent dark:outlined-accent' : 'solid-accent dark:solid-accent');

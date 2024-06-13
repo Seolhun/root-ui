@@ -1,6 +1,6 @@
 import plugin from 'tailwindcss/plugin';
 
-const SCALES = {
+export const SCALES = {
   PADDING: {
     lg: { x: 10, y: 5 },
     md: { x: 8, y: 4 },
@@ -32,12 +32,11 @@ export default plugin(
       {
         scale: (value) => {
           const v = SCALES.SIZE[value];
-          console.debug('values', {
-            key: value,
-            value: v,
-          });
           return {
-            [`@apply w-${v} h-${v} min-w-${v} min-h-${v}`]: {},
+            height: theme(`height.${v}`),
+            minHeight: theme(`minHeight.${v}`),
+            minWidth: theme(`minWidth.${v}`),
+            width: theme(`width.${v}`),
           };
         },
       },
@@ -48,7 +47,7 @@ export default plugin(
         'scale-text': (value) => {
           const v = SCALES.TEXT[value];
           return {
-            [`@apply ${v}`]: {},
+            fontSize: theme(`fontSize.${v}`),
           };
         },
       },
@@ -59,7 +58,10 @@ export default plugin(
         'scale-p': (value) => {
           const { x, y } = SCALES.PADDING[value];
           return {
-            [`@apply py-${y} px-${x}`]: {},
+            paddingBottom: theme(`padding.${y}`),
+            paddingLeft: theme(`padding.${x}`),
+            paddingRight: theme(`padding.${x}`),
+            paddingTop: theme(`padding.${y}`),
           };
         },
       },
@@ -68,9 +70,10 @@ export default plugin(
     matchUtilities(
       {
         'scale-px': (value) => {
-          const { x, y } = SCALES.PADDING[value];
+          const { x } = SCALES.PADDING[value];
           return {
-            [`@apply px-${x}`]: {},
+            paddingLeft: theme(`padding.${x}`),
+            paddingRight: theme(`padding.${x}`),
           };
         },
       },
@@ -79,9 +82,10 @@ export default plugin(
     matchUtilities(
       {
         'scale-py': (value) => {
-          const { x, y } = SCALES.PADDING[value];
+          const { y } = SCALES.PADDING[value];
           return {
-            [`@apply py-${y}`]: {},
+            paddingBottom: theme(`padding.${y}`),
+            paddingTop: theme(`padding.${y}`),
           };
         },
       },

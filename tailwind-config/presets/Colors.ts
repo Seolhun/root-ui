@@ -1,125 +1,125 @@
-import { merge } from 'lodash-es';
 import colors from 'tailwindcss/colors';
 
 /**
  * @see https://uicolors.app/create
  */
 export const themeColors = {
-  accent: {
-    '50': '#fdf2f8',
-    '100': '#fce7f2',
-    '200': '#fccee6',
-    '300': '#fba6d1',
-    '400': '#f76fb1',
-    '500': '#f04e98',
-    '600': '#df2370',
-    '700': '#c11556',
-    '800': '#a01447',
-    '900': '#85163f',
-    '950': '#510621',
-  },
+  accent: 'var(--accent-color)',
+  'accent-0': 'var(--accent-0-color)',
+  'accent-1': 'var(--accent-1-color)',
+  'accent-2': 'var(--accent-2-color)',
+  'accent-3': 'var(--accent-3-color)',
+  'accent-4': 'var(--accent-4-color)',
+  'accent-5': 'var(--accent-5-color)',
+  'accent-6': 'var(--accent-6-color)',
+  'accent-7': 'var(--accent-7-color)',
+  'accent-8': 'var(--accent-8-color)',
+  'accent-9': 'var(--accent-9-color)',
+  'accent-10': 'var(--accent-10-color)',
 
-  /**
-   * for Light UI
-   */
-  cream: '#fafafa', // Layout background
-  'cream-1': '#fff', // UI background commonly
-  'cream-2': '#f5f5f5', // UI border commonly
-  'cream-3': '#efefef', // UI border commonly
-  'cream-4': '#dcdcdc', // UI border commonly
-  'cream-5': '#c0c0c0', // New shade, slightly darker than cream-4
-  'cream-6': '#a9a9a9', // New shade, slightly darker than cream-5
-  'cream-7': '#8b8b8b', // New shade, slightly darker than cream-6
+  cream: 'var(--cream-color)',
+  'cream-0': 'var(--cream-0-color)',
+  'cream-1': 'var(--cream-1-color)',
+  'cream-2': 'var(--cream-2-color)',
+  'cream-3': 'var(--cream-3-color)',
+  'cream-4': 'var(--cream-4-color)',
+  'cream-5': 'var(--cream-5-color)',
+  'cream-6': 'var(--cream-6-color)',
+  'cream-7': 'var(--cream-7-color)',
+  'cream-8': 'var(--cream-8-color)',
+  'cream-9': 'var(--cream-9-color)',
+  'cream-10': 'var(--cream-10-color)',
 
-  danger: {
-    '50': '#fff0f0',
-    '100': '#ffdddd',
-    '200': '#ffc1c1',
-    '300': '#ff9595',
-    '400': '#ff5959',
-    '500': '#ff2626',
-    '600': '#fc0606',
-    '700': '#e00000',
-    '800': '#af0505',
-    '900': '#900c0c',
-    '950': '#500000',
-  },
-  info: {
-    '50': '#edfdfe',
-    '100': '#d1f9fc',
-    '200': '#a9f1f8',
-    '300': '#6ee5f2',
-    '400': '#2ccfe4',
-    '500': '#12c7e2',
-    '600': '#108eaa',
-    '700': '#14728a',
-    '800': '#1a5d70',
-    '900': '#1a4d5f',
-    '950': '#0b3341',
-  },
-  neutral: {
-    '50': '#f8f8f8',
-    '100': '#f0f0f0',
-    '200': '#dcdcdc',
-    '300': '#bdbdbd',
-    '400': '#989898',
-    '500': '#7c7c7c',
-    '600': '#656565',
-    '700': '#525252',
-    '800': '#464646',
-    '900': '#3d3d3d',
-    '950': '#292929',
-  },
-  primary: {
-    '50': '#e5f0ff',
-    '100': '#cfe3ff',
-    '200': '#a9c9ff',
-    '300': '#75a2ff',
-    '400': '#3f69ff',
-    '500': '#1433ff',
-    '600': '#0019ff',
-    '700': '#001aff',
-    '800': '#0017e3',
-    '900': '#000cb8',
-    '950': '#000366',
-  },
+  danger: 'var(--danger-color)',
+  'danger-0': 'var(--danger-0-color)',
+  'danger-1': 'var(--danger-1-color)',
+  'danger-2': 'var(--danger-2-color)',
+  'danger-3': 'var(--danger-3-color)',
+  'danger-4': 'var(--danger-4-color)',
+  'danger-5': 'var(--danger-5-color)',
+  'danger-6': 'var(--danger-6-color)',
+  'danger-7': 'var(--danger-7-color)',
+  'danger-8': 'var(--danger-8-color)',
+  'danger-9': 'var(--danger-9-color)',
+  'danger-10': 'var(--danger-10-color)',
 
-  // Space Theme (Dark)
-  space: '#010409', // Layout background
-  'space-1': '#000', // UI background commonly
-  'space-2': '#1c1e21', // UI border commonly
-  'space-3': '#1c1e21', // UI border commonly
-  'space-4': '#27292b', // UI border commonly
-  'space-5': '#3a3c3f', // New shade, slightly lighter than space-4
-  'space-6': '#4d4f52', // New shade, slightly lighter than space-5
-  'space-7': '#606265', // New shade, slightly lighter than space-6
+  info: 'var(--info-color)',
+  'info-0': 'var(--info-0-color)',
+  'info-1': 'var(--info-1-color)',
+  'info-2': 'var(--info-2-color)',
+  'info-3': 'var(--info-3-color)',
+  'info-4': 'var(--info-4-color)',
+  'info-5': 'var(--info-5-color)',
+  'info-6': 'var(--info-6-color)',
+  'info-7': 'var(--info-7-color)',
+  'info-8': 'var(--info-8-color)',
+  'info-9': 'var(--info-9-color)',
+  'info-10': 'var(--info-10-color)',
 
-  success: {
-    '50': '#f0fee7',
-    '100': '#defbcc',
-    '200': '#bdf89e',
-    '300': '#94f066',
-    '400': '#6ee437',
-    '500': '#50d219',
-    '600': '#38a10f',
-    '700': '#2c7b10',
-    '800': '#276113',
-    '900': '#235215',
-    '950': '#0d2e05',
-  },
-  warning: {
-    '50': '#fff7ed',
-    '100': '#ffecd4',
-    '200': '#ffd6a9',
-    '300': '#ffb872',
-    '400': '#fe8f39',
-    '500': '#fd6f12',
-    '600': '#ed5409',
-    '700': '#c53d09',
-    '800': '#9c3110',
-    '900': '#7e2a10',
-    '950': '#441206',
-  },
+  neutral: 'var(--neutral-color)',
+  'neutral-0': 'var(--neutral-0-color)',
+  'neutral-1': 'var(--neutral-1-color)',
+  'neutral-2': 'var(--neutral-2-color)',
+  'neutral-3': 'var(--neutral-3-color)',
+  'neutral-4': 'var(--neutral-4-color)',
+  'neutral-5': 'var(--neutral-5-color)',
+  'neutral-6': 'var(--neutral-6-color)',
+  'neutral-7': 'var(--neutral-7-color)',
+  'neutral-8': 'var(--neutral-8-color)',
+  'neutral-9': 'var(--neutral-9-color)',
+  'neutral-10': 'var(--neutral-10-color)',
+
+  primary: 'var(--primary-color)',
+  'primary-0': 'var(--primary-0-color)',
+  'primary-1': 'var(--primary-1-color)',
+  'primary-2': 'var(--primary-2-color)',
+  'primary-3': 'var(--primary-3-color)',
+  'primary-4': 'var(--primary-4-color)',
+  'primary-5': 'var(--primary-5-color)',
+  'primary-6': 'var(--primary-6-color)',
+  'primary-7': 'var(--primary-7-color)',
+  'primary-8': 'var(--primary-8-color)',
+  'primary-9': 'var(--primary-9-color)',
+  'primary-10': 'var(--primary-10-color)',
+
+  space: 'var(--space-color)',
+  'space-0': 'var(--space-0-color)',
+  'space-1': 'var(--space-1-color)',
+  'space-2': 'var(--space-2-color)',
+  'space-3': 'var(--space-3-color)',
+  'space-4': 'var(--space-4-color)',
+  'space-5': 'var(--space-5-color)',
+  'space-6': 'var(--space-6-color)',
+  'space-7': 'var(--space-7-color)',
+  'space-8': 'var(--space-8-color)',
+  'space-9': 'var(--space-9-color)',
+  'space-10': 'var(--space-10-color)',
+
+  success: 'var(--success-color)',
+  'success-0': 'var(--success-0-color)',
+  'success-1': 'var(--success-1-color)',
+  'success-2': 'var(--success-2-color)',
+  'success-3': 'var(--success-3-color)',
+  'success-4': 'var(--success-4-color)',
+  'success-5': 'var(--success-5-color)',
+  'success-6': 'var(--success-6-color)',
+  'success-7': 'var(--success-7-color)',
+  'success-8': 'var(--success-8-color)',
+  'success-9': 'var(--success-9-color)',
+  'success-10': 'var(--success-10-color)',
+
+  warning: 'var(--warning-color)',
+  'warning-0': 'var(--warning-0-color)',
+  'warning-1': 'var(--warning-1-color)',
+  'warning-2': 'var(--warning-2-color)',
+  'warning-3': 'var(--warning-3-color)',
+  'warning-4': 'var(--warning-4-color)',
+  'warning-5': 'var(--warning-5-color)',
+  'warning-6': 'var(--warning-6-color)',
+  'warning-7': 'var(--warning-7-color)',
+  'warning-8': 'var(--warning-8-color)',
+  'warning-9': 'var(--warning-9-color)',
+  'warning-10': 'var(--warning-10-color)',
 };
 
 /**
@@ -133,56 +133,13 @@ export const intentColorKeyObject = intentColorKeys.reduce((acc, key) => {
     [key]: key,
   };
 }, {});
-export const intentColorMap = {
-  accent: themeColors.accent,
-  danger: themeColors.danger,
-  info: themeColors.info,
-  neutral: themeColors.neutral,
-  primary: themeColors.primary,
-  success: themeColors.success,
-  warning: themeColors.warning,
-} as const;
-
-/**
- * 400 -> intent
- * 50  -> intent-0
- * 100 -> intent-1
- * 200 -> intent-2
- * 300 -> intent-3
- * 400 -> intent-4
- * 500 -> intent-5
- * 600 -> intent-6
- * 700 -> intent-7
- * 800 -> intent-8
- * 900 -> intent-9
- */
-function changeNumberToIndex(intentColorMap, intentKey) {
-  const colors = Object.values(intentColorMap).reduce((acc, value, i) => {
-    const key = intentKey + '-' + i;
-    const values = {
-      [key]: value,
-    };
-    if (i === 4) {
-      Object.assign(values, {
-        [intentKey]: value,
-      });
-    }
-    return merge(acc, values);
-  }, {});
-  return colors as Record<string, string>;
-}
 
 /**
  * @see changeColorToIndex
  * It is for intent colors to create custom theme for UI library
  */
 export const intentColors = {
-  ...Object.entries(intentColorMap).reduce((acc, [key, values]) => {
-    return {
-      ...acc,
-      ...changeNumberToIndex(values, key),
-    };
-  }, {}),
+  ...themeColors,
   black: colors.black,
   white: colors.white,
 };

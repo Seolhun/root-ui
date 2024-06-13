@@ -2,3 +2,5 @@ export * from './components';
 export * from './hooks';
 export * from './system';
 export * from './tools';
+
+import './assets/index.scss';

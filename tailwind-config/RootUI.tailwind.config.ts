@@ -2,6 +2,7 @@ import colors from 'tailwindcss/colors';
 import defaultTheme from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
 
+import { scale } from './presets';
 import { Animations } from './presets/Animations';
 import { palette } from './presets/Colors';
 import {
@@ -65,13 +66,6 @@ export default plugin(function ({ addBase, theme }) {}, {
       minHeight: minMaxHeightExtend,
       minWidth: minMaxWidthExtend,
       padding: paddingExtend,
-      scale: {
-        lg: 'lg',
-        md: 'md',
-        sm: 'sm',
-        xl: 'xl',
-        xs: 'xs',
-      },
       spacing: spacingExtend,
       transitionDuration: {
         '1500': '1500ms',
@@ -89,6 +83,7 @@ export default plugin(function ({ addBase, theme }) {}, {
     fontFamily: {
       roboto: ['"Roboto"', ...defaultTheme.fontFamily.sans],
     },
+    scale,
     screens: {
       // => @media (min-width: 768px) { ... }
       lg: '1024px',
