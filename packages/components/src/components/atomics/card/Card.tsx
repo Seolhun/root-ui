@@ -1,3 +1,4 @@
+import { RootScaleType } from '@seolhun/root-tailwind-config';
 import clsx from 'clsx';
 import * as React from 'react';
 
@@ -7,24 +8,32 @@ const CLASSNAME = 'Root__Card';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface CardProps extends ElementProps {}
+export interface CardProps extends ElementProps {
+  /**
+   * @default md
+   */
+  scale?: RootScaleType;
+}
 
-export const Card = React.forwardRef<ElementType, CardProps>(({ className, children, ...others }, ref) => {
-  return (
-    <Box
-      {...others}
-      className={clsx(
-        CLASSNAME,
-        className,
-        'block',
-        'text-space-2 dark:text-cream-2',
-        'bg-cream-1 dark:bg-space-1',
-        'rounded shadow',
-      )}
-      as="div"
-      ref={ref}
-    >
-      {children}
-    </Box>
-  );
-});
+export const Card = React.forwardRef<ElementType, CardProps>(
+  ({ className, children, scale = 'md', ...others }, ref) => {
+    return (
+      <Box
+        {...others}
+        className={clsx(
+          CLASSNAME,
+          className,
+          'block',
+          'text-space-2 dark:text-cream-2',
+          'bg-cream-0 dark:bg-space-1',
+          'rounded-md shadow-md',
+          `scale-p-${scale}`,
+        )}
+        as="div"
+        ref={ref}
+      >
+        {children}
+      </Box>
+    );
+  },
+);

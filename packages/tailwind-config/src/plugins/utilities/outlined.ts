@@ -1,7 +1,7 @@
 import plugin from 'tailwindcss/plugin';
 
-import { RootIntentMap } from '../../@types';
 import { intentColorKeyObject } from '../../presets/Colors';
+import { RootIntentMap } from '../../types';
 
 const baseStyles = (theme) => ({
   borderStyle: 'solid',
@@ -34,7 +34,6 @@ export default plugin(
             },
             backgroundColor: 'transparent',
             borderColor: theme(`colors.${intent}`),
-            borderRadius: theme('borderRadius.md'),
             color: theme(`colors.${intent}`),
             outline: 'none',
           };

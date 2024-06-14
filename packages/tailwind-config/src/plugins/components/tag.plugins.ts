@@ -11,7 +11,7 @@ export default plugin(function ({ addComponents, theme }) {
   const paddingScale = scaleKeys.reduce((acc, value) => {
     const { x, y } = RootScaleValues.PADDING[value];
     const scaleText = RootScaleValues.TEXT[value];
-    const className = `&.btn-scale-${value}`;
+    const className = `&.tag-scale-${value}`;
     acc[className] = {
       fontSize: theme(`fontSize.${scaleText}`),
       padding: `${theme(`padding.${y}`)} ${theme(`padding.${x}`)}`,
@@ -20,7 +20,7 @@ export default plugin(function ({ addComponents, theme }) {
   }, {});
 
   addComponents({
-    '.btn': {
+    '.tag': {
       ...paddingScale,
       '&:disabled': {
         cursor: 'not-allowed',

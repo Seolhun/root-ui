@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toIntentMatch, toScaleMatch, useRootUI } from '../../../system';
+import { RootIntent, RootScale } from '../../../system';
 
 const CLASSNAME = 'Root__Tag';
 type ElementType = HTMLButtonElement;
@@ -24,46 +24,24 @@ export interface TagProps extends ElementProps {
   scale?: RootScale;
 }
 
-export const Tag = React.forwardRef<ElementType, TagProps>(({ className, children, outlined, ...others }, ref) => {
-  const { intent, scale } = useRootUI({
-    defaultIntent: 'primary',
-    defaultScale: 'md',
-    intent: others?.intent,
-    scale: others?.scale,
-  });
-
-  return (
-    <button
-      role="button"
-      tabIndex={0}
-      {...others}
-      className={clsx(
-        CLASSNAME,
-        className,
-        'flex items-center justify-center',
-        'rounded-full',
-        'cursor-pointer',
-        'disabled:cursor-not-allowed',
-        toScaleMatch({
-          lg: () => 'scale-text-lg scale-p-lg',
-          md: () => 'scale-text-md scale-p-md',
-          sm: () => 'scale-text-sm scale-p-sm',
-          xl: () => 'scale-text-xl scale-p-xl',
-          xs: () => 'scale-text-xs scale-p-xs',
-        })(scale),
-        toIntentMatch({
-          accent: () => clsx(outlined ? 'outlined-accent' : 'solid-accent'),
-          danger: () => clsx(outlined ? 'outlined-danger' : 'solid-danger'),
-          info: () => clsx(outlined ? 'outlined-info' : 'solid-info'),
-          neutral: () => clsx(outlined ? 'outlined-neutral' : 'solid-neutral'),
-          primary: () => clsx(outlined ? 'outlined-primary' : 'solid-primary'),
-          success: () => clsx(outlined ? 'outlined-success' : 'solid-success'),
-          warning: () => clsx(outlined ? 'outlined-warning' : 'solid-warning'),
-        })(intent),
-      )}
-      ref={ref}
-    >
-      {children}
-    </button>
-  );
-});
+export const Tag = React.forwardRef<ElementType, TagProps>(
+  ({ className, children, intent = 'primary', outlined, scale = 'md', ...others }, ref) => {
+    return (
+      <button
+        role="button"
+        tabIndex={0}
+        {...others}
+        className={clsx(
+          CLASSNAME,
+          className,
+          'tag',
+          `tag-scale-${scale}`,
+          `${outlined ? `outlined-${intent}` : `solid-${intent}`}`,
+        )}
+        ref={ref}
+      >
+        {children}
+      </button>
+    );
+  },
+);

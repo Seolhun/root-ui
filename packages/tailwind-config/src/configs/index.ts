@@ -1,4 +1,4 @@
-import { RootIntentMap, RootScaleMap, RootScaleType } from '../@types';
+import { RootIntentMap, RootScaleMap, RootScaleType } from '../types';
 
 /**
  * Scales

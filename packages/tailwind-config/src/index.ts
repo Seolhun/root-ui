@@ -8,3 +8,5 @@ export default [
   RootTailwindConfig,
   ...RootPlugins,
 ];
+
+export * from './types';
