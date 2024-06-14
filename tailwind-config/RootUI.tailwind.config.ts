@@ -1,10 +1,11 @@
-const colors = require('tailwindcss/colors');
-const defaultTheme = require('tailwindcss/defaultTheme');
-const plugin = require('tailwindcss/plugin');
+import colors from 'tailwindcss/colors';
+import defaultTheme from 'tailwindcss/defaultTheme';
+import plugin from 'tailwindcss/plugin';
 
-const { Animations } = require('./presets/Animations');
-const { palette } = require('./presets/Colors');
-const {
+import { scale } from './presets';
+import { Animations } from './presets/Animations';
+import { palette } from './presets/Colors';
+import {
   fontSizeExtend,
   heightExtend,
   insetExtend,
@@ -15,9 +16,9 @@ const {
   spacingExtend,
   widthExtend,
   zIndexExtend,
-} = require('./presets/extends');
+} from './presets/extends';
 
-module.exports = plugin(function ({ addBase, theme }) {}, {
+export default plugin(function ({ addBase, theme }) {}, {
   /**
    * @see https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually
    */
@@ -65,13 +66,6 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
       minHeight: minMaxHeightExtend,
       minWidth: minMaxWidthExtend,
       padding: paddingExtend,
-      scale: {
-        lg: 'lg',
-        md: 'md',
-        sm: 'sm',
-        xl: 'xl',
-        xs: 'xs',
-      },
       spacing: spacingExtend,
       transitionDuration: {
         '1500': '1500ms',
@@ -89,6 +83,7 @@ module.exports = plugin(function ({ addBase, theme }) {}, {
     fontFamily: {
       roboto: ['"Roboto"', ...defaultTheme.fontFamily.sans],
     },
+    scale,
     screens: {
       // => @media (min-width: 768px) { ... }
       lg: '1024px',

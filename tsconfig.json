@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES6",
     "module": "CommonJS",
     "lib": [
       "ESNext",
@@ -46,14 +46,18 @@
     "inlineSources": false,
     "isolatedModules": true,
     "preserveWatchOutput": true,
-    "baseUrl": ".",
     "typeRoots": [
       "./node_modules/@types",
       "./@types",
     ],
   },
   "include": [
-    "src",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.cjs",
+    "**/*.mjs",
     "@types",
   ],
   "exclude": [

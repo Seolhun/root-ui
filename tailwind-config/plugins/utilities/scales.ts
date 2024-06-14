@@ -1,6 +1,6 @@
-const plugin = require('tailwindcss/plugin');
+import plugin from 'tailwindcss/plugin';
 
-const SCALES = {
+export const SCALES = {
   PADDING: {
     lg: { x: 10, y: 5 },
     md: { x: 8, y: 4 },
@@ -24,7 +24,7 @@ const SCALES = {
   },
 };
 
-module.exports = plugin(
+export default plugin(
   function ({ matchUtilities, theme }) {
     const values = theme('scale');
 
@@ -33,7 +33,10 @@ module.exports = plugin(
         scale: (value) => {
           const v = SCALES.SIZE[value];
           return {
-            [`@apply w-${v} h-${v} min-w-${v} min-h-${v}`]: {},
+            height: theme(`height.${v}`),
+            minHeight: theme(`minHeight.${v}`),
+            minWidth: theme(`minWidth.${v}`),
+            width: theme(`width.${v}`),
           };
         },
       },
@@ -44,7 +47,7 @@ module.exports = plugin(
         'scale-text': (value) => {
           const v = SCALES.TEXT[value];
           return {
-            [`@apply ${v}`]: {},
+            fontSize: theme(`fontSize.${v}`),
           };
         },
       },
@@ -55,7 +58,10 @@ module.exports = plugin(
         'scale-p': (value) => {
           const { x, y } = SCALES.PADDING[value];
           return {
-            [`@apply py-${y} px-${x}`]: {},
+            paddingBottom: theme(`padding.${y}`),
+            paddingLeft: theme(`padding.${x}`),
+            paddingRight: theme(`padding.${x}`),
+            paddingTop: theme(`padding.${y}`),
           };
         },
       },
@@ -64,9 +70,10 @@ module.exports = plugin(
     matchUtilities(
       {
         'scale-px': (value) => {
-          const { x, y } = SCALES.PADDING[value];
+          const { x } = SCALES.PADDING[value];
           return {
-            [`@apply px-${x}`]: {},
+            paddingLeft: theme(`padding.${x}`),
+            paddingRight: theme(`padding.${x}`),
           };
         },
       },
@@ -75,9 +82,10 @@ module.exports = plugin(
     matchUtilities(
       {
         'scale-py': (value) => {
-          const { x, y } = SCALES.PADDING[value];
+          const { y } = SCALES.PADDING[value];
           return {
-            [`@apply py-${y}`]: {},
+            paddingBottom: theme(`padding.${y}`),
+            paddingTop: theme(`padding.${y}`),
           };
         },
       },

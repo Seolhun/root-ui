@@ -1,4 +1,4 @@
-const plugin = require('tailwindcss/plugin');
+import plugin from 'tailwindcss/plugin';
 
 // addUtilities(), for registering new static utility styles
 // matchUtilities(), for registering new dynamic utility styles
@@ -11,7 +11,7 @@ const plugin = require('tailwindcss/plugin');
 // config(), for looking up values in the user’s Tailwind configuration
 // corePlugins(), for checking if a core plugin is enabled
 // e(), for manually escaping strings meant to be used in class names
-module.exports = plugin(function ({ addVariant, theme }) {
+export default plugin(function ({ addVariant }) {
   addVariant('hocus', ['&:hover', '&:focus']);
   addVariant('checked', ['&:checked']);
 });

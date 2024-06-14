@@ -1,9 +1,9 @@
-const reduce = require('lodash/reduce');
-const range = require('lodash/range');
-const { presetRanges } = require('../../utils');
-const { REM_STEP_SIZE } = require('../Variables');
+import { range, reduce } from 'lodash-es';
 
-const spacingExtend = ((start, end) => {
+import { presetRanges } from '../../utils';
+import { REM_STEP_SIZE } from '../Variables';
+
+export const spacingExtend = ((start, end) => {
   return range(start, end).reduce(
     (acc, cur) => ({
       ...acc,
@@ -13,7 +13,7 @@ const spacingExtend = ((start, end) => {
   );
 })(0, 100);
 
-const insetExtend = ((start, end) => {
+export const insetExtend = ((start, end) => {
   return range(start, end).reduce(
     (acc, cur) => ({
       ...acc,
@@ -23,7 +23,7 @@ const insetExtend = ((start, end) => {
   );
 })(0, 100);
 
-const zIndexExtend = ((start, end) => {
+export const zIndexExtend = ((start, end) => {
   return range(start, end).reduce(
     (acc, cur) => ({
       ...acc,
@@ -33,7 +33,7 @@ const zIndexExtend = ((start, end) => {
   );
 })(0, 100);
 
-const marginExtend = reduce(
+export const marginExtend = reduce(
   presetRanges,
   (acc, v) => {
     return {
@@ -45,7 +45,7 @@ const marginExtend = reduce(
   {},
 );
 
-const paddingExtend = reduce(
+export const paddingExtend = reduce(
   presetRanges,
   (acc, v) => {
     return {
@@ -57,7 +57,7 @@ const paddingExtend = reduce(
   {},
 );
 
-const heightExtend = reduce(
+export const heightExtend = reduce(
   presetRanges,
   (acc, v) => {
     return {
@@ -101,7 +101,7 @@ const heightExtend = reduce(
   },
 );
 
-const minMaxHeightExtend = reduce(
+export const minMaxHeightExtend = reduce(
   presetRanges,
   (acc, v) => {
     return {
@@ -145,7 +145,7 @@ const minMaxHeightExtend = reduce(
   },
 );
 
-const widthExtend = reduce(
+export const widthExtend = reduce(
   presetRanges,
   (acc, v) => {
     return {
@@ -189,7 +189,7 @@ const widthExtend = reduce(
   },
 );
 
-const minMaxWidthExtend = reduce(
+export const minMaxWidthExtend = reduce(
   presetRanges,
   (acc, v) => {
     return {
@@ -233,7 +233,7 @@ const minMaxWidthExtend = reduce(
   },
 );
 
-const fontSizeExtend = reduce(
+export const fontSizeExtend = reduce(
   presetRanges,
   (acc, v) => {
     return {
@@ -243,16 +243,3 @@ const fontSizeExtend = reduce(
   },
   {},
 );
-
-module.exports = {
-  fontSizeExtend,
-  heightExtend,
-  insetExtend,
-  marginExtend,
-  minMaxHeightExtend,
-  minMaxWidthExtend,
-  paddingExtend,
-  spacingExtend,
-  widthExtend,
-  zIndexExtend,
-};

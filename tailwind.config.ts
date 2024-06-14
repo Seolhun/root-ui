@@ -1,5 +1,9 @@
+import type { Config } from 'tailwindcss';
+
+import plugins from './tailwind-config';
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   /**
    * @name Purge
    * @see https://tailwindcss.com/docs/content-configuration
@@ -11,5 +15,5 @@ module.exports = {
     './src/stories/**/*.{ts,tsx,js,jsx}',
   ],
   // https://tailwindcss.com/docs/plugins#adding-base-styles
-  plugins: require('./tailwind-config'),
-};
+  plugins,
+} satisfies Config;
