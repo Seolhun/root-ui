@@ -280,6 +280,9 @@ importers:
 
   packages/tailwind-config:
     dependencies:
+      '@fxts/core':
+        specifier: ^1.0.0
+        version: 1.0.0
       color:
         specifier: ^4.2.3
         version: 4.2.3

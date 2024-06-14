@@ -1,5 +1,5 @@
-import { heading } from './bases';
-import { button } from './components';
+import { headingPlugins } from './bases';
+import { buttonPlugins } from './components';
 import { outlined, scales, solid } from './utilities';
 import { events } from './variants';
 
@@ -17,9 +17,9 @@ export const RootPlugins = [
   /**
    * Bases
    */
-  heading,
+  headingPlugins,
   /**
    * Components
    */
-  button,
+  buttonPlugins,
 ];
