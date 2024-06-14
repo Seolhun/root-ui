@@ -1,0 +1,60 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "lint": {
+      "cache": true
+    },
+    "lint:fix": {
+      "cache": true
+    },
+    "test": {
+      "cache": true
+    },
+    "clear": {
+      "cache": false
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
+      "cache": true
+    },
+    "start": {
+      "cache": false,
+      "persistent": false
+    },
+    "start:dev": {
+      "cache": false,
+      "persistent": false
+    },
+    "supabase:gen": {
+      "cache": false
+    },
+    "@seolhun/firststage-supabase#build": {
+      "dependsOn": [
+        "@seolhun/firststage-common-types#build"
+      ]
+    },
+    "@seolhun/firststage-components#build": {
+      "dependsOn": [
+        "@seolhun/firststage-common-types#build",
+        "@seolhun/firststage-supabase#build"
+      ]
+    },
+    "@seolhun/firststage-containers#build": {
+      "dependsOn": [
+        "@seolhun/firststage-common-types#build",
+        "@seolhun/firststage-supabase#build",
+        "@seolhun/firststage-components#build"
+      ]
+    }
+  },
+  "globalEnv": [
+    "SUPABASE_ACCESS_TOKEN",
+    "SUPABASE_PROJECT_REF",
+    "SUPABASE_API_KEY",
+    "SUPABASE_CLIENT_ID",
+    "SUPABASE_CLIENT_SECRET",
+    "SUPABASE_DATABASE_PWD",
+    "SUPABASE_URL"
+  ]
+}
