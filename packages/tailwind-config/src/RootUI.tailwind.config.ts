@@ -2,7 +2,7 @@ import colors from 'tailwindcss/colors';
 import defaultTheme from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
 
-import { RootScaleMap } from './configs';
+import { RootScales } from './configs';
 import {
   Animations,
   fontSizeExtend,
@@ -94,7 +94,7 @@ export default plugin(function () {}, {
     fontFamily: {
       roboto: ['"Roboto"', ...defaultTheme.fontFamily.sans],
     },
-    scale: RootScaleMap,
+    scale: RootScales,
     screens: {
       // => @media (min-width: 768px) { ... }
       lg: '1024px',
