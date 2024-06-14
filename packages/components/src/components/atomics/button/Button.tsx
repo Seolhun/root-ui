@@ -1,7 +1,6 @@
+import { RootIntentType, RootScaleType } from '@seolhun/root-tailwind-config';
 import clsx from 'clsx';
 import * as React from 'react';
-
-import { RootIntent, RootScale } from '../../../system';
 
 const CLASSNAME = 'Root__Button';
 type ElementType = HTMLButtonElement;
@@ -11,7 +10,7 @@ export interface ButtonProps extends ElementProps {
   /**
    * @default primary
    */
-  intent?: RootIntent;
+  intent?: RootIntentType;
 
   /**
    * Use outline style
@@ -22,7 +21,7 @@ export interface ButtonProps extends ElementProps {
    * Set this to change scale
    * @default md
    */
-  scale?: RootScale;
+  scale?: RootScaleType;
 }
 
 export const Button = React.forwardRef<ElementType, ButtonProps>(

@@ -24,8 +24,9 @@ export const Card = React.forwardRef<ElementType, CardProps>(
           CLASSNAME,
           className,
           'block',
-          'text-space-2 dark:text-cream-2',
-          'bg-cream-0 dark:bg-space-1',
+          'text-space dark:text-cream',
+          'bg-cream-0 dark:bg-space-0',
+          'border border-cream-4 dark:border-space-4',
           'rounded-md shadow-md',
           `scale-p-${scale}`,
         )}
