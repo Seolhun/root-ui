@@ -10,7 +10,6 @@ export const storiesIntentOptions: RootIntent[] = [
   'warning',
   'danger',
   'neutral',
-  'none',
 ];
 
 export const storiesPlacements: RootPlacement[] = [

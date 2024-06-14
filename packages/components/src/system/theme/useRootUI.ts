@@ -7,11 +7,11 @@ import { useRootUIGroupContext } from './RootUIGroup.Context';
 export interface UseRootUIProps extends RootUIContextValues {}
 
 function hasScale(scale?: RootScale): scale is RootScale {
-  return !!scale && scale !== 'none';
+  return Boolean(scale);
 }
 
 function hasIntent(intent?: RootIntent): intent is RootIntent {
-  return !!intent && intent !== 'none';
+  return Boolean(intent);
 }
 
 /**
@@ -63,7 +63,7 @@ export function useRootUI({ defaultIntent, defaultScale, intent, scale }: Partia
     if (hasIntent(rootUIValues.defaultIntent)) {
       return rootUIValues.defaultIntent;
     }
-    return defaultIntent || 'none';
+    return defaultIntent || 'primary';
   }, [
     defaultIntent,
     intent,
