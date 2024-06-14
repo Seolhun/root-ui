@@ -33,3 +33,6 @@ stats.*.html
 
 # Rollup
 .rollup.cache
+
+# Turbo
+.turbo
