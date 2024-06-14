@@ -2,9 +2,11 @@ import plugin from 'tailwindcss/plugin';
 
 import { intentColorKeyObject } from '../../presets/Colors';
 
-const baseStyles = {
-  '@apply border outline-none': {},
-};
+const baseStyles = (theme) => ({
+  borderStyle: 'solid',
+  borderWidth: theme('borderWidth.DEFAULT'),
+  outline: 'none',
+});
 
 export default plugin(
   function ({ matchUtilities, theme }) {
@@ -18,21 +20,23 @@ export default plugin(
           const focus = `${value}-6`;
           const hover = `${value}-6`;
           return {
-            ...baseStyles,
+            ...baseStyles(theme),
             '&:disabled': {
-              [`@apply opacity-40`]: {},
+              opacity: theme('opacity.40'),
             },
-
             '&:not(:disabled):focus': {
-              '@apply ring-2 ring-offset-1': {},
-              [`@apply ring-${focus} ring-offset-cream ring-offset-cream`]: {},
+              outline: 'none',
+              ringColor: theme(`colors.${focus}`),
+              ringOffsetColor: theme('colors.cream'),
+              ringOffsetWidth: theme('ringOffsetWidth.DEFAULT'),
+              ringWidth: theme('ringWidth.DEFAULT'),
             },
-
             '&:not(:disabled):hover': {
-              [`@apply bg-${hover}`]: {},
+              backgroundColor: theme(`colors.${hover}`),
             },
-
-            [`@apply text-${text} bg-${main} border-${main}`]: {},
+            backgroundColor: theme(`colors.${main}`),
+            borderColor: theme(`colors.${main}`),
+            color: theme(`colors.${text}`),
           };
         },
       },

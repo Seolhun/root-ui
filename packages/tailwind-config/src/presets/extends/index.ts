@@ -1,71 +1,87 @@
-import { range, reduce } from 'lodash-es';
+import { pipe, range, reduce } from '@fxts/core';
 
 import { presetRanges } from '../../utils';
 import { REM_STEP_SIZE } from '../Variables';
 
 export const spacingExtend = ((start, end) => {
-  return range(start, end).reduce(
-    (acc, cur) => ({
-      ...acc,
-      [cur]: `${cur * REM_STEP_SIZE}rem`,
-    }),
-    {},
-  );
+  const seed: Record<string, string> = {};
+  const result = pipe(range(start, end), (ranges) => {
+    return reduce(
+      (acc, cur) => ({
+        ...acc,
+        [cur]: `${cur * REM_STEP_SIZE}rem`,
+      }),
+      seed,
+      ranges,
+    );
+  });
+  return result;
 })(0, 100);
 
 export const insetExtend = ((start, end) => {
-  return range(start, end).reduce(
-    (acc, cur) => ({
-      ...acc,
-      [cur]: `${cur * REM_STEP_SIZE}rem`,
-    }),
-    {},
-  );
+  const seed: Record<string, string> = {};
+  const result = pipe(range(start, end), (ranges) => {
+    return reduce(
+      (acc, cur) => ({
+        ...acc,
+        [cur]: `${cur * REM_STEP_SIZE}rem`,
+      }),
+      seed,
+      ranges,
+    );
+  });
+  return result;
 })(0, 100);
 
 export const zIndexExtend = ((start, end) => {
-  return range(start, end).reduce(
-    (acc, cur) => ({
-      ...acc,
-      [cur]: cur,
-    }),
-    {},
-  );
+  const seed: Record<string, string> = {};
+  const result = pipe(range(start, end), (ranges) => {
+    return reduce(
+      (acc, cur) => ({
+        ...acc,
+        [cur]: `${cur * REM_STEP_SIZE}rem`,
+      }),
+      seed,
+      ranges,
+    );
+  });
+  return result;
 })(0, 100);
 
-export const marginExtend = reduce(
-  presetRanges,
-  (acc, v) => {
-    return {
-      ...acc,
-      [`-${v}`]: `-${v * REM_STEP_SIZE}rem`,
-      [v]: `${v * REM_STEP_SIZE}rem`,
-    };
-  },
-  {},
-);
+export const marginExtend = (() => {
+  const seed: Record<string, string> = {};
+  const result = reduce(
+    (acc, v) => {
+      return {
+        ...acc,
+        [`-${v}`]: `-${v * REM_STEP_SIZE}rem`,
+        [v]: `${v * REM_STEP_SIZE}rem`,
+      };
+    },
+    seed,
+    presetRanges,
+  );
+  return result;
+})();
 
-export const paddingExtend = reduce(
-  presetRanges,
-  (acc, v) => {
-    return {
-      ...acc,
-      [`-${v}`]: `-${v * REM_STEP_SIZE}rem`,
-      [v]: `${v * REM_STEP_SIZE}rem`,
-    };
-  },
-  {},
-);
+export const paddingExtend = (() => {
+  const seed: Record<string, string> = {};
+  const result = reduce(
+    (acc, v) => {
+      return {
+        ...acc,
+        [`-${v}`]: `-${v * REM_STEP_SIZE}rem`,
+        [v]: `${v * REM_STEP_SIZE}rem`,
+      };
+    },
+    seed,
+    presetRanges,
+  );
+  return result;
+})();
 
-export const heightExtend = reduce(
-  presetRanges,
-  (acc, v) => {
-    return {
-      ...acc,
-      [v]: `${v * REM_STEP_SIZE}rem`,
-    };
-  },
-  {
+export const heightExtend = (() => {
+  const seed: Record<string, string> = {
     '1/2': '50%',
     '1/3': '33.333333%',
     '1/4': '25%',
@@ -98,18 +114,22 @@ export const heightExtend = reduce(
     max: 'max-content',
     min: 'min-content',
     screen: '100vh',
-  },
-);
+  };
+  const result = reduce(
+    (acc, v) => {
+      return {
+        ...acc,
+        [v]: `${v * REM_STEP_SIZE}rem`,
+      };
+    },
+    seed,
+    presetRanges,
+  );
+  return result;
+})();
 
-export const minMaxHeightExtend = reduce(
-  presetRanges,
-  (acc, v) => {
-    return {
-      ...acc,
-      [v]: `${v * REM_STEP_SIZE}rem`,
-    };
-  },
-  {
+export const minMaxHeightExtend = (() => {
+  const seed: Record<string, string> = {
     '1/2': '50%',
     '1/3': '33.333333%',
     '1/4': '25%',
@@ -142,18 +162,22 @@ export const minMaxHeightExtend = reduce(
     max: 'max-content',
     min: 'min-content',
     screen: '100vh',
-  },
-);
+  };
+  const result = reduce(
+    (acc, v) => {
+      return {
+        ...acc,
+        [v]: `${v * REM_STEP_SIZE}rem`,
+      };
+    },
+    seed,
+    presetRanges,
+  );
+  return result;
+})();
 
-export const widthExtend = reduce(
-  presetRanges,
-  (acc, v) => {
-    return {
-      ...acc,
-      [v]: `${v * REM_STEP_SIZE}rem`,
-    };
-  },
-  {
+export const widthExtend = (() => {
+  const seed: Record<string, string> = {
     '1/2': '50%',
     '1/3': '33.333333%',
     '1/4': '25%',
@@ -186,18 +210,22 @@ export const widthExtend = reduce(
     max: 'max-content',
     min: 'min-content',
     screen: '100vw',
-  },
-);
+  };
+  const result = reduce(
+    (acc, v) => {
+      return {
+        ...acc,
+        [v]: `${v * REM_STEP_SIZE}rem`,
+      };
+    },
+    seed,
+    presetRanges,
+  );
+  return result;
+})();
 
-export const minMaxWidthExtend = reduce(
-  presetRanges,
-  (acc, v) => {
-    return {
-      ...acc,
-      [v]: `${v * REM_STEP_SIZE}rem`,
-    };
-  },
-  {
+export const minMaxWidthExtend = (() => {
+  const seed: Record<string, string> = {
     '1/2': '50%',
     '1/3': '33.333333%',
     '1/4': '25%',
@@ -230,16 +258,42 @@ export const minMaxWidthExtend = reduce(
     max: 'max-content',
     min: 'min-content',
     screen: '100vw',
-  },
-);
+  };
+  const result = reduce(
+    (acc, v) => {
+      return {
+        ...acc,
+        [v]: `${v * REM_STEP_SIZE}rem`,
+      };
+    },
+    seed,
+    presetRanges,
+  );
+  return result;
+})();
 
-export const fontSizeExtend = reduce(
-  presetRanges,
-  (acc, v) => {
-    return {
-      ...acc,
-      [v]: `${v * REM_STEP_SIZE}rem`,
-    };
-  },
-  {},
-);
+export const fontSizeExtend = (() => {
+  const seed: Record<string, string> = {
+    '2xl': '1.563rem',
+    '3xl': '1.953rem',
+    '4xl': '2.441rem',
+    '5xl': '3.052rem',
+    base: '1rem',
+    lg: '1.125rem',
+    md: '1rem',
+    sm: '0.8rem',
+    xl: '1.25rem',
+    xs: '0.75rem',
+  };
+  const result = reduce(
+    (acc, v) => {
+      return {
+        ...acc,
+        [v]: `${v * REM_STEP_SIZE}rem`,
+      };
+    },
+    seed,
+    presetRanges,
+  );
+  return result;
+})();

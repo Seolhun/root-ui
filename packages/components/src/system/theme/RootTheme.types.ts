@@ -1,5 +1,11 @@
+/**
+ * @deprecated Use `import { RootScaleType } from '@seolhun/root-tailwind-config';
+ */
 export type RootIntent = 'accent' | 'danger' | 'info' | 'neutral' | 'primary' | 'success' | 'warning';
 
+/**
+ * @deprecated Use `import { RootScaleType } from '@seolhun/root-tailwind-config';
+ */
 export type RootScale = 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 
 type Alignment = 'end' | 'start';

@@ -1,36 +1,42 @@
 import plugin from 'tailwindcss/plugin';
 
 import { intentColorKeyObject } from '../../presets/Colors';
+import { RootIntentMap } from '../../types';
 
-const baseStyles = {
-  '@apply border outline-none': {},
-};
+const baseStyles = (theme) => ({
+  borderStyle: 'solid',
+  borderWidth: theme('borderWidth.DEFAULT'),
+  outline: 'none',
+});
 
 export default plugin(
   function ({ matchUtilities, theme }) {
-    const values = theme('intents');
+    const values: RootIntentMap = theme('intents');
 
     matchUtilities(
       {
-        outlined: (value) => {
-          const main = `${value}`;
+        outlined: (intent) => {
           return {
-            ...baseStyles,
+            ...baseStyles(theme),
             '&:disabled': {
-              [`@apply opacity-70`]: {},
+              opacity: '0.7',
             },
             '&:not(:disabled):focus': {
-              '@apply outline-none ring-2 ring-offset-1': {},
-              [`@apply ring-${main} ring-offset-cream`]: {},
+              outline: 'none',
+              ring: theme(`ringWidth.DEFAULT`),
+              ringColor: theme(`colors.${intent}`),
+              ringOffsetColor: theme('colors.cream'),
+              ringOffsetWidth: theme('ringOffsetWidth.DEFAULT'),
             },
-
             '&:not(:disabled):hover': {
-              [`@apply bg-${main} text-cream-1`]: {},
+              backgroundColor: theme(`colors.${intent}`),
+              color: theme('colors.cream-1'),
             },
-
-            '@apply bg-transparent': {},
-
-            [`@apply text-${main} border-${main}`]: {},
+            backgroundColor: 'transparent',
+            borderColor: theme(`colors.${intent}`),
+            borderWidth: theme('borderWidth.4'),
+            color: theme(`colors.${intent}`),
+            outline: 'none',
           };
         },
       },

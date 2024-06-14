@@ -42,13 +42,13 @@ export const Loader = React.forwardRef<ElementType, LoaderProps>(({ className, .
             xs: () => 'scale-xs',
           })(scale),
           toIntentMatch({
-            accent: () => clsx('text-accent-2 fill-accent dark:text-accent-2 dark:fill-accent'),
-            danger: () => clsx('text-danger-2 fill-danger dark:text-danger-2 dark:fill-danger'),
-            info: () => clsx('text-info-2 fill-info dark:text-info-2 dark:fill-info'),
-            neutral: () => clsx('text-neutral-2 fill-neutral dark:text-neutral-2 dark:fill-neutral'),
-            primary: () => clsx('text-primary-2 fill-primary dark:text-primary-2 dark:fill-primary'),
-            success: () => clsx('text-success-2 fill-success dark:text-success-2 dark:fill-success'),
-            warning: () => clsx('text-warning-2 fill-warning dark:text-warning-2 dark:fill-warning'),
+            accent: () => clsx('fill-accent'),
+            danger: () => clsx('fill-danger'),
+            info: () => clsx('fill-info'),
+            neutral: () => clsx('fill-neutral'),
+            primary: () => clsx('fill-primary'),
+            success: () => clsx('fill-success'),
+            warning: () => clsx('fill-warning'),
           })(intent),
         )}
         aria-hidden="true"

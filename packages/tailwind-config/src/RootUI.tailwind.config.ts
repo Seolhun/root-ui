@@ -2,10 +2,9 @@ import colors from 'tailwindcss/colors';
 import defaultTheme from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
 
-import { scale } from './presets';
-import { Animations } from './presets/Animations';
-import { palette } from './presets/Colors';
+import { RootScales } from './configs';
 import {
+  Animations,
   fontSizeExtend,
   heightExtend,
   insetExtend,
@@ -13,12 +12,24 @@ import {
   minMaxHeightExtend,
   minMaxWidthExtend,
   paddingExtend,
+  palette,
   spacingExtend,
   widthExtend,
   zIndexExtend,
-} from './presets/extends';
+} from './presets';
 
-export default plugin(function ({ addBase, theme }) {}, {
+// addUtilities(), for registering new static utility styles
+// matchUtilities(), for registering new dynamic utility styles
+// addComponents(), for registering new static component styles
+// matchComponents(), for registering new dynamic component styles
+// addBase(), for registering new base styles
+// addVariant(), for registering custom static variants
+// matchVariant(), for registering custom dynamic variants
+// theme(), for looking up values in the user’s theme configuration
+// config(), for looking up values in the user’s Tailwind configuration
+// corePlugins(), for checking if a core plugin is enabled
+// e(), for manually escaping strings meant to be used in class names
+export default plugin(function () {}, {
   /**
    * @see https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually
    */
@@ -83,7 +94,7 @@ export default plugin(function ({ addBase, theme }) {}, {
     fontFamily: {
       roboto: ['"Roboto"', ...defaultTheme.fontFamily.sans],
     },
-    scale,
+    scale: RootScales,
     screens: {
       // => @media (min-width: 768px) { ... }
       lg: '1024px',

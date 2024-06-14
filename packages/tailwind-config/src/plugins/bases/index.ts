@@ -1,1 +1,1 @@
-export { default as heading } from './heading';
+export { default as headingPlugins } from './heading.plugins';

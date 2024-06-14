@@ -1,12 +1,8 @@
-import { StoryFn } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import * as React from 'react';
 
 import { StorybookContent } from '../../../stories';
 import { P, PProps } from './P';
-
-export default {
-  title: 'TypoGraphy/Paragraph',
-};
 
 const BaseTemplate = ({ children, ...others }) => {
   return (
@@ -21,7 +17,7 @@ const BaseTemplate = ({ children, ...others }) => {
   );
 };
 
-const Paragraph: StoryFn<PProps> = ({ children, ...others }) => {
+const ParagraphTemplate = ({ children, ...others }: PProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex flex-col space-y-2" noAlign noGap>
@@ -34,8 +30,21 @@ const Paragraph: StoryFn<PProps> = ({ children, ...others }) => {
   );
 };
 
-export const ParagraphStories = Paragraph.bind({});
-ParagraphStories.args = {
-  children:
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusamus animi aliquid molestiae vitae similique asperiores illum, sit quisquam, veritatis rerum. Illum, quia ut? Nemo sunt explicabo in provident id?',
+export const ParagraphStories: StoryObj<PProps> = {
+  args: {
+    className: 'text-space-1 dark:text-cream-1',
+    children:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusamus animi aliquid molestiae vitae similique asperiores illum, sit quisquam, veritatis rerum.',
+  },
+  render: ParagraphTemplate,
 };
+
+const meta: Meta<PProps> = {
+  component: P,
+  parameters: {
+    controls: { expanded: true },
+  },
+  title: 'TypoGraphy/Paragraph',
+};
+
+export default meta;

@@ -1,28 +1,6 @@
 import plugin from 'tailwindcss/plugin';
 
-export const SCALES = {
-  PADDING: {
-    lg: { x: 10, y: 5 },
-    md: { x: 8, y: 4 },
-    sm: { x: 6, y: 3 },
-    xl: { x: 12, y: 6 },
-    xs: { x: 4, y: 2 },
-  },
-  SIZE: {
-    lg: 28,
-    md: 24,
-    sm: 20,
-    xl: 32,
-    xs: 16,
-  },
-  TEXT: {
-    lg: 'text-8',
-    md: 'text-7',
-    sm: 'text-6',
-    xl: 'text-9',
-    xs: 'text-5',
-  },
-};
+import { RootScaleValues } from '../../configs';
 
 export default plugin(
   function ({ matchUtilities, theme }) {
@@ -31,7 +9,7 @@ export default plugin(
     matchUtilities(
       {
         scale: (value) => {
-          const v = SCALES.SIZE[value];
+          const v = RootScaleValues.SIZE[value];
           return {
             height: theme(`height.${v}`),
             minHeight: theme(`minHeight.${v}`),
@@ -45,7 +23,7 @@ export default plugin(
     matchUtilities(
       {
         'scale-text': (value) => {
-          const v = SCALES.TEXT[value];
+          const v = RootScaleValues.TEXT[value];
           return {
             fontSize: theme(`fontSize.${v}`),
           };
@@ -56,7 +34,7 @@ export default plugin(
     matchUtilities(
       {
         'scale-p': (value) => {
-          const { x, y } = SCALES.PADDING[value];
+          const { x, y } = RootScaleValues.PADDING[value];
           return {
             paddingBottom: theme(`padding.${y}`),
             paddingLeft: theme(`padding.${x}`),
@@ -70,7 +48,7 @@ export default plugin(
     matchUtilities(
       {
         'scale-px': (value) => {
-          const { x } = SCALES.PADDING[value];
+          const { x } = RootScaleValues.PADDING[value];
           return {
             paddingLeft: theme(`padding.${x}`),
             paddingRight: theme(`padding.${x}`),
@@ -82,7 +60,7 @@ export default plugin(
     matchUtilities(
       {
         'scale-py': (value) => {
-          const { y } = SCALES.PADDING[value];
+          const { y } = RootScaleValues.PADDING[value];
           return {
             paddingBottom: theme(`padding.${y}`),
             paddingTop: theme(`padding.${y}`),
@@ -93,8 +71,14 @@ export default plugin(
     );
   },
   {
-    variants: {
-      scale: ['responsive'],
+    theme: {
+      scale: {
+        lg: 'lg',
+        md: 'md',
+        sm: 'sm',
+        xl: 'xl',
+        xs: 'xs',
+      },
     },
   },
 );

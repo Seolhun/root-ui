@@ -39,7 +39,7 @@ export const StorybookContentItem = ({ className, children, noAlign, noGap, ...o
           'gap-2': !noGap,
           'items-center justify-center': !noAlign,
         },
-        'p-4',
+        'py-12 px-24',
       )}
       ref={setRoot}
     >
