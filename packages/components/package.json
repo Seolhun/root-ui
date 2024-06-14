@@ -6,7 +6,7 @@
     "url": "https://github.com/Seolhun"
   },
   "name": "@seolhun/root-ui",
-  "description": "root-ui is a React component library that helps you build accessible and responsive web applications.",
+  "description": "root-ui is a design system for React and tailwindcss.",
   "version": "0.8.3-alpha.5",
   "publishConfig": {
     "access": "restricted",
@@ -15,8 +15,9 @@
   "files": [
     "dist",
     "LICENSE",
+    "CHANGELOG.md",
     "README.md",
-    "tailwind-config",
+    "package.json",
     "tailwind.config.js"
   ],
   "type": "module",
@@ -27,9 +28,9 @@
     "prebuild": "rimraf dist/*",
     "build": "rollup -c --bundleConfigAsCjs",
     "test": "vitest run",
-    "lint": "eslint --ext .js,.ts,.tsx,.jsx ./",
-    "lint:fix": "eslint --ext .js,.ts,.tsx,.jsx ./ --fix",
-    "prettier": "prettier --write '**/*.{ts,tsx,js,jsx}'",
+    "prettier": "prettier --write './src/**/*.{ts,tsx,js,jsx}'",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx ./src --fix",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build -o docs"
   },
