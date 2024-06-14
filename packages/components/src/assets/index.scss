@@ -1,0 +1,124 @@
+// Global Window
+.Root__Window__LockScroll {
+  overflow: hidden !important;
+}
+
+:root {
+  --accent-color: env(--accent-color, #f76fb1);
+  --accent-0-color: env(--accent-0-color, #fff0f7);
+  --accent-1-color: env(--accent-1-color, #fce7f2);
+  --accent-2-color: env(--accent-2-color, #fccee6);
+  --accent-3-color: env(--accent-3-color, #fba6d1);
+  --accent-4-color: env(--accent-4-color, #f76fb1);
+  --accent-5-color: env(--accent-5-color, #f04e98);
+  --accent-6-color: env(--accent-6-color, #df2370);
+  --accent-7-color: env(--accent-7-color, #c11556);
+  --accent-8-color: env(--accent-8-color, #a01447);
+  --accent-9-color: env(--accent-9-color, #85163f);
+  --accent-10-color: env(--accent-10-color, #510621);
+
+
+  --cream-color: env(--cream-color, #fafafa);
+  --cream-0-color: env(--cream-0-color, #fff);
+  --cream-1-color: env(--cream-1-color, #f8f8f8);
+  --cream-2-color: env(--cream-2-color, #f5f5f5);
+  --cream-3-color: env(--cream-3-color, #efefef);
+  --cream-4-color: env(--cream-4-color, #dcdcdc);
+  --cream-5-color: env(--cream-5-color, #c0c0c0);
+  --cream-6-color: env(--cream-6-color, #a9a9a9);
+  --cream-7-color: env(--cream-7-color, #8b8b8b);
+  --cream-8-color: env(--cream-8-color, #707070);
+  --cream-9-color: env(--cream-9-color, #595959);
+  --cream-10-color: env(--cream-10-color, #262626);
+
+  --danger-color: env(--danger-color, #ff5959);
+  --danger-0-color: env(--danger-0-color, #fff0f0);
+  --danger-1-color: env(--danger-1-color, #ffdddd);
+  --danger-2-color: env(--danger-2-color, #ffc1c1);
+  --danger-3-color: env(--danger-3-color, #ff9595);
+  --danger-4-color: env(--danger-4-color, #ff5959);
+  --danger-5-color: env(--danger-5-color, #ff2626);
+  --danger-6-color: env(--danger-6-color, #fc0606);
+  --danger-7-color: env(--danger-7-color, #e00000);
+  --danger-8-color: env(--danger-8-color, #af0505);
+  --danger-9-color: env(--danger-9-color, #900c0c);
+  --danger-10-color: env(--danger-10-color, #500000);
+
+  --info-color: env(--info-color, #2ccfe4);
+  --info-0-color: env(--info-0-color, #edfdfe);
+  --info-1-color: env(--info-1-color, #d1f9fc);
+  --info-2-color: env(--info-2-color, #a9f1f8);
+  --info-3-color: env(--info-3-color, #6ee5f2);
+  --info-4-color: env(--info-4-color, #2ccfe4);
+  --info-5-color: env(--info-5-color, #12c7e2);
+  --info-6-color: env(--info-6-color, #108eaa);
+  --info-7-color: env(--info-7-color, #14728a);
+  --info-8-color: env(--info-8-color, #1a5d70);
+  --info-9-color: env(--info-9-color, #1a4d5f);
+  --info-10-color: env(--info-10-color, #0b3341);
+
+  --neutral-color: env(--neutral-color, #989898);
+  --neutral-0-color: env(--neutral-0-color, #f8f8f8);
+  --neutral-1-color: env(--neutral-1-color, #f2f2f2);
+  --neutral-2-color: env(--neutral-2-color, #e6e6e6);
+  --neutral-3-color: env(--neutral-3-color, #d1d1d1);
+  --neutral-4-color: env(--neutral-4-color, #989898);
+  --neutral-5-color: env(--neutral-5-color, #6e6e6e);
+  --neutral-6-color: env(--neutral-6-color, #4c4c4c);
+  --neutral-7-color: env(--neutral-7-color, #333333);
+  --neutral-8-color: env(--neutral-8-color, #262626);
+  --neutral-9-color: env(--neutral-9-color, #1a1a1a);
+  --neutral-10-color: env(--neutral-10-color, #0d1012);
+
+  --primary-color: env(--primary-color, #3f69ff);
+  --primary-0-color: env(--primary-0-color, #e5f0ff);
+  --primary-1-color: env(--primary-1-color, #cfe3ff);
+  --primary-2-color: env(--primary-2-color, #a9c9ff);
+  --primary-3-color: env(--primary-3-color, #75a2ff);
+  --primary-4-color: env(--primary-4-color, #3f69ff);
+  --primary-5-color: env(--primary-5-color, #1433ff);
+  --primary-6-color: env(--primary-6-color, #0019ff);
+  --primary-7-color: env(--primary-7-color, #001aff);
+  --primary-8-color: env(--primary-8-color, #0017e3);
+  --primary-9-color: env(--primary-9-color, #000cb8);
+  --primary-10-color: env(--primary-10-color, #000366);
+
+  --space-color: env(--space-color, #010409);
+  --space-0-color: env(--space-0-color, #000);
+  --space-1-color: env(--space-1-color, #131415);
+  --space-2-color: env(--space-2-color, #1c1e21);
+  --space-3-color: env(--space-3-color, #1c1e21);
+  --space-4-color: env(--space-4-color, #27292b);
+  --space-5-color: env(--space-5-color, #3a3c3f);
+  --space-6-color: env(--space-6-color, #4d4f52);
+  --space-7-color: env(--space-7-color, #606265);
+  --space-8-color: env(--space-8-color, #747679);
+  --space-9-color: env(--space-9-color, #8a8c8f);
+  --space-10-color: env(--space-10-color, #b2b4b7);
+
+  --success-color: env(--success-color, #6ee437);
+  --success-0-color: env(--success-0-color, #f0fee7);
+  --success-1-color: env(--success-1-color, #defbcc);
+  --success-2-color: env(--success-2-color, #bdf89e);
+  --success-3-color: env(--success-3-color, #94f066);
+  --success-4-color: env(--success-4-color, #6ee437);
+  --success-5-color: env(--success-5-color, #50d219);
+  --success-6-color: env(--success-6-color, #38a10f);
+  --success-7-color: env(--success-7-color, #2c7b10);
+  --success-8-color: env(--success-8-color, #276113);
+  --success-9-color: env(--success-9-color, #235215);
+  --success-10-color: env(--success-10-color, #0d2e05);
+
+  --warning-color: env(--warning-color, #fe8f39);
+  --warning-0-color: env(--warning-0-color, #fff7ed);
+  --warning-1-color: env(--warning-1-color, #ffecd4);
+  --warning-2-color: env(--warning-2-color, #ffd6a9);
+  --warning-3-color: env(--warning-3-color, #ffb872);
+  --warning-4-color: env(--warning-4-color, #fe8f39);
+  --warning-5-color: env(--warning-5-color, #fd6f12);
+  --warning-6-color: env(--warning-6-color, #ed5409);
+  --warning-7-color: env(--warning-7-color, #c53d09);
+  --warning-8-color: env(--warning-8-color, #9c3110);
+  --warning-9-color: env(--warning-9-color, #7e2a10);
+  --warning-10-color: env(--warning-10-color, #441206);
+}

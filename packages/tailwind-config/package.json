@@ -1,0 +1,54 @@
+{
+  "license": "MIT",
+  "author": {
+    "name": "Seolhun",
+    "email": "shun10116@gmail.com",
+    "url": "https://github.com/Seolhun"
+  },
+  "name": "@seolhun/root-tailwind-config",
+  "description": "Root Tailwind Config",
+  "version": "0.8.3-alpha.5",
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "dist/",
+    "LICENSE",
+    "CHANGELOG.md",
+    "README.md",
+    "package.json"
+  ],
+  "type": "module",
+  "types": "dist/legacy/index.d.ts",
+  "main": "dist/legacy/index.cjs",
+  "module": "dist/legacy/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/modern/index.d.ts",
+        "default": "./dist/modern/index.js"
+      },
+      "require": {
+        "types": "./dist/modern/index.d.cts",
+        "default": "./dist/modern/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "prettier": "prettier --write './src/**/*.{ts,tsx,js,jsx}'",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx ./src --fix",
+    "build": "tsup",
+    "clear": "rm -rf dist",
+    "test": "vitest --run"
+  },
+  "peerDependencies": {
+    "tailwindcss": ">=3.0.0"
+  },
+  "dependencies": {
+    "color": "^4.2.3",
+    "lodash-es": "^4.17.21"
+  }
+}
