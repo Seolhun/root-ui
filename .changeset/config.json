@@ -3,6 +3,10 @@
   "changelog": "@changesets/cli/changelog",
   "fixed": [],
   "linked": [],
+  "ignore": [
+    "@seolhun/root-eslint",
+    "@seolhun/root-tsconfig"
+  ],
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",

@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/root-ui",
   "description": "root-ui is a design system for React and tailwindcss.",
-  "version": "0.8.3-alpha.5",
+  "version": "0.8.3",
   "publishConfig": {
     "access": "restricted",
     "registry": "https://npm.pkg.github.com"
