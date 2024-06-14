@@ -8,14 +8,10 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:prettier/recommended',
-    'plugin:perfectionist/recommended-alphabetical'
+    'plugin:perfectionist/recommended-alphabetical',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: [
-    '@typescript-eslint',
-    'eslint-plugin',
-    'perfectionist',
-  ],
+  plugins: ['@typescript-eslint', 'eslint-plugin', 'perfectionist'],
   root: true,
   rules: {
     // Custom
@@ -25,31 +21,31 @@ module.exports = {
     'perfectionist/sort-classes': [
       'error',
       {
-        'groups': [
+        type: 'natural',
+        groups: [
           'static-property',
           'private-property',
           'property',
           'constructor',
           'static-method',
           'private-method',
-          'method'
+          'method',
         ],
-        'order': 'asc',
-        'type': 'natural'
-      }
+        order: 'asc',
+      },
     ],
     'perfectionist/sort-enums': [
       'error',
       {
-        'order': 'asc',
-        'type': 'natural',
-      }
+        type: 'natural',
+        order: 'asc',
+      },
     ],
     'perfectionist/sort-exports': [
       'error',
       {
-        'order': 'asc',
-        'type': 'natural',
+        type: 'natural',
+        order: 'asc',
       },
     ],
     /**
@@ -58,12 +54,13 @@ module.exports = {
     'perfectionist/sort-imports': [
       'error',
       {
+        type: 'natural',
         'custom-groups': {
-          'value': {
-            'seolhun': '@seolhun/**'
+          value: {
+            seolhun: '@seolhun/**',
           },
         },
-        'groups': [
+        groups: [
           'side-effect',
           'type',
           ['builtin', 'external', 'seolhun'],
@@ -73,30 +70,27 @@ module.exports = {
           ['parent', 'sibling', 'index'],
           'style',
           'object',
-          'unknown'
+          'unknown',
         ],
-        'internal-pattern': [
-          '~/**',
-        ],
+        'internal-pattern': ['~/**'],
         'newlines-between': 'always',
-        'order': 'asc',
+        order: 'asc',
         'read-tsconfig': false,
-        'type': 'natural'
-      }
+      },
     ],
     'perfectionist/sort-objects': [
       'error',
       {
+        type: 'natural',
         'always-on-top': ['id', '_id'],
-        'order': 'asc',
+        order: 'asc',
         'partition-by-comment': 'Part:**',
-        'type': 'natural'
-      }
-    ]
+      },
+    ],
   },
   settings: {
     'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx', '.js', '.jsx']
+      '@typescript-eslint/parser': ['.ts', '.tsx', '.js', '.jsx'],
     },
-  }
-}
+  },
+};

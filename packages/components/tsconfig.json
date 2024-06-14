@@ -1,0 +1,25 @@
+{
+  "extends": "@seolhun/root-tsconfig/base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "jsx": "react"
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.cjs",
+    "**/*.mjs",
+    "@types"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+  ]
+}
