@@ -16,6 +16,13 @@
     "type:check": {
       "cache": true
     },
+    "storybook": {
+      "cache": false,
+      "persistent": false
+    },
+    "build:storybook": {
+      "cache": true
+    },
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"],

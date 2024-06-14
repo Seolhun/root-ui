@@ -25,6 +25,8 @@
     "lint:fix": "turbo run lint:fix",
     "test": "turbo run test",
     "clear": "turbo run clear",
+    "storybook": "turbo run storybook",
+    "build:storybook": "turbo run build:storybook",
     "changeset": "changeset add",
     "changeset:version": "changeset version",
     "changeset:publish": "changeset publish"
