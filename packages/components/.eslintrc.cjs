@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['@seolhun/root-eslint'],
+  extends: ['@seolhun/eslint-config'],
   parserOptions: {
     parser: '@typescript-eslint/parser',
     project: './tsconfig.eslint.json',

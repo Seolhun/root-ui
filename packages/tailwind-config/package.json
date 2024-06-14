@@ -36,9 +36,9 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "prettier": "prettier --write './src/**/*.{ts,tsx,js,jsx}'",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./src",
-    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx ./src --fix",
+    "prettier": "prettier --write './**/*.{ts,tsx,js,jsx}'",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./",
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx ./ --fix",
     "build": "tsup",
     "clear": "rm -rf dist",
     "test": "vitest --run"
