@@ -17,7 +17,6 @@
   --accent-9-color: env(--accent-9-color, #85163f);
   --accent-10-color: env(--accent-10-color, #510621);
 
-
   --cream-color: env(--cream-color, #fafafa);
   --cream-0-color: env(--cream-0-color, #fff);
   --cream-1-color: env(--cream-1-color, #f8f8f8);
@@ -57,18 +56,18 @@
   --info-9-color: env(--info-9-color, #1a4d5f);
   --info-10-color: env(--info-10-color, #0b3341);
 
-  --neutral-color: env(--neutral-color, #989898);
-  --neutral-0-color: env(--neutral-0-color, #f8f8f8);
-  --neutral-1-color: env(--neutral-1-color, #f2f2f2);
-  --neutral-2-color: env(--neutral-2-color, #e6e6e6);
-  --neutral-3-color: env(--neutral-3-color, #d1d1d1);
-  --neutral-4-color: env(--neutral-4-color, #989898);
-  --neutral-5-color: env(--neutral-5-color, #6e6e6e);
-  --neutral-6-color: env(--neutral-6-color, #4c4c4c);
-  --neutral-7-color: env(--neutral-7-color, #333333);
-  --neutral-8-color: env(--neutral-8-color, #262626);
-  --neutral-9-color: env(--neutral-9-color, #1a1a1a);
-  --neutral-10-color: env(--neutral-10-color, #0d1012);
+  --neutral-color: env(--neutral-color, #cccccc); // Adjusted base neutral color
+  --neutral-0-color: env(--neutral-0-color, #fafafa); // Same as cream-0-color
+  --neutral-1-color: env(--neutral-1-color, #ececec); // Lighter cream shade
+  --neutral-2-color: env(--neutral-2-color, #dedede); // Mid-point between cream and space
+  --neutral-3-color: env(--neutral-3-color, #d0d0d0); // Slightly darker cream
+  --neutral-4-color: env(--neutral-4-color, #cccccc); // Lightened neutral-4-color
+  --neutral-5-color: env(--neutral-5-color, #a6a6a6); // New transition color
+  --neutral-6-color: env(--neutral-6-color, #8c8c8c); // Mid-point between space and cream
+  --neutral-7-color: env(--neutral-7-color, #747474); // Slightly darker space
+  --neutral-8-color: env(--neutral-8-color, #5c5c5c); // Even darker space
+  --neutral-9-color: env(--neutral-9-color, #444444); // Darker space
+  --neutral-10-color: env(--neutral-10-color, #2c2c2c); // Same as space-10-color
 
   --primary-color: env(--primary-color, #3f69ff);
   --primary-0-color: env(--primary-0-color, #e5f0ff);
