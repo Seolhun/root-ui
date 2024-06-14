@@ -71,8 +71,14 @@ export default plugin(
     );
   },
   {
-    variants: {
-      scale: ['responsive'],
+    theme: {
+      scale: {
+        lg: 'lg',
+        md: 'md',
+        sm: 'sm',
+        xl: 'xl',
+        xs: 'xs',
+      },
     },
   },
 );

@@ -1,7 +1,8 @@
+import { RootIntentType, RootScaleType } from '@seolhun/root-tailwind-config';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale } from '../../../system';
+import { toIntentMatch, toScaleMatch } from '../../../system';
 
 const CLASSNAME = 'Root__Tag';
 type ElementType = HTMLButtonElement;
@@ -10,7 +11,7 @@ export interface TagProps extends ElementProps {
   /**
    * @default primary
    */
-  intent?: RootIntent;
+  intent?: RootIntentType;
 
   /**
    * Use outline style
@@ -21,7 +22,7 @@ export interface TagProps extends ElementProps {
    * Set this to change scale
    * @default md
    */
-  scale?: RootScale;
+  scale?: RootScaleType;
 }
 
 export const Tag = React.forwardRef<ElementType, TagProps>(
@@ -35,8 +36,22 @@ export const Tag = React.forwardRef<ElementType, TagProps>(
           CLASSNAME,
           className,
           'tag',
-          `tag-scale-${scale}`,
-          `${outlined ? `outlined-${intent}` : `solid-${intent}`}`,
+          toScaleMatch({
+            lg: () => 'tag-scale-lg',
+            md: () => 'tag-scale-md',
+            sm: () => 'tag-scale-sm',
+            xl: () => 'tag-scale-xl',
+            xs: () => 'tag-scale-xs',
+          })(scale),
+          toIntentMatch({
+            accent: () => clsx(outlined ? `outlined-accent` : `solid-accent`),
+            danger: () => clsx(outlined ? `outlined-danger` : `solid-danger`),
+            info: () => clsx(outlined ? `outlined-info` : `solid-info`),
+            neutral: () => clsx(outlined ? `outlined-neutral` : `solid-neutral`),
+            primary: () => clsx(outlined ? `outlined-primary` : `solid-primary`),
+            success: () => clsx(outlined ? `outlined-success` : `solid-success`),
+            warning: () => clsx(outlined ? `outlined-warning` : `solid-warning`),
+          })(intent),
         )}
         ref={ref}
       >

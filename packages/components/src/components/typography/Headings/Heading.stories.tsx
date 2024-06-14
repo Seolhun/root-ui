@@ -1,4 +1,4 @@
-import { StoryFn } from '@storybook/react';
+import { Meta, StoryFn, StoryObj } from '@storybook/react';
 import * as React from 'react';
 
 import { StorybookContent } from '../../../stories';
@@ -8,11 +8,7 @@ import { H3 } from './H3';
 import { H4 } from './H4';
 import { H5 } from './H5';
 import { H6 } from './H6';
-import { HeadingProps } from './Heading';
-
-export default {
-  title: 'TypoGraphy/Heading',
-};
+import { Heading, HeadingProps } from './Heading';
 
 const BaseTemplate = ({ children, ...others }) => {
   return (
@@ -27,7 +23,7 @@ const BaseTemplate = ({ children, ...others }) => {
   );
 };
 
-const Headings: StoryFn<HeadingProps> = ({ children, ...others }) => {
+const HeadingsTemplate = ({ children, ...others }: HeadingProps) => {
   return (
     <StorybookContent>
       <StorybookContent.Light className="flex flex-col space-y-2" noAlign noGap>
@@ -40,7 +36,20 @@ const Headings: StoryFn<HeadingProps> = ({ children, ...others }) => {
   );
 };
 
-export const HeadingsStories = Headings.bind({});
-HeadingsStories.args = {
-  children: 'Heading is for title',
+export const Headings: StoryObj<HeadingProps> = {
+  args: {
+    className: 'text-space-1 dark:text-cream-1',
+    children: 'Heading is for title',
+  },
+  render: HeadingsTemplate,
 };
+
+const meta: Meta = {
+  component: Heading,
+  parameters: {
+    controls: { expanded: true },
+  },
+  title: 'TypoGraphy/Heading',
+};
+
+export default meta;

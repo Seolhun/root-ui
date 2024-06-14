@@ -273,7 +273,18 @@ export const minMaxWidthExtend = (() => {
 })();
 
 export const fontSizeExtend = (() => {
-  const seed: Record<string, string> = {};
+  const seed: Record<string, string> = {
+    '2xl': '1.563rem',
+    '3xl': '1.953rem',
+    '4xl': '2.441rem',
+    '5xl': '3.052rem',
+    base: '1rem',
+    lg: '1.125rem',
+    md: '1rem',
+    sm: '0.8rem',
+    xl: '1.25rem',
+    xs: '0.75rem',
+  };
   const result = reduce(
     (acc, v) => {
       return {

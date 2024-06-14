@@ -1,6 +1,9 @@
-// Global Window
-.Root__Window__LockScroll {
-  overflow: hidden !important;
+.Root__Window__LockScroll{
+  overflow:hidden!important
+}
+
+*,:after,:before{
+  box-sizing:border-box
 }
 
 :root{

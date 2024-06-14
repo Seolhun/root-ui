@@ -2,6 +2,8 @@ import { RootIntentType, RootScaleType } from '@seolhun/root-tailwind-config';
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { toIntentMatch, toScaleMatch } from '../../../system';
+
 const CLASSNAME = 'Root__Button';
 type ElementType = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<ElementType>;
@@ -35,8 +37,22 @@ export const Button = React.forwardRef<ElementType, ButtonProps>(
           CLASSNAME,
           className,
           'btn',
-          `btn-scale-${scale}`,
-          `${outlined ? `outlined-${intent}` : `solid-${intent}`}`,
+          toScaleMatch({
+            lg: () => 'btn-scale-lg',
+            md: () => 'btn-scale-md',
+            sm: () => 'btn-scale-sm',
+            xl: () => 'btn-scale-xl',
+            xs: () => 'btn-scale-xs',
+          })(scale),
+          toIntentMatch({
+            accent: () => clsx(outlined ? `outlined-accent` : `solid-accent`),
+            danger: () => clsx(outlined ? `outlined-danger` : `solid-danger`),
+            info: () => clsx(outlined ? `outlined-info` : `solid-info`),
+            neutral: () => clsx(outlined ? `outlined-neutral` : `solid-neutral`),
+            primary: () => clsx(outlined ? `outlined-primary` : `solid-primary`),
+            success: () => clsx(outlined ? `outlined-success` : `solid-success`),
+            warning: () => clsx(outlined ? `outlined-warning` : `solid-warning`),
+          })(intent),
         )}
         ref={ref}
       >

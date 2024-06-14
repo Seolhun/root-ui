@@ -1,6 +1,6 @@
 import { headingPlugins } from './bases';
 import { buttonPlugins, tagPlugins } from './components';
-import { outlined, scales, solid } from './utilities';
+import { fill, outlined, scales, solid } from './utilities';
 import { events } from './variants';
 
 export const RootPlugins = [
@@ -14,6 +14,7 @@ export const RootPlugins = [
   scales,
   solid,
   outlined,
+  fill,
   /**
    * Bases
    */

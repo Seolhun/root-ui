@@ -30,6 +30,7 @@ export default plugin(function ({ addComponents, theme }) {
       },
       borderRadius: theme('borderRadius.full'),
       fontWeight: theme('fontWeight.medium'),
+      whiteSpace: 'nowrap',
     },
   });
 });

@@ -27,7 +27,7 @@ export default {
     },
   },
   component: IconButton,
-  title: 'Atomic/Icon',
+  title: 'Atomic/IconButton',
 };
 
 const BaseTemplate = ({ children, ...others }: IconButtonProps) => {
