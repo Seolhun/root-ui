@@ -31,11 +31,10 @@ export const Select = React.forwardRef<ElementType, SelectProps>(
           'block w-full',
           'text-space-2 dark:text-cream-2',
           'bg-cream-1 dark:bg-space-1',
-          'border border-cream-3 dark:border-space-3',
-          'disabled:bg-neutral-1 disabled:border-neutral-4 disabled:placeholder:text-neutral-light',
+          'border border-neutral-1 dark:border-neutral-9',
+          'disabled:opacity-50 disabled:cursor-not-allowed',
           'px-4',
           'rounded',
-          'px-4',
           toScaleMatch({
             lg: () => 'scale-text-lg scale-py-lg',
             md: () => 'scale-text-md scale-py-md',

@@ -33,8 +33,8 @@ export const Textarea = React.forwardRef<ElementType, TextareaProps>(
           'px-4',
           'text-space-2 dark:text-cream-2',
           'bg-cream-1 dark:bg-space-1',
-          'disabled:bg-neutral-1 disabled:border-neutral-4 disabled:placeholder:text-neutral-light',
-          'border border-cream-3 dark:border-space-3',
+          'border border-neutral-1 dark:border-neutral-9',
+          'disabled:opacity-50 disabled:cursor-not-allowed',
           'rounded',
           'caret-neutral',
         )}

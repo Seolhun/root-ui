@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.4
+
+### Patch Changes
+
+- feat: update root-ui styels
+- Updated dependencies
+  - @seolhun/root-ui-tailwind@0.8.4
+
 ## 0.8.3
 
 ### Patch Changes

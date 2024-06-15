@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.4
+
+### Patch Changes
+
+- feat: update root-ui styels
+
 ## 0.8.3
 
 ### Patch Changes
