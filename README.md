@@ -1,48 +1,74 @@
 # root-ui
 
-Root UI with tailwind
+Root UI built with TypeScript, React and TailwindCSS.
 
 - Atomics
 - Combinations
 - Forms
+- Icons
+- Typography
 
----
+> Each directories will be separated to each packages.
+
+## Prerequisites
+
+- nvm
+- pnpm
+
+## Packages
+
+- @seolhun/root-ui
+- @seolhun/root-ui-tailwind
+
+```bash
+brew install nvm # If you don't have nvm
+nvm use
+npm install -g pnpm
+```
+
+## How to use
+
+### Install
+
+```bash
+pnpm install
+```
 
 ## How to run
+
+### Production
+
+```bash
+pnpm run build
+```
 
 ### Dev (with Storybook)
 
 ```bash
-npm run storybook
+pnpm run storybook
 ```
 
 ### Build (with Storybook)
 
 ```bash
-npm run build:storybook:
-```
-
-### Production
-
-```bash
-npm run build
+pnpm run build:storybook
 ```
 
 ### Test
 
 ```bash
-npm run test
+pnpm run test
 ```
 
 #### Lint
 
 ```bash
-npm run lint
-npm run lint:fix
+pnpm run lint
+pnpm run lint:fix
 ```
 
 #### Prettier
 
 ```bash
-npm run prettier
+pnpm run prettier
 ```

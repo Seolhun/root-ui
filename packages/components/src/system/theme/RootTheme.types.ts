@@ -1,10 +1,10 @@
 /**
- * @deprecated Use `import { RootScaleType } from '@seolhun/root-tailwind-config';
+ * @deprecated Use `import { RootScaleType } from '@seolhun/root-ui-tailwind';
  */
 export type RootIntent = 'accent' | 'danger' | 'info' | 'neutral' | 'primary' | 'success' | 'warning';
 
 /**
- * @deprecated Use `import { RootScaleType } from '@seolhun/root-tailwind-config';
+ * @deprecated Use `import { RootScaleType } from '@seolhun/root-ui-tailwind';
  */
 export type RootScale = 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 

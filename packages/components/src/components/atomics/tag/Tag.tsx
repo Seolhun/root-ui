@@ -1,4 +1,4 @@
-import { RootIntentType, RootScaleType } from '@seolhun/root-tailwind-config';
+import { RootIntentType, RootScaleType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
 

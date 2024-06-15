@@ -1,4 +1,4 @@
-import plugins from '@seolhun/root-tailwind-config';
+import plugins from '@seolhun/root-ui-tailwind';
 
 /** @type {import('tailwindcss').Config} */
 export default {

@@ -36,7 +36,7 @@ export const StorybookContentItem = ({ className, children, noAlign, noGap, ...o
         'flex flex-1 ',
         'min-h-full',
         {
-          'gap-2': !noGap,
+          'gap-4': !noGap,
           'items-center justify-center': !noAlign,
         },
         'py-12 px-24',

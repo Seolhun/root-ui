@@ -1,4 +1,4 @@
-import { RootScaleType } from '@seolhun/root-tailwind-config';
+import { RootScaleType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
 

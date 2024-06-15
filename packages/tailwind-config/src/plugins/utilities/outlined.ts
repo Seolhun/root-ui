@@ -34,7 +34,7 @@ export default plugin(
             },
             backgroundColor: 'transparent',
             borderColor: theme(`colors.${intent}`),
-            borderWidth: theme('borderWidth.4'),
+            borderWidth: theme('borderWidth.2'),
             color: theme(`colors.${intent}`),
             outline: 'none',
           };

@@ -6,7 +6,7 @@
 
 - feat: update component design-system with tailwind-config
 - Updated dependencies
-  - @seolhun/root-tailwind-config@0.8.3
+  - @seolhun/root-ui-tailwind@0.8.3
 
 All notable changes to this project will be documented in this file.
 
