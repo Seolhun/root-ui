@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.5
+
+### Patch Changes
+
+- chore: update z-index tailwind configuration values
+- Updated dependencies
+  - @seolhun/root-ui-tailwind@0.8.5
+
 ## 0.8.4
 
 ### Patch Changes

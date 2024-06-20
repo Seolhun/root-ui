@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.5
+
+### Patch Changes
+
+- chore: update z-index tailwind configuration values
+
 ## 0.8.4
 
 ### Patch Changes
