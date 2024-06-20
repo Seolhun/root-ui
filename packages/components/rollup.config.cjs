@@ -1,8 +1,6 @@
-
 import { visualizer } from 'rollup-plugin-visualizer';
 
 import { appBundler } from '../../scripts/rollup.cjs';
-
 import pkg from './package.json';
 const externals = Object.keys(pkg.peerDependencies || {});
 

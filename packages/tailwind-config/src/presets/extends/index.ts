@@ -39,7 +39,7 @@ export const zIndexExtend = ((start, end) => {
     return reduce(
       (acc, cur) => ({
         ...acc,
-        [cur]: `${cur * REM_STEP_SIZE}rem`,
+        [cur]: cur,
       }),
       seed,
       ranges,
