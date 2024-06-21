@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.6
+
+### Patch Changes
+
+- refactor: update form styles
+- Updated dependencies
+  - @seolhun/root-ui-tailwind@0.8.6
+
 ## 0.8.5
 
 ### Patch Changes

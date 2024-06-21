@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.6
+
+### Patch Changes
+
+- refactor: update form styles
+
 ## 0.8.5
 
 ### Patch Changes
