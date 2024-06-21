@@ -13,11 +13,11 @@ export const RootScales = {
 
 export const RootScaleValues = {
   PADDING: {
-    lg: { x: 10, y: 5 },
-    md: { x: 8, y: 4 },
-    sm: { x: 6, y: 3 },
-    xl: { x: 12, y: 6 },
-    xs: { x: 4, y: 2 },
+    lg: { x: 14, y: 7 },
+    md: { x: 12, y: 6 },
+    sm: { x: 10, y: 5 },
+    xl: { x: 16, y: 8 },
+    xs: { x: 8, y: 4 },
   } satisfies Record<RootScaleType, { x: number; y: number }>,
   SIZE: {
     lg: 24,

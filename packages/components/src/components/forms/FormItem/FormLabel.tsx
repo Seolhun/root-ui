@@ -24,6 +24,7 @@ export const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
           className,
           'flex items-center flex-wrap',
           'text-space-1 dark:text-cream-1',
+          'font-medium',
           toScaleMatch({
             lg: () => 'scale-text-lg',
             md: () => 'scale-text-md',
