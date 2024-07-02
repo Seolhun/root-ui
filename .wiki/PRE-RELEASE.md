@@ -27,7 +27,7 @@ pnpm run changeset pre enter alpha # run only once
 어떤 패키지를 배포할지 선택하고 버전과 변경 사항을 추가합니다.
 
 ```sh
-pnpm run changeset
+pnpm run changeset:add
 ```
 
 ### 4. Versioning and commit
@@ -57,7 +57,7 @@ pnpm changeset:publish
 
 ```sh
 # if you want to exit the pre-release version
-pnpm run changeset pre exit # run only once
+pnpm run changeset pre exit
 pnpm run changeset:version
 pnpm i # To update pre-release version in the package.json for lockfile
 git add .

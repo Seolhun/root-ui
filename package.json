@@ -26,7 +26,7 @@
     "clear": "turbo run clear",
     "storybook": "turbo run storybook",
     "build:storybook": "turbo run build:storybook",
-    "changeset": "changeset add",
+    "changeset:add": "changeset add",
     "changeset:version": "changeset version",
     "changeset:publish": "changeset publish"
   },

@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.8.7
+
+### Patch Changes
+
+- [`dd5b4e755f9e0616a3eb2b3eece24d9bc79b1c0b`](https://github.com/Seolhun/root-ui/commit/dd5b4e755f9e0616a3eb2b3eece24d9bc79b1c0b) Thanks [@Seolhun](https://github.com/Seolhun)! - feat: update dropdown/form/virtual-scroll/opener components
+
+- [`610c35ea190833a09db9d158ede473047a91349b`](https://github.com/Seolhun/root-ui/commit/610c35ea190833a09db9d158ede473047a91349b) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor: update form input/textarea styles
+
+- Updated dependencies [[`dd5b4e755f9e0616a3eb2b3eece24d9bc79b1c0b`](https://github.com/Seolhun/root-ui/commit/dd5b4e755f9e0616a3eb2b3eece24d9bc79b1c0b)]:
+  - @seolhun/root-ui-tailwind@0.8.7
+
 ## 0.8.7-alpha.1
 
 ### Patch Changes
