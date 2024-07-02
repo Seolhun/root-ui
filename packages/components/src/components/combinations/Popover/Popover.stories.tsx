@@ -4,7 +4,6 @@ import * as React from 'react';
 import { usePopper } from 'react-popper';
 
 import { Button, Card } from '../../../components/atomics';
-import { IconButton } from '../../../components/icons';
 import { storiesPlacements, StorybookContent } from '../../../stories';
 import { Popover } from './Popover';
 
@@ -33,23 +32,17 @@ const PopoversTemplate = () => {
       </Popover.Button>
 
       <Popover.Panel className={clsx('absolute z-10')}>
-        <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-          <IconButton>
-            <AcademicCapIcon />
-          </IconButton>
-          <p>First Item</p>
+        <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+          <AcademicCapIcon className="group-hover:text-primary" />
+          <p className="group-hover:text-primary">First Item</p>
         </a>
-        <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-          <IconButton>
-            <BookmarkIcon />
-          </IconButton>
-          <p>Second Item</p>
+        <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+          <BookmarkIcon className="group-hover:text-primary" />
+          <p className="group-hover:text-primary">Second Item</p>
         </a>
-        <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-          <IconButton>
-            <RocketLaunchIcon />
-          </IconButton>
-          <p>Third Item</p>
+        <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+          <RocketLaunchIcon className="group-hover:text-primary" />
+          <p className="group-hover:text-primary">Third Item</p>
         </a>
       </Popover.Panel>
     </Popover>
@@ -80,23 +73,17 @@ const PopoversCloseButtonTemplate = () => {
       <Popover.Panel className={clsx('absolute z-10')}>
         {({ close }) => (
           <div>
-            <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-              <IconButton>
-                <AcademicCapIcon />
-              </IconButton>
-              <p>First Item</p>
+            <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+              <AcademicCapIcon className="group-hover:text-primary" />
+              <p className="group-hover:text-primary">First Item</p>
             </a>
-            <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-              <IconButton>
-                <BookmarkIcon />
-              </IconButton>
-              <p>Second Item</p>
+            <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+              <BookmarkIcon className="group-hover:text-primary" />
+              <p className="group-hover:text-primary">Second Item</p>
             </a>
-            <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-              <IconButton>
-                <RocketLaunchIcon />
-              </IconButton>
-              <p>Third Item</p>
+            <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+              <RocketLaunchIcon className="group-hover:text-primary" />
+              <p className="group-hover:text-primary">Third Item</p>
             </a>
             <div className="flex items-end mt-2">
               <Button onClick={() => close()}>Close Popover Button</Button>
@@ -132,23 +119,17 @@ const PopoversOverlayTemplate = () => {
 
         <Popover.Overlay className="fixed inset-0 bg-dark opacity-30" />
         <Popover.Panel className={clsx('absolute z-10')}>
-          <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-            <IconButton>
-              <AcademicCapIcon />
-            </IconButton>
-            <p>First Item</p>
+          <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+            <AcademicCapIcon className="group-hover:text-primary" />
+            <p className="group-hover:text-primary">First Item</p>
           </a>
-          <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-            <IconButton>
-              <BookmarkIcon />
-            </IconButton>
-            <p>Second Item</p>
+          <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+            <BookmarkIcon className="group-hover:text-primary" />
+            <p className="group-hover:text-primary">Second Item</p>
           </a>
-          <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-            <IconButton>
-              <RocketLaunchIcon />
-            </IconButton>
-            <p>Third Item</p>
+          <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+            <RocketLaunchIcon className="group-hover:text-primary" />
+            <p className="group-hover:text-primary">Third Item</p>
           </a>
         </Popover.Panel>
       </Popover>
@@ -180,23 +161,17 @@ const PopoverGroupTemplate = () => {
         </Popover.Button>
 
         <Popover.Panel className={clsx('absolute z-10 min-w-100')}>
-          <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-            <IconButton>
-              <AcademicCapIcon />
-            </IconButton>
-            <p>First Item</p>
+          <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+            <AcademicCapIcon className="group-hover:text-primary" />
+            <p className="group-hover:text-primary">First Item</p>
           </a>
-          <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-            <IconButton>
-              <BookmarkIcon />
-            </IconButton>
-            <p>Second Item</p>
+          <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+            <BookmarkIcon className="group-hover:text-primary" />
+            <p className="group-hover:text-primary">Second Item</p>
           </a>
-          <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-            <IconButton>
-              <RocketLaunchIcon />
-            </IconButton>
-            <p>Third Item</p>
+          <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+            <RocketLaunchIcon className="group-hover:text-primary" />
+            <p className="group-hover:text-primary">Third Item</p>
           </a>
         </Popover.Panel>
       </Popover>
@@ -207,23 +182,17 @@ const PopoverGroupTemplate = () => {
         </Popover.Button>
 
         <Popover.Panel className={clsx('absolute z-10 min-w-100')}>
-          <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-            <IconButton>
-              <AcademicCapIcon />
-            </IconButton>
-            <p>First Item</p>
+          <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+            <AcademicCapIcon className="group-hover:text-primary" />
+            <p className="group-hover:text-primary">First Item</p>
           </a>
-          <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-            <IconButton>
-              <BookmarkIcon />
-            </IconButton>
-            <p>Second Item</p>
+          <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+            <BookmarkIcon className="group-hover:text-primary" />
+            <p className="group-hover:text-primary">Second Item</p>
           </a>
-          <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-            <IconButton>
-              <RocketLaunchIcon />
-            </IconButton>
-            <p>Third Item</p>
+          <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+            <RocketLaunchIcon className="group-hover:text-primary" />
+            <p className="group-hover:text-primary">Third Item</p>
           </a>
         </Popover.Panel>
       </Popover>
@@ -270,17 +239,17 @@ const PopoversPositionWithPopperTemplate = ({ placement }) => {
         </Popover.Button>
 
         <Popover.Panel {...attributes.popper} className="absolute z-10" ref={setPopperElement} style={styles.popper}>
-          <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-            <AcademicCapIcon />
-            <p>First Item</p>
+          <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+            <AcademicCapIcon className="group-hover:text-primary" />
+            <p className="group-hover:text-primary">First Item</p>
           </a>
-          <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-            <BookmarkIcon />
-            <p>Second Item</p>
+          <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+            <BookmarkIcon className="group-hover:text-primary" />
+            <p className="group-hover:text-primary">Second Item</p>
           </a>
-          <a className="flex items-center space-x-4 hover:bg-primary-0 cursor-pointer py-2 px-4 rounded">
-            <RocketLaunchIcon />
-            <p>Third Item</p>
+          <a className={clsx('group', 'flex items-center space-x-4 cursor-pointer py-2 px-4 rounded')}>
+            <RocketLaunchIcon className="group-hover:text-primary" />
+            <p className="group-hover:text-primary">Third Item</p>
           </a>
         </Popover.Panel>
       </Popover>
