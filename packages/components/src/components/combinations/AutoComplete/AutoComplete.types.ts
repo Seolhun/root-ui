@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-export interface AutoCompleteItem {
+export interface AutoCompleteItem<Value> {
   children: (args: AutoCompleteItemChildrenArgs) => React.ReactNode;
 
   key: string;
 
-  value: any;
+  value: Value;
 }
 
 export interface AutoCompleteItemChildrenArgs {
@@ -14,4 +14,4 @@ export interface AutoCompleteItemChildrenArgs {
   selected: boolean;
 }
 
-export type AutoCompleteIdentify<Item> = (item: Item) => AutoCompleteItem;
+export type AutoCompleteIdentify<Value> = (item: Value) => AutoCompleteItem<Value>;

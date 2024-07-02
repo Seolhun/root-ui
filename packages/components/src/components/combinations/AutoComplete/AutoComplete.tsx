@@ -19,51 +19,58 @@ export interface AutoCompleteProps<Item> {
    * To display value by transforming item.
    */
   displayedValue?: (item: Item) => string;
-
   /**
    * To render empty state
    */
   Empty?: React.ReactNode;
-
+  /**
+   * To identify item
+   */
   identify: AutoCompleteIdentify<Item>;
-
+  /**
+   * Items to render
+   */
   items: Item[];
-
   /**
    * To render loading state
    */
   Loader?: React.ReactNode;
-
   /**
    * Loading state
    */
   loading?: boolean;
-
+  /**
+   * On change input
+   */
   onChangeInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
-
+  /**
+   * On keydown input
+   */
   onKeydownInput: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-
+  /**
+   * On select item
+   */
   onSelectItem: (item: Item) => void;
-
   /**
    * Autocomplete input placeholder
    */
   placeholder?: string;
-
   /**
    * To render prefix element before input
    */
   Prefix?: React.ReactNode;
-
+  /**
+   * Query value
+   */
   query: string;
-
   /**
    * @default md
    */
   scale?: RootScaleType;
-
+  /**
+   * Selected item
+   */
   selectedItem?: Optional<Item>;
-
   /**
    * To render suffix element after input
    */
