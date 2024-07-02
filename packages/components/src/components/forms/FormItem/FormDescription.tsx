@@ -6,17 +6,17 @@ import * as React from 'react';
 import { toScaleMatch } from '~/system';
 import { OmitBy } from '~/types';
 
-const CLASSNAME = 'Root__FormHelp';
+const CLASSNAME = 'Root__FormDescription';
 type ElementType = HTMLParagraphElement;
 
-export interface FormHelpProps extends OmitBy<DescriptionProps<'p'>, 'as'> {
+export interface FormDescriptionProps extends OmitBy<DescriptionProps<'p'>, 'as'> {
   /**
    * @default md
    */
   scale?: RootScaleType;
 }
 
-export const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
+export const FormDescription = React.forwardRef<ElementType, FormDescriptionProps>(
   ({ className, children, scale = 'md', ...others }, ref) => {
     return (
       <Description
@@ -25,6 +25,8 @@ export const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
           CLASSNAME,
           className,
           'flex items-center flex-wrap',
+          'text-space-2 dark:text-cream-2',
+          'font-normal',
           toScaleMatch({
             lg: () => 'scale-text-lg',
             md: () => 'scale-text-md',
@@ -33,7 +35,6 @@ export const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
             xs: () => 'scale-text-xs',
           })(scale),
         )}
-        as="p"
         ref={ref}
       >
         {children}

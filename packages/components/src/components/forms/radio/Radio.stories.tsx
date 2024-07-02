@@ -1,9 +1,53 @@
+import { Meta, StoryObj } from '@storybook/react/*';
 import * as React from 'react';
 
-import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
-import { Radio, RadioProps } from './Radio';
+import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
-export default {
+import { FormItem } from '../FormItem';
+import { Radio, RadioGroupProps, RadioInputProps } from './Radio';
+
+const RadioTemplate = () => {
+  const [selected, setSelected] = React.useState('1');
+
+  return (
+    <StorybookContent>
+      <StorybookContent.Light className="flex-col">
+        <Radio aria-label="test" onChange={setSelected} value={selected}>
+          <FormItem className={'flex space-x-4'}>
+            <Radio.Input value="1" />
+            <FormItem.Label>1</FormItem.Label>
+          </FormItem>
+          <FormItem className={'flex space-x-4'}>
+            <Radio.Input value="2" />
+            <FormItem.Label>2</FormItem.Label>
+          </FormItem>
+          <FormItem className={'flex space-x-4'}>
+            <Radio.Input value="3" />
+            <FormItem.Label>3</FormItem.Label>
+          </FormItem>
+          <FormItem className={'flex space-x-4'}>
+            <Radio.Input disabled value="4" />
+            <FormItem.Label>4 Disabled</FormItem.Label>
+          </FormItem>
+        </Radio>
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        <Radio>
+          <FormItem className={'flex space-x-4'}>
+            <FormItem.Label>2</FormItem.Label>
+            <Radio.Input value="1" />
+          </FormItem>
+          <FormItem className={'flex space-x-4'}>
+            <FormItem.Label>2</FormItem.Label>
+            <Radio.Input value="2" />
+          </FormItem>
+        </Radio>
+      </StorybookContent.Dark>
+    </StorybookContent>
+  );
+};
+
+export const Radios: StoryObj<RadioInputProps> = {
   argTypes: {
     intent: {
       control: {
@@ -18,111 +62,150 @@ export default {
       },
     },
   },
+  render: RadioTemplate,
+};
+
+const ScaleRadioTemplate = ({ ...args }) => {
+  const [selected, setSelected] = React.useState('1');
+
+  return (
+    <StorybookContent>
+      <StorybookContent.Light className="flex-col space-y-4">
+        {storiesScaleOptions.map((scale) => (
+          <Radio {...args} aria-label="test" key={scale} onChange={setSelected} value={selected}>
+            <FormItem className={'flex space-x-4'}>
+              <Radio.Input scale={scale} value="1" />
+              <FormItem.Label>1 - {scale}</FormItem.Label>
+            </FormItem>
+
+            <FormItem className={'flex space-x-4'}>
+              <Radio.Input scale={scale} value="2" />
+              <FormItem.Label>2 - {scale}</FormItem.Label>
+            </FormItem>
+
+            <FormItem className={'flex space-x-4'}>
+              <Radio.Input disabled scale={scale} value="3" />
+              <FormItem.Label>3 Disabled - {scale}</FormItem.Label>
+            </FormItem>
+          </Radio>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col space-y-4">
+        {storiesScaleOptions.map((scale) => (
+          <Radio {...args} aria-label="test" key={scale} onChange={setSelected} value={selected}>
+            <FormItem className={'flex space-x-4'}>
+              <Radio.Input scale={scale} value="1" />
+              <FormItem.Label>1 - {scale}</FormItem.Label>
+            </FormItem>
+
+            <FormItem className={'flex space-x-4'}>
+              <Radio.Input scale={scale} value="2" />
+              <FormItem.Label>2 - {scale}</FormItem.Label>
+            </FormItem>
+
+            <FormItem className={'flex space-x-4'}>
+              <Radio.Input disabled scale={scale} value="3" />
+              <FormItem.Label>3 Disabled - {scale}</FormItem.Label>
+            </FormItem>
+          </Radio>
+        ))}
+      </StorybookContent.Dark>
+    </StorybookContent>
+  );
+};
+
+export const ScaleRadios: StoryObj<RadioInputProps> = {
+  argTypes: {
+    intent: {
+      control: {
+        type: 'select',
+        options: storiesIntentOptions,
+      },
+    },
+    scale: {
+      control: {
+        type: 'select',
+        options: storiesScaleOptions,
+      },
+    },
+  },
+  args: {
+    disabled: false,
+  },
+  render: ScaleRadioTemplate,
+};
+
+const IntentRadioTemplate = ({ ...args }) => {
+  const [selected, setSelected] = React.useState('1');
+
+  return (
+    <StorybookContent>
+      <StorybookContent.Light className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <Radio {...args} aria-label="test" key={intent} onChange={setSelected} value={selected}>
+            <FormItem className={'flex space-x-4'}>
+              <Radio.Input intent={intent} value="1" />
+              <FormItem.Label>1 - {intent}</FormItem.Label>
+            </FormItem>
+            <FormItem className={'flex space-x-4'}>
+              <Radio.Input intent={intent} value="2" />
+              <FormItem.Label>2 - {intent}</FormItem.Label>
+            </FormItem>
+
+            <FormItem className={'flex space-x-4'}>
+              <Radio.Input disabled intent={intent} value="3" />
+              <FormItem.Label>3 Disabled - {intent}</FormItem.Label>
+            </FormItem>
+          </Radio>
+        ))}
+      </StorybookContent.Light>
+      <StorybookContent.Dark className="flex-col">
+        {storiesIntentOptions.map((intent) => (
+          <Radio {...args} aria-label="test" key={intent} onChange={setSelected} value={selected}>
+            <FormItem className={'flex space-x-4'}>
+              <Radio.Input intent={intent} value="1" />
+              <FormItem.Label>1 - {intent}</FormItem.Label>
+            </FormItem>
+            <FormItem className={'flex space-x-4'}>
+              <Radio.Input intent={intent} value="2" />
+              <FormItem.Label>2 - {intent}</FormItem.Label>
+            </FormItem>
+
+            <FormItem className={'flex space-x-4'}>
+              <Radio.Input disabled intent={intent} value="3" />
+              <FormItem.Label>3 Disabled - {intent}</FormItem.Label>
+            </FormItem>
+          </Radio>
+        ))}
+      </StorybookContent.Dark>
+    </StorybookContent>
+  );
+};
+
+export const IntentRadios: StoryObj<RadioInputProps> = {
+  argTypes: {
+    intent: {
+      control: {
+        type: 'select',
+        options: storiesIntentOptions,
+      },
+    },
+    scale: {
+      control: {
+        type: 'select',
+        options: storiesScaleOptions,
+      },
+    },
+  },
+  args: {
+    disabled: false,
+  },
+  render: IntentRadioTemplate,
+};
+
+const meta: Meta<RadioGroupProps> = {
   component: Radio,
   title: 'Form/Radio',
 };
 
-const BaseTemplate = ({ checked, children, ...others }: RadioProps) => {
-  const [isChecked, setChecked] = React.useState(checked);
-
-  React.useEffect(() => {
-    setChecked(checked);
-  }, [checked]);
-
-  return (
-    <Radio checked={isChecked} onChange={(e) => setChecked(e.target.checked)} {...others}>
-      {children}
-    </Radio>
-  );
-};
-
-const RadioTemplate = ({ children, ...others }: RadioProps) => {
-  return (
-    <StorybookContent>
-      <StorybookContent.Light className="flex-col">
-        <BaseTemplate {...others}>{children}</BaseTemplate>
-        <BaseTemplate {...others} checked>
-          {children}
-        </BaseTemplate>
-        <BaseTemplate {...others} disabled>
-          {children}
-        </BaseTemplate>
-        <BaseTemplate {...others} checked disabled>
-          {children}
-        </BaseTemplate>
-      </StorybookContent.Light>
-      <StorybookContent.Dark className="flex-col">
-        <BaseTemplate {...others}>{children}</BaseTemplate>
-        <BaseTemplate {...others} checked>
-          {children}
-        </BaseTemplate>
-        <BaseTemplate {...others} disabled>
-          {children}
-        </BaseTemplate>
-        <BaseTemplate {...others} checked disabled>
-          {children}
-        </BaseTemplate>
-      </StorybookContent.Dark>
-    </StorybookContent>
-  );
-};
-
-export const Radios = RadioTemplate.bind({});
-Radios.args = {
-  children: 'Radio',
-};
-
-const ScaleRadioTemplate = ({ children, ...others }: RadioProps) => {
-  return (
-    <StorybookContent>
-      <StorybookContent.Light className="flex-col">
-        {storiesScaleOptions.map((scale) => (
-          <BaseTemplate {...others} key={scale} scale={scale}>
-            {children}
-          </BaseTemplate>
-        ))}
-      </StorybookContent.Light>
-      <StorybookContent.Dark className="flex-col">
-        {storiesScaleOptions.map((scale) => (
-          <BaseTemplate {...others} key={scale} scale={scale}>
-            {children}
-          </BaseTemplate>
-        ))}
-      </StorybookContent.Dark>
-    </StorybookContent>
-  );
-};
-
-export const ScaleRadios = ScaleRadioTemplate.bind({});
-ScaleRadios.args = {
-  children: 'Radio',
-  disabled: false,
-};
-
-const IntentRadioTemplate = ({ children, ...others }: RadioProps) => {
-  return (
-    <StorybookContent>
-      <StorybookContent.Light className="flex-col">
-        {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} intent={intent} key={intent}>
-            {children}
-          </BaseTemplate>
-        ))}
-      </StorybookContent.Light>
-      <StorybookContent.Dark className="flex-col">
-        {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} intent={intent} key={intent}>
-            {children}
-          </BaseTemplate>
-        ))}
-      </StorybookContent.Dark>
-    </StorybookContent>
-  );
-};
-
-export const IntentRadio = IntentRadioTemplate.bind({});
-IntentRadio.args = {
-  checked: true,
-  children: 'Radio',
-  disabled: false,
-};
+export default meta;

@@ -1,4 +1,4 @@
-import { Checkbox as HeadlessCheckbox, CheckboxProps as HeadlessCheckoutProps } from '@headlessui/react';
+import { Radio as HeadlessRadio, RadioProps as HeadlessRadioProps } from '@headlessui/react';
 import { RootIntentType, RootScaleType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
@@ -6,10 +6,10 @@ import * as React from 'react';
 import { toIntentMatch, toScaleMatch } from '~/system';
 import { OmitBy } from '~/types';
 
-const CLASSNAME = 'Root__Checkbox';
+const CLASSNAME = 'Root__Radio';
 type ElementType = HTMLSpanElement;
 
-export interface CheckboxProps extends OmitBy<HeadlessCheckoutProps<'span'>, 'as'> {
+export interface RadioInputProps extends OmitBy<HeadlessRadioProps<'span'>, 'as'> {
   /**
    * @default primary
    */
@@ -20,17 +20,17 @@ export interface CheckboxProps extends OmitBy<HeadlessCheckoutProps<'span'>, 'as
   scale?: RootScaleType;
 }
 
-export const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
+export const RadioInput = React.forwardRef<ElementType, RadioInputProps>(
   ({ className, intent = 'primary', scale = 'md', ...others }, ref) => {
     return (
-      <HeadlessCheckbox
+      <HeadlessRadio
         {...others}
         className={clsx(
           CLASSNAME,
           className,
           'group',
           'inline-flex items-center justify-center',
-          'rounded-lg',
+          'rounded-full',
           'p-1',
           'border border-neutral-2 dark:border-neutral-8',
           'bg-cream-1 dark:bg-space-1',
@@ -59,18 +59,13 @@ export const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
         ref={ref}
       >
         <svg
-          className={clsx(
-            '!bg-transparent',
-            'rounded-md',
-            'stroke-cream-1 dark:stroke-cream-1',
-            'opacity-0 group-data-[disabled]:opacity-25 group-data-[checked]:opacity-100',
-          )}
+          className={clsx('!bg-transparent', 'rounded-full', 'stroke-cream-1 dark:stroke-cream-1')}
           fill="none"
           viewBox="0 0 14 14"
         >
-          <path d="M3 8L6 11L11 3.5" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />
+          <path d="M3 8L6 11L11 3.5" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
         </svg>
-      </HeadlessCheckbox>
+      </HeadlessRadio>
     );
   },
 );

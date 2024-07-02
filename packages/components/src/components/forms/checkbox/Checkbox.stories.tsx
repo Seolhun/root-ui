@@ -1,26 +1,8 @@
+import { Meta, StoryObj } from '@storybook/react/*';
 import * as React from 'react';
 
 import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
 import { Checkbox, CheckboxProps } from './Checkbox';
-
-export default {
-  argTypes: {
-    intent: {
-      control: {
-        type: 'select',
-        options: storiesIntentOptions,
-      },
-    },
-    scale: {
-      control: {
-        type: 'select',
-        options: storiesScaleOptions,
-      },
-    },
-  },
-  component: Checkbox,
-  title: 'Form/Checkbox',
-};
 
 const BaseTemplate = ({ checked, children, ...others }: CheckboxProps) => {
   const [isChecked, setChecked] = React.useState(checked);
@@ -30,7 +12,7 @@ const BaseTemplate = ({ checked, children, ...others }: CheckboxProps) => {
   }, [checked]);
 
   return (
-    <Checkbox checked={isChecked} onChange={(e) => setChecked(e.target.checked)} {...others}>
+    <Checkbox checked={isChecked} onChange={setChecked} {...others}>
       {children}
     </Checkbox>
   );
@@ -67,9 +49,11 @@ const CheckboxTemplate = ({ children, ...others }: CheckboxProps) => {
   );
 };
 
-export const Checkboxs = CheckboxTemplate.bind({});
-Checkboxs.args = {
-  children: 'Checkbox',
+export const Checkboxs: StoryObj<CheckboxProps> = {
+  args: {
+    children: 'Checkbox',
+  },
+  render: CheckboxTemplate,
 };
 
 const ScaleCheckboxTemplate = ({ children, ...others }: CheckboxProps) => {
@@ -93,10 +77,12 @@ const ScaleCheckboxTemplate = ({ children, ...others }: CheckboxProps) => {
   );
 };
 
-export const ScaleCheckboxs = ScaleCheckboxTemplate.bind({});
-ScaleCheckboxs.args = {
-  children: 'Checkbox',
-  disabled: false,
+export const ScaleCheckbox: StoryObj<CheckboxProps> = {
+  args: {
+    children: 'Checkbox',
+    disabled: false,
+  },
+  render: ScaleCheckboxTemplate,
 };
 
 const IntentCheckboxTemplate = ({ children, ...others }: CheckboxProps) => {
@@ -120,9 +106,32 @@ const IntentCheckboxTemplate = ({ children, ...others }: CheckboxProps) => {
   );
 };
 
-export const IntentCheckbox = IntentCheckboxTemplate.bind({});
-IntentCheckbox.args = {
-  checked: true,
-  children: 'Checkbox',
-  disabled: false,
+export const IntentCheckbox: StoryObj<CheckboxProps> = {
+  args: {
+    checked: true,
+    children: 'Checkbox',
+    disabled: false,
+  },
+  render: IntentCheckboxTemplate,
 };
+
+const meta: Meta<typeof Checkbox> = {
+  argTypes: {
+    intent: {
+      control: {
+        type: 'select',
+        options: storiesIntentOptions,
+      },
+    },
+    scale: {
+      control: {
+        type: 'select',
+        options: storiesScaleOptions,
+      },
+    },
+  },
+  component: Checkbox,
+  title: 'Form/Checkbox',
+};
+
+export default meta;

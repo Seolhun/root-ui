@@ -1,23 +1,24 @@
+import { Label, LabelProps } from '@headlessui/react';
+import { RootScaleType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { toScaleMatch } from '../../../system';
-import { useFormItemContext } from './FormItem.Context';
-import { Required } from './Required';
+import { toScaleMatch } from '~/system';
 
 const CLASSNAME = 'Root__FormLabel';
 type ElementType = HTMLLabelElement;
-type ElementProps = React.LabelHTMLAttributes<ElementType>;
-export interface FormLabelProps extends ElementProps {
-  required?: boolean;
+
+export interface FormLabelProps extends LabelProps {
+  /**
+   * @default md
+   */
+  scale?: RootScaleType;
 }
 
 export const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
-  ({ className, children, htmlFor, required, ...others }, ref) => {
-    const { scale } = useFormItemContext();
-
+  ({ className, children, htmlFor, scale = 'md', ...others }, ref) => {
     return (
-      <label
+      <Label
         {...others}
         className={clsx(
           CLASSNAME,
@@ -38,8 +39,7 @@ export const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
         ref={ref}
       >
         {children}
-        {required && <Required />}
-      </label>
+      </Label>
     );
   },
 );

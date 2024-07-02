@@ -1,6 +1,6 @@
 import { PartialKeys, VirtualItem, Virtualizer, VirtualizerOptions } from '@tanstack/react-virtual';
 
-export type OmitByKey<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+import { OmitBy } from '~/types';
 
 export type VirtualizerScrollOptions<
   ScrollElement extends Element | Window,
@@ -13,7 +13,7 @@ export type VirtualizerScrollOptions<
 export type VirtualOptions<
   ScrollElement extends Element | Window,
   ItemElement extends HTMLElement = HTMLElement,
-> = OmitByKey<VirtualizerScrollOptions<ScrollElement, ItemElement>, 'getScrollElement'>;
+> = OmitBy<VirtualizerScrollOptions<ScrollElement, ItemElement>, 'getScrollElement'>;
 
 export type VirtualScrollRendererArgs<
   ScrollElement extends Element | Window,

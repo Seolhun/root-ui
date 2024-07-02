@@ -31,7 +31,7 @@ export const Select = React.forwardRef<ElementType, SelectProps>(
           'block w-full',
           'text-space-2 dark:text-cream-2',
           'bg-cream-1 dark:bg-space-1',
-          'border border-neutral-1 dark:border-neutral-9',
+          'border border-neutral-2 dark:border-neutral-8',
           'disabled:opacity-50 disabled:cursor-not-allowed',
           'px-4',
           'rounded',

@@ -54,7 +54,7 @@ export const Switch = React.forwardRef<ElementType, SwitchProps>(
               xl: () => 'h-[38px] w-[76px]',
               xs: () => 'h-[22px] w-[44px]',
             })(scale),
-            'border border-neutral-1 dark:border-neutral-9',
+            'border border-neutral-2 dark:border-neutral-8',
             {
               'bg-cream-1 dark:bg-space-3': !checked,
             },
