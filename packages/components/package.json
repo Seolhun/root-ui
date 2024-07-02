@@ -20,8 +20,26 @@
     "package.json",
     "tailwind.config.js"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "types": "dist/legacy/index.d.ts",
+  "main": "dist/legacy/index.cjs",
+  "module": "dist/legacy/index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/modern/index.d.ts",
+        "default": "./dist/modern/index.js"
+      },
+      "require": {
+        "types": "./dist/modern/index.d.cts",
+        "default": "./dist/modern/index.cjs"
+      }
+    },
+    "./index.css": {
+      "import": "./dist/modern/index.css",
+      "require": "./dist/modern/index.css"
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "type:check": "tsc --noEmit --project tsconfig.build.json",
     "prebuild": "rimraf dist/*",
