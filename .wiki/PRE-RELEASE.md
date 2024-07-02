@@ -57,7 +57,7 @@ pnpm changeset:publish
 
 ```sh
 # if you want to exit the pre-release version
-pnpm run changeset pre exit
+pnpm changeset pre exit
 pnpm run changeset:version
 pnpm i # To update pre-release version in the package.json for lockfile
 git add .
