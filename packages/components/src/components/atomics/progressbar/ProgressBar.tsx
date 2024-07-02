@@ -1,7 +1,9 @@
+import { RootIntentType, RootScaleType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
+import { toIntentMatch, toScaleMatch } from '~/system';
+
 import { Tag } from '../tag';
 
 const CLASSNAME = 'Root__ProgressBar';
@@ -16,7 +18,7 @@ export interface ProgressBarProps extends ElementProps {
   /**
    * @default primary
    */
-  intent?: RootIntent;
+  intent?: RootIntentType;
 
   /**
    * Percentage
@@ -28,7 +30,7 @@ export interface ProgressBarProps extends ElementProps {
    * Set this to change scale
    * @default md
    */
-  scale?: RootScale;
+  scale?: RootScaleType;
 
   /**
    * Progressbar UI Type

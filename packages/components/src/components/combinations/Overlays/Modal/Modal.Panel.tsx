@@ -1,7 +1,9 @@
+import { RootScaleType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootScale, toScaleMatch } from '../../../../system';
+import { toScaleMatch } from '~/system';
+
 import { ModalWidgetPanel, useModalContext } from '../Widgets';
 
 const CLASSNAME = 'Root__Modal__Panel';
@@ -13,7 +15,7 @@ export interface ModalPanelProps extends ElementProps {
    * Set this to change scale
    * @default md
    */
-  scale?: RootScale;
+  scale?: RootScaleType;
 }
 
 export const ModalPanel = React.forwardRef<ElementType, ModalPanelProps>(

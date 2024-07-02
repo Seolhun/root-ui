@@ -1,7 +1,8 @@
+import { RootIntentType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, toIntentMatch } from '../../../system';
+import { toIntentMatch } from '~/system';
 
 const CLASSNAME = 'Root__BlockQuote';
 type ElementType = HTMLQuoteElement;
@@ -11,7 +12,7 @@ export interface BlockQuoteProps extends ElementProps {
   /**
    * @default primary
    */
-  intent?: RootIntent;
+  intent?: RootIntentType;
 }
 
 export const BlockQuote = React.forwardRef<ElementType, BlockQuoteProps>(

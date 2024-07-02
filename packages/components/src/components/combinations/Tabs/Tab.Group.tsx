@@ -1,8 +1,7 @@
 import { Tab } from '@headlessui/react';
+import { RootIntentType, RootScaleType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
-
-import { RootIntent, RootScale } from '../../../system';
 
 const CLASSNAME = 'Root__TabGroup';
 type ElementType = HTMLDivElement;
@@ -17,7 +16,7 @@ export interface TabGroupProps extends ElementProps {
   /**
    * @default primary
    */
-  intent?: RootIntent;
+  intent?: RootIntentType;
 
   /**
    * Is tab manual?
@@ -33,7 +32,7 @@ export interface TabGroupProps extends ElementProps {
    * Set this to change scale
    * @default md
    */
-  scale?: RootScale;
+  scale?: RootScaleType;
 
   /**
    * Selected tab index

@@ -1,7 +1,8 @@
+import { RootScaleType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootScale, toScaleMatch } from '../../../system';
+import { toScaleMatch } from '~/system';
 
 const CLASSNAME = 'Root__Avatar';
 type ElementType = HTMLImageElement;
@@ -17,7 +18,7 @@ export interface AvatarProps {
    * Set this to change scale
    * @default md
    */
-  scale?: RootScale;
+  scale?: RootScaleType;
 }
 
 export const Avatar = React.forwardRef<ElementType, AvatarProps & ElementProps>(

@@ -1,7 +1,8 @@
+import { RootIntentType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, toIntentMatch } from '../../../system';
+import { toIntentMatch } from '~/system';
 
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
@@ -12,7 +13,7 @@ export interface CalloutProps extends ElementProps {
   /**
    * @default primary
    */
-  intent?: RootIntent;
+  intent?: RootIntentType;
 }
 
 export const Callout = React.forwardRef<ElementType, CalloutProps>(

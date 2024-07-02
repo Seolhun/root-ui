@@ -1,7 +1,8 @@
+import { RootIntentType, RootScaleType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootIntent, RootScale, toIntentMatch, toScaleMatch } from '../../../system';
+import { toIntentMatch, toScaleMatch } from '~/system';
 
 const CLASSNAME = 'Root__Select';
 type ElementType = HTMLSelectElement;
@@ -11,13 +12,13 @@ export interface SelectProps extends ElementProps {
   /**
    * @default primary
    */
-  intent?: RootIntent;
+  intent?: RootIntentType;
 
   /**
    * Set this to change scale
    * @default md
    */
-  scale?: RootScale;
+  scale?: RootScaleType;
 }
 
 export const Select = React.forwardRef<ElementType, SelectProps>(

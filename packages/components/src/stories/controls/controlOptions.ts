@@ -1,8 +1,10 @@
-import { RootIntent, RootPlacement, RootScale } from '../../system';
+import { RootIntentType, RootScaleType } from '@seolhun/root-ui-tailwind';
 
-export const storiesScaleOptions: RootScale[] = ['xs', 'sm', 'md', 'lg', 'xl'];
+import { RootPlacement } from '~/system';
 
-export const storiesIntentOptions: RootIntent[] = [
+export const storiesScaleOptions: RootScaleType[] = ['xs', 'sm', 'md', 'lg', 'xl'];
+
+export const storiesIntentOptions: RootIntentType[] = [
   'primary',
   'info',
   'success',
