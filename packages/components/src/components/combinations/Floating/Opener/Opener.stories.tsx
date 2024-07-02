@@ -4,22 +4,22 @@ import * as React from 'react';
 import { Button } from '~/components/atomics';
 import { StorybookContent } from '~/stories';
 
-import { Tooltip } from './Tooltip';
-import { TooltipProps } from './Tooltip.Root';
+import { Opener } from './Opener';
+import { OpenerProps } from './Opener.Root';
 
 const BaseTemplate = ({ root, ...others }) => {
   return (
-    <Tooltip {...others} root={root}>
-      <Tooltip.Trigger>
-        <Button>Tooltip Trigger</Button>
-      </Tooltip.Trigger>
+    <Opener {...others} root={root}>
+      <Opener.Trigger>
+        <Button>Opener Trigger</Button>
+      </Opener.Trigger>
 
-      <Tooltip.Content>Tooltip Content</Tooltip.Content>
-    </Tooltip>
+      <Opener.Content>Opener Content</Opener.Content>
+    </Opener>
   );
 };
 
-const TooltipsTemplate: StoryFn<TooltipProps> = ({ ...others }) => {
+const OpenersTemplate: StoryFn<OpenerProps> = ({ ...others }) => {
   return (
     <StorybookContent>
       <StorybookContent.Light>{({ root }) => <BaseTemplate {...others} root={root} />}</StorybookContent.Light>
@@ -28,12 +28,12 @@ const TooltipsTemplate: StoryFn<TooltipProps> = ({ ...others }) => {
   );
 };
 
-export const Tooltips: StoryObj<TooltipProps> = {
+export const Openers: StoryObj<OpenerProps> = {
   args: {},
-  render: (args) => <TooltipsTemplate {...args} />,
+  render: (args) => <OpenersTemplate {...args} />,
 };
 
-const meta: Meta<typeof Tooltip> = {
+const meta: Meta<typeof Opener> = {
   title: 'Combination/Opener',
 };
 

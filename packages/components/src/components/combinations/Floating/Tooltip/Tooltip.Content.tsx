@@ -2,8 +2,8 @@ import { FloatingPortal, useDelayGroup, useDelayGroupContext, useMergeRefs } fro
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { useIsoMorphicEffect } from '../../../../hooks';
-import { toScaleMatch, useRootUI } from '../../../../system';
+import { useIsoMorphicEffect } from '~/hooks';
+
 import { useTooltipContext } from './useTooltipContext';
 
 type ElementType = HTMLElement;
@@ -13,7 +13,6 @@ export interface TooltipContentProps extends ElementProps {}
 
 export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>(
   ({ className, children, ...others }, ref) => {
-    const { scale } = useRootUI();
     const contextValues = useTooltipContext();
     const { setCurrentId } = useDelayGroupContext();
     const tooltipId = React.useId();
@@ -43,13 +42,6 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
               'border border-cream-3 dark:border-space-3',
               'text-space-2 dark:text-cream-2',
               'bg-cream-1 dark:bg-space-1',
-              toScaleMatch({
-                lg: () => 'scale-text-lg scale-p-lg',
-                md: () => 'scale-text-md scale-p-md',
-                sm: () => 'scale-text-sm scale-p-sm',
-                xl: () => 'scale-text-xl scale-p-xl',
-                xs: () => 'scale-text-xs scale-p-xs',
-              })(scale),
             )}
             style={{
               ...others.style,

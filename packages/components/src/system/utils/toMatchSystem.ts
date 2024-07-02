@@ -18,6 +18,9 @@ export const toIntentMatch = curry((lookup: Partial<Record<RootIntent, () => str
   return '';
 });
 
+/**
+ * @deprecated Don't use scale props
+ */
 export const toScaleMatch = curry((lookup: Partial<Record<RootScale, () => string>>, key: RootScale) => {
   const result = toMatch(lookup, key);
   if (result) {

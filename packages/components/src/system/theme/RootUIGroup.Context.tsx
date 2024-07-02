@@ -2,6 +2,9 @@ import * as React from 'react';
 
 import { RootIntent, RootScale } from './RootTheme.types';
 
+/**
+ * @deprecated Use className only
+ */
 export interface RootUIGroupContextValues {
   defaultIntent?: RootIntent;
   defaultScale?: RootScale;
@@ -13,10 +16,16 @@ export interface RootUIGroupContextValues {
 export const RootUIGroupContext = React.createContext<RootUIGroupContextValues>({});
 RootUIGroupContext.displayName = 'RootUIGroupContext';
 
+/**
+ * @deprecated Use className only
+ */
 export interface RootUIGroupProviderProps extends RootUIGroupContextValues {
   children: React.ReactNode;
 }
 
+/**
+ * @deprecated Use className only
+ */
 export function RootUIGroupProvider({
   children,
   defaultIntent,
