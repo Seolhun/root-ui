@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.8-alpha.0
+
+### Patch Changes
+
+- chore: fix the exports types
+
 ## 0.8.7
 
 ### Patch Changes

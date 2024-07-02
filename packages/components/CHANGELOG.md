@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.8.8-alpha.0
+
+### Patch Changes
+
+- chore: fix the exports types
+
+- Updated dependencies []:
+  - @seolhun/root-ui-tailwind@0.8.8-alpha.0
+
 ## 0.8.7
 
 ### Patch Changes
