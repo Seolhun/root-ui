@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.7-alpha.1
+
+### Patch Changes
+
+- feat: update dropdown/form/virtual-scroll/opener components
+- Updated dependencies
+  - @seolhun/root-ui-tailwind@0.8.7-alpha.0
+
 ## 0.8.7-alpha.0
 
 ### Patch Changes
