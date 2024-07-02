@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.8-alpha.2
+
+### Patch Changes
+
+- refactor: update autocomplete types
+
 ## 0.8.8-alpha.1
 
 ### Patch Changes
