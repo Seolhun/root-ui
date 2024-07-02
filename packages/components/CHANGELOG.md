@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.8.8-alpha.1
+
+### Patch Changes
+
+- chore: add Required Component in FormItem
+
+- Updated dependencies []:
+  - @seolhun/root-ui-tailwind@0.8.8-alpha.1
+
 ## 0.8.8-alpha.0
 
 ### Patch Changes

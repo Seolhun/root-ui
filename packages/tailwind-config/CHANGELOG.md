@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.8-alpha.1
+
+### Patch Changes
+
+- chore: add Required Component in FormItem
+
 ## 0.8.8-alpha.0
 
 ### Patch Changes
