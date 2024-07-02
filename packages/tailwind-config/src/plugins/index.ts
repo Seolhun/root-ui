@@ -1,13 +1,14 @@
 import { headingPlugins } from './bases';
 import { buttonPlugins, tagPlugins } from './components';
 import { fill, outlined, scales, solid } from './utilities';
-import { events } from './variants';
+import { events, layout } from './variants';
 
 export const RootPlugins = [
   /**
    * Variants
    */
   events,
+  layout,
   /**
    * Utilities
    */

@@ -54,7 +54,7 @@ export function NavExpandedProvider({
   const [isFloatingOpen, setIsFloatingOpen] = React.useState(false);
 
   const floating = useFloating({
-    middleware: middleware ? middleware : [shift(), flip(), offset(20)],
+    middleware: middleware ? middleware : [shift(), flip(), offset()],
     onOpenChange: setIsFloatingOpen,
     placement,
     strategy,

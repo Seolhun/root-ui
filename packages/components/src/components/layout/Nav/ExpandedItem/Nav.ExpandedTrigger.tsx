@@ -1,6 +1,7 @@
-import { mergeRefs } from '@seolhun/firststage-utils';
 import clsx from 'clsx';
 import * as React from 'react';
+
+import { useMergeRefs } from '~/hooks';
 
 import { useNavExpandedContext } from './Nav.ExpandedContext';
 
@@ -20,19 +21,13 @@ export const NavExpandedTrigger = React.forwardRef<
   const { floating, intersection, isFloatingOpen } = useNavExpandedContext();
   const { refs } = floating;
 
-  const onNavRef = React.useCallback(
-    (node: ElementType | null) => {
-      mergeRefs(ref)(node);
-      refs.setReference(node);
-    },
-    [refs, ref],
-  );
+  const mergedRefs = useMergeRefs([refs.setReference, ref]);
 
   return (
     <div
       {...others}
       className={clsx(CLASSNAME, className)}
-      ref={onNavRef}
+      ref={mergedRefs}
       role="menuitem"
       {...intersection.getReferenceProps()}
     >

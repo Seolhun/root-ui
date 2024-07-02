@@ -30,17 +30,10 @@ export const StorybookContentItem = ({ className, children, noAlign, noGap, ...o
   return (
     <div
       {...others}
-      className={clsx(
-        className,
-        'StorybookContentItem',
-        'flex flex-1 ',
-        'min-h-full',
-        {
-          'gap-4': !noGap,
-          'items-center justify-center': !noAlign,
-        },
-        'py-12 px-24',
-      )}
+      className={clsx(className, 'StorybookContentItem', 'relative', 'flex flex-1 ', 'min-h-full', {
+        'gap-4': !noGap,
+        'items-center justify-center': !noAlign,
+      })}
       ref={setRoot}
     >
       {renderChildren({ root })}

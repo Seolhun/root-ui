@@ -1,8 +1,8 @@
-import { mergeRefs } from '@seolhun/firststage-utils';
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import * as React from 'react';
 
+import { useMergeRefs } from '~/hooks';
 import { MotionAnimateProps } from '~/types';
 
 import { useNavExpandedContext } from './Nav.ExpandedContext';
@@ -32,21 +32,15 @@ export const NavExpandedPanel = React.forwardRef<ElementType, NavExpandedPanelPr
   const { floating, intersection, isFloatingOpen } = useNavExpandedContext();
   const { floatingStyles, refs } = floating;
 
-  const onNavRef = React.useCallback(
-    (node: ElementType | null) => {
-      mergeRefs(ref)(node);
-      refs.setFloating(node);
-    },
-    [refs, ref],
-  );
+  const mergedRefs = useMergeRefs([refs.setFloating, ref]);
 
   return (
     <AnimatePresence>
       {isFloatingOpen && (
         <motion.div
           {...animations}
-          className={clsx(CLASSNAME, className, 'bg-cream-1 dark:bg-space-1', 'shadow', 'h-auto')}
-          ref={onNavRef}
+          className={clsx(CLASSNAME, className)}
+          ref={mergedRefs}
           role="menubar"
           style={floatingStyles}
           {...intersection.getFloatingProps()}

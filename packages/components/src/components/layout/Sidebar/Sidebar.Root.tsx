@@ -7,10 +7,24 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface SidebarRootProps extends ElementProps {}
 
+/**
+ * @see Layout.Body.tsx
+ * Have to be Layout.Sidebar width and Layout.Body padding-x
+ */
 export const SidebarRoot = React.forwardRef<ElementType, SidebarRootProps>(
   ({ className, children, ...others }, ref) => {
     return (
-      <aside {...others} className={clsx(CLASSNAME, className)} ref={ref}>
+      <aside
+        {...others}
+        className={clsx(
+          CLASSNAME,
+          className,
+          'translate-x-0 sidebar-expanded:-translate-x-full',
+          'opacity-100 sidebar-expanded:opacity-0',
+          'transition-all duration-200 ease-in-out',
+        )}
+        ref={ref}
+      >
         {children}
       </aside>
     );

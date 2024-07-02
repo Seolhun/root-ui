@@ -43,7 +43,7 @@ const Nav = React.forwardRef<ElementType, ElementProps & NavRootProps>(
     return (
       <nav
         {...others}
-        className={clsx(CLASSNAME, className, 'bg-cream-1 dark:bg-space-1', 'shadow', 'flex flex-1 items-center')}
+        className={clsx(CLASSNAME, className, 'flex flex-1 items-center')}
         onMouseOut={handleMouseOut}
         onMouseOver={handleMouseOver}
         ref={ref}

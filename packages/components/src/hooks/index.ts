@@ -19,3 +19,4 @@ export * from './useSyncRefs';
 export * from './useTabDirection';
 export * from './useUnmount';
 export * from './useWindowEvent';
+export * from './useMergeRefs';

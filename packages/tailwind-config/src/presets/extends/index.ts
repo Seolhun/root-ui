@@ -16,7 +16,7 @@ export const spacingExtend = ((start, end) => {
     );
   });
   return result;
-})(0, 100);
+})(0, 200);
 
 export const insetExtend = ((start, end) => {
   const seed: Record<string, string> = {};
@@ -31,7 +31,7 @@ export const insetExtend = ((start, end) => {
     );
   });
   return result;
-})(0, 100);
+})(0, 200);
 
 export const zIndexExtend = ((start, end) => {
   const seed: Record<string, string> = {};
@@ -46,39 +46,7 @@ export const zIndexExtend = ((start, end) => {
     );
   });
   return result;
-})(0, 100);
-
-export const marginExtend = (() => {
-  const seed: Record<string, string> = {};
-  const result = reduce(
-    (acc, v) => {
-      return {
-        ...acc,
-        [`-${v}`]: `-${v * REM_STEP_SIZE}rem`,
-        [v]: `${v * REM_STEP_SIZE}rem`,
-      };
-    },
-    seed,
-    presetRanges,
-  );
-  return result;
-})();
-
-export const paddingExtend = (() => {
-  const seed: Record<string, string> = {};
-  const result = reduce(
-    (acc, v) => {
-      return {
-        ...acc,
-        [`-${v}`]: `-${v * REM_STEP_SIZE}rem`,
-        [v]: `${v * REM_STEP_SIZE}rem`,
-      };
-    },
-    seed,
-    presetRanges,
-  );
-  return result;
-})();
+})(0, 200);
 
 export const heightExtend = (() => {
   const seed: Record<string, string> = {

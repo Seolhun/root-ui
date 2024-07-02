@@ -1,34 +1,28 @@
-const { resolve } = require('path');
-const context = resolve(__dirname, '../src');
-module.exports = {
-  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
+import { merge } from 'webpack-merge'
+import webpackDevConfig from './webpack.common'
+
+export default {
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  staticDirs: ['../src/assets'],
+
+  features: {
+    previewMdx2: true, // 👈 MDX 2 enabled here
+  },
+
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-con듀trols',
-    '@storybook/addon-viewport',
-    '@storybook/addon-actions',
-    '@storybook/addon-mdx-gfm',
+    '@storybook/addon-docs',
+    '@storybook/addon-essentials',
     '@storybook/addon-webpack5-compiler-babel',
     '@chromatic-com/storybook'
   ],
 
-  webpackFinal: async config => {
-    config.devServer = {
-      hot: true
-    };
-    config.context = context;
-    config.module.rules.push(
-      {
-        test: [/\.[jt]sx?$/],
-        use: ['babel-loader'],
-        exclude: /node_modules/
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
-      }
-    );
-    return config;
+  /**
+   * @param {import('webpack').Configuration} config
+   */
+  webpackFinal: async (config) => {
+    const nextConfig = merge(config, webpackDevConfig);
+    return nextConfig;
   },
 
   framework: {

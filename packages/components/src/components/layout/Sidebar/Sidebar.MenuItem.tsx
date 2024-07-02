@@ -6,12 +6,15 @@ type ElementType = HTMLDivElement;
 type ElementProps = React.AnchorHTMLAttributes<ElementType>;
 
 export interface SidebarMenuProps {
-  active: boolean;
+  active?: boolean;
+  /**
+   * left Icon of the menu item
+   */
   Icon?: React.ReactNode;
   /**
    * Whether the parent menu-group is open
    */
-  isOpen: boolean;
+  isOpen?: boolean;
 }
 
 export const SidebarMenuItem = React.forwardRef<ElementType, ElementProps & SidebarMenuProps>(
