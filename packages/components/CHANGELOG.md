@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.7-alpha.0
+
+### Patch Changes
+
+- refactor: update form input/textarea styles
+
 ## 0.8.6
 
 ### Patch Changes

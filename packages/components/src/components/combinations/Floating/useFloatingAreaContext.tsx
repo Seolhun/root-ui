@@ -2,10 +2,9 @@ import * as React from 'react';
 
 export type FloatingAreaContextValues<E extends HTMLElement = HTMLElement> = React.RefObject<E>;
 
-type ContextType = FloatingAreaContextValues;
-export const FloatingAreaContext = React.createContext<ContextType>(null as unknown as ContextType);
+export const FloatingAreaContext = React.createContext(null as unknown as FloatingAreaContextValues);
 
-export const useFloatingAreaContext = (): ContextType => {
+export const useFloatingAreaContext = () => {
   const context = React.useContext(FloatingAreaContext);
 
   if (context == null) {
@@ -24,7 +23,7 @@ export const FloatingAreaProvider = ({ children }: FloatingAreaProps) => {
   return (
     <FloatingAreaContext.Provider value={ref}>
       {children}
-      <div id="alli-floating-area" ref={ref} />
+      <div id="floating-area" ref={ref} />
     </FloatingAreaContext.Provider>
   );
 };

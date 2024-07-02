@@ -14,7 +14,7 @@ Pre-release version은 `changeset`을 이용하여 관리합니다.
 pre-release는 일반적으로 `alpha`, `beta`, `rc` 등을 사용하여 버전을 관리합니다.
 
 ```sh
-pnpm changeset pre enter alpha # run only once
+pnpm run changeset pre enter alpha # run only once
 ```
 
 ### 2. Develop feature and commit
@@ -27,7 +27,7 @@ pnpm changeset pre enter alpha # run only once
 어떤 패키지를 배포할지 선택하고 버전과 변경 사항을 추가합니다.
 
 ```sh
-pnpm changeset
+pnpm run changeset
 ```
 
 ### 4. Versioning and commit
@@ -35,7 +35,7 @@ pnpm changeset
 3번에서 추가된 버전으로 패키지를 업데이트하고 커밋합니다.
 
 ```sh
-pnpm changeset:version
+pnpm run changeset:version
 pnpm i # To update pre-release version in the package.json for lockfile
 git add .
 git commit -m "chore: add pre-release version"
@@ -57,8 +57,8 @@ pnpm changeset:publish
 
 ```sh
 # if you want to exit the pre-release version
-pnpm changeset pre exit # run only once
-pnpm changeset:version
+pnpm run changeset pre exit # run only once
+pnpm run changeset:version
 pnpm i # To update pre-release version in the package.json for lockfile
 git add .
 git commit -m "chore: exit pre-release version"
