@@ -1,179 +1,75 @@
-import { StoryFn } from '@storybook/react';
+import { Description, Field, Label, Transition } from '@headlessui/react';
+import { Meta, StoryObj } from '@storybook/react';
 import * as React from 'react';
 
-import { Avatar } from '../../../components/atomics';
-import { StorybookContent } from '../../../stories';
-import { Optional } from '../../../utils/fx';
-import { Dropdown } from './Dropdown';
-import { DropdownIdentifyFunction, DropdownRenderOptionFunction } from './Dropdown.types';
-import { useDropdownRenderer } from './useDropdownRenderer';
-import { DropdownOption, DropdownOptionState, DropdownWidgetProps } from './widgets';
+import { Avatar } from '~/components/atomics';
+import { StorybookContent } from '~/stories';
 
-export default {
-  component: Dropdown,
+import { Dropdown } from './Dropdown';
+import { DropdownProps } from './Dropdown.Root';
+import { DropdownOptionValue } from './Dropdown.types';
+
+interface ProfileOption extends DropdownOptionValue<string> {}
+
+const DEFAULT_OPTIONS = Array.from<number, ProfileOption>(Array(10), (_, i) => ({
+  children: 'https://avatars.githubusercontent.com/u/16330024?v=4',
+  value: i,
+}));
+
+const DropdownTemplate = () => {
+  const [selectedOption, setSelectedOption] = React.useState<ProfileOption>(DEFAULT_OPTIONS[0]);
+
+  const onChangeOption = React.useCallback((nextOption: ProfileOption) => {
+    if (nextOption) {
+      setSelectedOption(nextOption);
+    }
+  }, []);
+
+  return (
+    <Dropdown className="relative" onChange={onChangeOption} value={selectedOption}>
+      <Dropdown.Button className="min-w-120">{selectedOption.children}</Dropdown.Button>
+      <Dropdown.OptionList anchor="bottom" transition>
+        <Transition as="div" leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
+          {DEFAULT_OPTIONS.map((option) => {
+            return (
+              <Dropdown.Option key={option.value} value={option}>
+                {(state) => {
+                  return (
+                    <div className="flex items-center gap-x-2 truncate">
+                      <Avatar src={option.children} />
+                      <div className="truncate">{option.value}</div>
+                    </div>
+                  );
+                }}
+              </Dropdown.Option>
+            );
+          })}
+        </Transition>
+      </Dropdown.OptionList>
+    </Dropdown>
+  );
+};
+
+const Dropdowns = (props: DropdownProps) => {
+  return (
+    <StorybookContent>
+      <StorybookContent.Light noAlign noGap>
+        <DropdownTemplate {...props} />
+      </StorybookContent.Light>
+      <StorybookContent.Dark noAlign noGap>
+        <DropdownTemplate {...props} />
+      </StorybookContent.Dark>
+    </StorybookContent>
+  );
+};
+
+export const Tooltips: StoryObj<DropdownProps> = {
+  args: {},
+  render: (args) => <Dropdowns {...args} />,
+};
+
+const meta: Meta<typeof Dropdown> = {
   title: 'Combination/Dropdown',
 };
 
-interface ProfileOption extends DropdownOption {
-  avatar: string;
-  value: string;
-}
-
-const DEFAULT_OPTIONS = Array.from<number, ProfileOption>(Array(10), (_, i) => ({
-  avatar: 'https://avatars.githubusercontent.com/u/16330024?v=4',
-  value: `value-${i}_${i}_${i}_${i}_${i}_${i}`,
-}));
-
-const DropdownTemplate = ({ ...others }: DropdownWidgetProps<ProfileOption, ProfileOption[]>) => {
-  const [selectedOption, setSelectedOption] = React.useState<Optional<ProfileOption>>(DEFAULT_OPTIONS[0]);
-
-  const identify = React.useCallback<DropdownIdentifyFunction<ProfileOption>>((option) => {
-    return option?.value || '';
-  }, []);
-
-  const renderOption = React.useCallback<DropdownRenderOptionFunction<ProfileOption>>((option, _state) => {
-    if (!option) {
-      return null;
-    }
-
-    return (
-      <div className="flex items-center gap-x-2 truncate">
-        <Avatar src={option.avatar} />
-        <div className="truncate">{option.value}</div>
-      </div>
-    );
-  }, []);
-
-  const { optionRenderer, selectedOptionRenderer } = useDropdownRenderer({
-    identify,
-    renderOption,
-  });
-
-  const onChangeOption = React.useCallback((nextOption: Optional<ProfileOption>) => {
-    if (nextOption) {
-      setSelectedOption(nextOption);
-    }
-  }, []);
-
-  return (
-    <Dropdown {...others} onChangeOption={onChangeOption} option={selectedOption} placement="right">
-      <Dropdown.Button className="min-w-120">{selectedOptionRenderer(selectedOption)}</Dropdown.Button>
-      <Dropdown.OptionList>
-        {DEFAULT_OPTIONS.map((option) => {
-          const { disabled } = option;
-          const key = identify(option);
-          return (
-            <Dropdown.Option disabled={disabled} key={key} value={option}>
-              {(state: DropdownOptionState) => <>{optionRenderer(option, state)}</>}
-            </Dropdown.Option>
-          );
-        })}
-      </Dropdown.OptionList>
-    </Dropdown>
-  );
-};
-
-const _Dropdowns = (props: DropdownWidgetProps<ProfileOption, ProfileOption[]>) => {
-  return (
-    <StorybookContent>
-      <StorybookContent.Light noAlign noGap>
-        <DropdownTemplate {...props} />
-      </StorybookContent.Light>
-      <StorybookContent.Dark noAlign noGap>
-        <DropdownTemplate {...props} />
-      </StorybookContent.Dark>
-    </StorybookContent>
-  );
-};
-
-export const Dropdowns: StoryFn<DropdownWidgetProps<ProfileOption, ProfileOption[]>> = _Dropdowns.bind({});
-Dropdowns.args = {};
-
-const MultiDropdownTemplate = ({ ...others }: DropdownWidgetProps<ProfileOption, ProfileOption[]>) => {
-  const [selectedOption, setSelectedOption] = React.useState<ProfileOption[]>([]);
-
-  const identify = React.useCallback<DropdownIdentifyFunction<ProfileOption, ProfileOption[]>>((options) => {
-    if (Array.isArray(options)) {
-      return options.reduce((acc, option) => `${acc}, ${option.value}`, '');
-    }
-    return options?.value || '';
-  }, []);
-
-  const renderOption = React.useCallback<DropdownRenderOptionFunction<ProfileOption, ProfileOption[]>>(
-    (option, _state) => {
-      if (!option) {
-        return null;
-      }
-
-      /**
-       * Multiple SelectedOptions
-       */
-      if (Array.isArray(option)) {
-        return (
-          <div className="flex flex-wrap gap-2">
-            {option.map((o) => (
-              <div className="flex items-center gap-x-2 truncate mt-1 mr-2" key={o.value}>
-                <Avatar src={o.avatar} />
-                <div className="truncate">{o.value}</div>
-              </div>
-            ))}
-          </div>
-        );
-      }
-
-      return (
-        <div className="flex items-center gap-x-2 truncate">
-          <Avatar src={option.avatar} />
-          <div className="truncate">{option.value}</div>
-        </div>
-      );
-    },
-    [],
-  );
-
-  const onChangeOption = React.useCallback((nextOption: Optional<ProfileOption[]>) => {
-    if (nextOption) {
-      setSelectedOption(nextOption);
-    }
-  }, []);
-
-  const { optionRenderer, selectedOptionRenderer } = useDropdownRenderer({
-    identify,
-    renderOption,
-  });
-
-  return (
-    <Dropdown {...others} onChangeOption={onChangeOption} option={selectedOption}>
-      <Dropdown.Button className="min-w-120">{selectedOptionRenderer(selectedOption)}</Dropdown.Button>
-      <Dropdown.OptionList>
-        {DEFAULT_OPTIONS.map((option) => {
-          const { disabled } = option;
-          const key = identify(option);
-          return (
-            <Dropdown.Option disabled={disabled} key={key} value={option}>
-              {(state: DropdownOptionState) => <>{optionRenderer(option, state)}</>}
-            </Dropdown.Option>
-          );
-        })}
-      </Dropdown.OptionList>
-    </Dropdown>
-  );
-};
-
-const _MultiDropdowns = (props: DropdownWidgetProps<ProfileOption, ProfileOption[]>) => {
-  return (
-    <StorybookContent>
-      <StorybookContent.Light noAlign noGap>
-        <MultiDropdownTemplate {...props} />
-      </StorybookContent.Light>
-      <StorybookContent.Dark noAlign noGap>
-        <MultiDropdownTemplate {...props} />
-      </StorybookContent.Dark>
-    </StorybookContent>
-  );
-};
-
-export const MultiDropdowns: StoryFn<DropdownWidgetProps<ProfileOption, ProfileOption[]>> = _MultiDropdowns.bind({});
-MultiDropdowns.args = {
-  multiple: true,
-};
+export default meta;

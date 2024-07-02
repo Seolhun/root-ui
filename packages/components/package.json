@@ -49,10 +49,11 @@
     "tailwindcss": ">=3.0.0"
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.16",
+    "@floating-ui/react": "^0.26.19",
     "@fxts/core": "^1.0.0",
-    "@headlessui/react": "^1",
+    "@headlessui/react": "^2.1.1",
     "@seolhun/root-ui-tailwind": "workspace:*",
+    "@tanstack/react-virtual": "^3.8.1",
     "clsx": "^1.2.1",
     "color": "^4.2.3",
     "framer-motion": "^11.2.12",

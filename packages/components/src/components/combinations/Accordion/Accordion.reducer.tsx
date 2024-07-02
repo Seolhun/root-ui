@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { OpenClosedState } from '../../../tools';
+import { OpenClosedState } from '~/tools';
 
 export interface StateDefinition {
   accordionState: OpenClosedState;

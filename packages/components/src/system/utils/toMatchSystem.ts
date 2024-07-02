@@ -1,6 +1,5 @@
 import { curry } from '@fxts/core';
-
-import { RootIntent, RootScale } from '../theme';
+import { RootIntentType, RootScaleType } from '@seolhun/root-ui-tailwind';
 
 const toMatch = <Key extends string, R>(lookup: Partial<Record<Key, () => R>>, key: Key) => {
   const callback = lookup[key];
@@ -10,7 +9,7 @@ const toMatch = <Key extends string, R>(lookup: Partial<Record<Key, () => R>>, k
   return null;
 };
 
-export const toIntentMatch = curry((lookup: Partial<Record<RootIntent, () => string>>, key: RootIntent) => {
+export const toIntentMatch = curry((lookup: Partial<Record<RootIntentType, () => string>>, key: RootIntentType) => {
   const result = toMatch(lookup, key);
   if (result) {
     return result;
@@ -18,10 +17,7 @@ export const toIntentMatch = curry((lookup: Partial<Record<RootIntent, () => str
   return '';
 });
 
-/**
- * @deprecated Don't use scale props
- */
-export const toScaleMatch = curry((lookup: Partial<Record<RootScale, () => string>>, key: RootScale) => {
+export const toScaleMatch = curry((lookup: Partial<Record<RootScaleType, () => string>>, key: RootScaleType) => {
   const result = toMatch(lookup, key);
   if (result) {
     return result;

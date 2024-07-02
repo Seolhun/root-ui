@@ -1,10 +1,12 @@
 import { isEmpty } from '@fxts/core';
-import { Combobox } from '@headlessui/react';
+import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react';
+import { RootScaleType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { RootScale, toScaleMatch } from '../../../system';
-import { Optional } from '../../../utils/fx';
+import { toScaleMatch } from '~/system';
+import { Optional } from '~/utils/fx';
+
 import * as Styled from './AutoComplete.Styled';
 import { AutoCompleteIdentify } from './AutoComplete.types';
 
@@ -58,7 +60,7 @@ export interface AutoCompleteProps<Item> {
   /**
    * @default md
    */
-  scale?: RootScale;
+  scale?: RootScaleType;
 
   selectedItem?: Optional<Item>;
 
@@ -113,7 +115,7 @@ function _AutoComplete<Item = any>(
       <Combobox onChange={onSelectItem} value={selectedItem}>
         <div className={clsx(Styled.InputWrapper, 'bg-cream-1 dark:bg-space-1')}>
           {Prefix && Prefix}
-          <Combobox.Input
+          <ComboboxInput
             className={clsx(
               scaleClassName,
               'bg-cream-1 dark:bg-space-1',
@@ -133,7 +135,7 @@ function _AutoComplete<Item = any>(
           {Suffix && Suffix}
         </div>
         <div className={Styled.OptionGroupWrapper}>
-          <Combobox.Options className={clsx(Styled.OptionGroup)}>
+          <ComboboxOptions className={clsx(Styled.OptionGroup)}>
             {loading ? (
               <div className={clsx(Styled.BaseOption, scaleClassName)}>{Loader}</div>
             ) : query && isEmpty(items) ? (
@@ -143,28 +145,26 @@ function _AutoComplete<Item = any>(
                 {items.map((item) => {
                   const identifiedItem = identify(item);
                   return (
-                    <Combobox.Option
-                      className={({ active, selected }) => {
+                    <ComboboxOption
+                      className={({ focus, selected }) => {
                         return clsx(
                           Styled.Option,
                           scaleClassName,
                           clsx(selected ? 'text-primary' : 'text-space-2 dark:text-cream-2', {
-                            'bg-cream-2 dark:bg-space-2': active || selected,
+                            'bg-cream-2 dark:bg-space-2': focus || selected,
                           }),
                         );
                       }}
                       key={identifiedItem.key}
                       value={identifiedItem.value}
                     >
-                      {({ active, disabled, selected }) => (
-                        <>{identifiedItem.children({ active, disabled, selected })}</>
-                      )}
-                    </Combobox.Option>
+                      {({ disabled, focus, selected }) => <>{identifiedItem.children({ disabled, focus, selected })}</>}
+                    </ComboboxOption>
                   );
                 })}
               </>
             )}
-          </Combobox.Options>
+          </ComboboxOptions>
         </div>
       </Combobox>
     </div>

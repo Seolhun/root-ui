@@ -9,8 +9,8 @@ export interface AutoCompleteItem {
 }
 
 export interface AutoCompleteItemChildrenArgs {
-  active: boolean;
   disabled: boolean;
+  focus: boolean;
   selected: boolean;
 }
 
