@@ -52,10 +52,13 @@
     "@floating-ui/react": "^0.26.16",
     "@fxts/core": "^1.0.0",
     "@headlessui/react": "^1",
-    "@heroicons/react": "^2.1.3",
     "@seolhun/root-ui-tailwind": "workspace:*",
     "clsx": "^1.2.1",
     "color": "^4.2.3",
+    "framer-motion": "^11.2.12",
     "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@heroicons/react": "^2.1.3"
   }
 }
