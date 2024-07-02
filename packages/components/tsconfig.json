@@ -2,7 +2,13 @@
   "extends": "@seolhun/root-tsconfig/base.json",
   "compilerOptions": {
     "outDir": "dist",
-    "jsx": "react"
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "src/*"
+      ]
+    },
   },
   "include": [
     "**/*.ts",
