@@ -8,6 +8,7 @@
     "@seolhun/root-ui-tailwind": "0.8.7"
   },
   "changesets": [
+    "chilly-phones-hammer",
     "eight-pianos-check",
     "lovely-rules-agree",
     "nice-rockets-jam",

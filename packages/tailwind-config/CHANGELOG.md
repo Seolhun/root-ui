@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.8-alpha.5
+
+### Patch Changes
+
+- fix: update sidebar body
+
 ## 0.8.8-alpha.4
 
 ### Patch Changes

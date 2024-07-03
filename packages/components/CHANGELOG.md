@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.8.8-alpha.5
+
+### Patch Changes
+
+- fix: update sidebar body
+
+- Updated dependencies []:
+  - @seolhun/root-ui-tailwind@0.8.8-alpha.5
+
 ## 0.8.8-alpha.4
 
 ### Patch Changes
