@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.8-alpha.3
+
+### Patch Changes
+
+- chore: fixx the exports path
+
 ## 0.8.8-alpha.2
 
 ### Patch Changes
