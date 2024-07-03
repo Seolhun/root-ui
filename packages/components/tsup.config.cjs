@@ -8,13 +8,11 @@ const external = Object.keys(pkg.peerDependencies || {});
 
 export default defineConfig([
   modernConfig({
-    clean: false,
     entry: ['src/index.{ts,tsx}', '!**/*.{test,spec,stories}.{ts,tsx}'],
     esbuildPlugins: [sassPlugin()],
     external,
   }),
   legacyConfig({
-    clean: false,
     entry: ['src/index.{ts,tsx}', '!**/*.{test,spec,stories}.{ts,tsx}'],
     esbuildPlugins: [sassPlugin()],
     external,

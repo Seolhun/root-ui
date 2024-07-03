@@ -7,12 +7,12 @@ const external = Object.keys(pkg.peerDependencies || {});
 
 export default defineConfig([
   modernConfig({
-    clean: false,
+    clean: true,
     entry: ['src/index.{ts,tsx}', '!**/*.{test,spec,stories}.{ts,tsx}'],
     external,
   }),
   legacyConfig({
-    clean: false,
+    clean: true,
     entry: ['src/index.{ts,tsx}', '!**/*.{test,spec,stories}.{ts,tsx}'],
     external,
   }),
