@@ -33,8 +33,6 @@
         "default": "./dist/modern/index.js"
       }
     },
-    "./modern/index.css": "./dist/modern/index.css",
-    "./legacy/index.css": "./dist/legacy/index.css",
     "./package.json": "./package.json"
   },
   "scripts": {

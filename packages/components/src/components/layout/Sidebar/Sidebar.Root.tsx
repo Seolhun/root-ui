@@ -19,8 +19,8 @@ export const SidebarRoot = React.forwardRef<ElementType, SidebarRootProps>(
         className={clsx(
           CLASSNAME,
           className,
-          'translate-x-0 sidebar-expanded:-translate-x-full',
-          'opacity-100 sidebar-expanded:opacity-0',
+          '-translate-x-full sidebar-expanded:translate-x-0',
+          'opacity-0 sidebar-expanded:opacity-100',
           'transition-all duration-200 ease-in-out',
         )}
         ref={ref}

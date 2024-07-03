@@ -83,7 +83,7 @@ const BaseTemplate = ({ ...others }: LayoutProps) => {
         </Layout.Sidebar.Group>
       </Layout.Sidebar>
 
-      <Layout.Body className={clsx('pl-132 sidebar-expanded:pl-12', 'text-space-1 dark:text-cream-1')}>
+      <Layout.Body className={clsx('pl-12 sidebar-expanded:pl-132', 'text-space-1 dark:text-cream-1')}>
         Body
       </Layout.Body>
     </Layout>
