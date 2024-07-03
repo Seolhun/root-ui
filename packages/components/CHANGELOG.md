@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.8.8-alpha.4
+
+### Patch Changes
+
+- chore: update mjs
+
+- Updated dependencies []:
+  - @seolhun/root-ui-tailwind@0.8.8-alpha.4
+
 ## 0.8.8-alpha.3
 
 ### Patch Changes
