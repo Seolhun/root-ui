@@ -165,7 +165,7 @@ function _AutoComplete<Item = any>(
                       key={identifiedItem.key}
                       value={identifiedItem.value}
                     >
-                      {({ disabled, focus, selected }) => <>{identifiedItem.children({ disabled, focus, selected })}</>}
+                      {(args) => <>{identifiedItem.children(args)}</>}
                     </ComboboxOption>
                   );
                 })}

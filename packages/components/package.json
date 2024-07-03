@@ -30,14 +30,12 @@
         "default": "./dist/modern/index.js"
       },
       "require": {
-        "types": "./dist/modern/index.d.cts",
-        "default": "./dist/modern/index.cjs"
+        "types": "./dist/modern/index.d.ts",
+        "default": "./dist/modern/index.js"
       }
     },
-    "./index.css": {
-      "import": "./dist/modern/index.css",
-      "require": "./dist/modern/index.css"
-    },
+    "./modern/index.css": "./dist/modern/index.css",
+    "./legacy/index.css": "./dist/legacy/index.css",
     "./package.json": "./package.json"
   },
   "scripts": {
