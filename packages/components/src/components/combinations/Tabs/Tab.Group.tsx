@@ -1,78 +1,36 @@
-import { Tab } from '@headlessui/react';
+import { TabGroup as HeadlessTabGroup, TabGroupProps as HeadlessTabGroupProps } from '@headlessui/react';
 import { RootIntentType, RootScaleType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
 
 const CLASSNAME = 'Root__TabGroup';
 type ElementType = HTMLDivElement;
-type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface TabGroupProps extends ElementProps {
-  /**
-   * Tab default index
-   */
-  defaultIndex?: number;
-
+export type TabGroupProps = OmitBy<HeadlessTabGroupProps<'div'>, 'as'> & {
   /**
    * @default primary
    */
   intent?: RootIntentType;
-
-  /**
-   * Is tab manual?
-   */
-  manual?: boolean;
-
-  /**
-   * Tab onChange
-   */
-  onChangeTab?: (index: number) => void;
-
   /**
    * Set this to change scale
    * @default md
    */
   scale?: RootScaleType;
-
-  /**
-   * Selected tab index
-   */
-  selectedIndex?: number;
-
-  /**
-   * Tab direction
-   */
-  vertical?: boolean;
-}
+};
 
 export const TabGroup = React.forwardRef<ElementType, TabGroupProps>(
-  (
-    {
-      className,
-      children,
-      defaultIndex,
-      intent = 'primary',
-      manual,
-      onChangeTab,
-      scale = 'md',
-      selectedIndex,
-      vertical,
-      ...others
-    },
-    ref,
-  ) => {
+  ({ className, children, intent = 'primary', scale = 'md', ...others }, ref) => {
     return (
-      <Tab.Group
-        defaultIndex={defaultIndex}
-        manual={manual}
-        onChange={onChangeTab}
-        selectedIndex={selectedIndex}
-        vertical={vertical}
+      <HeadlessTabGroup
+        {...others}
+        as="div"
+        className={clsx(CLASSNAME, className, 'group', 'w-full')}
+        data-group-root-intent={intent}
+        data-group-root-scale={scale}
+        ref={ref}
       >
-        <div {...others} className={clsx(CLASSNAME, className, 'group', 'w-full')} ref={ref}>
-          {children}
-        </div>
-      </Tab.Group>
+        {children}
+      </HeadlessTabGroup>
     );
   },
 );

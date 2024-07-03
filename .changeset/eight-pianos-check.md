@@ -3,4 +3,4 @@
 '@seolhun/root-ui': patch
 ---
 
-chore: fixx the exports path
+chore: fix the exports path

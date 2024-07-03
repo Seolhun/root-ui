@@ -1,2 +1,2 @@
-export * from './Accordion.Widget.types';
+export * from './Accordion.types';
 export * from './Accordion';

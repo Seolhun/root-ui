@@ -10,13 +10,22 @@ export interface StorybookContentItemProps extends Omit<ElementProps, 'children'
   noAlign?: boolean;
 
   noGap?: boolean;
+
+  noPadding?: boolean;
 }
 
 export interface RenderChildrenArgs {
   root: HTMLElement | null;
 }
 
-export const StorybookContentItem = ({ className, children, noAlign, noGap, ...others }: StorybookContentItemProps) => {
+export const StorybookContentItem = ({
+  className,
+  children,
+  noAlign,
+  noGap,
+  noPadding,
+  ...others
+}: StorybookContentItemProps) => {
   const [root, setRoot] = React.useState<HTMLDivElement | null>(null);
 
   const renderChildren = (args: RenderChildrenArgs) => {
@@ -33,6 +42,7 @@ export const StorybookContentItem = ({ className, children, noAlign, noGap, ...o
       className={clsx(className, 'StorybookContentItem', 'relative', 'flex flex-1 ', 'min-h-full', {
         'gap-4': !noGap,
         'items-center justify-center': !noAlign,
+        'py-12 px-24': !noPadding,
       })}
       ref={setRoot}
     >

@@ -19,8 +19,10 @@ export const SidebarRoot = React.forwardRef<ElementType, SidebarRootProps>(
         className={clsx(
           CLASSNAME,
           className,
+          'absolute',
+          'h-full',
+          'w-0 sidebar-expanded:w-132',
           '-translate-x-full sidebar-expanded:translate-x-0',
-          'opacity-0 sidebar-expanded:opacity-100',
           'transition-all duration-200 ease-in-out',
         )}
         ref={ref}

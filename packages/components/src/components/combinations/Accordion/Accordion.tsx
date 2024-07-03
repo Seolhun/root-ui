@@ -1,10 +1,8 @@
-import { AccordionWidgetButton } from './Accordion.Widget.Button';
-import { AccordionWidgetPanel } from './Accordion.Widget.Panel';
-import { AccordionWidgetRoot } from './Accordion.Widget.Root';
+import { AccordionButton } from './Accordion.Button';
+import { AccordionPanel } from './Accordion.Panel';
+import { AccordionRoot } from './Accordion.Root';
 
-export const Accordion = Object.assign(AccordionWidgetRoot, {
-  Widgets: {
-    Button: AccordionWidgetButton,
-    Panel: AccordionWidgetPanel,
-  },
+export const Accordion = Object.assign(AccordionRoot, {
+  Button: AccordionButton,
+  Panel: AccordionPanel,
 });

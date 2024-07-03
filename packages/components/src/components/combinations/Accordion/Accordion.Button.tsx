@@ -9,7 +9,7 @@ import { isDisabledReactIssue7711 } from '~/utils/bugs';
 
 import { ActionTypes, useAccordionContext, useAccordionPanelContext } from './Accordion.reducer';
 
-const COMPONENT_NAME = 'Root__Accordion__Button';
+const COMPONENT_NAME = 'Root__AccordionButton';
 const DEFAULT_TAG: RootUIReactTag = 'button';
 
 type ElementType = HTMLButtonElement;
@@ -24,7 +24,7 @@ type PropsWeControl = keyof Pick<
   'aria-controls' | 'aria-expanded' | 'id' | 'onClick' | 'onKeyDown' | 'type'
 >;
 
-const _AccordionWidgetButton = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
+const _AccordionButton = <Tag extends React.ElementType = typeof DEFAULT_TAG>(
   props: RootUIProps<Tag, AccordionButtonRenderPropArg, PropsWeControl> & AccordionButtonProps & ElementProps,
   ref: React.Ref<HTMLButtonElement>,
 ) => {
@@ -130,4 +130,4 @@ const _AccordionWidgetButton = <Tag extends React.ElementType = typeof DEFAULT_T
   });
 };
 
-export const AccordionWidgetButton = forwardRefWithAs(_AccordionWidgetButton);
+export const AccordionButton = forwardRefWithAs(_AccordionButton);

@@ -1,2 +1,4 @@
-export { default as events } from './events';
-export { default as layout } from './layout';
+export { default as eventsVariant } from './events.variant';
+export { default as intentVariant } from './intent.variant';
+export { default as layoutVariant } from './layout.variant';
+export { default as scaleVariant } from './scale.variant';

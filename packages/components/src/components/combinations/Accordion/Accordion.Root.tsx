@@ -6,7 +6,6 @@ import { OpenClosedProvider, OpenClosedState } from '~/tools';
 import { RootUIProps, RootUIReactTag } from '~/types';
 import { getOwnerDocumentBy, match } from '~/utils';
 
-import { AccordionFocusableElement } from './Accordion.Widget.types';
 import {
   AccordionAPIContext,
   AccordionAPIContextValues,
@@ -15,14 +14,15 @@ import {
   rootReducer,
   StateDefinition,
 } from './Accordion.reducer';
+import { AccordionFocusableElement } from './Accordion.types';
 
-const COMPONENT_NAME = 'Root__Accordion__Root';
+const COMPONENT_NAME = 'Root__AccordionRoot';
 const DEFAULT_TAG: RootUIReactTag = React.Fragment;
 
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface AccordionRootProps {
+export interface AccordionProps extends ElementProps {
   defaultOpen?: boolean;
 }
 export interface AccordionRootRenderPropArg {
@@ -30,9 +30,9 @@ export interface AccordionRootRenderPropArg {
   open: boolean;
 }
 
-export const AccordionWidgetRoot = forwardRefWithAs(function AccordionWidgetRoot<
+export const AccordionRoot = forwardRefWithAs(function AccordionRoot<
   Tag extends React.ElementType = typeof DEFAULT_TAG,
->(props: RootUIProps<Tag, AccordionRootRenderPropArg> & AccordionRootProps & ElementProps, ref: React.Ref<Tag>) {
+>(props: RootUIProps<Tag, AccordionRootRenderPropArg> & AccordionProps, ref: React.Ref<Tag>) {
   const { defaultOpen = false, ...others } = props;
   const buttonId = `rootui-accordion-button-${useId()}`;
   const panelId = `rootui-accordion-panel-${useId()}`;

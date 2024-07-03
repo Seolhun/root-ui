@@ -1,22 +1,21 @@
-import { Tab } from '@headlessui/react';
+import { TabList as HeadlessTabList, TabListProps as HeadlessTabListProps } from '@headlessui/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
 const CLASSNAME = 'Root__Tab__List';
 type ElementType = HTMLUListElement;
-type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface TabListProps extends ElementProps {}
+export type TabListProps = OmitBy<HeadlessTabListProps<'ul'>, 'as'>;
 
 export const TabList = React.forwardRef<ElementType, TabListProps>(({ className, children, ...others }, ref) => {
   return (
-    <Tab.List
+    <HeadlessTabList
       {...others}
       className={clsx(
         CLASSNAME,
         className,
         'flex space-x-1',
-        'border border-cream-3 dark:border-space-3',
+        'border border-neutral-2 dark:border-neutral-8',
         'text-space-2 dark:text-cream-2',
         'bg-cream-1 dark:bg-space-1',
         'p-1',
@@ -27,6 +26,6 @@ export const TabList = React.forwardRef<ElementType, TabListProps>(({ className,
       ref={ref}
     >
       {children}
-    </Tab.List>
+    </HeadlessTabList>
   );
 });

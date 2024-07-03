@@ -93,10 +93,10 @@ const BaseTemplate = ({ ...others }: LayoutProps) => {
 const LayoutStories = ({ ...others }: LayoutProps) => {
   return (
     <StorybookContent>
-      <StorybookContent.Light noAlign noGap>
+      <StorybookContent.Light noAlign noGap noPadding>
         <BaseTemplate {...others} />
       </StorybookContent.Light>
-      <StorybookContent.Dark noAlign noGap>
+      <StorybookContent.Dark noAlign noGap noPadding>
         <BaseTemplate {...others} />
       </StorybookContent.Dark>
     </StorybookContent>

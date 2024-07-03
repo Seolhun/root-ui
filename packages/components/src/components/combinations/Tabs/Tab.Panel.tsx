@@ -1,19 +1,16 @@
-import { Tab } from '@headlessui/react';
+import { TabPanel as HeadlessTabPanel, TabPanelProps as HeadlessTabPanelProps } from '@headlessui/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Text } from '../../../components/typography';
-
 const CLASSNAME = 'Root__Tab__Panel';
-type ElementType = HTMLLIElement;
-type ElementProps = React.LiHTMLAttributes<ElementType>;
+type ElementType = HTMLDivElement;
 
-export interface TabPanelProps extends ElementProps {}
+export type TabPanelProps = OmitBy<HeadlessTabPanelProps<'div'>, 'as'>;
 
 export const TabPanel = React.forwardRef<ElementType, TabPanelProps>(({ className, children, ...others }, ref) => {
   return (
-    <Tab.Panel {...others} as="li" className={clsx(CLASSNAME, className, 'w-full')} ref={ref}>
-      <Text>{children}</Text>
-    </Tab.Panel>
+    <HeadlessTabPanel {...others} as="div" className={clsx(CLASSNAME, className, 'w-full')} ref={ref}>
+      {children}
+    </HeadlessTabPanel>
   );
 });

@@ -7,7 +7,7 @@ import { RootUIProps, RootUIReactTag } from '~/types';
 
 import { AccordionPanelContext, ActionTypes, useAccordionAPIContext, useAccordionContext } from './Accordion.reducer';
 
-const COMPONENT_NAME = 'Root__Accordion__Panel';
+const COMPONENT_NAME = 'Root__AccordionPanel';
 const DEFAULT_TAG: RootUIReactTag = 'div';
 
 type ElementType = HTMLDivElement;
@@ -21,7 +21,7 @@ export interface AccordionPanelRenderPropArg {
 type PropsWeControl = keyof Pick<ElementProps, 'id'>;
 const PanelRenderFeatures = RenderFeatures.RenderStrategy | RenderFeatures.Static;
 
-export const AccordionWidgetPanel = forwardRefWithAs(function AccordionWidgetPanel<
+export const AccordionPanel = forwardRefWithAs(function AccordionPanel<
   Tag extends React.ElementType = typeof DEFAULT_TAG,
 >(
   props: RootUIProps<Tag, AccordionPanelRenderPropArg, PropsWeControl> &
