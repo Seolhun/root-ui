@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.8.8-alpha.6
+
+### Patch Changes
+
+- refactor: update root tailwind variant and accodion, disclosure
+
+- Updated dependencies []:
+  - @seolhun/root-ui-tailwind@0.8.8-alpha.6
+
 ## 0.8.8-alpha.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.8-alpha.6
+
+### Patch Changes
+
+- refactor: update root tailwind variant and accodion, disclosure
+
 ## 0.8.8-alpha.5
 
 ### Patch Changes
