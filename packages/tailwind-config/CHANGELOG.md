@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.8-alpha.7
+
+### Patch Changes
+
+- chore: update types to refer to import types
+
 ## 0.8.8-alpha.6
 
 ### Patch Changes
