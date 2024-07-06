@@ -2,6 +2,8 @@ import { TabList as HeadlessTabList, TabListProps as HeadlessTabListProps } from
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { OmitBy } from '~/types';
+
 const CLASSNAME = 'Root__Tab__List';
 type ElementType = HTMLUListElement;
 

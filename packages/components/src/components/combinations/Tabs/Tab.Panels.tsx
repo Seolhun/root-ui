@@ -2,6 +2,8 @@ import { TabPanels as HeadlessTabPanels, TabPanelsProps as HeadlessTabPanelsProp
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { OmitBy } from '~/types';
+
 const CLASSNAME = 'Root__Tab__Panels';
 type ElementType = HTMLUListElement;
 

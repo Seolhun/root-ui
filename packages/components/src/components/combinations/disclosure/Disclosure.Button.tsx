@@ -5,6 +5,8 @@ import {
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { OmitBy } from '~/types';
+
 const CLASSNAME = 'Root__DisclosureButton';
 type ElementType = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<ElementType>;

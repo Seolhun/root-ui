@@ -3,6 +3,8 @@ import { RootIntentType, RootScaleType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { OmitBy } from '~/types';
+
 const CLASSNAME = 'Root__TabGroup';
 type ElementType = HTMLDivElement;
 
