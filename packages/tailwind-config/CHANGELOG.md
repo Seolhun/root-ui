@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.8-alpha.8
+
+### Patch Changes
+
+- fix: add miss ref props
+
 ## 0.8.8-alpha.7
 
 ### Patch Changes
