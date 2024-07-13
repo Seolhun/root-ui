@@ -10,15 +10,15 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 
 export interface NavRootProps extends NavProviderProps {}
 
-export const NavRoot = React.forwardRef<ElementType, ElementProps & NavRootProps>(
-  ({ children, ...others }: ElementProps & NavRootProps) => {
-    return (
-      <NavProvider>
-        <Nav {...others}>{children}</Nav>
-      </NavProvider>
-    );
-  },
-);
+export const NavRoot = React.forwardRef<ElementType, ElementProps & NavRootProps>(({ children, ...others }, ref) => {
+  return (
+    <NavProvider>
+      <Nav {...others} ref={ref}>
+        {children}
+      </Nav>
+    </NavProvider>
+  );
+});
 
 const Nav = React.forwardRef<ElementType, ElementProps & NavRootProps>(
   ({ className, children, onMouseOut, onMouseOver, ...others }, ref) => {

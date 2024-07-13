@@ -10,11 +10,12 @@ export interface DrawerFooterProps extends ElementProps {
 }
 
 export const DrawerFooter = React.forwardRef<ElementType, DrawerFooterProps>(
-  ({ className, children, ...others }: DrawerFooterProps) => {
+  ({ className, children, ...others }, ref) => {
     return (
       <div
         {...others}
         className={clsx(CLASSNAME, className, 'flex', 'border-cream-3 dark:border-space-3', 'rounded-b')}
+        ref={ref}
       >
         {children}
       </div>

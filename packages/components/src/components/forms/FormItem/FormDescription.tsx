@@ -25,8 +25,6 @@ export const FormDescription = React.forwardRef<ElementType, FormDescriptionProp
           CLASSNAME,
           className,
           'flex items-center flex-wrap',
-          'text-space-2 dark:text-cream-2',
-          'font-normal',
           toScaleMatch({
             lg: () => 'scale-text-lg',
             md: () => 'scale-text-md',

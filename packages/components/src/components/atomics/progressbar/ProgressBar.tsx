@@ -39,17 +39,9 @@ export interface ProgressBarProps extends ElementProps {
 }
 
 export const ProgressBar = React.forwardRef<ElementType, ProgressBarProps>(
-  ({
-    className,
-    badge,
-    intent = 'primary',
-    progress = 0,
-    scale = 'md',
-    simple = false,
-    ...others
-  }: ProgressBarProps) => {
+  ({ className, badge, intent = 'primary', progress = 0, scale = 'md', simple = false, ...others }, ref) => {
     return (
-      <div {...others} className={clsx(CLASSNAME, className, 'relative', 'w-full')}>
+      <div {...others} className={clsx(CLASSNAME, className, 'relative', 'w-full')} ref={ref}>
         <div className="flex mb-2 items-center justify-between">
           <div>
             {badge && (
