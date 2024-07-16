@@ -7,7 +7,6 @@ export type OpenerDelay = {
   open: number;
 };
 
-export type OpenerInteraction = 'click' | 'focus' | 'hover';
 export interface OpenerOptions {
   /**
    * Initial open state
