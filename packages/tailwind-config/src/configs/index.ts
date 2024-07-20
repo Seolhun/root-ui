@@ -20,11 +20,11 @@ export const RootScaleValues = {
     xs: { x: 8, y: 4 },
   } satisfies Record<RootScaleType, { x: number; y: number }>,
   SIZE: {
-    lg: 24,
-    md: 20,
-    sm: 16,
-    xl: 28,
-    xs: 12,
+    lg: 20,
+    md: 16,
+    sm: 12,
+    xl: 24,
+    xs: 8,
   } satisfies Record<RootScaleType, number>,
   TEXT: {
     lg: 'lg',
