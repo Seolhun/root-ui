@@ -1,4 +1,3 @@
-export * from './Accordion';
 export * from './AutoComplete';
 export * from './Disclosure';
 export * from './Dropdown';
