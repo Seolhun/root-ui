@@ -5,9 +5,9 @@ const CLASSNAME = 'Root__Layout__Nav__Item';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface NavItemProps {}
+export interface NavMenuItemProps {}
 
-export const NavItem = React.forwardRef<ElementType, ElementProps & NavItemProps>(
+export const NavMenuItem = React.forwardRef<ElementType, ElementProps & NavMenuItemProps>(
   ({ className, children, ...others }, ref) => {
     return (
       <div ref={ref} role="menuitem" {...others} className={clsx(CLASSNAME, className, 'min-h-20', 'cursor-pointer')}>
