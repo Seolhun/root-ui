@@ -1,6 +1,6 @@
 export * from './Accordion';
 export * from './AutoComplete';
-export * from './disclosure';
+export * from './Disclosure';
 export * from './Dropdown';
 export * from './Floating';
 export * from './Overlays';
