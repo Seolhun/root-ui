@@ -8,8 +8,8 @@ import { AccordionProps } from './Accordion.Root';
 const BaseTemplate = ({ children, ...others }: AccordionProps) => {
   return (
     <Accordion {...others}>
-      <Accordion.Widgets.Button>Button</Accordion.Widgets.Button>
-      <Accordion.Widgets.Panel>{children}</Accordion.Widgets.Panel>
+      <Accordion.Button>Button</Accordion.Button>
+      <Accordion.Panel>{children}</Accordion.Panel>
     </Accordion>
   );
 };
