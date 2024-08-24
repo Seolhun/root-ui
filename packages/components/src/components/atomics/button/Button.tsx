@@ -45,13 +45,13 @@ export const Button = React.forwardRef<ElementType, ButtonProps>(
             xs: () => 'btn-scale-xs',
           })(scale),
           toIntentMatch({
-            accent: () => clsx(outlined ? `outlined-accent` : `solid-accent`),
-            danger: () => clsx(outlined ? `outlined-danger` : `solid-danger`),
-            info: () => clsx(outlined ? `outlined-info` : `solid-info`),
-            neutral: () => clsx(outlined ? `outlined-neutral` : `solid-neutral`),
-            primary: () => clsx(outlined ? `outlined-primary` : `solid-primary`),
-            success: () => clsx(outlined ? `outlined-success` : `solid-success`),
-            warning: () => clsx(outlined ? `outlined-warning` : `solid-warning`),
+            accent: () => clsx(outlined ? 'outlined-accent' : 'solid-accent'),
+            danger: () => clsx(outlined ? 'outlined-danger' : 'solid-danger'),
+            info: () => clsx(outlined ? 'outlined-info' : 'solid-info'),
+            neutral: () => clsx(outlined ? 'outlined-neutral' : 'solid-neutral'),
+            primary: () => clsx(outlined ? 'outlined-primary' : 'solid-primary'),
+            success: () => clsx(outlined ? 'outlined-success' : 'solid-success'),
+            warning: () => clsx(outlined ? 'outlined-warning' : 'solid-warning'),
           })(intent),
         )}
         ref={ref}

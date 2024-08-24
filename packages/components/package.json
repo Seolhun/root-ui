@@ -73,7 +73,8 @@
     "clsx": "^1.2.1",
     "color": "^4.2.3",
     "framer-motion": "^11.2.12",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "tailwind-variants": "^0.2.1"
   },
   "devDependencies": {
     "@heroicons/react": "^2.1.3"
