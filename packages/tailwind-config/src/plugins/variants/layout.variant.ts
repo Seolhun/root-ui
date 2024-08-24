@@ -2,5 +2,6 @@ import plugin from 'tailwindcss/plugin';
 
 export default plugin(function ({ addVariant }) {
   addVariant('sidebar-expanded', '.sidebar-expanded &');
-  addVariant('sidebar-icon', '.sidebar-icon &');
+  addVariant('sidebar-collapsed', '.sidebar-collapsed &');
+  addVariant('sidebar-hidden', '.sidebar-hidden &');
 });

@@ -17,11 +17,23 @@ export interface LayoutActionButtonProps extends Omit<ElementProps, 'children'> 
 
 export const LayoutActionButton = React.forwardRef<ElementType, LayoutActionButtonProps>(
   ({ className, children, onClick, ...others }, ref) => {
-    const { setSidebarOpen } = useLayoutContext();
+    const { setSidebarStatus } = useLayoutContext();
 
     const toggle = React.useCallback(() => {
-      setSidebarOpen((prev) => !prev);
-    }, [setSidebarOpen]);
+      setSidebarStatus((prev) => {
+        switch (prev) {
+          case 'expanded': {
+            return 'collapsed';
+          }
+          case 'collapsed': {
+            return 'hidden';
+          }
+          default: {
+            return 'expanded';
+          }
+        }
+      });
+    }, [setSidebarStatus]);
 
     const actions = React.useMemo<LayoutActions>(() => {
       return {

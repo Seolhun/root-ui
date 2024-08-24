@@ -1,6 +1,7 @@
-import { useMergeRefs } from '@floating-ui/react';
 import clsx from 'clsx';
 import * as React from 'react';
+
+import { useMergeRefs } from '~/hooks';
 
 import { useTooltipContext } from './useTooltipContext';
 
@@ -11,7 +12,7 @@ export const TooltipTrigger = React.forwardRef<ElementType, ElementProps>(({ cla
   const contextValues = useTooltipContext();
   const childrenRef = (children as any)?.ref;
 
-  const mergedRef = useMergeRefs([contextValues?.refs.setReference, ref, childrenRef]);
+  const mergedRef = useMergeRefs(contextValues?.refs.setReference, ref, childrenRef);
 
   return (
     <div

@@ -24,7 +24,7 @@ export const DynamicVirtualScroll = React.forwardRef<
   Omit<ElementProps, 'children'> & DynamicVirtualScrollProps
 >(({ children, height, virtualOptions, ...others }, ref) => {
   const parentRef = React.useRef<HTMLDivElement>(null);
-  const mergedRefs = useMergeRefs([parentRef, ref]);
+  const mergedRefs = useMergeRefs(parentRef, ref);
 
   const virtualizer = useVirtualizer({
     ...DEFAULT_OPTIONS,

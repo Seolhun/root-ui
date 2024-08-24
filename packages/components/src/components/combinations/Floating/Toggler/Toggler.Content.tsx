@@ -1,6 +1,8 @@
-import { FloatingPortal, useDelayGroup, useMergeRefs } from '@floating-ui/react';
+import { FloatingPortal, useDelayGroup } from '@floating-ui/react';
 import clsx from 'clsx';
 import * as React from 'react';
+
+import { useMergeRefs } from '~/hooks';
 
 import { useTogglerContext } from './useTogglerContext';
 
@@ -15,7 +17,7 @@ export const TogglerContent = React.forwardRef<ElementType, TogglerContentProps>
     const contextValues = useTogglerContext();
     const tooltipId = React.useId();
 
-    const mergedRef = useMergeRefs([contextValues?.refs.setFloating || null, ref]);
+    const mergedRef = useMergeRefs(contextValues?.refs.setFloating || null, ref);
 
     useDelayGroup(contextValues.context, {
       id: tooltipId,

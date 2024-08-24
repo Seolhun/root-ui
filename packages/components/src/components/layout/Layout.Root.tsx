@@ -23,12 +23,16 @@ export const LayoutRoot = React.forwardRef<ElementType, ElementProps & LayoutRoo
 
 export const BaseLayout = React.forwardRef<ElementType, ElementProps & LayoutRootProps>(
   ({ className, children, ...others }, ref) => {
-    const { sidebarOpen } = useLayoutContext();
+    const { sidebarStatus } = useLayoutContext();
 
     return (
       <div
         {...others}
-        className={clsx(CLASSNAME, className, 'w-full', sidebarOpen ? 'sidebar-expanded' : 'sidebar-hidden')}
+        className={clsx(CLASSNAME, className, 'w-full', {
+          'sidebar-collapsed': sidebarStatus === 'collapsed',
+          'sidebar-expanded': sidebarStatus === 'expanded',
+          'sidebar-hidden': sidebarStatus === 'hidden',
+        })}
         ref={ref}
       >
         {children}

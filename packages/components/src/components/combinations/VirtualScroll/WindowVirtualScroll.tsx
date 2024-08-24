@@ -24,7 +24,7 @@ export const WindowVirtualScroll = React.forwardRef<
   Omit<ElementProps, 'children'> & WindowVirtualScrollProps
 >(({ children, height, virtualOptions, ...others }, ref) => {
   const parentRef = React.useRef<HTMLDivElement | null>(null);
-  const mergedRefs = useMergeRefs([parentRef, ref]);
+  const mergedRefs = useMergeRefs(parentRef, ref);
 
   const virtualizer = useWindowVirtualizer({
     ...DEFAULT_OPTIONS,

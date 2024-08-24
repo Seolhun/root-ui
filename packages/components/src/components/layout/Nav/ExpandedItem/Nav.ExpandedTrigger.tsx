@@ -21,7 +21,7 @@ export const NavExpandedTrigger = React.forwardRef<
   const { floating, intersection, isFloatingOpen } = useNavExpandedContext();
   const { refs } = floating;
 
-  const mergedRefs = useMergeRefs([refs.setReference, ref]);
+  const mergedRefs = useMergeRefs(refs.setReference, ref);
 
   return (
     <div

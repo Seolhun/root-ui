@@ -14,28 +14,28 @@ const BaseTemplate = ({ ...others }: LayoutProps) => {
       <Layout.Header className={clsx('flex space-x-8', 'py-4 px-8', 'text-space-1 dark:text-cream-1')}>
         <Layout.Nav className={clsx('flex items-center space-x-8', 'min-h-32')}>
           <Layout.Nav.Group>
-            <Layout.Nav.Item>
+            <Layout.Nav.MenuItem>
               <Layout.ActionButton>
                 {({ toggleSidebar }) => <Bars3Icon className="w-12 h-12" onClick={toggleSidebar} />}
               </Layout.ActionButton>
-            </Layout.Nav.Item>
+            </Layout.Nav.MenuItem>
 
-            <Layout.Nav.Item>Item</Layout.Nav.Item>
+            <Layout.Nav.MenuItem>Item</Layout.Nav.MenuItem>
           </Layout.Nav.Group>
 
           <Layout.Nav.Group>
-            <Layout.Nav.Item>Group Item1</Layout.Nav.Item>
-            <Layout.Nav.Item>Group Item2</Layout.Nav.Item>
-            <Layout.Nav.Item>Group Item3</Layout.Nav.Item>
+            <Layout.Nav.MenuItem>Group Item1</Layout.Nav.MenuItem>
+            <Layout.Nav.MenuItem>Group Item2</Layout.Nav.MenuItem>
+            <Layout.Nav.MenuItem>Group Item3</Layout.Nav.MenuItem>
           </Layout.Nav.Group>
 
           <Layout.Nav.Group>
             <Layout.Nav.ExpandedItem>
               <Layout.Nav.ExpandedItem.Trigger>
-                <Layout.Nav.Item>Icon</Layout.Nav.Item>
+                <Layout.Nav.MenuItem>Icon</Layout.Nav.MenuItem>
               </Layout.Nav.ExpandedItem.Trigger>
               <Layout.Nav.ExpandedItem.Panel>
-                <Layout.Nav.Item>Expanded Item</Layout.Nav.Item>
+                <Layout.Nav.MenuItem>Expanded Item</Layout.Nav.MenuItem>
               </Layout.Nav.ExpandedItem.Panel>
             </Layout.Nav.ExpandedItem>
           </Layout.Nav.Group>
@@ -48,10 +48,8 @@ const BaseTemplate = ({ ...others }: LayoutProps) => {
           'flex flex-col',
           'bg-cream-1 dark:bg-space-1',
           'h-full overflow-y-auto no-scrollbar',
-          'w-0 sidebar-expanded:w-100',
           'rounded-r-lg shadow-md',
           'py-12 px-8',
-          'w-120',
           'z-40',
         )}
       >
@@ -83,7 +81,14 @@ const BaseTemplate = ({ ...others }: LayoutProps) => {
         </Layout.Sidebar.Group>
       </Layout.Sidebar>
 
-      <Layout.Body className={clsx('pl-12 sidebar-expanded:pl-132', 'text-space-1 dark:text-cream-1')}>
+      <Layout.Body
+        className={clsx(
+          'pl-12 sidebar-expanded:pl-132',
+          'text-space-1 dark:text-cream-1',
+          'overflow-auto',
+          'transition-spacing duration-200 ease-in-out',
+        )}
+      >
         Body
       </Layout.Body>
     </Layout>

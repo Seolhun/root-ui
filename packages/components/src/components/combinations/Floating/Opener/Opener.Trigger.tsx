@@ -1,6 +1,7 @@
-import { useMergeRefs } from '@floating-ui/react';
 import clsx from 'clsx';
 import * as React from 'react';
+
+import { useMergeRefs } from '~/hooks';
 
 import { useOpenerContext } from './useOpenerContext';
 
@@ -12,7 +13,7 @@ export const OpenerTrigger = React.forwardRef<ElementType, ElementProps>(({ clas
   const contextValues = useOpenerContext();
   const childrenRef = (children as any)?.ref;
 
-  const mergedRef = useMergeRefs([contextValues?.refs.setReference, ref, childrenRef]);
+  const mergedRef = useMergeRefs(contextValues?.refs.setReference, ref, childrenRef);
 
   return (
     <button

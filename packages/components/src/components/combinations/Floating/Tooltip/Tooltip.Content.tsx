@@ -1,8 +1,8 @@
-import { FloatingPortal, useDelayGroup, useDelayGroupContext, useMergeRefs } from '@floating-ui/react';
+import { FloatingPortal, useDelayGroup, useDelayGroupContext } from '@floating-ui/react';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { useIsoMorphicEffect } from '~/hooks';
+import { useIsoMorphicEffect, useMergeRefs } from '~/hooks';
 
 import { useTooltipContext } from './useTooltipContext';
 
@@ -17,7 +17,7 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
     const { setCurrentId } = useDelayGroupContext();
     const tooltipId = React.useId();
 
-    const mergedRef = useMergeRefs([contextValues?.refs.setFloating || null, ref]);
+    const mergedRef = useMergeRefs(contextValues?.refs.setFloating || null, ref);
 
     useDelayGroup(contextValues.context, {
       id: tooltipId,

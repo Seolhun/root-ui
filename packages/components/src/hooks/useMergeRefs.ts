@@ -1,25 +1,19 @@
 import * as React from 'react';
 
-/**
- * Merges an array of refs into a single memoized callback ref or `null`.
- */
-export function useMergeRefs<Instance>(
-  refs: Array<React.Ref<Instance> | undefined>,
-): null | React.RefCallback<Instance> {
-  return React.useMemo(() => {
-    if (refs.every((ref) => ref == null)) {
-      return null;
-    }
-
-    return (value) => {
-      refs.forEach((ref) => {
+export function mergeRefs(...refs: Array<React.Ref<any> | undefined>) {
+  return <T>(value: T) => {
+    refs.forEach((ref) => {
+      if (ref) {
         if (typeof ref === 'function') {
           ref(value);
-        } else if (ref != null) {
-          (ref as React.MutableRefObject<Instance | null>).current = value;
+        } else {
+          (ref as React.MutableRefObject<T>).current = value;
         }
-      });
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, refs);
+      }
+    });
+  };
+}
+
+export function useMergeRefs(...refs: Array<React.Ref<any> | undefined>) {
+  return React.useMemo(() => mergeRefs(...refs), [refs]);
 }

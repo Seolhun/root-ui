@@ -4,6 +4,7 @@ import {
   offset,
   safePolygon,
   shift,
+  size,
   useDismiss,
   useFloating,
   useFocus,
@@ -43,7 +44,7 @@ export interface UseTogglerReturns extends TogglerFloatingReturns, TogglerInters
 export function useToggler({
   disabled,
   initialOpen = false,
-  offset: offsetValue = 5,
+  offset: offsetValue = 2,
   onOpenChange: setControlledOpen,
   open: controlledOpen,
   placement = 'right-start',
@@ -57,7 +58,18 @@ export function useToggler({
   const setOpen = setControlledOpen ?? setUncontrolledOpen;
 
   const floating = useFloating({
-    middleware: [offset(offsetValue), shift(), flip()],
+    middleware: [
+      offset(offsetValue),
+      shift(),
+      flip(),
+      size({
+        apply({ elements, rects }) {
+          Object.assign(elements.floating.style, {
+            width: `${rects.reference.width}px`,
+          });
+        },
+      }),
+    ],
     onOpenChange: setOpen,
     open,
     placement,

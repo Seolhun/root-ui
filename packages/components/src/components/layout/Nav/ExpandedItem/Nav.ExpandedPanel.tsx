@@ -32,7 +32,7 @@ export const NavExpandedPanel = React.forwardRef<ElementType, NavExpandedPanelPr
   const { floating, intersection, isFloatingOpen } = useNavExpandedContext();
   const { floatingStyles, refs } = floating;
 
-  const mergedRefs = useMergeRefs([refs.setFloating, ref]);
+  const mergedRefs = useMergeRefs(refs.setFloating, ref);
 
   return (
     <AnimatePresence>
