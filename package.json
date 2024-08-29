@@ -3,7 +3,7 @@
   "name": "@seolhun/root-ui",
   "version": "0.8.3-alpha.5",
   "publishConfig": {
-    "access": "restricted",
+    "access": "public",
     "registry": "https://npm.pkg.github.com"
   },
   "main": "dist/index.js",

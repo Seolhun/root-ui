@@ -9,7 +9,7 @@
   "description": "Root Tailwind Config",
   "version": "0.8.8-alpha.8",
   "publishConfig": {
-    "access": "restricted",
+    "access": "public",
     "registry": "https://npm.pkg.github.com"
   },
   "files": [
