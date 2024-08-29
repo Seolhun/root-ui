@@ -1,6 +1,6 @@
+import { isNil } from '@fxts/core';
 import * as React from 'react';
 
-import { isNil } from '../utils';
 import { useIsoMorphicEffect } from './useIsoMorphicEffect';
 import { useServerHandoffComplete } from './useServerHandoffComplete';
 

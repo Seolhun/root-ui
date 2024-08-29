@@ -1,7 +1,7 @@
+import { isFunction } from 'lodash-es';
 import * as React from 'react';
 
 import { FocusableMode, isFocusableElement } from '../tools/focus-trap/FocusManagements';
-import { isFunction } from '../utils';
 import { useDocumentEvent } from './useDocumentEvent';
 
 type Container = HTMLElement | null | React.MutableRefObject<HTMLElement | null>;

@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '~/stories';
 
-import { FormItem } from '../FormItem';
+import { FormItem } from '../form-item';
 import { Radio, RadioGroupProps, RadioInputProps } from './Radio';
 
 const RadioTemplate = () => {

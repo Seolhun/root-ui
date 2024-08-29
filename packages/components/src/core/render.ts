@@ -1,9 +1,10 @@
-import { omit } from 'lodash-es';
+import { isEmpty } from '@fxts/core';
+import { isFunction, omit } from 'lodash-es';
 import * as React from 'react';
 
 import { GlobalRootDataAttributeMap } from '../constants';
 import { Expand, RootUIProps, RootUIUniqueKey, XOR } from '../types';
-import { compact, isEmpty, isFunction, isUndefined, match } from '../utils';
+import { compact, isUndefined, match } from '../utils';
 import { mergeProps } from './mergeProps';
 
 export enum RenderFeatures {
