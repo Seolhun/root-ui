@@ -2,6 +2,7 @@ export * from './avatar';
 export * from './button';
 export * from './callout';
 export * from './card';
+export * from './divider';
 export * from './grid';
 export * from './loading';
 export * from './progressbar';
