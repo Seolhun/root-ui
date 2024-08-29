@@ -1,5 +1,5 @@
-export * from './Tooltip';
-export * from './Toggler';
-export * from './Opener';
+export * from './opener';
+export * from './toggler';
+export * from './tooltip';
 
 export * from './useFloatingAreaContext';
