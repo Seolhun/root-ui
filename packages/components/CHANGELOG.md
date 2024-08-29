@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.8.8-alpha.10
+
+### Patch Changes
+
+- chore: fix the miss directory path
+
+- Updated dependencies []:
+  - @seolhun/root-ui-tailwind@0.8.8-alpha.10
+
 ## 0.8.8-alpha.9
 
 ### Patch Changes

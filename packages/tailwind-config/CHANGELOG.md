@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.8-alpha.10
+
+### Patch Changes
+
+- chore: fix the miss directory path
+
 ## 0.8.8-alpha.9
 
 ### Patch Changes
