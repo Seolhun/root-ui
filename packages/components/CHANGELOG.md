@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.8.8-alpha.9
+
+### Patch Changes
+
+- refactor: all components path lowercase
+
+- Updated dependencies []:
+  - @seolhun/root-ui-tailwind@0.8.8-alpha.9
+
 ## 0.8.8-alpha.8
 
 ### Patch Changes

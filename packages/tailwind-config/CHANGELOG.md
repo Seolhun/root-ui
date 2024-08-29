@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.8-alpha.9
+
+### Patch Changes
+
+- refactor: all components path lowercase
+
 ## 0.8.8-alpha.8
 
 ### Patch Changes
