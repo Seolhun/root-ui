@@ -9,7 +9,11 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 
 export const ToastTitle = React.forwardRef<ElementType, ElementProps>(({ className, children, ...others }, ref) => {
   return (
-    <Text {...others} className={clsx(CLASSNAME, className, 'truncate', 'text-xl', 'font-bold')} ref={ref}>
+    <Text
+      {...others}
+      className={clsx(CLASSNAME, className, 'truncate', 'text-lg', 'font-bold', 'whitespace-pre-wrap')}
+      ref={ref}
+    >
       {children}
     </Text>
   );

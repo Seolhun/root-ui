@@ -2,7 +2,7 @@ import { XMarkIcon } from '@heroicons/react/24/solid';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { ToastContext } from './ToastContext';
+import { ToastContext } from '../ToastContext';
 
 const CLASSNAME = 'Root__Toast__CloseButton';
 type ElementType = HTMLButtonElement;

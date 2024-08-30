@@ -12,7 +12,7 @@ export interface ToastMessageProps {}
 export const ToastMessage = React.forwardRef<ElementType, ElementProps & ToastMessageProps>(
   ({ className, children, ...others }, ref) => {
     return (
-      <P {...others} className={clsx(CLASSNAME, className)} ref={ref}>
+      <P {...others} className={clsx(CLASSNAME, className, 'whitespace-pre-wrap')} ref={ref}>
         {children}
       </P>
     );

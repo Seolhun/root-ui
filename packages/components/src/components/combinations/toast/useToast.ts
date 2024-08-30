@@ -1,20 +1,33 @@
 import * as React from 'react';
 
-import { ToastProps } from './Toast.types';
+import { CloseToastPayload, OpenToastPayload } from './Toast.types';
 import { ToastContext } from './ToastContext';
 
 export const useToast = () => {
   const [, dispatch] = React.useContext(ToastContext);
 
-  const openToast = React.useCallback(
-    (toast: ToastProps) => {
+  const closeToast = React.useCallback(
+    (payload: CloseToastPayload) => {
       dispatch({
-        type: 'ADD_TOAST',
-        payload: toast,
+        type: 'CLOSE_TOAST',
+        payload,
       });
     },
     [dispatch],
   );
 
-  return openToast;
+  const openToast = React.useCallback(
+    (payload: OpenToastPayload) => {
+      dispatch({
+        type: 'OPEN_TOAST',
+        payload,
+      });
+    },
+    [dispatch],
+  );
+
+  return {
+    closeToast,
+    openToast,
+  } as const;
 };

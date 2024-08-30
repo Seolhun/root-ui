@@ -2,30 +2,30 @@ type VerticalPositionType = 'bottom' | 'top';
 type HorizontalPositionType = 'left' | 'right';
 export type ToastPlacementType = `${VerticalPositionType}-${HorizontalPositionType}`;
 
-export interface ToastProps {
+export interface ToastValue {
   /**
-   * To render custom toast content
+   * Unique identifier of the toast
    */
-  children?: React.ReactNode;
-
-  /**
-   * To notify icon
-   */
-  icon?: React.ReactElement;
-
+  id: number;
   /**
    * To notify message
    */
   message?: string;
-
+  /**
+   * Timeout of the toast
+   * @default 3000
+   */
+  timeout?: number;
   /**
    * To notify title
    */
   title?: string;
-}
-
-export interface ToastUniqueProps extends ToastProps {
-  id: number;
-
+  /**
+   * Visibility of the toast
+   */
   visible: boolean;
 }
+
+export type OpenToastPayload = Pick<ToastValue, 'message'> & Partial<Pick<ToastValue, 'timeout' | 'title'>>;
+
+export type CloseToastPayload = ToastValue['id'];
