@@ -8,6 +8,7 @@
     "@seolhun/root-ui-tailwind": "0.8.8"
   },
   "changesets": [
-    "modern-days-wash"
+    "modern-days-wash",
+    "rude-ducks-bow"
   ]
 }

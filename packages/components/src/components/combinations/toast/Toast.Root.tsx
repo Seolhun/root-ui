@@ -28,7 +28,7 @@ export interface ToastProps {
 
 export const ToastRoot = ({ id, className, children, timeout = 3000, visible }: ToastProps) => {
   const [, dispatch] = useToastContext();
-  const timeoutRef = React.useRef<NodeJS.Timeout>();
+  const timeoutRef = React.useRef<any>();
 
   useEffectOnce(() => {
     timeoutRef.current = setTimeout(() => {
