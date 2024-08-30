@@ -2,11 +2,11 @@
 
 Root UI built with TypeScript, React and TailwindCSS.
 
-- Atomics
-- Combinations
-- Forms
-- Icons
-- Typography
+- atomics
+- combinations
+- forms
+- layouts
+- typography
 
 > Each directories will be separated to each packages.
 
