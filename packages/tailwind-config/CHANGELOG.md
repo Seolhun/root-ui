@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.9-alpha.0
+
+### Patch Changes
+
+- feat(components): update callout and toast
+
 ## 0.8.8
 
 ### Patch Changes
