@@ -4,11 +4,11 @@ import * as React from 'react';
 
 import { useEffectOnce } from '~/hooks';
 
-import { useToastContext } from '../ToastContext';
+import { useToastContext } from './ToastContext';
 
 const CLASSNAME = 'Root__Toast';
 
-export interface ToastRootProps {
+export interface ToastProps {
   children?: React.ReactNode;
   className?: string;
   /**
@@ -26,7 +26,7 @@ export interface ToastRootProps {
   visible?: boolean;
 }
 
-export const ToastRoot = ({ id, className, children, timeout = 3000, visible }: ToastRootProps) => {
+export const ToastRoot = ({ id, className, children, timeout = 3000, visible }: ToastProps) => {
   const [, dispatch] = useToastContext();
   const timeoutRef = React.useRef<NodeJS.Timeout>();
 

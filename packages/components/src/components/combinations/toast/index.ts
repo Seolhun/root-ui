@@ -1,3 +1,3 @@
 export * from './Toast.types';
-export * from './ToastProvider';
+export * from './ToastGroup';
 export * from './useToast';

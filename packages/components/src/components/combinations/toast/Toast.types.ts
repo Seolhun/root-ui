@@ -1,6 +1,9 @@
 type VerticalPositionType = 'bottom' | 'top';
 type HorizontalPositionType = 'left' | 'right';
-export type ToastPlacementType = `${VerticalPositionType}-${HorizontalPositionType}`;
+export type ToastPlacement = `${VerticalPositionType}-${HorizontalPositionType}`;
+
+export type ToastRendererArgs = { toasts: ToastValue[] };
+export type ToastRenderer = (args: ToastRendererArgs) => React.ReactNode;
 
 export interface ToastValue {
   /**

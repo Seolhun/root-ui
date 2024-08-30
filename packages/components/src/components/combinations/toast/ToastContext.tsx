@@ -18,8 +18,6 @@ export type ToastContextValues = [ToastValue[], ToastDispatch];
 export const ToastContext = React.createContext<ToastContextValues>([[], () => null]);
 
 export const toastReducer: React.Reducer<ToastValue[], ToastDispatchActions> = (state = [], action) => {
-  console.debug('toastReducer', action);
-
   const { type } = action;
   switch (type) {
     case 'OPEN_TOAST': {
