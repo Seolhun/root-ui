@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.9-alpha.2
+
+### Patch Changes
+
+- refactor: remove unnecessary sidebar icon
+
 ## 0.8.9-alpha.1
 
 ### Patch Changes
