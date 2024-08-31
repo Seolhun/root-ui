@@ -11,7 +11,7 @@ import * as Styled from './AutoComplete.Styled';
 import { AutoCompleteIdentify } from './AutoComplete.types';
 
 const CLASSNAME = 'Root__AutoComplete';
-type Element = HTMLDivElement;
+type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<Element>;
 
 export interface AutoCompleteProps<Item> {
@@ -181,6 +181,6 @@ function _AutoComplete<Item = any>(
 export const AutoComplete = React.forwardRef(_AutoComplete) as <Item>(
   props: AutoCompleteProps<Item> &
     ElementProps & {
-      ref?: React.ForwardedRef<HTMLDivElement>;
+      ref?: React.ForwardedRef<ElementType>;
     },
 ) => ReturnType<typeof _AutoComplete>;

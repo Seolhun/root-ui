@@ -29,5 +29,5 @@ export const _DropdownRoot = <Value,>(
 };
 
 export const DropdownRoot = React.forwardRef(_DropdownRoot) as <Value>(
-  props: ElementProps & DropdownProps<Value> & React.RefAttributes<ElementType>,
+  props: ElementProps & DropdownProps<Value> & { ref?: React.ForwardedRef<ElementType> },
 ) => JSX.Element;

@@ -16,12 +16,12 @@ const DropdownOptionComponent = <Value,>(
   { className, children, ...others }: ElementProps & DropdownOptionProps<Value>,
   ref: React.ForwardedRef<ElementType>,
 ) => {
-  const { onChangeOption, setOpen } = useDropdownContext();
+  const { onChangeOpen, onChangeOption } = useDropdownContext();
 
   const handleOption = React.useCallback(() => {
     onChangeOption(others.option);
-    setOpen(false);
-  }, [onChangeOption, others.option, setOpen]);
+    onChangeOpen(false);
+  }, [onChangeOption, others.option, onChangeOpen]);
 
   return (
     <button {...others} className={clsx(CLASSNAME, className)} onClick={handleOption} ref={ref}>
@@ -31,5 +31,5 @@ const DropdownOptionComponent = <Value,>(
 };
 
 export const DropdownOption = React.forwardRef(DropdownOptionComponent) as <Value>(
-  props: ElementProps & DropdownOptionProps<Value> & React.RefAttributes<ElementType>,
+  props: ElementProps & DropdownOptionProps<Value> & { ref?: React.ForwardedRef<ElementType> },
 ) => JSX.Element;

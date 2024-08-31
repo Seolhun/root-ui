@@ -1,8 +1,6 @@
 import { Placement, Strategy, useFloating, useInteractions } from '@floating-ui/react';
 import * as React from 'react';
 
-import { ElementRef } from '~/types';
-
 export interface DropdownValue<Value> {
   children: React.ReactNode;
 
@@ -34,16 +32,13 @@ export interface DropdownOptions<Value> {
   /**
    * Current selected value
    */
-  option: DropdownValue<Value>;
+  option: DropdownValue<Value> | null;
   /**
    * Dropdown placement
    * @default 'bottom'
    */
   placement?: Placement;
-  /**
-   * Portal target element
-   */
-  root?: ElementRef<HTMLElement>;
+
   /**
    * Dropdown strategy
    * @default 'fixed'

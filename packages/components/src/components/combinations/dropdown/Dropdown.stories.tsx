@@ -16,6 +16,7 @@ const DEFAULT_OPTIONS = Array.from<number, ProfileOption>(Array(10), (_, i) => (
 }));
 
 const BaseTemplate = () => {
+  const [triggerRef, setTriggerRef] = React.useState<HTMLButtonElement | null>(null);
   const [selectedOption, setSelectedOption] = React.useState<ProfileOption>(DEFAULT_OPTIONS[0]);
 
   const onChangeOption = React.useCallback((nextOption: ProfileOption) => {
@@ -26,21 +27,23 @@ const BaseTemplate = () => {
 
   return (
     <Dropdown onChangeOption={onChangeOption} option={selectedOption}>
-      <Dropdown.Trigger className="block min-w-120 text-space-1 dark:text-cream-1">
-        {selectedOption.children}
-      </Dropdown.Trigger>
-      <Dropdown.Panel className="flex flex-col space-y-2">
-        {DEFAULT_OPTIONS.map((option) => {
-          return (
-            <Dropdown.Option key={option.value} option={option}>
-              <div className={clsx('flex items-center gap-x-2 truncate', 'text-space-1 dark:text-cream-1')}>
-                <div>{option.children}</div>
-                <div className="truncate">{option.value}</div>
-              </div>
-            </Dropdown.Option>
-          );
-        })}
-      </Dropdown.Panel>
+      <div>
+        <Dropdown.Trigger className="text-space-1 dark:text-cream-1" ref={(e) => setTriggerRef(e)}>
+          {selectedOption.children}
+        </Dropdown.Trigger>
+        <Dropdown.Panel className="flex flex-col space-y-2" root={triggerRef}>
+          {DEFAULT_OPTIONS.map((option) => {
+            return (
+              <Dropdown.Option key={option.value} option={option}>
+                <div className={clsx('flex items-center gap-x-2 truncate', 'text-space-1 dark:text-cream-1')}>
+                  <div>{option.children}</div>
+                  <div className="truncate">{option.value}</div>
+                </div>
+              </Dropdown.Option>
+            );
+          })}
+        </Dropdown.Panel>
+      </div>
     </Dropdown>
   );
 };

@@ -21,6 +21,10 @@ export interface UseDropdownProps<Value> extends DropdownOptions<Value> {
 
 export interface UseDropdownReturns<Value> extends DropdownFloatingReturns, DropdownIntersectionReturns {
   /**
+   * Set open state
+   */
+  onChangeOpen: (open: boolean) => void;
+  /**
    * Callback to handle option change
    */
   onChangeOption: (nextOption: DropdownValue<Value>) => void;
@@ -31,15 +35,11 @@ export interface UseDropdownReturns<Value> extends DropdownFloatingReturns, Drop
   /**
    * Current selected value
    */
-  option: DropdownValue<Value>;
+  option: DropdownValue<Value> | null;
   /**
    * Portal target element
    */
   root?: ElementRef<HTMLElement>;
-  /**
-   * Set open state
-   */
-  setOpen: (open: boolean) => void;
   /**
    * zIndex
    */
@@ -54,18 +54,17 @@ export const useDropdown = <Value>({
   open: controlledOpen,
   option,
   placement = 'bottom',
-  root,
   strategy = 'absolute',
   zIndex,
 }: UseDropdownProps<Value>): UseDropdownReturns<Value> => {
   const [uncontrolledOpen, setUncontrolledOpen] = React.useState<boolean>(initialOpen);
 
   const open = controlledOpen ?? uncontrolledOpen;
-  const setOpen = setControlledOpen ?? setUncontrolledOpen;
+  const onChangeOpen = setControlledOpen ?? setUncontrolledOpen;
 
   const floating = useFloating({
     middleware: [offset(5), shift(), flip()],
-    onOpenChange: setOpen,
+    onOpenChange: onChangeOpen,
     open,
     placement,
     strategy,
@@ -82,7 +81,7 @@ export const useDropdown = <Value>({
   });
   const role = useRole(context, {
     enabled: !disabled,
-    role: 'tooltip',
+    role: 'listbox',
   });
 
   const interactions = useInteractions([click, dismiss, role]);
@@ -91,14 +90,13 @@ export const useDropdown = <Value>({
     return {
       ...interactions,
       ...floating,
+      onChangeOpen,
       onChangeOption,
       open,
       option,
-      root,
-      setOpen,
       zIndex,
     };
-  }, [floating, interactions, onChangeOption, open, root, setOpen, option, zIndex]);
+  }, [floating, interactions, onChangeOption, open, onChangeOpen, option, zIndex]);
 };
 
 export type DropdownContextValues<Value> = UseDropdownReturns<Value>;
