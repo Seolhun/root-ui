@@ -19,7 +19,7 @@ export const SidebarGroup = React.forwardRef<ElementType, ElementProps & Sidebar
         role="menubar"
       >
         {Title && (
-          <h1 className={clsx('text-cream dark:text-space', 'text-xs uppercase', 'pl-6')}>
+          <h1 className={clsx('text-cream dark:text-space', 'text-xs uppercase', 'pl-2')}>
             <span className="block">{Title}</span>
           </h1>
         )}
