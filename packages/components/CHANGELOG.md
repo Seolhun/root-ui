@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.9-alpha.5
+
+### Patch Changes
+
+- refactor: update the dropdown component to rebuild component without headless-ui ddpendencies
+
 ## 0.8.9-alpha.4
 
 ### Patch Changes
