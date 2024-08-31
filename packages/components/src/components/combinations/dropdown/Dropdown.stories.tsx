@@ -1,22 +1,21 @@
-import { Transition } from '@headlessui/react';
 import { Meta, StoryObj } from '@storybook/react';
+import clsx from 'clsx';
 import * as React from 'react';
 
-import { Avatar } from '~/components/atomics';
 import { StorybookContent } from '~/stories';
 
 import { Dropdown } from './Dropdown';
 import { DropdownProps } from './Dropdown.Root';
-import { DropdownOptionValue } from './Dropdown.types';
+import { DropdownValue } from './Dropdown.types';
 
-interface ProfileOption extends DropdownOptionValue<string> {}
+interface ProfileOption extends DropdownValue<number> {}
 
 const DEFAULT_OPTIONS = Array.from<number, ProfileOption>(Array(10), (_, i) => ({
-  children: 'https://avatars.githubusercontent.com/u/16330024?v=4',
+  children: `Option ${i}`,
   value: i,
 }));
 
-const DropdownTemplate = () => {
+const BaseTemplate = () => {
   const [selectedOption, setSelectedOption] = React.useState<ProfileOption>(DEFAULT_OPTIONS[0]);
 
   const onChangeOption = React.useCallback((nextOption: ProfileOption) => {
@@ -26,46 +25,42 @@ const DropdownTemplate = () => {
   }, []);
 
   return (
-    <Dropdown className="relative" onChange={onChangeOption} value={selectedOption}>
-      <Dropdown.Button className="min-w-120">{selectedOption.children}</Dropdown.Button>
-      <Dropdown.OptionList anchor="bottom" transition>
-        <Transition as="div" leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
-          {DEFAULT_OPTIONS.map((option) => {
-            return (
-              <Dropdown.Option key={option.value} value={option}>
-                {(state) => {
-                  return (
-                    <div className="flex items-center gap-x-2 truncate">
-                      <Avatar src={option.children} />
-                      <div className="truncate">{option.value}</div>
-                    </div>
-                  );
-                }}
-              </Dropdown.Option>
-            );
-          })}
-        </Transition>
-      </Dropdown.OptionList>
+    <Dropdown onChangeOption={onChangeOption} option={selectedOption}>
+      <Dropdown.Trigger className="block min-w-120 text-space-1 dark:text-cream-1">
+        {selectedOption.children}
+      </Dropdown.Trigger>
+      <Dropdown.Panel className="flex flex-col space-y-2">
+        {DEFAULT_OPTIONS.map((option) => {
+          return (
+            <Dropdown.Option key={option.value} option={option}>
+              <div className={clsx('flex items-center gap-x-2 truncate', 'text-space-1 dark:text-cream-1')}>
+                <div>{option.children}</div>
+                <div className="truncate">{option.value}</div>
+              </div>
+            </Dropdown.Option>
+          );
+        })}
+      </Dropdown.Panel>
     </Dropdown>
   );
 };
 
-const Dropdowns = (props: DropdownProps) => {
+const DropdownTemplate = () => {
   return (
     <StorybookContent>
       <StorybookContent.Light noAlign noGap>
-        <DropdownTemplate {...props} />
+        <BaseTemplate />
       </StorybookContent.Light>
       <StorybookContent.Dark noAlign noGap>
-        <DropdownTemplate {...props} />
+        <BaseTemplate />
       </StorybookContent.Dark>
     </StorybookContent>
   );
 };
 
-export const Tooltips: StoryObj<DropdownProps> = {
+export const Dropdowns: StoryObj<DropdownProps<number>> = {
   args: {},
-  render: (args) => <Dropdowns {...args} />,
+  render: (args) => <DropdownTemplate />,
 };
 
 const meta: Meta<typeof Dropdown> = {

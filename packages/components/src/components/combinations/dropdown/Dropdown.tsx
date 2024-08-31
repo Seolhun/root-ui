@@ -1,10 +1,16 @@
-import { DropdownButton } from './Dropdown.Button';
 import { DropdownOption } from './Dropdown.Option';
-import { DropdownOptionList } from './Dropdown.OptionList';
+import { DropdownPanel } from './Dropdown.Panel';
 import { DropdownRoot } from './Dropdown.Root';
+import { DropdownTrigger } from './Dropdown.Trigger';
 
+/**
+ * - Dropdown
+ *   - Trigger
+ *   - Panel
+ *     - Option(s)
+ */
 export const Dropdown = Object.assign(DropdownRoot, {
-  Button: DropdownButton,
   Option: DropdownOption,
-  OptionList: DropdownOptionList,
+  Panel: DropdownPanel,
+  Trigger: DropdownTrigger,
 });

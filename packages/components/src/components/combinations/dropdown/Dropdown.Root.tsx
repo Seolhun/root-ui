@@ -1,16 +1,33 @@
-import { Listbox, ListboxProps } from '@headlessui/react';
+import clsx from 'clsx';
 import * as React from 'react';
 
-import { DropdownOptionValue } from './Dropdown.types';
+import { DropdownOptions } from './Dropdown.types';
+import { DropdownContext, useDropdown } from './useDropdownContext';
+
+const CLASSNAME = 'Root__Dropdown';
+
+export interface DropdownProps<Value> extends DropdownOptions<Value> {
+  children: React.ReactNode;
+}
 
 type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
-export interface DropdownProps extends ListboxProps<'div', DropdownOptionValue> {}
+export const _DropdownRoot = <Value,>(
+  { className, children, ...options }: ElementProps & DropdownProps<Value>,
+  ref: React.ForwardedRef<ElementType>,
+) => {
+  const contextValues = useDropdown(options);
 
-export const DropdownRoot = React.forwardRef<ElementType, DropdownProps>(({ children, ...others }, ref) => {
   return (
-    <Listbox as="div" {...others} ref={ref}>
-      {children}
-    </Listbox>
+    <DropdownContext.Provider value={contextValues}>
+      <div className={clsx(CLASSNAME, className)} ref={ref}>
+        {children}
+      </div>
+    </DropdownContext.Provider>
   );
-});
+};
+
+export const DropdownRoot = React.forwardRef(_DropdownRoot) as <Value>(
+  props: ElementProps & DropdownProps<Value> & React.RefAttributes<ElementType>,
+) => JSX.Element;
