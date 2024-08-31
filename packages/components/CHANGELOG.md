@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.9-alpha.3
+
+### Patch Changes
+
+- feat: add FormItemGroup
+
 ## 0.8.9-alpha.2
 
 ### Patch Changes
