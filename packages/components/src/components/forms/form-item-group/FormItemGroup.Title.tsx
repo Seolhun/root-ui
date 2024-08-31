@@ -11,7 +11,7 @@ export interface FormItemGroupTitleProps {}
 export const FormItemGroupTitle = React.forwardRef<ElementType, ElementProps & FormItemGroupTitleProps>(
   ({ className, children, ...others }, ref) => {
     return (
-      <div {...others} className={clsx(CLASSNAME, 'font-bold text-xl', className)} ref={ref}>
+      <div {...others} className={clsx(CLASSNAME, 'font-bold text-md', className)} ref={ref}>
         {children}
       </div>
     );

@@ -13,7 +13,7 @@ export const FormItemGroupDescription = React.forwardRef<ElementType, ElementPro
     return (
       <div
         {...others}
-        className={clsx(CLASSNAME, 'text-md', 'text-neutral dark:text-neutral', 'whitespace-pre-wrap', className)}
+        className={clsx(CLASSNAME, 'text-xs', 'text-neutral dark:text-neutral', 'whitespace-pre-wrap', className)}
         ref={ref}
       >
         {children}
