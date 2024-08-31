@@ -27,17 +27,7 @@ export const SidebarRoot = React.forwardRef<ElementType, SidebarRootProps>(
         )}
         ref={ref}
       >
-        <svg
-          className="size-12"
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 32 32"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M9.382 8.675h13.943v13.943L32 31.293V0H.707zm13.236 14.65H8.675V9.382L0 .707V32h31.293z"></path>
-        </svg>
-        <div>{children}</div>
+        {children}
       </aside>
     );
   },
