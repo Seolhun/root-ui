@@ -8,6 +8,7 @@
     "@seolhun/root-ui-tailwind": "0.8.8"
   },
   "changesets": [
+    "great-bikes-travel",
     "modern-days-wash",
     "nasty-pumas-perform",
     "nervous-pumas-camp",

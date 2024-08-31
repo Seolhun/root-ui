@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.9-alpha.4
+
+### Patch Changes
+
+- refactor: update the FormItemGroup font-styles
+
 ## 0.8.9-alpha.3
 
 ### Patch Changes
