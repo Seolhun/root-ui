@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.9-alpha.6
+
+### Patch Changes
+
+- refactor: fix the dropdown root props
+
 ## 0.8.9-alpha.5
 
 ### Patch Changes
