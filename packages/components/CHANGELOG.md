@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.9-alpha.7
+
+### Patch Changes
+
+- refactor: update the dropdown to support multiple options
+
 ## 0.8.9-alpha.6
 
 ### Patch Changes
