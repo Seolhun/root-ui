@@ -33,13 +33,13 @@ export interface UseDropdownReturns<Value> extends DropdownFloatingReturns, Drop
    */
   open: boolean;
   /**
-   * Current selected value
-   */
-  option: DropdownValue<Value> | null;
-  /**
    * Portal target element
    */
   root?: ElementRef<HTMLElement>;
+  /**
+   * Current selected value
+   */
+  selectedOptions: DropdownValue<Value>[];
   /**
    * zIndex
    */
@@ -52,8 +52,8 @@ export const useDropdown = <Value>({
   onChangeOption,
   onOpenChange: setControlledOpen,
   open: controlledOpen,
-  option,
   placement = 'bottom',
+  selectedOptions,
   strategy = 'absolute',
   zIndex,
 }: UseDropdownProps<Value>): UseDropdownReturns<Value> => {
@@ -93,10 +93,10 @@ export const useDropdown = <Value>({
       onChangeOpen,
       onChangeOption,
       open,
-      option,
+      selectedOptions,
       zIndex,
     };
-  }, [floating, interactions, onChangeOption, open, onChangeOpen, option, zIndex]);
+  }, [floating, interactions, onChangeOption, open, onChangeOpen, selectedOptions, zIndex]);
 };
 
 export type DropdownContextValues<Value> = UseDropdownReturns<Value>;

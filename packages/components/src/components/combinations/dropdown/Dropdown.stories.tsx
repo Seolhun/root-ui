@@ -17,19 +17,25 @@ const DEFAULT_OPTIONS = Array.from<number, ProfileOption>(Array(10), (_, i) => (
 
 const BaseTemplate = () => {
   const [triggerRef, setTriggerRef] = React.useState<HTMLButtonElement | null>(null);
-  const [selectedOption, setSelectedOption] = React.useState<ProfileOption>(DEFAULT_OPTIONS[0]);
+  const [selectedOptions, setSelectedOption] = React.useState<ProfileOption[]>([DEFAULT_OPTIONS[0]]);
 
   const onChangeOption = React.useCallback((nextOption: ProfileOption) => {
     if (nextOption) {
-      setSelectedOption(nextOption);
+      setSelectedOption((prev) => {
+        const isSelected = prev.some((option) => option === nextOption);
+        if (isSelected) {
+          return prev.filter((option) => option !== nextOption);
+        }
+        return [...prev, nextOption];
+      });
     }
   }, []);
 
   return (
-    <Dropdown onChangeOption={onChangeOption} option={selectedOption}>
+    <Dropdown onChangeOption={onChangeOption} selectedOptions={selectedOptions}>
       <div>
         <Dropdown.Trigger className="text-space-1 dark:text-cream-1" ref={(e) => setTriggerRef(e)}>
-          {selectedOption.children}
+          {selectedOptions.map((option) => option.value).join(', ')}
         </Dropdown.Trigger>
         <Dropdown.Panel className="flex flex-col space-y-2" root={triggerRef}>
           {DEFAULT_OPTIONS.map((option) => {

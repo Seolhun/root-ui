@@ -30,18 +30,17 @@ export interface DropdownOptions<Value> {
    */
   open?: boolean;
   /**
-   * Current selected value
-   */
-  option: DropdownValue<Value> | null;
-  /**
    * Dropdown placement
    * @default 'bottom'
    */
   placement?: Placement;
-
+  /**
+   * Current selected value
+   */
+  selectedOptions: DropdownValue<Value>[];
   /**
    * Dropdown strategy
-   * @default 'fixed'
+   * @default 'absolute'
    */
   strategy?: Strategy;
   /**
