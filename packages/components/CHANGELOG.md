@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.8.9-alpha.9
+
+### Patch Changes
+
+- refactor: update floating version and sass
+
+- Updated dependencies []:
+  - @seolhun/root-ui-tailwind@0.8.9-alpha.1
+
 ## 0.8.9-alpha.8
 
 ### Patch Changes

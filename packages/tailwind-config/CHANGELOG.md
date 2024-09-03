@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.9-alpha.1
+
+### Patch Changes
+
+- refactor: update floating version and sass
+
 ## 0.8.9-alpha.0
 
 ### Patch Changes
