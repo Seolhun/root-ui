@@ -16,9 +16,11 @@ export const TogglerTrigger = React.forwardRef<ElementType, ElementProps>(({ cla
 
   return (
     <button
+      {...props}
       className={clsx(CLASSNAME, className)}
       data-state={contextValues?.open ? 'open' : 'closed'}
       ref={mergedRef}
+      type="button"
       {...contextValues?.getReferenceProps(props)}
     >
       {children}

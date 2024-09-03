@@ -17,9 +17,11 @@ export const DropdownTrigger = React.forwardRef<ElementType, ElementProps>(
 
     return (
       <button
+        {...others}
         className={clsx(CLASSNAME, className)}
         data-state={contextValues?.open ? 'open' : 'closed'}
         ref={mergedRef}
+        type="button"
         {...contextValues?.getReferenceProps(others)}
       >
         {children}

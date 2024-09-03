@@ -31,7 +31,7 @@ export const Input = React.forwardRef<ElementType, InputProps>(
           'block w-full',
           'text-space-2 dark:text-cream-2',
           'bg-cream-1 dark:bg-space-1',
-          'border-2 border-cream-5 dark:border-space-5',
+          'border border-cream-5 dark:border-space-5',
           'px-8',
           'rounded-xl',
           'disabled:opacity-50 disabled:cursor-not-allowed',
