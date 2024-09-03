@@ -2,8 +2,8 @@ import {
   autoUpdate,
   flip,
   offset,
+  safePolygon,
   shift,
-  useDelayGroupContext,
   useDismiss,
   useFloating,
   useFocus,
@@ -13,6 +13,8 @@ import {
 } from '@floating-ui/react';
 import * as React from 'react';
 
+import { ElementRef } from '~/types';
+
 import { TooltipFloatingReturns, TooltipIntersectionReturns, TooltipOptions } from './Tooltip.types';
 
 export interface UseTooltipProps extends TooltipOptions {
@@ -20,13 +22,22 @@ export interface UseTooltipProps extends TooltipOptions {
 }
 
 export interface UseTooltipReturns extends TooltipFloatingReturns, TooltipIntersectionReturns {
-  open?: boolean;
+  /**
+   * Open state
+   */
+  open: boolean;
   /**
    * Portal target element
    */
-  root?: HTMLElement | null;
-
-  setOpen?: (open: boolean) => void;
+  root?: ElementRef<HTMLElement>;
+  /**
+   * Set open state
+   */
+  setOpen: (open: boolean) => void;
+  /**
+   * zIndex
+   */
+  zIndex?: number;
 }
 
 export function useTooltip({
@@ -38,11 +49,8 @@ export function useTooltip({
   root,
 }: UseTooltipProps = {}): UseTooltipReturns {
   const [uncontrolledOpen, setUncontrolledOpen] = React.useState<boolean>(initialOpen);
-
   const open = controlledOpen ?? uncontrolledOpen;
   const setOpen = setControlledOpen ?? setUncontrolledOpen;
-
-  const { delay } = useDelayGroupContext();
 
   const floatingData = useFloating({
     middleware: [
@@ -58,12 +66,11 @@ export function useTooltip({
     strategy: 'fixed',
     whileElementsMounted: autoUpdate,
   });
-
   const { context } = floatingData;
 
   const hover = useHover(context, {
-    delay,
     enabled: !disabled,
+    handleClose: safePolygon(),
     move: false,
   });
   const focus = useFocus(context, {
@@ -74,16 +81,15 @@ export function useTooltip({
 
   const interactions = useInteractions([hover, focus, dismiss, role]);
 
-  return React.useMemo<UseTooltipReturns>(
-    () => ({
+  return React.useMemo<UseTooltipReturns>(() => {
+    return {
       open,
       root,
       setOpen,
       ...interactions,
       ...floatingData,
-    }),
-    [open, setOpen, interactions, floatingData, root],
-  );
+    };
+  }, [open, setOpen, interactions, floatingData, root]);
 }
 
 export type TooltipContextValues = UseTooltipReturns;

@@ -34,7 +34,7 @@ export const Togglers: StoryObj<TogglerProps> = {
 };
 
 const meta: Meta<typeof Toggler> = {
-  title: 'Combination/Opener',
+  title: 'Combination/Toggler',
 };
 
 export default meta;

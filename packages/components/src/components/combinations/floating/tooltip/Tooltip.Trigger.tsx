@@ -5,23 +5,23 @@ import { useMergeRefs } from '~/hooks';
 
 import { useTooltipContext } from './useTooltipContext';
 
+const CLASSNAME = 'Root__Tooltip__Trigger';
 type ElementType = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 
-export const TooltipTrigger = React.forwardRef<ElementType, ElementProps>(({ className, children, ...props }, ref) => {
+export const TooltipTrigger = React.forwardRef<ElementType, ElementProps>(({ className, children, ...others }, ref) => {
   const contextValues = useTooltipContext();
-  const childrenRef = (children as any)?.ref;
-
-  const mergedRef = useMergeRefs(contextValues?.refs.setReference, ref, childrenRef);
+  const { getReferenceProps, open } = contextValues;
+  const mergedRef = useMergeRefs(contextValues.refs.setReference, ref);
 
   return (
     <button
-      {...props}
-      className={clsx(className, 'inline-block')}
-      data-state={contextValues?.open ? 'open' : 'closed'}
+      {...others}
+      className={clsx(CLASSNAME, className)}
+      data-state={open ? 'open' : 'closed'}
       ref={mergedRef}
       type="button"
-      {...contextValues?.getReferenceProps(props)}
+      {...getReferenceProps(others)}
     >
       {children}
     </button>

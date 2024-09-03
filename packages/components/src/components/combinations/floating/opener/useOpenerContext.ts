@@ -49,7 +49,6 @@ export function useOpener({
   zIndex,
 }: UseOpenerProps = {}): UseOpenerReturns {
   const [uncontrolledOpen, setUncontrolledOpen] = React.useState<boolean>(initialOpen);
-
   const open = controlledOpen ?? uncontrolledOpen;
   const setOpen = setControlledOpen ?? setUncontrolledOpen;
 
@@ -61,7 +60,6 @@ export function useOpener({
     strategy,
     whileElementsMounted: autoUpdate,
   });
-
   const { context } = floating;
 
   const click = useClick(context, {

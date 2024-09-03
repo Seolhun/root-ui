@@ -47,13 +47,12 @@ export function useToggler({
   offset: offsetValue = 2,
   onOpenChange: setControlledOpen,
   open: controlledOpen,
-  placement = 'right-start',
+  placement = 'bottom',
   root,
   strategy = 'fixed',
   zIndex,
 }: UseTogglerProps = {}): UseTogglerReturns {
   const [uncontrolledOpen, setUncontrolledOpen] = React.useState<boolean>(initialOpen);
-
   const open = controlledOpen ?? uncontrolledOpen;
   const setOpen = setControlledOpen ?? setUncontrolledOpen;
 
@@ -76,7 +75,6 @@ export function useToggler({
     strategy,
     whileElementsMounted: autoUpdate,
   });
-
   const { context } = floating;
 
   const focus = useFocus(context, {

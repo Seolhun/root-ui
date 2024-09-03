@@ -12,17 +12,17 @@ type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 export const DropdownTrigger = React.forwardRef<ElementType, ElementProps>(
   ({ className, children, ...others }, ref) => {
     const contextValues = useDropdownContext();
-    const childrenRef = (children as any)?.ref;
-    const mergedRef = useMergeRefs(contextValues?.refs.setReference, ref, childrenRef);
+    const { getReferenceProps, open } = contextValues;
+    const mergedRef = useMergeRefs(contextValues?.refs.setReference, ref);
 
     return (
       <button
         {...others}
         className={clsx(CLASSNAME, className)}
-        data-state={contextValues?.open ? 'open' : 'closed'}
+        data-state={open ? 'open' : 'closed'}
         ref={mergedRef}
         type="button"
-        {...contextValues?.getReferenceProps(others)}
+        {...getReferenceProps(others)}
       >
         {children}
       </button>

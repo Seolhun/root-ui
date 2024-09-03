@@ -34,7 +34,7 @@ export const Tooltips: StoryObj<TooltipProps> = {
 };
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Combination/Opener',
+  title: 'Combination/Tooltip',
 };
 
 export default meta;

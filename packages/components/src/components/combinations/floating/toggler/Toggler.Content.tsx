@@ -16,29 +16,29 @@ export const TogglerContent = React.forwardRef<ElementType, TogglerContentProps>
   ({ className, children, ...others }, ref) => {
     const contextValues = useTogglerContext();
     const tooltipId = React.useId();
-
     const mergedRef = useMergeRefs(contextValues?.refs.setFloating || null, ref);
 
     useDelayGroup(contextValues.context, {
       id: tooltipId,
     });
 
-    const { root, zIndex } = contextValues;
+    const { floatingStyles, getFloatingProps, root, zIndex } = contextValues;
     return (
       <FloatingPortal root={root}>
         {contextValues?.open && (
           <div
             style={{
-              ...others.style,
-              left: contextValues?.x ?? 0,
+              left: contextValues.x ?? 0,
               position: contextValues?.strategy,
-              top: contextValues?.y ?? 0,
-              visibility: contextValues?.x == null ? 'hidden' : 'visible',
+              top: contextValues.y ?? 0,
+              visibility: contextValues.x == null ? 'hidden' : 'visible',
               zIndex: zIndex ?? 1e7,
+              ...floatingStyles,
+              ...others.style,
             }}
             className={clsx(CLASSNAME, className)}
             ref={mergedRef}
-            {...contextValues?.getFloatingProps(others)}
+            {...getFloatingProps(others)}
           >
             {children}
           </div>

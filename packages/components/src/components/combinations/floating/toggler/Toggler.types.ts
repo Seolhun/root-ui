@@ -27,7 +27,7 @@ export interface TogglerOptions {
   open?: boolean;
   /**
    * Toggler placement
-   * @default 'right-start'
+   * @default 'bottom'
    */
   placement?: Placement;
   /**
