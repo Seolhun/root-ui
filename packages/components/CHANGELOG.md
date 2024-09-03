@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.9-alpha.8
+
+### Patch Changes
+
+- fix: button in button html warning and type
+
 ## 0.8.9-alpha.7
 
 ### Patch Changes
