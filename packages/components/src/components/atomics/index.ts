@@ -1,4 +1,5 @@
 export * from './avatar';
+export * from './bread-crumb';
 export * from './button';
 export * from './callout';
 export * from './card';
@@ -7,4 +8,6 @@ export * from './image';
 export * from './loading';
 export * from './progressbar';
 export * from './select';
+export * from './skeleton';
+export * from './stepper';
 export * from './tag';

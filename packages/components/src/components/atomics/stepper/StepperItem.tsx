@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { forwardRefWithAs } from '~/core';
+
 import { stepper } from './Stepper.styles';
 import { StepperItemProps } from './Stepper.types';
 
@@ -9,7 +11,7 @@ const CLASSNAME = 'Root__StepperItem';
 type ElementType = HTMLLIElement;
 type ElementProps = React.LiHTMLAttributes<ElementType>;
 
-export const StepperItem = React.forwardRef<ElementType, ElementProps & StepperItemProps>(
+export const StepperItem = forwardRefWithAs<ElementType, ElementProps & StepperItemProps>(
   ({ children, className, active, name, step, ...others }, ref) => {
     return (
       <li {...others} className={clsx(CLASSNAME, styles.stepperItem(), className)} ref={ref}>

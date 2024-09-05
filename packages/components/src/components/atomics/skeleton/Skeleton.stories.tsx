@@ -26,7 +26,7 @@ export default {
 
 const BaseTemplate = ({ ...others }: SkeletonProps) => {
   return (
-    <Skeleton {...others}>
+    <Skeleton {...others} className="w-full">
       <Skeleton.Loader />
     </Skeleton>
   );
@@ -51,12 +51,18 @@ export const Skeletons: StoryObj<SkeletonProps> = {
 
 const ComplexSkeletonTemplate = ({ ...others }: SkeletonProps) => {
   return (
-    <Skeleton {...others}>
-      <div className="flex flex-start">
-        <Skeleton.Loader className="size-12 rounded-full" />
-        <div className="flex flex-col space-y-4">
-          <Skeleton.Loader className="h-6" />
-          <Skeleton.Loader className="h-4" />
+    <Skeleton {...others} className="w-full">
+      <div className="flex flex-start space-x-4 w-full">
+        <Skeleton.Loader className="min-w-48 min-h-48 rounded-full" />
+        <div className="flex flex-col space-y-4 w-full">
+          <Skeleton.Loader className="h-12 w-full" />
+
+          <div className="flex flex-col space-y-2">
+            <Skeleton.Loader className="h-6 w-full" />
+            <Skeleton.Loader className="h-6 w-full" />
+            <Skeleton.Loader className="h-6 w-full" />
+            <Skeleton.Loader className="h-6 w-full" />
+          </div>
         </div>
       </div>
     </Skeleton>

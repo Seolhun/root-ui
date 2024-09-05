@@ -12,7 +12,7 @@ export default {
 
 const BaseTemplate = ({ ...others }: StepperProps) => {
   return (
-    <Stepper {...others}>
+    <Stepper {...others} className="w-full">
       <Stepper.Item step={1} active name="Step - 1">
         Step 1 Description
       </Stepper.Item>
