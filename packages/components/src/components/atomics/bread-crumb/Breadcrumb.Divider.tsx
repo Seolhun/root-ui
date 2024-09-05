@@ -1,7 +1,6 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { forwardRefWithAs } from '~/core';
 import { OmitBy } from '~/types';
 
 import { breadcrumb } from './Breadcrumb.styles';
@@ -12,7 +11,7 @@ const CLASSNAME = 'Root__Breadcrumb__Divider';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
-export const BreadcrumbDivider = forwardRefWithAs<
+export const BreadcrumbDivider = React.forwardRef<
   ElementType,
   OmitBy<ElementProps, 'children'> & BreadcrumbDividerProps
 >(({ className, ...others }, ref) => {

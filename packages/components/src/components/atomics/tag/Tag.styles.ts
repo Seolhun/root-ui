@@ -64,8 +64,6 @@ const solid: Record<RootIntentType, string> = {
   ),
   success: clsx('bg-success border-success', 'hover:bg-success-5 hover:border-success-5', 'focus:ring-success'),
   warning: clsx('bg-warning border-warning', 'hover:bg-warning-5 hover:border-warning-5', 'focus:ring-warning'),
-  cream: clsx('bg-cream border-cream', 'hover:bg-cream-5 hover:border-cream-5', 'focus:ring-cream'),
-  space: clsx('bg-space border-space', 'hover:bg-space-5 hover:border-space-5', 'focus:ring-space'),
 };
 
 const outlined: Record<RootIntentType, string> = {
@@ -118,16 +116,6 @@ const outlined: Record<RootIntentType, string> = {
     'border-warning text-warning',
     'hover:bg-warning hover:border-warning-1 dark:hover:bg-warning dark:hover:border-warning-1',
     'focus:ring-warning',
-  ),
-  cream: clsx(
-    'border-cream text-cream',
-    'hover:bg-cream hover:border-cream-1 dark:hover:bg-cream dark:hover:border-cream-1',
-    'focus:ring-cream',
-  ),
-  space: clsx(
-    'border-space text-space',
-    'hover:bg-space hover:border-space-1 dark:hover:bg-space dark:hover:border-space-1',
-    'focus:ring-space',
   ),
 };
 

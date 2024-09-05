@@ -1,11 +1,9 @@
 import colors from 'tailwindcss/colors';
 
-import { RootIntentRange } from '../types';
-
 /**
  * @see https://uicolors.app/create
  */
-export const intentColors: Record<RootIntentRange, string> = {
+export const intentColors = {
   accent: 'var(--accent-color)',
   danger: 'var(--danger-color)',
   faint: 'var(--faint-color)',

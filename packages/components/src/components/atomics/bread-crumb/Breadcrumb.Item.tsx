@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { forwardRefWithAs } from '~/core';
-
 import { breadcrumb } from './Breadcrumb.styles';
 import { BreadcrumbItemProps } from './Breadcrumb.types';
 
@@ -11,7 +9,7 @@ const CLASSNAME = 'Root__Breadcrumb__Item';
 type ElementType = HTMLLIElement;
 type ElementProps = React.LiHTMLAttributes<ElementType>;
 
-export const BreadcrumbItem = forwardRefWithAs<ElementType, ElementProps & BreadcrumbItemProps>(
+export const BreadcrumbItem = React.forwardRef<ElementType, ElementProps & BreadcrumbItemProps>(
   ({ children, className, ...others }, ref) => {
     return (
       <li

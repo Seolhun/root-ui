@@ -10,9 +10,7 @@ export type RootIntentType =
   | 'primary' // "primary" is the default intent
   | 'secondary' // "secondary" is for more lighten than primary
   | 'success' // "success" is for positive feedback
-  | 'warning' // "warning" is for negative feedback
-  | 'cream' // "cream" is for light theme background color
-  | 'space'; // "space" is for dark theme background color
+  | 'warning'; // "warning" is for negative feedback
 export type RootIntentMap = Record<RootIntentType, RootIntentType>;
 
 export type RootIntentWeight = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
