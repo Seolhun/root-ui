@@ -13,7 +13,7 @@ export interface DropdownOptionProps<Value> {
 }
 
 const DropdownOptionComponent = <Value,>(
-  { className, children, ...others }: ElementProps & DropdownOptionProps<Value>,
+  { children, className, ...others }: ElementProps & DropdownOptionProps<Value>,
   ref: React.ForwardedRef<ElementType>,
 ) => {
   const { onChangeOpen, onChangeOption } = useDropdownContext();

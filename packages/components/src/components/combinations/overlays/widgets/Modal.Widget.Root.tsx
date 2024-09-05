@@ -146,8 +146,8 @@ export const ModalWidgetRoot = forwardRefWithAs(
 
     const ourProps = React.useMemo(() => {
       return {
-        id,
         ref: modalRef,
+        id,
         'aria-labelledby': state.id,
         'aria-modal': show,
         role: 'modal',

@@ -1,6 +1,6 @@
 import plugin from 'tailwindcss/plugin';
 
-import { intentColorKeyObject } from '../../presets/Colors';
+import { intentMap } from '../../constants';
 import { RootIntentMap } from '../../types';
 
 export default plugin(
@@ -21,7 +21,7 @@ export default plugin(
   },
   {
     theme: {
-      intents: intentColorKeyObject,
+      intents: intentMap,
     },
     variants: {
       intents: ['dark'],

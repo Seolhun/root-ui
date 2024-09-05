@@ -15,7 +15,7 @@ export interface SidebarLinkGroupProps {
 }
 
 export const SidebarLinkGroup = React.forwardRef<ElementType, Omit<ElementProps, 'children'> & SidebarLinkGroupProps>(
-  ({ className, active, children, initialOpen = true }, ref) => {
+  ({ children, className, active, initialOpen = true }, ref) => {
     const [open, setOpen] = React.useState<boolean>(!!active || !!initialOpen);
 
     const toggle = React.useCallback(() => {

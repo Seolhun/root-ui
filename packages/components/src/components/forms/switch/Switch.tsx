@@ -31,7 +31,7 @@ export interface SwitchProps {
 }
 
 export const Switch = React.forwardRef<ElementType, SwitchProps>(
-  ({ className, children, intent = 'primary', scale = 'md', ...others }, ref) => {
+  ({ children, className, intent = 'primary', scale = 'md', ...others }, ref) => {
     const { checked, disabled } = others;
 
     return (

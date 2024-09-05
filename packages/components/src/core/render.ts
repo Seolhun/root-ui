@@ -60,7 +60,7 @@ function privateRender<Tag extends React.ElementType, Slot>(
   tag: React.ElementType,
   name: string,
 ) {
-  const { as: Component = tag, children, refName = 'ref', ...others } = omit(props, ['unmount', 'static']);
+  const { children, as: Component = tag, refName = 'ref', ...others } = omit(props, ['unmount', 'static']);
 
   // This allows us to use `<HeadlessUIComponent as={MyComponent} refName="innerRef" />`
   const refRelatedProps = !isUndefined(props.ref) ? { [refName]: props.ref } : {};

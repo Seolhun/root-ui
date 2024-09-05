@@ -19,8 +19,8 @@ export interface RenderChildrenArgs {
 }
 
 export const StorybookContentItem = ({
-  className,
   children,
+  className,
   noAlign,
   noGap,
   noPadding,
@@ -52,7 +52,7 @@ export const StorybookContentItem = ({
 };
 
 export const createStorybookContentItem = (hocProps: ElementProps) => {
-  return ({ className, children, ...others }: StorybookContentItemProps) => (
+  return ({ children, className, ...others }: StorybookContentItemProps) => (
     <StorybookContentItem {...hocProps} {...others} className={clsx(hocProps.className, className)}>
       {children}
     </StorybookContentItem>

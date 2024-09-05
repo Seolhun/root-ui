@@ -17,7 +17,7 @@ export interface NavExpandedTriggerProps {
 export const NavExpandedTrigger = React.forwardRef<
   ElementType,
   Omit<ElementProps, 'children'> & NavExpandedTriggerProps
->(({ className, children, ...others }, ref) => {
+>(({ children, className, ...others }, ref) => {
   const { floating, intersection, isFloatingOpen } = useNavExpandedContext();
   const { refs } = floating;
 

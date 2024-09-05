@@ -14,7 +14,7 @@ type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 export type DisclosureButtonProps = OmitBy<HeadlessDisclosureButtonProps, 'as'> & ElementProps;
 
 export const DisclosureButton = React.forwardRef<ElementType, DisclosureButtonProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <HeadlessDisclosureButton {...others} as="button" className={clsx(CLASSNAME, className, 'w-full')} ref={ref}>
         {children}

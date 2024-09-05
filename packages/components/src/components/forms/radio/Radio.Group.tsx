@@ -7,7 +7,7 @@ type ElementType = HTMLInputElement;
 
 export interface RadioGroupProps extends HeadlessRadioGroupProps<'div'> {}
 
-export const RadioGroup = React.forwardRef<ElementType, RadioGroupProps>(({ className, children, ...others }, ref) => {
+export const RadioGroup = React.forwardRef<ElementType, RadioGroupProps>(({ children, className, ...others }, ref) => {
   return (
     <HeadlessRadioGroup {...others} as="div" className={clsx(CLASSNAME, className)} ref={ref}>
       {children}

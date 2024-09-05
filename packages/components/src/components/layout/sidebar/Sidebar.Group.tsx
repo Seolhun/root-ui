@@ -10,7 +10,7 @@ export interface SidebarGroupProps {
 }
 
 export const SidebarGroup = React.forwardRef<ElementType, ElementProps & SidebarGroupProps>(
-  ({ className, Title, children, ...others }, ref) => {
+  ({ children, className, Title, ...others }, ref) => {
     return (
       <nav
         ref={ref}

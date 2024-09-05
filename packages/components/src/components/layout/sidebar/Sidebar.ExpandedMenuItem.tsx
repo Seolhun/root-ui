@@ -10,7 +10,7 @@ export interface SidebarExpandedMenuItemProps {
 }
 
 export const SidebarExpandedMenuItem = React.forwardRef<ElementType, SidebarExpandedMenuItemProps & ElementProps>(
-  ({ className, active, children, ...others }, ref) => {
+  ({ children, className, active, ...others }, ref) => {
     return (
       <li {...others} className={clsx(CLASSNAME, className, 'mb-2 last:mb-0', 'text-sm')} ref={ref} role="menuitem">
         <div className={clsx('flex items-center', active ? '!text-primary' : 'text-neutral')}>

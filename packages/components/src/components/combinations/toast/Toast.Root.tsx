@@ -26,7 +26,7 @@ export interface ToastProps {
   visible?: boolean;
 }
 
-export const ToastRoot = ({ id, className, children, timeout = 3000, visible }: ToastProps) => {
+export const ToastRoot = ({ children, className, id, timeout = 3000, visible }: ToastProps) => {
   const [, dispatch] = useToastContext();
   const timeoutRef = React.useRef<any>();
 

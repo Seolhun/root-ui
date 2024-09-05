@@ -22,7 +22,7 @@ export const LayoutRoot = React.forwardRef<ElementType, ElementProps & LayoutRoo
 );
 
 export const BaseLayout = React.forwardRef<ElementType, ElementProps & LayoutRootProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     const { sidebarStatus } = useLayoutContext();
 
     return (

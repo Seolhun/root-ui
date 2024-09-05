@@ -28,7 +28,7 @@ const animations: MotionAnimateProps = {
   },
 };
 
-export const NavExpandedPanel = React.forwardRef<ElementType, NavExpandedPanelProps>(({ className, children }, ref) => {
+export const NavExpandedPanel = React.forwardRef<ElementType, NavExpandedPanelProps>(({ children, className }, ref) => {
   const { floating, intersection, isFloatingOpen } = useNavExpandedContext();
   const { floatingStyles, refs } = floating;
 

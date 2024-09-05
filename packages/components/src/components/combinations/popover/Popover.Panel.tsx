@@ -16,7 +16,7 @@ interface PopoverPanelRenderPropArg {
 }
 
 export const PopoverPanel = React.forwardRef<ElementType, Omit<ElementProps, 'children'> & PopoverPanelProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <Popover.Panel
         {...others}

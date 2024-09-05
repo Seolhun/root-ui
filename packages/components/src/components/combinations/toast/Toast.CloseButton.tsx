@@ -13,7 +13,7 @@ export interface ToastCloseButtonProps {
 }
 
 export const ToastCloseButton = React.forwardRef<ElementType, ElementProps & ToastCloseButtonProps>(
-  ({ className, children, toastId, ...others }, ref) => {
+  ({ children, className, toastId, ...others }, ref) => {
     const [, dispatch] = React.useContext(ToastContext);
 
     const onClickToClose = () => {

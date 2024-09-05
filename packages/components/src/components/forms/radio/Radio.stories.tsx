@@ -115,6 +115,9 @@ const ScaleRadioTemplate = ({ ...args }) => {
 };
 
 export const ScaleRadios: StoryObj<RadioInputProps> = {
+  args: {
+    disabled: false,
+  },
   argTypes: {
     intent: {
       control: {
@@ -128,9 +131,6 @@ export const ScaleRadios: StoryObj<RadioInputProps> = {
         options: storiesScaleOptions,
       },
     },
-  },
-  args: {
-    disabled: false,
   },
   render: ScaleRadioTemplate,
 };
@@ -183,6 +183,9 @@ const IntentRadioTemplate = ({ ...args }) => {
 };
 
 export const IntentRadios: StoryObj<RadioInputProps> = {
+  args: {
+    disabled: false,
+  },
   argTypes: {
     intent: {
       control: {
@@ -196,9 +199,6 @@ export const IntentRadios: StoryObj<RadioInputProps> = {
         options: storiesScaleOptions,
       },
     },
-  },
-  args: {
-    disabled: false,
   },
   render: IntentRadioTemplate,
 };

@@ -16,7 +16,7 @@ export interface CardProps extends ElementProps {
 }
 
 export const Card = React.forwardRef<ElementType, CardProps>(
-  ({ className, children, scale = 'md', ...others }, ref) => {
+  ({ children, className, scale = 'md', ...others }, ref) => {
     return (
       <Box
         {...others}

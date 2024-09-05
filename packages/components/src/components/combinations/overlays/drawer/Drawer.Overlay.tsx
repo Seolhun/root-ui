@@ -10,7 +10,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface DrawerOverlayProps extends ElementProps {}
 
 export const DrawerOverlay = React.forwardRef<ElementType, DrawerOverlayProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <ModalWidgetOverlay
         {...others}

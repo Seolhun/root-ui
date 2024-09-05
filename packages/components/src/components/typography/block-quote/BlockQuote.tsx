@@ -16,7 +16,7 @@ export interface BlockQuoteProps extends ElementProps {
 }
 
 export const BlockQuote = React.forwardRef<ElementType, BlockQuoteProps>(
-  ({ className, children, intent = 'primary', ...others }, ref) => {
+  ({ children, className, intent = 'primary', ...others }, ref) => {
     return (
       <blockquote
         {...others}

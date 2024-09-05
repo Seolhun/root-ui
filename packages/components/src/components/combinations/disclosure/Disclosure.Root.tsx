@@ -11,7 +11,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export type DisclosureProps = OmitBy<HeadlessDisclosureProps, 'as'> & ElementProps;
 
 export const DisclosureRoot = React.forwardRef<ElementType, DisclosureProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <HeadlessDisclosure {...others} as="div" className={clsx(CLASSNAME, className, 'w-full')} ref={ref}>
         {children}

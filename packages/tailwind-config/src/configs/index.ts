@@ -1,15 +1,4 @@
-import { RootIntentMap, RootScaleMap, RootScaleType } from '../types';
-
-/**
- * Scales
- */
-export const RootScales = {
-  lg: 'lg',
-  md: 'md',
-  sm: 'sm',
-  xl: 'xl',
-  xs: 'xs',
-} satisfies RootScaleMap;
+import { RootScaleType } from '../types';
 
 export const RootScaleValues = {
   PADDING: {
@@ -34,16 +23,3 @@ export const RootScaleValues = {
     xs: 'xs',
   } satisfies Record<RootScaleType, string>,
 };
-
-/**
- * Intents
- */
-export const RootIntents = {
-  accent: 'accent',
-  danger: 'danger',
-  info: 'info',
-  neutral: 'neutral',
-  primary: 'primary',
-  success: 'success',
-  warning: 'warning',
-} satisfies RootIntentMap;

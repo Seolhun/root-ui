@@ -13,7 +13,7 @@ export interface SidebarExpandedMenuGroupProps {
 }
 
 export const SidebarExpandedMenuGroup = React.forwardRef<ElementType, ElementProps & SidebarExpandedMenuGroupProps>(
-  ({ className, children, isOpen, ...others }, ref) => {
+  ({ children, className, isOpen, ...others }, ref) => {
     return (
       <div ref={ref} {...others} className={clsx(CLASSNAME, className, 'block')} role="menubar">
         <ul

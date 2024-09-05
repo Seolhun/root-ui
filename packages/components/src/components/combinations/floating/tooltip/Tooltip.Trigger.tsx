@@ -9,7 +9,7 @@ const CLASSNAME = 'Root__Tooltip__Trigger';
 type ElementType = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 
-export const TooltipTrigger = React.forwardRef<ElementType, ElementProps>(({ className, children, ...others }, ref) => {
+export const TooltipTrigger = React.forwardRef<ElementType, ElementProps>(({ children, className, ...others }, ref) => {
   const contextValues = useTooltipContext();
   const { getReferenceProps, open } = contextValues;
   const mergedRef = useMergeRefs(contextValues.refs.setReference, ref);

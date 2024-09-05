@@ -13,7 +13,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface TooltipContentProps extends ElementProps {}
 
 export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     const contextValues = useTooltipContext();
     const tooltipId = React.useId();
     const mergedRef = useMergeRefs(contextValues?.refs.setFloating || null, ref);

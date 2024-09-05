@@ -1,58 +1,32 @@
-import { RootIntentType, RootScaleType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { toIntentMatch, toScaleMatch } from '../../../system';
+import { ButtonVariants, outlinedButton, solidButton } from './Button.styles';
 
 const CLASSNAME = 'Root__Button';
 type ElementType = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 
-export interface ButtonProps extends ElementProps {
-  /**
-   * @default primary
-   */
-  intent?: RootIntentType;
-
-  /**
-   * Use outline style
-   */
-  outlined?: boolean;
-
-  /**
-   * Set this to change scale
-   * @default md
-   */
-  scale?: RootScaleType;
-}
+export type ButtonProps = ElementProps & ButtonVariants;
 
 export const Button = React.forwardRef<ElementType, ButtonProps>(
-  ({ className, children, intent = 'primary', outlined, scale = 'md', ...others }, ref) => {
+  ({ children, className, intent = 'primary', scale = 'md', variant = 'solid', ...others }, ref) => {
+    const isSolid = variant === 'solid';
+    const styles = isSolid ? solidButton : outlinedButton;
     return (
       <button
+        type="button"
         role="button"
         tabIndex={0}
         {...others}
         className={clsx(
           CLASSNAME,
+          styles({
+            intent,
+            scale,
+            variant,
+          }),
           className,
-          'btn',
-          toScaleMatch({
-            lg: () => 'btn-scale-lg',
-            md: () => 'btn-scale-md',
-            sm: () => 'btn-scale-sm',
-            xl: () => 'btn-scale-xl',
-            xs: () => 'btn-scale-xs',
-          })(scale),
-          toIntentMatch({
-            accent: () => clsx(outlined ? 'outlined-accent' : 'solid-accent'),
-            danger: () => clsx(outlined ? 'outlined-danger' : 'solid-danger'),
-            info: () => clsx(outlined ? 'outlined-info' : 'solid-info'),
-            neutral: () => clsx(outlined ? 'outlined-neutral' : 'solid-neutral'),
-            primary: () => clsx(outlined ? 'outlined-primary' : 'solid-primary'),
-            success: () => clsx(outlined ? 'outlined-success' : 'solid-success'),
-            warning: () => clsx(outlined ? 'outlined-warning' : 'solid-warning'),
-          })(intent),
         )}
         ref={ref}
       >

@@ -4,7 +4,7 @@ import * as React from 'react';
 import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
 import { Checkbox, CheckboxProps } from './Checkbox';
 
-const BaseTemplate = ({ checked, children, ...others }: CheckboxProps) => {
+const BaseTemplate = ({ children, checked, ...others }: CheckboxProps) => {
   const [isChecked, setChecked] = React.useState(checked);
 
   React.useEffect(() => {
@@ -108,8 +108,8 @@ const IntentCheckboxTemplate = ({ children, ...others }: CheckboxProps) => {
 
 export const IntentCheckbox: StoryObj<CheckboxProps> = {
   args: {
-    checked: true,
     children: 'Checkbox',
+    checked: true,
     disabled: false,
   },
   render: IntentCheckboxTemplate,

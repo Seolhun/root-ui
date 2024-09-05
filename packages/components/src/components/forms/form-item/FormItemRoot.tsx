@@ -14,7 +14,7 @@ export interface FormItemProps extends FieldProps<'div'> {
   scale?: RootScaleType;
 }
 
-export const FormItemRoot = ({ className, children, scale = 'md', ...others }: FormItemProps) => {
+export const FormItemRoot = ({ children, className, scale = 'md', ...others }: FormItemProps) => {
   return (
     <Field
       {...others}

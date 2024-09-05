@@ -32,8 +32,8 @@ export const ModalWidgetTitle = forwardRefWithAs(
 
     const ourProps = React.useMemo(() => {
       return {
-        id,
         ref: titleRef,
+        id,
       };
     }, [id, titleRef]);
 

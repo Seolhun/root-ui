@@ -23,7 +23,7 @@ export default {
   title: 'Form/Switch',
 };
 
-const BaseTemplate = ({ checked, children, ...others }: SwitchProps) => {
+const BaseTemplate = ({ children, checked, ...others }: SwitchProps) => {
   const [isChecked, setChecked] = React.useState(checked);
 
   React.useEffect(() => {

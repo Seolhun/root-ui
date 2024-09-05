@@ -13,7 +13,7 @@ export interface NavItemGroupProps {
 }
 
 export const NavItemGroup = React.forwardRef<ElementType, ElementProps & NavItemGroupProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <div {...others} className={clsx(CLASSNAME, className, 'flex items-center', 'h-full', 'py-2')} ref={ref}>
         {children}

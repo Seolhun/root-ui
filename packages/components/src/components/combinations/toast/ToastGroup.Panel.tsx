@@ -28,7 +28,7 @@ export interface ToastGroupPanelProps {
 }
 
 export const ToastGroupPanel = React.forwardRef<ElementType, OmitBy<ElementProps, 'children'> & ToastGroupPanelProps>(
-  ({ className, children, placement = 'top-right', zIndex = 50 }, ref) => {
+  ({ children, className, placement = 'top-right', zIndex = 50 }, ref) => {
     const [toasts] = useToastContext();
 
     return (

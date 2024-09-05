@@ -33,8 +33,8 @@ export const ModalWidgetBackdrop = forwardRefWithAs(
 
     const ourProps = React.useMemo(() => {
       return {
-        id,
         ref: backdropRef,
+        id,
         'aria-hidden': true,
       };
     }, [id, backdropRef]);

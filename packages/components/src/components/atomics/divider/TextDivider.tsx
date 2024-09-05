@@ -15,7 +15,7 @@ export interface TextDividerProps extends ElementProps {
 }
 
 export const TextDivider = React.forwardRef<ElementType, TextDividerProps>(
-  ({ className, children, intent = 'neutral', ...others }, ref) => {
+  ({ children, className, intent = 'neutral', ...others }, ref) => {
     return (
       <div className={clsx(CLASSNAME, className, 'flex items-center', 'whitespace-pre-wrap')} {...others} ref={ref}>
         <span className="h-[1px] flex-grow bg-neutral-2 mx-4"></span>

@@ -1,6 +1,6 @@
 export * from './compact';
-export * from './getOwnerDocumentBy';
 export * from './disposables';
+export * from './getOwnerDocumentBy';
 export * from './isServer';
 export * from './isUndefined';
 export * from './match';

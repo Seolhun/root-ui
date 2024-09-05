@@ -1,9 +1,9 @@
 import plugin from 'tailwindcss/plugin';
 
-import { RootScales } from '../../configs';
+import { scales } from '../../constants';
 
 export default plugin(function ({ addVariant }) {
-  for (const scale in RootScales) {
+  for (const scale in scales) {
     addVariant(`group-scale-${scale}`, `:where([data-group-root-scale~="${scale}"]) &`);
   }
 });

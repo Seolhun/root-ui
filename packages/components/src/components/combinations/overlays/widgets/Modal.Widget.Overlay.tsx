@@ -41,8 +41,8 @@ export const ModalWidgetOverlay = forwardRefWithAs(
 
     const ourProps = React.useMemo(() => {
       return {
-        id,
         ref: overlayRef,
+        id,
         'aria-hidden': true,
         onClick: handleClick,
       };

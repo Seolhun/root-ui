@@ -21,7 +21,7 @@ export type TabGroupProps = OmitBy<HeadlessTabGroupProps<'div'>, 'as'> & {
 };
 
 export const TabGroup = React.forwardRef<ElementType, TabGroupProps>(
-  ({ className, children, intent = 'primary', scale = 'md', ...others }, ref) => {
+  ({ children, className, intent = 'primary', scale = 'md', ...others }, ref) => {
     return (
       <HeadlessTabGroup
         {...others}

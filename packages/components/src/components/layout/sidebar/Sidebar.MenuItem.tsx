@@ -18,7 +18,7 @@ export interface SidebarMenuProps {
 }
 
 export const SidebarMenuItem = React.forwardRef<ElementType, ElementProps & SidebarMenuProps>(
-  ({ className, Icon, active, children, isOpen, ...others }, ref) => {
+  ({ children, className, active, Icon, isOpen, ...others }, ref) => {
     return (
       <div
         {...others}

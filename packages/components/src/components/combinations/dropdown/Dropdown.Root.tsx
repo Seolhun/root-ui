@@ -14,7 +14,7 @@ type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
 export const _DropdownRoot = <Value,>(
-  { className, children, ...options }: ElementProps & DropdownProps<Value>,
+  { children, className, ...options }: ElementProps & DropdownProps<Value>,
   ref: React.ForwardedRef<ElementType>,
 ) => {
   const contextValues = useDropdown(options);

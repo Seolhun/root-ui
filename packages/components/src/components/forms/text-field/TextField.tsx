@@ -18,7 +18,7 @@ export interface TextFieldProps extends InputProps {
   Suffix?: React.ReactNode;
 }
 
-export const TextField = ({ className, Prefix, Suffix, scale = 'md', ...others }: TextFieldProps) => {
+export const TextField = ({ className, Prefix, scale = 'md', Suffix, ...others }: TextFieldProps) => {
   return (
     <Card
       className={clsx(
