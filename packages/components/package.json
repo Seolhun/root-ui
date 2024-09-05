@@ -76,6 +76,6 @@
     "tailwind-variants": "^0.2.1"
   },
   "devDependencies": {
-    "@heroicons/react": "^2.1.3"
+    "@heroicons/react": "2"
   }
 }

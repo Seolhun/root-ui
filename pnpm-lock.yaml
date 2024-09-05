@@ -129,8 +129,8 @@ importers:
         specifier: ^6.10.0
         version: 6.10.0(eslint@8.57.0)
       eslint-plugin-perfectionist:
-        specifier: ^3.3.0
-        version: 3.3.0(eslint@8.57.0)(typescript@5.4.5)
+        specifier: ^3.4.0
+        version: 3.4.0(eslint@8.57.0)(typescript@5.4.5)
       eslint-plugin-prettier:
         specifier: ^5.2.1
         version: 5.2.1(@types/eslint@8.56.10)(eslint-config-prettier@9.1.0(eslint@8.57.0))(eslint@8.57.0)(prettier@3.3.3)
@@ -285,7 +285,7 @@ importers:
         version: 3.4.4
     devDependencies:
       '@heroicons/react':
-        specifier: ^2.1.3
+        specifier: '2'
         version: 2.1.3(react@18.3.1)
 
   packages/tailwind-config:
@@ -2947,8 +2947,8 @@ packages:
   caniuse-api@3.0.0:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
 
-  caniuse-lite@1.0.30001655:
-    resolution: {integrity: sha512-jRGVy3iSGO5Uutn2owlb5gR6qsGngTw9ZTb4ali9f3glshcNmJ2noam4Mo9zia5P9Dk3jNNydy7vQjuE5dQmfg==}
+  caniuse-lite@1.0.30001657:
+    resolution: {integrity: sha512-DPbJAlP8/BAXy3IgiWmZKItubb3TYGP0WscQQlVGIfT4s/YlFYVuJgyOsQNP7rJRChx/qdMeLJQJP0Sgg2yjNA==}
 
   case-sensitive-paths-webpack-plugin@2.4.0:
     resolution: {integrity: sha512-roIFONhcxog0JSSWbvVAh3OocukmSgpqOH6YpMkCvav/ySIV3JKg4Dc8vYtQjYi/UxpNE36r/9v+VqTQqgkYmw==}
@@ -3542,8 +3542,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.13:
-    resolution: {integrity: sha512-lbBcvtIJ4J6sS4tb5TLp1b4LyfCdMkwStzXPyAgVgTRAsep4bvrAGaBOP7ZJtQMNJpSQ9SqG4brWOroNaQtm7Q==}
+  electron-to-chromium@1.5.15:
+    resolution: {integrity: sha512-Z4rIDoImwEJW+YYKnPul4DzqsWVqYetYVN3XqDmRpgV0mjz0hYTaeeh+8/9CL1bk3AHYmF4freW/NTiVoXA2gA==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -3759,8 +3759,8 @@ packages:
     peerDependencies:
       eslint: '>=8.0.0'
 
-  eslint-plugin-perfectionist@3.3.0:
-    resolution: {integrity: sha512-sGgShkEqDBqIZ3WlenGHwLe1cl3vHKTfeh9b1XXAamaxSC7AY4Os0jdNCXnGJW4l0TlpismT5t2r7CXY7sfKlw==}
+  eslint-plugin-perfectionist@3.4.0:
+    resolution: {integrity: sha512-vXyd1sFg3H/7aKgBUie62bA6E0EN3Dh0LCD5r4vR/IYtTljxOnyckI1AV0Arw4eYjC/W9T1X04Pl2mdLsdWtMA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       astro-eslint-parser: ^1.0.2
@@ -4013,8 +4013,8 @@ packages:
   flatted@3.3.1:
     resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
 
-  flow-parser@0.245.1:
-    resolution: {integrity: sha512-KaVIjRdCY+APtxQijfV1c7GN1bofByIlR7E6omQLW0sghkA8hh8uufQOqTf3oAAVTExsSLafmdL/QwyvE/gdEg==}
+  flow-parser@0.245.2:
+    resolution: {integrity: sha512-FU4yuqC1j2IeWWicpzG0YJrXHJgKjK/AU8QKK/7MvQaNhcoGisDoE7FJLGCtbvnifzsgDWdm9/jtTF7Mp+PJXQ==}
     engines: {node: '>=0.4.0'}
 
   for-each@0.3.3:
@@ -5119,10 +5119,6 @@ packages:
     engines: {node: '>= 12.13.0'}
     peerDependencies:
       webpack: ^5.0.0
-
-  minimatch@10.0.1:
-    resolution: {integrity: sha512-ethXTt3SGGR+95gudmqJ1eNhRO7eGEGIgYA9vnPatK4/etz2MEVDno5GMCibdMTuBMyElzIlgxMna3K94XDIDQ==}
-    engines: {node: 20 || >=22}
 
   minimatch@3.0.8:
     resolution: {integrity: sha512-6FsRAQsxQ61mw+qP1ZzbL9Bc78x2p5OqNgNpnoAFLTrX8n5Kxph0CsnhmKKNXTWjXqU5L0pGPR7hYk+XWZr60Q==}
@@ -9240,7 +9236,7 @@ snapshots:
       eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@8.4.0(eslint@8.57.0)(typescript@5.4.5))(eslint-plugin-import@2.29.1)(eslint@8.57.0)
       eslint-plugin-eslint-plugin: 6.2.0(eslint@8.57.0)
       eslint-plugin-jsx-a11y: 6.10.0(eslint@8.57.0)
-      eslint-plugin-perfectionist: 3.3.0(eslint@8.57.0)(typescript@5.4.5)
+      eslint-plugin-perfectionist: 3.4.0(eslint@8.57.0)(typescript@5.4.5)
       eslint-plugin-prettier: 5.2.1(@types/eslint@8.56.10)(eslint-config-prettier@9.1.0(eslint@8.57.0))(eslint@8.57.0)(prettier@3.3.3)
       eslint-plugin-react: 7.35.2(eslint@8.57.0)
       eslint-plugin-react-hooks: 4.6.2(eslint@8.57.0)
@@ -10526,7 +10522,7 @@ snapshots:
   autoprefixer@10.4.20(postcss@8.4.45):
     dependencies:
       browserslist: 4.23.3
-      caniuse-lite: 1.0.30001655
+      caniuse-lite: 1.0.30001657
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.0
@@ -10641,8 +10637,8 @@ snapshots:
 
   browserslist@4.23.3:
     dependencies:
-      caniuse-lite: 1.0.30001655
-      electron-to-chromium: 1.5.13
+      caniuse-lite: 1.0.30001657
+      electron-to-chromium: 1.5.15
       node-releases: 2.0.18
       update-browserslist-db: 1.1.0(browserslist@4.23.3)
 
@@ -10742,11 +10738,11 @@ snapshots:
   caniuse-api@3.0.0:
     dependencies:
       browserslist: 4.23.3
-      caniuse-lite: 1.0.30001655
+      caniuse-lite: 1.0.30001657
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
 
-  caniuse-lite@1.0.30001655: {}
+  caniuse-lite@1.0.30001657: {}
 
   case-sensitive-paths-webpack-plugin@2.4.0: {}
 
@@ -11324,7 +11320,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.13: {}
+  electron-to-chromium@1.5.15: {}
 
   emoji-regex@8.0.0: {}
 
@@ -11689,12 +11685,12 @@ snapshots:
       - supports-color
       - typescript
 
-  eslint-plugin-perfectionist@3.3.0(eslint@8.57.0)(typescript@5.4.5):
+  eslint-plugin-perfectionist@3.4.0(eslint@8.57.0)(typescript@5.4.5):
     dependencies:
       '@typescript-eslint/types': 8.4.0
       '@typescript-eslint/utils': 8.4.0(eslint@8.57.0)(typescript@5.4.5)
       eslint: 8.57.0
-      minimatch: 10.0.1
+      minimatch: 9.0.5
       natural-compare-lite: 1.4.0
     transitivePeerDependencies:
       - supports-color
@@ -12036,7 +12032,7 @@ snapshots:
 
   flatted@3.3.1: {}
 
-  flow-parser@0.245.1: {}
+  flow-parser@0.245.2: {}
 
   for-each@0.3.3:
     dependencies:
@@ -12774,7 +12770,7 @@ snapshots:
       '@babel/register': 7.24.6(@babel/core@7.25.2)
       babel-core: 7.0.0-bridge.0(@babel/core@7.25.2)
       chalk: 4.1.2
-      flow-parser: 0.245.1
+      flow-parser: 0.245.2
       graceful-fs: 4.2.11
       micromatch: 4.0.8
       neo-async: 2.6.2
@@ -13419,10 +13415,6 @@ snapshots:
       schema-utils: 4.2.0
       tapable: 2.2.1
       webpack: 5.94.0(esbuild@0.23.1)(webpack-cli@5.1.4)
-
-  minimatch@10.0.1:
-    dependencies:
-      brace-expansion: 2.0.1
 
   minimatch@3.0.8:
     dependencies:
