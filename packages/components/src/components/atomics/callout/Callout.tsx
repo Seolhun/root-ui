@@ -16,7 +16,7 @@ export interface CalloutProps extends ElementProps {
 }
 
 export const Callout = React.forwardRef<ElementType, CalloutProps>(
-  ({ className, children, intent = 'primary', ...others }, ref) => {
+  ({ children, className, intent = 'primary', ...others }, ref) => {
     return (
       <div {...others} className={clsx(className, CLASSNAME, callout({ intent }))} ref={ref}>
         {children}
@@ -34,8 +34,10 @@ const callout = tv({
       info: 'bg-info-0 dark:bg-info-1 border-info',
       neutral: 'bg-neutral-0 dark:bg-neutral-1 border-neutral',
       primary: 'bg-primary-0 dark:bg-primary-1 border-primary',
+      secondary: 'bg-secondary-0 dark:bg-secondary-1 border-secondary',
       success: 'bg-success-0 dark:bg-success-1 border-success',
       warning: 'bg-warning-0 dark:bg-warning-1 border-warning',
+      faint: 'bg-faint-0 dark:bg-faint-1 border-faint',
     },
   },
 });

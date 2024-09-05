@@ -1,7 +1,3 @@
-.Root__Window__LockScroll{
-  overflow:hidden!important
-}
-
 *,:after,:before{
   box-sizing:border-box
 }
@@ -123,4 +119,30 @@
   --warning-8-color:env(--warning-8-color,#9c3110);
   --warning-9-color:env(--warning-9-color,#7e2a10);
   --warning-10-color:env(--warning-10-color,#441206);
+
+  --faint-color: env(--faint-color, #e5e5e5);
+  --faint-0-color: env(--faint-0-color, #ffffff);
+  --faint-1-color: env(--faint-1-color, #f9f9f9);
+  --faint-2-color: env(--faint-2-color, #f2f2f2);
+  --faint-3-color: env(--faint-3-color, #ebebeb);
+  --faint-4-color: env(--faint-4-color, #e5e5e5);
+  --faint-5-color: env(--faint-5-color, #dcdcdc);
+  --faint-6-color: env(--faint-6-color, #1b1d1f);
+  --faint-7-color: env(--faint-7-color, #141516);
+  --faint-8-color: env(--faint-8-color, #121314);
+  --faint-9-color: env(--faint-9-color, #0a0b0c);
+  --faint-10-color: env(--faint-10-color, #000000);
+
+  --secondary-color: env(--secondary-color, #5a73ff); /* A lighter shade of primary */
+  --secondary-0-color: env(--secondary-0-color, #f0f4ff);
+  --secondary-1-color: env(--secondary-1-color, #e3ebff);
+  --secondary-2-color: env(--secondary-2-color, #c9d7ff);
+  --secondary-3-color: env(--secondary-3-color, #a2b6ff);
+  --secondary-4-color: env(--secondary-4-color, #5a73ff);
+  --secondary-5-color: env(--secondary-5-color, #4f63ff);
+  --secondary-6-color: env(--secondary-6-color, #4053ff);
+  --secondary-7-color: env(--secondary-7-color, #3747e0);
+  --secondary-8-color: env(--secondary-8-color, #2e3bb8);
+  --secondary-9-color: env(--secondary-9-color, #232e8f);
+  --secondary-10-color: env(--secondary-10-color, #1a2366);
 }

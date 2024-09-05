@@ -1,9 +1,9 @@
 import { headingPlugins } from './bases';
 import { buttonPlugins, tagPlugins } from './components';
-import { fill, outlined, scales, solid } from './utilities';
+import { fill, scales } from './utilities';
 import { eventsVariant, intentVariant, layoutVariant, scaleVariant } from './variants';
 
-export const RootPlugins = [
+export const plugins = [
   /**
    * Variants
    */
@@ -15,8 +15,6 @@ export const RootPlugins = [
    * Utilities
    */
   scales,
-  solid,
-  outlined,
   fill,
   /**
    * Bases

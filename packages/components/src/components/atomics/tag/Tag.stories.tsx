@@ -70,14 +70,14 @@ const IntentOutlinedTagsStories = ({ children, ...others }: TagProps) => {
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} intent={intent} key={intent} outlined>
+          <BaseTemplate {...others} intent={intent} key={intent} variant="outlined">
             {children}
           </BaseTemplate>
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} intent={intent} key={intent} outlined>
+          <BaseTemplate {...others} intent={intent} key={intent} variant="outlined">
             {children}
           </BaseTemplate>
         ))}
@@ -106,7 +106,7 @@ const DisabledTagsStories = ({ children, ...others }: TagProps) => {
         </div>
         <div className="flex flex-col space-y-2">
           {storiesIntentOptions.map((intent) => (
-            <BaseTemplate {...others} intent={intent} key={intent} outlined>
+            <BaseTemplate {...others} intent={intent} key={intent} variant="outlined">
               {children}
             </BaseTemplate>
           ))}
@@ -122,7 +122,7 @@ const DisabledTagsStories = ({ children, ...others }: TagProps) => {
         </div>
         <div className="flex flex-col space-y-2">
           {storiesIntentOptions.map((intent) => (
-            <BaseTemplate {...others} intent={intent} key={intent} outlined>
+            <BaseTemplate {...others} intent={intent} key={intent} variant="outlined">
               {children}
             </BaseTemplate>
           ))}

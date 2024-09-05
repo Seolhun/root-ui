@@ -1,58 +1,23 @@
-import { RootIntentType, RootScaleType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { toIntentMatch, toScaleMatch } from '../../../system';
+import { TagVariants, outlinedTag, solidTag } from './Tag.styles';
 
 const CLASSNAME = 'Root__Tag';
 type ElementType = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<ElementType>;
-export interface TagProps extends ElementProps {
-  /**
-   * @default primary
-   */
-  intent?: RootIntentType;
-
-  /**
-   * Use outline style
-   */
-  outlined?: boolean;
-
-  /**
-   * Set this to change scale
-   * @default md
-   */
-  scale?: RootScaleType;
-}
+export type TagProps = ElementProps & TagVariants;
 
 export const Tag = React.forwardRef<ElementType, TagProps>(
-  ({ className, children, intent = 'primary', outlined, scale = 'md', ...others }, ref) => {
+  ({ children, className, intent = 'primary', scale = 'md', variant = 'solid', ...others }, ref) => {
+    const styles = variant === 'solid' ? solidTag({ intent, scale }) : outlinedTag({ intent, scale });
     return (
       <button
         role="button"
         tabIndex={0}
+        type="button"
         {...others}
-        className={clsx(
-          CLASSNAME,
-          className,
-          'tag',
-          toScaleMatch({
-            lg: () => 'tag-scale-lg',
-            md: () => 'tag-scale-md',
-            sm: () => 'tag-scale-sm',
-            xl: () => 'tag-scale-xl',
-            xs: () => 'tag-scale-xs',
-          })(scale),
-          toIntentMatch({
-            accent: () => clsx(outlined ? `outlined-accent` : `solid-accent`),
-            danger: () => clsx(outlined ? `outlined-danger` : `solid-danger`),
-            info: () => clsx(outlined ? `outlined-info` : `solid-info`),
-            neutral: () => clsx(outlined ? `outlined-neutral` : `solid-neutral`),
-            primary: () => clsx(outlined ? `outlined-primary` : `solid-primary`),
-            success: () => clsx(outlined ? `outlined-success` : `solid-success`),
-            warning: () => clsx(outlined ? `outlined-warning` : `solid-warning`),
-          })(intent),
-        )}
+        className={clsx(CLASSNAME, className, 'btn', styles)}
         ref={ref}
       >
         {children}

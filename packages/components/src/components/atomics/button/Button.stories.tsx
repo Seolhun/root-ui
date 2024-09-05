@@ -1,3 +1,4 @@
+import { intentMap, scaleMap } from '@seolhun/root-ui-tailwind';
 import * as React from 'react';
 
 import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
@@ -8,13 +9,13 @@ export default {
     intent: {
       control: {
         type: 'select',
-        options: storiesIntentOptions,
+        options: intentMap,
       },
     },
     scale: {
       control: {
         type: 'select',
-        options: storiesScaleOptions,
+        options: scaleMap,
       },
     },
   },
@@ -85,14 +86,14 @@ const IntentOutlinedButtonsStories = ({ children, ...others }: ButtonProps) => {
     <StorybookContent>
       <StorybookContent.Light className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} intent={intent} key={intent} outlined>
+          <BaseTemplate {...others} intent={intent} key={intent} variant="outlined">
             {children}-{intent}
           </BaseTemplate>
         ))}
       </StorybookContent.Light>
       <StorybookContent.Dark className="flex-col">
         {storiesIntentOptions.map((intent) => (
-          <BaseTemplate {...others} intent={intent} key={intent} outlined>
+          <BaseTemplate {...others} intent={intent} key={intent} variant="outlined">
             {children}-{intent}
           </BaseTemplate>
         ))}
@@ -120,7 +121,7 @@ const DisabledButtonsStories = ({ children, ...others }: ButtonProps) => {
         </div>
         <div className="flex flex-col space-y-2">
           {storiesIntentOptions.map((intent) => (
-            <BaseTemplate {...others} intent={intent} key={intent} outlined>
+            <BaseTemplate {...others} intent={intent} key={intent} variant="outlined">
               {children}-{intent}
             </BaseTemplate>
           ))}
@@ -136,7 +137,7 @@ const DisabledButtonsStories = ({ children, ...others }: ButtonProps) => {
         </div>
         <div className="flex flex-col space-y-2">
           {storiesIntentOptions.map((intent) => (
-            <BaseTemplate {...others} intent={intent} key={intent} outlined>
+            <BaseTemplate {...others} intent={intent} key={intent} variant="outlined">
               {children}-{intent}
             </BaseTemplate>
           ))}
