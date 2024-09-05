@@ -11,14 +11,23 @@ export type ButtonProps = ElementProps & ButtonVariants;
 
 export const Button = React.forwardRef<ElementType, ButtonProps>(
   ({ children, className, intent = 'primary', scale = 'md', variant = 'solid', ...others }, ref) => {
-    const styles = variant === 'solid' ? solidButton({ intent, scale }) : outlinedButton({ intent, scale });
+    const isSolid = variant === 'solid';
+    const styles = isSolid ? solidButton : outlinedButton;
     return (
       <button
         type="button"
         role="button"
         tabIndex={0}
         {...others}
-        className={clsx(CLASSNAME, className, 'btn', styles)}
+        className={clsx(
+          CLASSNAME,
+          styles({
+            intent,
+            scale,
+            variant,
+          }),
+          className,
+        )}
         ref={ref}
       >
         {children}

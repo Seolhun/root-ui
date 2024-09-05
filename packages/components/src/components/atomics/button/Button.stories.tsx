@@ -1,4 +1,5 @@
 import { intentMap, scaleMap } from '@seolhun/root-ui-tailwind';
+import { StoryObj } from '@storybook/react/*';
 import * as React from 'react';
 
 import { storiesIntentOptions, storiesScaleOptions, StorybookContent } from '../../../stories';
@@ -48,10 +49,12 @@ const ScaleButtonsStories = ({ children, ...others }: ButtonProps) => {
   );
 };
 
-export const ScaleButtons = ScaleButtonsStories.bind({});
-ScaleButtons.args = {
-  children: 'Button',
-  disabled: false,
+export const ScaleButtons: StoryObj<ButtonProps> = {
+  args: {
+    children: 'Button',
+    disabled: false,
+  },
+  render: ScaleButtonsStories,
 };
 
 const IntentButtonsStories = ({ children, ...others }: ButtonProps) => {
@@ -75,10 +78,12 @@ const IntentButtonsStories = ({ children, ...others }: ButtonProps) => {
   );
 };
 
-export const IntentButtons = IntentButtonsStories.bind({});
-IntentButtons.args = {
-  children: 'Button',
-  disabled: false,
+export const IntentButtons: StoryObj<ButtonProps> = {
+  args: {
+    children: 'Button',
+    disabled: false,
+  },
+  render: IntentButtonsStories,
 };
 
 const IntentOutlinedButtonsStories = ({ children, ...others }: ButtonProps) => {
@@ -102,10 +107,12 @@ const IntentOutlinedButtonsStories = ({ children, ...others }: ButtonProps) => {
   );
 };
 
-export const IntentOutlinedButtons = IntentOutlinedButtonsStories.bind({});
-IntentOutlinedButtons.args = {
-  children: 'Button',
-  disabled: false,
+export const IntentOutlinedButtons: StoryObj<ButtonProps> = {
+  args: {
+    children: 'Button',
+    disabled: false,
+  },
+  render: IntentOutlinedButtonsStories,
 };
 
 const DisabledButtonsStories = ({ children, ...others }: ButtonProps) => {
@@ -147,8 +154,10 @@ const DisabledButtonsStories = ({ children, ...others }: ButtonProps) => {
   );
 };
 
-export const DisabledButtons = DisabledButtonsStories.bind({});
-DisabledButtons.args = {
-  children: 'Button',
-  disabled: true,
+export const DisabledButtons: StoryObj<ButtonProps> = {
+  args: {
+    children: 'Button',
+    disabled: false,
+  },
+  render: DisabledButtonsStories,
 };

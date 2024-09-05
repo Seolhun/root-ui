@@ -10,14 +10,24 @@ export type TagProps = ElementProps & TagVariants;
 
 export const Tag = React.forwardRef<ElementType, TagProps>(
   ({ children, className, intent = 'primary', scale = 'md', variant = 'solid', ...others }, ref) => {
-    const styles = variant === 'solid' ? solidTag({ intent, scale }) : outlinedTag({ intent, scale });
+    const isSolid = variant === 'solid';
+    const styles = isSolid ? solidTag : outlinedTag;
+
     return (
       <button
         role="button"
         tabIndex={0}
         type="button"
         {...others}
-        className={clsx(CLASSNAME, className, 'btn', styles)}
+        className={clsx(
+          CLASSNAME,
+          styles({
+            intent,
+            scale,
+            variant,
+          }),
+          className,
+        )}
         ref={ref}
       >
         {children}
