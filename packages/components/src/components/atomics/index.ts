@@ -3,7 +3,7 @@ export * from './button';
 export * from './callout';
 export * from './card';
 export * from './divider';
-export * from './grid';
+export * from './image';
 export * from './loading';
 export * from './progressbar';
 export * from './select';
