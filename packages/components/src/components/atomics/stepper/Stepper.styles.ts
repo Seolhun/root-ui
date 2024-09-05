@@ -23,6 +23,7 @@ export const stepper = tv({
       'bg-neutral-3 dark:bg-neutral-7',
       'group-last:hidden',
     ),
+    stepperItemMeta: clsx('flex flex-col gap-4', 'grow md:grow-0 md:mt-3 pb-5'),
     stepperItemName: clsx('block', 'text-sm', 'font-medium', 'text-neutral-8 dark:text-cream-2'),
     stepperItemStep: clsx(
       'flex flex-col items-center',

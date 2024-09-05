@@ -14,10 +14,10 @@ export const StepperItem = React.forwardRef<ElementType, ElementProps & StepperI
     return (
       <li {...others} className={clsx(CLASSNAME, styles.stepperItem(), className)} ref={ref}>
         <div className={styles.stepperItemStep()}>
-          <span className={clsx(styles.stepperItemBadge({ active }))}>{step}</span>
+          <span className={styles.stepperItemBadge({ active })}>{step}</span>
           <div className={styles.stepperItemEdge({ active })} />
         </div>
-        <div className={clsx('flex flex-col gap-4', 'grow md:grow-0 md:mt-3 pb-5')}>
+        <div className={styles.stepperItemMeta()}>
           <span className={styles.stepperItemName({ active })}>{name}</span>
           <div className={styles.stepperItemContent({ active })}>{children}</div>
         </div>

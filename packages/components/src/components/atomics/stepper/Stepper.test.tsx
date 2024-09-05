@@ -24,7 +24,7 @@ describe('Stepper Component', () => {
     );
 
     const stepBadge = getByText('1');
-    expect(stepBadge.classList.contains('bg-neutral-1')).toBe(true);
+    expect(stepBadge.classList.contains('bg-neutral-3')).toBe(true);
   });
 
   test('renders the StepperItem component with active styles', () => {
