@@ -1,5 +1,32 @@
 # Change Log
 
+## 0.8.9
+
+### Patch Changes
+
+- [`1dbf508d816c09b609526f27707cd4c75bf4df1c`](https://github.com/Seolhun/root-ui/commit/1dbf508d816c09b609526f27707cd4c75bf4df1c) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor: update floating version and sass
+
+- [#291](https://github.com/Seolhun/root-ui/pull/291) [`73470a59cd07f784a9be3c1950c00f80c8333fa6`](https://github.com/Seolhun/root-ui/commit/73470a59cd07f784a9be3c1950c00f80c8333fa6) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor: update the dropdown component to rebuild component without headless-ui ddpendencies
+
+- [#291](https://github.com/Seolhun/root-ui/pull/291) [`9933b6b197e67d0a5ccd98bbf4161873ab1a1e6d`](https://github.com/Seolhun/root-ui/commit/9933b6b197e67d0a5ccd98bbf4161873ab1a1e6d) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor: update the FormItemGroup font-styles
+
+- [#291](https://github.com/Seolhun/root-ui/pull/291) [`5eaef6d4693318d95158a69a057ad1dbf80fdafb`](https://github.com/Seolhun/root-ui/commit/5eaef6d4693318d95158a69a057ad1dbf80fdafb) Thanks [@Seolhun](https://github.com/Seolhun)! - feat(components): update callout and toast
+
+- [#291](https://github.com/Seolhun/root-ui/pull/291) [`74a2092c6b558be7f90c7c0053bf667a00d038ac`](https://github.com/Seolhun/root-ui/commit/74a2092c6b558be7f90c7c0053bf667a00d038ac) Thanks [@Seolhun](https://github.com/Seolhun)! - feat: add FormItemGroup
+
+- [#291](https://github.com/Seolhun/root-ui/pull/291) [`8957fe7a5f28b995f3438f96a94ec431ac55d65d`](https://github.com/Seolhun/root-ui/commit/8957fe7a5f28b995f3438f96a94ec431ac55d65d) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor: remove unnecessary sidebar icon
+
+- [#291](https://github.com/Seolhun/root-ui/pull/291) [`4c82ac0bca09875390cf952d5d09c540fe5d3909`](https://github.com/Seolhun/root-ui/commit/4c82ac0bca09875390cf952d5d09c540fe5d3909) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor: update toast components
+
+- [`34dab1129da511624a65fe5673151666790a41d5`](https://github.com/Seolhun/root-ui/commit/34dab1129da511624a65fe5673151666790a41d5) Thanks [@Seolhun](https://github.com/Seolhun)! - fix: button in button html warning and type
+
+- [#291](https://github.com/Seolhun/root-ui/pull/291) [`41ed52704f35ee35cd0fdd0f59a0eab816c46940`](https://github.com/Seolhun/root-ui/commit/41ed52704f35ee35cd0fdd0f59a0eab816c46940) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor: fix the dropdown root props
+
+- [`dce4f1f86d352e30cf7f6f6ccdb15f21b83df6c5`](https://github.com/Seolhun/root-ui/commit/dce4f1f86d352e30cf7f6f6ccdb15f21b83df6c5) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor: update the dropdown to support multiple options
+
+- Updated dependencies [[`1dbf508d816c09b609526f27707cd4c75bf4df1c`](https://github.com/Seolhun/root-ui/commit/1dbf508d816c09b609526f27707cd4c75bf4df1c), [`5eaef6d4693318d95158a69a057ad1dbf80fdafb`](https://github.com/Seolhun/root-ui/commit/5eaef6d4693318d95158a69a057ad1dbf80fdafb)]:
+  - @seolhun/root-ui-tailwind@0.8.9
+
 ## 0.8.9-alpha.9
 
 ### Patch Changes

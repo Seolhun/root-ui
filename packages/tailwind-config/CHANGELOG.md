@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.9
+
+### Patch Changes
+
+- [`1dbf508d816c09b609526f27707cd4c75bf4df1c`](https://github.com/Seolhun/root-ui/commit/1dbf508d816c09b609526f27707cd4c75bf4df1c) Thanks [@Seolhun](https://github.com/Seolhun)! - refactor: update floating version and sass
+
+- [#291](https://github.com/Seolhun/root-ui/pull/291) [`5eaef6d4693318d95158a69a057ad1dbf80fdafb`](https://github.com/Seolhun/root-ui/commit/5eaef6d4693318d95158a69a057ad1dbf80fdafb) Thanks [@Seolhun](https://github.com/Seolhun)! - feat(components): update callout and toast
+
 ## 0.8.9-alpha.1
 
 ### Patch Changes
