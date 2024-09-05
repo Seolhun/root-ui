@@ -9,7 +9,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface FormItemGroupDescriptionProps {}
 
 export const FormItemGroupDescription = React.forwardRef<ElementType, ElementProps & FormItemGroupDescriptionProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <div
         {...others}

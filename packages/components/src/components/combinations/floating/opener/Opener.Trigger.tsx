@@ -9,7 +9,7 @@ const CLASSNAME = 'Root__Opener__Trigger';
 type ElementType = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 
-export const OpenerTrigger = React.forwardRef<ElementType, ElementProps>(({ className, children, ...others }, ref) => {
+export const OpenerTrigger = React.forwardRef<ElementType, ElementProps>(({ children, className, ...others }, ref) => {
   const contextValues = useOpenerContext();
   const { getReferenceProps, open } = contextValues;
   const mergedRef = useMergeRefs(contextValues.refs.setReference, ref);

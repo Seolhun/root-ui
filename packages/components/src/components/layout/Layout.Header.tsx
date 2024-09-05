@@ -8,7 +8,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface LayoutHeaderProps {}
 
 export const LayoutHeader = React.forwardRef<ElementType, ElementProps & LayoutHeaderProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <header {...others} className={clsx(CLASSNAME, className)} ref={ref}>
         {children}

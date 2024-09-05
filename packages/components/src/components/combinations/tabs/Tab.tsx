@@ -9,7 +9,7 @@ type ElementType = HTMLLIElement;
 
 export type TabProps = OmitBy<HeadlessTabProps<'li'>, 'as'>;
 
-export const Tab = React.forwardRef<ElementType, TabProps>(({ className, children, ...others }, ref) => {
+export const Tab = React.forwardRef<ElementType, TabProps>(({ children, className, ...others }, ref) => {
   return (
     <HeadlessTab {...others} as="li" className={clsx('w-full', 'outline-none')} ref={ref}>
       {(args) => {

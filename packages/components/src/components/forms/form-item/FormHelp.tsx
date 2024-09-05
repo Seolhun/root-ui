@@ -17,7 +17,7 @@ export interface FormHelpProps extends OmitBy<DescriptionProps<'p'>, 'as'> {
 }
 
 export const FormHelp = React.forwardRef<ElementType, FormHelpProps>(
-  ({ className, children, scale = 'md', ...others }, ref) => {
+  ({ children, className, scale = 'md', ...others }, ref) => {
     return (
       <Description
         {...others}

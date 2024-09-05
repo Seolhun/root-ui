@@ -10,7 +10,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface ModalOverlayProps extends ElementProps {}
 
 export const ModalOverlay = React.forwardRef<ElementType, ModalOverlayProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <ModalWidgetOverlay
         {...others}

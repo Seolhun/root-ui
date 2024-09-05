@@ -8,7 +8,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface SidebarHeaderProps extends ElementProps {}
 
 export const SidebarHeader = React.forwardRef<ElementType, SidebarHeaderProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <section {...others} className={clsx(CLASSNAME, className)} ref={ref}>
         {children}

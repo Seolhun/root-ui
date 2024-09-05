@@ -7,7 +7,7 @@ const CLASSNAME = 'Root__Toast__Title';
 type ElementType = HTMLHeadingElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
-export const ToastTitle = React.forwardRef<ElementType, ElementProps>(({ className, children, ...others }, ref) => {
+export const ToastTitle = React.forwardRef<ElementType, ElementProps>(({ children, className, ...others }, ref) => {
   return (
     <Text
       {...others}

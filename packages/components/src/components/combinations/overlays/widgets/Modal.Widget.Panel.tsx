@@ -31,8 +31,8 @@ export const ModalWidgetPanel = forwardRefWithAs(
 
     const ourProps = React.useMemo(() => {
       return {
-        id,
         ref: panelRef,
+        id,
         onClick: handleClick,
       };
     }, [id, panelRef, handleClick]);

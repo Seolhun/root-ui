@@ -13,7 +13,7 @@ export interface ModalHeaderProps extends ElementProps {
 }
 
 export const ModalHeader = React.forwardRef<ElementType, ModalHeaderProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <div
         ref={ref}

@@ -19,7 +19,7 @@ export interface StackProviderProps {
   type: string;
 }
 
-export function StackProvider({ type, children, element, enabled, onUpdate }: StackProviderProps) {
+export function StackProvider({ children, type, element, enabled, onUpdate }: StackProviderProps) {
   const parentUpdate = useStackContext();
 
   const notify = useEvent((...args: Parameters<StackContextOnUpdateCallback>) => {

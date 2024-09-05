@@ -49,8 +49,8 @@ const ScaleProgressBarStories = ({ children, ...others }: ProgressBarProps) => {
 
 export const ScaleProgressBar = ScaleProgressBarStories.bind({});
 ScaleProgressBar.args = {
-  badge: '',
   children: 'ProgressBar',
+  badge: '',
 };
 
 const IntentProgressBarsStories = ({ children, ...others }: ProgressBarProps) => {
@@ -72,8 +72,8 @@ const IntentProgressBarsStories = ({ children, ...others }: ProgressBarProps) =>
 
 export const IntentProgressBars = IntentProgressBarsStories.bind({});
 IntentProgressBars.args = {
-  badge: '',
   children: 'ProgressBar',
+  badge: '',
 };
 
 const BadgeProgressBarsStories = ({ children, ...others }: ProgressBarProps) => {
@@ -95,6 +95,6 @@ const BadgeProgressBarsStories = ({ children, ...others }: ProgressBarProps) => 
 
 export const BadgeProgressBars = BadgeProgressBarsStories.bind({});
 BadgeProgressBars.args = {
-  badge: 'Badge',
   children: 'ProgressBar',
+  badge: 'Badge',
 };

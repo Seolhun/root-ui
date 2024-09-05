@@ -11,7 +11,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface DrawerPanelProps {}
 
 export const DrawerPanel = React.forwardRef<ElementType, ElementProps & DrawerPanelProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     const { placement } = useDrawerContext();
     const [{ visible }] = useModalContext('Drawer');
 

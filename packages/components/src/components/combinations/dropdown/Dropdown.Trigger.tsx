@@ -10,7 +10,7 @@ type ElementType = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 
 export const DropdownTrigger = React.forwardRef<ElementType, ElementProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     const contextValues = useDropdownContext();
     const { getReferenceProps, open } = contextValues;
     const mergedRef = useMergeRefs(contextValues?.refs.setReference, ref);

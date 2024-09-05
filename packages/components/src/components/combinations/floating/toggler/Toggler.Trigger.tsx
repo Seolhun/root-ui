@@ -9,7 +9,7 @@ const CLASSNAME = 'Root__Toggler__Trigger';
 type ElementType = HTMLButtonElement;
 type ElementProps = React.ButtonHTMLAttributes<ElementType>;
 
-export const TogglerTrigger = React.forwardRef<ElementType, ElementProps>(({ className, children, ...others }, ref) => {
+export const TogglerTrigger = React.forwardRef<ElementType, ElementProps>(({ children, className, ...others }, ref) => {
   const contextValues = useTogglerContext();
   const { getReferenceProps, open } = contextValues;
   const mergedRef = useMergeRefs(contextValues.refs.setReference, ref);

@@ -1,19 +1,14 @@
-import { RootIntentType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
-import { tv } from 'tailwind-variants';
+
+import { callout, CalloutVariants } from './Callout.styles';
 
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
 
 const CLASSNAME = 'Root__Callout';
 
-export interface CalloutProps extends ElementProps {
-  /**
-   * @default primary
-   */
-  intent?: RootIntentType;
-}
+export type CalloutProps = ElementProps & CalloutVariants;
 
 export const Callout = React.forwardRef<ElementType, CalloutProps>(
   ({ children, className, intent = 'primary', ...others }, ref) => {
@@ -24,20 +19,3 @@ export const Callout = React.forwardRef<ElementType, CalloutProps>(
     );
   },
 );
-
-const callout = tv({
-  base: 'px-6 py-4 rounded border-l-4 shadow',
-  variants: {
-    intent: {
-      accent: 'bg-accent-0 dark:bg-accent-1 border-accent',
-      danger: 'bg-danger-0 dark:bg-danger-1 border-danger',
-      info: 'bg-info-0 dark:bg-info-1 border-info',
-      neutral: 'bg-neutral-0 dark:bg-neutral-1 border-neutral',
-      primary: 'bg-primary-0 dark:bg-primary-1 border-primary',
-      secondary: 'bg-secondary-0 dark:bg-secondary-1 border-secondary',
-      success: 'bg-success-0 dark:bg-success-1 border-success',
-      warning: 'bg-warning-0 dark:bg-warning-1 border-warning',
-      faint: 'bg-faint-0 dark:bg-faint-1 border-faint',
-    },
-  },
-});

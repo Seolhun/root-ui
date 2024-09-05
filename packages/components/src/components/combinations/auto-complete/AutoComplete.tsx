@@ -81,23 +81,23 @@ function _AutoComplete<Item = any>(
   {
     // HTMLAttributes
     className,
-    Empty = 'There are no suggestions',
-    Loader,
-    Prefix,
-    Suffix,
     displayedValue,
+    Empty = 'There are no suggestions',
     identify,
     // Props
     items,
+    Loader,
     loading,
     onChangeInput,
     onKeydownInput,
     onSelectItem,
     placeholder,
+    Prefix,
     query,
     // Root
     scale = 'md',
     selectedItem,
+    Suffix,
     ...others
   }: AutoCompleteProps<Item> & ElementProps,
   ref: React.ForwardedRef<HTMLDivElement>,

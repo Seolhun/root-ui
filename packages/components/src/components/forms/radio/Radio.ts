@@ -5,5 +5,5 @@ export const Radio = Object.assign(RadioGroup, {
   Input: RadioInput,
 });
 
-export * from './Radio.Input';
 export * from './Radio.Group';
+export * from './Radio.Input';

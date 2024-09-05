@@ -39,8 +39,8 @@ export const Box = forwardRefWithAs(function Box<Tag extends keyof JSX.Intrinsic
 
   const ourProps = React.useMemo(() => {
     return {
-      id,
       ref: rootRef,
+      id,
     };
   }, [rootRef, id]);
 

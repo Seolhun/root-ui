@@ -12,7 +12,7 @@ export interface SidebarRootProps extends ElementProps {}
  * Have to be Layout.Sidebar width and Layout.Body padding-x
  */
 export const SidebarRoot = React.forwardRef<ElementType, SidebarRootProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <aside
         {...others}

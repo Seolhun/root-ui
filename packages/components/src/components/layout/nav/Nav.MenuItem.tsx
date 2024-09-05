@@ -8,7 +8,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface NavMenuItemProps {}
 
 export const NavMenuItem = React.forwardRef<ElementType, ElementProps & NavMenuItemProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <div ref={ref} role="menuitem" {...others} className={clsx(CLASSNAME, className, 'min-h-20', 'cursor-pointer')}>
         {children}

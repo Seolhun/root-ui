@@ -16,7 +16,7 @@ export interface LayoutActionButtonProps extends Omit<ElementProps, 'children'> 
 }
 
 export const LayoutActionButton = React.forwardRef<ElementType, LayoutActionButtonProps>(
-  ({ className, children, onClick, ...others }, ref) => {
+  ({ children, className, onClick, ...others }, ref) => {
     const { setSidebarStatus } = useLayoutContext();
 
     const toggle = React.useCallback(() => {

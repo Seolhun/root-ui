@@ -32,9 +32,9 @@ const ParagraphTemplate = ({ children, ...others }: PProps) => {
 
 export const ParagraphStories: StoryObj<PProps> = {
   args: {
-    className: 'text-space-1 dark:text-cream-1',
     children:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis accusamus animi aliquid molestiae vitae similique asperiores illum, sit quisquam, veritatis rerum.',
+    className: 'text-space-1 dark:text-cream-1',
   },
   render: ParagraphTemplate,
 };

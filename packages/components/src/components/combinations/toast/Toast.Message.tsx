@@ -10,7 +10,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface ToastMessageProps {}
 
 export const ToastMessage = React.forwardRef<ElementType, ElementProps & ToastMessageProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <Text {...others} className={clsx(CLASSNAME, className, 'text-sm', 'whitespace-pre-wrap')} ref={ref}>
         {children}

@@ -16,7 +16,7 @@ export interface FormLabelProps extends LabelProps {
 }
 
 export const FormLabel = React.forwardRef<ElementType, FormLabelProps>(
-  ({ className, children, htmlFor, scale = 'md', ...others }, ref) => {
+  ({ children, className, htmlFor, scale = 'md', ...others }, ref) => {
     return (
       <Label
         {...others}

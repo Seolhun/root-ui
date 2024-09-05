@@ -13,7 +13,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface OpenerContentProps {}
 
 export const OpenerContent = React.forwardRef<ElementType, ElementProps & OpenerContentProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     const contextValues = useOpenerContext();
     const tooltipId = useId();
     const mergedRef = useMergeRefs(contextValues.refs.setFloating || null, ref);

@@ -9,7 +9,7 @@ type ElementType = HTMLDivElement;
 
 export type TabPanelProps = OmitBy<HeadlessTabPanelProps<'div'>, 'as'>;
 
-export const TabPanel = React.forwardRef<ElementType, TabPanelProps>(({ className, children, ...others }, ref) => {
+export const TabPanel = React.forwardRef<ElementType, TabPanelProps>(({ children, className, ...others }, ref) => {
   return (
     <HeadlessTabPanel {...others} as="div" className={clsx(CLASSNAME, className, 'w-full')} ref={ref}>
       {children}

@@ -13,7 +13,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface TogglerContentProps extends ElementProps {}
 
 export const TogglerContent = React.forwardRef<ElementType, TogglerContentProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     const contextValues = useTogglerContext();
     const tooltipId = React.useId();
     const mergedRef = useMergeRefs(contextValues?.refs.setFloating || null, ref);

@@ -21,7 +21,7 @@ export const NavRoot = React.forwardRef<ElementType, ElementProps & NavRootProps
 });
 
 const Nav = React.forwardRef<ElementType, ElementProps & NavRootProps>(
-  ({ className, children, onMouseOut, onMouseOver, ...others }, ref) => {
+  ({ children, className, onMouseOut, onMouseOver, ...others }, ref) => {
     const handleMouseOver = React.useCallback(
       (e: React.MouseEvent<HTMLElement>) => {
         if (onMouseOver) {

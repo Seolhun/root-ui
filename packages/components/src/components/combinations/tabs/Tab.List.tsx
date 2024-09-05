@@ -9,7 +9,7 @@ type ElementType = HTMLUListElement;
 
 export type TabListProps = OmitBy<HeadlessTabListProps<'ul'>, 'as'>;
 
-export const TabList = React.forwardRef<ElementType, TabListProps>(({ className, children, ...others }, ref) => {
+export const TabList = React.forwardRef<ElementType, TabListProps>(({ children, className, ...others }, ref) => {
   return (
     <HeadlessTabList
       {...others}

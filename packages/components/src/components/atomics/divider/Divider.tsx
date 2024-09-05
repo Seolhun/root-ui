@@ -25,7 +25,7 @@ export interface DividerProps extends ElementProps {
 }
 
 export const Divider = React.forwardRef<ElementType, DividerProps>(
-  ({ className, children, direction = 'horizontal', intent = 'neutral', ...others }, ref) => {
+  ({ children, className, direction = 'horizontal', intent = 'neutral', ...others }, ref) => {
     return (
       <hr
         {...others}

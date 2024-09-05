@@ -13,7 +13,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface DropdownPanelProps {}
 
 export const DropdownPanel = React.forwardRef<ElementType, ElementProps & DropdownPanelProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     const contextValues = useDropdownContext();
     const tooltipId = useId();
     const mergedRef = useMergeRefs(contextValues?.refs.setFloating || null, ref);

@@ -17,7 +17,7 @@ export interface FormDescriptionProps extends OmitBy<DescriptionProps<'p'>, 'as'
 }
 
 export const FormDescription = React.forwardRef<ElementType, FormDescriptionProps>(
-  ({ className, children, scale = 'md', ...others }, ref) => {
+  ({ children, className, scale = 'md', ...others }, ref) => {
     return (
       <Description
         {...others}

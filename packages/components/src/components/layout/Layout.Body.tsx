@@ -8,7 +8,7 @@ type ElementProps = React.HTMLAttributes<ElementType>;
 export interface LayoutBodyProps {}
 
 export const LayoutBody = React.forwardRef<ElementType, ElementProps & LayoutBodyProps>(
-  ({ className, children, ...others }, ref) => {
+  ({ children, className, ...others }, ref) => {
     return (
       <main {...others} className={clsx(CLASSNAME, className, 'h-full')} ref={ref}>
         {children}

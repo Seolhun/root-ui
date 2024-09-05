@@ -38,8 +38,8 @@ const HeadingsTemplate = ({ children, ...others }: HeadingProps) => {
 
 export const Headings: StoryObj<HeadingProps> = {
   args: {
-    className: 'text-space-1 dark:text-cream-1',
     children: 'Heading is for title',
+    className: 'text-space-1 dark:text-cream-1',
   },
   render: HeadingsTemplate,
 };
