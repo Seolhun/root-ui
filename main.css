@@ -1678,6 +1678,13 @@ h6 {
   opacity: 1;
 }.group[data-disabled] .group-data-\[disabled\]\:opacity-25 {
   opacity: 0.25;
+}.sidebar-expanded\:w-132.sidebar-expanded {
+  width: 16.5rem;
+}.sidebar-expanded\:translate-x-0.sidebar-expanded {
+  --tw-translate-x: 0rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}.sidebar-expanded\:pl-132.sidebar-expanded {
+  padding-left: 16.5rem;
 }.sidebar-expanded .sidebar-expanded\:w-132 {
   width: 16.5rem;
 }.sidebar-expanded .sidebar-expanded\:translate-x-0 {
