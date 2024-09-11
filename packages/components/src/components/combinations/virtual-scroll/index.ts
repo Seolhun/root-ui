@@ -1,3 +1,5 @@
 export * from './DynamicVirtualScroll';
+export * from './FixedVirtualScroll';
 export * from './VirtualScroll.types';
-export * from './WindowVirtualScroll';
+export * from './WindowDynamicVirtualScroll';
+export * from './WindowFixedVirtualScroll';

@@ -1,27 +1,22 @@
 import { StoryObj } from '@storybook/react';
 import { Meta } from '@storybook/react';
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-import { DynamicVirtualScroll, DynamicVirtualScrollProps } from './DynamicVirtualScroll';
+import { FixedVirtualScroll, FixedVirtualScrollProps } from './FixedVirtualScroll';
 import { VirtualScrollRendererArgs } from './VirtualScroll.types';
 
-const meta: Meta<typeof DynamicVirtualScroll> = {
-  component: DynamicVirtualScroll,
+const meta: Meta<typeof FixedVirtualScroll> = {
+  component: FixedVirtualScroll,
   parameters: {},
-  title: 'VirtualScroll/DynamicVirtualScroll',
+  title: 'VirtualScroll/FixedVirtualScroll',
 };
 
 const RowChildren = ({ item }: VirtualScrollRendererArgs<HTMLDivElement>) => {
-  const longText = Array.from({ length: item.index }, (_, i) => i).join(' ');
-  return (
-    <Row>
-      {item.index} = {longText}
-    </Row>
-  );
+  return <Row>{item.index}</Row>;
 };
 
-export const Vertical: StoryObj<DynamicVirtualScrollProps> = {
+export const Vertical: StoryObj<FixedVirtualScrollProps> = {
   args: {
     children: RowChildren,
     virtualOptions: {
@@ -33,15 +28,10 @@ export const Vertical: StoryObj<DynamicVirtualScrollProps> = {
 };
 
 const ColumnChildren = ({ item }: VirtualScrollRendererArgs<HTMLDivElement>) => {
-  const longText = Array.from({ length: item.index }, (_, i) => i).join(' ');
-  return (
-    <Column>
-      {item.index} = {longText}
-    </Column>
-  );
+  return <Column>{item.index}</Column>;
 };
 
-export const Horizontal: StoryObj<DynamicVirtualScrollProps> = {
+export const Horizontal: StoryObj<FixedVirtualScrollProps> = {
   args: {
     children: ColumnChildren,
     virtualOptions: {
@@ -50,8 +40,8 @@ export const Horizontal: StoryObj<DynamicVirtualScrollProps> = {
       overscan: 5,
     },
     windowSize: {
-      height: '200px',
-      width: '100%',
+      height: '50px',
+      width: '600px',
     },
   },
 };
