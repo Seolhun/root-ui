@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.10-alpha.0
+
+### Patch Changes
+
+- refactor: update layout variant
+
 ## 0.8.9
 
 ### Patch Changes
