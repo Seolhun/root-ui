@@ -3,6 +3,7 @@ import {
   flip,
   offset,
   shift,
+  size,
   useClick,
   useDismiss,
   useFloating,
@@ -41,6 +42,7 @@ export interface UseOpenerReturns extends OpenerFloatingReturns, OpenerIntersect
 export function useOpener({
   disabled,
   initialOpen = false,
+  offset: offsetValue = 5,
   onOpenChange: setControlledOpen,
   open: controlledOpen,
   placement = 'bottom-start',
@@ -53,7 +55,18 @@ export function useOpener({
   const setOpen = setControlledOpen ?? setUncontrolledOpen;
 
   const floating = useFloating({
-    middleware: [offset(5), shift(), flip()],
+    middleware: [
+      offset(offsetValue),
+      shift(),
+      flip(),
+      size({
+        apply({ elements, rects }) {
+          Object.assign(elements.floating.style, {
+            width: `${rects.reference.width}px`,
+          });
+        },
+      }),
+    ],
     onOpenChange: setOpen,
     open,
     placement,

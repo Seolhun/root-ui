@@ -44,7 +44,7 @@ export interface UseTogglerReturns extends TogglerFloatingReturns, TogglerInters
 export function useToggler({
   disabled,
   initialOpen = false,
-  offset: offsetValue = 2,
+  offset: offsetValue = 5,
   onOpenChange: setControlledOpen,
   open: controlledOpen,
   placement = 'bottom',

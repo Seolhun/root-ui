@@ -43,30 +43,27 @@ export interface UseTooltipReturns extends TooltipFloatingReturns, TooltipInters
 export function useTooltip({
   disabled,
   initialOpen = false,
+  offset: offsetValue = 5,
   onOpenChange: setControlledOpen,
   open: controlledOpen,
-  placement = 'bottom',
+  placement = 'bottom-start',
   root,
+  strategy = 'fixed',
+  zIndex,
 }: UseTooltipProps = {}): UseTooltipReturns {
   const [uncontrolledOpen, setUncontrolledOpen] = React.useState<boolean>(initialOpen);
   const open = controlledOpen ?? uncontrolledOpen;
   const setOpen = setControlledOpen ?? setUncontrolledOpen;
 
-  const floatingData = useFloating({
-    middleware: [
-      offset(5),
-      flip(),
-      shift({
-        padding: 5,
-      }),
-    ],
+  const floating = useFloating({
+    middleware: [offset(offsetValue), shift(), flip()],
     onOpenChange: setOpen,
     open,
     placement,
-    strategy: 'fixed',
+    strategy,
     whileElementsMounted: autoUpdate,
   });
-  const { context } = floatingData;
+  const { context } = floating;
 
   const hover = useHover(context, {
     enabled: !disabled,
@@ -83,13 +80,14 @@ export function useTooltip({
 
   return React.useMemo<UseTooltipReturns>(() => {
     return {
+      ...interactions,
+      ...floating,
       open,
       root,
       setOpen,
-      ...interactions,
-      ...floatingData,
+      zIndex,
     };
-  }, [open, setOpen, interactions, floatingData, root]);
+  }, [floating, interactions, open, root, setOpen, zIndex]);
 }
 
 export type TooltipContextValues = UseTooltipReturns;
