@@ -30,5 +30,4 @@ export interface ToastValue {
 }
 
 export type OpenToastPayload = Pick<ToastValue, 'message'> & Partial<Pick<ToastValue, 'timeout' | 'title'>>;
-
 export type CloseToastPayload = ToastValue['id'];

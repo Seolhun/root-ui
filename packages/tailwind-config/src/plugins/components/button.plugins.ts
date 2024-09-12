@@ -28,7 +28,7 @@ export default plugin(function ({ addComponents, theme }) {
       '&:focus': {
         outline: 'none',
       },
-      borderRadius: theme('borderRadius.full'),
+      borderRadius: theme('borderRadius.DEFAULT'),
       fontWeight: theme('fontWeight.medium'),
       whiteSpace: 'nowrap',
     },
