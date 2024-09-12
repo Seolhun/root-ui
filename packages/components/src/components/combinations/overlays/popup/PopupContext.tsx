@@ -21,6 +21,10 @@ export const popupReducer: React.Reducer<PopupValue[], PopupDispatchActions> = (
   switch (type) {
     case 'OPEN_POPUP': {
       const { payload } = action;
+      const isExisting = state.some((popup) => popup.id === payload.id);
+      if (isExisting) {
+        return state;
+      }
       return [...state, payload];
     }
     case 'CLOSE_POPUP': {

@@ -4,7 +4,7 @@ export const popupGroup = tv({
   slots: {
     backdrop: ['fixed inset-0', 'w-full h-full', 'bg-neutral-1 opacity-50'],
     overlay: ['fixed inset-0', 'flex justify-center items-center', 'z-50'],
-    panel: 'relative',
+    panel: ['relative'],
   },
 });
 
