@@ -6,8 +6,8 @@ import { useMergeRefs } from '~/hooks';
 import { useDropdownContext } from './useDropdownContext';
 
 const CLASSNAME = 'Root__Dropdown__Trigger';
-type ElementType = HTMLButtonElement;
-type ElementProps = React.ButtonHTMLAttributes<ElementType>;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
 export const DropdownTrigger = React.forwardRef<ElementType, ElementProps>(
   ({ children, className, ...others }, ref) => {
@@ -16,16 +16,18 @@ export const DropdownTrigger = React.forwardRef<ElementType, ElementProps>(
     const mergedRef = useMergeRefs(contextValues?.refs.setReference, ref);
 
     return (
-      <button
+      <div
+        role="combobox"
+        aria-expanded={open}
+        aria-haspopup="true"
         {...others}
         className={clsx(CLASSNAME, className)}
         data-state={open ? 'open' : 'closed'}
         ref={mergedRef}
-        type="button"
         {...getReferenceProps(others)}
       >
         {children}
-      </button>
+      </div>
     );
   },
 );

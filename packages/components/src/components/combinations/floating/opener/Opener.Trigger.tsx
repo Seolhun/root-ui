@@ -6,8 +6,8 @@ import { useMergeRefs } from '~/hooks';
 import { useOpenerContext } from './useOpenerContext';
 
 const CLASSNAME = 'Root__Opener__Trigger';
-type ElementType = HTMLButtonElement;
-type ElementProps = React.ButtonHTMLAttributes<ElementType>;
+type ElementType = HTMLDivElement;
+type ElementProps = React.HTMLAttributes<ElementType>;
 
 export const OpenerTrigger = React.forwardRef<ElementType, ElementProps>(({ children, className, ...others }, ref) => {
   const contextValues = useOpenerContext();
@@ -15,15 +15,17 @@ export const OpenerTrigger = React.forwardRef<ElementType, ElementProps>(({ chil
   const mergedRef = useMergeRefs(contextValues.refs.setReference, ref);
 
   return (
-    <button
+    <div
+      role="combobox"
+      aria-expanded={open}
+      aria-haspopup="true"
       {...others}
       className={clsx(CLASSNAME, className)}
       data-state={open ? 'open' : 'closed'}
       ref={mergedRef}
-      type="button"
       {...getReferenceProps(others)}
     >
       {children}
-    </button>
+    </div>
   );
 });
