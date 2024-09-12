@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.10-alpha.1
+
+### Patch Changes
+
+- feat: add popup components
+
 ## 0.8.10-alpha.0
 
 ### Patch Changes

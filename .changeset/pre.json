@@ -8,6 +8,7 @@
     "@seolhun/root-ui-tailwind": "0.8.9"
   },
   "changesets": [
+    "spotty-worms-look",
     "two-fishes-happen"
   ]
 }

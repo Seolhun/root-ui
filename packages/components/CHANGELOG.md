@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.8.10-alpha.1
+
+### Patch Changes
+
+- feat: add popup components
+
+- Updated dependencies []:
+  - @seolhun/root-ui-tailwind@0.8.10-alpha.1
+
 ## 0.8.10-alpha.0
 
 ### Patch Changes
