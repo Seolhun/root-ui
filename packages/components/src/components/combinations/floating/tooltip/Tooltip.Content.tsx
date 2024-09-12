@@ -43,7 +43,7 @@ export const TooltipContent = React.forwardRef<ElementType, TooltipContentProps>
               position: contextValues?.strategy,
               top: contextValues.y ?? 0,
               visibility: contextValues.x == null ? 'hidden' : 'visible',
-              zIndex: zIndex ?? 1e7,
+              zIndex: zIndex ?? 1000,
               ...floatingStyles,
               ...others.style,
             }}
