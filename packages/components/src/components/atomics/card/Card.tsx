@@ -27,7 +27,7 @@ export const Card = React.forwardRef<ElementType, CardProps>(
           'text-space dark:text-cream',
           'bg-cream-0 dark:bg-space-0',
           'border border-cream-4 dark:border-space-4',
-          'rounded-md shadow-md',
+          'rounded shadow-md',
           `scale-p-${scale}`,
         )}
         as="div"

@@ -33,7 +33,7 @@ export const Input = React.forwardRef<ElementType, InputProps>(
           'bg-cream-1 dark:bg-space-1',
           'border border-cream-5 dark:border-space-5',
           'px-8',
-          'rounded-xl',
+          'rounded',
           'disabled:opacity-50 disabled:cursor-not-allowed',
           'caret-neutral',
           toScaleMatch({

@@ -36,7 +36,7 @@ const BaseTemplate = ({ ...others }: BaseTemplateProps) => {
 
       <div>
         <button
-          className="p-2 text-white bg-blue-500 rounded-md"
+          className="p-2 text-white bg-blue-500 rounded"
           onClick={() => openToast({ message: 'Hello World', timeout: 10000, title: 'Title' })}
         >
           Open Toast

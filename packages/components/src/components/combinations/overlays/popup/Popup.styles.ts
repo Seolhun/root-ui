@@ -14,6 +14,6 @@ export const popup = tv({
     confirm: '',
     message: ['text-sm', 'whitespace-pre-wrap'],
     root: ['relative', 'bg-cream-1 dark:bg-space-1', 'max-w-196 min-w-128 min-h-48 w-full', 'z-20'],
-    title: ['truncate', 'text-lg', 'font-bold', 'whitespace-pre-wrap'],
+    title: ['text-lg', 'font-bold', 'truncate', 'whitespace-pre-wrap'],
   },
 });

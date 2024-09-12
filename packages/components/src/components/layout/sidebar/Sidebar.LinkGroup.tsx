@@ -24,7 +24,7 @@ export const SidebarLinkGroup = React.forwardRef<ElementType, Omit<ElementProps,
 
     return (
       <ul
-        className={clsx(CLASSNAME, className, 'relative group', 'pt-4 pr-4 pb-6 pl-2', 'mb-2 last:mb-0', 'rounded-md', {
+        className={clsx(CLASSNAME, className, 'relative group', 'pt-4 pr-4 pb-6 pl-2', 'mb-2 last:mb-0', 'rounded', {
           'bg-space-1 dark:bg-cream-1': active,
         })}
         ref={ref}

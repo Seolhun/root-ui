@@ -30,7 +30,7 @@ export const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
           className,
           'group',
           'inline-flex items-center justify-center',
-          'rounded-lg',
+          'rounded',
           'p-1',
           'border border-neutral-2 dark:border-neutral-8',
           'bg-cream-1 dark:bg-space-1',
@@ -61,7 +61,7 @@ export const Checkbox = React.forwardRef<ElementType, CheckboxProps>(
         <svg
           className={clsx(
             '!bg-transparent',
-            'rounded-md',
+            'rounded',
             'stroke-cream-1 dark:stroke-cream-1',
             'opacity-0 group-data-[disabled]:opacity-25 group-data-[checked]:opacity-100',
           )}

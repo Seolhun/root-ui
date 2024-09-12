@@ -48,7 +48,6 @@ const BaseTemplate = ({ ...others }: LayoutProps) => {
           'flex flex-col',
           'bg-cream-1 dark:bg-space-1',
           'h-full overflow-y-auto no-scrollbar',
-          'rounded-r-lg shadow-md',
           'py-12 px-8',
           'z-40',
         )}

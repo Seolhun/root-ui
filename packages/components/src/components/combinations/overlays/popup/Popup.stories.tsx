@@ -44,7 +44,7 @@ const BaseTemplate = ({ ...others }: BaseTemplateProps) => {
 
       <div>
         <button
-          className="p-2 text-white bg-blue-500 rounded-md"
+          className="p-2 text-white bg-blue-500 rounded"
           onClick={() => {
             openPopup({
               id: 'OpenPopup',
