@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.10-alpha.4
+
+### Patch Changes
+
+- refactor: update input/textarea styles and rounded
+
 ## 0.8.10-alpha.3
 
 ### Patch Changes
