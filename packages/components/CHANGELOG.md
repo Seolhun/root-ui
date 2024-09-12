@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.8.10-alpha.2
+
+### Patch Changes
+
+- refactor: update trigger role and popup styles
+
+- Updated dependencies []:
+  - @seolhun/root-ui-tailwind@0.8.10-alpha.2
+
 ## 0.8.10-alpha.1
 
 ### Patch Changes
