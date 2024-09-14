@@ -69,7 +69,7 @@
     "@headlessui/react": "^2.1.1",
     "@seolhun/root-ui-tailwind": "workspace:*",
     "@tanstack/react-virtual": "^3.8.1",
-    "clsx": "^1.2.1",
+    "clsx": "^2.1.1",
     "color": "^4.2.3",
     "framer-motion": "^11.2.12",
     "lodash-es": "^4.17.21",
