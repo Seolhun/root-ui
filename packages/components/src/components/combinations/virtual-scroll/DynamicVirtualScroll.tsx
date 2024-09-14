@@ -94,6 +94,7 @@ const DynamicRowVirtualScroll = ({ children, virtualizer }: DynamicRowVirtualScr
           position: 'absolute',
           top: 0,
           transform: `translate3d(0, ${items[0]?.start ?? 0}px, 0)`,
+          width: '100%',
         }}
       >
         {items.map((item) => (
