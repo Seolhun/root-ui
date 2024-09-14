@@ -2,8 +2,6 @@ import { RootScaleType } from '@seolhun/root-ui-tailwind';
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Box } from '../../../components/common/box';
-
 const CLASSNAME = 'Root__Card';
 type ElementType = HTMLDivElement;
 type ElementProps = React.HTMLAttributes<ElementType>;
@@ -18,7 +16,7 @@ export interface CardProps extends ElementProps {
 export const Card = React.forwardRef<ElementType, CardProps>(
   ({ children, className, scale = 'md', ...others }, ref) => {
     return (
-      <Box
+      <div
         {...others}
         className={clsx(
           CLASSNAME,
@@ -30,11 +28,10 @@ export const Card = React.forwardRef<ElementType, CardProps>(
           'rounded shadow-md',
           `scale-p-${scale}`,
         )}
-        as="div"
         ref={ref}
       >
         {children}
-      </Box>
+      </div>
     );
   },
 );

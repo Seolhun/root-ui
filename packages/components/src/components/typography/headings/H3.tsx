@@ -1,16 +1,17 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Heading, HeadingProps } from './Heading';
-
 const CLASSNAME = 'Root__H3';
+
 type ElementType = HTMLHeadingElement;
-export interface H3Props extends HeadingProps {}
+type ElementProps = React.HTMLAttributes<ElementType>;
+
+export interface H3Props extends ElementProps {}
 
 export const H3 = React.forwardRef<ElementType, H3Props>(({ children, className, ...others }, ref) => {
   return (
-    <Heading {...others} as="h3" className={clsx(CLASSNAME, className, 'mt-1 mb-2')} ref={ref}>
+    <h3 {...others} className={clsx(CLASSNAME, className, 'mt-1 mb-2')} ref={ref}>
       {children}
-    </Heading>
+    </h3>
   );
 });

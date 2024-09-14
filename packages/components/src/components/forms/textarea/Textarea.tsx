@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import { Box } from '~/components/common/box';
-
 import { textarea, TextareaVariants } from './Textarea.styles';
 
 const CLASSNAME = 'Root__Textarea';
@@ -14,7 +12,7 @@ export type TextareaProps = ElementProps & TextareaVariants;
 export const Textarea = React.forwardRef<ElementType, TextareaProps>(
   ({ className, intent = 'primary', scale = 'md', ...others }, ref) => {
     return (
-      <Box
+      <textarea
         {...others}
         className={clsx(
           CLASSNAME,
@@ -24,7 +22,6 @@ export const Textarea = React.forwardRef<ElementType, TextareaProps>(
             scale,
           }),
         )}
-        as="textarea"
         id={others.name}
         ref={ref}
       />
