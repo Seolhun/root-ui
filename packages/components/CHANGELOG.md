@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.8.10-alpha.5
+
+### Patch Changes
+
+- refactor: remove the box component to handle each element
+
+- Updated dependencies []:
+  - @seolhun/root-ui-tailwind@0.8.10-alpha.3
+
 ## 0.8.10-alpha.4
 
 ### Patch Changes

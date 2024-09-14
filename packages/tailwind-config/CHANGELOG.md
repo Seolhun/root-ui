@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.10-alpha.3
+
+### Patch Changes
+
+- refactor: remove the box component to handle each element
+
 ## 0.8.10-alpha.2
 
 ### Patch Changes
