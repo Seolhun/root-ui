@@ -71,7 +71,7 @@
     "@tanstack/react-virtual": "^3.8.1",
     "clsx": "^1.2.1",
     "color": "^4.2.3",
-    "framer-motion": "^11.2.12",
+    "framer-motion": "^11.9.0",
     "lodash-es": "^4.17.21",
     "tailwind-variants": "^0.2.1"
   },
